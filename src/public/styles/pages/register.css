@@ -1,0 +1,138 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+body {
+    width: 100vw;
+}
+
+.container {
+    width: 80%;
+    margin: 5vh auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.intro {
+    display: inherit;
+    flex-direction: column;
+    gap: 4.6vh;
+}
+
+.intro__logo {
+    width: 39%;
+    height: 130px;
+}
+
+.intro__content {
+    display: inherit;
+    flex-direction: inherit;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 1rem;
+
+}
+
+.intro__slogan {
+    color: #004F52;
+    font-size: 2.7rem;
+    font-weight: 700;
+}
+
+.intro__sub-title {
+    color: #004F52;
+    font-size: 1.5rem;
+}
+
+.register {
+    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 48px 36px 36px;
+    display: inherit;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.row {
+    margin: 0;
+}
+
+.register__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.register__note {
+    width: 100%;
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.red {
+    color: red;
+}
+
+
+.register__form {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 18px;
+}
+
+.register__form input {
+    padding: 11px 12px;
+}
+
+.double {
+    gap: 12px;
+}
+
+.double .col {
+    padding: 0;
+}
+
+.container__register__form__input {
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.form-text {
+    margin-bottom: 12px;
+}
+
+.form__submit {
+    padding: 8px 12px;
+    background-color: #FE9C0B;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.register__login {
+    border: 1px solid #FE9C0B;
+    font-weight: 500;
+}
+
+.highlight {
+    color: #FE9C0B;
+}
+
+.register__confirm {
+    text-align: center;
+}
