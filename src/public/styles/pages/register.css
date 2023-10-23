@@ -68,6 +68,10 @@
     font-weight: 400;
 }
 
+.material-symbols-outlined {
+    cursor: pointer;
+}
+
 .red {
     color: red;
 }
