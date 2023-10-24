@@ -49,7 +49,8 @@ body {
     font-size: 1.5rem;
 }
 
-.register {
+.login {
+    width: 55%;
     box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     box-sizing: border-box;
@@ -63,42 +64,20 @@ body {
     margin: 0;
 }
 
-.register__title {
+.login__title {
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
 }
 
-.register__note {
-    width: 100%;
-    font-style: italic;
-    font-size: 0.875rem;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-}
-
-.red {
-    color: red;
-}
-
-
-.register__form {
+.login__form {
     display: inherit;
     flex-direction: inherit;
     gap: 18px;
 }
 
-.register__form input {
+.login__form input {
     padding: 11px 12px;
-}
-
-.double {
-    gap: 12px;
-}
-
-.double .col {
-    padding: 0;
 }
 
 .form-label {
@@ -120,7 +99,7 @@ body {
     font-weight: 500;
 }
 
-.register__login {
+.login__register {
     border: 1px solid #FE9C0B;
     font-weight: 500;
     padding: 8px 12px;
@@ -130,9 +109,6 @@ body {
     color: #FE9C0B;
 }
 
-.register__confirm {
-    text-align: center;
-}
 
 .input_form {
     padding: 0;
