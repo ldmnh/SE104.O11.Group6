@@ -17,14 +17,14 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 })
 
-const publicDirectory = path.join(__dirname, './src/public')
-app.use(express.static(publicDirectory))
-console.log(__dirname)
+// const publicDirectory = path.join(__dirname, './src/public')
+// app.use(express.static(publicDirectory))
+// console.log(__dirname)
 
 //parse URL-encoded bodies
-app.use(express.urlencoded({ extend: true }))
+// app.use(express.urlencoded({ extend: true }))
 //parse json bodies
-app.use(express.json())
+// app.use(express.json())
 
 db.connect((error) => {
     if (error) {
@@ -35,8 +35,7 @@ db.connect((error) => {
 }
 )
 const cfg = require('./src/config/index')
-const route = require('./src/routes/index');
-const { error } = require('console');
+// const { error } = require('console');
 
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views', 'pages'));
