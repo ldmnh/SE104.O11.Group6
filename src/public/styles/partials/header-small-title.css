@@ -1,24 +1,24 @@
 header {
     background-color: var(--primary-color);
     height: 112px;
-    display: flex;
+    display: inherit;
     align-items: center;
 }
 
 .header-container {
     width: 80%;
     margin: 0 auto;
-    display: flex;
+    display: inherit;
     align-items: center;
     justify-content: space-between;
 }
 
-.header-container__logo {
+.logo {
     width: 168px;
     height: 48px;
 }
 
-.header-container__title {
+.title {
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
@@ -26,7 +26,7 @@ header {
     margin: 0;
 }
 
-.header-container__help {
+.help {
     font-size: 1.375rem;
     color: var(--white);
 }
