@@ -21,7 +21,8 @@ CREATE TABLE Admin
 CREATE TABLE AuthUser
 (
     au_user_id          char(12)		NOT NULL	UNIQUE,
-    au_user_full_name   nvarchar(50)	NOT NULL,
+    au_user_first_name  nvarchar(50)	NOT NULL,
+    au_user_last_name   nvarchar(50)	NOT NULL,
     au_user_email       varchar(50)		NOT NULL	UNIQUE,
     au_user_pass        varchar(50)		NOT NULL,
     au_user_avt_url     varchar(50),
@@ -72,7 +73,7 @@ CREATE TABLE Province
 (
     prov_id				char(12)		NOT NULL	UNIQUE,
     prov_name			nvarchar(100)	NOT NULL,
-	  prov_url			varchar(50),
+    prov_url			varchar(50),
     PRIMARY KEY (prov_id)
 );
 
@@ -395,7 +396,7 @@ BEGIN
     END IF;
 END //
 
-DELIMITER ;
+DELIMITER ; -- checking ...
 
 --status của là cancel thì rea_id không được trống.
 CREATE TRIGGER trg_CheckCancellationReason
