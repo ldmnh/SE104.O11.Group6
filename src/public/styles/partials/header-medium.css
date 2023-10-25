@@ -1,0 +1,154 @@
+header {
+    position: fixed;
+    width: 100%;
+    background-image: url(../img/bg-header.png);
+    height: 240px;
+    position: no-repeat;
+    position: contain;
+    background-color: #085457;
+}
+
+.container {
+    max-width: 1152px;
+    height: 240px;
+}
+
+.container__header--top {
+    display: flex;
+    max-width: 1152px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    align-self: stretch;
+    margin-top: 24px;
+}
+
+.container__header--top img {
+    display: flex;
+    width: 167.652px;
+    height: 48px;
+    /* justify-content: center;
+  align-items: center; */
+}
+
+.container__nav--top {
+    width: 656px;
+    /* height: 48px; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.container__nav--top ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* height: 0; */
+}
+
+.container__nav--top ul li {
+    display: inline;
+    margin: 0 24px;
+    padding-top: 13px;
+}
+
+.container__nav--top ul li a {
+    font-size: 24px;
+    font-family: Roboto;
+}
+
+.container__nav--top a {
+    color: #ffffff;
+}
+
+/* Header with no login*/
+.top-authenticator button {
+    width: 128px;
+    height: 48px;
+    background-color: #ffffff;
+    color: #085457;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border-style: none;
+}
+
+.top-authenticator .button-signup {
+    color: #ffffff;
+    background-color: #fe9c0b;
+    margin: 4px;
+}
+
+/* Header with login*/
+/* .top-authenticator {
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .top-authenticator img {
+      width: 64px;
+      height: 64px;
+      margin: 0 5px;
+      border-radius: 100%;
+    }
+    .top-authenticator p {
+      margin: 0 5px;
+      font-size: 24px;
+      font-family: Roboto;
+      font-weight: 600;
+      line-height: 32px;
+    } */
+
+.main--search {
+    display: flex;
+    width: 100%;
+    margin-top: 55px;
+    padding: 8px;
+}
+
+.main--search .search__wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: 64px;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-address {
+    width: 291px;
+    margin-top: -22px;
+    margin-left: 20px;
+}
+
+.search-address span {
+    position: absolute;
+    color: #90a6b1;
+}
+
+.search-address input {
+    margin-left: 40px;
+    background-color: #ffffff;
+    border: none;
+    color: #90a6b1;
+}
+
+.input_address {
+    position: absolute;
+}
+
+.button--submit {
+    background-color: #fe9c0b;
+    font-size: 16px;
+    width: 128px;
+    height: 64px;
+    border-radius: 8px;
+    border: none;
+    margin-left: 8px;
+}
