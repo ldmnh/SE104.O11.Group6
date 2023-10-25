@@ -1,11 +1,9 @@
+@import url("/styles/variables.css");
+
 header {
     background-color: #085457;
     height: 112px;
-}
-
-.container {
     width: 100vw;
-    height: 112px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -16,22 +14,18 @@ header {
     max-width: 80%;
     align-items: center;
     justify-content: space-between;
-    gap: 2px;
+    gap: 68px;
     align-self: stretch;
-    /* margin-top: 24px; */
 }
 
 .container__header--top img {
     display: flex;
     width: 167.652px;
     height: 48px;
-    /* justify-content: center;
-align-items: center; */
 }
 
 .container__nav--top {
     width: 656px;
-    /* height: 48px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,29 +33,16 @@ align-items: center; */
     flex-wrap: nowrap;
 }
 
-.container__nav--top ul {
+.container__nav--top li {
     list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 0; */
 }
 
-.container__nav--top ul li {
-    display: inline;
-    margin: 0 24px;
-    padding-top: 15px;
-}
-
-.container__nav--top ul li a {
+.container__nav--top li a {
     font-size: 24px;
     font-family: Roboto;
     font-weight: 600;
     text-decoration: none;
-}
-
-.container__nav--top a {
-    color: #ffffff;
+    color: white;
 }
 
 .top-authenticator {
@@ -77,4 +58,5 @@ align-items: center; */
     font-size: 22px;
     font-family: Roboto;
     line-height: 32px;
+    color: white;
 }
