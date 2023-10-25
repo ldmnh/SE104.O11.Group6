@@ -1,21 +1,20 @@
 header {
     position: fixed;
-    width: 100%;
-    background-image: url(../img/bg-header.png);
+    width: 100vw;
     height: 240px;
     position: no-repeat;
     position: contain;
-    background-color: #085457;
+    background-color: pink;
 }
 
 .container {
-    max-width: 1152px;
+    width: 80%;
     height: 240px;
 }
 
 .container__header--top {
     display: flex;
-    max-width: 1152px;
+    /* max-width: 1152px; */
     align-items: center;
     justify-content: space-between;
     gap: 2px;
@@ -58,6 +57,7 @@ header {
 .container__nav--top ul li a {
     font-size: 24px;
     font-family: Roboto;
+    text-decoration: none;
 }
 
 .container__nav--top a {

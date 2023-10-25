@@ -1,5 +1,5 @@
 @import url("/styles/variables.css");
-@import url("/styles/partials/header-small.css");
+@import url("/styles/partials/header-medium.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -7,11 +7,11 @@ html {
     color: #ffffff;
 }
 
-/* body {
+body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-} */
+}
 
 .content-container {
     width: 80%;
