@@ -8,4 +8,5 @@ router.get('/register', SiteController.register)
 router.get('/login', SiteController.login)
 router.get('/', SiteController.index)
 
+
 module.exports = router
