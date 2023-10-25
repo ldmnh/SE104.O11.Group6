@@ -15,7 +15,7 @@ header {
     justify-content: space-around;
     /* position: sticky; */
     width: 100vw;
-    /* background-image: url(../../public/imgs/bg); */
+    background-image: url(/imgs/bg-header.png);
     height: 240px;
     position: no-repeat;
     position: contain;

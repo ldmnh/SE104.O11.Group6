@@ -10,7 +10,7 @@
 header {
     position: fixed;
     width: 100%;
-    background-color: #085457;
+    background-image: url(/imgs/bg-header.png);
     height: 112px;
     top: 0;
     z-index: 1;

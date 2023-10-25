@@ -1,7 +1,7 @@
 @import url("/styles/variables.css");
 
 header {
-    background-color: #085457;
+    background-image: url(/imgs/bg-header.png);
     height: 112px;
     width: 100vw;
     align-items: center;
