@@ -1,0 +1,60 @@
+:root {
+  --primary: #00696D;
+}
+
+.primary {
+  background-color: var(--primary);
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1152px;
+  margin: auto;
+}
+
+header, footer {
+  background: red;
+  height: 200px;
+}
+
+button {
+  
+  cursor: pointer;
+  height: 40px;
+  display: inline-block;
+  padding: 0;
+  border-radius: 8px;
+
+
+  & .status-layer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: inherit;
+
+    & span {
+      font-weight: bold;
+      margin: auto;
+    }
+  }
+}
+
+button.btn--filled {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+
+  &:hover .status-layer{
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
