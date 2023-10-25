@@ -39,7 +39,7 @@ db.connect((error) => {
 const cfg = require('./src/config/index')
 
 // set view engine
-app.set('views', path.join(__dirname, 'src', 'views', 'pages'));
+app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
 //app.use('/', require('./routes/index'))
@@ -51,8 +51,8 @@ app.use(express.static(path.join(__dirname, '')))
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave:true,
-    saveUninitialized:true,
+    resave: true,
+    saveUninitialized: true,
 }))
 
 // route init
