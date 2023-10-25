@@ -4,13 +4,12 @@ const path = require('path')
 const express = require('express')
 const mysql = require("mysql")
 const dotenv = require('dotenv')
-const route = require('./src/routes')
 const session = require('express-session')
 
 dotenv.config({ path: './.env' })
 
 // connect to db
-const app = express()
+
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -22,10 +21,7 @@ const db = mysql.createConnection({
 // app.use(express.static(publicDirectory))
 // console.log(__dirname)
 
-//parse URL-encoded bodies
-app.use(express.urlencoded({ extend: true }))
-//parse json bodies
-app.use(express.json())
+
 
 const { error } = require('console');
 db.connect((error) => {
@@ -36,7 +32,15 @@ db.connect((error) => {
     }
 }
 )
+
+const app = express()
 const cfg = require('./src/config/index')
+const route = require('./src/routes')
+//parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }))
+//parse json bodies
+app.use(express.json())
+
 
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
@@ -47,7 +51,6 @@ app.set('view engine', 'ejs');
 
 // use static folder
 app.use(express.static(path.join('src', 'public')))
-app.use(express.static(path.join(__dirname, '')))
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
