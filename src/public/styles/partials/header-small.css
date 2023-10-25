@@ -1,34 +1,38 @@
 @import url("/styles/variables.css");
 
-html {
+/* html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: #ffffff;
     font-weight: 500;
-}
+} */
 
 header {
     position: fixed;
     width: 100%;
     background-color: #085457;
     height: 112px;
+    top: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }
 .container__header--top {
     display: flex;
-    max-width: 80%;
+    height: 112px;
     align-items: center;
     justify-content: space-between;
-    gap: 2px;
+    /* gap: 68px; */
+    width: 89%;
     align-self: stretch;
-    /* margin-top: 24px; */
 }
 
 .container__header--top img {
     display: flex;
     width: 167.652px;
     height: 48px;
-    /* justify-content: center;
-align-items: center; */
 }
 
 .container__nav--top {
