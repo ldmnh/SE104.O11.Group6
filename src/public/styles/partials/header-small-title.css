@@ -4,9 +4,10 @@ header {
     background-color: #085457;
     height: 112px;
     width: 100vw;
-    display: flex;
     align-items: center;
     justify-content: space-around;
+    display: flex;
+    z-index: 1;
 }
 
 .container__header--top {
