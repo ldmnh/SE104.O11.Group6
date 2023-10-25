@@ -1,3 +1,6 @@
+@import url('/styles/variables.css');
+@import url('/styles/partials/header-small-title.css');
+
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
