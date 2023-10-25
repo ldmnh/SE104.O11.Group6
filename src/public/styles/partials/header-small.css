@@ -20,6 +20,7 @@ header {
     display: flex;
     justify-content: center;
 }
+
 .container__header--top {
     display: flex;
     height: 112px;
