@@ -1,0 +1,114 @@
+.room__in__hs {
+    height: 307px;
+    width: 853px;
+    display: flex;
+    gap: 32px;
+    background-color: white;
+}
+
+.room__in__hs_img img {
+    height: 307px;
+    width: 280px;
+}
+
+.room__in__title {
+    width: 546px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    justify-content: space-around;
+}
+
+.room__in__title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.quantity__bed__guest {
+    display: flex;
+    font-weight: 500px;
+    font-size: 22px;
+    gap: 8px;
+}
+
+.quantity__bed__guest p {
+    margin: 0;
+    padding: 0;
+}
+.policy__price {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.policy__room {
+    display: flex;
+    color: var(--primary-color);
+    gap: 8px;
+}
+
+.policy__room p {
+    margin-top: 3px;
+    font-weight: 500px;
+}
+
+.price__room {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.price__room p {
+    margin: 0;
+    padding: 0;
+}
+
+.price__room .before-discount {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.price__room .after-discount {
+    color: #fe9c0b;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.price__room .room-day {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.button-room__in__hs {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.form--submit1 {
+    width: 206px;
+    height: 48px;
+    border-radius: 8px;
+    color: white;
+    background-color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}
+
+.form--submit2 {
+    width: 206px;
+    height: 48px;
+    border-radius: 8px;
+    color: white;
+    background-color: #fe9c0b;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}
