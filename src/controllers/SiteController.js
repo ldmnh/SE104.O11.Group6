@@ -6,13 +6,16 @@ class SiteController {
 
     // [GET] /register
     register(req, res) {
-        res.render('./pages/register.ejs')
+        const title = 'Đăng ký'
+        res.render('./pages/register.ejs', { title })
     }
 
     // [GET] /login
     login(req, res) {
-        res.render('./pages/login.ejs')
+        const title = 'Đăng nhập'
+        res.render('./pages/login.ejs', { title })
     }
+
 }
 
 module.exports = new SiteController()
