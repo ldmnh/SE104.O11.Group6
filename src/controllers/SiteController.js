@@ -9,7 +9,8 @@ class SiteController {
 
     // [GET] /register
     register(req, res) {
-        res.render('./pages/register.ejs')
+        const title = 'Đăng ký'
+        res.render('./pages/register.ejs', { title })
     }
 
     // [GET] /login
@@ -17,6 +18,7 @@ class SiteController {
         res.render('./pages/login.ejs');
     }
     login(req, res) {
+<<<<<<< HEAD
         const { email, password } = req.body;
 
         if (email && password) {
@@ -51,7 +53,12 @@ class SiteController {
                 res.send('loi!')
             res.redirect('/');
         })
+=======
+        const title = 'Đăng nhập'
+        res.render('./pages/login.ejs', { title })
+>>>>>>> 02f71304f55e9681a0368f50ca183db3727dd890
     }
+
 }
 
 module.exports = new SiteController()

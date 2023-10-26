@@ -1,17 +1,23 @@
+@import url("/styles/variables.css");
+@import url("/styles/partials/header-small-title.css");
+@import url("/styles/partials/footer.css");
+
 html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: #000000;
+    color: #ffffff;
 }
 
 body {
     width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-container {
     width: 80%;
     margin: 5vh auto;
-    display: flex;
+    display: inherit;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
@@ -38,13 +44,13 @@ body {
 }
 
 .intro__slogan {
-    color: #004F52;
+    color: #004f52;
     font-size: 2.7rem;
     font-weight: 700;
 }
 
 .intro__sub-title {
-    color: #00696D;
+    color: #00696d;
     font-size: 1.5rem;
 }
 
@@ -81,7 +87,6 @@ body {
     color: red;
 }
 
-
 .register__form {
     display: inherit;
     flex-direction: inherit;
@@ -115,20 +120,20 @@ body {
 }
 
 .form__submit {
-    background-color: #FE9C0B;
+    background-color: #fe9c0b;
     color: white;
     font-size: 1.25rem;
     font-weight: 500;
 }
 
 .register__login {
-    border: 1px solid #FE9C0B;
+    border: 1px solid #fe9c0b;
     font-weight: 500;
     padding-top: 10px;
 }
 
 .highlight {
-    color: #FE9C0B;
+    color: #fe9c0b;
 }
 
 .register__confirm {
@@ -144,7 +149,7 @@ span.material-symbols-outlined {
     position: absolute;
     bottom: 28%;
     right: 3%;
-    color: #00696D;
+    color: #00696d;
     cursor: pointer;
 }
 
