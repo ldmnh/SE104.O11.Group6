@@ -1,4 +1,5 @@
 // Hàm kiểm tra tính hợp lệ của toàn bộ form và cập nhật trạng thái của nút "Đăng nhập"
+require('../../views/pages/login.ejs')
 function checkFormValidity() {
     const email = document.getElementById('form__email').value;
     const password = document.getElementById('form__password').value;

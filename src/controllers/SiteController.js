@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+require('../models/db')
 
 class SiteController {
     // [GET] /
@@ -48,8 +49,8 @@ class SiteController {
     logout(req, res) {
         req.session.destroy((err) => {
             if (err)
-                // res.redirect('/500');
-                res.send('loi!')
+                res.redirect('/500');
+                // res.send('loi!')
             res.redirect('/');
         })
     }

@@ -2,42 +2,22 @@
 const ejs = require('ejs');
 const path = require('path')
 const express = require('express')
-const mysql = require("mysql")
-const dotenv = require('dotenv')
 const session = require('express-session')
 
-dotenv.config({ path: './.env' })
 
 // connect to db
-
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-})
+require('./src/models/db')
 
 // const publicDirectory = path.join(__dirname, './src/public')
 // app.use(express.static(publicDirectory))
 // console.log(__dirname)
 
 
-
-const { error } = require('console');
-db.connect((error) => {
-    if (error) {
-        console.log(error)
-    } else {
-        console.log("MYSQL Connected...")
-    }
-}
-)
-
 const app = express()
 const cfg = require('./src/config/index')
 const route = require('./src/routes')
 //parse URL-encoded bodies
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 //parse json bodies
 app.use(express.json())
 
