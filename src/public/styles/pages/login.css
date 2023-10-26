@@ -87,6 +87,11 @@ body {
 .login__register {
     height: 48px;
     box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.form-control {
+    border-radius: 8px;
 }
 
 .form-label {

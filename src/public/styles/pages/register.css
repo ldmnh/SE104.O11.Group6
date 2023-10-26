@@ -124,12 +124,18 @@ body {
     color: white;
     font-size: 1.25rem;
     font-weight: 500;
+    border-radius: 8px;
+}
+
+.form-control {
+    border-radius: 8px;
 }
 
 .register__login {
     border: 1px solid #fe9c0b;
     font-weight: 500;
     padding-top: 10px;
+    border-radius: 8px;
 }
 
 .highlight {
