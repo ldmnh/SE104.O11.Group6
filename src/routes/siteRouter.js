@@ -6,6 +6,7 @@ const SiteController = require('../controllers/SiteController.js')
 
 router.get('/register', SiteController.register)
 router.get('/login', SiteController.login)
+router.get('/account', SiteController.account)
 router.get('/', SiteController.index)
 
 

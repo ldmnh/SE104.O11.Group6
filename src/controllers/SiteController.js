@@ -16,6 +16,10 @@ class SiteController {
         res.render('./pages/login.ejs', { title })
     }
 
+    account(req, res) {
+        res.render('./pages/account-page.ejs')
+    }
+
 }
 
 module.exports = new SiteController()
