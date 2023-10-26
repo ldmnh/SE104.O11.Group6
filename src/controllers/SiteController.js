@@ -19,12 +19,14 @@ class SiteController {
 
     // [GET] /forgot-password
     forgot(req, res) {
-        res.render('./pages/forgot-password.ejs')
+        const title = 'Nhận liên kết đặt lại mật khẩu'
+        res.render('./pages/forgot-password.ejs', { title })
     }
 
     // [GET] /reset-password
     reset(req, res) {
-        res.render('./pages/reset-password.ejs')
+        const title = 'Đặt lại mật khẩu'
+        res.render('./pages/reset-password.ejs', { title })
     }
 
 }
