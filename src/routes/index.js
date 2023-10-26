@@ -6,6 +6,7 @@ function route(app) {
     app.use('/register', (req, res) => { res.render('./pages/register.ejs') })
     app.use('/login', (req, res) => { res.render('./pages/login.ejs') })
     app.use('/forgotPassword', (req, res) => { res.render('./pages/forgotPassword.ejs') })
+    app.use('/resetPassword', (req, res) => { res.render('./pages/resetPassword.ejs') })
     app.use('/', siteRouter)
 }
 
