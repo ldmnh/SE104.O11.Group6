@@ -76,8 +76,11 @@ body {
     gap: 18px;
 }
 
-.login__form input {
-    padding: 11px 12px;
+.login__form input,
+.form__submit,
+.login__register {
+    height: 48px;
+    box-sizing: border-box;
 }
 
 .form-label {
@@ -92,7 +95,6 @@ body {
 }
 
 .form__submit {
-    padding: 8px 12px;
     background-color: #FE9C0B;
     color: white;
     font-size: 1.25rem;
@@ -102,7 +104,7 @@ body {
 .login__register {
     border: 1px solid #FE9C0B;
     font-weight: 500;
-    padding: 8px 12px;
+    padding-top: 10px;
 }
 
 .highlight {

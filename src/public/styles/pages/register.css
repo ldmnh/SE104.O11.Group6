@@ -35,7 +35,6 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     font-size: 1rem;
-
 }
 
 .intro__slogan {
@@ -89,8 +88,11 @@ body {
     gap: 18px;
 }
 
-.register__form input {
-    padding: 11px 12px;
+.register__form input,
+.form__submit,
+.register__login {
+    height: 48px;
+    box-sizing: border-box;
 }
 
 .double {
@@ -113,7 +115,6 @@ body {
 }
 
 .form__submit {
-    padding: 8px 12px;
     background-color: #FE9C0B;
     color: white;
     font-size: 1.25rem;
@@ -123,7 +124,7 @@ body {
 .register__login {
     border: 1px solid #FE9C0B;
     font-weight: 500;
-    padding: 8px 12px;
+    padding-top: 10px;
 }
 
 .highlight {
