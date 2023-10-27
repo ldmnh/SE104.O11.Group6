@@ -26,6 +26,10 @@
   color: var(--secondary);
 }
 
+.mt-8 {
+  margin-top: 8px;
+}
+
 .mt-16 {
   margin-top: 16px;
 }
@@ -41,6 +45,7 @@
 .container {
   width: 100%;
   max-width: 1152px;
+  padding: 0;
   margin: auto;
 }
 
@@ -60,7 +65,7 @@ button {
     border-radius: inherit;
 
     & span {
-      font-weight: bold;
+      /* font-weight: bold; */
       margin: auto;
     }
   }
@@ -81,8 +86,8 @@ button {
 }
 
 button.btn--filled {
-  background-color: var(--primary);
-  color: white;
+  background-color: white;
+  color: var(--primary);
   border: none;
 
   &:hover .status-layer {
@@ -92,6 +97,12 @@ button.btn--filled {
   }
 }
 
+button.btn--filled.pri {
+  background-color: var(--primary);
+  color: white
+}
+
 button.btn--filled.sec {
   background-color: var(--secondary);
+  color: white
 }
