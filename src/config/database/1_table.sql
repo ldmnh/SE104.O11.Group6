@@ -194,17 +194,17 @@ CREATE TABLE Booking
     book_start_datetime datetime    NOT NULL,
     book_end_datetime   datetime    NOT NULL,
     pay_id              char(12)    NOT NULL,
-    book_total_cost     float       NOT NULL,
-    rea_id              char(12),
+    book_total_cost     float       NOT NULL    DEFAULT 0,
     book_first_name     char(50)    NOT NULL,
     book_last_name      char(50)    NOT NULL,
     book_email          varchar(50) NOT NULL,
     au_user_id          char(12)    NOT NULL,
     book_phone          char(10)    NOT NULL,
     book_note           text,
-    cancel_cost         float,
+    cancel_cost         float       NOT NULL,
     book_status         varchar(50) NOT NULL,
     book_is_payed       int         NOT NULL,
+    rea_id              char(12),
     PRIMARY KEY (book_id),
     FOREIGN KEY (pay_id) REFERENCES PayingMethod(pay_id),
     FOREIGN KEY (rea_id) REFERENCES ReasonCancel(rea_id),
@@ -223,8 +223,6 @@ CREATE TABLE BookingDetail
     FOREIGN KEY (book_id) REFERENCES Booking(book_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
-
-
 
 CREATE TABLE Rating
 (
