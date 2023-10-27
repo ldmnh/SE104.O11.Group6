@@ -14,20 +14,23 @@
       crossorigin="anonymous"
     />
     <title>2WAYS.com</title>
-    <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/pages/about-us.css" />
   </head>
 
   <body>
-    <div>id="main"</div>
-    <header></header>
+    <%- include('../partials/header-small') %>
+    <%- include('../partials/nav-tree', { items: ['Trang chủ', 'Về chúng tôi'] }) %>
+
     <main>
-        <section id="discover-section" class="mt-64 primary-text">
-            <h1 class="section__title">Khám phá về 2Way</h1>
+      <section id="discover-section" class="mt-64 primary-text">
+        <h1 class="section__title">Khám phá về 2Way</h1>
+      </section>
       <section id="banner" class="mt-64">
-                <img class="banner__img" src="/imgs/banner.png" alt="" />
-                <img class="banner__logan" src="/imgs/banner__logan.svg" alt="" />
-              </section>
-        </main>
+        <img class="banner__img" src="/imgs/banner.png" alt="" />
+        <img class="banner__logan" src="/imgs/banner__logan.svg" alt="" />
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
   </body>
 </html>
