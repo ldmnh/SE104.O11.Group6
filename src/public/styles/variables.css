@@ -3,4 +3,6 @@
     --white: #ffffff;
     --third-color: #90a6b1;
     --fouth-color: #fe9c0b;
+    --green-gradient: linear-gradient(90deg, #085457 26.88%, #2B8184 59.54%, #59BDC0 92.89%);
+    --green: #119726;
 }

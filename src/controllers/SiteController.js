@@ -1,4 +1,5 @@
 class SiteController {
+
     // [GET] /
     index(req, res) {
         res.render('./pages/index.ejs')
@@ -20,8 +21,16 @@ class SiteController {
         res.render('./pages/about-us.ejs')
     }
 
-    about_us(req, res) {
-        res.render('./pages/about-us.ejs')
+    // [GET] /forgot-password
+    forgot(req, res) {
+        const title = 'Nhận liên kết đặt lại mật khẩu'
+        res.render('./pages/forgot-password.ejs', { title })
+    }
+
+    // [GET] /reset-password
+    reset(req, res) {
+        const title = 'Đặt lại mật khẩu'
+        res.render('./pages/reset-password.ejs', { title })
     }
 
 }
