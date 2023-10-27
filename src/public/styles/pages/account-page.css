@@ -15,7 +15,7 @@ body {
 .container {
     margin-top: 12px;
     /* width: 80%; */
-    width: 1052px;
+    width: 1152px;
     display: flex;
     gap: 12px;
 }
