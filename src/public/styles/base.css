@@ -44,11 +44,6 @@
   margin: auto;
 }
 
-header, footer {
-  background: red;
-  height: 200px;
-}
-
 button {
   cursor: pointer;
   height: 48px;
@@ -69,6 +64,20 @@ button {
       margin: auto;
     }
   }
+
+  &:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
+
+      & .status-layer {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+  }
 }
 
 button.btn--filled {
@@ -76,8 +85,10 @@ button.btn--filled {
   color: white;
   border: none;
 
-  &:hover .status-layer{
-    background-color: rgba(0, 0, 0, 0.2);
+  &:hover .status-layer {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
   }
 }
 

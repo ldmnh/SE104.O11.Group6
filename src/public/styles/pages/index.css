@@ -1,3 +1,6 @@
+@import url("/styles/partials/header-full.css");
+@import url("/styles/partials/footer.css");
+
 .section__title {
   font-size: 48px;
   text-align: center;
