@@ -5,6 +5,7 @@ const router = express.Router();
 const SiteController = require('../controllers/SiteController.js')
 
 router.get('/register', SiteController.register)
+router.get('/about-us', SiteController.about_us)
 router.get('/login', SiteController.login)
 router.get('/', SiteController.index)
 

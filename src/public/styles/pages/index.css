@@ -56,7 +56,6 @@
   100% {
     transform: translateX(-300%);
   }
-
 }
 
 #voucher-section {
@@ -69,7 +68,7 @@
   & .voucher__item {
     width: 50%;
     height: 272px;
-    background: rgba(250, 250, 0, 0.5);
+    background: rgba(225, 220, 188, 0.5);
 
     padding: 12px 24px;
     border-radius: 12px;
@@ -102,7 +101,7 @@
     /* background-color: #000; */
 
     & .partners__logo {
-      height: 64px;
+      height: 128px;
       aspect-ratio: 1/1;
     }
 
@@ -147,7 +146,7 @@
     /* background-color: #000; */
 
     & .factor__logo {
-      height: 64px;
+      height: 128px;
       aspect-ratio: 1/1;
     }
 
