@@ -1,14 +1,8 @@
-﻿use master
-GO
+﻿DROP DATABASE DATABASE_IE104;
 
-DROP DATABASE IF EXISTS DATABASE_IE104 
-GO
+CREATE DATABASE DATABASE_IE104;
 
-CREATE DATABASE DATABASE_IE104
-GO
-
-USE DATABASE_IE104
-GO
+USE DATABASE_IE104;
 
 CREATE TABLE Admin
 (
@@ -37,7 +31,7 @@ CREATE TABLE BankCard
 (
     bank_id				char(12)		NOT NULL	UNIQUE,
     bank_name			nvarchar(50)	NOT NULL,
-    bank_brach			nvarchar(50)	NOT NULL	UNIQUE,
+    bank_brach			nvarchar(50)	NOT NULL,
     bank_num			varchar(16)		NOT NULL,
     bank_name_pers		nvarchar(50)	NOT NULL,
     au_user_id			char(12),
@@ -90,7 +84,7 @@ CREATE TABLE City
 CREATE TABLE Accommodation
 (
     acco_id             char(12)		NOT NULL	UNIQUE,
-    acco_type           nvarchar(50)	NOT NULL	UNIQUE,
+    acco_type           nvarchar(50)	NOT NULL,
     acco_star           int				NOT NULL,
     acco_tiny_img_url   varchar(50),
     acco_name           nvarchar(100)	NOT NULL,
@@ -113,8 +107,8 @@ CREATE TABLE Feature
 
 CREATE TABLE AccoFea
 (
-    fea_id				char(12)	NOT NULL	UNIQUE,
-    acco_id				char(12)	NOT NULL	UNIQUE,
+    fea_id				char(12)	NOT NULL,
+    acco_id				char(12)	NOT NULL,
     PRIMARY KEY (fea_id, acco_id),
 	FOREIGN KEY (fea_id) REFERENCES Feature(fea_id),
     FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
@@ -122,7 +116,7 @@ CREATE TABLE AccoFea
 
 CREATE TABLE AccoImg
 (
-    acco_id				char(12)	NOT NULL	UNIQUE,
+    acco_id				char(12)	NOT NULL,
     acco_img_url		varchar(50)	NOT NULL,
     PRIMARY KEY (acco_id, acco_img_url),
 	FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
@@ -144,7 +138,7 @@ CREATE TABLE RoomType
     room_discount       float,
     room_date_end_discount	date,
     room_sum_rating     int          DEFAULT 0,
-    acco_id             char(12)     NOT NULL	UNIQUE,
+    acco_id             char(12)     NOT NULL,
     PRIMARY KEY (room_id),
     FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
 );
@@ -158,8 +152,8 @@ CREATE TABLE Extension
 
 CREATE TABLE RoomExte
 (
-    room_id				char(12)	NOT NULL	UNIQUE,
-    exte_id				char(12)	NOT NULL	UNIQUE,
+    room_id				char(12)	NOT NULL,
+    exte_id				char(12)	NOT NULL,
     PRIMARY KEY (room_id, exte_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id),
     FOREIGN KEY (exte_id) REFERENCES Extension(exte_id)
@@ -167,15 +161,15 @@ CREATE TABLE RoomExte
 
 CREATE TABLE RoomTypeImg
 (
-    room_id				char(12)	NOT NULL	UNIQUE,
-    room_type_image_url varchar(50) NOT NULL	UNIQUE,
+    room_id				char(12)	NOT NULL,
+    room_type_image_url varchar(50) NOT NULL,
     PRIMARY KEY (room_id, room_type_image_url),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
 
 CREATE TABLE PayingMethod
 (
-    pay_id				char(12)    NOT NULL	UNIQUE,
+    pay_id				char(12)        NOT NULL	UNIQUE,
     pay_name			nvarchar(50)	NOT NULL,
     PRIMARY KEY (pay_id)
 );
@@ -213,8 +207,8 @@ CREATE TABLE Booking
 
 CREATE TABLE BookingDetail
 (
-    book_id				char(12)	NOT NULL	UNIQUE,
-    room_id				char(12)	NOT NULL	UNIQUE,
+    book_id				char(12)	NOT NULL,
+    room_id				char(12)	NOT NULL,
     book_final_cost		float		NOT NULL,
     book_num_room		int			NOT NULL,
     book_num_adult		int			NOT NULL,
@@ -238,12 +232,12 @@ CREATE TABLE Rating
 
 CREATE TABLE Notification
 (
-    noti_id				char(12)    NOT NULL	UNIQUE,
+    noti_id				char(12)        NOT NULL	UNIQUE,
     noti_type			nvarchar(50)	NOT NULL,
     noti_title			nvarchar(50)	NOT NULL,
     noti_subtitle		text,
     noti_datetime		datetime,
-    noti_content		text		NOT NULL,
+    noti_content		text		    NOT NULL,
     noti_dest_url		varchar(50),
     PRIMARY KEY (noti_id)
 );
@@ -257,4 +251,3 @@ CREATE TABLE UserNoti
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (noti_id) REFERENCES Notification(noti_id)
 );
-GO
