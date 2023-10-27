@@ -1,14 +1,18 @@
 .room__in__hs {
     height: 307px;
-    width: 853px;
+    width: 804px;
     display: flex;
     gap: 32px;
     background-color: white;
+    border: 1px solid #bec8c9;
+    border-radius: 8px;
+    margin: 12px 0;
 }
 
 .room__in__hs_img img {
     height: 307px;
     width: 280px;
+    border-radius: 8px;
 }
 
 .room__in__title {
