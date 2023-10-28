@@ -1,4 +1,5 @@
 class SiteController {
+
     // [GET] /
     index(req, res) {
         res.send('trang chu')
@@ -18,6 +19,18 @@ class SiteController {
     // [GET] /footer
     footer(req, res) {
         res.render('./pages/footer.ejs')
+    }
+
+    // [GET] /forgot-password
+    forgot(req, res) {
+        const title = 'Nhận liên kết đặt lại mật khẩu'
+        res.render('./pages/forgot-password.ejs', { title })
+    }
+
+    // [GET] /reset-password
+    reset(req, res) {
+        const title = 'Đặt lại mật khẩu'
+        res.render('./pages/reset-password.ejs', { title })
     }
 
 }

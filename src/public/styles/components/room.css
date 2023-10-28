@@ -1,0 +1,147 @@
+.room {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #BEC8C9;
+    border-radius: 8px;
+}
+
+.room p,
+.room h2 {
+    margin: 0;
+}
+
+.room span {
+    color: var(--primary-color);
+}
+
+.room__type {
+    height: 64px;
+    box-sizing: border-box;
+    padding: 16px 16px 12px;
+    background: var(--green-gradient);
+    font-size: 1.5rem;
+    color: var(--white);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.room__detail {
+    display: inherit;
+}
+
+.room__detail--left {
+    width: 24%;
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom-left-radius: 8px;
+    padding-bottom: 12px;
+}
+
+.room__preview {
+    height: 180px;
+    object-fit: cover;
+}
+
+.room__area {
+    display: inherit;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.room__feature {
+    display: inherit;
+    justify-content: space-around;
+}
+
+.room__feature button {
+    height: 32px;
+    box-sizing: border-box;
+    padding: 2px 16px 8px;
+    background-color: rgba(187, 233, 255, 0.5);
+}
+
+.room__detail--right {
+    width: 76%;
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(187, 233, 255, 0.5);
+    box-sizing: border-box;
+    padding: 12px 24px 0 24px;
+}
+
+.room__title {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.room__title h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.room__title div {
+    display: inherit;
+    align-items: center;
+    gap: 8px;
+}
+
+.room__title input {
+    width: 50px;
+    padding: 0 6px;
+}
+
+.room__content {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.room__content--left,
+.room__content--mid,
+.room__content--right {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.room__content--left div,
+.room__content--mid div {
+    display: inherit;
+    align-items: center;
+    gap: 8px;
+}
+
+.room__content--right {
+    text-align: right;
+}
+
+.room__left {
+    color: var(--green);
+    font-weight: 400;
+}
+
+.room__origin-price {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.room__price {
+    color: var(--green);
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+.room__unit {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.room__content--right a {
+    height: 48px;
+    box-sizing: border-box;
+    padding: 10px 8px 0 8px;
+    background-color: #00A1A6;
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--white);
+}
