@@ -44,8 +44,8 @@
           <p>Đăng xuất</p>
         </div>
       </aside>
-
-      <section class="form--input">
+      <!-- Xem hồ sơ -->
+      <section id="view-profile" class="form--input">
         <div class="form--title">
           <h1>Thông tin cá nhân</h1>
           <p>Cập nhật thông tin của bạn</p>
@@ -104,9 +104,64 @@
         <div class="form--submitbutton">
           <!-- <button class="form--submit1">Hủy</button> -->
 
-          <button class="form--submit2">Sửa</button>
+          <button class="form--submit2 form--submit2-default">Sửa</button>
+        </div>
+      </section>
+      <!-- Sửa hồ sơ -->
+      <section id="edit-profile" class="form--input">
+        <div class="form--title">
+          <h1>Thông tin cá nhân</h1>
+          <p>Cập nhật thông tin của bạn</p>
+        </div>
+
+        <hr />
+
+        <div class="form--items">
+          <div class="form--item">
+            <h1>Họ và tên:</h1>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Phan Nguyễn Yến Giàu"
+            />
+          </div>
+
+          <div class="form--item">
+            <h1>Địa chỉ Email:</h1>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="21520796@gm.uit.edu.vn"
+            />
+          </div>
+
+          <div class="form--item">
+            <h1>Ngày sinh:</h1>
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Thêm ngày sinh"
+            />
+          </div>
+
+          <div class="form--item">
+            <h1>Giới tính:</h1>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Thêm giới tính</option>
+              <option value="1">Nam</option>
+              <option value="2">Nữ</option>
+              <option value="3">Khác</option>
+            </select>
+          </div>
+        </div>
+        <div class="form--submitbutton">
+          <button class="form--submit1 cancel-btn">Hủy</button>
+
+          <button class="form--submit2">Lưu</button>
         </div>
       </section>
     </div>
+
+    <script src="/scripts/account-page.js"></script>
   </body>
 </html>
