@@ -1,6 +1,5 @@
 .otp {
   box-sizing: border-box;
-  padding-top: 160px;
 }
 
 h1 {
@@ -83,6 +82,10 @@ h1 {
   position: absolute;
   top: 16px;
   right: 19px;
+}
+
+.otp__close--btn span {
+  color: #00696d;
 }
 
 .otp__reject {
