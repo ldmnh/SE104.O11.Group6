@@ -20,6 +20,15 @@ class SiteController {
         res.render('./pages/account-page.ejs')
     }
 
+    bookingHistory(req, res) {
+        res.render('./pages/account-page/booking-history.ejs')
+    }
+    
+    paymentAccount(req, res) {
+        res.render('./pages/account-page/payment-account.ejs')
+    }
+
+
 }
 
 module.exports = new SiteController()
