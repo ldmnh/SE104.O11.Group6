@@ -1,9 +1,24 @@
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
 .container--popup {
+    /* position: fixed; */
     width: 700px;
     height: 675px;
-    border-radius: 8px;
+    left: 0;
     font-weight: 500px;
-    margin: 140px 370px 822px 370px;
+    /* margin: 140px 370px 822px 370px; */
+    background-color: pink;
+    /* display: none; */
+    animation: modalFadeIn ease 0.5s;
+    /* z-index: 100; */
 }
 
 .container--title {
@@ -141,4 +156,15 @@
     padding: 10px;
     font-weight: 500;
     transition: all 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

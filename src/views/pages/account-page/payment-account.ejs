@@ -35,15 +35,15 @@
         <hr>
 
         <div class="aside--section">
-          <p>Thông tin cá nhân</p>
-          <p>Lịch sử đặt phòng</p>
-          <p>Tài khoản thanh toán</p>
-          <p>Đổi mật khẩu</p>
+          <p class="profileBtn">Thông tin cá nhân</p>
+          <p class="historyBtn">Lịch sử đặt phòng</p>
+          <p class="accountPaymentBtn">Tài khoản thanh toán</p>
+          <p class="changePasswordBtn">Đổi mật khẩu</p>
         </div>
 
         <hr />
 
-        <div class="aside--item">
+        <div class="aside--item logoutBtn">
           <p>Đăng xuất</p>
         </div>
       </aside>
@@ -77,6 +77,7 @@
     </div>
 
     <%- include('../../partials/footer.ejs') %>
-
+    
+    <script src="/scripts/payment-account.js"></script>
   </body>
 </html>

@@ -21,3 +21,12 @@
           numberDisplay.textContent = count;
         }
       });
+
+    
+const closePopupBtn = document.querySelector(".close-popup");
+const modal = document.querySelector(".modal");
+
+closePopupBtn.addEventListener("click", () => {
+  console.log("aaa");
+  modal.style.display = "none";
+})

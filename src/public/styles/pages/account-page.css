@@ -28,7 +28,7 @@ hr {
     background-color: #bec8c9;
     border-width: 1px;
     width: 98%;
-    margin: 12px;
+    margin: 14px;
 }
 
 .aside--wrapper {
@@ -39,7 +39,7 @@ hr {
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     background: #fff;
-    height: 376px;
+    height: 450px;
 }
 
 .aside--content {
@@ -53,7 +53,14 @@ hr {
 }
 
 .aside--section p {
-    padding: 0 12px;
+    padding: 12px;
+    height: 48px;
+}
+
+.aside--section p:hover {
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    transition: 0.3s;
 }
 
 .aside--section p:first-child {
@@ -144,4 +151,12 @@ hr {
 .form--submitbutton {
     display: flex;
     justify-content: flex-end;
+}
+
+.profileBtn,
+.historyBtn,
+.accountPaymentBtn,
+.changePasswordBtn,
+.logoutBtn {
+    cursor: pointer;
 }

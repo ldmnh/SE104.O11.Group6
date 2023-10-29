@@ -41,7 +41,7 @@ hr {
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     background: #fff;
-    height: 376px;
+    height: 450px;
 }
 
 .aside--content {
@@ -55,7 +55,14 @@ hr {
 }
 
 .aside--section p {
-    padding: 0 12px;
+    padding: 12px;
+    height: 48px;
+}
+
+.aside--section p:hover {
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    transition: 0.3s;
 }
 
 .aside--section p:nth-child(3) {
@@ -134,4 +141,12 @@ hr {
 .bank-account {
     display: flex;
     justify-content: space-between;
+}
+
+.profileBtn,
+.historyBtn,
+.accountPaymentBtn,
+.changePasswordBtn,
+.logoutBtn {
+    cursor: pointer;
 }
