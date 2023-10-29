@@ -1,4 +1,5 @@
 footer {
+    width: 100vw;
     height: 300px;
     display: inherit;
     align-items: center;
