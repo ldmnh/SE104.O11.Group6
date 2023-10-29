@@ -13,7 +13,6 @@ function checkFormValidity() {
         confirmButton.style.backgroundColor = 'gray';
         confirmButton.disabled = true;
     }
-
     return isValid; // Trả về giá trị kiểm tra
 }
 

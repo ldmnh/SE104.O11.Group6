@@ -5,6 +5,7 @@ const router = express.Router();
 const SiteController = require('../controllers/SiteController.js')
 
 router.get('/register', SiteController.register)
+router.post('/register', SiteController.register)
 router.get('/login', SiteController.login)
 router.get('/forgot-password', SiteController.forgot);
 router.get('/reset-password', SiteController.reset);
