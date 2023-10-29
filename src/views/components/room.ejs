@@ -60,9 +60,99 @@
                     <p class="room__origin-price"><del>VND 2.500.000</del></p>
                     <p class="room__price">VND 500.000</p>
                     <p class="room__unit">/phòng/đêm</p>
-                    <a class="btn" href="#" role="button">Xem chi tiết phòng</a>
+                    <button type="button" class="bt" data-bs-toggle="modal" data-bs-target="#room-detail">Xem chi tiết phòng</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="room-detail" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal__view">
+                <h1>Phòng hạng sang</h1>
+                <div class="modal__view--big">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                    <img src="/imgs/details/1.jpg" alt="">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </div>
+                <div class="modal__view--small">
+                    <img src="/imgs/details/2.jpg" alt="">
+                    <img src="/imgs/details/3.jpg" alt="">
+                    <img src="/imgs/details/4.jpg" alt="">
+                    <img src="/imgs/details/1.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="modal__detail detail">
+                <div class="detail__info">
+                    <div class="modal__header">
+                        <h2>Thông tin phòng</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="detail__item">
+                        <span class="material-symbols-outlined">square_foot</span>
+                        <p>50 m<sup>2</sup></p>
+                    </div>
+                    <div class="detail__item">
+                        <span class="material-symbols-outlined">groups</span>
+                        <p>2 khách</p>
+                    </div>
+                </div>
+
+                <div class="detail__feature feature">
+                    <h2>Tiện nghi phòng</h2>
+                    <div class="feature__row">
+                        <div class="feature__col-left">
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                        </div>
+
+                        <div class="feature__col-right">
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                            <div class="detail__item">
+                                <span class="material-symbols-outlined">king_bed</span>
+                                <p>1 giường đôi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
