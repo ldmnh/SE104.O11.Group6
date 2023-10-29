@@ -45,10 +45,9 @@ const redirectChange2 = () => {
 
 const setBtn = document.querySelector('.setBtn');
 setBtn.addEventListener("click", redirectChange2)
+//Mat khau cu (cho BE)
 
 //Mat khau moi
-
-
 const confirmBtn = document.querySelector('.confirm-button');
 confirmBtn.addEventListener("click", () => {
   const newPassword = document.querySelector('.form__password').value;
@@ -56,11 +55,6 @@ confirmBtn.addEventListener("click", () => {
   console.log('newpss',newPassword);
   console.log('log', isPasswordValid);
 })
-
-
-
-
-
 
 // Xac nhan mat khau
 const confirmNewPass = document.querySelector('.confirm_newpass').value;

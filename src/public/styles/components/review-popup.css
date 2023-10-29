@@ -15,9 +15,12 @@
     left: 0;
     font-weight: 500px;
     /* margin: 140px 370px 822px 370px; */
-    background-color: pink;
+    translate: translateY(200px);
+    background-color: white;
     /* display: none; */
+    border-radius: 8px;
     animation: modalFadeIn ease 0.5s;
+    transform: translateX(385px) translateY(150px);
     /* z-index: 100; */
 }
 
