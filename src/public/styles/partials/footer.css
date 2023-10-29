@@ -78,13 +78,13 @@ footer {
     border-radius: 8px;
     border: 1px #ebebeb solid;
     box-sizing: border-box;
-    padding: 0 16px
+    padding: 0 16px;
 }
 
 .update__confirm-btn {
     height: 48px;
     border-radius: 8px;
-    background-color: #FE9C0B;
+    background-color: #fe9c0b;
     color: white;
     border: none;
     box-sizing: border-box;

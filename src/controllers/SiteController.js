@@ -27,7 +27,9 @@ class SiteController {
     paymentAccount(req, res) {
         res.render('./pages/account-page/payment-account.ejs')
     }
-
+    changePassword(req, res) {
+        res.render('./pages/account-page/change-password.ejs')
+    }
 
 }
 
