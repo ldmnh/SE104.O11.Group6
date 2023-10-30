@@ -32,3 +32,11 @@ const onClickAddBankAccountBtn = () => {
     addBankAccountpopup.style.display = 'block';
 };
 addBankAccountBtn.addEventListener('click', onClickAddBankAccountBtn);
+
+//
+const addCreditAccountpopup = document.querySelector('.modal2');
+const addCreditAccountBtn = document.querySelector('.addCreditAccountBtn');
+const onClickAddCreditAccountBtn = () => {
+    addCreditAccountpopup.style.display = 'block';
+};
+addCreditAccountBtn.addEventListener('click', onClickAddCreditAccountBtn);

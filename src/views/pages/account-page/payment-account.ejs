@@ -60,7 +60,7 @@
           <div class="card--item ">
             <div class="debit-credit-card">
                 <h1>Thẻ tín dụng/ghi nợ</h1>
-                <button class="debit-credit-card--submit addCreditBtn">+ Thêm thẻ mới</button>
+                <button class="debit-credit-card--submit addCreditAccountBtn">+ Thêm thẻ mới</button>
             </div>
             <h2>Bạn chưa liên kết thẻ tín dụng/ghi nợ</h2>
           </div>
@@ -76,10 +76,13 @@
       </section>
     </div>
     <%- include('../../components/bank-account-popup.ejs') %>
+    <%- include('../../components/credit-account-popup.ejs') %>
+
 
     <%- include('../../partials/footer.ejs') %>
     
     <script src="/scripts/payment-account.js"></script>
     <script src="/scripts/bank-account-popup.js"></script>
+    <script src="/scripts/credit-account-popup.js"></script>
   </body>
 </html>

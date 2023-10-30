@@ -3,6 +3,7 @@
 /* @import url("/styles/components/room-in-hs.css"); */
 @import url("/styles/partials/footer.css");
 @import url("/styles/components/bank-account-popup.css");
+@import url("/styles/components/credit-account-popup.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
