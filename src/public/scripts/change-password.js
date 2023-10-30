@@ -45,6 +45,10 @@ const redirectChange2 = () => {
 
 const setBtn = document.querySelector('.setBtn');
 setBtn.addEventListener("click", redirectChange2)
+
+const cancelBtn = document.querySelector('.cancelBtn');
+cancelBtn.addEventListener("click", redirectChange1)
+
 //Mat khau cu (cho BE)
 
 //Mat khau moi
