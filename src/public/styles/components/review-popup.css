@@ -9,19 +9,19 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 .container--popup {
-    /* position: fixed; */
     width: 700px;
     height: 675px;
     left: 0;
     font-weight: 500px;
-    /* margin: 140px 370px 822px 370px; */
+    margin-left: 375px;
+    margin-top: 100px;
     translate: translateY(200px);
     background-color: white;
     /* display: none; */
     border-radius: 8px;
     animation: modalFadeIn ease 0.5s;
-    transform: translateX(385px) translateY(150px);
-    /* z-index: 100; */
+    /* transform: translateX(385px) translateY(150px); */
+    box-shadow: 0 10px 40px -20px black;
 }
 
 .container--title {

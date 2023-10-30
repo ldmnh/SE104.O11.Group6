@@ -60,7 +60,7 @@
           <div class="card--item ">
             <div class="debit-credit-card">
                 <h1>Thẻ tín dụng/ghi nợ</h1>
-                <button class="debit-credit-card--submit">+ Thêm thẻ mới</button>
+                <button class="debit-credit-card--submit addCreditBtn">+ Thêm thẻ mới</button>
             </div>
             <h2>Bạn chưa liên kết thẻ tín dụng/ghi nợ</h2>
           </div>
@@ -68,16 +68,18 @@
           <div class="card--item ">
             <div class="bank-account">
                 <h1>Tài khoản ngân hàng của tôi</h1>
-                <button class="bank-account--submit">+ Thêm tài khoản ngân hàng</button>
+                <button class="bank-account--submit addBankAccountBtn">+ Thêm tài khoản ngân hàng</button>
             </div>
             <h2>Bạn chưa liên kết tài khoản ngân hàng</h2>
           </div>
 
       </section>
     </div>
+    <%- include('../../components/bank-account-popup.ejs') %>
 
     <%- include('../../partials/footer.ejs') %>
     
     <script src="/scripts/payment-account.js"></script>
+    <script src="/scripts/bank-account-popup.js"></script>
   </body>
 </html>

@@ -21,4 +21,14 @@ const redirect2LogOutView = () => {
   window.location.href = "http://127.0.0.1:3000/register"
 }
 
-logoutBtn.addEventListener("click",redirect2LogOutView)
+logoutBtn.addEventListener("click", redirect2LogOutView)
+
+
+//
+const addBankAccountpopup = document.querySelector('.modal');
+const addBankAccountBtn = document.querySelector('.addBankAccountBtn');
+
+const onClickAddBankAccountBtn = () => {
+    addBankAccountpopup.style.display = 'block';
+};
+addBankAccountBtn.addEventListener('click', onClickAddBankAccountBtn);
