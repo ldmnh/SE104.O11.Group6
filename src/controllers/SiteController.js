@@ -17,6 +17,7 @@ class SiteController {
         res.render('./pages/login.ejs', { title })
     }
 
+    // [GET] /about-us
     about_us(req, res) {
         res.render('./pages/about-us.ejs')
     }
