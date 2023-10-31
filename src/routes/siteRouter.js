@@ -8,6 +8,7 @@ router.get('/register', SiteController.register)
 router.get('/login', SiteController.login)
 router.get('/forgot-password', SiteController.forgot);
 router.get('/reset-password', SiteController.reset);
+router.get('/search-results', SiteController.search);
 router.get('/', SiteController.index)
 
 module.exports = router

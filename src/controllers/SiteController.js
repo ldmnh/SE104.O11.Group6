@@ -29,6 +29,12 @@ class SiteController {
         res.render('./pages/reset-password.ejs', { title })
     }
 
+    // [GET] /search-results
+    search(req, res) {
+        const title = 'Kết quả tìm kiếm'
+        res.render('./pages/search-results', { title })
+    }
+
 }
 
 module.exports = new SiteController()
