@@ -1,0 +1,240 @@
+.result-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 280px;
+    margin-bottom: 32px;
+}
+
+.result-block__tag-sale {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-radius: 8px 8px 0 0;
+    background: var(--green-gradient);
+    padding: 0;
+    gap: 12px;
+    align-items: center;
+}
+
+.result-block__tag-sale p {
+    margin: 12px 0 12px 0;
+    color: white;
+    padding-right: 12px;
+}
+
+.result-block__tag-sale .result-block__sale-content {
+    font-weight: 500;
+}
+
+.result-block__tag-sale .result-block__sale-valid {
+    font-size: 0.85rem;
+}
+
+.result-block__tag-sale .material-symbols-outlined {
+    margin: 8px 0 8px 0;
+    padding-left: 12px;
+    color: white;
+}
+
+.result-block__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 12px;
+}
+
+.result-block__picture {
+    width: 220px;
+    height: 220px;
+    margin-right: 12px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+.result-block__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-block__content .result-block__name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #21A8AC;
+    margin-bottom: 4px;
+}
+
+.result-block__rate-star .material-symbols-outlined {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    color: orange;
+}
+
+.result-block__extensions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+
+.result-block__details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 4px 0 4px;
+}
+
+.result-block__extensions p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.result-block__extensions a {
+    font-size: 12px;
+}
+
+.result-block__extensions .material-symbols-outlined {
+    font-size: 20px;
+    padding-right: 4px;
+}
+
+.result-block__room-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    margin-top: 8px;
+    border-left: 1px solid var(--outline-variant);
+}
+
+.result-block__room-details p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.result-block__room-detais__cancel-policy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--green);
+    padding: 4px 0 0px 12px;
+}
+
+
+.result-block__room-detais__cancel-policy .material-symbols-outlined {
+    font-size: 20px;
+    font-weight: 600;
+    padding-right: 12px;
+}
+
+.result-block__room-detais__cancel-policy .cancel-policy__content {
+    font-weight: 600;
+}
+
+.result-block__room-details .result-block__room-detais__content {
+    font-weight: 600;
+}
+
+.result-block__room-detais__hot-sale {
+    font-weight: 600;
+    padding-top: 4px;
+    color: red;
+}
+
+.result-block__infor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 12px;
+}
+
+.result-block__cus-rate {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+
+}
+
+.result-block__cus-rate__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.result-block__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.result-block__cus-rate__point {
+    padding: 6px 12px 6px 12px;
+    background-color: #008489;
+    border-radius: 4px 4px 4px 0;
+}
+
+.result-block__cus-rate p {
+    margin: 0;
+}
+
+.result-block__cus-rate .result-block__cus-rate__main-content {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.result-block__cus-rate .result-block__cus-rate__sub-content {
+    font-size: 14px;
+}
+
+.result-block__cus-rate .result-block__cus-rate__point {
+    color: white;
+    font-weight: 500;
+}
+
+.result-block__cus-rate__content {
+    padding-right: 12px;
+}
+
+.result-block__price p {
+    margin: 0;
+}
+
+.result-block__option {
+    font-size: 14px;
+}
+
+.result-block__origin-price {
+    font-size: 16px;
+    color: red;
+    text-decoration: line-through;
+}
+
+.result-block__discount-price {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.result-block__label {
+    font-size: 14px;
+}
+
+.form__submit {
+    padding: 10px 28px;
+    background-color: #FE9C0B;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-top: 4px;
+}
+
+.result-block__main-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px solid var(--outline-variant);
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+}
