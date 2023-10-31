@@ -1,4 +1,5 @@
 @import url("/styles/partials/header-full.css");
+@import url("/styles/components/search-bar.css");
 @import url("/styles/partials/footer.css");
 
 .section__title {
@@ -62,7 +63,7 @@
 }
 
 #voucher-section {
-  & .section__content>* {
+  & .section__content > * {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -86,7 +87,7 @@
 }
 
 #partners-section {
-  & .section__content>* {
+  & .section__content > * {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -131,7 +132,7 @@
 }
 
 #factor-section {
-  & .section__content>* {
+  & .section__content > * {
     display: flex;
     flex-direction: row;
     gap: 1rem;

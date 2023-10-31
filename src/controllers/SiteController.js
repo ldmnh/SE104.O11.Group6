@@ -30,6 +30,7 @@ class SiteController {
     }
     changePassword(req, res) {
         res.render('./pages/account-page/change-password.ejs')
+    }
     // [GET] /about-us
     about_us(req, res) {
         res.render('./pages/about-us.ejs')
@@ -50,4 +51,3 @@ class SiteController {
 }
 
 module.exports = new SiteController()
-}
