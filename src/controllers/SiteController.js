@@ -2,7 +2,7 @@ class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.send('trang chu')
+        res.render('./pages/index.ejs')
     }
 
     // [GET] /register
