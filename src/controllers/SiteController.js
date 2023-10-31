@@ -2,7 +2,7 @@ class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.send('trang chu')
+        res.render('./pages/index.ejs')
     }
 
     // [GET] /register
@@ -42,6 +42,15 @@ class SiteController {
     }
     changePassword(req, res) {
         res.render('./pages/account-page/change-password.ejs')
+    }
+
+    // [GET] /about-us
+    about(req, res) {
+        const nav_tree__data = [
+            { text: 'Trang chủ', link: '/' },
+            { text: 'Giới thiệu', link: '/about-us' },
+        ]
+        res.render('./pages/about-us.ejs', { nav_tree__data })
     }
 
 }

@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0);
+
+:root {
+  --primary: #00696D;
+  --secondary: #FE9C0B;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  transition: 100ms ease-in-out;
+}
+
+.primary {
+  background-color: var(--primary);
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.secondary {
+  background-color: var(--secondary);
+}
+
+.secondary-text {
+  color: var(--secondary);
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+.mt-64 {
+  margin-top: 64px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1152px;
+  padding: 0;
+  margin: auto;
+}
+
+button {
+  cursor: pointer;
+  height: 48px;
+  display: inline-block;
+  padding: 0;
+  border-radius: 8px;
+
+  & .status-layer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: inherit;
+
+    & span {
+      /* font-weight: bold; */
+      margin: auto;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
+
+      & .status-layer {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+  }
+}
+
+button.btn--filled {
+  background-color: white;
+  color: var(--primary);
+  border: none;
+
+  &:hover .status-layer {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+button.btn--filled.pri {
+  background-color: var(--primary);
+  color: white
+}
+
+button.btn--filled.sec {
+  background-color: var(--secondary);
+  color: white
+}
