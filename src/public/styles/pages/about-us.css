@@ -2,6 +2,7 @@
 @import url("/styles/partials/header-small.css");
 @import url("/styles/partials/nav-tree.css");
 @import url("/styles/partials/footer.css");
+<<<<<<< HEAD
 
 .about__container {
   width: 100%;
@@ -22,3 +23,5 @@
 .section__content {
   text-align: justify;
 }
+=======
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034

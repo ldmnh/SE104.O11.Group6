@@ -1,132 +1,131 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous" />
-  <title>2WAYS.com</title>
-  <link rel="stylesheet" href="/styles/base.css" />
-  <link rel="stylesheet" href="/styles/pages/about-us.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>2WAYS.com</title>
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/pages/about-us.css" />
 </head>
 
 <body>
-  <%- include('../partials/header-small') %>
-  <%- include('../partials/nav-tree', { nav_tree__data }) %>
+    <%- include('../partials/header-small') %>
+    <%- include('../partials/nav-tree', { nav_tree__data }) %>
 
-  <main>
-    <!-- <section id="discover-section" class="mt-64 primary-text">
+    <main>
+        <!-- <section id="discover-section" class="mt-64 primary-text">
       <h1 class="section__title">Khám phá về 2Way</h1>
     </section>
     <section id="banner" class="mt-64">
       <img class="banner__img" src="/imgs/banner.png" alt="" />
       <img class="banner__logan" src="/imgs/banner__logan.svg" alt="" />
     </section> -->
-    <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
-    <section>
-      <div class="about__container">
-        <h1 class="section__title primary-text mt-48">Về chúng tôi</h1>
-        <div class="section__content mt-24">
-          <h2>Vincom Center Bà Triệu: Tọa độ mua sắm thời thượng cho giới mộ điệu
-            thời trang</h2>
-          <p>“<a href="https://vincom.com.vn/vincom-center-ba-trieu/">Vincom
-            Center Bà Triệu</a> có gì?” luôn là thắc mắc của hầu hết khách hàng,
-            đặc biệt là những thương hiệu nào sẽ có mặt tại Vincom. Hiện nay,
-            Vincom Center Bà Triệu hội tụ hơn 120 thương hiệu nổi tiếng đến từ
-            nhiều ngành hàng khác nhau: Thời trang, Giải trí, Ẩm thực, Nội thất
-            ,...</p>
-          <p>>>> Xem thêm:
-            <a href="https://vincom.com.vn/vincom-center-ba-trieu/uu-dai">Các ưu
-              đãi, khuyến mãi đang diễn ra của các thương hiệu tại Vincom Center
-              Bà Triệu</a></p>
-          <p>Những thương hiệu đình đám tại Vincom Center Bà Triệu</p>
-          <ul>
-            <li>Thương hiệu thời trang hàng đầu: Tommy Hilfiger, Hugo Boss, Zara
-              (duy nhất tại Hà Nội), Max&Co, Weekend Max Mara, Mango,...</li>
-            <li>Thương hiệu phụ kiện sành điệu: Furla, Charles & Keith, Pedro,
-              Aldo, Mujosh, Dr. Marten, MLB, Adidas, Nike, New Balance,...</li>
-            <li>Thương hiệu trang sức thời thượng: Pandora, Swarovski, Thế Giới
-              Kim Cương, PNJ,</li>
-            <li>Thương hiệu mỹ phẩm chính hãng:
-              <ul>
-                <li>Hàng hiệu châu Âu-Mỹ: Dior, Kiehl's, Bobbi Brown, M.A.C, Estee
-                  Lauder...</li>
-                <li>Hàng hiệu châu Á: Shiseido, The Faceshop, Laneige,…</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="section__content mt-24">
-          <h2>The New Playground Vincom Center Bà Triệu</h2>
-          <p>Không chỉ được biết đến là ''Tổ hợp thời thượng'' cho tín đồ thời
-            trang thủ đô với 32 local brands, The New Playground còn nổi tiếng
-            trong các bộ ảnh ''sống ảo'' cực chất của giới trẻ và tạo nên hiện
-            tượng ''cháy ví đại chiến'' mỗi dịp ưu đãi, khuyến mại.</p>
-          <p>The New Playground quy tụ hàng loạt cái tên nổi bật như: Saigon
-            Swagger, ClownZ Streetwear, Bo Bụi Store, SWE..., đến ngay tầng 7 để
-            trải nghiệm mua sắm tại The New Playground và bỏ túi vài bộ ảnh sống
-            ảo bạn nhé.</p>
-          <p>Thiết kế không gian ấn tượng, đặc sắc của The New Playground (Nguồn:
-            Sưu tầm)</p>
-        </div>
-      </div>
-    </section>
-    <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
-    <section class="mt-48">
-      <div class="about__container">
-        <h1 class="section__title primary-text mt-48">Thông tin đối tác</h1>
-        <div class="section__content mt-24">
-          <h2>Vincom Center Bà Triệu: Tọa độ mua sắm thời thượng cho giới mộ điệu
-            thời trang</h2>
-          <p>“<a href="https://vincom.com.vn/vincom-center-ba-trieu/">Vincom
-            Center Bà Triệu</a>có gì?” luôn là thắc mắc của hầu hết khách hàng,
-            đặc biệt là những thương hiệu nào sẽ có mặt tại Vincom. Hiện nay,
-            Vincom Center Bà Triệu hội tụ hơn 120 thương hiệu nổi tiếng đến từ
-            nhiều ngành hàng khác nhau: Thời trang, Giải trí, Ẩm thực, Nội thất
-            ,...</p>
-          <p>>>> Xem thêm:
-            <a href="https://vincom.com.vn/vincom-center-ba-trieu/uu-dai">Các ưu
-              đãi, khuyến mãi đang diễn ra của các thương hiệu tại Vincom Center
-              Bà Triệu</a></p>
-          <p>Những thương hiệu đình đám tại Vincom Center Bà Triệu</p>
-          <ul>
-            <li>Thương hiệu thời trang hàng đầu: Tommy Hilfiger, Hugo Boss, Zara
-              (duy nhất tại Hà Nội), Max&Co, Weekend Max Mara, Mango,...</li>
-            <li>Thương hiệu phụ kiện sành điệu: Furla, Charles & Keith, Pedro,
-              Aldo, Mujosh, Dr. Marten, MLB, Adidas, Nike, New Balance,...</li>
-            <li>Thương hiệu trang sức thời thượng: Pandora, Swarovski, Thế Giới
-              Kim Cương, PNJ,</li>
-            <li>Thương hiệu mỹ phẩm chính hãng:
-              <ul>
-                <li>Hàng hiệu châu Âu-Mỹ: Dior, Kiehl's, Bobbi Brown, M.A.C, Estee
-                  Lauder...</li>
-                <li>Hàng hiệu châu Á: Shiseido, The Faceshop, Laneige,…</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="section__content mt-24">
-          <h2>The New Playground Vincom Center Bà Triệu</h2>
-          <p>Không chỉ được biết đến là ''Tổ hợp thời thượng'' cho tín đồ thời
-            trang thủ đô với 32 local brands, The New Playground còn nổi tiếng
-            trong các bộ ảnh ''sống ảo'' cực chất của giới trẻ và tạo nên hiện
-            tượng ''cháy ví đại chiến'' mỗi dịp ưu đãi, khuyến mại.</p>
-          <p>The New Playground quy tụ hàng loạt cái tên nổi bật như: Saigon
-            Swagger, ClownZ Streetwear, Bo Bụi Store, SWE..., đến ngay tầng 7 để
-            trải nghiệm mua sắm tại The New Playground và bỏ túi vài bộ ảnh sống
-            ảo bạn nhé.</p>
-          <p>Thiết kế không gian ấn tượng, đặc sắc của The New Playground (Nguồn:
-            Sưu tầm)</p>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div class="mt-12"></div>
-  <%- include('../partials/footer') %>
+        <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
+        <section>
+            <div class="about__container">
+                <h1 class="section__title primary-text mt-48">Về chúng tôi</h1>
+                <div class="section__content mt-24">
+                    <h2>Vincom Center Bà Triệu: Tọa độ mua sắm thời thượng cho giới mộ điệu
+                        thời trang</h2>
+                    <p>“<a href="https://vincom.com.vn/vincom-center-ba-trieu/">Vincom
+                            Center Bà Triệu</a> có gì?” luôn là thắc mắc của hầu hết khách hàng,
+                        đặc biệt là những thương hiệu nào sẽ có mặt tại Vincom. Hiện nay,
+                        Vincom Center Bà Triệu hội tụ hơn 120 thương hiệu nổi tiếng đến từ
+                        nhiều ngành hàng khác nhau: Thời trang, Giải trí, Ẩm thực, Nội thất
+                        ,...</p>
+                    <p>>>> Xem thêm:
+                        <a href="https://vincom.com.vn/vincom-center-ba-trieu/uu-dai">Các ưu
+                            đãi, khuyến mãi đang diễn ra của các thương hiệu tại Vincom Center
+                            Bà Triệu</a>
+                    </p>
+                    <p>Những thương hiệu đình đám tại Vincom Center Bà Triệu</p>
+                    <ul>
+                        <li>Thương hiệu thời trang hàng đầu: Tommy Hilfiger, Hugo Boss, Zara
+                            (duy nhất tại Hà Nội), Max&Co, Weekend Max Mara, Mango,...</li>
+                        <li>Thương hiệu phụ kiện sành điệu: Furla, Charles & Keith, Pedro,
+                            Aldo, Mujosh, Dr. Marten, MLB, Adidas, Nike, New Balance,...</li>
+                        <li>Thương hiệu trang sức thời thượng: Pandora, Swarovski, Thế Giới
+                            Kim Cương, PNJ,</li>
+                        <li>Thương hiệu mỹ phẩm chính hãng:
+                            <ul>
+                                <li>Hàng hiệu châu Âu-Mỹ: Dior, Kiehl's, Bobbi Brown, M.A.C, Estee
+                                    Lauder...</li>
+                                <li>Hàng hiệu châu Á: Shiseido, The Faceshop, Laneige,…</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section__content mt-24">
+                    <h2>The New Playground Vincom Center Bà Triệu</h2>
+                    <p>Không chỉ được biết đến là ''Tổ hợp thời thượng'' cho tín đồ thời
+                        trang thủ đô với 32 local brands, The New Playground còn nổi tiếng
+                        trong các bộ ảnh ''sống ảo'' cực chất của giới trẻ và tạo nên hiện
+                        tượng ''cháy ví đại chiến'' mỗi dịp ưu đãi, khuyến mại.</p>
+                    <p>The New Playground quy tụ hàng loạt cái tên nổi bật như: Saigon
+                        Swagger, ClownZ Streetwear, Bo Bụi Store, SWE..., đến ngay tầng 7 để
+                        trải nghiệm mua sắm tại The New Playground và bỏ túi vài bộ ảnh sống
+                        ảo bạn nhé.</p>
+                    <p>Thiết kế không gian ấn tượng, đặc sắc của The New Playground (Nguồn:
+                        Sưu tầm)</p>
+                </div>
+            </div>
+        </section>
+        <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
+        <section class="mt-48">
+            <div class="about__container">
+                <h1 class="section__title primary-text mt-48">Thông tin đối tác</h1>
+                <div class="section__content mt-24">
+                    <h2>Vincom Center Bà Triệu: Tọa độ mua sắm thời thượng cho giới mộ điệu
+                        thời trang</h2>
+                    <p>“<a href="https://vincom.com.vn/vincom-center-ba-trieu/">Vincom
+                            Center Bà Triệu</a>có gì?” luôn là thắc mắc của hầu hết khách hàng,
+                        đặc biệt là những thương hiệu nào sẽ có mặt tại Vincom. Hiện nay,
+                        Vincom Center Bà Triệu hội tụ hơn 120 thương hiệu nổi tiếng đến từ
+                        nhiều ngành hàng khác nhau: Thời trang, Giải trí, Ẩm thực, Nội thất
+                        ,...</p>
+                    <p>>>> Xem thêm:
+                        <a href="https://vincom.com.vn/vincom-center-ba-trieu/uu-dai">Các ưu
+                            đãi, khuyến mãi đang diễn ra của các thương hiệu tại Vincom Center
+                            Bà Triệu</a>
+                    </p>
+                    <p>Những thương hiệu đình đám tại Vincom Center Bà Triệu</p>
+                    <ul>
+                        <li>Thương hiệu thời trang hàng đầu: Tommy Hilfiger, Hugo Boss, Zara
+                            (duy nhất tại Hà Nội), Max&Co, Weekend Max Mara, Mango,...</li>
+                        <li>Thương hiệu phụ kiện sành điệu: Furla, Charles & Keith, Pedro,
+                            Aldo, Mujosh, Dr. Marten, MLB, Adidas, Nike, New Balance,...</li>
+                        <li>Thương hiệu trang sức thời thượng: Pandora, Swarovski, Thế Giới
+                            Kim Cương, PNJ,</li>
+                        <li>Thương hiệu mỹ phẩm chính hãng:
+                            <ul>
+                                <li>Hàng hiệu châu Âu-Mỹ: Dior, Kiehl's, Bobbi Brown, M.A.C, Estee
+                                    Lauder...</li>
+                                <li>Hàng hiệu châu Á: Shiseido, The Faceshop, Laneige,…</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section__content mt-24">
+                    <h2>The New Playground Vincom Center Bà Triệu</h2>
+                    <p>Không chỉ được biết đến là ''Tổ hợp thời thượng'' cho tín đồ thời
+                        trang thủ đô với 32 local brands, The New Playground còn nổi tiếng
+                        trong các bộ ảnh ''sống ảo'' cực chất của giới trẻ và tạo nên hiện
+                        tượng ''cháy ví đại chiến'' mỗi dịp ưu đãi, khuyến mại.</p>
+                    <p>The New Playground quy tụ hàng loạt cái tên nổi bật như: Saigon
+                        Swagger, ClownZ Streetwear, Bo Bụi Store, SWE..., đến ngay tầng 7 để
+                        trải nghiệm mua sắm tại The New Playground và bỏ túi vài bộ ảnh sống
+                        ảo bạn nhé.</p>
+                    <p>Thiết kế không gian ấn tượng, đặc sắc của The New Playground (Nguồn:
+                        Sưu tầm)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="mt-12"></div>
+    <%- include('../partials/footer') %>
 </body>
+
 </html>

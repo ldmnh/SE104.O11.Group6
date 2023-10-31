@@ -29,8 +29,12 @@
 }
 
 ul.pagination {
+<<<<<<< HEAD
     width: 100%;
     height: 40px;
+=======
+    width: 400px;
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
     display: flex;
     justify-content: flex-end;
 }
@@ -40,4 +44,8 @@ nav {
     max-width: 1152px;
     display: flex;
     justify-content: flex-end;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034

@@ -1,4 +1,8 @@
 @import url("/styles/partials/header-full.css");
+<<<<<<< HEAD
+=======
+@import url("/styles/components/search-bar.css");
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
 @import url("/styles/partials/footer.css");
 
 .section__title {
@@ -13,6 +17,10 @@
 
 .slider {
   width: 100%;
+<<<<<<< HEAD
+=======
+  height: 600px;
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
 
   overflow: hidden;
 
@@ -61,7 +69,11 @@
 }
 
 #voucher-section {
+<<<<<<< HEAD
   & .section__content>* {
+=======
+  & .section__content > * {
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -85,7 +97,11 @@
 }
 
 #partners-section {
+<<<<<<< HEAD
   & .section__content>* {
+=======
+  & .section__content > * {
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -130,7 +146,11 @@
 }
 
 #factor-section {
+<<<<<<< HEAD
   & .section__content>* {
+=======
+  & .section__content > * {
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -156,4 +176,8 @@
       text-align: center;
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
