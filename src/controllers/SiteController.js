@@ -1,7 +1,8 @@
 class SiteController {
+
     // [GET] /
     index(req, res) {
-        res.send('trang chu')
+        res.render('./pages/index.ejs')
     }
 
     // [GET] /register
@@ -29,8 +30,24 @@ class SiteController {
     }
     changePassword(req, res) {
         res.render('./pages/account-page/change-password.ejs')
+    // [GET] /about-us
+    about_us(req, res) {
+        res.render('./pages/about-us.ejs')
+    }
+
+    // [GET] /forgot-password
+    forgot(req, res) {
+        const title = 'Nhận liên kết đặt lại mật khẩu'
+        res.render('./pages/forgot-password.ejs', { title })
+    }
+
+    // [GET] /reset-password
+    reset(req, res) {
+        const title = 'Đặt lại mật khẩu'
+        res.render('./pages/reset-password.ejs', { title })
     }
 
 }
 
 module.exports = new SiteController()
+}
