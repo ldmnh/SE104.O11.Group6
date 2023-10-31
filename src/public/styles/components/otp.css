@@ -100,8 +100,12 @@ h1 {
   font-size: 14px;
 }
 
-.otp__button:hover {
-  opacity: 0.9;
+.otp__button--submit1:hover {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.otp__button--submit2:hover {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .otp__button[disabled] {
