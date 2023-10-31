@@ -178,6 +178,10 @@ body {
 
 .room-list {
     display: inherit;
+}
+
+.room-list form {
+    display: inherit;
     flex-direction: column;
     gap: 12px;
     padding: 12px;
@@ -196,12 +200,12 @@ body {
     color: #FE9C0B;
 }
 
-.room-list__button {
+.room-list__submit {
     display: inherit;
     justify-content: flex-end;
 }
 
-.room-list__button a {
+.room-list__submit-button {
     width: 300px;
     font-size: 1.5rem;
     font-weight: 700;
