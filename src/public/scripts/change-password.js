@@ -58,8 +58,20 @@ confirmBtn.addEventListener("click", () => {
   const isPasswordValid = newPassword.length >= 8 && /[a-zA-Z]/.test(newPassword) && /[0-9]/.test(newPassword);
   console.log('newpss',newPassword);
   console.log('log', isPasswordValid);
+  const newConfirmPass = document.querySelector('.form__password-confirm').value;
+  if (!isPasswordValid || newPassword !== newConfirmPass) {
+        //Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = '* Thông tin không hợp lệ';
+        errorMessage.style.color = 'red';
+  }
+  else {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = 'Thành công!';
+        errorMessage.style.color = 'green';
+    }
 })
 
 // Xac nhan mat khau
-const confirmNewPass = document.querySelector('.confirm_newpass').value;
+
 
