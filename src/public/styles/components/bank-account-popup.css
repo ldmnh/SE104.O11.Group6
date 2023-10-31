@@ -1,0 +1,157 @@
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.account {
+    height: 457px;
+    width: 840px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    text-align: left;
+    padding-bottom: 35px;
+}
+
+.account-container {
+    padding: 160px;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: modalFadeIn ease 0.5s;
+}
+
+.account__card {
+    /* width: 764px;
+  height: 391px; */
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 32px 38px 34px 38px;
+    box-shadow: 0 10px 40px -20px black;
+    position: relative;
+}
+
+.form--items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form--item {
+    display: flex;
+    gap: 25px;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.form-control:disabled::placeholder {
+    color: black;
+}
+
+.form--item h2 {
+    width: 189px;
+    font-size: 22px;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+}
+
+.form--item--notice {
+    width: 189px;
+    font-size: 22px;
+    margin: -10px 0;
+}
+
+.form--item--notice p {
+    font-size: 14px;
+    text-align: right;
+}
+
+.form--item input {
+    width: 526px;
+    height: 48px;
+}
+
+.form--item select {
+    width: 590px;
+    height: 48px;
+}
+
+.form-control:disabled {
+    border: none;
+    background-color: white;
+}
+
+.form-control.unfilled:disabled::placeholder {
+    border: none;
+    background-color: white;
+    color: #bec8c9;
+}
+
+.account__button {
+    display: inline-flex;
+    gap: 13px;
+    padding-left: 522px;
+    margin: 18px 0 0 0;
+}
+
+.account__button--submit1 {
+    width: 96px;
+    height: 48px;
+    border-radius: 8px;
+    color: #fe9c0b;
+    background-color: white;
+    border: 1px solid #fe9c0b;
+    font-size: 16px;
+}
+
+.account__button--submit2 {
+    width: 131px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #fe9c0b;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+
+.account__close--btn {
+    position: absolute;
+    top: 16px;
+    right: 19px;
+}
+
+.account__close--btn span {
+    color: #00696d;
+}
+
+.account__button:hover {
+    opacity: 0.9;
+}
+
+.account__button[disabled] {
+    opacity: 0.6;
+    cursor: default;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

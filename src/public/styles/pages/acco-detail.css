@@ -1,5 +1,8 @@
-@import url('/styles/variables.css');
-@import url('/styles/components/room.css');
+@import url("/styles/variables.css");
+@import url("/styles/partials/header-small.css");
+@import url("/styles/components/room.css");
+@import url("/styles/components/comment.css");
+@import url("/styles/partials/footer.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -75,7 +78,7 @@ body {
 }
 
 .info__rank span {
-    color: #FE9C0B;
+    color: #fe9c0b;
 }
 
 .info__location span {
@@ -93,7 +96,7 @@ body {
     height: 48px;
     box-sizing: border-box;
     padding: 10px 16px;
-    background-color: #FE9C0B;
+    background-color: #fe9c0b;
     color: var(--white);
     border-radius: 8px;
     font-weight: 500;
@@ -140,7 +143,6 @@ body {
     font-weight: 400px;
 }
 
-
 .short-info__intro,
 .short-info__feature {
     display: inherit;
@@ -186,7 +188,7 @@ body {
     gap: 12px;
     padding: 12px;
     border-radius: 8px;
-    background-color: rgba(217, 217, 217, 0.30);
+    background-color: rgba(217, 217, 217, 0.3);
 }
 
 .room-list__local-price {
@@ -197,7 +199,7 @@ body {
 }
 
 .room-list__local-price span {
-    color: #FE9C0B;
+    color: #fe9c0b;
 }
 
 .room-list__submit {
@@ -210,7 +212,7 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--white);
-    background-color: #FE9C0B;
+    background-color: #fe9c0b;
     border-radius: 8px;
 }
 
@@ -220,7 +222,7 @@ body {
 }
 
 .general-info--left {
-    border: 1px solid #BEC8C9;
+    border: 1px solid #bec8c9;
     border-radius: 8px;
     width: 24%;
 }
@@ -291,9 +293,14 @@ body {
     padding: 12px;
 }
 
+<<<<<<< HEAD
 .general-info__item:nth-child(odd) {
     background-color: rgba(217, 217, 217, 0.50);
     border-radius: 8px;
+=======
+.bg-gray {
+    background-color: rgba(217, 217, 217, 0.5);
+>>>>>>> 6ea0150ca04dd804f665326f5a48925c1e057b31
 }
 
 .general-info__item--left {
