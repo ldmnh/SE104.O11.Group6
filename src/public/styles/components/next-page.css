@@ -2,7 +2,6 @@
     color: black;
     font-weight: 500;
     background-color: rgba(0, 105, 109, 0.2);
-    margin: 0 10px 0 -10px;
     border-radius: 4px;
     width: 40px;
     height: 40px;
@@ -25,11 +24,19 @@
     }
 }
 
+.page-item {
+    margin-left: 10px;
+}
+
 ul.pagination {
     width: 400px;
-    height: 40px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav {
-    margin-left: 900px;
+    width: 80%;
+    max-width: 1152px;
+    display: flex;
+    justify-content: flex-end;
 }
