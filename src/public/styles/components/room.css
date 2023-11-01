@@ -92,6 +92,16 @@
     padding: 0 6px;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.room__title span {
+    cursor: pointer;
+}
+
 .room__content {
     display: inherit;
     justify-content: space-between;

@@ -8,6 +8,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.2);
 }
+
 .container--popup {
     width: 700px;
     height: 675px;
@@ -69,6 +70,7 @@
     font-size: 16px;
     font-weight: 500px;
 }
+
 .section--popup {
     display: flex;
     flex-direction: column;
@@ -139,10 +141,11 @@
 .input--detail {
     height: 224px;
     padding: 10px;
-    z-index: 1; /* Đặt z-index để đặt lớp input trên placeholder */
+    z-index: 1;
+    /* Đặt z-index để đặt lớp input trên placeholder */
 }
 
-.input--detail:focus + .custom-input::before {
+.input--detail:focus+.custom-input::before {
     top: -10px;
     left: 10px;
     font-size: 16px;
@@ -166,6 +169,7 @@
         opacity: 0;
         transform: translateY(-200px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
