@@ -2,7 +2,7 @@ class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.send('trang chu')
+        res.render('./pages/index.ejs')
     }
 
     // [GET] /register
@@ -29,10 +29,18 @@ class SiteController {
         res.render('./pages/reset-password.ejs', { title })
     }
 
-    // [GET] /search-results
     search(req, res) {
         const title = 'Kết quả tìm kiếm'
         res.render('./pages/search-results', { title })
+    }
+
+    // [GET] /about-us
+    about(req, res) {
+        const nav_tree__data = [
+            { text: 'Trang chủ', link: '/' },
+            { text: 'Giới thiệu', link: '/about-us' },
+        ]
+        res.render('./pages/about-us.ejs', { nav_tree__data })
     }
 
 }
