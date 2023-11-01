@@ -23,7 +23,7 @@ BEGIN
     UPDATE RoomType
     SET room_sum_rating = room_sum_rating + count_ratings
     WHERE room_id = room_id_char;
-END //
+END;
 
 DELIMITER ;
 
@@ -48,8 +48,9 @@ BEGIN
         END IF;
 
     END IF;
-END;DROP TRIGGER IF EXISTS trg_CheckBankOwnership_Insert
+END;
 
+DROP TRIGGER IF EXISTS trg_CheckBankOwnership_Insert
 
 CREATE TRIGGER trg_CheckBankOwnership_Update
 AFTER UPDATE ON AuthUser
@@ -132,65 +133,107 @@ BEGIN
     ) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Thanh toán tiền mặt thì book_is_payed chưa được thanh toán.';
     END IF;
-END //
+END;
 
-DELIMITER ; -- checking ...
+DELIMITER;
+
 
 --status của là cancel thì rea_id không được trống.
+DELIMITER //
+
+DROP TRIGGER IF EXISTS trg_CheckCancellationReason;
+
 CREATE TRIGGER trg_CheckCancellationReason
-ON Booking
-AFTER UPDATE
-AS
+AFTER UPDATE ON Booking
+FOR EACH ROW
 BEGIN
     -- Kiểm tra nếu status là "cancel" và rea_id là NULL hoặc trống
-    IF EXISTS (
-        SELECT 1
-        FROM inserted AS i
-        WHERE i.book_status = 'cancel' AND (i.rea_id IS NULL OR i.rea_id = '')
-    )
-    BEGIN
-        RAISERROR('Khi status là "cancel", rea_id không được trống.', 16, 1);
-        ROLLBACK;
-        RETURN;
-    END
+    IF NEW.book_status = 'cancel' AND NEW.rea_id IS NULL THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Khi status là "cancel", rea_id không được trống.';
+    END IF;
 END;
-GO
+
+DELIMITER ;
+
 
 --book_total_cost là tổng của các book_final_cost * book_num_room trong BookingDetails.
-CREATE TRIGGER trg_UpdateBookingTotalCost
-ON BookingDetail
-AFTER INSERT, UPDATE
-AS
+DELIMITER //
+
+DROP TRIGGER IF EXISTS trg_UpdateBookingTotalCost_Insert
+
+CREATE TRIGGER trg_UpdateBookingTotalCost_Insert
+AFTER INSERT ON BookingDetail
+FOR EACH ROW
 BEGIN
     -- Tính toán tổng giá trị từ BookingDetails
-    DECLARE @TotalCost float;
-    SELECT @TotalCost = SUM(book_final_cost * book_num_room)
-    FROM inserted;
+    DECLARE TotalCost FLOAT;
+    SELECT SUM(book_final_cost * book_num_room) INTO TotalCost
+    FROM BookingDetail
+    WHERE book_id = NEW.book_id;
 
     -- Cập nhật cột book_total_cost trong bảng Booking
     UPDATE Booking
-    SET book_total_cost = @TotalCost
-    WHERE Booking.book_id IN (SELECT book_id FROM inserted);
+    SET book_total_cost = TotalCost
+    WHERE book_id = NEW.book_id;
 END;
-GO
+
+DROP TRIGGER IF EXISTS trg_UpdateBookingTotalCost_Update
+
+CREATE TRIGGER trg_UpdateBookingTotalCost_Update
+AFTER UPDATE ON BookingDetail
+FOR EACH ROW
+BEGIN
+    -- Tính toán tổng giá trị từ BookingDetails
+    DECLARE TotalCost FLOAT;
+    SELECT SUM(book_final_cost * book_num_room) INTO TotalCost
+    FROM BookingDetail
+    WHERE book_id = NEW.book_id;
+
+    -- Cập nhật cột book_total_cost trong bảng Booking
+    UPDATE Booking
+    SET book_total_cost = TotalCost
+    WHERE book_id = NEW.book_id;
+END;
+
+DELIMITER ;
+
+
 
 --city_id nếu tồn tại trong Accommodation thì prov_id của bảng City với khóa city_id bằng prov_id của Accommodation.
-CREATE TRIGGER trg_CheckCityProvince
-ON Accommodation
-AFTER INSERT, UPDATE
-AS
+DELIMITER //
+
+DROP TRIGGER IF EXISTS trg_CheckCityProvince_Insert
+
+CREATE TRIGGER trg_CheckCityProvince_Insert
+AFTER INSERT ON Accommodation
+FOR EACH ROW
 BEGIN
     -- Kiểm tra xem city_id tồn tại trong City và prov_id khớp
     IF EXISTS (
         SELECT 1
-        FROM inserted AS i
-        LEFT JOIN City AS c ON i.city_id = c.city_id
-        WHERE i.prov_id <> c.prov_id OR c.prov_id IS NULL
-    )
-    BEGIN
-        RAISERROR('city_id must exist in City, and prov_id must match in Accommodation and City.', 16, 1);
-        ROLLBACK;
-        RETURN;
-    END
+        FROM City AS c
+        WHERE NEW.city_id = c.city_id AND (NEW.prov_id <> c.prov_id OR c.prov_id IS NULL)
+    ) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'city_id must exist in City, and prov_id must match in Accommodation and City.';
+    END IF;
 END;
-GO
+
+DELIMITER //
+
+DROP TRIGGER IF EXISTS trg_CheckCityProvince_Update
+
+CREATE TRIGGER trg_CheckCityProvince_Update
+AFTER UPDATE ON Accommodation
+FOR EACH ROW
+BEGIN
+    -- Kiểm tra xem city_id tồn tại trong City và prov_id khớp
+    IF EXISTS (
+        SELECT 1
+        FROM City AS c
+        WHERE NEW.city_id = c.city_id AND (NEW.prov_id <> c.prov_id OR c.prov_id IS NULL)
+    ) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'city_id must exist in City, and prov_id must match in Accommodation and City.';
+    END IF;
+END;
+
+DELIMITER;
