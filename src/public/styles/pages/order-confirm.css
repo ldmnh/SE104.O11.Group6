@@ -26,24 +26,24 @@ body {
     border-radius: 12px;
 }
 
-.content-container p,
-.content-container h1,
-.content-container h2,
-.content-container h3 {
+p,
+h1,
+h2,
+h3 {
     margin: 0;
 }
 
-.content-container h1 {
+h1 {
     font-size: 1.75rem;
     font-weight: 600;
 }
 
-.content-container h2 {
+h2 {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.content-container h3 {
+h3 {
     font-size: 1rem;
     font-weight: 600;
 }
