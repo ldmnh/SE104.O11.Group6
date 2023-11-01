@@ -1,41 +1,43 @@
+@import url('/styles/base.css');
+
 footer {
-  height: 300px;
-  display: inherit;
-  align-items: center;
-  justify-content: space-between;
-  /* border-top: 1px solid gray; */
-  background-color: #f6f6f6;
+    width: 100vw;
+    height: 300px;
+    display: inherit;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid gray;
 }
 
 .footer-container {
-  width: 100%;
-  margin: 0 auto;
-  display: inherit;
-  justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    display: inherit;
+    justify-content: space-between;
 }
 
 .contact {
-  width: 39%;
-  display: inherit;
-  flex-direction: column;
-  gap: 16px;
+    width: 39%;
+    display: inherit;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.contact h3,
+#footer__contact h3,
 .about h3,
 .update h3 {
-  font-size: 1.375rem;
-  margin: 0;
+    font-size: 1.375rem;
+    margin: 0;
 }
 
 .contact p {
-  font-size: 1rem;
-  margin: 0;
+    font-size: 1rem;
+    margin: 0;
 }
 
 .contact__social {
-  display: inherit;
-  gap: 16px;
+    display: inherit;
+    gap: 16px;
 }
 
 .social__logo {
@@ -83,12 +85,12 @@ footer {
 }
 
 .update__confirm-btn {
-  height: 48px;
-  border-radius: 8px;
-  background-color: #fe9c0b;
-  color: white;
-  border: none;
-  box-sizing: border-box;
-  padding: 0 24px;
-  font-size: 0.875rem;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #fe9c0b;
+    color: white;
+    border: none;
+    box-sizing: border-box;
+    padding: 0 24px;
+    font-size: 0.875rem;
 }

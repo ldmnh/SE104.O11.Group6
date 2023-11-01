@@ -1,31 +1,37 @@
 <footer>
-    <div class="footer-container">
-        <div class="contact">
+    <div class="footer__container row">
+        <section id="footer__contact" class="col-lg-6">
             <h3>2WAYS.com</h3>
             <p>Việc đặt phòng của bạn là động lực cho chúng tôi tiếp tục duy trì
-                                                                                                                                                                được công ty.</p>
+                được công ty.</p>
             <p>Bạn có thể liên hệ với chúng tôi thông qua các mạng xã hội</p>
             <div class="contact__social social">
-                <a href="#"><img class="social__logo" src="/imgs/brands/fb_logo.webp" alt="Facebook_"/></a>
-                <a href="#"><img class="social__logo" src="/imgs/brands/insta_logo.png" alt="Instagram"/></a>
+                <a href="#"><img class="social__logo" src="/imgs/brands/fb_logo.webp" alt="Facebook_" /></a>
+                <a href="#"><img class="social__logo" src="/imgs/brands/insta_logo.png" alt="Instagram" /></a>
                 <a href="#"><img class="social__logo" src="/imgs/brands/youtube_logo.png" alt="YouTube"></a>
             </div>
         </div>
+
         <div class="about">
             <h3>Công ty</h3>
-            <div class="about__list">
-                <a class="about__link" href="#">Về chúng tôi</a>
-                <a class="about__link" href="#">Thông tin đối tác</a>
-            </div>
-        </div>
+            <ul class="about__list">
+                <li class="mt-8 about__link"><a href="#">Về chúng tôi</a></li>
+                <li class="mt-8 about__link"><a href="#">Thông tin đối tác</a></li>
+            </ul>
+            <!-- <div class="about__list">
+        <a class="about__link" href="#">Về chúng tôi</a>
+        <a class="about__link" href="#">Thông tin đối tác</a>
+      </div> -->
+        </section>
 
-        <div class="update">
+        <section id="footer__update" class="col-lg-4">
             <h3>Cập nhật từ chúng tôi</h3>
             <p>Xác nhận thư điện tử của bạn để nhận được ngay những cập nhật mới nhất từ chúng tôi hàng tuần</p>
             <form action="#">
-                <input type="email" name="email_input" id="email_input" class="form-control update__input-field" placeholder="Email của bạn"/>
+                <input type="email" name="email_input" id="email_input" class="update__input-field" placeholder="Email của bạn" />
                 <button class="update__confirm-btn" type="button">Xác nhận</button>
             </form>
         </div>
+    </div>
     </div>
 </footer>

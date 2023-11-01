@@ -93,12 +93,14 @@ hr {
     border-radius: 8px;
     width: 75%;
 }
+
 .card--items {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
 }
+
 .card--item {
     display: flex;
     gap: 30px;
@@ -114,12 +116,14 @@ hr {
     font-size: 24px;
     font-weight: 600px;
 }
+
 .card--item h2 {
     font-size: 22px;
     font-weight: 500px;
     color: rgba(0, 0, 0, 0.38);
     text-align: center;
 }
+
 .debit-credit-card--submit {
     width: 160px;
     height: 48px;
