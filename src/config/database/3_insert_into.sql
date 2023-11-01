@@ -5,28 +5,28 @@ VALUES ('adm000000001', 'admin1', 'password1'),
        ('adm000000002', 'admin2', 'password2'),
        ('adm000000003', 'admin3', 'password3');
 
-INSERT INTO AuthUser (au_user_id, au_user_first_name, au_user_last_name, au_user_email, au_user_pass)
-VALUES ('usr000000001', 'John', 'Doe', 'john.doe@example.com', 'password1'),
-       ('usr000000002', 'Jane', 'Smith', 'jane.smith@example.com', 'password2'),
-       ('usr000000003', 'Mike', 'Johnson', 'mike.johnson@example.com', 'password3');
+INSERT INTO AuthUser (au_user_id, au_user_first_name, au_user_last_name, au_user_email, au_user_pass, au_user_avt_url)
+VALUES ('usr000000001', 'John', 'Doe',      'john.doe@example.com',     'password1', 'user_1.jpg'),
+       ('usr000000002', 'Jane', 'Smith',    'jane.smith@example.com',   'password2', 'user_2.jpg'),
+       ('usr000000003', 'Mike', 'Johnson',  'mike.johnson@example.com', 'password3', 'user_3.jpg');
 
 INSERT INTO BankCard (bank_id, bank_name, bank_brach, bank_num, bank_name_pers, au_user_id)
-VALUES ('bnk000000001', 'Bank A', 'Branch A', '1111222233334444', 'John Doe', 'usr000000001'),
-       ('bnk000000002', 'Bank B', 'Branch B', '5555222233334444', 'John Doe_', 'usr000000001'),
+VALUES ('bnk000000001', 'Bank A', 'Branch A', '1111222233334444', 'John Doe',   'usr000000001'),
+       ('bnk000000002', 'Bank B', 'Branch B', '5555222233334444', 'John Doe_',  'usr000000001'),
        ('bnk000000003', 'Bank B', 'Branch B', '5555666677778888', 'Jane Smith', 'usr000000002');
 
 INSERT INTO DebitCard (debit_id, debit_num, debit_end_date, debit_CCV, debit_name, debit_address, debit_postal, au_user_id)
-VALUES ('deb000000001', '1111222233334444', '2023-12-31 23:59:59', '123', 'John Doe', '123 Main Street', '12345', 'uSr000000001'),
-       ('deb000000002', '9999111111112222', '2025-03-31 23:59:59', '789', 'Mike Johnson', '789 Oak Street', '54321', 'uSr000000003'),
-       ('deb000000003', '9999888811112222', '2025-03-31 23:59:59', '789', 'Mike Johnson', '789 Oak Street', '54321', 'uSr000000003');
+VALUES ('deb000000001', '1111222233334444', '2023-12-31 23:59:59', '123', 'John Doe',       '123 Main Street',  '12345', 'usr000000001'),
+       ('deb000000002', '9999111111112222', '2025-03-31 23:59:59', '789', 'Mike Johnson',   '789 Oak Street',   '54321', 'usr000000003'),
+       ('deb000000003', '9999888811112222', '2025-03-31 23:59:59', '789', 'Mike Johnson',   '789 Oak Street',   '54321', 'usr000000003');
 
 INSERT INTO Province (prov_id, prov_name, prov_url)
-VALUES ('pro000000001', 'Hồ Chí Minh', 'Ho+Chi+Minh+City'),
-       ('pro000000002', 'Hà Nội', 'Hanoi'),
-       ('pro000000003', 'Đà Nẵng', 'Da+Nang'),
-       ('pro000000004', 'Hải Phòng', 'Haiphong'),
-       ('pro000000005', 'Cần Thơ', 'Can+Tho'),
-       ('pro000000006', 'Bà Rịu - Vũng Tàu', 'Ba+Ria+-+Vung+Tau');
+VALUES ('pro000000001', 'Hồ Chí Minh',          'Ho+Chi+Minh+City'),
+       ('pro000000002', 'Hà Nội',               'Hanoi'),
+       ('pro000000003', 'Đà Nẵng',              'Da+Nang'),
+       ('pro000000004', 'Hải Phòng',            'Haiphong'),
+       ('pro000000005', 'Cần Thơ',              'Can+Tho'),
+       ('pro000000006', 'Bà Rịu - Vũng Tàu',    'Ba+Ria+-+Vung+Tau');
 
 INSERT INTO City (city_id, city_name, prov_id)
 VALUES ('cty000000001', 'Thành phố Hồ Chí Minh',    'pro000000001'),
@@ -36,10 +36,10 @@ VALUES ('cty000000001', 'Thành phố Hồ Chí Minh',    'pro000000001'),
        ('cty000000006', 'Thành phố Vũng Tàu',       'pro000000006');
 
 INSERT INTO Accommodation (acco_id, acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id)
-VALUES ('acc000000001', 'hotel', 4,         'acc001.jpg', 'Khách sạn Mộng mơ', 'Luxury Accommodation', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '123 Main Street',   'cty000000001',     'pro000000001'),
-       ('acc000000002', 'resort', 5,        'acc002.jpg', 'Resort Lò vi Sóng', 'Experience Paradise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',     NULL,               'pro000000002'),
-       ('acc000000003', 'resort', 5,        'acc003.jpg', 'Resort Bình Yên', 'Experience Paradise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',       'cty000000006',     'pro000000006'),
-       ('acc000000004', 'guest_house', 2,   'acc004.jpg', 'Guest House C', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '789 Mountain View',                       NULL,               'pro000000003');
+VALUES ('acc000000001', 'hotel',        4,  'acc001.jpg', 'Khách sạn Mộng mơ',  'Luxury Accommodation', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '123 Main Street',  'cty000000001',     'pro000000001'),
+       ('acc000000002', 'resort',       5,  'acc002.jpg', 'Resort Lò vi Sóng',  'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   NULL,               'pro000000002'),
+       ('acc000000003', 'resort',       5,  'acc003.jpg', 'Resort Bình Yên',    'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   'cty000000006',     'pro000000006'),
+       ('acc000000004', 'guest_house',  2,  'acc004.jpg', 'Guest House C',      NULL,                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '789 Mountain View',NULL,               'pro000000003');
 
 INSERT INTO Feature (fea_id, fea_name)
 VALUES 
@@ -60,35 +60,39 @@ VALUES
 
 INSERT INTO AccoImg (acco_id, acco_img_url)
 VALUES 
-    ('acc000000001', 'accImg001.jpg'),
-    ('acc000000001', 'accImg002.jpg'),
-    ('acc000000001', 'accImg003.jpg'),
-    ('acc000000001', 'accImg004.jpg'),
-    ('acc000000001', 'accImg005.jpg'),
-    ('acc000000002', 'accImg006.jpg'),
-    ('acc000000002', 'accImg007.jpg'),
-    ('acc000000002', 'accImg008.jpg'),
-    ('acc000000003', 'accImg009.jpg'),
-    ('acc000000003', 'accImg010.jpg');
+    ('acc000000001', 'accomodation_1.jpg'),
+    ('acc000000001', 'accomodation_2.jpg'),
+    ('acc000000001', 'accomodation_3.jpg'),
+    ('acc000000001', 'accomodation_4.jpg'),
+    ('acc000000001', 'accomodation_5.jpg'),
+    ('acc000000002', 'accomodation_1.jpg'),
+    ('acc000000002', 'accomodation_2.jpg'),
+    ('acc000000002', 'accomodation_3.jpg'),
+    ('acc000000002', 'accomodation_5.jpg'),
+    ('acc000000003', 'accomodation_2.jpg'),
+    ('acc000000003', 'accomodation_3.jpg'),
+    ('acc000000003', 'accomodation_4.jpg'),
+    ('acc000000003', 'accomodation_5.jpg');
 
 INSERT INTO RoomType (room_id, room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id)
 VALUES 
-    ('roo000000001',  'Standard', 'Single', 1, 0, 1, 0, 10,   'roo001.jpg', 25.5, 100.0, NULL, NULL, 0,           'acc000000001'),
-    ('roo000000002',  'Deluxe',   'Double', 2, 1, 0, 1, 5,    'roo002.jpg', 35.0, 200.0, 0.1, '2023-01-31', 0,    'acc000000001'),
-    ('roo000000003',  'Suite',    'Family', 2, 2, 1, 2, 3,    'roo003.jpg', 45.2, 300.0, NULL, NULL, 0,           'acc000000002'),
-    ('roo000000004',  'Standard', 'Single', 1, 0, 1, 0, 8,    'roo004.jpg', 30.0, 120.0, 0.05, '2023-02-28', 0,   'acc000000003'),
-    ('roo000000005',  'Superior', 'Double', 2, 1, 0, 1, 6,    'roo005.jpg', 28.5, 180.0, NULL, NULL, 0,           'acc000000004'),
-    ('roo000000006',  'Suite',    'Family', 2, 2, 1, 2, 4,    'roo006.jpg', 50.0, 350.0, 0.15, '2023-03-31', 0,   'acc000000003'),
-    ('roo000000007',  'Standard', 'Single', 1, 0, 1, 0, 12,   'roo007.jpg', 32.0, 150.0, NULL, NULL, 0,           'acc000000002'),
-    ('roo000000008',  'Deluxe',   'Double', 2, 1, 0, 1, 7,    'roo008.jpg', 38.0, 220.0, 0.2, '2023-04-30', 0,    'acc000000001'),
-    ('roo000000009',  'Suite',    'Family', 2, 2, 1, 2, 5,    'roo009.jpg', 48.7, 320.0, NULL, NULL, 0,           'acc000000002'),
-    ('roo000000010',  'Standard', 'Single', 1, 0, 1, 0, 9,    'roo010.jpg', 29.8, 110.0, 0.1, '2023-05-31', 0,    'acc000000004');
+    ('roo000000001',  'Standard', 'Single', 1, 0, 1, 0, 10,   'room_1.jpg', 25.5, 100.0, NULL, NULL, 0,           'acc000000001'),
+    ('roo000000002',  'Deluxe',   'Double', 2, 1, 0, 1, 5,    'room_2.jpg', 35.0, 200.0, 0.1, '2023-01-31', 0,    'acc000000001'),
+    ('roo000000003',  'Suite',    'Family', 2, 2, 1, 2, 3,    'room_1.jpg', 45.2, 300.0, NULL, NULL, 0,           'acc000000002'),
+    ('roo000000004',  'Standard', 'Single', 1, 0, 1, 0, 8,    'room_6.jpg', 30.0, 120.0, 0.05, '2023-02-28', 0,   'acc000000003'),
+    ('roo000000005',  'Superior', 'Double', 2, 1, 0, 1, 6,    'room_3.jpg', 28.5, 180.0, NULL, NULL, 0,           'acc000000004'),
+    ('roo000000006',  'Suite',    'Family', 2, 2, 1, 2, 4,    'room_7.jpg', 50.0, 350.0, 0.15, '2023-03-31', 0,   'acc000000003'),
+    ('roo000000007',  'Standard', 'Single', 1, 0, 1, 0, 12,   'room_4.jpg', 32.0, 150.0, NULL, NULL, 0,           'acc000000002'),
+    ('roo000000008',  'Deluxe',   'Double', 2, 1, 0, 1, 7,    'room_1.jpg', 38.0, 220.0, 0.2, '2023-04-30', 0,    'acc000000001'),
+    ('roo000000009',  'Suite',    'Family', 2, 2, 1, 2, 5,    'room_3.jpg', 48.7, 320.0, NULL, NULL, 0,           'acc000000002'),
+    ('roo000000010',  'Standard', 'Single', 1, 0, 1, 0, 9,    'room_2.jpg', 29.8, 110.0, 0.1, '2023-05-31', 0,    'acc000000004');
 
 INSERT INTO Extension (exte_id, exte_name)
-VALUES ('ext000000001', 'Buffet sáng'),
-       ('ext000000002', 'Wifi'),
-       ('ext000000003', 'Thuốc lá'),
-       ('ext000000004', 'Thú cưng');
+VALUES 
+    ('ext000000001', 'Buffet sáng'),   
+    ('ext000000002', 'Wifi'),
+    ('ext000000003', 'Thuốc lá'),
+    ('ext000000004', 'Thú cưng');
 
 INSERT INTO RoomExte (room_id, exte_id)
 VALUES 
@@ -108,46 +112,46 @@ VALUES
     ('roo000000010', 'ext000000004');
 
 INSERT INTO RoomTypeImg (room_id, room_type_image_url)
-VALUES ('roo000000001', 'rooImg1'),
-       ('roo000000001', 'rooImg2'),
-       ('roo000000001', 'rooImg3'),
-       ('roo000000001', 'rooImg4'),
-       ('roo000000002', 'rooImg1'),
-       ('roo000000002', 'rooImg2'),
-       ('roo000000002', 'rooImg3'),
-       ('roo000000002', 'rooImg4'),
-       ('roo000000003', 'rooImg1'),
-       ('roo000000003', 'rooImg2'),
-       ('roo000000003', 'rooImg3'),
-       ('roo000000003', 'rooImg4'),
-       ('roo000000004', 'rooImg1'),
-       ('roo000000004', 'rooImg2'),
-       ('roo000000004', 'rooImg3'),
-       ('roo000000004', 'rooImg4'),
-       ('roo000000005', 'rooImg1'),
-       ('roo000000005', 'rooImg2'),
-       ('roo000000005', 'rooImg3'),
-       ('roo000000005', 'rooImg4'),
-       ('roo000000006', 'rooImg1'),
-       ('roo000000006', 'rooImg2'),
-       ('roo000000006', 'rooImg3'),
-       ('roo000000006', 'rooImg4'),
-       ('roo000000007', 'rooImg1'),
-       ('roo000000007', 'rooImg2'),
-       ('roo000000007', 'rooImg3'),
-       ('roo000000007', 'rooImg4'),
-       ('roo000000008', 'rooImg1'),
-       ('roo000000008', 'rooImg2'),
-       ('roo000000008', 'rooImg3'),
-       ('roo000000008', 'rooImg4'),
-       ('roo000000009', 'rooImg1'),
-       ('roo000000009', 'rooImg2'),
-       ('roo000000009', 'rooImg3'),
-       ('roo000000009', 'rooImg4'),
-       ('roo000000010', 'rooImg1'),
-       ('roo000000010', 'rooImg2'),
-       ('roo000000010', 'rooImg3'),
-       ('roo000000010', 'rooImg4');
+VALUES ('roo000000001', 'room_1.jpg'),
+       ('roo000000001', 'room_2.jpg'),
+       ('roo000000001', 'room_3.jpg'),
+       ('roo000000001', 'room_4.jpg'),
+       ('roo000000002', 'room_1.jpg'),
+       ('roo000000002', 'room_2.jpg'),
+       ('roo000000002', 'room_3.jpg'),
+       ('roo000000002', 'room_4.jpg'),
+       ('roo000000003', 'room_1.jpg'),
+       ('roo000000003', 'room_2.jpg'),
+       ('roo000000003', 'room_3.jpg'),
+       ('roo000000003', 'room_4.jpg'),
+       ('roo000000004', 'room_1.jpg'),
+       ('roo000000004', 'room_2.jpg'),
+       ('roo000000004', 'room_3.jpg'),
+       ('roo000000004', 'room_4.jpg'),
+       ('roo000000005', 'room_1.jpg'),
+       ('roo000000005', 'room_2.jpg'),
+       ('roo000000005', 'room_3.jpg'),
+       ('roo000000005', 'room_4.jpg'),
+       ('roo000000006', 'room_1.jpg'),
+       ('roo000000006', 'room_2.jpg'),
+       ('roo000000006', 'room_3.jpg'),
+       ('roo000000006', 'room_4.jpg'),
+       ('roo000000007', 'room_1.jpg'),
+       ('roo000000007', 'room_2.jpg'),
+       ('roo000000007', 'room_3.jpg'),
+       ('roo000000007', 'room_4.jpg'),
+       ('roo000000008', 'room_1.jpg'),
+       ('roo000000008', 'room_2.jpg'),
+       ('roo000000008', 'room_3.jpg'),
+       ('roo000000008', 'room_4.jpg'),
+       ('roo000000009', 'room_1.jpg'),
+       ('roo000000009', 'room_2.jpg'),
+       ('roo000000009', 'room_3.jpg'),
+       ('roo000000009', 'room_4.jpg'),
+       ('roo000000010', 'room_1.jpg'),
+       ('roo000000010', 'room_2.jpg'),
+       ('roo000000010', 'room_3.jpg'),
+       ('roo000000010', 'room_4.jpg');
 
 INSERT INTO PayingMethod (pay_id, pay_name)
 VALUES ('pay000000001', 'Tiền mặt'),
