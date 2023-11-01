@@ -293,14 +293,9 @@ body {
     padding: 12px;
 }
 
-<<<<<<< HEAD
 .general-info__item:nth-child(odd) {
     background-color: rgba(217, 217, 217, 0.50);
     border-radius: 8px;
-=======
-.bg-gray {
-    background-color: rgba(217, 217, 217, 0.5);
->>>>>>> 6ea0150ca04dd804f665326f5a48925c1e057b31
 }
 
 .general-info__item--left {

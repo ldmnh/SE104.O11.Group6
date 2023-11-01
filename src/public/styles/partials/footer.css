@@ -1,4 +1,4 @@
-@import url(/styles/base.css);
+@import url('/styles/base.css');
 
 footer {
   /* height: 300px;
@@ -26,9 +26,6 @@ footer {
   margin: auto;
 }
 
-#footer__contact {
-}
-
 #footer__contact h3,
 .about h3,
 .update h3 {
@@ -45,7 +42,7 @@ footer {
   display: inherit;
   gap: 16px;
 
-  & > li {
+  &>li {
     display: inline-block;
   }
 }

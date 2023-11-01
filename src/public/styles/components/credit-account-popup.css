@@ -9,6 +9,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     overflow: auto;
 }
+
 .credit {
     height: 810px;
     width: 840px;
@@ -128,6 +129,7 @@ h2 {
     width: 587px;
     height: 48px;
 }
+
 .form--item-2 input {
     width: 230px;
     height: 48px;
@@ -189,6 +191,7 @@ h2 {
         opacity: 0;
         transform: translateY(-200px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

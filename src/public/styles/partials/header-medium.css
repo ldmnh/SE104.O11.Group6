@@ -13,20 +13,10 @@ header {
   top: 0;
 }
 
-<<<<<<< HEAD
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80vw;
-    max-width: 1152px;
-    padding: 0;
-=======
 .container__header {
   width: 80%;
   height: 240px;
   max-width: 1152px;
->>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
 }
 
 .container__header--top {
@@ -75,6 +65,7 @@ header {
   font-weight: 500;
   border-radius: 8px;
   border-style: none;
+
   &:hover {
     box-shadow:
       0 1px 3px 1px rgba(0, 0, 0, 0.2),
@@ -86,6 +77,7 @@ header {
   color: #ffffff;
   background-color: #fe9c0b;
   margin: 4px;
+
   &:hover {
     box-shadow:
       0 1px 3px 1px rgba(0, 0, 0, 0.2),
@@ -109,91 +101,9 @@ header {
   border-radius: 100%;
 }
 
-<<<<<<< HEAD
-.header--title h3 {
-    margin-top: 16px;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 36px;
-    word-wrap: break-word;
-    color: white;
-}
-
-.main--search {
-    display: flex;
-    margin-top: 55px;
-    /* padding: 8px; */
-    width: 100%;
-}
-
-.top-authenticator button:hover {
-    box-shadow: 1px 2px rgba(0, 0, 0, 0.7);
-    transition: 0.2s;
-}
-
-.main--search .search__wrapper {
-    background-color: #ffffff;
-    border-radius: 8px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 98%;
-    padding-left: 8px;
-}
-
-.search-address {
-    /* position: relative; */
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    /* margin-top: -22px;
-    margin-left: 20px; */
-}
-
-.search-address span {
-    color: #90a6b1;
-    width: 24px;
-    height: 24px;
-}
-
-.search-address input {
-    margin-left: 10px;
-    background-color: #ffffff;
-    border: none;
-    color: #90a6b1;
-}
-
-.input_address {
-    text-decoration: none;
-    transition: filter 0.2s;
-}
-
-.input_address:hover {
-    filter: opacity(0.2);
-}
-
-.button--submit {
-    background-color: #fe9c0b;
-    font-size: 16px;
-    width: 128px;
-    height: 64px;
-    border-radius: 8px;
-    border: none;
-    margin-left: 8px;
-    transition: 0.3s;
-}
-
-.button--submit:hover {
-    width: 110px;
-}
-=======
 .top-authenticator p {
   margin: 0 5px;
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
 }
->>>>>>> 8bb79baab5f2e40a19bfc90b65834971d5ed9034
