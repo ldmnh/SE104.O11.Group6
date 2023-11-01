@@ -27,10 +27,11 @@
         </section>
         <section class="login">
             <h1 class="login__title">Đăng nhập</h1>
-            <form class="login__form form" id="login-form" action="post">
+            <form class="login__form form" id="login-form" action="/login" method="post">
                 <div class="row">
                     <label for="form__email" class="form-label">Email</label>
-                    <input type="email" class="form-control form__email" id="form__email" placeholder="Nhập email" />
+                    <input type="email" name="email" class="form-control form__email" id="form__email"
+                        placeholder="Nhập email">
                 </div>
                 <div class="row">
                     <label for="form__password" class="form-label">Mật khẩu</label>
@@ -51,7 +52,9 @@
 
     <%- include('../../partials/footer') %>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="/scripts/login.js"></script>
 </body>
 
