@@ -196,8 +196,8 @@ CREATE TABLE Booking
     book_phone          char(10)        NOT NULL,
     book_note           text,
     cancel_cost         float           NOT NULL,
-    book_status         varchar(50)     NOT NULL,
-    book_is_payed       int             NOT NULL,
+    book_status         int             NOT NULL, -- 1: Cancel, 0: Pending, 1: Success
+    book_is_payed       int             NOT NULL, -- 0: unpayed, 1: payed
     rea_id              char(12),
     PRIMARY KEY (book_id),
     FOREIGN KEY (pay_id) REFERENCES PayingMethod(pay_id),
