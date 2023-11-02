@@ -1,4 +1,4 @@
-USE DATABASE_IE104;
+USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_id, admin_nickname, admin_pass)
 VALUES ('adm000000001', 'admin1', 'password1'),
