@@ -67,6 +67,7 @@ class SiteController {
             (err, result, fields) => {
                 if (err) throw err;
                 if (result.length > 0) {
+                    req.session.email = email;
                     res.status(200).json({ message: 'Email đã được gửi' });
                     next();
                 } else {
@@ -77,9 +78,34 @@ class SiteController {
     }
 
     // [GET] /reset-password
-    reset(req, res) {
+    showResetForm(req, res) {
         const title = 'Đặt lại mật khẩu'
         res.render('./pages/site/reset-password', { title })
+    }
+
+    // [PUT] /reset-password
+    reset(req, res) {
+        const { password } = req.body;
+        if (!req.session.email) {
+            res.status(404).json({ message: 'Không tìm thấy email!!!' });
+            return;
+        }
+
+        const sql = 'UPDATE authuser SET au_user_pass = ? WHERE au_user_email = ?';
+        const params = [password, req.session.email];
+
+        db.query(sql, params, (err, result, fields) => {
+            if (err) {
+                res.status(500).json({ message: 'Đặt lại mật khẩu thất bại', });
+                throw err;
+            } else {
+                if (result.affectedRows === 0) {
+                    res.status(404).json({ message: 'Không tìm thấy email!!!', });
+                } else {
+                    res.status(200).json({ message: 'Đặt lại mật khẩu thành công', });
+                }
+            }
+        });
     }
 
     // [GET] /search-results

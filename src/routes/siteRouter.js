@@ -11,7 +11,14 @@ router.get('/login', authMiddleware.isAuth, SiteController.showLoginForm)
 router.post('/login', authMiddleware.isAuth, SiteController.login)
 router.get('/forgot-password', SiteController.showForgotForm);
 router.post('/forgot-password', SiteController.forgot);
-router.get('/reset-password', SiteController.reset);
+router.get('/reset-password', SiteController.showResetForm);
+router.put('/reset-password', SiteController.reset);
+
+// router for reset-password testing session 
+router.get('/testing', (req, res) => {
+  req.session.email = 'abcd@gmail.com';
+  res.status(200).json({ message: 'ok' });
+});
 router.get('/search-results', SiteController.search);
 
 router.get('/', SiteController.index)
