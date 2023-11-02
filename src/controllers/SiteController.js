@@ -21,27 +21,29 @@ class SiteController {
 
     // [GET] /login
     showLoginForm(req, res) {
-        // const title = 'Đăng nhập'
-        res.render("./pages/login.ejs")
+        const title = 'Đăng nhập'
+        res.render("./pages/site/login.ejs", { title })
         // errors: req.flash("errors")
     };
 
     // [POST] /login
     login(req, res) {
-        const { email, password } = req.body
-        // Execute SQL query that'll select the account from the database based on the specified username and password
-        db.query('SELECT * FROM authuser WHERE au_user_email = ? AND au_user_pass = ?', [email, password], function (error, results, fields) {
-            if (error) throw error;
-            if (results.length > 0) {
-                req.session.loggedin = true;
-                req.session.email = email;
-                res.redirect('/');
-            } else {
-                const conflictError = 'Email hoặc mật khẩu không chính xác';
-                res.send(conflictError)
-                res.render('./pages/login.ejs', { email, password, conflictError });
-            }
-        });
+        const { email, password } = req.body;
+        db.query(
+            'SELECT * FROM authuser WHERE au_user_email = ? AND au_user_pass = ?',
+            [email, password],
+            function (error, results, fields) {
+                if (error) throw error;
+                if (results.length > 0) {
+                    req.session.loggedin = true;
+                    req.session.email = email;
+                    res.redirect('/');
+                } else {
+                    const conflictError = 'Email hoặc mật khẩu không chính xác';
+                    res.send(conflictError);
+                    // res.render('./pages/site/login.ejs', { title, email, password, conflictError });
+                }
+            });
     }
 
     // [GET] /about-us
