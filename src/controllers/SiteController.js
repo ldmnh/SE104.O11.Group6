@@ -23,9 +23,10 @@ class SiteController {
     showLoginForm(req, res) {
         // const title = 'Đăng nhập'
         res.render("./pages/login.ejs")
-            // errors: req.flash("errors")
-        };
+        // errors: req.flash("errors")
+    };
 
+    // [POST] /login
     login(req, res) {
         const { email, password } = req.body
         // Execute SQL query that'll select the account from the database based on the specified username and password
@@ -42,89 +43,6 @@ class SiteController {
             }
         });
     }
-
-
-
-//             if (user == null) {
-//                 return done(null, false, { message: "No user found with that email" })
-//             }
-//             try {
-//                 if (await bcrypt.compare(password, user.password)) {
-//                     return done(null, user)
-//                 } else {
-//                     return done(null, false, { message: "Password Incorrect" })
-//                 }
-//             } catch (e) {
-//                 console.log(e);
-//                 return done(e)
-//             }
-//         }
-//         passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUsers))
-//         passport.serializeUser((user, done) => done(null,))
-//         passport.deserializeUser((id, done) => {
-//             return done(null, getUserById(id))
-//         })
-//     }
-// }
-
-
-// login = async (req, res) => {
-//     let errorsArr = [];
-//     let validationErrors = validationResult(req);
-//     if (!validationErrors.isEmpty()) {
-//         let errors = Object.values(validationErrors.mapped());
-//         errors.forEach((item) => {
-//             errorsArr.push(item.msg);
-//         });
-//         req.flash("errors", errorsArr);
-//         return res.redirect("/login");
-//     }
-
-//     try {
-//         await loginService.handleLogin(req.body.email, req.body.password);
-//         return res.redirect("/");
-//     } catch (err) {
-//         req.flash("errors", err);
-//         return res.redirect("/login");
-//     }
-// };
-
-
-
-
-
-// const { email, password } = req.body
-// console.log(email, password)
-// if (email && password) {
-//     User.findByEmail(email, (err, user) => {
-//         if (!user) {
-//             res.send('loi j do');
-//             res.redirect('/login');
-//         } else {
-//             // bcrypt.compare(password, user.password, (err, result) => {
-//             if (au_user_pass == password) {
-//                 req.session.loggedin = true;
-//                 req.session.user = user;
-//                 res.redirect('/');
-//             } else {
-//                 // A user with that email address does not exists
-//                 const conflictError = 'Thông tin không hợp lệ';
-//                 res.send(conflictError);
-//                 res.render('./pages/login.ejs', { email, password, conflictError });
-//             }
-//         
-//         }
-//     })
-// }
-
-// else {
-//     // A user with that email address does not exists
-//     const conflictError = 'Vui lòng điền đủ thông tin';
-//     res.send(conflictError);
-//     res.render('./pages/login.ejs', { email, password, conflictError });
-// }
-
-//     
 
     // [GET] /about-us
     about(req, res) {
