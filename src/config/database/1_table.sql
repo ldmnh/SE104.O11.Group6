@@ -1,13 +1,13 @@
-﻿DROP DATABASE DATABASE_IE104;
+﻿DROP DATABASE IF EXISTS DATABASE_SE104;
 
-CREATE DATABASE DATABASE_IE104;
+CREATE DATABASE DATABASE_SE104;
 
 USE DATABASE_IE104;
 
 CREATE TABLE Admin
 (
     admin_id			char(12)		NOT NULL	UNIQUE,
-    admin_nickname		varchar(50)		NOT NULL,
+    admin_nickname		varchar(50)		NOT NULL    UNIQUE,
     admin_pass			varchar(50)		NOT NULL,
     PRIMARY KEY (admin_id)
 );
@@ -66,7 +66,7 @@ REFERENCES DebitCard(debit_id);
 CREATE TABLE Province
 (
     prov_id				char(12)		NOT NULL	UNIQUE,
-    prov_name			nvarchar(100)	NOT NULL,
+    prov_name			nvarchar(100)	NOT NULL    UNIQUE,
     prov_url			varchar(50),
     PRIMARY KEY (prov_id)
 );
@@ -74,7 +74,7 @@ CREATE TABLE Province
 CREATE TABLE City
 (
     city_id				char(12)		NOT NULL	UNIQUE,
-    city_name			nvarchar(50)	NOT NULL,
+    city_name			nvarchar(50)	NOT NULL    UNIQUE,
     city_url			varchar(50),
     prov_id				char(12)		NOT NULL,
     PRIMARY KEY (city_id),
@@ -100,15 +100,15 @@ CREATE TABLE Accommodation
 
 CREATE TABLE Feature
 (
-    fea_id				char(12)	NOT NULL	UNIQUE,
-    fea_name			nvarchar(50)	NOT NULL,
+    fea_id				char(12)	    NOT NULL	UNIQUE,
+    fea_name			nvarchar(50)	NOT NULL    UNIQUE,
     PRIMARY KEY (fea_id)
 );
 
 CREATE TABLE AccoFea
 (
-    fea_id				char(12)	NOT NULL,
-    acco_id				char(12)	NOT NULL,
+    fea_id				char(12)	    NOT NULL,
+    acco_id				char(12)	    NOT NULL,
     PRIMARY KEY (fea_id, acco_id),
 	FOREIGN KEY (fea_id) REFERENCES Feature(fea_id),
     FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
@@ -145,15 +145,15 @@ CREATE TABLE RoomType
 
 CREATE TABLE Extension
 (
-    exte_id				char(12)     NOT NULL	UNIQUE,
-    exte_name			nvarchar(50) NOT NULL,
+    exte_id				char(12)        NOT NULL	UNIQUE,
+    exte_name			nvarchar(50)    NOT NULL   UNIQUE,
     PRIMARY KEY (exte_id)
 );
 
 CREATE TABLE RoomExte
 (
-    room_id				char(12)	NOT NULL,
-    exte_id				char(12)	NOT NULL,
+    room_id				char(12)	    NOT NULL,
+    exte_id				char(12)	    NOT NULL,
     PRIMARY KEY (room_id, exte_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id),
     FOREIGN KEY (exte_id) REFERENCES Extension(exte_id)
@@ -161,8 +161,8 @@ CREATE TABLE RoomExte
 
 CREATE TABLE RoomTypeImg
 (
-    room_id				char(12)	NOT NULL,
-    room_type_image_url varchar(50) NOT NULL,
+    room_id				char(12)	    NOT NULL,
+    room_type_image_url varchar(50)     NOT NULL,
     PRIMARY KEY (room_id, room_type_image_url),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
@@ -170,34 +170,34 @@ CREATE TABLE RoomTypeImg
 CREATE TABLE PayingMethod
 (
     pay_id				char(12)        NOT NULL	UNIQUE,
-    pay_name			nvarchar(50)	NOT NULL,
+    pay_name			nvarchar(50)	NOT NULL    UNIQUE,
     PRIMARY KEY (pay_id)
 );
 
 CREATE TABLE ReasonCancel
 (
-    rea_id				char(12)    NOT NULL	UNIQUE,
-    rea_description		nvarchar(50)	NOT NULL,
+    rea_id				char(12)        NOT NULL	UNIQUE,
+    rea_description		nvarchar(50)	NOT NULL    UNIQUE,
     PRIMARY KEY (rea_id)
 );
 
 CREATE TABLE Booking
 (
-    book_id             char(12)    NOT NULL	UNIQUE,
-    book_datetime       datetime    NOT NULL,
-    book_start_datetime datetime    NOT NULL,
-    book_end_datetime   datetime    NOT NULL,
-    pay_id              char(12)    NOT NULL,
-    book_total_cost     float       NOT NULL    DEFAULT 0,
-    book_first_name     char(50)    NOT NULL,
-    book_last_name      char(50)    NOT NULL,
-    book_email          varchar(50) NOT NULL,
-    au_user_id          char(12)    NOT NULL,
-    book_phone          char(10)    NOT NULL,
+    book_id             char(12)        NOT NULL	UNIQUE,
+    book_datetime       datetime        NOT NULL,
+    book_start_datetime datetime        NOT NULL,
+    book_end_datetime   datetime        NOT NULL,
+    pay_id              char(12)        NOT NULL,
+    book_total_cost     float           NOT NULL    DEFAULT 0,
+    book_first_name     char(50)        NOT NULL,
+    book_last_name      char(50)        NOT NULL,
+    book_email          varchar(50)     NOT NULL,
+    au_user_id          char(12)        NOT NULL,
+    book_phone          char(10)        NOT NULL,
     book_note           text,
-    cancel_cost         float       NOT NULL,
-    book_status         varchar(50) NOT NULL,
-    book_is_payed       int         NOT NULL,
+    cancel_cost         float           NOT NULL,
+    book_status         varchar(50)     NOT NULL,
+    book_is_payed       int             NOT NULL,
     rea_id              char(12),
     PRIMARY KEY (book_id),
     FOREIGN KEY (pay_id) REFERENCES PayingMethod(pay_id),
@@ -207,12 +207,12 @@ CREATE TABLE Booking
 
 CREATE TABLE BookingDetail
 (
-    book_id				char(12)	NOT NULL,
-    room_id				char(12)	NOT NULL,
-    book_final_cost		float		NOT NULL,
-    book_num_room		int			NOT NULL,
-    book_num_adult		int			NOT NULL,
-    book_num_child		int			NOT NULL,
+    book_id				char(12)	    NOT NULL,
+    room_id				char(12)	    NOT NULL,
+    book_final_cost		float		    NOT NULL,
+    book_num_room		int			    NOT NULL,
+    book_num_adult		int			    NOT NULL,
+    book_num_child		int			    NOT NULL,
     PRIMARY KEY (book_id, room_id),
     FOREIGN KEY (book_id) REFERENCES Booking(book_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
@@ -220,11 +220,11 @@ CREATE TABLE BookingDetail
 
 CREATE TABLE Rating
 (
-    au_user_id			char(12)    NOT NULL,
-    room_id				char(12)    NOT NULL,
-    rating_datetime		datetime    NOT NULL,
+    au_user_id			char(12)        NOT NULL,
+    room_id				char(12)        NOT NULL,
+    rating_datetime		datetime        NOT NULL,
     rating_context		text,
-    rating_point		float       NOT NULL,
+    rating_point		float           NOT NULL,
     PRIMARY KEY (au_user_id, room_id, rating_datetime),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
