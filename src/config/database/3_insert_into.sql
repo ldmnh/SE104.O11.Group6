@@ -10,7 +10,7 @@ VALUES ('usr000000001', 'John', 'Doe',      'john.doe@example.com',     'passwor
        ('usr000000002', 'Jane', 'Smith',    'jane.smith@example.com',   'password2', 'user_2.jpg'),
        ('usr000000003', 'Mike', 'Johnson',  'mike.johnson@example.com', 'password3', 'user_3.jpg');
 
-INSERT INTO BankCard (bank_id, bank_name, bank_brach, bank_num, bank_name_pers, au_user_id)
+INSERT INTO BankCard (bank_id, bank_name, bank_branch, bank_num, bank_name_pers, au_user_id)
 VALUES ('bnk000000001', 'Bank A', 'Branch A', '1111222233334444', 'John Doe',   'usr000000001'),
        ('bnk000000002', 'Bank B', 'Branch B', '5555222233334444', 'John Doe_',  'usr000000001'),
        ('bnk000000003', 'Bank B', 'Branch B', '5555666677778888', 'Jane Smith', 'usr000000002');

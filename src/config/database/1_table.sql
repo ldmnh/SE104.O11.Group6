@@ -31,7 +31,7 @@ CREATE TABLE BankCard
 (
     bank_id				char(12)		NOT NULL	UNIQUE,
     bank_name			nvarchar(50)	NOT NULL,
-    bank_brach			nvarchar(50)	NOT NULL,
+    bank_branch			nvarchar(50)	NOT NULL,
     bank_num			varchar(16)		NOT NULL,
     bank_name_pers		nvarchar(50)	NOT NULL,
     au_user_id			char(12),
