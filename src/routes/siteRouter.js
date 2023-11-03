@@ -16,7 +16,8 @@ router.put('/reset-password', SiteController.reset);
 
 // router for reset-password testing session 
 router.get('/testing', (req, res) => {
-  req.session.email = 'abc@gmail.com';
+  req.session.logedIn = true;
+  req.session.email = 'john.doe@example.com';
   res.status(200).json({ email: req.session.email, message: 'ok' });
 });
 router.get('/search-results', SiteController.search);
