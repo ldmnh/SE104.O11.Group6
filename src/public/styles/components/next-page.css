@@ -29,8 +29,7 @@
 }
 
 ul.pagination {
-    width: 100%;
-    height: 40px;
+    width: 400px;
     display: flex;
     justify-content: flex-end;
 }
