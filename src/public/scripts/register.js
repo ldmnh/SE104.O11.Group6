@@ -212,6 +212,7 @@ const validateInput = () => {
     document.getElementById('form__password').classList.remove('is-invalid');
     document.getElementById('form__password-confirm').classList.remove('is-invalid');
     setSuccess(password);
+    setSuccess(passwordConfirm);
   }
 
   console.log(isAllValid)
