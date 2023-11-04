@@ -4,13 +4,13 @@ const router = express.Router();
 // import controller
 const SiteController = require('../controllers/SiteController.js')
 
+router.get('/about', SiteController.about)
 router.get('/register', SiteController.register)
-router.get('/about-us', SiteController.about_us)
+router.get('/about-us', SiteController.about)
 router.get('/login', SiteController.login)
-router.get('/account', SiteController.account)
-router.get('/account/booking-history', SiteController.bookingHistory)
-router.get('/account/payment-account', SiteController.paymentAccount)
-router.get('/account/change-password', SiteController.changePassword)
+router.get('/forgot-password', SiteController.forgot);
+router.get('/reset-password', SiteController.reset);
+router.get('/search-results', SiteController.search);
 router.get('/', SiteController.index)
 
 

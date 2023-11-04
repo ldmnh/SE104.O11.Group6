@@ -67,6 +67,7 @@ header {
   font-weight: 500;
   border-radius: 8px;
   border-style: none;
+
   &:hover {
     box-shadow:
       0 1px 3px 1px rgba(0, 0, 0, 0.2),
@@ -78,6 +79,7 @@ header {
   color: #ffffff;
   background-color: #fe9c0b;
   margin: 4px;
+
   &:hover {
     box-shadow:
       0 1px 3px 1px rgba(0, 0, 0, 0.2),

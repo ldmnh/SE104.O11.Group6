@@ -180,6 +180,10 @@ body {
 
 .room-list {
     display: inherit;
+}
+
+.room-list form {
+    display: inherit;
     flex-direction: column;
     gap: 12px;
     padding: 12px;
@@ -198,12 +202,12 @@ body {
     color: #fe9c0b;
 }
 
-.room-list__button {
+.room-list__submit {
     display: inherit;
     justify-content: flex-end;
 }
 
-.room-list__button a {
+.room-list__submit-button {
     width: 300px;
     font-size: 1.5rem;
     font-weight: 700;
@@ -287,11 +291,11 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 12px;
-    border-radius: 8px;
 }
 
-.bg-gray {
-    background-color: rgba(217, 217, 217, 0.5);
+.general-info__item:nth-child(odd) {
+    background-color: rgba(217, 217, 217, 0.50);
+    border-radius: 8px;
 }
 
 .general-info__item--left {

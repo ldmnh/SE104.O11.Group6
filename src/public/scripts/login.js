@@ -89,5 +89,3 @@ loginButton.addEventListener('click', function (event) {
         errorMessage.style.color = 'green';
     }
 });
-
-

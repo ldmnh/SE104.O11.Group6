@@ -84,6 +84,7 @@ body {
     border-radius: 8px;
     width: 75%;
 }
+
 .booking--history--items {
     display: flex;
     flex-direction: column;
