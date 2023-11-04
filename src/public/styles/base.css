@@ -1,7 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0);
-
 :root {
-  --primary: #00696D;
+  --primary: #085457;
   --secondary: #FE9C0B;
 }
 
@@ -10,7 +8,6 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
-
   transition: 100ms ease-in-out;
 }
 
@@ -116,4 +113,11 @@ button.btn--filled.pri {
 button.btn--filled.sec {
   background-color: var(--secondary);
   color: white
+}
+
+button.btn--outlined.pri {
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  font-size: 16px;
 }
