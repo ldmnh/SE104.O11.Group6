@@ -1,0 +1,54 @@
+.comment--wrapper {
+    width: 1102px;
+    height: 120px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+}
+
+.comment--wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.comment--profile {
+    display: inherit;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+}
+
+.comment--profile p {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.comment--profile img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    border: 1px solid var(--Xm, #d9d9d9);
+    background:
+        url(<path-to-image>),
+        lightgray 50% / cover no-repeat;
+}
+
+.point--day {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.point--day .point {
+    font-size: 22px;
+    font-weight: 700;
+}
