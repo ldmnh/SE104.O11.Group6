@@ -13,4 +13,8 @@ router.get('/account/payment-account', SiteController.paymentAccount)
 router.get('/account/change-password', SiteController.changePassword)
 router.get('/', SiteController.index)
 
+
+
+router.get('/payment', SiteController.payment)
+
 module.exports = router

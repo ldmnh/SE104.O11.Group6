@@ -48,6 +48,10 @@ class SiteController {
         res.render('./pages/reset-password.ejs', { title })
     }
 
+    payment(req, res) {
+        res.render('./pages/payment.ejs')
+    }
+
 }
 
 module.exports = new SiteController()

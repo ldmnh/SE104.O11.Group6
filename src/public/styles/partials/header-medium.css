@@ -9,6 +9,7 @@ header {
   height: 240px;
   position: no-repeat;
   position: contain;
+  background-image: url("/imgs/bg-header.png");
   background-color: #085457;
   top: 0;
 }

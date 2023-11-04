@@ -60,6 +60,7 @@ hr {
 .aside--section p {
     padding: 12px;
     height: 48px;
+    margin-bottom: 12px;
 }
 
 .aside--section p:hover {
