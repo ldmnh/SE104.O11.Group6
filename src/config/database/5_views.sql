@@ -38,3 +38,17 @@ SELECT
 FROM DEBITCARD;
 
 SELECT * FROM VIEW_DEBITCARD;
+
+DROP VIEW IF EXISTS VIEW_RATING;
+
+CREATE VIEW VIEW_RATING AS
+SELECT
+  room_id,
+  rating_datetime,
+  rating_context,
+  rating_point,
+  au_user_id
+FROM RATING;
+
+SELECT * FROM VIEW_RATING
+;
