@@ -139,7 +139,12 @@
 .input--detail {
     height: 224px;
     padding: 10px;
+<<<<<<< Updated upstream
     z-index: 1; /* Đặt z-index để đặt lớp input trên placeholder */
+=======
+    z-index: 5;
+    /* Đặt z-index để đặt lớp input trên placeholder */
+>>>>>>> Stashed changes
 }
 
 .input--detail:focus + .custom-input::before {
@@ -149,7 +154,7 @@
     color: #000;
 }
 
-.custom-input::before {
+/* .custom-input::before {
     content: "Mô tả cụ thể trải nghiệm của bạn tại đây.";
     position: absolute;
     top: 0;
@@ -159,7 +164,7 @@
     padding: 10px;
     font-weight: 500;
     transition: all 0.3s;
-}
+} */
 
 @keyframes modalFadeIn {
     from {
