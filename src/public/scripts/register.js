@@ -226,7 +226,7 @@ const validateInput = () => {
         au_user_pass: password.value.trim()
     };
     
-    fetch("/api/register", {
+    fetch("/register", {
         method: "POST",
         body: JSON.stringify(register),
         headers: {

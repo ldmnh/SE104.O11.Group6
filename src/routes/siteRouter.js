@@ -6,7 +6,7 @@ const SiteController = require('../controllers/SiteController.js')
 
 router.get('/about', SiteController.about)
 router.get('/register', SiteController.register)
-router.post('/register', SiteController.register)
+router.post('/register', SiteController.submitRegister)
 router.get('/login', SiteController.login)
 router.get('/forgot-password', SiteController.forgot);
 router.get('/reset-password', SiteController.reset);

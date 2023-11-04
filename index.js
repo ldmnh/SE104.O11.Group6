@@ -22,7 +22,7 @@ app.use(express.static(path.join('src', 'public')))
 // use body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api", require("./src/middleware/authMiddleware"))
+// app.use("/api", require("./src/middleware/authMiddleware"))
 
 // route init
 route(app)
