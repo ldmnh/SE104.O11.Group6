@@ -14,3 +14,4 @@ router.get('/search-results', SiteController.search);
 router.get('/', SiteController.index)
 
 module.exports = router
+
