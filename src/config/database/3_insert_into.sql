@@ -163,9 +163,9 @@ VALUES
 
 INSERT INTO PayingMethod (pay_id, pay_name)
 VALUES 
-    ('pay000000001', 'Tiền mặt'),
-    ('pay000000002', 'Thẻ ngân hàng'),
-    ('pay000000003', 'Thẻ ghi nợ');
+    ('pay000000001', 'cash'),
+    ('pay000000002', 'bankcard'),
+    ('pay000000003', 'debitcard');
 
 INSERT INTO ReasonCancel (rea_id, rea_description)
 VALUES
@@ -191,16 +191,36 @@ VALUES
 
 INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
 VALUES
-    ('boo000000001', 'roo000000001', 150.00, 2, 2, 0),
-    ('boo000000001', 'roo000000002', 180.00, 1, 1, 0),
-    ('boo000000002', 'roo000000003', 200.00, 1, 2, 1),
-    ('boo000000003', 'roo000000004', 120.00, 1, 1, 0),
-    ('boo000000004', 'roo000000005', 160.00, 2, 2, 1),
-    ('boo000000005', 'roo000000006', 180.00, 1, 1, 0),
-    ('boo000000006', 'roo000000007', 250.00, 1, 2, 1),
-    ('boo000000007', 'roo000000008', 190.00, 1, 1, 0),
-    ('boo000000008', 'roo000000009', 170.00, 2, 2, 1),
-    ('boo000000009', 'roo000000010', 140.00, 1, 1, 0),
+    ('boo000000001', 'roo000000001', 150.00, 2, 2, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000001', 'roo000000002', 180.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000002', 'roo000000003', 200.00, 1, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000003', 'roo000000004', 120.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000004', 'roo000000005', 160.00, 2, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000005', 'roo000000006', 180.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000006', 'roo000000007', 250.00, 1, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000007', 'roo000000008', 190.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000008', 'roo000000009', 170.00, 2, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000009', 'roo000000010', 140.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
     ('boo000000010', 'roo000000010', 140.00, 1, 1, 0);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
