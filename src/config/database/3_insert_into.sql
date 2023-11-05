@@ -1,3 +1,4 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_id, admin_nickname, admin_pass)
@@ -82,7 +83,7 @@ VALUES
     ('acc000000003', 'accomodation_5.jpg');
 
 INSERT INTO RoomType (room_id, room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id)
-VALUES 
+VALUES
     ('roo000000001',  'Standard', 'Single', 1, 0, 1, 0, 10,   'room_1.jpg', 25.5, 100.0, NULL, NULL, 0,           'acc000000001'),
     ('roo000000002',  'Deluxe',   'Double', 2, 1, 0, 1, 5,    'room_2.jpg', 35.0, 200.0, 0.1, '2023-01-31', 0,    'acc000000001'),
     ('roo000000003',  'Suite',    'Family', 2, 2, 1, 2, 3,    'room_1.jpg', 45.2, 300.0, NULL, NULL, 0,           'acc000000002'),
@@ -229,7 +230,7 @@ VALUES
     ('usr000000002', 'roo000000002', '2023-10-28 11:00:00', 'Great service and amenities.', 5.0),
     ('usr000000003', 'roo000000003', '2023-10-29 09:45:00', 'The room had a nice view.', 4.0),
     ('usr000000001', 'roo000000004', '2023-10-30 16:15:00', 'The staff was friendly and helpful.', 4.8),
-    ('usr000000002', 'roo000000005', '2023-10-31 13:30:00', 'The room was spacious and well-maintained.', 4.7);
+    ('usr000000002', 'roo000000004', '2023-10-31 13:30:00', 'The room was spacious and well-maintained.', 4.7);
 
 INSERT INTO Notification (noti_id, noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url)
 VALUES
