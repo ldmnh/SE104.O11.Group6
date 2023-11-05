@@ -1,0 +1,11 @@
+<nav class="nav-tree">
+    <div class="nav-tree__container">
+        <ul>
+            <% nav_tree__data.forEach(function(item) { %>
+            <li class="nav-tree__item">
+                <a href="<%= item.link %>"><%= item.text %></a>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</nav>

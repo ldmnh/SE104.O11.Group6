@@ -8,9 +8,8 @@
 } */
 
 header {
-    position: fixed;
-    width: 100%;
-    background-image: url(/imgs/bg-header.png);
+    width: 100vw;
+    background-color: var(--primary-color);
     height: 112px;
     top: 0;
     z-index: 1;
@@ -26,8 +25,7 @@ header {
     height: 112px;
     align-items: center;
     justify-content: space-between;
-    /* gap: 68px; */
-    width: 80%;
+    width: 100%;
     align-self: stretch;
 }
 
@@ -52,7 +50,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* height: 0; */
 }
 
 .container__nav--top ul li {
@@ -63,7 +60,7 @@ header {
 
 .container__nav--top ul li a {
     font-size: 24px;
-    font-family: Roboto;
+    text-decoration: none;
 }
 
 .container__nav--top a {
@@ -71,8 +68,9 @@ header {
 }
 
 .top-authenticator {
-    top: 0;
-    right: 0;
+    /* top: 0;
+    right: 0; */
+    width: 260px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -83,12 +81,13 @@ header {
     height: 64px;
     margin: 0 5px;
     border-radius: 100%;
+    background-image: url(/imgs/milo.jpg);
 }
 
 .top-authenticator p {
     margin: 0 5px;
-    font-size: 24px;
-    font-family: Roboto;
+    font-size: 20px;
     font-weight: 600;
     line-height: 32px;
+    color: white;
 }
