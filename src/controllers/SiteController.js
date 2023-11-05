@@ -40,6 +40,10 @@ class SiteController {
         res.render('./pages/site/search-results', { title })
     }
 
+    payment(req, res) {
+        res.render('./pages/payment.ejs')
+    }
+
 }
 
 module.exports = new SiteController()

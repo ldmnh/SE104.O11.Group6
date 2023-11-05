@@ -54,12 +54,24 @@ cancelBtn.addEventListener("click", redirectChange1)
 //Mat khau moi
 const confirmBtn = document.querySelector('.confirm-button');
 confirmBtn.addEventListener("click", () => {
-    const newPassword = document.querySelector('.form__password').value;
-    const isPasswordValid = newPassword.length >= 8 && /[a-zA-Z]/.test(newPassword) && /[0-9]/.test(newPassword);
-    console.log('newpss', newPassword);
-    console.log('log', isPasswordValid);
+  const newPassword = document.querySelector('.form__password').value;
+  const isPasswordValid = newPassword.length >= 8 && /[a-zA-Z]/.test(newPassword) && /[0-9]/.test(newPassword);
+  console.log('newpss',newPassword);
+  console.log('log', isPasswordValid);
+  const newConfirmPass = document.querySelector('.form__password-confirm').value;
+  if (!isPasswordValid || newPassword !== newConfirmPass) {
+        //Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = '* Thông tin không hợp lệ';
+        errorMessage.style.color = 'red';
+  }
+  else {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = 'Thành công!';
+        errorMessage.style.color = 'green';
+    }
 })
 
 // Xac nhan mat khau
-const confirmNewPass = document.querySelector('.confirm_newpass').value;
+
 
