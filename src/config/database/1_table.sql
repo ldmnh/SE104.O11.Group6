@@ -20,7 +20,7 @@ CREATE TABLE AuthUser
     au_user_email       varchar(50)		NOT NULL	UNIQUE,
     au_user_pass        varchar(50)		NOT NULL,
     au_user_avt_url     varchar(50),
-    au_user_sex         bit,
+    au_user_sex         varchar(6),
     au_user_birthday    date,
     bank_default_id     char(12),
     debit_default_id    char(12),
