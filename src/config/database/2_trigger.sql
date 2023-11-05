@@ -24,12 +24,11 @@ DELETE FROM authuser;
 DELETE FROM admin;
 
 
-
 -- TRIGGER
 -- room_sum_rating trong RoomType được thay đổi khi Rating được thay đổi.
-DELIMITER //
-
 DROP TRIGGER IF EXISTS trg_RoomSumRating_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_RoomSumRating_Insert
 AFTER INSERT ON Rating
@@ -45,16 +44,16 @@ BEGIN
     GROUP BY room_id;
     
     UPDATE RoomType
-    SET room_sum_rating = room_sum_rating + count_ratings
+    SET room_sum_rating = count_ratings
     WHERE room_id = room_id_char;
-END;
+END//
 
 DELIMITER ;
 
 -- bank_default_id nếu tồn tại trong AuthUser thì phải được sở hữu của AuthUser.
-DELIMITER //
-
 DROP TRIGGER IF EXISTS trg_CheckBankOwnership_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckBankOwnership_Insert
 AFTER INSERT ON AuthUser
@@ -71,9 +70,11 @@ BEGIN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'bank_default_id must exist in BankCard and belong to AuthUser';
         END IF;
     END IF;
-END;
+END//
 
 DROP TRIGGER IF EXISTS trg_CheckBankOwnership_Update;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckBankOwnership_Update
 AFTER UPDATE ON AuthUser
@@ -90,14 +91,15 @@ BEGIN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'bank_default_id must exist in BankCard and belong to AuthUser';
         END IF;
     END IF;
-END;
+END//
 
-DELIMITER //
+DELIMITER;
 
 -- debit_default_id nếu tồn tại trong AuthUser thì phải được sở hữu của AuthUser.
-DELIMITER //
 
 DROP TRIGGER IF EXISTS trg_CheckDebitOwnership_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckDebitOwnership_Insert
 AFTER INSERT
@@ -115,13 +117,16 @@ BEGIN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'debit_default_id must exist in DebitCard and belong to AuthUser.';
         END IF;
     END IF;
-END;
+END//
+
+DELIMITER;
 
 DROP TRIGGER IF EXISTS trg_CheckDebitOwnership_Update;
 
+DELIMITER //
+
 CREATE TRIGGER trg_CheckDebitOwnership_Update
-AFTER UPDATE
-ON AuthUser
+AFTER UPDATE ON AuthUser
 FOR EACH ROW
 BEGIN
     -- Kiểm tra xem debit_default_id tồn tại trong AuthUser và thuộc sở hữu của AuthUser
@@ -135,11 +140,14 @@ BEGIN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'debit_default_id must exist in DebitCard and belong to AuthUser.';
         END IF;
     END IF;
-END;
-DELIMITER //
+END//
+
+DELIMITER;
 
 -- pay_id của Booking là của thanh toán tiền mặt thì is_payed là chưa được thanh toán.
 DROP TRIGGER IF EXISTS trg_CheckCashPayment_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckCashPayment_Insert
 AFTER INSERT ON Booking
@@ -157,15 +165,16 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Thanh toán khác tiền mặt thì book_is_payed phải được thanh toán.';
     END IF;
-END;
+END//
 
 DELIMITER;
 
 
 -- status của là cancel thì rea_id không được trống.
-DELIMITER //
 
 DROP TRIGGER IF EXISTS trg_CheckCancellationReason;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckCancellationReason
 AFTER UPDATE ON Booking
@@ -176,37 +185,39 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Khi status là "cancel", rea_id không được trống.';
     END IF;
-END;
+END//
 
 DELIMITER ;
 
 
 -- book_total_cost là tổng của các book_final_cost * book_num_room trong BookingDetails.
-DELIMITER //
-
 DROP TRIGGER IF EXISTS trg_UpdateBookingTotalCost_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_UpdateBookingTotalCost_Insert
 AFTER INSERT ON BookingDetail
 FOR EACH ROW
 BEGIN
-    -- Calculate the total cost from BookingDetails
-    SET @book_id_char = NEW.book_id;
-    
-    -- Calculate the total cost and update the book_total_cost column in the Booking table
+    DECLARE book_id_char CHAR(12);
+    DECLARE TotalCost FLOAT;
+
+    SELECT NEW.book_id, SUM(book_final_cost * book_num_room)
+    INTO book_id_char, TotalCost
+    FROM BookingDetail
+    WHERE book_id = NEW.book_id
+    GROUP BY book_id;
+
     UPDATE Booking
-    SET book_total_cost = (
-        SELECT SUM(bd.book_final_cost * bd.book_num_room)
-        FROM BookingDetail bd
-        WHERE bd.book_id = @book_id_char
-    )
-    WHERE book_id = @book_id_char;
-END;
+    SET book_total_cost = TotalCost
+    WHERE book_id = book_id_char;
+END//
 
-DELIMITER ;
-
+DELIMITER;
 
 DROP TRIGGER IF EXISTS trg_UpdateBookingTotalCost_Update;
+
+DELIMITER //
 
 CREATE TRIGGER trg_UpdateBookingTotalCost_Update
 AFTER UPDATE ON BookingDetail
@@ -222,16 +233,14 @@ BEGIN
     UPDATE Booking
     SET book_total_cost = TotalCost
     WHERE book_id = NEW.book_id;
-END;
+END//
 
 DELIMITER ;
 
-
-
 -- city_id nếu tồn tại trong Accommodation thì prov_id của bảng City với khóa city_id bằng prov_id của Accommodation.
-DELIMITER //
-
 DROP TRIGGER IF EXISTS trg_CheckCityProvince_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckCityProvince_Insert
 AFTER INSERT ON Accommodation
@@ -245,11 +254,13 @@ BEGIN
     ) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'city_id must exist in City, and prov_id must match in Accommodation and City.';
     END IF;
-END;
+END//
 
-DELIMITER //
+DELIMITER;
 
 DROP TRIGGER IF EXISTS trg_CheckCityProvince_Update;
+
+DELIMITER //
 
 CREATE TRIGGER trg_CheckCityProvince_Update
 AFTER UPDATE ON Accommodation
@@ -263,6 +274,4 @@ BEGIN
     ) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'city_id must exist in City, and prov_id must match in Accommodation and City.';
     END IF;
-END;
-
-DELIMITER;
+END//
