@@ -5,6 +5,7 @@ const router = express.Router();
 const AccountController = require('../controllers/AccountController.js')
 
 router.get('/', AccountController.index)
+router.put('/', AccountController.index__put)
 router.get('/booking-history', AccountController.bookingHistory)
 router.get('/payment', AccountController.paymentAccount)
 router.get('/change-password', AccountController.showChangeForm)
