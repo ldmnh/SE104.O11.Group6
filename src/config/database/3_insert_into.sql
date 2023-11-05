@@ -26,20 +26,19 @@ VALUES
 
 INSERT INTO Province (prov_id, prov_name, prov_url)
 VALUES
-    ('pro000000001', 'Hồ Chí Minh',          'Ho+Chi+Minh+City'),
-    ('pro000000002', 'Hà Nội',               'Hanoi'),
-    ('pro000000003', 'Đà Nẵng',              'Da+Nang'),
-    ('pro000000004', 'Hải Phòng',            'Haiphong'),
-    ('pro000000005', 'Cần Thơ',              'Can+Tho'),
-    ('pro000000006', 'Bà Rịu - Vũng Tàu',    'Ba+Ria+-+Vung+Tau');
+    ('pro000000001', 'Sóc Trăng',           'Soc+Trang'),
+    ('pro000000002', 'An Giang',            'An+Giang'),
+    ('pro000000003', 'Trà Vinh',            'Tra+Vinh'),
+    ('pro000000004', 'Bến Tre',             'Ben+Tre'),
+    ('pro000000006', 'Bà Rịa - Vũng Tàu',   'Ba+Ria+-+Vung+Tau');
 
 INSERT INTO City (city_id, city_name, prov_id)
 VALUES
-    ('cty000000001', 'Thành phố Hồ Chí Minh',    'pro000000001'),
-    ('cty000000003', 'Thành phố Đà Nẵng',        'pro000000003'),
-    ('cty000000004', 'Thành phố Hải Phòng',      'pro000000004'),
-    ('cty000000005', 'Thành phố Cần Thơ',        'pro000000005'),
-    ('cty000000006', 'Thành phố Vũng Tàu',       'pro000000006');
+    ('cty000000001', 'Thành phố Sóc Trăng',    'pro000000001'),
+    ('cty000000003', 'Thành phố Mỹ Tho',       'pro000000002'),
+    ('cty000000004', 'Thành phố Trà Vinh',     'pro000000003'),
+    ('cty000000005', 'Thành phố Bến Tre',      'pro000000004'),
+    ('cty000000006', 'Thành phố Vũng Tàu',     'pro000000006');
 
 INSERT INTO Accommodation (acco_id, acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id)
 VALUES
