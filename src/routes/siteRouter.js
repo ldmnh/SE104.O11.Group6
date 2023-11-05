@@ -19,7 +19,7 @@ router.get('/testing', (req, res) => {
   req.session.email = 'abc@gmail.com';
   res.status(200).json({ email: req.session.email, message: 'ok' });
 });
-router.get('/search-results', SiteController.search);
+router.post('/search-results', SiteController.search);
 
 router.get('/', SiteController.index)
 
