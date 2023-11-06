@@ -1,61 +1,27 @@
 :root {
-  --primary: #085457;
-  --secondary: #FE9C0B;
+  --primary-color-1: #085457;
+  --primary-color-2: #00696D;
+  --primary-color-3: #00A1A6;
+  --primary-color-4: #FE9C0B;
+  --white: #ffffff;
+  --black: #000000;
+  --green: #119726;
+  --green-gradient: linear-gradient(90deg, #085457 27%, #2B8184 60%, #59BDC0 93%);
+  --outline-variant: #BEC8C9;
+  --mint-blue: #E6F0F1;
+  --link: #0d6efd;
+  --bg-mint-green: rgba(89, 189, 192, 0.2);
+  --red: #FF0000;
+  --bg-white: #F1F1F1;
+  --gray: #D9D9D9;
+  --dark-gray: #6F7979;
+  --blue-gray: #90A6B1;
+  --purple: #4D5F7C;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
   font-size: 16px;
-  transition: 100ms ease-in-out;
-}
-
-.primary {
-  background-color: var(--primary);
-}
-
-.primary-text {
-  color: var(--primary);
-}
-
-.secondary {
-  background-color: var(--secondary);
-}
-
-.secondary-text {
-  color: var(--secondary);
-}
-
-.mt-8 {
-  margin-top: 8px;
-}
-
-.mt-16 {
-  margin-top: 16px;
-}
-
-.mt-24 {
-  margin-top: 24px;
-}
-
-.mt-32 {
-  margin-top: 32px;
-}
-
-.mt-48 {
-  margin-top: 48px;
-}
-
-.mt-64 {
-  margin-top: 64px;
-}
-
-.container {
-  width: 100%;
-  max-width: 1152px;
-  padding: 0;
-  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
@@ -106,7 +72,7 @@ button.btn--filled {
 }
 
 button.btn--filled.pri {
-  background-color: var(--primary);
+  background-color: var(--primary-color-1);
   color: white
 }
 
