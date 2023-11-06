@@ -41,7 +41,7 @@ class SiteController {
     }
 
     payment(req, res) {
-        res.render('./pages/payment.ejs')
+        res.render('./pages/order-payment.ejs')
     }
 
 }

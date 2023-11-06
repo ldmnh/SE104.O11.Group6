@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const addBankAccountBtn = document.querySelector('.addBankAccountBtn')
 
 const redirect2AccountPage = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "http://127.0.0.1:3000/account/payment"
 }
 
 addBankAccountBtn.addEventListener("click", redirect2AccountPage)
@@ -26,7 +26,7 @@ addBankAccountBtn.addEventListener("click", redirect2AccountPage)
 const addCreditCardBtn = document.querySelector('.addCreditCardBtn')
 
 const redirect2AccountPagee = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "http://127.0.0.1:3000/account/payment"
 }
 
 addCreditCardBtn.addEventListener("click", redirect2AccountPagee)
