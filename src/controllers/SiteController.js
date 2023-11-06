@@ -21,6 +21,10 @@ class SiteController {
     about(req, res) {
         res.render('./pages/site/about-us')
     }
+    // [GET] /footer
+    footer(req, res) {
+        res.render('./pages/footer.ejs')
+    }
 
     // [GET] /forgot-password
     forgot(req, res) {
