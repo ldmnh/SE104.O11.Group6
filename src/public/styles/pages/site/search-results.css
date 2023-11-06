@@ -261,11 +261,12 @@ body {
 }
 
 .search-results__filter__item p {
-    margin: 0;
+    margin: 2px;
 }
 
 .search-results__filter__item .material-symbols-outlined {
-    padding: 0 4px 0 0px;
+    font-size: 28px;
+    padding: 0;
 }
 
 .search-results__filter__title {
