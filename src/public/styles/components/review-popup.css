@@ -1,0 +1,200 @@
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.container--popup {
+    width: 700px;
+    height: 675px;
+    left: 0;
+    font-weight: 500px;
+    margin-left: 375px;
+    margin-top: 100px;
+    translate: translateY(200px);
+    background-color: white;
+    /* display: none; */
+    border-radius: 8px;
+    animation: modalFadeIn ease 0.5s;
+    /* transform: translateX(385px) translateY(150px); */
+    box-shadow: 0 10px 40px -20px black;
+}
+
+.container--title {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.container--title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.container--title svg {
+    width: 34.074px;
+    height: 34.074px;
+}
+
+.form--submitbutton {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.form--submit1 {
+    width: 106px;
+    height: 48px;
+    border-radius: 8px;
+    color: #fe9c0b;
+    background-color: white;
+    border: 1px solid #fe9c0b;
+    font-size: 16px;
+    font-weight: 500px;
+}
+
+.form--submit2 {
+    width: 106px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #fe9c0b;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 500px;
+}
+
+.section--popup {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    gap: 20px;
+    width: 670px;
+    height: 605px;
+    margin: 15px;
+}
+
+.popup-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 87px;
+}
+
+.popup-profile img {
+    height: 64px;
+    width: 64px;
+    border-radius: 100%;
+}
+
+.counter--wraper {
+    display: flex;
+    width: 100px;
+    height: 58px;
+    padding: 10px;
+    border: 1px solid var(--material-theme-sys-light-outline, #6f7979);
+    background: #fff;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input#room__quantity {
+    border: none;
+    width: 30px;
+    font-size: 22px;
+    height: 30px;
+    text-align: center;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/* CSS ẩn mũi tên lên/xuống của input số */
+input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Ẩn các mũi tên lên/xuống trong trình duyệt Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.counter--wraper span {
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.counter--wraper .number {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0px 5px;
+    border-radius: 4px;
+}
+
+.review-quality {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    gap: 20px;
+    background-color: #e6f0f1;
+    border-radius: 8px;
+    padding: 10px;
+    height: 72px;
+}
+
+.review-quality p {
+    margin: 0;
+    padding: 0;
+}
+
+.custom-input {
+    position: relative;
+}
+
+.input--detail {
+    height: 224px;
+    padding: 10px;
+    z-index: 1; /* Đặt z-index để đặt lớp input trên placeholder */
+}
+
+.input--detail:focus + .custom-input::before {
+    top: -10px;
+    left: 10px;
+    font-size: 16px;
+    color: #000;
+}
+
+/* .custom-input::before {
+    content: "Mô tả cụ thể trải nghiệm của bạn tại đây.";
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    color: #999;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.3s;
+} */
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

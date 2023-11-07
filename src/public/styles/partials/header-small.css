@@ -1,0 +1,93 @@
+@import url("/styles/variables.css");
+
+/* html {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+} */
+
+header {
+    width: 100vw;
+    background-color: var(--primary-color);
+    height: 112px;
+    top: 0;
+    z-index: 1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container__header--top {
+    display: flex;
+    height: 112px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    align-self: stretch;
+}
+
+.container__header--top img {
+    display: flex;
+    width: 167.652px;
+    height: 48px;
+}
+
+.container__nav--top {
+    width: 656px;
+    /* height: 48px; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.container__nav--top ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container__nav--top ul li {
+    display: inline;
+    margin: 0 24px;
+    padding-top: 15px;
+}
+
+.container__nav--top ul li a {
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.container__nav--top a {
+    color: #ffffff;
+}
+
+.top-authenticator {
+    /* top: 0;
+    right: 0; */
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.top-authenticator img {
+    width: 64px;
+    height: 64px;
+    margin: 0 5px;
+    border-radius: 100%;
+    background-image: url(/imgs/milo.jpg);
+}
+
+.top-authenticator p {
+    margin: 0 5px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    color: white;
+}
