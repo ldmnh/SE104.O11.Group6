@@ -1,19 +1,23 @@
 <div class="main--search">
-    <div class="search__wrapper">
-        <div class="search-address">
-            <span class="material-symbols-outlined"> location_on </span>
-            <input class="input_address" type="text" placeholder="Nơi muốn đến" />
-        </div>
-
-        <div class="search-address" style="border-left: 1px solid #90a6b1">
-            <span class="material-symbols-outlined"> calendar_month </span>
-            <input class="input_address" type="text" placeholder="Ngày nhận - Ngày trả" />
-        </div>
-
-        <div class="search-address" style="border-left: 1px solid #90a6b1">
-            <span class="material-symbols-outlined"> person </span>
-            <input class="input_address" type="text" placeholder="1 người lớn - 0 trẻ em - 1 phòng" style="width: 250px" />
-        </div>
+  <div class="search__wrapper">
+    <div class="search-address">
+      <span class="material-symbols-outlined"> location_on </span>
+      <input class="input_address" type="text" placeholder="Nơi muốn đến" />
     </div>
-    <button class="button--submit">Tìm kiếm</button>
+
+    <div class="search-address" style="border-left: 1px solid #90a6b1">
+      <span class="material-symbols-outlined"> calendar_month </span>
+      <input class="input_address" id="dateRange" type="text" value="" placeholder="Ngày nhận - Ngày trả" />
+    </div>
+
+    <div class="search-address" style="border-left: 1px solid #90a6b1">
+      <span class="material-symbols-outlined"> person </span>
+      <input class="input_address" type="text" placeholder="1 người lớn - 0 trẻ em - 1 phòng" style="width: 250px" />
+    </div>
+  </div>
+  <button class="button--submit">Tìm kiếm</button>
 </div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>

@@ -52,20 +52,21 @@
 
 .input_address {
     text-decoration: none;
-    transition: filter 0.2s;
+    /* transition: filter 0.2s; */
     border: none;
 }
 
-.input_address:hover {
+/* .input_address:hover {
     filter: opacity(0.2);
-}
+} */
 
 .button--submit {
     background-color: var(--primary-color-4);
     font-size: 16px;
+    font-weight: 500;
     color: var(--white);
-    width: 20%;
     height: 64px;
+    width: 20%;
     border-radius: 8px;
     border: none;
     margin-left: 8px;
@@ -74,7 +75,19 @@
         box-shadow:
             0 1px 3px 1px rgba(0, 0, 0, 0.2),
             0 0 2px 0 rgba(0, 0, 0, 0.2);
-        width: 15%;
-        transition: 0.3s;
     }
+}
+
+.daterangepicker {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 12px;
+    margin-left: -40px;
+    margin-top: 9px;
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+    top: 198.5px;
+    left: 538.025px;
+    right: auto;
+    display: block;
 }

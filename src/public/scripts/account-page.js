@@ -47,3 +47,4 @@ const redirect2LogOutView = () => {
 }
 
 logoutBtn.addEventListener("click", redirect2LogOutView)
+
