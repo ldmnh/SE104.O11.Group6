@@ -25,7 +25,7 @@ const redirect2HistoryView = () => {
 }
 
 const redirect2accountPaymentView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "http://127.0.0.1:3000/account/payment"
 }
 
 const redirect2changePasswordView = () => {

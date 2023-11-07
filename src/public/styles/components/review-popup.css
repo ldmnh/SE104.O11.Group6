@@ -175,6 +175,10 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #000;
 }
 
+.close-popup {
+    cursor: pointer;
+}
+
 /* .custom-input::before {
     content: "Mô tả cụ thể trải nghiệm của bạn tại đây.";
     position: absolute;

@@ -7,7 +7,7 @@ const redirect2profiletView = () => {
 }
 
 const redirect2accountPaymentView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "http://127.0.0.1:3000/account/payment"
 }
 
 const redirect2changePasswordView = () => {
@@ -27,9 +27,21 @@ logoutBtn.addEventListener("click", redirect2LogOutView);
 
 // Lay nut danh gia va nut popup
 const reviewpopup = document.querySelector('.modal');
-const reviewBtn = document.querySelector('.reviewBtn');
+const reviewBtns = document.querySelectorAll('.review-btn');
 
 const onClickReviewBtn = () => {
     reviewpopup.style.display = 'block';
 };
-reviewBtn.addEventListener('click', onClickReviewBtn);
+
+reviewBtns.forEach((reviewBtn) => {
+    reviewBtn.addEventListener('click', onClickReviewBtn);
+});
+
+//Khi nhấn vào nút xem chi tiết: detail-btn
+const detailBtns = document.querySelectorAll('.detail-btn');
+const redirect2OrderConfirmView = () => {
+    window.location.href = "http://127.0.0.1:3000/order-confirm";
+}
+detailBtns.forEach((detailBtn) => {
+    detailBtn.addEventListener('click', redirect2OrderConfirmView);
+})
