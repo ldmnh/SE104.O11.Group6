@@ -62,7 +62,7 @@
 }
 
 #voucher-section {
-  & .section__content>* {
+  & .section__content > * {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -71,7 +71,7 @@
   & .voucher__item {
     width: 50%;
     height: 272px;
-    background: rgba(225, 220, 188, 0.5);
+    background: rgba(255, 218, 214, 1);
 
     padding: 12px 24px;
     border-radius: 12px;
@@ -86,7 +86,7 @@
 }
 
 #partners-section {
-  & .section__content>* {
+  & .section__content > * {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -104,12 +104,16 @@
     /* background-color: #000; */
 
     & .partners__logo {
-      height: 128px;
+      height: 224px;
       aspect-ratio: 1/1;
     }
 
     & .partners__name {
       text-align: center;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 36px;
     }
   }
 }
@@ -131,7 +135,7 @@
 }
 
 #factor-section {
-  & .section__content>* {
+  & .section__content > * {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -141,7 +145,7 @@
     width: 25%;
     min-height: 100px;
 
-    padding: 16px;
+    /* padding: 16px; */
     /* border-radius: 1rem; */
 
     text-align: center;
@@ -149,12 +153,16 @@
     /* background-color: #000; */
 
     & .factor__logo {
-      height: 128px;
+      height: 224px;
       aspect-ratio: 1/1;
     }
 
     & .factor__name {
       text-align: center;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 36px;
     }
   }
 }
