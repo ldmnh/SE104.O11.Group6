@@ -1,4 +1,4 @@
-@import url("/styles/variables.css");
+@import url("/styles/base.css");
 
 /* html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -9,7 +9,7 @@
 
 header {
     width: 100vw;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-1);
     height: 112px;
     top: 0;
     z-index: 1;
@@ -37,7 +37,6 @@ header {
 
 .container__nav--top {
     width: 656px;
-    /* height: 48px; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -64,12 +63,10 @@ header {
 }
 
 .container__nav--top a {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .top-authenticator {
-    /* top: 0;
-    right: 0; */
     width: 260px;
     display: flex;
     align-items: center;
@@ -89,5 +86,5 @@ header {
     font-size: 20px;
     font-weight: 600;
     line-height: 32px;
-    color: white;
+    color: var(--white);
 }

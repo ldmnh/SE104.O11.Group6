@@ -10,7 +10,7 @@ header {
   height: 484px;
   position: no-repeat;
   position: contain;
-  background-color: #085457;
+  background-color: var(--primary-color-1);
   top: 0;
 }
 
@@ -48,7 +48,7 @@ header {
   font-size: 22px;
   text-decoration: none;
   font-weight: 500;
-  color: white;
+  color: var(--white);
 }
 
 .top-authenticator {
@@ -61,8 +61,8 @@ header {
 .top-authenticator button {
   width: 128px;
   height: 48px;
-  background-color: #ffffff;
-  color: #085457;
+  background-color: var(--white);
+  color: var(--primary-color-1);
   font-size: 16px;
   font-weight: 500;
   border-radius: 8px;
@@ -76,13 +76,15 @@ header {
 }
 
 .top-authenticator .button-signup {
-  color: #ffffff;
-  background-color: #fe9c0b;
+  color: var(--white);
+  background-color: var(--primary-color-4);
   margin: 4px;
 
   &:hover {
-       box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
-}
+    box-shadow:
+      0 1px 3px 1px rgba(0, 0, 0, 0.2),
+      0 0 2px 0 rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* Header with login*/
@@ -113,7 +115,7 @@ header {
 }
 
 .header--title h1 {
-  color: white;
+  color: var(--white);
   font-size: 57px;
   font-weight: 700;
   line-height: 64px;
@@ -126,5 +128,5 @@ header {
   font-weight: 400;
   line-height: 36px;
   word-wrap: break-word;
-  color: white;
+  color: var(--white);
 }

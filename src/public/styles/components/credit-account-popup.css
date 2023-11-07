@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 .modal2 {
     position: fixed;
     display: none;
@@ -41,10 +43,10 @@ h2 {
     /* width: 764px;
     height: 391px; */
     text-align: left;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 8px;
     padding: 25px;
-    box-shadow: 0 10px 40px -20px black;
+    box-shadow: 0 10px 40px -20px var(--black);
     position: relative;
     overflow-y: visible;
 }
@@ -66,7 +68,7 @@ h2 {
 
 .icon span {
     font-size: 85px;
-    color: #119726;
+    color: var(--green);
 }
 
 .info--title {
@@ -151,9 +153,9 @@ h2 {
     width: 96px;
     height: 48px;
     border-radius: 8px;
-    color: #fe9c0b;
-    background-color: white;
-    border: 1px solid #fe9c0b;
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
 }
 
@@ -161,8 +163,8 @@ h2 {
     width: 131px;
     height: 48px;
     border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
+    background-color: var(--primary-color-4);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
@@ -174,7 +176,7 @@ h2 {
 }
 
 .credit__close--btn span {
-    color: #00696d;
+    color: var(--primary-color-2);
 }
 
 .credit__button:hover {

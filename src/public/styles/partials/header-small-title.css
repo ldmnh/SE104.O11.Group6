@@ -1,5 +1,7 @@
+@import url("/styles/base.css");
+
 header {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-1);
     height: 112px;
     display: inherit;
     align-items: center;

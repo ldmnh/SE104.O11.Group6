@@ -1,10 +1,12 @@
+@import url("/styles/base.css");
+
 .room__in__hs {
     height: 307px;
     width: 804px;
     display: flex;
     gap: 32px;
-    background-color: white;
-    border: 1px solid #bec8c9;
+    background-color: var(--white);
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     margin: 6px 0;
 }
@@ -51,7 +53,6 @@
 
 .policy__room {
     display: flex;
-    color: var(--primary-color);
     gap: 8px;
 }
 
@@ -96,24 +97,7 @@
     justify-content: flex-end;
 }
 
-.form--submit1 {
-    width: 206px;
-    height: 48px;
-    border-radius: 8px;
-    color: white;
-    background-color: var(--primary-color);
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-}
-
+.form--submit1,
 .form--submit2 {
-    width: 206px;
-    height: 48px;
-    border-radius: 8px;
-    color: white;
-    background-color: #fe9c0b;
-    font-size: 16px;
     font-weight: 500;
-    border: none;
 }
