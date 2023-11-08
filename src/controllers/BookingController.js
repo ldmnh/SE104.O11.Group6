@@ -1,48 +1,43 @@
 class BookingController {
 
-    // [GET] /booking/info
+    // [GET] /booking/information
     information(req, res) {
-        // res.render('./pages/booking/info')
-        res.send("booking-info")
+        res.render('./pages/booking/information')
     }
 
-    // [POST] /booking/info
+    // [POST] /booking/information
     informationPost(req, res) {
-        res.send("booking-infoPost")
+        res.send('booking-infoPost')
     }
 
     // [GET] /booking/payment
     payment(req, res) {
-        // res.render('./pages/booking/payment')
-        res.send("booking-payment")
+        res.render('./pages/booking/payment')
     }
 
     // [POST] /booking/payment
     paymentPost(req, res) {
-        res.send("booking-paymentPost")
+        res.send('booking-paymentPost')
     }
 
-    // [GET] /booking/result
+    // [GET] /booking/success
     success(req, res) {
-        // res.render('./pages/booking/success')
-        res.send("booking-success")
+        res.render('./pages/booking/success')
     }
 
-    // [GET] /booking/result-detail
+    // [GET] /booking/detail
     detail(req, res) {
-        // res.render('./pages/booking/result-detail')
-        res.send("booking-detail")
-    }
-
-    // [POST] /booking/cancel
-    cancelPost(req, res) {
-        res.send("cancelPost")
+        res.render('./pages/booking/detail')
     }
 
     // [GET] /booking/cancel
     cancel(req, res) {
-        // res.render('./pages/booking/cancel')
-        res.send("booking-cancel")
+        res.render('./pages/booking/cancellation')
+    }
+
+    // [POST] /booking/cancel
+    cancelPost(req, res) {
+        res.send('cancelPost')
     }
 
 }

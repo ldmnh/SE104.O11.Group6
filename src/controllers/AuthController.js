@@ -3,50 +3,38 @@ class SiteController {
     // [GET] /auth/register
     register(req, res) {
         const title = 'Đăng ký'
-        res.render('./pages/site/register', { title })
+        res.render('./pages/auth/register', { title })
     }
 
     // [POST] /auth/register
-    registerPost(req, res) {
-        // const title = 'Đăng ký'
-        // res.render('./pages/site/register', { title })
-    }
+    registerPost(req, res) { }
 
     // [GET] /auth/login
     login(req, res) {
         const title = 'Đăng nhập'
-        res.render('./pages/site/login', { title })
+        res.render('./pages/auth/login', { title })
     }
 
     // [POST] /auth/login
-    loginPost(req, res) {
-        // const title = 'Đăng nhập'
-        // res.render('./pages/site/login', { title })
-    }
+    loginPost(req, res) { }
 
     // [GET] /auth/forgot-password
     forgot(req, res) {
         const title = 'Nhận liên kết đặt lại mật khẩu'
-        res.render('./pages/site/forgot-password', { title })
+        res.render('./pages/auth/forgot', { title })
     }
 
     // [POST] /auth/forgot-password
-    forgotPost(req, res) {
-        // const title = 'Nhận liên kết đặt lại mật khẩu'
-        // res.render('./pages/site/forgot-password', { title })
-    }
+    forgotPost(req, res) { }
 
     // [GET] /auth/reset-password
     reset(req, res) {
         const title = 'Đặt lại mật khẩu'
-        res.render('./pages/site/reset-password', { title })
+        res.render('./pages/auth/reset', { title })
     }
 
     // [POST] /auth/reset-password
-    resetPost(req, res) {
-        // const title = 'Đặt lại mật khẩu'
-        // res.render('./pages/site/reset-password', { title })
-    }
+    resetPost(req, res) { }
 
     // [GET] /auth/logout
     logout(req, res) {
@@ -54,10 +42,10 @@ class SiteController {
     }
 
     // [GET] /auth/change
-    change(req, res) {
-        const title = 'Đổi mật khẩu'
-        res.render('./pages/account/change-password', { title })
-    }
+    // change(req, res) {
+    //     const title = 'Đổi mật khẩu'
+    //     res.render('./pages/account/change-password', { title })
+    // }
 
 }
 

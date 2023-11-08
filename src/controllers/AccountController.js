@@ -1,18 +1,18 @@
 class AccountController {
 
-    // [GET] /account/
+    // [GET] /account/information
     information(req, res) {
-        res.render('./pages/account/index')
+        res.render('./pages/account/information')
     }
 
     // [PUT] /account/
     informationPut(req, res) {
-        res.send("indexPut")
+        res.send('indexPut')
     }
 
-    // [GET] /account/booking-history
+    // [GET] /account/history
     history(req, res) {
-        res.render('./pages/account/booking-history')
+        res.render('./pages/account/history')
     }
 
     // [GET] /account/payment
@@ -22,22 +22,27 @@ class AccountController {
 
     // [POST] /account/payment/addBank
     addBank(req, res) {
-        res.send("addBank")
+        res.send('addBank')
     }
 
     // [POST] /account/payment/addDebit
     addDebit(req, res) {
-        res.send("addDebit")
+        res.send('addDebit')
     }
 
     // [POST] /account/payment/delBank
     delBank(req, res) {
-        res.send("delBank")
+        res.send('delBank')
     }
 
     // [POST] /account/payment/delDebit
     delDebit(req, res) {
-        res.send("delDebit")
+        res.send('delDebit')
+    }
+
+    // [GET] /account/change-password
+    changePassword(req, res) {
+        res.render('./pages/account/change-password')
     }
 
 }

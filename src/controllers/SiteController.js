@@ -7,7 +7,7 @@ class SiteController {
 
     // [GET] /about-us
     about(req, res) {
-        res.render('./pages/site/about-us')
+        res.render('./pages/site/about')
     }
 }
 
