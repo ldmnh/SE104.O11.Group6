@@ -1,14 +1,14 @@
 class NotificationController {
 
-    // [GET] /auth/notification/account-update
+    // [GET] /notification/account-update
     notiAccountUpdate(req, res) {
         res.render('./pages/notification/account-update')
     }
 
-    // [GET] /auth/notification/promotion
+    // [GET] /notification/promotion
     notiPromotion(req, res) {
         const title = 'Thông báo'
-        res.render('./pages/notifications/promotion', { title })
+        res.render('./pages/notification/promotion', { title })
     }
 
 }

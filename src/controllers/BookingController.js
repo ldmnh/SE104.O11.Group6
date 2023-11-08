@@ -2,7 +2,11 @@ class BookingController {
 
     // [GET] /booking/information
     information(req, res) {
-        res.render('./pages/booking/information')
+        const nav_tree__data = [
+            { name: 'Trang chủ', link: '/' },
+            { name: 'Thông tin đặt phòng', link: '/booking/information' }
+        ]
+        res.render('./pages/booking/information', { nav_tree__data })
     }
 
     // [POST] /booking/information
@@ -12,7 +16,11 @@ class BookingController {
 
     // [GET] /booking/payment
     payment(req, res) {
-        res.render('./pages/booking/payment')
+        const nav_tree__data = [
+            { name: 'Trang chủ', link: '/' },
+            { name: 'Phương thức thanh toán', link: '/booking/payment' }
+        ]
+        res.render('./pages/booking/payment', { nav_tree__data })
     }
 
     // [POST] /booking/payment

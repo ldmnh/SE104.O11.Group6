@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 class AccountController {
 
-    // [GET] /account/
+    // [GET] /account/information
     information(req, res) {
         if (!req.session.email) {
             res.status(404).json({ message: 'Không tìm thấy email!!!' });
@@ -38,7 +38,7 @@ class AccountController {
         });
     }
 
-    // [PUT] /account/
+    // [PUT] /account/information
     informationPut(req, res) {
         const {
             account_first_name,
@@ -79,9 +79,9 @@ class AccountController {
         })
     }
 
-    // [GET] /account/booking-history
+    // [GET] /account/history
     history(req, res) {
-        res.render('./pages/account/booking-history')
+        res.render('./pages/account/history')
     }
 
     // [GET] /account/payment
@@ -109,7 +109,7 @@ class AccountController {
         res.send("delDebit")
     }
 
-    // [GET]  /account/change-password
+    // [GET]  /account/change
     change(req, res) {
         const title = 'Đổi mật khẩu'
         res.render('./pages/account/change-password', { title })

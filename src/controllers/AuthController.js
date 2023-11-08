@@ -1,9 +1,9 @@
-class SiteController {
+class AuthController {
 
     // [GET] /auth/register
     register(req, res) {
         const title = 'Đăng ký'
-        res.render('./pages/site/register', { title })
+        res.render('./pages/auth/register', { title })
     }
 
     // [POST] /auth/register
@@ -14,7 +14,7 @@ class SiteController {
     // [GET] /auth/login
     login(req, res) {
         const title = 'Đăng nhập'
-        res.render('./pages/site/login', { title })
+        res.render('./pages/auth/login', { title })
     }
 
     // [POST] /auth/login
@@ -59,4 +59,4 @@ class SiteController {
 
 }
 
-module.exports = new SiteController()
+module.exports = new AuthController()
