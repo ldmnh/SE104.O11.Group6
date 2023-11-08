@@ -11,6 +11,6 @@ router.post('/payment', BookingController.paymentPost)
 router.get('/result', BookingController.result)
 router.get('/result-detail', BookingController.resultDetail)
 router.post('/cancel', BookingController.cancelPost)
-router.post('/cancel', BookingController.cancel)
+router.get('/cancel', BookingController.cancel)
 
 module.exports = router

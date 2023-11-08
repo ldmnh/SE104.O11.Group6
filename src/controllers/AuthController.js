@@ -1,74 +1,74 @@
 class SiteController {
 
-    // [GET] /register
+    // [GET] /auth/register
     register(req, res) {
         const title = 'Đăng ký'
         res.render('./pages/site/register', { title })
     }
 
-    // [POST] /register
+    // [POST] /auth/register
     registerPost(req, res) {
         // const title = 'Đăng ký'
         // res.render('./pages/site/register', { title })
     }
 
-    // [GET] /login
+    // [GET] /auth/login
     login(req, res) {
         const title = 'Đăng nhập'
         res.render('./pages/site/login', { title })
     }
 
-    // [POST] /login
+    // [POST] /auth/login
     loginPost(req, res) {
         // const title = 'Đăng nhập'
         // res.render('./pages/site/login', { title })
     }
 
-    // [GET] /forgot-password
+    // [GET] /auth/forgot-password
     forgot(req, res) {
         const title = 'Nhận liên kết đặt lại mật khẩu'
         res.render('./pages/site/forgot-password', { title })
     }
 
-    // [POST] /forgot-password
+    // [POST] /auth/forgot-password
     forgotPost(req, res) {
         // const title = 'Nhận liên kết đặt lại mật khẩu'
         // res.render('./pages/site/forgot-password', { title })
     }
 
-    // [GET] /reset-password
+    // [GET] /auth/reset-password
     reset(req, res) {
         const title = 'Đặt lại mật khẩu'
         res.render('./pages/site/reset-password', { title })
     }
 
-    // [POST] /reset-password
+    // [POST] /auth/reset-password
     resetPost(req, res) {
         // const title = 'Đặt lại mật khẩu'
         // res.render('./pages/site/reset-password', { title })
     }
 
-    // [GET] /logout
+    // [GET] /auth/logout
     logout(req, res) {
         res.redirect('/')
     }
 
-    // [GET] /notification/account-update
+    // [GET] /auth/notification/account-update
     notiAccountUpdate(req, res) {
         const title = 'Thông báo'
-        res.render('./pages/site/notification/account-update', { title })
+        res.render('./pages/notifications/account-update', { title })
     }
 
-    // [GET] /notification/promotion
+    // [GET] /auth/notification/promotion
     notiPromotion(req, res) {
         const title = 'Thông báo'
-        res.render('./pages/site/notification/promotion', { title })
+        res.render('./pages/notifications/promotion', { title })
     }
 
-    // [GET] /change
+    // [GET] /auth/change
     change(req, res) {
         const title = 'Đổi mật khẩu'
-        res.render('./pages/site/change', { title })
+        res.render('./pages/account/change-password', { title })
     }
 
 }

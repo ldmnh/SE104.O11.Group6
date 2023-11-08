@@ -2,7 +2,7 @@ class SearchController {
 
     // [GET] /search/:acco_id
     accoDetail(req, res) {
-        res.render('./pages/site/acco-detail', { title })
+        res.render('./pages/acco-detail')
     }
 
     // [GET] /search

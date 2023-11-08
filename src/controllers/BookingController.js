@@ -2,32 +2,36 @@ class BookingController {
 
     // [GET] /booking/info
     info(req, res) {
-        res.render('./pages/booking/info')
+        // res.render('./pages/booking/info')
+        res.send("booking-info")
     }
 
     // [POST] /booking/info
     infoPost(req, res) {
-        res.send("infoPost")
+        res.send("booking-infoPost")
     }
 
     // [GET] /booking/payment
     payment(req, res) {
-        res.render('./pages/booking/payment')
+        // res.render('./pages/booking/payment')
+        res.send("booking-payment")
     }
 
     // [POST] /booking/payment
     paymentPost(req, res) {
-        res.send("paymentPost")
+        res.send("booking-paymentPost")
     }
 
     // [GET] /booking/result
     result(req, res) {
-        res.render('./pages/booking/result')
+        // res.render('./pages/booking/result')
+        res.send("booking-result")
     }
 
     // [GET] /booking/result-detail
     resultDetail(req, res) {
-        res.render('./pages/booking/result-detail')
+        // res.render('./pages/booking/result-detail')
+        res.send("booking-result-detail")
     }
 
     // [POST] /booking/cancel
@@ -37,7 +41,8 @@ class BookingController {
 
     // [GET] /booking/cancel
     cancel(req, res) {
-        res.render('./pages/booking/cancel')
+        // res.render('./pages/booking/cancel')
+        res.send("booking-cancel")
     }
 
 }
