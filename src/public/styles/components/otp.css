@@ -1,3 +1,5 @@
+@import url(/styles/base.css);
+
 .otp {
   box-sizing: border-box;
 }
@@ -15,7 +17,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background-color: var(--black);
 }
 
 .otp__notice {
@@ -26,10 +28,10 @@ h1 {
   width: 500px;
   height: 350px;
   text-align: center;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px;
   padding: 34px 43px 35px 43px;
-  box-shadow: 0 10px 40px -20px black;
+  box-shadow: 0 10px 40px -20px var(--black);
   position: relative;
   font-size: 16px;
 }
@@ -48,7 +50,7 @@ h1 {
   font-size: 16px;
   text-align: center;
   border-radius: 4px;
-  border: 1px solid #bec8c9;
+  border: 1px solid var( --outline-variant);
 }
 
 .otp__button {
@@ -62,9 +64,9 @@ h1 {
   width: 96px;
   height: 48px;
   border-radius: 8px;
-  color: #085457;
-  background-color: white;
-  border: 1px solid #085457;
+  color: var(--primary-color-1);
+  background-color: var(--white);
+  border: 1px solid var(--primary-color-1);
   font-size: 16px;
 }
 
