@@ -51,7 +51,7 @@ h2 {
     overflow-y: visible;
 }
 
-.form--items {
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,17 +66,17 @@ h2 {
     background: #f1fff3;
 }
 
-.icon span {
+.credit__icon span {
     font-size: 85px;
     color: var(--green);
 }
 
-.info--title {
+.credit__info-title {
     font-size: 22px;
     margin: 0;
 }
 
-.info--text {
+.credit__info-text {
     font-size: 16px;
     margin: 0;
     padding-top: 10px;
@@ -88,21 +88,21 @@ h2 {
     gap: 450px;
 }
 
-.form--item {
+.form__item {
     display: flex;
     gap: 12px;
     padding: 10px 0;
     align-items: center;
 }
 
-.form--item-2 {
+.form__item-2 {
     display: flex;
     gap: 12px;
     padding: 10px 0;
     align-items: center;
 }
 
-.form--item h3 {
+.form__item h3 {
     width: 191px;
     font-size: 22px;
     display: flex;
@@ -110,7 +110,7 @@ h2 {
     padding: 10px;
 }
 
-.form--item-2 h3 {
+.form__item-2 h3 {
     /* width: 189px; */
     font-size: 22px;
     display: flex;
@@ -127,17 +127,17 @@ h2 {
     width: 107px;
 }
 
-.form--item input {
+.form__item input {
     width: 587px;
     height: 48px;
 }
 
-.form--item-2 input {
+.form__item-2 input {
     width: 230px;
     height: 48px;
 }
 
-.form--item select {
+.form__item select {
     width: 526px;
     height: 48px;
 }
@@ -149,7 +149,7 @@ h2 {
     margin: 18px 0 0 0;
 }
 
-.credit__button--submit1 {
+.credit-button--submit1 {
     width: 96px;
     height: 48px;
     border-radius: 8px;
@@ -159,7 +159,7 @@ h2 {
     font-size: 16px;
 }
 
-.credit__button--submit2 {
+.credit-button--submit2 {
     width: 131px;
     height: 48px;
     border-radius: 8px;
@@ -169,13 +169,13 @@ h2 {
     font-size: 16px;
 }
 
-.credit__close--btn {
+.credit__close-btn {
     position: absolute;
     top: 16px;
     right: 19px;
 }
 
-.credit__close--btn span {
+.credit__close-btn span {
     color: var(--primary-color-2);
 }
 

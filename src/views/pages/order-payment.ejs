@@ -13,10 +13,10 @@
 <body>
   <%- include('../partials/header-small') %>
 
-  <div class="payment--container">
-    <aside class="aside--wrapper">
-      <div class="hotel-detail">
-        <div class="type-hotel">
+  <div class="payment-container">
+    <aside class="aside-wrapper">
+      <div class="aside-wrapper__hotel-detail">
+        <div class="aside-wrapper__type-hotel">
           <h6>Khách sạn</h6>
           <div class="starts-icon">
             <span class="material-symbols-outlined filled-start">
@@ -38,23 +38,23 @@
         </div>
         <h5><b>Tên khách sạn</b></h5>
         <h6>Vị trí</h6>
-        <div class="wifi-free">
+        <div class="aside-wrapper__wifi-free">
           <span class="material-symbols-outlined"> wifi </span>
           <h6>Wifi miễn phí</h6>
         </div>
       </div>
 
-      <div class="your-booking-detail">
-        <h1 style="margin: 12px 12px 0 12px">Chi tiết đặt phòng của bạn</h1>
-        <div class="check-date">
-          <div class="checkin-date">
+      <div class="aside-wrapper__your-booking-detail">
+        <h1>Chi tiết đặt phòng của bạn</h1>
+        <div class="aside-wrapper__check-date">
+          <div class="aside-wrapper__checkin-date">
             <h5>Nhận phòng</h5>
             <h5><b>T5, 12 tháng 10</b></h5>
             <h5><b>2023</b></h5>
             <h5>Từ 14:00</h5>
           </div>
 
-          <div class="checkout-date">
+          <div class="aside-wrapper__checkout-date">
             <h5>Trả phòng</h5>
             <h5><b>T6, 13 tháng 10</b></h5>
             <h5><b>2023</b></h5>
@@ -62,27 +62,27 @@
           </div>
         </div>
 
-        <div class="countdown-time">
+        <div class="aside-wrapper__countdown-time">
           <span class="material-symbols-outlined"> error </span>
           <h6>Còn 7 ngày nữa</h6>
         </div>
 
-        <div class="total-length-stay">
+        <div class="aside-wrapper__total-length-stay">
           <h5>Tổng thời gian lưu trú</h5>
           <h5><b>1 đêm</b></h5>
         </div>
 
         <hr />
 
-        <div class="your-choice">
+        <div class="aside-wrapper__your-choice">
           <h5>Bạn đã chọn</h5>
           <h5><b>1 phòng cho 2 người lớn</b></h5>
           <a href="#"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
         </div>
 
-        <div class="cost-total">
-          <h6 class="red-line">VND 1.200.000</h6>
-          <div class="cost">
+        <div class="aside-wrapper__cost-total">
+          <h6 class="aside-wrapper__red-line">VND 1.200.000</h6>
+          <div class="aside-wrapper__cost">
             <h1>Giá</h1>
             <h1>VND 1.200.000</h1>
           </div>
@@ -90,21 +90,21 @@
         </div>
       </div>
 
-      <div class="cancel-fee">
+      <div class="aside-wrapper__cancel-fee">
         <h5><b>Chi phí hủy phòng</b></h5>
-        <div class="cancel-free">
+        <div class="aside-wrapper__cancel-free">
           <span class="material-symbols-outlined"> check_circle </span>
           <h6>Miễn phí hủy phòng bất kỳ lúc nào</h6>
         </div>
       </div>
     </aside>
 
-    <section id="" class="section--content">
-      <div class="confirm-account">
-        <img src="/imgs/milo.jpg" alt="" />
-        <div class="account-detail">
+    <section id="" class="section-content">
+      <div class="section-content__confirm-account">
+        <img class="section-content__img" src="/imgs/milo.jpg" alt="" />
+        <div class="section-content__account-detail">
           <h5>Bạn đã đăng nhập bằng:</h5>
-          <div class="email-logout">
+          <div class="section-content__email-logout">
             <h5>2152****@gm.uit.edu.vn</h5>
             <h5>
               <b style="color: #0866ff">(Không phải bạn? <a href="">Thoát</a>)</b>
@@ -112,9 +112,9 @@
           </div>
         </div>
       </div>
-      <div class="select-methods">
+      <div class="section-content__select-methods">
         <h1>Chọn phương thức thanh toán</h1>
-        <div class="select-method">
+        <div class="section-content__select-method">
           <div class="method method-one form-check">
             <div class="method-choice">
               <input class="material-symbols-outlined form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
@@ -216,9 +216,9 @@
           </div>
         </div>
       </div>
-      <div class="confirm-detail">
+      <div class="section-content__confirm-detail">
         <!-- Default checkbox -->
-        <div class="confirm-method form-check">
+        <div class="section-content__confirm-method form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
           <label class="form-check-label" for="flexCheckDefault">
             <h5>
@@ -229,7 +229,7 @@
         </div>
 
         <!-- Checked checkbox -->
-        <div class="confirm-method form-check">
+        <div class="section-content__confirm-method form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
           <label class="form-check-label" for="flexCheckChecked">
             <h5>
@@ -252,7 +252,7 @@
         </h5>
 
         <div class="button-confirm">
-          <button class="check-info">Kiểm tra lại thông tin</button>
+          <button href="#" class="check-info">Kiểm tra lại thông tin</button>
           <button class="submit-booking doneBookingBtn">
             Hoàn tất đặt phòng
           </button>

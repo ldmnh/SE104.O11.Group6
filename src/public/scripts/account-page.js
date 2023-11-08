@@ -5,9 +5,9 @@ const defaultView = document.getElementById("view-profile");
 
 const editBtn = document.querySelector(".form--submit2-default");
 const cancelBtn = document.querySelector(".form--submit1");
-const historyBtn = document.querySelector(".historyBtn");
-const accountPaymentBtn = document.querySelector(".accountPaymentBtn");
-const changePasswordBtn = document.querySelector(".changePasswordBtn");
+const historyBtn = document.querySelector(".history-btn");
+const accountPaymentBtn = document.querySelector(".account-payment-btn");
+const changePasswordBtn = document.querySelector(".change-password-btn");
 
 editView.style.display = "none";
 
@@ -40,7 +40,7 @@ cancelBtn.addEventListener("click", redirect2EdefaultView);
 editBtn.addEventListener("click", redirect2EditView);
 
 
-const logoutBtn = document.querySelector('.logoutBtn')
+const logoutBtn = document.querySelector('.logout-btn')
 
 const redirect2LogOutView = () => {
     window.location.href = "http://127.0.0.1:3000/register"

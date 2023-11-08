@@ -14,13 +14,13 @@ header {
   top: 0;
 }
 
-.container__header {
+.header-container {
   width: 80%;
   height: 240px;
   max-width: 1152px;
 }
 
-.container__header--top {
+.header-container--top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,12 +30,12 @@ header {
   margin-top: 24px;
 }
 
-.container__header--top img {
+.header-container__logo-img img {
   width: 167.652px;
   height: 48px;
 }
 
-.container__nav--top {
+.header-container__nav--top {
   width: 656px;
   display: flex;
   justify-content: flex-end;
@@ -44,21 +44,21 @@ header {
   gap: 48px;
 }
 
-.container__nav--top a {
+.header-container__nav--top a {
   font-size: 22px;
   text-decoration: none;
   font-weight: 500;
   color: var(--white);
 }
 
-.top-authenticator {
+.header-container__top-authenticator {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 /* Header with no login*/
-.top-authenticator button {
+.header-container__top-authenticator button {
   width: 128px;
   height: 48px;
   background-color: var(--white);
@@ -75,7 +75,7 @@ header {
   }
 }
 
-.top-authenticator .button-signup {
+.header-container__top-authenticator .button-signup {
   color: var(--white);
   background-color: var(--primary-color-4);
   margin: 4px;
@@ -88,7 +88,7 @@ header {
 }
 
 /* Header with login*/
-.top-authenticator {
+.header-container__top-authenticator {
   top: 0;
   right: 0;
   display: flex;
@@ -96,14 +96,14 @@ header {
   justify-content: space-around;
 }
 
-.top-authenticator img {
+.header-container__top-authenticator img {
   width: 64px;
   height: 64px;
   margin: 0 5px;
   border-radius: 100%;
 }
 
-.top-authenticator p {
+.header-container__top-authenticator p {
   margin: 0 5px;
   font-size: 24px;
   font-weight: 600;

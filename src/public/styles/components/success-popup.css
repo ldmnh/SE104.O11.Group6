@@ -1,4 +1,4 @@
-.success-popup__container {
+.success-popup-container {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -18,16 +18,16 @@
   text-align: center;
 }
 
-.success-popup__card--img {
+.success-popup__icon {
   margin: 47px 0 0 0;
 }
 
-.success-popup__card--img span {
+.success-popup__icon span {
   font-size: 131px;
   color: #00696d;
 }
 
-.success-popup__card--text {
+.success-popup__title {
   font-size: 32px;
   color: #00696d;
   font-weight: 700;
@@ -35,12 +35,12 @@
   margin: 10px 0;
 }
 
-.success-popup__card--close-btn {
+.success-popup__close-btn {
   position: absolute;
   top: 24px;
   right: 24px;
 }
 
-.success-popup__card--close-btn span {
+.success-popup__close-btn span {
   color: #00696d;
 }
