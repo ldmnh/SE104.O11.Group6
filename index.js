@@ -12,13 +12,6 @@ const sequelize = require("sequelize");
 const cookieParser = require('cookie-parser')
 
 
-// connect to db
-// const publicDirectory = path.join(__dirname, './src/public')
-// app.use(express.static(publicDirectory))
-// console.log(__dirname)
-
-
-
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
 app.use(session({

@@ -1,3 +1,5 @@
+const db = require('../config/db/connect');
+
 class AuthController {
 
     // [GET] /auth/register

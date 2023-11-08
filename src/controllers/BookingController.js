@@ -1,3 +1,5 @@
+const db = require('../config/db/connect');
+
 class BookingController {
 
     // [GET] /booking/information

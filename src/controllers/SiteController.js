@@ -1,4 +1,4 @@
-const db = require('../config/connect');
+const db = require('../config/db/connect');
 
 class SiteController {
 
