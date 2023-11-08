@@ -5,7 +5,7 @@ class SearchController {
         res.render('./pages/acco-detail')
     }
 
-    // [GET] /search
+    // [GET] /search/results
     searchResult(req, res) {
         const title = 'Kết quả tìm kiếm'
         res.render('./pages/site/search-results', { title })

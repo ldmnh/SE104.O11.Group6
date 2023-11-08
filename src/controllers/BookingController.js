@@ -1,13 +1,13 @@
 class BookingController {
 
     // [GET] /booking/info
-    info(req, res) {
+    information(req, res) {
         // res.render('./pages/booking/info')
         res.send("booking-info")
     }
 
     // [POST] /booking/info
-    infoPost(req, res) {
+    informationPost(req, res) {
         res.send("booking-infoPost")
     }
 
@@ -23,15 +23,15 @@ class BookingController {
     }
 
     // [GET] /booking/result
-    result(req, res) {
-        // res.render('./pages/booking/result')
-        res.send("booking-result")
+    success(req, res) {
+        // res.render('./pages/booking/success')
+        res.send("booking-success")
     }
 
     // [GET] /booking/result-detail
-    resultDetail(req, res) {
+    detail(req, res) {
         // res.render('./pages/booking/result-detail')
-        res.send("booking-result-detail")
+        res.send("booking-detail")
     }
 
     // [POST] /booking/cancel

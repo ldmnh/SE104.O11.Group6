@@ -1,17 +1,17 @@
 class AccountController {
 
     // [GET] /account/
-    index(req, res) {
+    information(req, res) {
         res.render('./pages/account/index')
     }
 
     // [PUT] /account/
-    indexPut(req, res) {
+    informationPut(req, res) {
         res.send("indexPut")
     }
 
     // [GET] /account/booking-history
-    bookingHistory(req, res) {
+    history(req, res) {
         res.render('./pages/account/booking-history')
     }
 

@@ -4,8 +4,8 @@ const router = express.Router();
 // import controller
 const SearchController = require('../controllers/SearchController.js')
 
+router.get('/results', SearchController.searchResult)
+
 router.get('/:acco_id', SearchController.accoDetail)
-router.get('/', SearchController.searchResult)
 
 module.exports = router
-

@@ -4,13 +4,17 @@ const router = express.Router();
 // import controller
 const BookingController = require('../controllers/BookingController.js')
 
-router.get('/info', BookingController.info)
-router.post('/info', BookingController.infoPost)
+router.get('/information', BookingController.information)
+router.post('/information', BookingController.informationPost)
+
 router.get('/payment', BookingController.payment)
 router.post('/payment', BookingController.paymentPost)
-router.get('/result', BookingController.result)
-router.get('/result-detail', BookingController.resultDetail)
-router.post('/cancel', BookingController.cancelPost)
-router.get('/cancel', BookingController.cancel)
+
+router.get('/success', BookingController.success)
+
+router.get('/detail', BookingController.detail)
+
+router.get('/cancellation', BookingController.cancel)
+router.post('/cancellation', BookingController.cancelPost)
 
 module.exports = router
