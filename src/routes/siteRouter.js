@@ -4,6 +4,9 @@ const router = express.Router();
 // import controller
 const SiteController = require('../controllers/SiteController.js')
 
+// router.get('/accoDetail', (req, res) => {SiteController.accoDetail(req, res);})
+router.get('/accoDetail', (req, res) => {SiteController.accoDetail(req, res);})
+
 router.get('/about', SiteController.about)
 router.get('/register', SiteController.register)
 router.post('/register', SiteController.submitRegister)
