@@ -13,7 +13,6 @@ const cookieParser = require('cookie-parser')
 
 
 // connect to db
-const db = require("./src/config/db")
 // const publicDirectory = path.join(__dirname, './src/public')
 // app.use(express.static(publicDirectory))
 // console.log(__dirname)

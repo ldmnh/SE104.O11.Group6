@@ -9,7 +9,7 @@ router.put('/information', AccountController.informationPut)
 
 router.get('/history', AccountController.history)
 
-router.get('/payment', AccountController.payment)
+router.get('/payment', AccountController.paymentAccount)
 router.post('/payment/addBank', AccountController.addBank)
 router.post('/payment/addDebit', AccountController.addDebit)
 router.post('/payment/delBank', AccountController.delBank)

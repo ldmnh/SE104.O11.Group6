@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../config/connect');
 
 class AccountController {
 
@@ -147,15 +147,68 @@ class AccountController {
     // [GET] /account/change-password
     showChangeForm(req, res) {
         res.render('./pages/account/change-password')
+    }
 
     // [POST] /account/payment/addBank
     addBank(req, res) {
-        res.send("addBank")
+        if (!req.session.email) {
+            res.status(404).json({ message: 'Không tìm thấy email!!!' });
+            return;
+        }
+
+        const {
+            bank_name,
+            bank_branch,
+            bank_num,
+            bank_name_pers
+        } = req.body
+
+        // TODO: Sẽ thay thế bằng procedure nhận thêm au_user_email
+        const sql = `INSERT INTO bankcard SET ?`;
+        const params = {
+            bank_name: bank_name,
+            bank_brach: bank_branch,
+            bank_num: bank_num,
+            bank_name_pers: bank_name_pers
+        };
+
+        db.query(sql, params, (err, results,) => {
+            if (err) throw err;
+            res.status(200).redirect('/account/payment')
+        })
     }
 
     // [POST] /account/payment/addDebit
     addDebit(req, res) {
         res.send("addDebit")
+        if (!req.session.email) {
+            res.status(404).json({ message: 'Không tìm thấy email!!!' });
+            return;
+        }
+
+        const {
+            debit_num,
+            debit_end_date,
+            debit_CCV,
+            debit_name,
+            debit_address,
+            debit_postal,
+        } = req.body
+
+        const sql = `INSERT INTO debitcard SET ?`;
+        const params = {
+            debit_num: debit_num,
+            debit_end_date: debit_end_date,
+            debit_CCV: debit_CCV,
+            debit_name: debit_name,
+            debit_address: debit_address,
+            debit_postal: debit_postal,
+        };
+
+        db.query(sql, params, (err, results,) => {
+            if (err) throw err;
+            res.status(200).redirect("/account/payment")
+        })
     }
 
     // [POST] /account/payment/delBank
