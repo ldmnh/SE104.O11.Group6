@@ -94,6 +94,7 @@
     width: 64px;
     border-radius: 100%;
 }
+/*Nút thêm số lượng */
 
 .counter--wraper {
     display: flex;
@@ -105,6 +106,7 @@
     border-radius: 8px;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 input#room__quantity {

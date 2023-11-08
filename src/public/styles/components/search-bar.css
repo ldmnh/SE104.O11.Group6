@@ -32,6 +32,7 @@
     align-items: center;
     justify-content: flex-start;
     margin: 20px;
+    height: 48px;
 }
 
 .search-address span {
@@ -41,19 +42,19 @@
     margin-left: 4px;
 }
 
-.search-address input {
+.search-address .input_address {
     margin-left: 10px;
     background-color: var(--white);
+    color: var(--blue-gray);
     height: 45px;
     width: 100%;
     border: none;
     outline: none;
-}
-
-.input_address {
     text-decoration: none;
-    /* transition: filter 0.2s; */
-    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 /* .input_address:hover {
@@ -90,4 +91,113 @@
     left: 538.025px;
     right: auto;
     display: block;
+}
+.btn-primary {
+    color: var(--white);
+    background-color: var(--primary-color-1);
+    border-color: var(--primary-color-1);
+    height: 48px;
+    width: 128px;
+}
+.btn-default {
+    height: 48px;
+    width: 128px;
+    color: var(--primary-color-1);
+}
+
+.btn-primary:hover {
+    color: var(--white);
+    background-color: var(--primary-color-1);
+    border-color: var(--primary-color-1);
+}
+div.daterangepicker {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+}
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: black;
+    border-color: transparent;
+    color: #fff;
+}
+
+.counter--wraper {
+    display: flex;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid var(--dark-gray);
+    background: var(--white);
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+input#adult__quantity,
+input#child__quantity,
+input#room__quantity {
+    border: none;
+    width: 30px;
+    font-size: 18px;
+    height: 30px;
+    text-align: center;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/* CSS ẩn mũi tên lên/xuống của input số */
+input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Ẩn các mũi tên lên/xuống trong trình duyệt Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.counter--wraper span {
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.counter--wraper .number {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0px 5px;
+    border-radius: 4px;
+}
+.search-quality {
+    position: sticky;
+    z-index: 100000;
+    opacity: 0;
+    margin-left: 60%;
+    margin-top: 2px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    box-shadow:
+        2px 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search-quality span {
+    font-size: 16px;
+}
+
+.search-quality__adults,
+.search-quality__child,
+.search-quality__room {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
