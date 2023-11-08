@@ -180,6 +180,7 @@ body {
 
 .room-list {
     display: inherit;
+    flex-direction: column;
 }
 
 .room-list form {

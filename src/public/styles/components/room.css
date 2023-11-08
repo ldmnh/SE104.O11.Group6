@@ -1,5 +1,10 @@
-.room {
+.room-container {
     display: flex;
+}
+
+.room {
+    width: 100%;
+    display: inherit;
     flex-direction: column;
     border: 1px solid #BEC8C9;
     border-radius: 8px;
@@ -173,10 +178,10 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 60%;
     display: inherit;
     flex-direction: column;
-    gap: 24px;
+    gap: 36px;
     background-color: #4D5F7C;
     color: var(--white);
-    padding: 16px;
+    padding: 24px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
@@ -211,8 +216,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .modal__view--small img {
-    width: 100px;
-    height: 62px;
+    width: 150px;
+    height: 86px;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -222,7 +227,7 @@ input[type="number"]::-webkit-inner-spin-button {
     display: inherit;
     flex-direction: column;
     gap: 24px;
-    padding: 16px;
+    padding: 24px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
