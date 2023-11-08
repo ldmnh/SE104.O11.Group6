@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
 
 :root {
-  --primary: #00696D;
-  --secondary: #FE9C0B;
+  --primary-color-2: #00696D;
+  --primary-color-4: #FE9C0B;
 }
 
 * {
@@ -15,19 +15,19 @@
 }
 
 .primary {
-  background-color: var(--primary);
+  background-color: var(--primary-color-2);
 }
 
 .primary-text {
-  color: var(--primary);
+  color: var(--primary-color-2);
 }
 
-.secondary {
-  background-color: var(--secondary);
+.primary-color-4 {
+  background-color: var(--primary-color-4);
 }
 
-.secondary-text {
-  color: var(--secondary);
+.primary-color-4-text {
+  color: var(--primary-color-4);
 }
 
 .mt-8 {
@@ -99,7 +99,7 @@ button {
 
 button.btn--filled {
   background-color: white;
-  color: var(--primary);
+  color: var(--primary-color-2);
   border: none;
 
   &:hover .status-layer {
@@ -109,11 +109,11 @@ button.btn--filled {
 }
 
 button.btn--filled.pri {
-  background-color: var(--primary);
+  background-color: var(--primary-color-2);
   color: white
 }
 
 button.btn--filled.sec {
-  background-color: var(--secondary);
+  background-color: var(--primary-color-4);
   color: white
 }
