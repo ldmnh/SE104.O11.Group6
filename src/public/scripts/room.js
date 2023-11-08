@@ -1,17 +1,11 @@
-//  Khai báo và lấy tham chiếu đến nút + -
-const minusButton = document.getElementById('room__minus')
-const plusButton = document.getElementById('room__plus')
+function minus(event) {
+    const element = event.currentTarget
+    const input = element.nextElementSibling
+    input.value = Number(input.value) - 1
+}
 
-// Thêm sự kiện cho nút -
-minusButton.addEventListener('click', () => {
-    // Khai báo và lấy tham chiếu đến trường nhập số lượng phòng
-    const roomQuantity = document.getElementById('room__quantity')
-    roomQuantity.value = Number(roomQuantity.value) - 1
-})
-
-// Thêm sự kiện cho nút +
-plusButton.addEventListener('click', () => {
-    // Khai báo và lấy tham chiếu đến trường nhập số lượng phòng
-    const roomQuantity = document.getElementById('room__quantity')
-    roomQuantity.value = Number(roomQuantity.value) + 1
-})
+function plus(event) {
+    const element = event.currentTarget
+    const input = element.previousElementSibling
+    input.value = Number(input.value) + 1
+}
