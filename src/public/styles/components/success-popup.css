@@ -1,3 +1,5 @@
+@import url(styles/base.css);
+
 .success-popup__container {
   position: absolute;
   width: 100%;
@@ -13,7 +15,7 @@
   position: relative;
   width: 517px;
   height: 267px;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 8px;
   text-align: center;
 }
@@ -24,12 +26,12 @@
 
 .success-popup__card--img span {
   font-size: 131px;
-  color: #00696d;
+  color: var(--primary-color-2);
 }
 
 .success-popup__card--text {
   font-size: 32px;
-  color: #00696d;
+  color: var(--primary-color-2);
   font-weight: 700;
   bottom: 10px;
   margin: 10px 0;
@@ -42,5 +44,5 @@
 }
 
 .success-popup__card--close-btn span {
-  color: #00696d;
+  color: var(--primary-color-2);
 }
