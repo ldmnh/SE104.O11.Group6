@@ -8,8 +8,7 @@ class SiteController {
 
     // [POST] /auth/register
     registerPost(req, res) {
-        // const title = 'Đăng ký'
-        // res.render('./pages/site/register', { title })
+        res.send("registerPost")
     }
 
     // [GET] /auth/login
@@ -27,25 +26,23 @@ class SiteController {
     // [GET] /auth/forgot-password
     forgot(req, res) {
         const title = 'Nhận liên kết đặt lại mật khẩu'
-        res.render('./pages/site/forgot-password', { title })
+        res.render('./pages/auth/forgot', { title })
     }
 
     // [POST] /auth/forgot-password
-    forgotPost(req, res) {
-        // const title = 'Nhận liên kết đặt lại mật khẩu'
-        // res.render('./pages/site/forgot-password', { title })
+    forgotPost(req, res) { 
+        res.send("forgotPost")
     }
 
     // [GET] /auth/reset-password
     reset(req, res) {
         const title = 'Đặt lại mật khẩu'
-        res.render('./pages/site/reset-password', { title })
+        res.render('./pages/auth/reset', { title })
     }
 
     // [POST] /auth/reset-password
     resetPost(req, res) {
-        // const title = 'Đặt lại mật khẩu'
-        // res.render('./pages/site/reset-password', { title })
+        res.send("resetPost")
     }
 
     // [GET] /auth/logout
@@ -53,10 +50,11 @@ class SiteController {
         res.redirect('/')
     }
 
-    // [GET] /auth/change
-    change(req, res) {
-        const title = 'Đổi mật khẩu'
-        res.render('./pages/account/change-password', { title })
+    // [POST] /auth/change
+    changePost(req, res) {
+        // const title = 'Đổi mật khẩu'
+        // res.render('./pages/account/change-password', { title })
+        res.send("changePost")
     }
 
 }

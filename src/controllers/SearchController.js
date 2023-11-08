@@ -1,14 +1,14 @@
 class SearchController {
 
-    // [GET] /search/:acco_id
-    accoDetail(req, res) {
-        res.render('./pages/acco-detail')
-    }
-
     // [GET] /search/results
     searchResult(req, res) {
-        const title = 'Kết quả tìm kiếm'
-        res.render('./pages/site/search-results', { title })
+        const title = 'ABc'
+        res.render('./pages/search/results', { title })
+    }
+
+    // [GET] /search/:acco_id
+    accoDetail(req, res) {
+        res.render('./pages/search/detail')
     }
 
 }
