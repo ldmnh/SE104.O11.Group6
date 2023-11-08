@@ -15,7 +15,7 @@ body {
     align-items: center;
 }
 
-.changepassword--container {
+.accountpage--container {
     margin-top: 12px;
     margin-bottom: 12px;
     /* width: 80%; */
@@ -28,7 +28,7 @@ hr {
     background-color: #bec8c9;
     border-width: 1px;
     width: 98%;
-    margin: 12px;
+    margin: 14px;
 }
 
 .aside--wrapper {
@@ -64,7 +64,7 @@ hr {
     transition: 0.3s;
 }
 
-.aside--section p:nth-child(4) {
+.aside--section p:first-child {
     background-color: #004f52;
     color: white;
     border-radius: 8px;
@@ -75,6 +75,7 @@ hr {
     height: 64px;
     width: 64px;
     border-radius: 100%;
+    object-fit: cover;
 }
 
 .aside--item p {
@@ -88,96 +89,52 @@ hr {
     border: 1px solid #bec8c9;
     border-radius: 8px;
     width: 75%;
-    padding: 12px;
-    height: 240px;
-}
-
-.form--itemchange1 {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    height: 110px;
-}
-
-.form--itemchange1 h1 {
-    font-size: 22px !important;
-    font-weight: 500;
-}
-
-.form--itemchange1 p {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.5);
-}
-
-.form--submit {
-    width: 96px;
-    height: 48px;
-    border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
-    border: none;
-    font-size: 16px;
-}
-
-.profileBtn,
-.historyBtn,
-.accountPaymentBtn,
-.changePasswordBtn,
-.logoutBtn {
-    cursor: pointer;
-}
-
-.form--inputchange2 {
-    padding: 24px;
-    border: 1px solid #bec8c9;
-    border-radius: 8px;
-    width: 75%;
-    padding: 12px;
-}
-
-.form--inputchange2 .center {
-    text-align: center;
 }
 
 .form--items {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
 }
 
 .form--item {
     display: flex;
-    gap: 0;
-    width: 100%;
+    gap: 12px;
+    padding: 12px;
+    width: 70%;
     align-items: center;
 }
 
-.form--item input {
-    padding: 12px;
+.form-control:disabled::placeholder {
+    color: black;
 }
 
 .form--item h1 {
-    width: 305px;
+    width: 221px;
     font-size: 22px;
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding-top: 8px;
+}
+
+.form-control:disabled {
+    border: none;
+    background-color: white;
+}
+
+.form-control.unfilled:disabled::placeholder {
+    border: none;
+    background-color: white;
+    color: #bec8c9;
 }
 
 .form--submitbutton {
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
-    margin-top: 12px;
 }
 
 .form--submit1 {
-    width: 115px;
+    width: 106px;
     height: 48px;
     border-radius: 8px;
     color: #fe9c0b;
@@ -187,11 +144,24 @@ hr {
 }
 
 .form--submit2 {
-    width: 115px;
+    width: 106px;
     height: 48px;
     border-radius: 8px;
     background-color: #fe9c0b;
     color: white;
     border: none;
     font-size: 16px;
+}
+
+.form--submitbutton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profileBtn,
+.historyBtn,
+.accountPaymentBtn,
+.changePasswordBtn,
+.logoutBtn {
+    cursor: pointer;
 }

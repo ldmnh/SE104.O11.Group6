@@ -1,20 +1,26 @@
 class BookingController {
 
-    // [GET] /booking/info
+    // [GET] /booking/information
     information(req, res) {
-        // res.render('./pages/booking/info')
-        res.send("booking-info")
+        const nav_tree__data = [
+            { name: 'Trang chủ', link: '/' },
+            { name: 'Thông tin đặt phòng', link: '/booking/information' }
+        ]
+        res.render('./pages/booking/information', { nav_tree__data })
     }
 
-    // [POST] /booking/info
+    // [POST] /booking/information
     informationPost(req, res) {
-        res.send("booking-infoPost")
+        res.send('booking-infoPost')
     }
 
     // [GET] /booking/payment
     payment(req, res) {
-        // res.render('./pages/booking/payment')
-        res.send("booking-payment")
+        const nav_tree__data = [
+            { name: 'Trang chủ', link: '/' },
+            { name: 'Phương thức thanh toán', link: '/booking/payment' }
+        ]
+        res.render('./pages/booking/payment', { nav_tree__data })
     }
 
     // [POST] /booking/payment
@@ -22,27 +28,24 @@ class BookingController {
         res.send("booking-paymentPost")
     }
 
-    // [GET] /booking/result
+    // [GET] /booking/success
     success(req, res) {
-        // res.render('./pages/booking/success')
-        res.send("booking-success")
+        res.render('./pages/booking/success')
     }
 
-    // [GET] /booking/result-detail
+    // [GET] /booking/detail
     detail(req, res) {
-        // res.render('./pages/booking/result-detail')
-        res.send("booking-detail")
-    }
-
-    // [POST] /booking/cancel
-    cancelPost(req, res) {
-        res.send("cancelPost")
+        res.render('./pages/booking/detail')
     }
 
     // [GET] /booking/cancel
     cancel(req, res) {
-        // res.render('./pages/booking/cancel')
-        res.send("booking-cancel")
+        res.render('./pages/booking/cancellation')
+    }
+
+    // [POST] /booking/cancel
+    cancelPost(req, res) {
+        res.send('cancelPost')
     }
 
 }

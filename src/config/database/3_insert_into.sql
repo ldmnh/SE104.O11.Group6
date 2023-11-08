@@ -1,3 +1,4 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_id, admin_nickname, admin_pass)
@@ -48,22 +49,22 @@ VALUES
     ('acc000000003', 'resort',       5,  'acc003.jpg', 'Resort Bình Yên',    'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   'cty000000006',     'pro000000006'),
     ('acc000000004', 'guest_house',  2,  'acc004.jpg', 'Guest House C',      NULL,                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '789 Mountain View',NULL,               'pro000000003');
 
-INSERT INTO Feature (fea_id, fea_name)
-VALUES 
-    ('fea000000001', 'Miễn phí hủy'),
-    ('fea000000002', 'Không cần thanh toán trước'),
-    ('fea000000003', 'Giáp biển');
+-- INSERT INTO Feature (fea_id, fea_name)
+-- VALUES 
+--     ('fea000000001', 'Miễn phí hủy'),
+--     ('fea000000002', 'Không cần thanh toán trước'),
+--     ('fea000000003', 'Giáp biển');
 
-INSERT INTO AccoFea (fea_id, acco_id)
-VALUES 
-    ('fea000000001', 'acc000000001'),
-    ('fea000000001', 'acc000000002'),
-    ('fea000000002', 'acc000000001'),
-    ('fea000000002', 'acc000000004'),
-    ('fea000000003', 'acc000000001'),
-    ('fea000000003', 'acc000000002'),
-    ('fea000000003', 'acc000000003'),
-    ('fea000000003', 'acc000000004');
+-- INSERT INTO AccoFea (fea_id, acco_id)
+-- VALUES 
+--     ('fea000000001', 'acc000000001'),
+--     ('fea000000001', 'acc000000002'),
+--     ('fea000000002', 'acc000000001'),
+--     ('fea000000002', 'acc000000004'),
+--     ('fea000000003', 'acc000000001'),
+--     ('fea000000003', 'acc000000002'),
+--     ('fea000000003', 'acc000000003'),
+--     ('fea000000003', 'acc000000004');
 
 INSERT INTO AccoImg (acco_id, acco_img_url)
 VALUES 
@@ -82,7 +83,7 @@ VALUES
     ('acc000000003', 'accomodation_5.jpg');
 
 INSERT INTO RoomType (room_id, room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id)
-VALUES 
+VALUES
     ('roo000000001',  'Standard', 'Single', 1, 0, 1, 0, 10,   'room_1.jpg', 25.5, 100.0, NULL, NULL, 0,           'acc000000001'),
     ('roo000000002',  'Deluxe',   'Double', 2, 1, 0, 1, 5,    'room_2.jpg', 35.0, 200.0, 0.1, '2023-01-31', 0,    'acc000000001'),
     ('roo000000003',  'Suite',    'Family', 2, 2, 1, 2, 3,    'room_1.jpg', 45.2, 300.0, NULL, NULL, 0,           'acc000000002'),
@@ -94,29 +95,29 @@ VALUES
     ('roo000000009',  'Suite',    'Family', 2, 2, 1, 2, 5,    'room_3.jpg', 48.7, 320.0, NULL, NULL, 0,           'acc000000002'),
     ('roo000000010',  'Standard', 'Single', 1, 0, 1, 0, 9,    'room_2.jpg', 29.8, 110.0, 0.1, '2023-05-31', 0,    'acc000000004');
 
-INSERT INTO Extension (exte_id, exte_name)
-VALUES 
-    ('ext000000001', 'Buffet sáng'),   
-    ('ext000000002', 'Wifi'),
-    ('ext000000003', 'Thuốc lá'),
-    ('ext000000004', 'Thú cưng');
+-- INSERT INTO Extension (exte_id, exte_name)
+-- VALUES 
+--     ('ext000000001', 'Buffet sáng'),   
+--     ('ext000000002', 'Wifi'),
+--     ('ext000000003', 'Thuốc lá'),
+--     ('ext000000004', 'Thú cưng');
 
-INSERT INTO RoomExte (room_id, exte_id)
-VALUES 
-    ('roo000000001', 'ext000000001'),
-    ('roo000000001', 'ext000000002'),
-    ('roo000000002', 'ext000000001'),
-    ('roo000000003', 'ext000000003'),
-    ('roo000000004', 'ext000000002'),
-    ('roo000000005', 'ext000000001'),
-    ('roo000000005', 'ext000000002'),
-    ('roo000000006', 'ext000000003'),
-    ('roo000000007', 'ext000000001'),
-    ('roo000000008', 'ext000000002'),
-    ('roo000000009', 'ext000000002'),
-    ('roo000000010', 'ext000000002'),
-    ('roo000000010', 'ext000000003'),
-    ('roo000000010', 'ext000000004');
+-- INSERT INTO RoomExte (room_id, exte_id)
+-- VALUES 
+--     ('roo000000001', 'ext000000001'),
+--     ('roo000000001', 'ext000000002'),
+--     ('roo000000002', 'ext000000001'),
+--     ('roo000000003', 'ext000000003'),
+--     ('roo000000004', 'ext000000002'),
+--     ('roo000000005', 'ext000000001'),
+--     ('roo000000005', 'ext000000002'),
+--     ('roo000000006', 'ext000000003'),
+--     ('roo000000007', 'ext000000001'),
+--     ('roo000000008', 'ext000000002'),
+--     ('roo000000009', 'ext000000002'),
+--     ('roo000000010', 'ext000000002'),
+--     ('roo000000010', 'ext000000003'),
+--     ('roo000000010', 'ext000000004');
 
 INSERT INTO RoomTypeImg (room_id, room_type_image_url)
 VALUES 
@@ -163,9 +164,9 @@ VALUES
 
 INSERT INTO PayingMethod (pay_id, pay_name)
 VALUES 
-    ('pay000000001', 'Tiền mặt'),
-    ('pay000000002', 'Thẻ ngân hàng'),
-    ('pay000000003', 'Thẻ ghi nợ');
+    ('pay000000001', 'cash'),
+    ('pay000000002', 'bankcard'),
+    ('pay000000003', 'debitcard');
 
 INSERT INTO ReasonCancel (rea_id, rea_description)
 VALUES
@@ -191,16 +192,36 @@ VALUES
 
 INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
 VALUES
-    ('boo000000001', 'roo000000001', 150.00, 2, 2, 0),
-    ('boo000000001', 'roo000000002', 180.00, 1, 1, 0),
-    ('boo000000002', 'roo000000003', 200.00, 1, 2, 1),
-    ('boo000000003', 'roo000000004', 120.00, 1, 1, 0),
-    ('boo000000004', 'roo000000005', 160.00, 2, 2, 1),
-    ('boo000000005', 'roo000000006', 180.00, 1, 1, 0),
-    ('boo000000006', 'roo000000007', 250.00, 1, 2, 1),
-    ('boo000000007', 'roo000000008', 190.00, 1, 1, 0),
-    ('boo000000008', 'roo000000009', 170.00, 2, 2, 1),
-    ('boo000000009', 'roo000000010', 140.00, 1, 1, 0),
+    ('boo000000001', 'roo000000001', 150.00, 2, 2, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000001', 'roo000000002', 180.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000002', 'roo000000003', 200.00, 1, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000003', 'roo000000004', 120.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000004', 'roo000000005', 160.00, 2, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000005', 'roo000000006', 180.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000006', 'roo000000007', 250.00, 1, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000007', 'roo000000008', 190.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000008', 'roo000000009', 170.00, 2, 2, 1);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
+    ('boo000000009', 'roo000000010', 140.00, 1, 1, 0);
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+VALUES
     ('boo000000010', 'roo000000010', 140.00, 1, 1, 0);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
@@ -209,7 +230,7 @@ VALUES
     ('usr000000002', 'roo000000002', '2023-10-28 11:00:00', 'Great service and amenities.', 5.0),
     ('usr000000003', 'roo000000003', '2023-10-29 09:45:00', 'The room had a nice view.', 4.0),
     ('usr000000001', 'roo000000004', '2023-10-30 16:15:00', 'The staff was friendly and helpful.', 4.8),
-    ('usr000000002', 'roo000000005', '2023-10-31 13:30:00', 'The room was spacious and well-maintained.', 4.7);
+    ('usr000000002', 'roo000000004', '2023-10-31 13:30:00', 'The room was spacious and well-maintained.', 4.7);
 
 INSERT INTO Notification (noti_id, noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url)
 VALUES

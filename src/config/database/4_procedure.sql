@@ -3,7 +3,7 @@ USE DATABASE_SE104;
 -- Các procedure được hỗ trợ:
 -- sp_insert_autoID_admin(`nickname`, `pass`)
 -- sp_insert_autoID_authuser(`first_name`, `last_name`, `email`, `pass`, @NEWID)
--- sp_insert_autoID_bankcard(`bank_name`, `bank_branch`, `bank_num`, `bank_name_pers`, `au_user_id`, @NEWID)
+-- sp_insert_autoID_bankcard(`bank_name`, `bank_branch`, `bank_num`, `bank_name_pers`, `au_user_email`, @NEWID)
 -- sp_insert_autoID_debitcard(`debit_num`, `debit_end_date`, `debit_CCV`, `debit_name`, `debit_address`, `debit_postal`, `au_user_id`, @NEWID)
 -- sp_insert_autoID_province(`prov_name`, `prov_url`, @NEWID)
 -- sp_insert_autoID_city(`city_name`, `city_url`, `prov_id`, @NEWID)
@@ -60,6 +60,8 @@ CALL sp_insert_autoID_admin('Hieu', 'admin');
 
 DELETE FROM admin WHERE admin_nickname LIKE 'Hieu%';
 
+DELIMITER;
+
 
 
 
@@ -94,19 +96,20 @@ BEGIN
 
     INSERT INTO AuthUser (au_user_id, au_user_first_name, au_user_last_name, au_user_email, au_user_pass)
     VALUES (NewID, au_user_first_name, au_user_last_name, au_user_email, au_user_pass);
-END
+END;
 
 DELIMITER ;
 
 -- TESTING
-DELIMITER //
+DELIMITER;
 
 SELECT * FROM AUTHUSER;
 
 CALL sp_insert_autoID_authuser('Hieu', 'Le', 'abc@gmail.com', '1234', @NEWID);
 SELECT @NEWID;
 
-DELETE FROM authuser WHERE au_user_first_name LIKE 'Hieu%';
+DELETE FROM authuser
+WHERE au_user_first_name LIKE 'Hieu%';
 
 SELECT * FROM AUTHUSER;
 
@@ -128,7 +131,7 @@ CREATE PROCEDURE sp_insert_autoID_bankcard(
     IN bank_branch NVARCHAR(50),
     IN bank_num VARCHAR(16),
     IN bank_name_pers VARCHAR(50),
-    IN au_user_id CHAR(12),
+    IN au_user_email CHAR(12),
     OUT NewID CHAR(12)
 )
 BEGIN
@@ -147,10 +150,18 @@ BEGIN
 
     SET NewID = CONCAT(Prefix, LPAD(MaxID + 1, 9, '0'));
 
+    DECLARE au_user_id CHAR(12);
+    IF au_user_email IS NULL THEN
+        SET au_user_id = NULL;
+    ELSE
+        SELECT au_user_id INTO au_user_id
+        FROM authuser
+        WHERE au_user_email = au_user_email;
+
     INSERT INTO bankcard (bank_id, bank_name, bank_branch, bank_num, bank_name_pers, au_user_id)
     VALUES (NewID, bank_name, bank_branch, bank_num, bank_name_pers, au_user_id);
 
-END
+END;
 
 DELIMITER ;
 
@@ -203,7 +214,7 @@ BEGIN
     INSERT INTO debitcard (debit_id, debit_num, debit_end_date, debit_CCV, debit_name, debit_address, debit_postal, au_user_id)
     VALUES (NewID, debit_num, debit_end_date, debit_CCV, debit_name, debit_address, debit_postal, au_user_id);
 
-END
+END;
 
 DELIMITER ;
 
@@ -250,7 +261,7 @@ BEGIN
 
     INSERT INTO Province (prov_id, prov_name, prov_url)
     VALUES (NewID, prov_name, prov_url);
-END
+END;
 
 DELIMITER ;
 
@@ -299,7 +310,7 @@ BEGIN
     INSERT INTO City (city_id, city_name, city_url, prov_id)
     VALUES (NewID, city_name, city_url, prov_id);
 
-END
+END;
 
 DELIMITER ;
 
@@ -353,7 +364,7 @@ BEGIN
     INSERT INTO Accommodation(acco_id, acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id)
     VALUES (NewID, acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id);
 
-END
+END;
 
 DELIMITER ;
 
@@ -413,7 +424,7 @@ BEGIN
 
     INSERT INTO booking (book_id, book_datetime, book_start_datetime, book_end_datetime, pay_id, book_total_cost, book_first_name, book_last_name, book_email, au_user_id, book_phone, book_note, cancel_cost, book_status, book_is_payed)
     VALUES (NewID, book_datetime, book_start_datetime, book_end_datetime, pay_id, book_total_cost, book_first_name, book_last_name, book_email, au_user_id, book_phone, book_note, cancel_cost, book_status, book_is_payed);
-END
+END;
 
 DELIMITER ;
 
@@ -473,7 +484,7 @@ BEGIN
     INSERT INTO RoomType(room_id, room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id)
     VALUES (NewID, room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id);
 
-END
+END;
 
 DELIMITER ;
 
@@ -525,6 +536,6 @@ BEGIN
 
     INSERT INTO notification (noti_id, noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url)
     VALUES (NewID, noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url);
-END
+END;
 
 DELIMITER ;

@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
 const session = require('express-session')
@@ -10,3 +10,4 @@ router.get('/about', SiteController.about)
 router.get('/', SiteController.index)
 
 module.exports = router
+

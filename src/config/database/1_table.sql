@@ -1,4 +1,5 @@
-﻿DROP DATABASE IF EXISTS DATABASE_SE104;
+﻿-- Active: 1698914213463@@127.0.0.1@3306@database_se104
+DROP DATABASE IF EXISTS DATABASE_SE104;
 
 CREATE DATABASE DATABASE_SE104;
 
@@ -20,7 +21,7 @@ CREATE TABLE AuthUser
     au_user_email       varchar(50)		NOT NULL	UNIQUE,
     au_user_pass        varchar(50)		NOT NULL,
     au_user_avt_url     varchar(50),
-    au_user_sex         bit,
+    au_user_sex         varchar(6),
     au_user_birthday    date,
     bank_default_id     char(12),
     debit_default_id    char(12),
@@ -133,9 +134,9 @@ CREATE TABLE RoomType
     room_double_bed     int          NOT NULL,
     room_total          int          NOT NULL,
     room_details_img_url	varchar(50),
-    room_area           float,
-    room_cost           float        NOT NULL,
-    room_discount       float,
+    room_area           decimal(10, 2),
+    room_cost           decimal(10, 2)  NOT NULL,
+    room_discount       decimal(10, 2),
     room_date_end_discount	date,
     room_sum_rating     int          DEFAULT 0,
     acco_id             char(12)     NOT NULL,
@@ -145,8 +146,8 @@ CREATE TABLE RoomType
 
 CREATE TABLE Extension
 (
-    exte_id				char(12)        NOT NULL	UNIQUE,
-    exte_name			nvarchar(50)    NOT NULL   UNIQUE,
+    exte_id				char(12)        NOT NULL    UNIQUE,
+    exte_name			nvarchar(50)    NOT NULL    UNIQUE,
     PRIMARY KEY (exte_id)
 );
 
@@ -188,16 +189,16 @@ CREATE TABLE Booking
     book_start_datetime datetime        NOT NULL,
     book_end_datetime   datetime        NOT NULL,
     pay_id              char(12)        NOT NULL,
-    book_total_cost     float           NOT NULL    DEFAULT 0,
+    book_total_cost     decimal(10, 2)  NOT NULL    DEFAULT 0,
     book_first_name     char(50)        NOT NULL,
     book_last_name      char(50)        NOT NULL,
     book_email          varchar(50)     NOT NULL,
     au_user_id          char(12)        NOT NULL,
     book_phone          char(10)        NOT NULL,
     book_note           text,
-    cancel_cost         float           NOT NULL,
-    book_status         int             NOT NULL, -- 1: Cancel, 0: Pending, 1: Success
-    book_is_payed       int             NOT NULL, -- 0: unpayed, 1: payed
+    cancel_cost         decimal(10, 2)  NOT NULL,
+    book_status         int             NOT NULL,
+    book_is_payed       int             NOT NULL,
     rea_id              char(12),
     PRIMARY KEY (book_id),
     FOREIGN KEY (pay_id) REFERENCES PayingMethod(pay_id),
@@ -205,11 +206,14 @@ CREATE TABLE Booking
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id)
 );
 
+-- 1: Cancel, 0: Pending, 1: Success
+-- 0: unpayed, 1: payed
+
 CREATE TABLE BookingDetail
 (
     book_id				char(12)	    NOT NULL,
     room_id				char(12)	    NOT NULL,
-    book_final_cost		float		    NOT NULL,
+    book_final_cost		DECIMAL(10,2)	NOT NULL,
     book_num_room		int			    NOT NULL,
     book_num_adult		int			    NOT NULL,
     book_num_child		int			    NOT NULL,
@@ -218,13 +222,15 @@ CREATE TABLE BookingDetail
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
 
+ALTER TABLE `database_se104`.`bookingdetail` ADD INDEX `book_id` (`book_id`);
+
 CREATE TABLE Rating
 (
     au_user_id			char(12)        NOT NULL,
     room_id				char(12)        NOT NULL,
     rating_datetime		datetime        NOT NULL,
     rating_context		text,
-    rating_point		float           NOT NULL,
+    rating_point		decimal(10, 1)  NOT NULL,
     PRIMARY KEY (au_user_id, room_id, rating_datetime),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)

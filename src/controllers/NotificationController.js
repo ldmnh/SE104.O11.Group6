@@ -1,17 +1,16 @@
-class SiteController {
-    
-    // [GET] /auth/notification/account-update
+class NotificationController {
+
+    // [GET] /notification/account-update
     notiAccountUpdate(req, res) {
-        const title = 'Thông báo'
-        res.render('./pages/notifications/account-update', { title })
+        res.render('./pages/notification/account-update')
     }
 
-    // [GET] /auth/notification/promotion
+    // [GET] /notification/promotion
     notiPromotion(req, res) {
         const title = 'Thông báo'
-        res.render('./pages/notifications/promotion', { title })
+        res.render('./pages/notification/promotion', { title })
     }
 
 }
 
-module.exports = new SiteController()
+module.exports = new NotificationController()
