@@ -53,10 +53,33 @@ class AuthController {
     }
 
     // [POST] /auth/change
-    changePost(req, res) {
-        // const title = 'Đổi mật khẩu'
-        // res.render('./pages/account/change-password', { title })
-        res.send("changePost")
+    changePut(req, res) {
+        const { oldPass, newPass } = req.body;
+        const email = req.session.email;
+        if (!email) {
+            res.status(404).json({ message: 'Không tìm thấy email!!!' });
+            return;
+        }
+
+        const sql = `
+            UPDATE AUTHUSER
+            SET au_user_pass = ?
+            WHERE au_user_email = ?
+                AND au_user_pass = ?`;
+        const params = [newPass, email, oldPass];
+
+        db.query(sql, params, (err, result, fields) => {
+            if (err) { 
+                res.status(500).json({ message: "Lỗi cơ sở dữ liệu!!!" });
+                throw err;
+            }
+
+            if (result.affectedRows === 0) {
+                res.status(404).json({ message: "Không tìm thấy tài khoản!!!" });
+            } else {
+                res.status(200).json({ message: "Cập nhật thông tin tài khoản thành công" });
+            }
+        });
     }
 
 }

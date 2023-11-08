@@ -1,4 +1,5 @@
 const db = require('../config/db/connect');
+const session = require('express-session');
 
 class BookingController {
 
@@ -13,7 +14,14 @@ class BookingController {
 
     // [POST] /booking/information
     informationPost(req, res) {
-        res.send('booking-infoPost')
+        const { book_first_name, book_last_name, book_email, book_phone, book_note } = req.body;
+        req.session.book_first_name = book_first_name;
+        req.session.book_last_name = book_last_name;
+        req.session.book_email = book_email;
+        req.session.book_phone = book_phone;
+        req.session.book_note = book_note;
+
+        res.redirect('/booking/payment');
     }
 
     // [GET] /booking/payment
@@ -22,7 +30,8 @@ class BookingController {
             { name: 'Trang chủ', link: '/' },
             { name: 'Phương thức thanh toán', link: '/booking/payment' }
         ]
-        res.render('./pages/booking/payment', { nav_tree__data })
+        
+        res.status(200).render('./pages/booking/payment', { nav_tree__data })
     }
 
     // [POST] /booking/payment
