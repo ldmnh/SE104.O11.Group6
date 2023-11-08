@@ -12,7 +12,9 @@ class SiteController {
     // [GET] /register
     register(req, res) {
         const title = 'Đăng ký'
-        res.render('./pages/site/register', { title })
+        res.render('./pages/site/register', {
+            title
+        })
     }
 
     // [POST] /register
@@ -55,10 +57,12 @@ class SiteController {
     // [GET] /login
     login(req, res) {
         const title = 'Đăng nhập'
-        res.render('./pages/site/login', { title })
+        res.render('./pages/site/login', {
+            title
+        })
     }
 
-    // [GET] /about-us
+    // [GET] /about
     about(req, res) {
         res.render('./pages/site/about-us')
     }
@@ -66,20 +70,116 @@ class SiteController {
     // [GET] /forgot-password
     forgot(req, res) {
         const title = 'Nhận liên kết đặt lại mật khẩu'
-        res.render('./pages/site/forgot-password', { title })
+        res.render('./pages/site/forgot-password', {
+            title
+        })
     }
 
     // [GET] /reset-password
     reset(req, res) {
         const title = 'Đặt lại mật khẩu'
-        res.render('./pages/site/reset-password', { title })
+        res.render('./pages/site/reset-password', {
+            title
+        })
     }
 
     // [GET] /search-results
     search(req, res) {
         const title = 'Kết quả tìm kiếm'
-        res.render('./pages/site/search-results', { title })
+        res.render('./pages/site/search-results', {
+            title
+        })
     }
+
+    // [GET] /accoDetail
+    accoDetail(req, res) {
+        // Test
+        const acco_id = 'acc000000001';
+        // Real
+        // const {acco_id} = req.body;
+
+        const sql = 'SELECT * FROM accommodation WHERE acco_id = ?';
+        const sql2 = 'SELECT DISTINCT(room_id) FROM viewAccoDetail WHERE acco_id = ?';
+        const sql3 = 'SELECT DISTINCT(fea_name) FROM viewAccoDetail WHERE acco_id = ?';
+        const sql5 = 'SELECT * FROM viewRoomRating WHERE acco_id = ?';
+
+        const params = [acco_id];
+
+        db.query(sql, params, (err, result) => {
+            if (err) {
+                res.status(500).json({
+                    message: 'Lỗi truy vấn',
+                });
+                throw err;
+            }
+
+            if (result[0]) {
+                db.query('SELECT * FROM view_name_fea WHERE acco_id = ?', params, (err, result2) => {
+                    if (err) {
+                        res.status(500).json({
+                            message: 'Lỗi truy vấn',
+                        });
+                        throw err;
+                    }
+
+                    if (result2[0]) {
+                        db.query('SELECT * FROM roomtype WHERE acco_id = ?', params, (err, result3) => {
+                            if (err) {
+                                res.status(500).json({
+                                    message: 'Lỗi truy vấn',
+                                });
+                                throw err;
+                            }
+
+                            result3.forEach(room => {
+                                db.query('SELECT exte_id FROM roomexte WHERE room_id = ?', room.room_id, (err, result4) => {
+                                room.extension = result4;
+                                })
+                            });
+
+
+                            if (result3[0]) {
+                                db.query('SELECT * FROM viewRoomRating WHERE acco_id = ?', params, (err, result5) => {
+                                    if (err) {
+                                        res.status(500).json({
+                                            message: 'Lỗi truy vấn',
+                                        });
+                                        throw err;
+                                    }
+                                    res.status(200).render('./pages/site/acco-detail', {
+                                        message: 'Lấy thông tin thành công',
+                                        data_acco: result[0],
+                                        data_fea: result2,
+                                        data_rooms: result3,
+                                        // data_roomexte: result4,
+                                        data_rating: result5,
+                                    })
+                                    // res.send({
+                                    //         message: 'Lấy thông tin thành công',
+                                    //         data_acco: result[0],
+                                    //         data_fea: result2,
+                                    //         data_rooms: result3,
+                                    //         // data_roomexte: result4,
+                                    //         data_rating: result5,
+                                    //     })
+
+                                })
+
+                            }
+                        })
+                    }
+                })
+            }
+
+
+
+
+
+        })
+
+    }
+
+
 
 }
 
