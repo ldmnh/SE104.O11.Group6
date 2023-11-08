@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 .modal {
     position: fixed;
     display: none;
@@ -38,7 +40,7 @@ h1 {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 32px 38px 34px 38px;
-    box-shadow: 0 10px 40px -20px black;
+    box-shadow: 0 10px 40px -20px var(--black);
     position: relative;
 }
 
@@ -56,7 +58,7 @@ h1 {
 }
 
 .form-control:disabled::placeholder {
-    color: black;
+    color: var(--black);
 }
 
 .form--item h2 {
@@ -90,13 +92,13 @@ h1 {
 
 .form-control:disabled {
     border: none;
-    background-color: white;
+    background-color: var(--white);
 }
 
 .form-control.unfilled:disabled::placeholder {
     border: none;
-    background-color: white;
-    color: #bec8c9;
+    background-color: var(--white);
+    color: var(--outline-variant);
 }
 
 .account__button {
@@ -110,9 +112,9 @@ h1 {
     width: 96px;
     height: 48px;
     border-radius: 8px;
-    color: #fe9c0b;
+    color: var(----primary-color-4);
     background-color: white;
-    border: 1px solid #fe9c0b;
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
 }
 
@@ -120,8 +122,8 @@ h1 {
     width: 131px;
     height: 48px;
     border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
+    background-color: var(--primary-color-4);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
@@ -133,7 +135,7 @@ h1 {
 }
 
 .account__close--btn span {
-    color: #00696d;
+    color: var(--primary-color-2);
 }
 
 .account__button:hover {
