@@ -49,22 +49,22 @@ VALUES
     ('acc000000003', 'resort',       5,  'acc003.jpg', 'Resort Bình Yên',    'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   'cty000000006',     'pro000000006'),
     ('acc000000004', 'guest_house',  2,  'acc004.jpg', 'Guest House C',      NULL,                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '789 Mountain View',NULL,               'pro000000003');
 
-INSERT INTO Feature (fea_id, fea_name)
-VALUES 
-    ('fea000000001', 'Miễn phí hủy'),
-    ('fea000000002', 'Không cần thanh toán trước'),
-    ('fea000000003', 'Giáp biển');
+-- INSERT INTO Feature (fea_id, fea_name)
+-- VALUES 
+--     ('fea000000001', 'Miễn phí hủy'),
+--     ('fea000000002', 'Không cần thanh toán trước'),
+--     ('fea000000003', 'Giáp biển');
 
-INSERT INTO AccoFea (fea_id, acco_id)
-VALUES 
-    ('fea000000001', 'acc000000001'),
-    ('fea000000001', 'acc000000002'),
-    ('fea000000002', 'acc000000001'),
-    ('fea000000002', 'acc000000004'),
-    ('fea000000003', 'acc000000001'),
-    ('fea000000003', 'acc000000002'),
-    ('fea000000003', 'acc000000003'),
-    ('fea000000003', 'acc000000004');
+-- INSERT INTO AccoFea (fea_id, acco_id)
+-- VALUES 
+--     ('fea000000001', 'acc000000001'),
+--     ('fea000000001', 'acc000000002'),
+--     ('fea000000002', 'acc000000001'),
+--     ('fea000000002', 'acc000000004'),
+--     ('fea000000003', 'acc000000001'),
+--     ('fea000000003', 'acc000000002'),
+--     ('fea000000003', 'acc000000003'),
+--     ('fea000000003', 'acc000000004');
 
 INSERT INTO AccoImg (acco_id, acco_img_url)
 VALUES 
@@ -95,29 +95,29 @@ VALUES
     ('roo000000009',  'Suite',    'Family', 2, 2, 1, 2, 5,    'room_3.jpg', 48.7, 320.0, NULL, NULL, 0,           'acc000000002'),
     ('roo000000010',  'Standard', 'Single', 1, 0, 1, 0, 9,    'room_2.jpg', 29.8, 110.0, 0.1, '2023-05-31', 0,    'acc000000004');
 
-INSERT INTO Extension (exte_id, exte_name)
-VALUES 
-    ('ext000000001', 'Buffet sáng'),   
-    ('ext000000002', 'Wifi'),
-    ('ext000000003', 'Thuốc lá'),
-    ('ext000000004', 'Thú cưng');
+-- INSERT INTO Extension (exte_id, exte_name)
+-- VALUES 
+--     ('ext000000001', 'Buffet sáng'),   
+--     ('ext000000002', 'Wifi'),
+--     ('ext000000003', 'Thuốc lá'),
+--     ('ext000000004', 'Thú cưng');
 
-INSERT INTO RoomExte (room_id, exte_id)
-VALUES 
-    ('roo000000001', 'ext000000001'),
-    ('roo000000001', 'ext000000002'),
-    ('roo000000002', 'ext000000001'),
-    ('roo000000003', 'ext000000003'),
-    ('roo000000004', 'ext000000002'),
-    ('roo000000005', 'ext000000001'),
-    ('roo000000005', 'ext000000002'),
-    ('roo000000006', 'ext000000003'),
-    ('roo000000007', 'ext000000001'),
-    ('roo000000008', 'ext000000002'),
-    ('roo000000009', 'ext000000002'),
-    ('roo000000010', 'ext000000002'),
-    ('roo000000010', 'ext000000003'),
-    ('roo000000010', 'ext000000004');
+-- INSERT INTO RoomExte (room_id, exte_id)
+-- VALUES 
+--     ('roo000000001', 'ext000000001'),
+--     ('roo000000001', 'ext000000002'),
+--     ('roo000000002', 'ext000000001'),
+--     ('roo000000003', 'ext000000003'),
+--     ('roo000000004', 'ext000000002'),
+--     ('roo000000005', 'ext000000001'),
+--     ('roo000000005', 'ext000000002'),
+--     ('roo000000006', 'ext000000003'),
+--     ('roo000000007', 'ext000000001'),
+--     ('roo000000008', 'ext000000002'),
+--     ('roo000000009', 'ext000000002'),
+--     ('roo000000010', 'ext000000002'),
+--     ('roo000000010', 'ext000000003'),
+--     ('roo000000010', 'ext000000004');
 
 INSERT INTO RoomTypeImg (room_id, room_type_image_url)
 VALUES 

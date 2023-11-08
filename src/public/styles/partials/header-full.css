@@ -45,8 +45,9 @@ header {
 }
 
 .container__nav--top a {
-  font-size: 24px;
+  font-size: 22px;
   text-decoration: none;
+  font-weight: 500;
   color: white;
 }
 
@@ -80,10 +81,8 @@ header {
   margin: 4px;
 
   &:hover {
-    box-shadow:
-      0 1px 3px 1px rgba(0, 0, 0, 0.2),
-      0 0 2px 0 rgba(0, 0, 0, 0.2);
-  }
+       box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
 }
 
 /* Header with login*/

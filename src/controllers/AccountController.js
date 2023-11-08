@@ -3,7 +3,7 @@ const db = require('../config/db');
 class AccountController {
 
     // [GET] /account/
-    index(req, res) {
+    information(req, res) {
         if (!req.session.email) {
             res.status(404).json({ message: 'Không tìm thấy email!!!' });
             return;
@@ -39,7 +39,7 @@ class AccountController {
     }
 
     // [PUT] /account/
-    index__put(req, res) {
+    informationPut(req, res) {
         const {
             account_first_name,
             account_last_name,
@@ -80,18 +80,39 @@ class AccountController {
     }
 
     // [GET] /account/booking-history
-    bookingHistory(req, res) {
+    history(req, res) {
         res.render('./pages/account/booking-history')
     }
 
     // [GET] /account/payment
-    paymentAccount(req, res) {
+    payment(req, res) {
         res.render('./pages/account/payment')
     }
 
-    // [GET] /account/change-password
-    showChangeForm(req, res) {
-        res.render('./pages/account/change-password')
+    // [POST] /account/payment/addBank
+    addBank(req, res) {
+        res.send("addBank")
+    }
+
+    // [POST] /account/payment/addDebit
+    addDebit(req, res) {
+        res.send("addDebit")
+    }
+
+    // [POST] /account/payment/delBank
+    delBank(req, res) {
+        res.send("delBank")
+    }
+
+    // [POST] /account/payment/delDebit
+    delDebit(req, res) {
+        res.send("delDebit")
+    }
+
+    // [GET]  /account/change-password
+    change(req, res) {
+        const title = 'Đổi mật khẩu'
+        res.render('./pages/account/change-password', { title })
     }
 
     // [PUT] /account/change-password

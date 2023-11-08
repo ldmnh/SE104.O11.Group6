@@ -1,10 +1,4 @@
-
 const db = require('../config/db');
-// const User = require('../models/loginServer');
-// const { validationResult } = require('express-validator');
-const { query } = require('express');
-// const loginService = require('../models/loginServer')
-// const { check } = require('express-validator')
 
 class SiteController {
 
@@ -41,7 +35,6 @@ class SiteController {
                 } else {
                     const conflictError = 'Email hoặc mật khẩu không chính xác';
                     res.send(conflictError);
-                    // res.render('./pages/site/login.ejs', { title, email, password, conflictError });
                 }
             }
         );

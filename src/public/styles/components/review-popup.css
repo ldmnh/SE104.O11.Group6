@@ -106,6 +106,30 @@
     justify-content: space-between;
 }
 
+input#room__quantity {
+    border: none;
+    width: 30px;
+    font-size: 22px;
+    height: 30px;
+    text-align: center;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/* CSS ẩn mũi tên lên/xuống của input số */
+input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Ẩn các mũi tên lên/xuống trong trình duyệt Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 .counter--wraper span {
     font-size: 22px;
     font-weight: 700;
@@ -141,18 +165,17 @@
 .input--detail {
     height: 224px;
     padding: 10px;
-    z-index: 1;
-    /* Đặt z-index để đặt lớp input trên placeholder */
+    z-index: 1; /* Đặt z-index để đặt lớp input trên placeholder */
 }
 
-.input--detail:focus+.custom-input::before {
+.input--detail:focus + .custom-input::before {
     top: -10px;
     left: 10px;
     font-size: 16px;
     color: #000;
 }
 
-.custom-input::before {
+/* .custom-input::before {
     content: "Mô tả cụ thể trải nghiệm của bạn tại đây.";
     position: absolute;
     top: 0;
@@ -162,7 +185,7 @@
     padding: 10px;
     font-weight: 500;
     transition: all 0.3s;
-}
+} */
 
 @keyframes modalFadeIn {
     from {
