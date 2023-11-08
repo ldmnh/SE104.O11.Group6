@@ -1,9 +1,9 @@
 @import url("/styles/base.css");
 @import url("/styles/partials/header-small.css");
-/* @import url("/styles/components/room-in-hs.css"); */
+@import url("/styles/components/room-in-hs.css");
 @import url("/styles/partials/footer.css");
-@import url("/styles/components/bank-account-popup.css");
-@import url("/styles/components/credit-account-popup.css");
+@import url("/styles/components/review-popup.css");
+@import url("/styles/components/next-page.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -18,22 +18,13 @@ body {
     align-items: center;
 }
 
-.paymentaccount--container {
+.bookinghistory--container {
     margin-top: 12px;
     margin-bottom: 12px;
     /* width: 80%; */
     width: 1152px;
     display: flex;
     gap: 12px;
-}
-
-hr {
-    background-color: #bec8c9;
-    border-width: 2px;
-    width: 100%;
-    margin: 12px;
-    margin-left: 2px;
-    opacity: none;
 }
 
 .aside--wrapper {
@@ -69,11 +60,10 @@ hr {
     transition: 0.3s;
 }
 
-.aside--section p:nth-child(3) {
+.aside--section p:nth-child(2) {
     background-color: #004f52;
     color: white;
     border-radius: 8px;
-    padding: 12px;
 }
 
 .aside--wrapper img {
@@ -88,67 +78,17 @@ hr {
     padding-left: 12px;
 }
 
-.form--input {
+.booking--history {
     padding: 24px;
     border: 1px solid #bec8c9;
     border-radius: 8px;
     width: 75%;
 }
 
-.card--items {
+.booking--history--items {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-}
-
-.card--item {
-    display: flex;
-    gap: 30px;
-    padding: 12px;
-    flex-direction: column;
-    height: 200px;
-    width: 814px;
-    border: 1px solid #bec8c9;
-    border-radius: 8px;
-}
-
-.card--item h1 {
-    font-size: 24px;
-    font-weight: 600px;
-}
-
-.card--item h2 {
-    font-size: 22px;
-    font-weight: 500px;
-    color: rgba(0, 0, 0, 0.38);
-    text-align: center;
-}
-
-.debit-credit-card--submit {
-    width: 160px;
-    height: 48px;
-    border-radius: 8px;
-    background-color: #085457;
-    color: white;
-    border: none;
-    font-size: 16px;
-}
-
-.bank-account--submit {
-    width: 251px;
-    height: 48px;
-    border-radius: 8px;
-    background-color: #085457;
-    color: white;
-    border: none;
-    font-size: 16px;
-}
-
-.debit-credit-card,
-.bank-account {
-    display: flex;
-    justify-content: space-between;
 }
 
 .profileBtn,
