@@ -3,10 +3,10 @@ const historyBtn = document.querySelector(".history-btn");
 const changePasswordBtn = document.querySelector(".change-password-btn");
 
 const redirect2profiletView = () => {
-  window.location.href = "http://127.0.0.1:3000/account";
+  window.location.href = "http://127.0.0.1:3000/account/information";
 };
 const redirect2HistoryView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/booking-history";
+  window.location.href = "http://127.0.0.1:3000/account/history";
 };
 const redirect2changePasswordView = () => {
   window.location.href = "http://127.0.0.1:3000/account/change-password";
@@ -18,7 +18,7 @@ changePasswordBtn.addEventListener("click", redirect2changePasswordView);
 const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
-  window.location.href = "http://127.0.0.1:3000/register";
+  window.location.href = "http://127.0.0.1:3000/auth/register";
 };
 
 logoutBtn.addEventListener("click", redirect2LogOutView);

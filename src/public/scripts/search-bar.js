@@ -80,3 +80,10 @@ document
       searchQuality.style.opacity = 1;
     }
   });
+//Khi nhấn vào nút Tìm kiếm
+var searchButton = document.querySelector(".button--submit");
+const redirect2AccDetailView = () => {
+  window.location.href = "http://127.0.0.1:3000/search/results";
+};
+
+searchButton.addEventListener("click", redirect2AccDetailView);
