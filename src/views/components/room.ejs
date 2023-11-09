@@ -74,15 +74,15 @@
                 <div class="modal__view">
                     <h1>Phòng hạng sang</h1>
                     <div class="modal__view--big">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                        <img src="/imgs/details/1.jpg" alt="">
-                        <span class="material-symbols-outlined">chevron_right</span>
+                        <button onclick="prevSlide(event)" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
+                        <img class="modal__slide" src="/imgs/details/1.jpg" alt="">
+                        <button onclick="nextSlide(event)" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
                     </div>
                     <div class="modal__view--small">
-                        <img src="/imgs/details/2.jpg" alt="">
-                        <img src="/imgs/details/3.jpg" alt="">
-                        <img src="/imgs/details/4.jpg" alt="">
-                        <img src="/imgs/details/1.jpg" alt="">
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/1.jpg" alt=""></button>
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/2.jpg" alt=""></button>
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/3.jpg" alt=""></button>
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/4.jpg" alt=""></button>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                     <div class="detail__info">
                         <div class="modal__header">
                             <h2>Thông tin phòng</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button onclick="resetSlide(event)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="detail__item">
                             <span class="material-symbols-outlined">square_foot</span>
