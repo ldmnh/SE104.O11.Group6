@@ -1,14 +1,17 @@
 // import router
-const siteRouter = require('./siteRouter')
+const authRouter = require('./authRouter')
+const searchRouter = require('./searchRouter')
+const notificationRouter = require('./notificationRouter')
 const accountRouter = require('./accountRouter')
-const nofiticationsRouter = require('./notificationsRouter')
+const bookingRouter = require('./bookingRouter')
+const siteRouter = require('./siteRouter')
 
 function route(app) {
-    app.use('/order-detail', (req, res) => res.render('./pages/order-detail'))
-    app.use('/order-confirm', (req, res) => res.render('./pages/order-confirm'))
-    app.use('/detail', (req, res) => res.render('./pages/acco-detail'))
+    app.use('/auth', authRouter)
+    app.use('/search', searchRouter)
+    app.use('/notification', notificationRouter)
     app.use('/account', accountRouter)
-    app.use('/notifications', nofiticationsRouter)
+    app.use('/booking', bookingRouter)
     app.use('/', siteRouter)
 }
 

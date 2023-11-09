@@ -5,21 +5,9 @@ class SiteController {
         res.render('./pages/site/index')
     }
 
-    // [GET] /register
-    register(req, res) {
-        const title = 'Đăng ký'
-        res.render('./pages/site/register', { title })
-    }
-
-    // [GET] /login
-    login(req, res) {
-        const title = 'Đăng nhập'
-        res.render('./pages/site/login', { title })
-    }
-
     // [GET] /about-us
     about(req, res) {
-        res.render('./pages/site/about-us')
+        res.render('./pages/site/about')
     }
     // [GET] /footer
     footer(req, res) {

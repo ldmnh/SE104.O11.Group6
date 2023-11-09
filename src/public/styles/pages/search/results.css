@@ -1,0 +1,295 @@
+@import url("/styles/base.css");
+@import url("/styles/partials/header-medium.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/components/search-result-sale.css");
+@import url("/styles/components/search-result-nsale.css");
+@import url("/styles/components/next-page.css");
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container {
+    width: 80%;
+    margin: 0;
+    padding: 12px 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.filter-sidebar {
+    width: 280px;
+    flex-direction: column;
+}
+
+.filter-sidebar__expanded-map::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imgs/map-br.png);
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    filter: opacity(0.8);
+    z-index: -1;
+}
+
+.filter-sidebar__expanded-map {
+    width: 280px;
+    height: 185px;
+    border-radius: 8px;
+    position: relative;
+}
+
+
+.map-button {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.filter-sidebar__map-icon {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    color: var(--primary-color);
+}
+
+.filter-sidebar__map-icon .material-symbols-outlined {
+    font-size: 60px;
+}
+
+.filter-sidebar__map-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 18px;
+}
+
+.filter-sidebar__main {
+    margin-top: 12px;
+    border: var(--outline-variant) solid;
+    border-radius: 8px;
+    padding-bottom: 8px;
+}
+
+.filter-sidebar__main .filter-sidebar__heading-content {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 12px 12px 0px 12px;
+}
+
+.filter-sidebar__main .filter-sidebar__note {
+    width: 100%;
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: 200;
+}
+
+.filter-sidebar__main p {
+    font-weight: 500;
+    margin: 12px 0 12px 0;
+}
+
+.filter-sidebar__price {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__type {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__cus-rate {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__bed-type {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__distance {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__meal {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__star-rate {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__cancel {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__convenient-accommodation {
+    margin: 0 12px 0 12px;
+}
+
+.filter-sidebar__convenient-room {
+    margin: 0 12px 0 12px;
+}
+
+.form-check {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 0;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 4px;
+}
+
+.form-check-label__score {
+    padding-right: 20px;
+    font-weight: 600;
+}
+
+.form-check-label .material-symbols-outlined {
+    color: orange;
+}
+
+.filter-sidebar__content-extend {
+    display: flex;
+    align-items: center;
+}
+
+.filter-sidebar__content-extend .material-symbols-outlined {
+    color: var(--link);
+}
+
+.filter-sidebar__content-extend .material-symbols-outlined:hover {
+    cursor: pointer;
+}
+
+.form-check-input:hover {
+    cursor: pointer;
+    box-shadow: 0.5px 0.5px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.filter-sidebar hr {
+    margin: 6px 8px 6px 8px;
+}
+
+/* Bắt đầu bằng việc ẩn các phần tử con ngoại trừ 5 phần tử đầu */
+.filter-sidebar__convenient-room .form-check.hidden {
+    display: none;
+}
+
+
+.search-results {
+    padding-left: 12px;
+    width: 100%;
+}
+
+.search-results__content {
+    padding-bottom: 12px;
+}
+
+.search-results__filter {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+    padding: 0;
+    border: var(--outline-variant) solid;
+    border-radius: 8px;
+}
+
+.search-results__filter__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    padding: 6px 5px 6px 5px;
+}
+
+.search-results__filter__heading p {
+    margin: 0;
+}
+
+.search-results__filter__item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    padding: 6px 2px 6px 8px;
+    border-radius: 4px;
+}
+
+.search-results__filter__item:hover {
+    cursor: pointer;
+    background-color: #f1f1f1;
+}
+
+.search-results__filter__item p {
+    margin: 0;
+}
+
+.search-results__filter__item .material-symbols-outlined {
+    padding: 0 4px 0 0px;
+}
+
+.search-results__filter__title {
+    font-weight: 500;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 8px 8px;
+    z-index: 1;
+    top: 100%;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}

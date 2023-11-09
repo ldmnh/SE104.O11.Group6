@@ -248,6 +248,7 @@ hr {
     display: flex;
     flex-direction: column;
 }
+
 .section-content__confirm-detail {
     display: flex;
     flex-direction: column;

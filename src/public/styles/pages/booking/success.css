@@ -1,0 +1,160 @@
+@import url("/styles/base.css");
+/* @import url("/styles/partials/header-small.css");
+@import url("/styles/partials/footer.css"); */
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    width: 80%;
+    margin: 5vh auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+}
+
+p,
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.main-content {
+    width: 65%;
+    display: inherit;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.order-status {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-status div {
+    display: inherit;
+    gap: 12px;
+    color: var(--green);
+}
+
+.order-description {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-description__item {
+    display: flex;
+    gap: 12px;
+}
+
+.order-save {
+    display: inherit;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+.order-btn {
+    height: 48px;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 8px;
+    display: inherit;
+    gap: 12px;
+    background-color: #fe9c0b;
+    font-size: 0.875rem;
+    color: var(--white)
+}
+
+.order-summary {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-summary__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+}
+
+.order-summary__item img {
+    width: 20%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.order-summary__content {
+    display: inherit;
+    flex-direction: column;
+}
+
+.order-summary__item div {
+    display: flex;
+    gap: 8px;
+    font-size: 0.875rem;
+}
+
+.order-summary__item button {
+    width: 120px;
+}
+
+.extend-content {
+    display: inherit;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.order-code,
+.extend-content__app {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+}
+
+.order-code div {
+    display: inherit;
+    gap: 12px;
+}
+
+.extend-content__app button {
+    width: 120px;
+}
