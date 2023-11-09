@@ -74,8 +74,8 @@ h1 {
   width: 96px;
   height: 48px;
   border-radius: 8px;
-  background-color: #085457;
-  color: white;
+  background-color: var(--primary-color-1);
+  color: var(--white);
   border: none;
   font-size: 16px;
 }
@@ -87,7 +87,7 @@ h1 {
 }
 
 .otp__close--btn span {
-  color: #00696d;
+  color: var(--primary-color-2);
 }
 
 .otp__reject {
@@ -97,7 +97,7 @@ h1 {
 }
 
 .otp__retry {
-  color: #00696d;
+  color: var(--primary-color-1);
   font-weight: 700;
   font-size: 14px;
 }
