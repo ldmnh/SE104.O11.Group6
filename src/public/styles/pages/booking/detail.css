@@ -1,0 +1,208 @@
+@import url("/styles/base.css");
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    width: 80%;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+}
+
+p,
+h1,
+h2,
+h3,
+hr {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--link);
+}
+
+.title {
+    display: inherit;
+    gap: 12px;
+}
+
+.title__rating {
+    display: flex;
+    align-items: center;
+    color: #fe9c0b;
+    font-variation-settings: 'FILL' 1;
+}
+
+.detail {
+    display: inherit;
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+}
+
+.detail__col-1,
+.detail__col-2,
+.detail__col-3 {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+
+}
+
+.detail__col-1 {
+    width: 45%;
+}
+
+.detail__col-2 {
+    width: 30%;
+    border-left: 1px solid var(--outline-variant);
+    border-right: 1px solid var(--outline-variant);
+}
+
+.detail__col-3 {
+    width: 25%;
+}
+
+.detail__col-1 img {
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.detail__location {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail__contact,
+.detail__help {
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail__btn {
+    height: 48px;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 8px;
+    display: inherit;
+    gap: 12px;
+    background-color: #fe9c0b;
+    font-size: 0.875rem;
+    color: var(--white)
+}
+
+.detail__contact button {
+    width: 200px;
+}
+
+.detail__help div {
+    display: inherit;
+    gap: 12px;
+}
+
+.detail__help div span {
+    font-size: 1.75rem;
+}
+
+.detail__code,
+.detail__checkin,
+.detail__checkout,
+.detail__price {
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail__code div {
+    display: inherit;
+    gap: 12px;
+}
+
+.price__strong {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fe9c0b;
+}
+
+.abort {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.abort__info,
+.abort__progress {
+
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.abort__info {
+    width: 30%;
+}
+
+.abort__info h2 {
+    color: var(--green);
+}
+
+.abort__time-left {
+    font-weight: 500;
+}
+
+.abort__highlight {
+    font-weight: 700;
+    color: #00696D;
+}
+
+.abort__progress {
+    width: 40%;
+}
+
+.progress__title {
+    display: inherit;
+    justify-content: space-around;
+    font-weight: 600;
+}
+
+.progress-bar {
+    background-color: var(--green);
+}
+
+.progress__time {
+    font-weight: 600;
+}
