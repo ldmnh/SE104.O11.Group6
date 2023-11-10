@@ -22,7 +22,7 @@ class SiteController {
   // [GET] /error404
   error404(req, res) {
     const title = "Không tìm thấy trang";
-    res.render("./pages/account/error404.ejs", { title });
+    res.render("./pages/site/error404.ejs", { title });
   }
 }
 
