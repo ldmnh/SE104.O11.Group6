@@ -51,6 +51,8 @@ cancelBtn.addEventListener("click", redirectChange1);
 
 //Mat khau moi
 const confirmBtn = document.querySelector(".confirm-button");
+const modalSuccessChangePassword = document.querySelector(".modal-success");
+
 confirmBtn.addEventListener("click", () => {
   const newPassword = document.querySelector(".form__password").value;
   const isPasswordValid =
@@ -65,13 +67,21 @@ confirmBtn.addEventListener("click", () => {
   if (!isPasswordValid || newPassword !== newConfirmPass) {
     //Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
     const errorMessage = document.getElementById("error-message");
-    errorMessage.innerText = "* Thông tin không hợp lệ";
+    errorMessage.innerText = "*";
     errorMessage.style.color = "red";
   } else {
     const errorMessage = document.getElementById("error-message");
     errorMessage.innerText = "Thành công!";
     errorMessage.style.color = "green";
+    modalSuccessChangePassword.style.display = "block";
   }
 });
 
 // Xac nhan mat khau
+const confirmChangePassword = document.querySelector(
+  ".success-popup__close-btn"
+);
+
+closePopupBtn.addEventListener("click", () => {
+  modalSuccess.style.display = "none";
+});
