@@ -44,8 +44,10 @@ h2 {
     height: 391px; */
     text-align: left;
     background-color: var(--white);
+    background-color: var(--white);
     border-radius: 8px;
     padding: 25px;
+    box-shadow: 0 10px 40px -20px var(--black);
     box-shadow: 0 10px 40px -20px var(--black);
     position: relative;
     overflow-y: visible;
@@ -68,6 +70,7 @@ h2 {
 
 .credit__icon span {
     font-size: 85px;
+    color: var(--green);
     color: var(--green);
 }
 
@@ -156,6 +159,9 @@ h2 {
     color: var(--primary-color-4);
     background-color: var(--white);
     border: 1px solid var(--primary-color-4);
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
 }
 
@@ -163,6 +169,8 @@ h2 {
     width: 131px;
     height: 48px;
     border-radius: 8px;
+    background-color: var(--primary-color-4);
+    color: var(--white);
     background-color: var(--primary-color-4);
     color: var(--white);
     border: none;

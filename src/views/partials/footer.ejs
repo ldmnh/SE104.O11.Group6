@@ -1,42 +1,52 @@
 <footer>
-    <div class="footer__container row">
-        <section id="footer__contact" class="col-lg-6">
+    <div class="footer-container row">
+        <div class="footer-container__contact col-lg-5">
             <h3>2WAYS.com</h3>
-            <p class="mt-8">
+            <div class="footer-container__intro">
+            <p>
                 Việc đặt phòng của bạn là động lực giúp chúng tôi duy trì được công ty.
             </p>
-            <p class="mt-8">
+            <p>
                 Bạn có thể liên hệ với chúng tôi thông qua các mạng xã hội
             </p>
-            <ul class="contact__social social mt-8">
+        </div>
+            <ul class="footer-container__contact-social">
                 <li>
-                    <a href="#"><img class="social__logo" src="/imgs/brands/fb_logo.webp" alt="Logo Facebook" /></a>
+                    <a href="https://daa.uit.edu.vn/"><img class="contact-social__logo" src="/imgs/brands/fb_logo.webp" alt="Logo Facebook" /></a>
                 </li>
                 <li>
-                    <a href="#"><img class="social__logo" src="/imgs/brands/insta_logo.png" alt="Logo Instagram" /></a>
+                    <a href="https://daa.uit.edu.vn/"><img class="contact-social__logo" src="/imgs/brands/insta_logo.png" alt="Logo Instagram" /></a>
                 </li>
                 <li>
-                    <a href=" #"><img class="social__logo" src="/imgs/brands/youtube_logo.png" alt="Logo Youtube" /></a>
+                    <a href="https://daa.uit.edu.vn/"><img class="contact-social__logo" src="/imgs/brands/youtube_logo.png" alt="Logo Youtube" /></a>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <section id="footer__about" class="col-lg-2">
+        <div class="footer-container__about col-lg-2">
             <h3>Công ty</h3>
-            <ul class="about__list">
-                <li class="mt-8 about__link"><a href="#">Về chúng tôi</a></li>
-                <li class="mt-8 about__link"><a href="#">Thông tin đối tác</a></li>
+            <ul class="footer-container__about-list">
+                <li class="about-list__link"><a href="/about">Về chúng tôi</a></li>
+                <li class="about-list__link"><a href="https://daa.uit.edu.vn/">Thông tin đối tác</a></li>
             </ul>
-        </section>
+        </div>
+        <div class="footer-container__policy col-lg-2">
+            <h3>Điều khoản</h3>
+            <ul class="footer-container__policy-list">
+                <li class="policy-list__link"><a href="https://daa.uit.edu.vn/">Chính sách bảo mật</a></li>
+                <li class="policy-list__link"><a href="https://daa.uit.edu.vn/">Điều kiện đặt phòng</a></li>
+                <li class="policy-list__link"><a href="https://daa.uit.edu.vn/">Điều khoản chung</a></li>
+            </ul>
+        </div>
 
-        <section id="footer__update" class="col-lg-4">
+        <div class="footer-container__update col-lg-3">
             <h3>Cập nhật từ chúng tôi</h3>
             <p>
                 Xác nhận thư điện tử của bạn để nhận được ngay những cập nhật mới nhất
                 từ chúng tôi hàng tuần
             </p>
             <form action="#" method="POST">
-                <input type="email" name="email_input" id="email_input" class="update__input-field" placeholder="Email của bạn" required />
+                <input type="email" name="email_input" id="email_input" class="form-control update__input-field" placeholder="Email của bạn" required />
                 <button class="btn--filled sec" type="submit">
                     <div class="status-layer">
                         <span>Xác nhận</span>
