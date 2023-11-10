@@ -18,7 +18,17 @@ class SiteController {
 
   // [GET] /about-us
   about(req, res) {
-    res.render("./pages/site/about-us");
+    const nav_tree__data = [
+      {
+        text: "Trang chủ",
+        link: "/",
+      },
+      {
+        text: "Về chúng tôi",
+        link: "/about",
+      },
+    ];
+    res.render("./pages/site/about-us", { nav_tree__data });
   }
   // [GET] /footer
   footer(req, res) {
