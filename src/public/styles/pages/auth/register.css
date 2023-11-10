@@ -1,0 +1,162 @@
+@import url("/styles/base.css");
+@import url("/styles/partials/header-small-title.css");
+@import url("/styles/partials/footer.css");
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    width: 80%;
+    margin: 5vh auto;
+    display: inherit;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.intro {
+    display: inherit;
+    flex-direction: column;
+    gap: 4.6vh;
+}
+
+.intro__logo {
+    object-fit: contain;
+    width: 80%;
+    height: 130px;
+}
+
+.intro__content {
+    display: inherit;
+    flex-direction: inherit;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 1rem;
+}
+
+.intro__slogan {
+    color: var(--primary-color-1);
+    font-size: 2.7rem;
+    font-weight: 700;
+}
+
+.intro__sub-title {
+    color: var(--primary-color-2);
+    font-size: 1.5rem;
+}
+
+.register {
+    box-shadow: 0 1px 8px 0px rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 48px 36px 36px;
+    display: inherit;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.row {
+    margin: 0;
+}
+
+.register__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.register__note {
+    width: 100%;
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.red {
+    color: var(--red);
+}
+
+.register__form {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 18px;
+}
+
+.register__form input,
+.form__submit,
+.register__login {
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.double {
+    gap: 12px;
+}
+
+.double .col {
+    padding: 0;
+}
+
+.form-label {
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.form-text {
+    margin-bottom: 12px;
+    color: var(--black);
+}
+
+.form__submit {
+    background-color: var(--primary-color-4);
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.form__submit:hover {
+    color: var(--white);
+}
+
+.form-control {
+    border-radius: 8px;
+}
+
+.register__login {
+    border: 1px solid var(--primary-color-4);
+    font-weight: 500;
+    padding-top: 10px;
+    border-radius: 8px;
+}
+
+.highlight {
+    color: var(--primary-color-4);
+}
+
+.register__confirm {
+    text-align: center;
+}
+
+.input_form {
+    padding: 0;
+    position: relative;
+}
+
+span.material-symbols-outlined {
+    position: absolute;
+    bottom: 28%;
+    right: 3%;
+    color: var(--primary-color-2);
+    cursor: pointer;
+}
+
+.form-control.is-invalid {
+    background-image: none;
+}
