@@ -3,6 +3,8 @@
 @import url("/styles/partials/footer.css");
 @import url("/styles/components/bank-account-popup.css");
 @import url("/styles/components/credit-account-popup.css");
+@import url("/styles/components/otp.css");
+@import url("/styles/components/success-popup.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -112,7 +114,7 @@ hr {
     gap: 30px;
     padding: 12px;
     flex-direction: column;
-    height: 200px;
+    /* height: 200px; */
     width: 814px;
     border: 1px solid var(--outline-variant);
     border-radius: 8px;
@@ -162,4 +164,53 @@ hr {
 .changePassword-btn,
 .logout-btn {
     cursor: pointer;
+}
+
+.form__card-detail,
+.form__debit-detail-one,
+.form__debit-credit-card,
+.forn__bank-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__card-detail img,
+.form__debit-detail-one img {
+    width: 38.491px;
+    height: 30px;
+}
+
+.form__card-detail,
+.form__debit-detail-one p {
+    margin: 0;
+    padding: 0;
+}
+
+.form__card-detail .name-bank,
+.form__debit-detail-one .name-bank {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.form__card-detail .line-delete {
+    text-decoration-line: underline;
+}
+
+button.filled-default {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    color: #bec8c9;
+    border: 1px solid #bec8c9;
+    border-radius: 8px;
+}
+
+button.unfilled-default {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    color: #085457;
+    border: 1px solid #085457;
+    border-radius: 8px;
 }

@@ -7,7 +7,7 @@ const redirect2profiletView = () => {
 };
 
 const redirect2accountPaymentView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/payment";
+  window.location.href = "http://127.0.0.1:3000/account/card";
 };
 
 const redirect2changePasswordView = () => {
@@ -45,5 +45,3 @@ const redirect2OrderConfirmView = () => {
 detailBtns.forEach((detailBtn) => {
   detailBtn.addEventListener("click", redirect2OrderConfirmView);
 });
-
-//Khi nhấn vào nút đăng

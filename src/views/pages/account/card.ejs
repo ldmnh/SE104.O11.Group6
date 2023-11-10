@@ -68,6 +68,8 @@
 
     </section>
   </div>
+  <%- include('../../components/otp') %>
+  <%- include('../../components/success-popup') %>
   <%- include('../../components/bank-account-popup') %>
   <%- include('../../components/credit-account-popup') %>
 
@@ -75,9 +77,10 @@
   <%- include('../../partials/footer') %>
 
   <script src="/scripts/payment-account.js"></script>
-  <script src="/scripts/bank-account-popup.js"></script>
+  <script src="/scripts/bank-account-popup.js" defer></script>
   <script src="/scripts/credit-account-popup.js"></script>
   <script src="/scripts/search-bar.js"></script>
+  <script src="/scripts/otp.js" defer></script>
 
 </body>
 
