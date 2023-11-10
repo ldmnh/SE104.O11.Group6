@@ -1,52 +1,54 @@
 class SiteController {
+  // [GET] /auth/register
+  register(req, res) {
+    const title = "Đăng ký";
+    const help = "Bạn cần sự trợ giúp?";
+    res.render("./pages/auth/register", { title, help });
+  }
 
-    // [GET] /auth/register
-    register(req, res) {
-        const title = 'Đăng ký'
-        res.render('./pages/auth/register', { title })
-    }
+  // [POST] /auth/register
+  registerPost(req, res) {}
 
-    // [POST] /auth/register
-    registerPost(req, res) { }
+  // [GET] /auth/login
+  login(req, res) {
+    const title = "Đăng nhập";
+    const help = "Bạn quên mật khẩu?";
+    res.render("./pages/auth/login", { title, help });
+  }
 
-    // [GET] /auth/login
-    login(req, res) {
-        const title = 'Đăng nhập'
-        res.render('./pages/auth/login', { title })
-    }
+  // [POST] /auth/login
+  loginPost(req, res) {}
 
-    // [POST] /auth/login
-    loginPost(req, res) { }
+  // [GET] /auth/forgot-password
+  forgot(req, res) {
+    const title = "Nhận liên kết đặt lại mật khẩu";
+    const help = "Bạn cần sự trợ giúp?";
+    res.render("./pages/auth/forgot", { title, help });
+  }
 
-    // [GET] /auth/forgot-password
-    forgot(req, res) {
-        const title = 'Nhận liên kết đặt lại mật khẩu'
-        res.render('./pages/auth/forgot', { title })
-    }
+  // [POST] /auth/forgot-password
+  forgotPost(req, res) {}
 
-    // [POST] /auth/forgot-password
-    forgotPost(req, res) { }
+  // [GET] /auth/reset-password
+  reset(req, res) {
+    const title = "Đặt lại mật khẩu";
+    const help = "Bạn cần sự trợ giúp?";
+    res.render("./pages/auth/reset", { title, help });
+  }
 
-    // [GET] /auth/reset-password
-    reset(req, res) {
-        const title = 'Đặt lại mật khẩu'
-        res.render('./pages/auth/reset', { title })
-    }
+  // [POST] /auth/reset-password
+  resetPost(req, res) {}
 
-    // [POST] /auth/reset-password
-    resetPost(req, res) { }
+  // [GET] /auth/logout
+  logout(req, res) {
+    res.redirect("/");
+  }
 
-    // [GET] /auth/logout
-    logout(req, res) {
-        res.redirect('/')
-    }
-
-    // [GET] /auth/change
-    // change(req, res) {
-    //     const title = 'Đổi mật khẩu'
-    //     res.render('./pages/account/change-password', { title })
-    // }
-
+  // [GET] /auth/change
+  // change(req, res) {
+  //     const title = 'Đổi mật khẩu'
+  //     res.render('./pages/account/change-password', { title })
+  // }
 }
 
-module.exports = new SiteController()
+module.exports = new SiteController();
