@@ -1,4 +1,5 @@
 // import router
+const adminRouter = require('./adminRouter')
 const authRouter = require('./authRouter')
 const searchRouter = require('./searchRouter')
 const notificationRouter = require('./notificationRouter')
@@ -7,6 +8,7 @@ const bookingRouter = require('./bookingRouter')
 const siteRouter = require('./siteRouter')
 
 function route(app) {
+    app.use('/admin', adminRouter)
     app.use('/auth', authRouter)
     app.use('/search', searchRouter)
     app.use('/notification', notificationRouter)
