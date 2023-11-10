@@ -1,19 +1,7 @@
-const db = require('../config/db/connect');
-const session = require('express-session');
-
 class BookingController {
 
     // [GET] /booking/information
     information(req, res) {
-        // acco = { "acco_id": ... }
-
-        // rooms = [
-        //     {
-        //          "room_id": ...,
-        //          "room_num:" ...,
-        //     }
-        // ]
-
         const data = {
             acco: req.session.acco,
             rooms: req.session.rooms,
@@ -47,12 +35,6 @@ class BookingController {
             'book_phone': book_phone,
             'book_note': book_note
         };
-        // req.session.book_first_name = book_first_name;
-        // req.session.book_last_name = book_last_name;
-        // req.session.book_email = book_email;
-        // req.session.book_phone = book_phone;
-        // req.session.book_note = book_note;
-
         res.redirect('/booking/payment');
     }
 
@@ -69,8 +51,7 @@ class BookingController {
 
     // [POST] /booking/payment
     paymentPost(req, res) {
-        req.session.booking_id =
-            res.send("booking-paymentPost")
+        res.send("booking-paymentPost")
     }
 
     // [GET] /booking/success

@@ -1,16 +1,10 @@
-const db = require('../config/db/connect');
 const authuser = require('../models/authuser.model');
 
 class AccountController {
 
     // [GET] /account/information
     information(req, res) {
-        if (!req.session.email) {
-            res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            return;
-        }
-
-        authuser.getInfoByEmail({ "email": req.session.email },
+        authuser.getInfoByEmail({ "email": req.session.user?.email },
             (err, result) => {
                 if (err) {
                     res.status(500).json({ message: 'Lỗi truy vấn!!!' });
@@ -44,13 +38,8 @@ class AccountController {
             account_birthday,
             account_sex } = req.body;
 
-        if (!req.session.email) {
-            res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            return;
-        }
-
         authuser.putInfoByEmail({
-            "email": req.session.email,
+            "email": req.session.user?.email,
             "first_name": account_first_name,
             "last_name": account_last_name,
             "birthday": account_birthday,
@@ -67,33 +56,6 @@ class AccountController {
                 res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
             }
         })
-
-        // const sql = `
-        //     UPDATE VIEW_AUTHUSER
-        //     SET au_user_first_name = ?,
-        //         au_user_last_name = ?,
-        //         au_user_birthday = ?,
-        //         au_user_sex = ?
-        //     WHERE au_user_email = ?;`;
-        // const params = [
-        //     account_first_name,
-        //     account_last_name,
-        //     account_birthday,
-        //     account_sex,
-        //     req.session.email];
-
-        // db.query(sql, params, (err, result, fields) => {
-        //     if (err) {
-        //         res.status(500).json({ message: 'Lỗi truy vấn!!!' });
-        //         throw err;
-        //     } else {
-        //         if (result.affectedRows === 0) {
-        //             res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
-        //         } else {
-        //             res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
-        //         }
-        //     }
-        // })
     }
 
     // [GET] /account/history
@@ -126,8 +88,8 @@ class AccountController {
         res.send("delDebit")
     }
 
-    // [GET]  /account/change
-    change(req, res) {
+    // [GET]  /account/change-password
+    changePass(req, res) {
         const title = 'Đổi mật khẩu'
         res.render('./pages/account/change-password', { title })
     }

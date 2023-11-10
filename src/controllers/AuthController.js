@@ -1,4 +1,17 @@
-const db = require('../config/db/connect');
+/**
+ * AuthController class handles authentication related requests such as register, login, forgot password, reset password, logout, and change password.
+ * @class
+ * @property {function} register - Renders the register page.
+ * @property {function} registerPost - Handles the registration form submission.
+ * @property {function} login - Renders the login page.
+ * @property {function} loginPost - Handles the login form submission and sets the email in the session.
+ * @property {function} forgot - Renders the forgot password page.
+ * @property {function} forgotPost - Handles the forgot password form submission and sets the email in the session.
+ * @property {function} reset - Renders the reset password page.
+ * @property {function} resetPost - Handles the reset password form submission and updates the password in the database.
+ * @property {function} logout - Clears the user, booking, rooms, and acco from the session and redirects to the home page.
+ * @property {function} changePassPut - Handles the change password form submission and updates the password in the database.
+ */
 
 const authuser = require('../models/authuser.model');
 
@@ -35,7 +48,21 @@ class AuthController {
 
     // [POST] /auth/forgot-password
     forgotPost(req, res) {
-        res.send("forgotPost")
+        const { email } = req.body;
+
+        authuser.checkEmail({ email: email }, (err, result) => {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+                throw err;
+            }
+
+            if (result.length === 0) {
+                res.status(404).json({ message: 'Không tìm thấy email!!!' });
+            } else {
+                req.session.emailOfForgot = email;
+                res.status(200).json({ message: 'Gửi liên kết đặt lại mật khẩu thành công' });
+            }
+        });
     }
 
     // [GET] /auth/reset-password
@@ -44,20 +71,39 @@ class AuthController {
         res.render('./pages/auth/reset', { title })
     }
 
-    // [POST] /auth/reset-password
+    // [PUT] /auth/reset-password
     resetPost(req, res) {
-        res.send("resetPost")
+        const email = req.session.emailOfForgot;
+        const { password } = req.body;
+
+        authuser.putResetPassByEmail({ email: email, password: password }, (err, result) => {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+                throw err;
+            }
+
+            if (result.affectedRows === 0) {
+                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
+            } else {
+                res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
+            }
+        })
     }
 
     // [GET] /auth/logout
     logout(req, res) {
-        res.redirect('/')
+        req.session.user = null;
+        req.session.booking = null;
+        req.session.rooms = null;
+        req.session.acco = null;
+
+        res.status(200).redirect('/')
     }
 
-    // [PUT] /auth/change
-    changePut(req, res) {
+    // [PUT] /auth/change-password
+    changePassPut(req, res) {
         const { oldPass, newPass } = req.body;
-        const email = req.session.email;
+        const email = req.session.user?.email;
         if (!email) {
             res.status(404).json({ message: 'Không tìm thấy email!!!' });
             return;
@@ -75,26 +121,6 @@ class AuthController {
                 res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
             }
         })
-
-        // const sql = `
-        //     UPDATE AUTHUSER
-        //     SET au_user_pass = ?
-        //     WHERE au_user_email = ?
-        //         AND au_user_pass = ?`;
-        // const params = [newPass, email, oldPass];
-
-        // db.query(sql, params, (err, result, fields) => {
-        //     if (err) {
-        //         res.status(500).json({ message: "Lỗi cơ sở dữ liệu!!!" });
-        //         throw err;
-        //     }
-
-        //     if (result.affectedRows === 0) {
-        //         res.status(404).json({ message: "Không tìm thấy tài khoản!!!" });
-        //     } else {
-        //         res.status(200).json({ message: "Cập nhật thông tin tài khoản thành công" });
-        //     }
-        // });
     }
 
 }

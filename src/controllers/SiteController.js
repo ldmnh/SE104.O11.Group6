@@ -1,5 +1,3 @@
-const db = require('../config/db/connect');
-
 class SiteController {
 
     // [GET] /
