@@ -1,3 +1,10 @@
+/**
+ * Express router for handling authentication related routes.
+ * @module authRouter
+ * @requires express
+ * @requires ../middlewares/auth.middleware
+ * @requires ../controllers/AuthController.js
+ */
 const express = require('express')
 const router = express.Router();
 
@@ -7,20 +14,20 @@ const authMiddleware = require('../middlewares/auth.middleware')
 // import controller
 const AuthController = require('../controllers/AuthController.js')
 
-router.get('/register', authMiddleware.isAuth, AuthController.register)
-router.post('/register', authMiddleware.isAuth, AuthController.registerPost)
+router.get('/register', authMiddleware.checkAuth, AuthController.register)
+router.post('/register', authMiddleware.checkAuth, AuthController.registerPost)
 
-router.get('/login', authMiddleware.isAuth, AuthController.login)
-router.post('/login', authMiddleware.isAuth, AuthController.loginPost)
+router.get('/login', authMiddleware.checkAuth, AuthController.login)
+router.post('/login', authMiddleware.checkAuth, AuthController.loginPost)
 
-router.get('/forgot', authMiddleware.loggedin, AuthController.forgot)
-router.post('/forgot', authMiddleware.loggedin, AuthController.forgotPost)
+router.get('/forgot', AuthController.forgot)
+router.post('/forgot', AuthController.forgotPost)
 
-router.get('/reset', AuthController.reset)
-router.post('/reset', AuthController.resetPost)
+router.get('/reset', authMiddleware.checkForgot, AuthController.reset)
+router.put('/reset', authMiddleware.checkForgot, AuthController.resetPost)
 
-router.get('/logout', authMiddleware.isAuth, AuthController.logout)
+router.get('/logout', authMiddleware.checkUnauth, AuthController.logout)
 
-router.put('/change', authMiddleware.isAuth, AuthController.changePut)
+router.put('/change-password', authMiddleware.checkAuth, AuthController.changePassPut)
 
 module.exports = router
