@@ -62,12 +62,14 @@ hr {
     padding: 12px;
     height: 48px;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .aside-content__section p:hover {
     border-radius: 8px;
     background-color: var(--gray);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .aside-content__section p:nth-child(3) {

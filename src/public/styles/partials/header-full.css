@@ -103,6 +103,7 @@ header {
   height: 64px;
   margin: 0 5px;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .header-container__top-authenticator p {
@@ -110,8 +111,17 @@ header {
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+}
+.name-click-hf {
+  cursor: pointer;
 }
 
+.name-click-hf:hover {
+  opacity: 0.7;
+}
 .header-container__title {
   margin-top: 64px;
 }

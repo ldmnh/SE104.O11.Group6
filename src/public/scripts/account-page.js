@@ -42,7 +42,7 @@ editBtn.addEventListener("click", redirect2EditView);
 const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
-  window.location.href = "/auth/register";
+  window.location.href = "/auth/login";
 };
 
 logoutBtn.addEventListener("click", redirect2LogOutView);

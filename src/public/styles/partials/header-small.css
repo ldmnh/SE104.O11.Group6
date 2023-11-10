@@ -90,7 +90,7 @@ header {
 
 .header-container__top-authenticator p,
 .header-container__top-authenticator span {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 32px;
     white-space: nowrap;
