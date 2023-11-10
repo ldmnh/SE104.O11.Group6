@@ -3,15 +3,15 @@ const accountPaymentBtn = document.querySelector(".accountPaymentBtn");
 const changePasswordBtn = document.querySelector(".changePasswordBtn");
 
 const redirect2profiletView = () => {
-    window.location.href = "http://127.0.0.1:3000/account"
+    window.location.href = "/account/information"
 }
 
 const redirect2accountPaymentView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "/account/payment"
 }
 
 const redirect2changePasswordView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/change-password"
+    window.location.href = "/account/change-password"
 }
 profileBtn.addEventListener("click", redirect2profiletView)
 accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
@@ -20,7 +20,7 @@ changePasswordBtn.addEventListener("click", redirect2changePasswordView);
 const logoutBtn = document.querySelector('.logoutBtn');
 
 const redirect2LogOutView = () => {
-    window.location.href = "http://127.0.0.1:3000/register"
+    window.location.href = "/auth/logout"
 };
 
 logoutBtn.addEventListener("click", redirect2LogOutView);

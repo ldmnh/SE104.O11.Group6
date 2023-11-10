@@ -3,14 +3,14 @@ const historyBtn = document.querySelector(".historyBtn");
 const accountPaymentBtn = document.querySelector(".accountPaymentBtn");
 
 const redirect2profiletView = () => {
-    window.location.href = "http://127.0.0.1:3000/account"
+    window.location.href = "/account/information"
 }
 const redirect2HistoryView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/booking-history";
+    window.location.href = "/account/history";
 }
 
 const redirect2accountPaymentView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "/account/payment"
 }
 
 profileBtn.addEventListener("click", redirect2profiletView)
@@ -20,7 +20,7 @@ accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
 const logoutBtn = document.querySelector('.logoutBtn')
 
 const redirect2LogOutView = () => {
-    window.location.href = "http://127.0.0.1:3000/register"
+    window.location.href = "/auth/logout"
 }
 
 logoutBtn.addEventListener("click", redirect2LogOutView)

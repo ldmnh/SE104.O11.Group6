@@ -30,7 +30,7 @@ const redirect2accountPaymentView = () => {
 }
 
 const redirect2changePasswordView = () => {
-    window.location.href = "/account/change"
+    window.location.href = "/account/change-password"
 }
 
 historyBtn.addEventListener("click", redirect2HistoryView);
