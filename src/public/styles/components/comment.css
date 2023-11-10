@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 .comment--wrapper {
     width: 1102px;
     height: 120px;
@@ -7,7 +9,7 @@
     align-items: center;
     gap: 32px;
     border-radius: 8px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--gray);
 }
 
 .comment--wrapper p {
@@ -36,7 +38,7 @@
     width: 64px;
     height: 64px;
     border-radius: 50px;
-    border: 1px solid var(--Xm, #d9d9d9);
+    border: 1px solid var(--gray);
     background:
         url(<path-to-image>),
         lightgray 50% / cover no-repeat;

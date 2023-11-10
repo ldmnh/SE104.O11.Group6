@@ -1,3 +1,15 @@
+@import url("/styles/base.css");
+.modal-otp {
+  position: fixed;
+  display: none;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .otp {
   box-sizing: border-box;
 }
@@ -15,7 +27,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  overflow: hidden;
+  animation: modalFadeIn ease 0.5s;
 }
 
 .otp__notice {
@@ -34,7 +47,7 @@ h1 {
   font-size: 16px;
 }
 
-.otp__card--input {
+.otp__card-input {
   margin: 26px 0;
   display: grid;
   gap: 23px;
@@ -42,7 +55,7 @@ h1 {
   grid-template-columns: repeat(6, auto);
 }
 
-.otp__card--input input {
+.otp__card-input input {
   width: 45px;
   height: 60px;
   font-size: 16px;
@@ -78,13 +91,13 @@ h1 {
   font-size: 16px;
 }
 
-.otp__close--btn {
+.otp__close-btn {
   position: absolute;
   top: 16px;
   right: 19px;
 }
 
-.otp__close--btn span {
+.otp__close-btn span {
   color: #00696d;
 }
 
@@ -101,14 +114,30 @@ h1 {
 }
 
 .otp__button--submit1:hover {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 1px 3px 1px rgba(0, 0, 0, 0.2),
+    0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .otp__button--submit2:hover {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 1px 3px 1px rgba(0, 0, 0, 0.2),
+    0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .otp__button[disabled] {
   opacity: 0.6;
   cursor: default;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

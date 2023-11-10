@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 .modal2 {
     position: fixed;
     display: none;
@@ -41,15 +43,15 @@ h2 {
     /* width: 764px;
     height: 391px; */
     text-align: left;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 8px;
     padding: 25px;
-    box-shadow: 0 10px 40px -20px black;
+    box-shadow: 0 10px 40px -20px var(--black);
     position: relative;
     overflow-y: visible;
 }
 
-.form--items {
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,17 +66,17 @@ h2 {
     background: #f1fff3;
 }
 
-.icon span {
+.credit__icon span {
     font-size: 85px;
-    color: #119726;
+    color: var(--green);
 }
 
-.info--title {
+.credit__info-title {
     font-size: 22px;
     margin: 0;
 }
 
-.info--text {
+.credit__info-text {
     font-size: 16px;
     margin: 0;
     padding-top: 10px;
@@ -86,21 +88,21 @@ h2 {
     gap: 450px;
 }
 
-.form--item {
+.form__item {
     display: flex;
     gap: 12px;
     padding: 10px 0;
     align-items: center;
 }
 
-.form--item-2 {
+.form__item-2 {
     display: flex;
     gap: 12px;
     padding: 10px 0;
     align-items: center;
 }
 
-.form--item h3 {
+.form__item h3 {
     width: 191px;
     font-size: 22px;
     display: flex;
@@ -108,7 +110,7 @@ h2 {
     padding: 10px;
 }
 
-.form--item-2 h3 {
+.form__item-2 h3 {
     /* width: 189px; */
     font-size: 22px;
     display: flex;
@@ -125,17 +127,17 @@ h2 {
     width: 107px;
 }
 
-.form--item input {
+.form__item input {
     width: 587px;
     height: 48px;
 }
 
-.form--item-2 input {
+.form__item-2 input {
     width: 230px;
     height: 48px;
 }
 
-.form--item select {
+.form__item select {
     width: 526px;
     height: 48px;
 }
@@ -147,34 +149,34 @@ h2 {
     margin: 18px 0 0 0;
 }
 
-.credit__button--submit1 {
+.credit-button--submit1 {
     width: 96px;
     height: 48px;
     border-radius: 8px;
-    color: #fe9c0b;
-    background-color: white;
-    border: 1px solid #fe9c0b;
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
 }
 
-.credit__button--submit2 {
+.credit-button--submit2 {
     width: 131px;
     height: 48px;
     border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
+    background-color: var(--primary-color-4);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
 
-.credit__close--btn {
+.credit__close-btn {
     position: absolute;
     top: 16px;
     right: 19px;
 }
 
-.credit__close--btn span {
-    color: #00696d;
+.credit__close-btn span {
+    color: var(--primary-color-2);
 }
 
 .credit__button:hover {

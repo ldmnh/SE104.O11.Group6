@@ -19,7 +19,8 @@
   "homepage": "https://github.com/namtuthien/SE104.O11.Group6#readme",
   "dependencies": {
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
