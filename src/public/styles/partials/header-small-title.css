@@ -21,6 +21,7 @@ header {
 .header-container__img {
     width: 168px;
     height: 48px;
+    cursor: pointer;
 }
 
 .header-container__title {

@@ -21,15 +21,15 @@ const redirect2EdefaultView = () => {
   editView.style.display = "none";
 };
 const redirect2HistoryView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/history";
+  window.location.href = "/account/history";
 };
 
 const redirect2accountPaymentView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/card";
+  window.location.href = "/account/card";
 };
 
 const redirect2changePasswordView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/change-password";
+  window.location.href = "/account/change-password";
 };
 
 historyBtn.addEventListener("click", redirect2HistoryView);
@@ -42,7 +42,7 @@ editBtn.addEventListener("click", redirect2EditView);
 const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
-  window.location.href = "http://127.0.0.1:3000/auth/register";
+  window.location.href = "/auth/register";
 };
 
 logoutBtn.addEventListener("click", redirect2LogOutView);

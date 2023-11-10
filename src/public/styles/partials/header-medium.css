@@ -33,6 +33,7 @@ header {
 .header-container__logo-img img {
   width: 167.652px;
   height: 48px;
+  cursor: pointer;
 }
 
 .header-container__nav-top {
@@ -49,7 +50,25 @@ header {
   align-items: center;
   gap: 8px;
 }
+.header-container__top-authenticator p,
+.header-container__top-authenticator img {
+  color: white;
+  cursor: pointer;
+}
+div.header-container__top-authenticator p {
+  font-size: 18px;
+}
+.name-btn-hm {
+  white-space: nowrap;
+}
 
+.name-btn-hm:hover {
+  opacity: 0.7;
+}
+
+.header-container__top-authenticator a {
+  text-decoration: none;
+}
 /* Header with no login*/
 .header-container__nav-top button,
 .header-container__top-authenticator button {

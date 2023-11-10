@@ -33,6 +33,7 @@ header {
 .header-container__logo-img {
   width: 167.652px;
   height: 48px;
+  cursor: pointer;
 }
 
 .header-container__nav-top {

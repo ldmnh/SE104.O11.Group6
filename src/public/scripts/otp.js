@@ -13,5 +13,5 @@ closePopupOtp2.addEventListener("click", () => {
 const continueBtn = document.querySelector(".otp__button--submit2");
 console.log(continueBtn, "hihi");
 continueBtn.addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:3000/account/card-fill";
+  window.location.href = "/account/card-fill";
 });

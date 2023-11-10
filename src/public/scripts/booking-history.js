@@ -3,15 +3,15 @@ const accountPaymentBtn = document.querySelector(".account-payment-btn");
 const changePasswordBtn = document.querySelector(".change-password-btn");
 
 const redirect2profiletView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/information";
+  window.location.href = "/account/information";
 };
 
 const redirect2accountPaymentView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/card";
+  window.location.href = "/account/card";
 };
 
 const redirect2changePasswordView = () => {
-  window.location.href = "http://127.0.0.1:3000/account/change-password";
+  window.location.href = "/account/change-password";
 };
 profileBtn.addEventListener("click", redirect2profiletView);
 accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
@@ -20,7 +20,7 @@ changePasswordBtn.addEventListener("click", redirect2changePasswordView);
 const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
-  window.location.href = "http://127.0.0.1:3000/auth/register";
+  window.location.href = "/auth/register";
 };
 
 logoutBtn.addEventListener("click", redirect2LogOutView);
@@ -40,7 +40,7 @@ reviewBtns.forEach((reviewBtn) => {
 //Khi nhấn vào nút xem chi tiết: detail-btn
 const detailBtns = document.querySelectorAll(".detail-btn");
 const redirect2OrderConfirmView = () => {
-  window.location.href = "http://127.0.0.1:3000/order-confirm";
+  window.location.href = "/order-confirm";
 };
 detailBtns.forEach((detailBtn) => {
   detailBtn.addEventListener("click", redirect2OrderConfirmView);

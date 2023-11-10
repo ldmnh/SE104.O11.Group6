@@ -2,11 +2,11 @@
   <div class="header-container">
     <div class="header-container__top">
       <div class="header-container__logo-img">
-        <img src="/imgs/logo.svg" alt="Logo" />
+        <img src="/imgs/logo.svg" alt="Logo" class="logo-click-hf" />
       </div>
       <div class="header-container__nav-top">
-        <button href="#" class="status-layer">Trang chủ</button>
-        <button href="#" class="status-layer">Thông báo</button>
+        <button href="#" class="status-layer " id="homepage-btn-hf">Trang chủ</button>
+        <button href="#" class="status-layer noti-btn-hf">Thông báo</button>
       </div>
       <div class="header-container__top-authenticator">
         <!-- Header with no login -->
@@ -14,13 +14,13 @@
         <!-- <button type="button" class="button-signin">Đăng nhập</button>
         <button type="button" class="button-signup">Đăng ký</button> -->
 
-        <button class="button-signin" type="button" href="#">
+        <button class="button-signin signin-btn-hf" type="button" href="#">
           <div class="status-layer">
             <span>Đăng nhập</span>
           </div>
         </button>
 
-        <button class="sec button-signup" type="button" href="#">
+        <button class="sec button-signup signup-btn-hf" type="button" href="#">
           <div class="status-layer">
             <span>Đăng ký</span>
           </div>
@@ -43,4 +43,3 @@
     <%- include('../components/search-bar.ejs') %>
   </div>
 </header>
-<!-- <script src="/scripts/header.js"></script> -->
