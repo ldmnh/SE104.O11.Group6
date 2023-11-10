@@ -16,7 +16,7 @@ class SiteController {
         link: "/about",
       },
     ];
-    res.render("./pages/site/about-us", { nav_tree__data });
+    res.render("./pages/site/about", { nav_tree__data });
   }
 
   // [GET] /error404
