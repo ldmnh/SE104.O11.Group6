@@ -5,8 +5,10 @@ const router = express.Router();
 const NotificationController = require('../controllers/NotificationController.js')
 
 router.get('/account-update', NotificationController.notiAccountUpdate)
+router.post('/account-update', NotificationController.updateNotiAccount)
 
 router.get('/promotion', NotificationController.notiPromotion)
+router.post('/promotion', NotificationController.updateNotiPromotion)
 
 
 module.exports = router

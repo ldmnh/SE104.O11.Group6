@@ -9,7 +9,7 @@ const siteRouter = require('./siteRouter')
 function route(app) {
     app.use('/auth', authRouter)
     app.use('/search', searchRouter)
-    app.use('/notification', notificationRouter)
+    app.use('/notifications', notificationRouter)
     app.use('/account', accountRouter)
     app.use('/booking', bookingRouter)
     app.use('/', siteRouter)

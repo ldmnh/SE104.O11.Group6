@@ -1,5 +1,5 @@
 const db = require('../config/db/connect');
-
+const AccountModel = require('../models/accountModel')
 class AccountController {
 
     // [GET] /account/information
@@ -81,36 +81,7 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-        if (!req.session.email) {
-            res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            return;
-        }
 
-        const sql = `
-        SELECT
-            A.au_user_id,
-            C.room_id,
-        FROM AUTHUSER AS A 
-        INNER JOIN BOOKING AS B ON A.au_user_id = B.au_user_id
-        INNER JOIN BOOKINGDETAIL AS C ON B.book_id = C.book_id
-        WHERE A.au_user_email = ?
-        `;
-        const params = [req.session.email];
-
-        db.query(sql, params, (err, result, fields) => {
-            if (err) throw err;
-            if (result.length() > 0) {
-
-                res.status(200).render('./pages/account/booking-history', {
-                    message: "Successful",
-                    data: result
-                })
-            }
-            else
-                res.status(404).json({
-                    message: "Failed"
-                })
-        })
     }
 
     // [POST] /account/booking-history
@@ -129,7 +100,6 @@ class AccountController {
             if (err) throw err;
             res.status(200).redirect('/account/booking-history')
         })
-        // TODO: Sẽ thay thế bằng procedure nhận thêm au_user_email, id_room
         const sql = `INSERT INTO rating SET ?`;
         const params = {
             rating_point: rating_point,
@@ -138,10 +108,6 @@ class AccountController {
 
     }
 
-    // [GET] /account/payment
-    paymentAccount(req, res) {
-        res.render('./pages/account/payment')
-    }
 
 
     // [GET] /account/change-password
@@ -149,74 +115,47 @@ class AccountController {
         res.render('./pages/account/change-password')
     }
 
-    // [POST] /account/payment/addBank
+    // [GET] /account/card
+    paymentAccount(req, res) {
+        AccountModel.paymentAccount(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!!!', });
+                throw err;
+            }
+            res.status(200).render('./pages/account/payment', {
+                message: 'Lấy thông tin phương thức thanh toán thành công',
+                data_card: result,
+            });
+            // res.send({
+            //     message: 'Lấy thông tin phương thức thanh toán thành công',
+            //     data_card: result,
+            // })
+        })
+    }
+
+
+    // [POST] /account/card/addBank
     addBank(req, res) {
-        if (!req.session.email) {
-            res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            return;
-        }
-
-        const {
-            bank_name,
-            bank_branch,
-            bank_num,
-            bank_name_pers
-        } = req.body
-
-        // TODO: Sẽ thay thế bằng procedure nhận thêm au_user_email
-        const sql = `INSERT INTO bankcard SET ?`;
-        const params = {
-            bank_name: bank_name,
-            bank_brach: bank_branch,
-            bank_num: bank_num,
-            bank_name_pers: bank_name_pers
-        };
-
-        db.query(sql, params, (err, results,) => {
+        AccountModel.addBank(req, res, function (err, res, data_bank) {
             if (err) throw err;
-            res.status(200).redirect('/account/payment')
+            res.status(200).redirect('.')
         })
     }
 
-    // [POST] /account/payment/addDebit
+    // [POST] /account/card/addDebit
     addDebit(req, res) {
-        res.send("addDebit")
-        if (!req.session.email) {
-            res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            return;
-        }
-
-        const {
-            debit_num,
-            debit_end_date,
-            debit_CCV,
-            debit_name,
-            debit_address,
-            debit_postal,
-        } = req.body
-
-        const sql = `INSERT INTO debitcard SET ?`;
-        const params = {
-            debit_num: debit_num,
-            debit_end_date: debit_end_date,
-            debit_CCV: debit_CCV,
-            debit_name: debit_name,
-            debit_address: debit_address,
-            debit_postal: debit_postal,
-        };
-
-        db.query(sql, params, (err, results,) => {
+        AccountModel.addDebit(req, res, function (err, res, data_debit) {
             if (err) throw err;
-            res.status(200).redirect("/account/payment")
+            res.status(200).redirect('.')
         })
     }
 
-    // [POST] /account/payment/delBank
+    // [POST] /account/card/delBank
     delBank(req, res) {
         res.send("delBank")
     }
 
-    // [POST] /account/payment/delDebit
+    // [POST] /account/card/delDebit
     delDebit(req, res) {
         res.send("delDebit")
 

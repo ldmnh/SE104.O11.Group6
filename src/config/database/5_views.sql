@@ -22,7 +22,8 @@ CREATE VIEW VIEW_BANKCARD AS
 SELECT
   bank_name,
   bank_num,
-  au_user_id
+  au_user_id,
+  bank_id
 FROM BANKCARD;
 
 SELECT * FROM VIEW_BANKCARD;
@@ -34,7 +35,8 @@ CREATE VIEW VIEW_DEBITCARD AS
 SELECT
   debit_name,
   debit_num,
-  au_user_id
+  au_user_id,
+  debit_id
 FROM DEBITCARD;
 
 SELECT * FROM VIEW_DEBITCARD;
@@ -51,4 +53,18 @@ SELECT
 FROM RATING;
 
 SELECT * FROM VIEW_RATING
+;
+
+DROP VIEW IF EXISTS VIEW_NOTIFICATION;
+CREATE VIEW VIEW_NOTIFICATION AS
+SELECT
+  noti_id,
+  noti_type,
+  noti_title,
+  noti_subtitle,
+  noti_datetime,
+  noti_content,
+  noti_dest_url
+FROM NOTIFICATION
+SELECT * FROM VIEW_NOTIFICATION
 ;

@@ -4,11 +4,7 @@ const path = require('path')
 const express = require('express')
 const app = express()
 const session = require('express-session')
-const flash = require("connect-flash")
-const passport = require("passport")
-const passportLocal = require('passport-local')
 const bodyParser = require('body-parser')
-const sequelize = require("sequelize");
 const cookieParser = require('cookie-parser')
 
 
@@ -23,10 +19,7 @@ app.use(session({
 //parse URL-encoded bodies
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(flash())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(cookieParser('secret'))
 
 // set view engine

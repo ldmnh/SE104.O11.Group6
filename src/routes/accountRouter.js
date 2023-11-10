@@ -8,12 +8,13 @@ router.get('/information', AccountController.information)
 router.put('/information', AccountController.informationPut)
 
 router.get('/history', AccountController.history)
+router.post('/history', AccountController.addReview)
 
-router.get('/payment', AccountController.paymentAccount)
-router.post('/payment/addBank', AccountController.addBank)
-router.post('/payment/addDebit', AccountController.addDebit)
-router.post('/payment/delBank', AccountController.delBank)
-router.post('/payment/delDebit', AccountController.delDebit)
+router.get('/card', AccountController.paymentAccount)
+router.post('/card/addBank', AccountController.addBank)
+router.post('/card/addDebit', AccountController.addDebit)
+router.post('/card/delBank', AccountController.delBank)
+router.post('/card/delDebit', AccountController.delDebit)
 
 router.get('/change-password', AccountController.changePassword)
 
