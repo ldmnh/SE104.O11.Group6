@@ -1,3 +1,9 @@
+/**
+ * @file This file contains the AuthUser model which is responsible for handling database operations related to user authentication.
+ * @name AuthUser Model
+ * @requires ../config/db/connect
+ * @exports AuthUser
+ */
 const db = require('../config/db/connect');
 
 function AuthUser() { }
@@ -16,7 +22,17 @@ AuthUser.addAccount = ({
     const values = [
         email, password, first_name, last_name, phone
     ]
-    return query(sql, values, (err, result) => {
+    db.query(sql, values, (err, result) => {
+        callback(err, result);
+    });
+}
+
+AuthUser.checkEmail = ({ email }, callback) => {
+    const sql = `
+        SELECT au_user_email
+        FROM AUTHUSER
+        WHERE au_user_email = ?;`;
+    db.query(sql, [email], (err, result) => {
         callback(err, result);
     });
 }
@@ -27,7 +43,7 @@ AuthUser.checkAccount = ({ email, password }, callback) => {
         FROM AUTHUSER
         WHERE au_user_email = ?
             AND au_user_password = ?;`;
-    return query(sql, [email, password], (err, result) => {
+    db.query(sql, [email, password], (err, result) => {
         callback(err, result);
     });
 }
@@ -67,13 +83,24 @@ AuthUser.putInfoByEmail = ({
     })
 }
 
-AuthUser.putPassByEmail = ({ email, oldPass, newPass }, callback) => {
+AuthUser.putChangePassByEmail = ({ email, oldPass, newPass }, callback) => {
     const sql = `
         UPDATE AUTHUSER
         SET au_user_password = ?
         WHERE au_user_email = ?
             AND au_user_password = ?;`;
     const values = [ newPass, email, oldPass ]
+    db.query(sql, values, (err, result) => {
+        callback(err, result);
+    });
+}
+
+AuthUser.putResetPassByEmail = ({ email, password }, callback) => {
+    const sql = `
+        UPDATE AUTHUSER
+        SET au_user_pass = ?
+        WHERE au_user_email = ?;`;
+    const values = [ password, email ]
     db.query(sql, values, (err, result) => {
         callback(err, result);
     });
@@ -91,7 +118,7 @@ AuthUser.getBankCardsByEmail = ({ email }, callback) => {
             WHERE au_user_email = ?
         ) AS A
             ON B.au_user_id = A.au_user_id;`;
-    return query(sql, [email], (err, result) => {
+    db.query(sql, [email], (err, result) => {
         callback(err, result);
     });
 }
@@ -107,7 +134,7 @@ AuthUser.getDebitCardsByEmail = ({ email }, callback) => {
             WHERE au_user_email = ?
         ) AS A
             ON D.au_user_id = A.au_user_id;`;
-    return query(sql, [email], (err, result) => {
+    db.query(sql, [email], (err, result) => {
         callback(err, result);
     });
 }
