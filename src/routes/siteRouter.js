@@ -14,5 +14,5 @@ router.get("/search-results", SiteController.search);
 router.get("/payment", SiteController.payment);
 router.get("/", SiteController.index);
 router.get("/booking_info", SiteController.booking_info);
-
+router.get("/error404", SiteController.error404);
 module.exports = router;

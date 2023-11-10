@@ -62,6 +62,12 @@ class SiteController {
     const title = "Thông tin đặt phòng";
     res.render("./pages/booking/info", { title, nav_tree__data });
   }
+
+  // [GET] /error404
+  error404(req, res) {
+    const title = "Không tìm thấy trang";
+    res.render("./pages/account/error404.ejs", { title });
+  }
 }
 
 module.exports = new SiteController();
