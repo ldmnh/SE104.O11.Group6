@@ -13,6 +13,15 @@ function route(app) {
     app.use('/account', accountRouter)
     app.use('/booking', bookingRouter)
     app.use('/', siteRouter)
+    app.get('/testing', (req, res) => {
+        req.session.loggedin = true
+        req.session.email = 'john.doe@example.com'
+        res.status(200).json({
+            loggedin: req.session.loggedin,
+            email: req.session.email,
+            message: 'OK'
+        })
+    })
 }
 
 module.exports = route

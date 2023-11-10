@@ -1,10 +1,10 @@
-const session = require('express-session')
 exports.loggedin = (req, res, next) => {
+    console.log(req.session.loggedin)
     if (req.session.loggedin) {
         res.locals.user = req.session.user
         next();
     } else {
-        res.redirect('/login')
+        res.redirect('/auth/login')
     }
 }
 

@@ -1,11 +1,14 @@
 const express = require('express')
 const router = express.Router();
 
+// import middleware
+const middleware = require('../middlewares/auth.middleware')
+
 // import controller
 const BookingController = require('../controllers/BookingController.js')
 
-router.get('/information', BookingController.information)
-router.post('/information', BookingController.informationPost)
+router.get('/information', middleware.loggedin, BookingController.information)
+router.post('/information', middleware.loggedin, BookingController.informationPost)
 
 router.get('/payment', BookingController.payment)
 router.post('/payment', BookingController.paymentPost)

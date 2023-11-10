@@ -1,5 +1,7 @@
 const db = require('../config/db/connect');
 
+const authuser = require('../models/authuser.model');
+
 class AuthController {
 
     // [GET] /auth/register
@@ -21,8 +23,8 @@ class AuthController {
 
     // [POST] /auth/login
     loginPost(req, res) {
-        // const title = 'Đăng nhập'
-        // res.render('./pages/site/login', { title })
+        req.session.email = req.body.email;
+        res.send("loginPost")
     }
 
     // [GET] /auth/forgot-password
@@ -32,7 +34,7 @@ class AuthController {
     }
 
     // [POST] /auth/forgot-password
-    forgotPost(req, res) { 
+    forgotPost(req, res) {
         res.send("forgotPost")
     }
 
@@ -52,7 +54,7 @@ class AuthController {
         res.redirect('/')
     }
 
-    // [POST] /auth/change
+    // [PUT] /auth/change
     changePut(req, res) {
         const { oldPass, newPass } = req.body;
         const email = req.session.email;
@@ -61,25 +63,38 @@ class AuthController {
             return;
         }
 
-        const sql = `
-            UPDATE AUTHUSER
-            SET au_user_pass = ?
-            WHERE au_user_email = ?
-                AND au_user_pass = ?`;
-        const params = [newPass, email, oldPass];
-
-        db.query(sql, params, (err, result, fields) => {
-            if (err) { 
-                res.status(500).json({ message: "Lỗi cơ sở dữ liệu!!!" });
+        authuser.putPass({ email, oldPass, newPass }, (err, result) => {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
                 throw err;
             }
 
             if (result.affectedRows === 0) {
-                res.status(404).json({ message: "Không tìm thấy tài khoản!!!" });
+                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
             } else {
-                res.status(200).json({ message: "Cập nhật thông tin tài khoản thành công" });
+                res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
             }
-        });
+        })
+
+        // const sql = `
+        //     UPDATE AUTHUSER
+        //     SET au_user_pass = ?
+        //     WHERE au_user_email = ?
+        //         AND au_user_pass = ?`;
+        // const params = [newPass, email, oldPass];
+
+        // db.query(sql, params, (err, result, fields) => {
+        //     if (err) {
+        //         res.status(500).json({ message: "Lỗi cơ sở dữ liệu!!!" });
+        //         throw err;
+        //     }
+
+        //     if (result.affectedRows === 0) {
+        //         res.status(404).json({ message: "Không tìm thấy tài khoản!!!" });
+        //     } else {
+        //         res.status(200).json({ message: "Cập nhật thông tin tài khoản thành công" });
+        //     }
+        // });
     }
 
 }

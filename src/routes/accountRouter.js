@@ -15,6 +15,6 @@ router.post('/payment/addDebit', AccountController.addDebit)
 router.post('/payment/delBank', AccountController.delBank)
 router.post('/payment/delDebit', AccountController.delDebit)
 
-router.get('/change-password', AccountController.changePassword)
+router.get('/change', AccountController.change)
 
 module.exports = router
