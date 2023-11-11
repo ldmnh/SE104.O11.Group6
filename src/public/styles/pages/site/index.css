@@ -1,6 +1,12 @@
 @import url("/styles/partials/header-full.css");
 @import url("/styles/partials/footer.css");
 
+.container--index {
+  margin: 0 auto;
+  max-width: 1152px;
+  width: 80%;
+}
+
 .section__title {
   font-size: 48px;
   text-align: center;
