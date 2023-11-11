@@ -92,9 +92,9 @@
             <form action="#" method="POST">
                 <input type="hidden" value="<%=accoDetail[0].acco_id%>" name="acco_id" class="form-control">
                 <!-- Start Loop -->
-                <%- include('../../components/room') %>
-                <%- include('../../components/room') %>
-                <%- include('../../components/room') %>
+                <% accoRoom.forEach(function(room){ %>
+                    <%- include('../../components/room', {room}) %>
+                <% }) %>
                 <!-- End Loop  -->
                 <h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND 1.500.000</span></h2>
                 <div class="room-list__submit">

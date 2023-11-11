@@ -1,7 +1,7 @@
 <div class="room-container">
     <div class="room">
-        <input type="hidden" value="<%= accoRoom[0].room_id %>" name="room_id" class="form-control">
-        <h2 class="room__type"><%= accoRoom[0].room_class%></h2>
+        <input type="hidden" value="<%= room.room_id %>" name="room_id[]" class="form-control">
+        <h2 class="room__type"><%= room.room_class%></h2>
         <div class="room__detail">
             <div class="room__detail--left">
                 <img src="/imgs/details/1.jpg" alt="" class="room__preview">
@@ -20,7 +20,7 @@
                     <h2></h2>
                     <div>
                         <span id="room__minus" class="material-symbols-outlined">remove</span>
-                        <input type="number" name = "room_number" value="0" id="room__quantity" class="form-control">
+                        <input type="number" name = "room_number[]" value="0" id="room__quantity" class="form-control">
                         <span id="room__plus" class="material-symbols-outlined">add</span>
                     </div>
                 </div>
@@ -59,6 +59,8 @@
                     </div>
                     <div class="room__content--right">
                         <p class="room__left">(5 phòng trống)</p>
+                        <input type="hidden" value="<%=room.room_cost %>" name="room_cost_before[]" class="form-control">
+                        <input type="hidden" value="<%=room.room_cost - (room.room_cost*room.room_discount) %>" name="room_cost_after[]" class="form-control">
                         <p class="room__origin-price"><del>VND </del></p>
                         <p class="room__price"></p>
                         <p class="room__unit">/phòng/đêm</p>
@@ -109,7 +111,7 @@
                             <div class="feature__col-left">
                                 <div class="detail__item">
                                     <span class="material-symbols-outlined">king_bed</span>
-                                    <p><%= accoRoom[0].extension[0].exte_id %></p>
+                                    <p><%= room.extension[0].exte_id %></p>
                                 </div>
                                 <div class="detail__item">
                                     <span class="material-symbols-outlined">king_bed</span>
