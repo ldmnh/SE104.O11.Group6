@@ -4,6 +4,8 @@
   --primary-color-3: #00a1a6;
   --primary-color-4: #fe9c0b;
   --primary-color-3-o10: rgba(0, 161, 166, 0.1);
+  --primary-color-3-o80: rgba(0, 161, 166, 0.8);
+  --primary-color-4-o80: rgba(254, 156, 11, 0.8);
   --white: #ffffff;
   --black: #000000;
   --black-o60: rgba(0, 0, 0, 0.6);
