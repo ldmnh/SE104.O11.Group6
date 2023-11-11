@@ -1,4 +1,5 @@
-﻿DROP DATABASE IF EXISTS DATABASE_SE104;
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
+DROP DATABASE IF EXISTS DATABASE_SE104;
 
 CREATE DATABASE DATABASE_SE104;
 
@@ -134,9 +135,9 @@ CREATE TABLE RoomType
     room_double_bed     int          NOT NULL,
     room_total          int          NOT NULL,
     room_details_img_url	varchar(50),
-    room_area           float,
-    room_cost           float        NOT NULL,
-    room_discount       float,
+    room_area           decimal(10, 2),
+    room_cost           decimal(10, 2)  NOT NULL,
+    room_discount       decimal(10, 2),
     room_date_end_discount	date,
     room_avg_rating     float       DEFAULT 0,
     room_count_rating   int          DEFAULT 0,
@@ -211,10 +212,14 @@ CREATE TABLE Booking
     FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
 );
 
+-- 1: Cancel, 0: Pending, 1: Success
+-- 0: unpayed, 1: payed
+
 CREATE TABLE BookingDetail
 (
     book_id				int	    NOT NULL,
     room_id				int	    NOT NULL,
+    book_cost_before    float   NOT NULL,
     book_final_cost		float		    NOT NULL,
     book_num_room		int			    NOT NULL,
     PRIMARY KEY (book_id, room_id),
@@ -222,13 +227,15 @@ CREATE TABLE BookingDetail
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
 
+ALTER TABLE `database_se104`.`bookingdetail` ADD INDEX `book_id` (`book_id`);
+
 CREATE TABLE Rating
 (
     au_user_id			int        NOT NULL,
     room_id				int        NOT NULL,
     rating_datetime		datetime        NOT NULL,
     rating_context		text,
-    rating_point		float           NOT NULL,
+    rating_point		decimal(10, 1)  NOT NULL,
     PRIMARY KEY (au_user_id, room_id, rating_datetime),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)

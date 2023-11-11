@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../public/styles/components/bank-account.css">
+    </head>
+    <body>
+        <div class="account-container">
+            <div class="account">
+                <div class="account__card">
+                    <h1>Thêm tài khoản ngân hàng</h1>
+                    <div class="form--items">
+                        <div class="form--item">
+                            <h2>Tên ngân hàng:</h2>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Chọn ngân hàng</option>
+                                <option value="1">BIDV</option>
+                                <option value="2">Vietcombank</option>
+                                <option value="3">MB</option>
+                                <option value="4">Agribank</option>
+                                <option value="5">ACB</option>
+                            </select>
+                        </div>
+
+                        <div class="form--item">
+                            <h2>Tên chi nhánh:</h2>
+                            <input class="form-control" type="text" placeholder="Chọn tên chi nhánh"/>
+                        </div>
+                        <div class="form--item">
+                            <h2>Số tài khoản:</h2>
+                            <input class="form-control" type="text" placeholder="Nhập số tài khoản"/>
+                        </div>
+                        <div class="form--item">
+                            <div class="form--item--notice">
+                                <h2>Tên chủ tài khoản:</h2>
+                                <p>(In hoa, không dấu)</p>
+                            </div>
+                            <input class="form-control" type="text" placeholder="Nhập tên chủ tài khoản"/>
+                        </div>
+                    </div>
+                    <div class="account__button">
+                        <button class="account__button--submit1">Hủy</button>
+
+                        <button class="account__button--submit2">Hoàn thành</button>
+                    </div>
+                    <div class="account__close--btn">
+                        <span class="material-symbols-outlined">cancel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

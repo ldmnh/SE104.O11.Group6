@@ -1,13 +1,23 @@
 const express = require('express')
 const router = express.Router();
 
+// import middleware
+const authMiddleware = require('../middlewares/auth.middleware')
+
 // import controller
 const AccountController = require('../controllers/AccountController.js')
 
-router.get('/', AccountController.index)
-router.get('/booking-history', AccountController.bookingHistory)
-router.get('/payment', AccountController.paymentAccount)
-router.get('/change-password', AccountController.showChangeForm)
-router.put('/change-password', AccountController.changePassword)
+router.get('/information', authMiddleware.isLoggedIn, AccountController.information)
+router.put('/information', authMiddleware.isLoggedIn, AccountController.informationPut)
+
+router.get('/history', AccountController.history)
+
+router.get('/payment', AccountController.payment)
+router.post('/payment/addBank', AccountController.addBank)
+router.post('/payment/addDebit', AccountController.addDebit)
+router.post('/payment/delBank', AccountController.delBank)
+router.post('/payment/delDebit', AccountController.delDebit)
+
+router.get('/change-password', AccountController.changePass)
 
 module.exports = router

@@ -24,7 +24,6 @@ DELETE FROM authuser;
 DELETE FROM admin;
 
 
-
 -- TRIGGER
 -- room_sum_rating trong RoomType được thay đổi khi Rating được thay đổi.
 DELIMITER //
@@ -209,9 +208,9 @@ DELIMITER ;
 
 
 -- book_total_cost là tổng của các book_final_cost * book_num_room trong BookingDetails.
-DELIMITER //
-
 DROP TRIGGER IF EXISTS trg_UpdateBookingTotalCost_Insert;
+
+DELIMITER //
 
 CREATE TRIGGER trg_UpdateBookingTotalCost_Insert
 AFTER INSERT ON BookingDetail
@@ -235,6 +234,8 @@ DELIMITER ;
 
 DROP TRIGGER IF EXISTS trg_UpdateBookingTotalCost_Update;
 
+DELIMITER //
+
 CREATE TRIGGER trg_UpdateBookingTotalCost_Update
 AFTER UPDATE ON BookingDetail
 FOR EACH ROW
@@ -249,7 +250,7 @@ BEGIN
     UPDATE Booking
     SET book_total_cost = TotalCost
     WHERE book_id = NEW.book_id;
-END;
+END//
 
 DELIMITER ;
 
