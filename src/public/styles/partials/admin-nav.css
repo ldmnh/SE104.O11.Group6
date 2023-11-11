@@ -1,0 +1,40 @@
+nav {
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+    box-sizing: border-box;
+    padding: 24px 0;
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--primary-color-1);
+}
+
+nav a {
+    text-decoration: none;
+    padding: 12px;
+    display: inherit;
+    align-items: center;
+    gap: 12px;
+}
+
+nav a:hover {
+    background-color: var(--bg-mint-green);
+}
+
+.material-symbols-outlined {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+nav a p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.chart {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}

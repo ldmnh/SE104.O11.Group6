@@ -1,0 +1,304 @@
+@import url("/styles/base.css");
+@import url("/styles/partials/header-medium.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/components/bank-account-popup.css");
+@import url("/styles/components/credit-account-popup.css");
+@import url("/styles/components/otp.css");
+@import url("/styles/components/success-popup.css");
+
+html {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: var(--black);
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-account-container {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    /* width: 80%; */
+    width: 1152px;
+    display: flex;
+    gap: 12px;
+}
+
+hr {
+    background-color: var(--outline-variant);
+    border-width: 2px;
+    width: 100%;
+    margin: 12px;
+    margin-left: 2px;
+    opacity: none;
+}
+
+.aside-content {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: var(--white);
+    height: 450px;
+}
+
+.aside-content__profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.aside-content__section {
+    font-weight: 500;
+}
+
+.aside-content__section p {
+    padding: 12px;
+    height: 48px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.aside-content__section p:hover {
+    border-radius: 8px;
+    background-color: var(--gray);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.aside-content__section p:nth-child(3) {
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.aside-content__img {
+    height: 64px;
+    width: 64px;
+    border-radius: 100%;
+}
+
+.aside-content__detail-bold {
+    font-weight: 500;
+    margin: 12px 0 0 0;
+}
+
+.aside-content__item p {
+    color: var(--red);
+    font-weight: 500;
+    padding-left: 12px;
+}
+
+.form {
+    padding: 24px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+    width: 75%;
+    align-items: start;
+}
+
+.form__card-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.form__card-item {
+    display: flex;
+    gap: 30px;
+    padding: 12px;
+    flex-direction: column;
+    /* height: 200px; */
+    width: 814px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+}
+
+.form__card-item h1 {
+    font-size: 24px;
+    font-weight: 600px;
+}
+
+.form__card-item h2 {
+    font-size: 22px;
+    font-weight: 500px;
+    color: rgba(0, 0, 0, 0.38);
+    text-align: center;
+}
+
+.debit-credit-card--submit {
+    width: 160px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    border: none;
+    font-size: 16px;
+}
+
+.bank-account--submit {
+    width: 251px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    border: none;
+    font-size: 16px;
+}
+
+.form__debit-credit-card,
+.form__bank-account {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-btn,
+.history-btn,
+.accountPayment-btn,
+.changePassword-btn,
+.logout-btn {
+    cursor: pointer;
+}
+
+.form__card-detail,
+.form__debit-detail-one,
+.form__debit-credit-card,
+.forn__bank-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__card-detail img,
+.form__debit-detail-one img {
+    width: 38.491px;
+    height: 30px;
+}
+
+.form__card-detail,
+.form__debit-detail-one p {
+    margin: 0;
+    padding: 0;
+}
+
+.form__card-detail .name-bank,
+.form__debit-detail-one .name-bank {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.form__card-detail .line-delete {
+    text-decoration-line: underline;
+}
+
+button.filled-default {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    color: #bec8c9;
+    border: 1px solid #bec8c9;
+    border-radius: 8px;
+}
+
+button.unfilled-default {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    color: #085457;
+    border: 1px solid #085457;
+    border-radius: 8px;
+}
+
+/*popup*/
+.popup {
+    display: none;
+    position: fixed;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup__main {
+    position: relative;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    margin: auto;
+    width: 45%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+
+}
+
+.close-btn {
+    position: relative;
+    color: var(--primary-color-1);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.popup__img {
+    object-fit: contain;
+    height: 50%;
+    border-radius: 8px;
+}
+
+.popup__content-main {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup--top {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.popup .popup__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.popup p {
+    margin-bottom: 6px;
+}
+
+.popup__content-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn--filled.pri {
+    height: 48px;
+    width: 150px;
+    margin-left: 4px;
+}
+
+button.btn--outlined.pri {
+    height: 48px;
+    width: 150px;
+    margin-right: 4px;
+}

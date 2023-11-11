@@ -1,0 +1,190 @@
+.nresult-block__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 12px;
+}
+
+.nresult-block__picture {
+    width: 220px;
+    height: 220px;
+    margin-right: 12px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+.nresult-block__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.nresult-block__content .nresult-block__name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #21A8AC;
+    margin-bottom: 4px;
+}
+
+.nresult-block__rate-star .material-symbols-outlined {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    color: orange;
+}
+
+.nresult-block__extensions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+
+.nresult-block__details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 4px 0 4px;
+}
+
+.nresult-block__extensions p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.nresult-block__extensions a {
+    font-size: 12px;
+}
+
+.nresult-block__extensions .material-symbols-outlined {
+    font-size: 20px;
+    padding-right: 4px;
+}
+
+.nresult-block__room-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    margin-top: 8px;
+    border-left: 1px solid var(--outline-variant);
+}
+
+.nresult-block__room-details p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.nresult-block__room-detais__cancel-policy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--green);
+    padding: 4px 0 0px 12px;
+    gap: 2px;
+}
+
+
+.nresult-block__room-detais__cancel-policy .material-symbols-outlined {
+    font-size: 20px;
+    font-weight: 600;
+    padding-right: 12px;
+}
+
+.nresult-block__room-detais__cancel-policy .ncancel-policy__content {
+    font-weight: 600;
+}
+
+.nresult-block__room-details .nresult-block__room-detais__content {
+    font-weight: 600;
+}
+
+.nresult-block__infor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 12px;
+}
+
+.nresult-block__cus-rate {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+
+}
+
+.nresult-block__cus-rate__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.nresult-block__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.nresult-block__cus-rate__point {
+    padding: 6px 12px 6px 12px;
+    background-color: #008489;
+    border-radius: 4px 4px 4px 0;
+}
+
+.nresult-block__cus-rate p {
+    margin: 0;
+}
+
+.nresult-block__cus-rate .nresult-block__cus-rate__main-content {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nresult-block__cus-rate .nresult-block__cus-rate__sub-content {
+    font-size: 14px;
+}
+
+.nresult-block__cus-rate .nresult-block__cus-rate__point {
+    color: white;
+    font-weight: 500;
+}
+
+.nresult-block__cus-rate__content {
+    padding-right: 12px;
+}
+
+.nresult-block__price p {
+    margin: 0;
+}
+
+.nresult-block__option {
+    font-size: 14px;
+}
+
+.nresult-block__origin-price {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.nresult-block__label {
+    font-size: 14px;
+}
+
+.nform__submit {
+    padding: 10px 28px;
+    background-color: #FE9C0B;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-top: 4px;
+}
+
+.nresult-block__main-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

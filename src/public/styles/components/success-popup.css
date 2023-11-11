@@ -1,0 +1,72 @@
+@import url("/styles/base.css");
+
+.modal-success {
+	position: fixed;
+	display: none;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.success-popup-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	animation: modalFadeIn ease 0.5s;
+}
+
+.success-popup__card {
+	position: relative;
+	width: 517px;
+	height: 267px;
+	background-color: white;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.success-popup__icon {
+	margin: 47px 0 0 0;
+}
+
+.success-popup__icon span {
+	font-size: 131px;
+	color: #00696d;
+}
+
+.success-popup__title {
+	font-size: 32px;
+	color: #00696d;
+	font-weight: 700;
+	bottom: 10px;
+	margin: 10px 0;
+}
+
+.success-popup__close-btn {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	cursor: pointer;
+}
+
+.success-popup__close-btn span {
+	color: #00696d;
+}
+
+@keyframes modalFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-200px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

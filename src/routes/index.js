@@ -1,9 +1,19 @@
 // import router
+const adminRouter = require('./adminRouter')
+const authRouter = require('./authRouter')
+const searchRouter = require('./searchRouter')
+const notificationRouter = require('./notificationRouter')
+const accountRouter = require('./accountRouter')
+const bookingRouter = require('./bookingRouter')
 const siteRouter = require('./siteRouter')
 
 function route(app) {
-    // register
-    app.use('/register', (req, res) => { res.render('./pages/register.ejs') })
+    app.use('/admin', adminRouter)
+    app.use('/auth', authRouter)
+    app.use('/search', searchRouter)
+    app.use('/notification', notificationRouter)
+    app.use('/account', accountRouter)
+    app.use('/booking', bookingRouter)
     app.use('/', siteRouter)
 }
 

@@ -1,0 +1,26 @@
+<div class="modal-success">
+    <div class="success-popup-container">
+        <div class="success-popup__card">
+            <div class="success-popup__icon">
+                <span class="material-symbols-outlined">
+                    check_circle
+                </span>
+            </div>
+            <p class="success-popup__title">
+                Thực hiện thành công!
+            </p>
+            <div class="success-popup__close-btn">
+                <span class="material-symbols-outlined">cancel</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const closePopupBtn = document.querySelector(".success-popup__close-btn");
+    const modalSuccess = document.querySelector(".modal-success");
+
+    closePopupBtn.addEventListener("click", () => {
+        modalSuccess.style.display = "none";
+    });
+</script>
