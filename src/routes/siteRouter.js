@@ -3,9 +3,16 @@ const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
 const session = require('express-session')
 const SiteController = require('../controllers/SiteController.js');
+
+
+router.get("/error404", SiteController.error404);
 const passport = require('passport');
 
 router.get('/about', SiteController.about)
+
+router.get('/terms-of-use', SiteController.termOfUse)
+
+router.get('/privacy-policy', SiteController.privacyPolicy)
 
 router.get('/', SiteController.index)
 // router for reset-password testing session 

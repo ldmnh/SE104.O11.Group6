@@ -3,7 +3,7 @@
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     /* gap: 12px; */
     box-sizing: border-box;
     padding: 20px 12px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 12px;
 }
 
@@ -66,7 +66,7 @@ p {
 .cancel-status p {
     font-size: 28px;
     font-weight: 600;
-    color: #119726;
+    color: var(--green);
 }
 
 .cancel-description {
@@ -93,8 +93,8 @@ p {
     width: 96px;
     height: 48px;
     border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
+    background-color: var(--primary-color-4);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
@@ -105,9 +105,9 @@ p {
     border-radius: 8px;
 
     font-size: 16px;
-    color: #fe9c0b;
-    background-color: white;
-    border: 1px solid #fe9c0b;
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
 }
 
 .cancel__button--submit1:hover {
@@ -123,7 +123,7 @@ p {
     flex-direction: column;
     gap: 24px;
     border-radius: 10px;
-    background: #fff;
+    background: var(--white);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -159,13 +159,13 @@ p {
 }
 
 .rating p {
-    color: #00696d;
+    color: var(--primary-color-2);
     font-size: 20px;
     font-weight: 600;
 }
 
 .rating span {
-    color: #fe9c0b;
+    color: var(--primary-color-4);
     font-variation-settings: "FILL" 1;
 }
 
@@ -194,5 +194,5 @@ p {
 .total-price p {
     font-size: 20px;
     font-weight: 600;
-    color: #119726;
+    color: var(--green);
 }

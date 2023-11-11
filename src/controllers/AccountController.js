@@ -1,6 +1,10 @@
 const db = require('../config/db/connect');
 const AccountModel = require('../models/accountModel')
 class AccountController {
+  // [GET] /account/information
+  information(req, res) {
+    res.render("./pages/account/information");
+  }
 
     // [GET] /account/information
     information(req, res) {
@@ -190,4 +194,4 @@ class AccountController {
 
 }
 
-module.exports = new AccountController()
+module.exports = new AccountController();

@@ -79,6 +79,7 @@
     align-items: center;
     color: var(--green);
     padding: 4px 0 0px 12px;
+    gap: 2px;
 }
 
 
