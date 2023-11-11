@@ -93,7 +93,7 @@ CREATE TABLE Accommodation
     acco_exac_location  nvarchar(50),
     city_id             int,
     prov_id             int		NOT NULL,
-    location_link         varchar(100),
+    acco_location_link  varchar(100),
     PRIMARY KEY (acco_id),
     FOREIGN KEY (city_id) REFERENCES City(city_id),
     FOREIGN KEY (prov_id) REFERENCES Province(prov_id)

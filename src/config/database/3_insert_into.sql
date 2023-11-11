@@ -42,7 +42,7 @@ VALUES
     ('Thành phố Cần Thơ',        5),
     ('Thành phố Vũng Tàu',       6);
 
-INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id, location_link)
+INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id, acco_location_link)
 VALUES
     ('hotel',        4,  'acc001.jpg', 'Khách sạn Mộng mơ',  'Luxury Accommodation', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '123 Main Street',  1,     1,  'https://maps.app.goo.gl/kZiXnCysM2YhsziDA'),
     ('resort',       5,  'acc002.jpg', 'Resort Lò vi Sóng',  'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   NULL,  2,  'https://maps.app.goo.gl/fXrs4eMmpP117TY38'),
