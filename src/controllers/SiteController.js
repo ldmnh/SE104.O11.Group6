@@ -8,8 +8,8 @@ class SiteController {
     // [GET] /about-us
     about(req, res) {
         const nav_tree__data = [
-            { name: 'Trang chủ', link: '/' },
-            { name: 'Giới thiệu', link: '/about' }
+            { text: 'Trang chủ', link: '/' },
+            { text: 'Giới thiệu', link: '/about' }
         ]
         res.render('./pages/site/about', { nav_tree__data })
     }
