@@ -1,3 +1,4 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
@@ -45,7 +46,7 @@ INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, a
 VALUES
     ('hotel',        4,  'acc001.jpg', 'Khách sạn Mộng mơ',  'Luxury Accommodation', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '123 Main Street',  1,     1,  'https://maps.app.goo.gl/kZiXnCysM2YhsziDA'),
     ('resort',       5,  'acc002.jpg', 'Resort Lò vi Sóng',  'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   NULL,  2,  'https://maps.app.goo.gl/fXrs4eMmpP117TY38'),
-    ('resort',       5,  'acc003.jpg', 'Resort Bình Yên',    'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   6,     6,  'https://maps.app.goo.gl/oNLhb8VppARxbcUt9'),
+    ('resort',       5,  'acc003.jpg', 'Resort Bình Yên',    'Experience Paradise',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '456 Beach Road',   5,     6,  'https://maps.app.goo.gl/oNLhb8VppARxbcUt9'),
     ('guest_house',  2,  'acc004.jpg', 'Guest House C',      NULL,                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '789 Mountain View',NULL,  3,  'https://maps.app.goo.gl/uVpVjbCYiLKLyd517');
 
 INSERT INTO Feature (fea_name)
@@ -81,18 +82,18 @@ VALUES
     (3, 'accomodation_4.jpg'),
     (3, 'accomodation_5.jpg');
 
-INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id)
+INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id)
 VALUES 
-    ('Standard', 'Single', 1, 0, 1, 0, 10,   'room_1.jpg', 25.5, 100.0, NULL, NULL, 0,           1),
-    ('Deluxe',   'Double', 2, 1, 0, 1, 5,    'room_2.jpg', 35.0, 200.0, 0.1, '2023-01-31', 0,    1),
-    ('Suite',    'Family', 2, 2, 1, 2, 3,    'room_1.jpg', 45.2, 300.0, NULL, NULL, 0,           2),
-    ('Standard', 'Single', 1, 0, 1, 0, 8,    'room_6.jpg', 30.0, 120.0, 0.05, '2023-02-28', 0,   3),
-    ('Superior', 'Double', 2, 1, 0, 1, 6,    'room_3.jpg', 28.5, 180.0, NULL, NULL, 0,           4),
-    ('Suite',    'Family', 2, 2, 1, 2, 4,    'room_7.jpg', 50.0, 350.0, 0.15, '2023-03-31', 0,   3),
-    ('Standard', 'Single', 1, 0, 1, 0, 12,   'room_4.jpg', 32.0, 150.0, NULL, NULL, 0,           2),
-    ('Deluxe',   'Double', 2, 1, 0, 1, 7,    'room_1.jpg', 38.0, 220.0, 0.2, '2023-04-30', 0,    1),
-    ('Suite',    'Family', 2, 2, 1, 2, 5,    'room_3.jpg', 48.7, 320.0, NULL, NULL, 0,           2),
-    ('Standard', 'Single', 1, 0, 1, 0, 9,    'room_2.jpg', 29.8, 110.0, 0.1, '2023-05-31', 0,    4);
+    ('Standard', 'Single', 1, 0, 1, 0, 10,   'room_1.jpg', 25.5, 1000000, NULL, NULL, 0,           1),
+    ('Deluxe',   'Double', 2, 1, 0, 1,  5,   'room_2.jpg', 35.0, 2000000, 0.1, '2023-01-31', 0,    1),
+    ('Suite',    'Family', 2, 2, 1, 2,  3,   'room_1.jpg', 45.2, 3000000, NULL, NULL, 0,           2),
+    ('Standard', 'Single', 1, 0, 1, 0,  8,   'room_6.jpg', 30.0, 1200000, 0.05, '2023-02-28', 0,   3),
+    ('Superior', 'Double', 2, 1, 0, 1,  6,   'room_3.jpg', 28.5, 1800000, NULL, NULL, 0,           4),
+    ('Suite',    'Family', 2, 2, 1, 2,  4,   'room_7.jpg', 50.0, 3500000, 0.15, '2023-03-31', 0,   3),
+    ('Standard', 'Single', 1, 0, 1, 0, 12,   'room_4.jpg', 32.0, 1500000, NULL, NULL, 0,           2),
+    ('Deluxe',   'Double', 2, 1, 0, 1,  7,   'room_1.jpg', 38.0, 2200000, 0.2, '2023-04-30', 0,    1),
+    ('Suite',    'Family', 2, 2, 1, 2,  5,   'room_3.jpg', 48.7, 3200000, NULL, NULL, 0,           2),
+    ('Standard', 'Single', 1, 0, 1, 0,  9,   'room_2.jpg', 29.8, 1100000, 0.1, '2023-05-31', 0,    4);
 
 INSERT INTO Extension (exte_name)
 VALUES 
@@ -114,9 +115,9 @@ VALUES
     (7, 1),
     (8, 2),
     (9, 2),
-    (0, 2),
-    (0, 3),
-    (0, 4);
+    (10, 2),
+    (10, 3),
+    (10, 4);
 
 INSERT INTO RoomTypeImg (room_id, room_type_image_url)
 VALUES 
@@ -176,40 +177,47 @@ VALUES
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
 
-INSERT INTO Booking (book_datetime, book_start_datetime, book_end_datetime, pay_id, book_total_cost, book_first_name, book_last_name, book_email, au_user_id, book_phone, book_note, cancel_cost, book_status, book_is_payed, rea_id, book_num_adult, book_num_child)
+INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_total_cost, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
 VALUES
-    ('2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 1, 0, 'John',       'Doe',      'john@example.com',     1, '1234567890', NULL, 0, 1, 1, NULL, 3, 0),
-    ('2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 'Jane',       'Smith',    'jane@example.com',     2, '9876543210', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 3, 0, 'Michael',    'Johnson',  'michael@example.com',  3, '5555555555', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 1, 0, 'Emily',      'Brown',    'emily@example.com',    1, '1111111111', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 'David',      'Wilson',   'david@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 1, 0, 'Sarah',      'Jackson',  'sarah@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 'Robert',     'Anderson', 'robert@example.com',   1, '2222222222', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Olivia',     'Thomas',   'olivia@example.com',   2, '8888888888', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Daniel',     'Martinez', 'daniel@example.com',   3, '4444444444', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 'Sophia',     'Garcia',   'sophia@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL, 1, 0);
+    (1, 1, '2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 2, 0, 1, 0, 'John',       'Doe',      'john@example.com',     '1234567890', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 2, 0, 'Jane',       'Smith',    'jane@example.com',     '9876543210', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 2, 0, 3, 0, 'Michael',    'Johnson',  'michael@example.com',  '5555555555', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 2, 0, 1, 0, 'Emily',      'Brown',    'emily@example.com',    '1111111111', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 2, 0, 'David',      'Wilson',   'david@example.com',    '9999999999', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 2, 0, 1, 0, 'Sarah',      'Jackson',  'sarah@example.com',    '7777777777', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 2, 0, 'Robert',     'Anderson', 'robert@example.com',   '2222222222', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 2, 0, 3, 0, 'Olivia',     'Thomas',   'olivia@example.com',   '8888888888', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 2, 0, 1, 0, 'Daniel',     'Martinez', 'daniel@example.com',   '4444444444', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 2, 0, 'Sophia',     'Garcia',   'sophia@example.com',   '6666666666', NULL, 0, 1, 1, NULL);
 
 INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room)
 VALUES
-    (1,  1, 150.00,  2),
-    (1,  2, 180.00,  1),
-    (2,  3, 200.00,  1),
-    (3,  4, 120.00,  1),
-    (4,  5, 160.00,  2),
-    (5,  6, 180.00,  1),
-    (6,  7, 250.00,  1),
-    (7,  8, 190.00,  1),
-    (8,  9, 170.00,  2),
-    (9,  10, 140.00, 1),
-    (10, 10, 140.00, 1);
+    ( 1,   1, 1500000, 2),
+    ( 1,   2, 1800000, 1),
+    ( 2,   3, 2000000, 1),
+    ( 3,   4, 1200000, 1),
+    ( 4,   5, 1600000, 2),
+    ( 5,   6, 1800000, 1),
+    ( 6,   7, 2500000, 1),
+    ( 7,   8, 1900000, 1),
+    ( 8,   9, 1700000, 2),
+    ( 9,  10, 1400000, 1),
+    (10,  10, 1400000, 1);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
 VALUES
-    (1, 1, '2023-10-27 14:30:00', 'The room was clean and comfortable.', 4.5),
-    (2, 2, '2023-10-28 11:00:00', 'Great service and amenities.', 5.0),
-    (3, 3, '2023-10-29 09:45:00', 'The room had a nice view.', 4.0),
-    (1, 4, '2023-10-30 16:15:00', 'The staff was friendly and helpful.', 4.8),
-    (2, 5, '2023-10-31 13:30:00', 'The room was spacious and well-maintained.', 4.7);
+    (1, 1, '2023-10-27 14:30:00', 'The room was clean and comfortable.',                9.5),
+    (1, 1, '2023-10-28 14:30:00', 'The room was clean and comfortable.',                9.5),
+    (1, 1, '2023-10-29 14:30:00', 'The room was clean and comfortable.',                9),
+    (1, 1, '2023-10-30 14:30:00', 'The room was clean and comfortable.',                9),
+    (1, 1, '2023-10-31 14:30:00', 'The room was clean and comfortable.',                9),
+    (2, 2, '2023-10-28 11:00:00', 'Great service and amenities.',                       9),
+    (2, 2, '2023-10-29 11:00:00', 'Great service and amenities.',                       9),
+    (2, 2, '2023-10-30 11:00:00', 'Great service and amenities.',                       8.5),
+    (2, 2, '2023-10-31 11:00:00', 'Great service and amenities.',                       8.5),
+    (3, 3, '2023-10-29 09:45:00', 'The room had a nice view.',                          9),
+    (1, 4, '2023-10-30 16:15:00', 'The staff was friendly and helpful.',                8.5),
+    (2, 5, '2023-10-31 13:30:00', 'The room was spacious and well-maintained.',         9);
 
 INSERT INTO Notification (noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url)
 VALUES

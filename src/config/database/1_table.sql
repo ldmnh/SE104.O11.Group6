@@ -138,9 +138,9 @@ CREATE TABLE RoomType
     room_cost           float        NOT NULL,
     room_discount       float,
     room_date_end_discount	date,
-    room_sum_rating     int          DEFAULT 0,
+    room_avg_rating     float       DEFAULT 0,
+    room_count_rating   int          DEFAULT 0,
     acco_id             int          NOT NULL,
-    avg_rating          float,
     PRIMARY KEY (room_id),
     FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
 );
@@ -186,25 +186,29 @@ CREATE TABLE ReasonCancel
 CREATE TABLE Booking
 (
     book_id             int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
+    acco_id             int             NOT NULL,
+    au_user_id          int             NOT NULL,
     book_datetime       datetime        NOT NULL,
     book_start_datetime datetime        NOT NULL,
     book_end_datetime   datetime        NOT NULL,
-    pay_id              int             NOT NULL,
+    book_num_adult      int             NOT NULL,
+    book_num_child      int             NOT NULL,
     book_total_cost     float           NOT NULL    DEFAULT 0,
     book_first_name     char(50)        NOT NULL,
     book_last_name      char(50)        NOT NULL,
     book_email          varchar(50)     NOT NULL,
-    au_user_id          int             NOT NULL,
     book_phone          char(10)        NOT NULL,
+    pay_id              int             NOT NULL,
     book_note           text,
     cancel_cost         float           NOT NULL,
     book_status         int             NOT NULL, -- 1: Cancel, 0: Pending, 1: Success
-    book_is_paid       int             NOT NULL, -- 0: unpayed, 1: payed
+    book_is_paid        int             NOT NULL, -- 0: unpayed, 1: payed
     rea_id              int,
     PRIMARY KEY (book_id),
     FOREIGN KEY (pay_id) REFERENCES PayingMethod(pay_id),
     FOREIGN KEY (rea_id) REFERENCES ReasonCancel(rea_id),
-    FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id)
+    FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
+    FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
 );
 
 CREATE TABLE BookingDetail
