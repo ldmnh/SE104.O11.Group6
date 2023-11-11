@@ -96,7 +96,7 @@ AccountModel.addDebit = function (req, res, callback) {
 
 }
 
-AccountModel.paymentAccount = function (req, res, callback) {
+AccountModel.cardAccount = function (req, res, callback) {
     if (!req.session.email) {
         res.status(404).json({ message: 'Không tìm thấy email!!!' });
         return;
@@ -122,5 +122,45 @@ AccountModel.paymentAccount = function (req, res, callback) {
         callback(err, res, result)
     });
 }
+
+
+// [PUT] /account/delBank
+AccountModel.delBank = function (req, res, callback) {
+
+    req = {
+        'bank_id': '1'
+    }
+
+    const sql = `
+        UPDATE bankcard
+        SET au_user_id = NULL
+        WHERE bank_id=?
+    `
+    const params = [req.bank_id];
+
+    db.query(sql, params, (err, data_del_bank) => {
+        callback(err, res, data_del_bank)
+    })
+}
+
+AccountModel.delDebit = function (req, res, callback) {
+
+    req = {
+        'debit_id': '12'
+    }
+
+    const sql = `
+        UPDATE debitcard
+        SET au_user_id = NULL
+        WHERE debit_id=?
+    `
+    const params = [req.debit_id];
+
+    db.query(sql, params, (err, data_del_debit) => {
+        callback(err, res, data_del_debit)
+    })
+}
+
+
 
 module.exports = AccountModel

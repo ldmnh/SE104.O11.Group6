@@ -25,15 +25,15 @@ class BookingController {
     res.send("booking-infoPost");
   }
 
-    // [GET] /booking/payment
-    payment(req, res) {
-        res.render('./pages/booking/payment')
-    }
+  // [GET] /booking/payment
+  payment(req, res) {
+    res.render("./pages/booking/payment");
+  }
 
-    // [POST] /booking/payment
-    paymentPost(req, res) {
-        res.send('booking-paymentPost')
-    }
+  // [POST] /booking/payment
+  paymentPost(req, res) {
+    res.send("booking-paymentPost");
+  }
 
   // [GET] /booking/success
   success(req, res) {

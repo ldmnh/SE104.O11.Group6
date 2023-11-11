@@ -1,10 +1,10 @@
 const db = require('../config/db/connect');
 const AccountModel = require('../models/accountModel')
 class AccountController {
-  // [GET] /account/information
-  information(req, res) {
-    res.render("./pages/account/information");
-  }
+    // [GET] /account/information
+    information(req, res) {
+        res.render("./pages/account/information");
+    }
 
     // [GET] /account/information
     information(req, res) {
@@ -120,13 +120,13 @@ class AccountController {
     }
 
     // [GET] /account/card
-    paymentAccount(req, res) {
-        AccountModel.paymentAccount(req, res, function (err, res, result) {
+    card(req, res) {
+        AccountModel.cardAccount(req, res, function (err, res, result) {
             if (err) {
                 res.status(500).json({ message: 'Lỗi truy vấn!!!', });
                 throw err;
             }
-            res.status(200).render('./pages/account/payment', {
+            res.status(200).render('./pages/account/card', {
                 message: 'Lấy thông tin phương thức thanh toán thành công',
                 data_card: result,
             });
@@ -140,9 +140,12 @@ class AccountController {
 
     // [POST] /account/card/addBank
     addBank(req, res) {
-        AccountModel.addBank(req, res, function (err, res, data_bank) {
+        AccountModel.addBank(req, res, function (err, res, result) {
             if (err) throw err;
-            res.status(200).redirect('.')
+            res.status(200).render('./pages/account/card-fill', {
+                message: 'Thêm thẻ ngân hàng thành công',
+                // data_bank: result,
+            })
         })
     }
 
@@ -150,18 +153,26 @@ class AccountController {
     addDebit(req, res) {
         AccountModel.addDebit(req, res, function (err, res, data_debit) {
             if (err) throw err;
-            res.status(200).redirect('.')
+            res.status(200).render('./pages/account/card-fill', {
+                massage: "Thêm thẻ tín dụng thành công",
+            })
         })
     }
 
-    // [POST] /account/card/delBank
+    // [PUT] /account/card/delBank
     delBank(req, res) {
-        res.send("delBank")
+        AccountModel.delBank(req, res, function (err, res, data_del_bank) {
+            if (err) throw err;
+            res.status(200).redirect('/');
+        })
     }
 
-    // [POST] /account/card/delDebit
+    // [PUT] /account/card/delDebit
     delDebit(req, res) {
-        res.send("delDebit")
+        AccountModel.delDebit(req, res, function (err, res, data_del_debit) {
+            if (err) throw err;
+            res.status(200).redirect('/');
+        })
 
     }
 
