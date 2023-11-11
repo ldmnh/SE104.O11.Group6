@@ -131,7 +131,7 @@ NotificationModel.readAllNotification = function (req, res, callback) {
     const sql = `
         UPDATE usernoti
         SET usernoti_is_read = 1
-        AND au_user_id = ?;
+        WHERE au_user_id = ?;
     `
     const params = [req.session.user?.id];
 

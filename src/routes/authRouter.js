@@ -18,6 +18,6 @@ router.post('/reset', AuthController.resetPost)
 
 router.get('/logout', AuthController.logout)
 
-router.post('/change', AuthController.changePost)
+// router.post('/change', AuthController.changePost)
 
 module.exports = router
