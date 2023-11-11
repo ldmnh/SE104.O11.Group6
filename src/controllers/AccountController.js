@@ -1,3 +1,5 @@
+const authMiddleware = require('../middlewares/authMiddleware');
+
 class AccountController {
 
     // [GET] /account/information
@@ -12,6 +14,14 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
+        if (!req.session.email) {
+            res.status(404).json({ message: 'Không tìm thấy email!!!' });
+            return;
+        }
+
+        
+
+
         res.render('./pages/account/history')
     }
 

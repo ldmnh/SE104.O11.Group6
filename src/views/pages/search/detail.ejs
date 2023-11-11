@@ -15,7 +15,7 @@
 
     <main class="content-container">
         <section class="title">
-            <h1>The Soul Hotel</h1>
+            <h1><%=accoDetail[0].acco_name%></h1>
             <div class="title__frame">
                 <div class="title__info info">
                     <div class="info__slogan">Tận hưởng thả ga, không lo về giá</div>
@@ -65,7 +65,7 @@
                 <div class="feature__group">
                     <div class="feature__item">
                         <span class="material-symbols-outlined">beach_access</span>
-                        <p>Giáp biển</p>
+                        <p></p>
                     </div>
                     <div class="feature__item">
                         <span class="material-symbols-outlined">beach_access</span>
@@ -88,10 +88,13 @@
         </section>
 
         <section class="room-list">
-            <form action="#">
+            <form action="#" method="POST">
+                <input type="hidden" value="<%=accoDetail[0].acco_id%>" name="acco_id" class="form-control">
+                <!-- Start Loop -->
                 <%- include('../../components/room') %>
                 <%- include('../../components/room') %>
                 <%- include('../../components/room') %>
+                <!-- End Loop  -->
                 <h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND 1.500.000</span></h2>
                 <div class="room-list__submit">
                     <button type="submit" class="btn room-list__submit-button">Đặt phòng</button>
