@@ -85,30 +85,15 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-
+        res.render('./pages/account/history')
     }
 
     // [POST] /account/booking-history
     addReview(req, res) {
-        if (!req.session.email) {
-            res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            return;
-        }
-
-        const {
-            rating_point,
-            rating_context,
-        } = req.body
-
-        db.query(sql, params, (err, results,) => {
+        AccountModel.addReview(req, res, function (err, res, result) {
             if (err) throw err;
-            res.status(200).redirect('/account/booking-history')
+            res.status(200).redirect('/');
         })
-        const sql = `INSERT INTO rating SET ?`;
-        const params = {
-            rating_point: rating_point,
-            rating_context: rating_context,
-        };
 
     }
 

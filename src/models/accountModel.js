@@ -162,5 +162,38 @@ AccountModel.delDebit = function (req, res, callback) {
 }
 
 
+AccountModel.addReview = function (req, res, callback) {
+    req = {
+        'room_id': 'roo000000004',
+        'au_user_email': 'john.doe@example.com',
+        'rating_point': '9',
+        'rating_context': 'hello'
+    }
+
+    // const {
+    //     rating_point,
+    //     rating_context,
+    // } = req.body;
+
+    const sql = `
+        INSERT INTO rating
+            (rating_point,
+            rating_context,
+            room_id,
+            au_user_id)
+            VALUES (?, ?, ?,
+            (SELECT au_user_id
+             FROM AUTHUSER
+             WHERE au_user_email = ?)
+            );`;
+
+    const params = [req.rating_point, req.rating_context, req.room_id, req.au_user_email];
+
+    db.query(sql, params, (err, data_debit) => {
+        callback(err, res, data_debit)
+    })
+
+}
+
 
 module.exports = AccountModel
