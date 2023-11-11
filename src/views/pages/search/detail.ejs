@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/styles/pages/search/detail.css" />
+    <title>2WAYS.com</title>
+</head>
+
+<body>
+    <%- include('../../partials/header-small') %>
+
+    <main class="content-container">
+        <section class="title">
+            <h1>The Soul Hotel</h1>
+            <div class="title__frame">
+                <div class="title__info info">
+                    <div class="info__slogan">Tận hưởng thả ga, không lo về giá</div>
+                    <div class="info__category">
+                        <button type="button" class="btn">Khách sạn</button>
+                        <div class="info__rank">
+                            <span class="material-symbols-outlined">grade</span>
+                            <span class="material-symbols-outlined">grade</span>
+                            <span class="material-symbols-outlined">grade</span>
+                            <span class="material-symbols-outlined">grade</span>
+                            <span class="material-symbols-outlined">grade</span>
+                        </div>
+                    </div>
+                    <div class="info__location">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <p>
+                            23 Trần phú, phường 3, thành phố Vũng tàu, Bà rịa - Vũng Tàu
+                        </p>
+                    </div>
+                </div>
+                <div class="title__btn">
+                    <a class="btn" href="#" role="button">Chọn phòng</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview">
+            <img src="/imgs/details/1.jpg" alt="" class="preview--big" />
+            <div class="preview--small">
+                <img src="/imgs/details/2.jpg" alt="" />
+                <img src="/imgs/details/3.jpg" alt="" />
+                <img src="/imgs/details/4.jpg" alt="" />
+            </div>
+        </section>
+
+        <section class="short-info">
+            <div class="short-info__intro">
+                <h2>Giới thiệu</h2>
+                <p>
+                    The Soul Hotel là một khách sạn nằm trong khu vực an ninh, toạ lạc
+                    tại Mỹ An. Quầy tiếp tân 24 giờ luôn sẵn sàng phục vụ quý khách từ
+                    thủ tục nhận phòng đến trả phòng hay bất kỳ yêu cầu nào. Nếu...
+                </p>
+            </div>
+            <div class="short-info__feature feature">
+                <h2>Đặc điểm nổi bật</h2>
+                <div class="feature__group">
+                    <div class="feature__item">
+                        <span class="material-symbols-outlined">beach_access</span>
+                        <p>Giáp biển</p>
+                    </div>
+                    <div class="feature__item">
+                        <span class="material-symbols-outlined">beach_access</span>
+                        <p>Giáp biển</p>
+                    </div>
+                    <div class="feature__item">
+                        <span class="material-symbols-outlined">beach_access</span>
+                        <p>Giáp biển</p>
+                    </div>
+                    <div class="feature__item">
+                        <span class="material-symbols-outlined">beach_access</span>
+                        <p>Giáp biển</p>
+                    </div>
+                    <div class="feature__item">
+                        <span class="material-symbols-outlined">beach_access</span>
+                        <p>Giáp biển</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="room-list">
+            <form action="#">
+                <%- include('../../components/room') %>
+                <%- include('../../components/room') %>
+                <%- include('../../components/room') %>
+                <h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND 1.500.000</span></h2>
+                <div class="room-list__submit">
+                    <button type="submit" class="btn room-list__submit-button">Đặt phòng</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="general-info">
+            <div class="general-info--left">
+                <h2>Thông tin chung</h2>
+                <img src="/imgs/details/1.jpg" alt="" />
+            </div>
+            <div class="general-info--right">
+                <div class="general-info__time time">
+                    <span class="material-symbols-outlined">schedule</span>
+                    <div class="time__text">
+                        <p class="time__text--top">Thời gian nhận/trả phòng</p>
+                        <div class="time__text--bottom">
+                            <p>Giờ nhận phòng: Từ 16:00</p>
+                            <p>Giờ trả phòng: Trước 16:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="general-info__item bg-gray">
+                    <p class="general-info__item--left">Tiện ích chung</p>
+                    <p class="general-info__item--right">
+                        Máy lạnh, Nhà hàng, Lễ tân 24h, Chỗ đậu xe, Thang máy, WiFi
+                    </p>
+                </div>
+                <div class="general-info__item">
+                    <p class="general-info__item--left">
+                        Khoảng cách đến trung tâm thành phố
+                    </p>
+                    <p class="general-info__item--right">100km</p>
+                </div>
+                <div class="general-info__item bg-gray">
+                    <p class="general-info__item--left">Điểm đến phổ biến</p>
+                    <p class="general-info__item--right">
+                        Biển Mỹ Khê, Sân bay quốc tế Đà Nẵng (DAD), Chùa Linh Ứng
+                    </p>
+                </div>
+                <div class="general-info__item">
+                    <p class="general-info__item--left">Bữa sáng</p>
+                    <p class="general-info__item--right">Miễn phí</p>
+                </div>
+            </div>
+        </section>
+        <%- include('../../components/comment') %>
+        <%- include('../../components/comment') %>
+        <%- include('../../components/comment') %>
+
+
+    </main>
+    <%- include('../../partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/scripts/room.js"></script>
+</body>
+
+</html>

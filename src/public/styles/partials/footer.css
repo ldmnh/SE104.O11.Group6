@@ -1,50 +1,41 @@
-@import url('/styles/base.css');
-
 footer {
-  width: 100%;
+  width: 100vw;
   height: 300px;
   display: flex;
-  justify-content: center;
-  padding-top: 32px;
-  background: #f6f6f6;
-
-
-  & ul {
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
-  }
-
-  & p {
-    text-align: justify;
-  }
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid gray;
 }
 
-.footer__container {
+.footer-container {
   width: 80%;
-  max-width: 1152px;
+  margin: 0 auto;
+  display: flex;
   justify-content: space-between;
+}
+
+.contact {
+  width: 39%;
+  display: inherit;
+  flex-direction: column;
+  gap: 16px;
 }
 
 #footer__contact h3,
 .about h3,
 .update h3 {
   font-size: 1.375rem;
-  /* margin: 0; */
+  margin: 0;
 }
 
-#footer__contact p {
+.contact p {
   font-size: 1rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .contact__social {
   display: inherit;
   gap: 16px;
-
-  &>li {
-    display: inline-block;
-  }
 }
 
 .social__logo {
@@ -83,23 +74,6 @@ footer {
 }
 
 .update__input-field {
-  width: 65%;
-  height: 48px;
-  border-radius: 8px;
-  border: 1px #ebebeb solid;
-  box-sizing: border-box;
-  padding: 0 16px;
-}
-
-.update__confirm-btn {
-  height: 48px;
-  border-radius: 8px;
-  background-color: #fe9c0b;
-  color: white;
-  border: none;
-  box-sizing: border-box;
-  padding: 0 24px;
-  font-size: 0.875rem;
   width: 65%;
   height: 48px;
   border-radius: 8px;
