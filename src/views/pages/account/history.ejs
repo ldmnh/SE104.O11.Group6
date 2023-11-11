@@ -43,10 +43,9 @@
             <div class="filter-bar"></div>
 
             <div class="booking--history--items">
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
+                <!-- Start Loop -->
+                <%- include('../../components/room-in-hs.ejs', {bookingDetail}) %>
+                <!-- End Loop -->
             </div>
         </section>
     </div>

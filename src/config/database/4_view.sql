@@ -16,3 +16,16 @@ FROM roomtype, extension, roomexte
 WHERE roomtype.room_id = roomexte.room_id
 AND roomexte.exte_id = extension.exte_id
 
+CREATE VIEW view_booking_history AS
+SELECT accommodation.acco_name, booking.book_id, booking.book_datetime, booking.book_start_datetime, booking.book_end_datetime,
+booking.book_total_cost, booking.book_first_name + booking.book_last_name as 'book_full_name',
+booking.book_cost_before, booking.book_status, booking.book_is_payed
+FROM accommodation, booking
+WHERE accommodation.acco_id = booking.acco_id
+
+CREATE VIEW view_booking_history AS
+SELECT accommodation.acco_name, booking.book_id, booking.book_datetime, booking.book_start_datetime, booking.book_end_datetime,
+booking.book_total_cost, booking.book_first_name + booking.book_last_name as 'book_full_name',
+booking.book_cost_before, booking.book_status, booking.book_is_payed, booking.au_user_id
+FROM accommodation, booking
+WHERE accommodation.acco_id = booking.acco_id

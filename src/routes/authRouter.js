@@ -14,8 +14,8 @@ const authMiddleware = require('../middlewares/auth.middleware')
 // import controller
 const AuthController = require('../controllers/AuthController.js')
 
-router.get('/register', AuthController.register)
-router.post('/register', AuthController.registerPost)
+router.get('/register', authMiddleware.checkAuth, AuthController.register)
+router.post('/register', authMiddleware.checkAuth, AuthController.registerPost)
 
 router.get('/login', authMiddleware.checkAuth, AuthController.login)
 router.post('/login', authMiddleware.checkAuth, AuthController.loginPost)

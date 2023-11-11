@@ -1,10 +1,11 @@
 const authuser = require('../models/authuser.model');
+const accountHistory = require('../models/accountHistory.model');
 
 class AccountController {
 
     // [GET] /account/information
     information(req, res) {
-        authuser.getInfoByEmail({ "email": req.session.user?.email },
+        authuser.getInfoByEmail({ "email": req.session.user.email },
             (err, result) => {
                 if (err) {
                     res.status(500).json({ message: 'Lỗi truy vấn!!!' });
@@ -24,7 +25,9 @@ class AccountController {
                         }
                     });
                 } else {
-                    res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
+                    res.status(404).json({
+                        message: 'Không tìm thấy tài khoản!!!'
+                    });
                 }
             }
         )
@@ -36,31 +39,49 @@ class AccountController {
             account_first_name,
             account_last_name,
             account_birthday,
-            account_sex } = req.body;
+            account_sex
+        } = req.body;
 
         authuser.putInfoByEmail({
-            "email": req.session.user?.email,
+            "email": req.session.user.email,
             "first_name": account_first_name,
             "last_name": account_last_name,
             "birthday": account_birthday,
             "sex": account_sex
         }, (err, result) => {
             if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+                res.status(500).json({
+                    message: 'Lỗi truy vấn!!!'
+                });
                 throw err;
             }
 
             if (result.affectedRows === 0) {
-                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
+                res.status(404).json({
+                    message: 'Không tìm thấy tài khoản!!!'
+                });
             } else {
-                res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
+                res.status(200).json({
+                    message: 'Cập nhật thông tin tài khoản thành công'
+                });
             }
         })
     }
 
     // [GET] /account/history
     history(req, res) {
-        res.render('./pages/account/history')
+        accountHistory.getDetail(req, res, function (err, bookingDetail) {
+            if (err) {
+                res.status(500).json({
+                    message: 'Lỗi truy vấn getBookingDetails!!!'
+                });
+                throw err;
+            }
+            // res.send({bookingDetail: bookingDetail,})
+            res.status(200).render('./pages/account/history', {
+                bookingDetail: bookingDetail
+            })
+        })
     }
 
     // [GET] /account/payment
