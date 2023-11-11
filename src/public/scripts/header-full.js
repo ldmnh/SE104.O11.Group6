@@ -28,3 +28,5 @@ nameClickHf.addEventListener("click", () =>
 avatarClickHf.addEventListener("click", () =>
   redirectToUrl("/account/information")
 );
+
+

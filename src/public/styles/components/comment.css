@@ -1,7 +1,7 @@
 @import url("/styles/base.css");
 
-.comment--wrapper {
-    width: 1102px;
+.comment-wrapper {
+    width: 1152px;
     height: 120px;
     padding: 24px;
     display: flex;
@@ -12,7 +12,7 @@
     border: 1px solid var(--gray);
 }
 
-.comment--wrapper p {
+.comment-wrapper p {
     font-size: 16px;
     font-weight: 400;
     padding: 0;
@@ -20,21 +20,21 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.comment--profile {
+.comment-wrapper__profile {
     display: inherit;
     flex-direction: row;
     gap: 24px;
     align-items: center;
 }
 
-.comment--profile p {
+.comment-wrapper__profile p {
     font-size: 22px;
     font-weight: 600;
     text-align: start;
     white-space: nowrap;
 }
 
-.comment--profile img {
+.comment-wrapper__profile img {
     width: 64px;
     height: 64px;
     border-radius: 50px;
@@ -44,13 +44,13 @@
         lightgray 50% / cover no-repeat;
 }
 
-.point--day {
+.comment-wrapper__point-day {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.point--day .point {
+.comment-wrapper__point-day .comment-wrapper__point {
     font-size: 22px;
     font-weight: 700;
 }
