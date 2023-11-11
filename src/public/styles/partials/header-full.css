@@ -8,6 +8,7 @@ header {
   width: 100%;
   background-image: url(/imgs/bg-header.png);
   height: 484px;
+  object-fit: contain;
   position: no-repeat;
   position: contain;
   background-color: var(--primary-color-1);

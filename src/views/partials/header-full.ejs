@@ -9,9 +9,12 @@
         <button href="#" class="status-layer noti-btn-hf">Thông báo</button>
       </div>
       <div class="header-container__top-authenticator">
-        <!-- Header full with no login -->
-
-        <!-- <button class="button-signin signin-btn-hf" type="button" href="#">
+        <% if( true ){ %>
+        <p>Chào,</p>
+        <p class="name-click-hf">data</p>
+        <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hf" />
+        <% } else{ %>
+        <button class="button-signin signin-btn-hf" type="button" href="#">
           <div class="status-layer">
             <span>Đăng nhập</span>
           </div>
@@ -21,13 +24,14 @@
           <div class="status-layer">
             <span>Đăng ký</span>
           </div>
-        </button> -->
+        </button>
+        <% } %>
 
         <!-- Header full with login -->
 
-        <p>Chào,</p>
-        <p class="name-click-hf">Giau Phan</p>
-        <img src="/imgs/milo.jpg" alt="avatar" class="avatar-click-hf">
+        <!-- <p>Chào,</p>
+        <p class="name-click-hf">data.au_user_first_name data.au_user_last_name </p>
+        <img src="/imgs/milo.jpg" alt="avatar" class="avatar-click-hf"> -->
 
       </div>
     </div>
