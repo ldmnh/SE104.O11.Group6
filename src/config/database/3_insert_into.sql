@@ -177,18 +177,18 @@ VALUES
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
 
-INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_total_cost, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
+INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_cost_before, book_total_cost, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
 VALUES
-    (1, 1, '2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 2, 0, 1, 0, 'John',       'Doe',      'john@example.com',     '1234567890', NULL, 0, 1, 1, NULL),
-    (1, 2, '2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 2, 0, 'Jane',       'Smith',    'jane@example.com',     '9876543210', NULL, 0, 1, 1, NULL),
-    (1, 3, '2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 2, 0, 3, 0, 'Michael',    'Johnson',  'michael@example.com',  '5555555555', NULL, 0, 1, 1, NULL),
-    (1, 1, '2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 2, 0, 1, 0, 'Emily',      'Brown',    'emily@example.com',    '1111111111', NULL, 0, 1, 1, NULL),
-    (1, 2, '2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 2, 0, 'David',      'Wilson',   'david@example.com',    '9999999999', NULL, 0, 1, 1, NULL),
-    (1, 3, '2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 2, 0, 1, 0, 'Sarah',      'Jackson',  'sarah@example.com',    '7777777777', NULL, 0, 1, 1, NULL),
-    (1, 1, '2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 2, 0, 'Robert',     'Anderson', 'robert@example.com',   '2222222222', NULL, 0, 1, 1, NULL),
-    (1, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 2, 0, 3, 0, 'Olivia',     'Thomas',   'olivia@example.com',   '8888888888', NULL, 0, 1, 1, NULL),
-    (1, 3, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 2, 0, 1, 0, 'Daniel',     'Martinez', 'daniel@example.com',   '4444444444', NULL, 0, 1, 1, NULL),
-    (1, 1, '2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 2, 0, 'Sophia',     'Garcia',   'sophia@example.com',   '6666666666', NULL, 0, 1, 1, NULL);
+    (1, 1, '2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 2, 0, 1, 2250000, 0, 'John',       'Doe',      'john@example.com',     '1234567890', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 2, 2250000, 0, 'Jane',       'Smith',    'jane@example.com',     '9876543210', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 2, 0, 3, 2250000, 0, 'Michael',    'Johnson',  'michael@example.com',  '5555555555', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 2, 0, 1, 2250000, 0, 'Emily',      'Brown',    'emily@example.com',    '1111111111', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 2, 2250000, 0, 'David',      'Wilson',   'david@example.com',    '9999999999', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 2, 0, 1, 2250000, 0, 'Sarah',      'Jackson',  'sarah@example.com',    '7777777777', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 2, 2250000, 0, 'Robert',     'Anderson', 'robert@example.com',   '2222222222', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 2, 0, 3, 2250000, 0, 'Olivia',     'Thomas',   'olivia@example.com',   '8888888888', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 2, 0, 1, 2250000, 0, 'Daniel',     'Martinez', 'daniel@example.com',   '4444444444', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 2, 2250000, 0, 'Sophia',     'Garcia',   'sophia@example.com',   '6666666666', NULL, 0, 1, 1, NULL);
 
 INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room)
 VALUES
