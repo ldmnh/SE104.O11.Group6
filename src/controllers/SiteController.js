@@ -9,12 +9,14 @@ class SiteController {
         res.render('./pages/site/index')
     }
 
-    // [GET] /about
+    // [GET] /about-us
     about(req, res) {
-        res.render('./pages/site/about')
+        const nav_tree__data = [
+            { name: 'Trang chủ', link: '/' },
+            { name: 'Giới thiệu', link: '/about' }
+        ]
+        res.render('./pages/site/about', { nav_tree__data })
     }
-
-
 }
 
 module.exports = new SiteController()

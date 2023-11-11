@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
+
 :root {
   --primary-color-1: #085457;
   --primary-color-2: #00696d;
@@ -24,7 +26,54 @@
 
 html {
   font-size: 16px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: 100ms ease-in-out;
+}
+
+.primary {
+  background-color: var(--primary);
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.secondary {
+  background-color: var(--secondary);
+}
+
+.secondary-text {
+  color: var(--secondary);
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+.mt-64 {
+  margin-top: 64px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1152px;
+  padding: 0;
+  margin: auto;
 }
 
 button {
@@ -72,8 +121,8 @@ button.btn--filled {
 }
 
 button.btn--filled.pri {
-  background-color: var(--primary-color-1);
-  color: white;
+  background-color: var(--primary);
+  color: white
 }
 
 button.btn--filled.sec {

@@ -1,3 +1,10 @@
+/**
+ * Express router for handling site-related routes.
+ * @module routes/siteRouter
+ * @require express
+ * @require controllers/SiteController
+ */
+
 const express = require('express');
 const router = express.Router();
 
@@ -7,6 +14,7 @@ const AccountController = require('../controllers/AccountController.js')
 const authMiddleware = require('../middlewares/authMiddleware');
 
 router.get('/about', SiteController.about)
+
 router.get('/', SiteController.index)
 
 router.get('/testing', (req, res) => {

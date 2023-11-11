@@ -16,14 +16,14 @@
     <div class="accountpage--container">
         <aside class="aside--wrapper">
             <div class="aside--content">
-                <img src="../img/row-1-column-6.png" alt="" />
+                <img src="/imgs/<%= data.avatar ? data.avatar : 'details/user_1.jpg' %>" alt="" />
                 <div class="aside__content--detail">
                     <p style="font-weight: 500; margin: 12px 0 0 0">Giàu Phan</p>
                     <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
                 </div>
             </div>
 
-            <hr />
+            <hr>
 
             <div class="aside--section">
                 <p class="profileBtn">Thông tin cá nhân</p>
@@ -32,7 +32,7 @@
                 <p class="changePasswordBtn">Đổi mật khẩu</p>
             </div>
 
-            <hr />
+            <hr>
 
             <div class="aside--item logoutBtn">
                 <p>Đăng xuất</p>
@@ -44,40 +44,30 @@
                 <h1>Thông tin cá nhân</h1>
                 <p>Cập nhật thông tin của bạn</p>
             </div>
-
             <hr />
-
             <div class="form--items">
                 <div class="form--item">
                     <h1>Họ và tên:</h1>
-                    <input class="form-control" type="text" placeholder="Phan Nguyễn Yến Giàu" disabled />
+                    <input class="form-control" type="text" placeholder="<%= data.first_name %> <%= data.last_name %>" disabled />
+                    <p><%- data.first_name %></p>
                 </div>
 
                 <div class="form--item">
                     <h1>Địa chỉ Email:</h1>
-                    <input class="form-control" type="text" placeholder="21520796@gm.uit.edu.vn" disabled />
+                    <input class="form-control" type="text" placeholder="<%= data.email %>" disabled />
                 </div>
 
                 <div class="form--item">
                     <h1>Ngày sinh:</h1>
-                    <input class="form-control unfilled" type="none" placeholder="Thêm ngày sinh" disabled />
+                    <input class="form-control unfilled" type="none" placeholder="<%= data.birthday ? data.birthday : 'Thêm ngày sinh' %>" disabled />
                 </div>
 
                 <div class="form--item">
                     <h1>Giới tính:</h1>
-                    <input class="form-control unfilled" type="none" placeholder="Thêm giới tính" disabled />
+                    <input class="form-control unfilled" type="none" placeholder="<%= data.sex ? data.sex : 'Thêm giới tính' %>" disabled />
                 </div>
-
-                <!-- <div class="form--item">
-            <label for="fname">Name</label>
-            <input type="text"
-                placeholder="Phan Nguyen Yen Giau"
-                disabled>
-          </div> -->
             </div>
             <div class="form--submitbutton">
-                <!-- <button class="form--submit1">Hủy</button> -->
-
                 <button class="form--submit2 form--submit2-default">Sửa</button>
             </div>
         </section>
@@ -90,15 +80,15 @@
 
             <hr />
 
-            <div class="form--items">
+            <form class="form--items">
                 <div class="form--item">
                     <h1>Họ và tên:</h1>
-                    <input class="form-control" type="text" placeholder="Phan Nguyễn Yến Giàu" />
+                    <input class="form-control" type="text" placeholder="<%= data.first_name %> <%= data.last_name %>" />
                 </div>
 
                 <div class="form--item">
                     <h1>Địa chỉ Email:</h1>
-                    <input class="form-control" type="text" placeholder="21520796@gm.uit.edu.vn" />
+                    <input class="form-control" type="text" placeholder="<%= data.email %>" />
                 </div>
 
                 <div class="form--item">
@@ -110,15 +100,14 @@
                     <h1>Giới tính:</h1>
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Thêm giới tính</option>
-                        <option value="1">Nam</option>
-                        <option value="2">Nữ</option>
-                        <option value="3">Khác</option>
+                        <option value="Male">Nam</option>
+                        <option value="Female">Nữ</option>
+                        <option value="Other">Khác</option>
                     </select>
                 </div>
-            </div>
+            </form>
             <div class="form--submitbutton">
                 <button class="form--submit1 cancel-btn">Hủy</button>
-
                 <button class="form--submit2">Lưu</button>
             </div>
         </section>
