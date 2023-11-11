@@ -2,9 +2,9 @@ USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
 VALUES
+    ('admin1', 'password1'),
     ('admin2', 'password2'),
     ('admin3', 'password3');
-    ('admin1', 'password1'),
 
 INSERT INTO AuthUser (au_user_first_name, au_user_last_name, au_user_email, au_user_pass, au_user_avt_url)
 VALUES
