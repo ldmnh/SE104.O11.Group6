@@ -4,8 +4,8 @@ checkFormValidity();
 function isPasswordValid(password) {
   return password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password);
 }
-// Hàm kiểm tra tính hợp lệ của toàn bộ form và cập nhật trạng thái của nút "Đăng ký"
-// Kiểm tra người dùng đã nhập hết các trường chưa
+// // Hàm kiểm tra tính hợp lệ của toàn bộ form và cập nhật trạng thái của nút "Đăng ký"
+// // Kiểm tra người dùng đã nhập hết các trường chưa
 function checkFormValidity() {
   const firstName = document.getElementById('form__first-name').value;
   const lastName = document.getElementById('form__last-name').value;
@@ -55,8 +55,8 @@ formInputs.forEach(input => {
   input.addEventListener('input', checkFormValidity);
 });
 
-// // Gọi hàm kiểm tra ban đầu
-// checkFormValidity();
+// Gọi hàm kiểm tra ban đầu
+checkFormValidity();
 
 // // Khai báo và lấy tham chiếu đến nút "Đăng ký"
 // const registerButton = document.getElementById('register-button');
@@ -215,6 +215,7 @@ function validateInput() {
   // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
   if (isAllValid) {
     // form.submit();
+
     const register = {
       au_user_last_name: lastName.value.trim(),
       au_user_first_name: firstName.value.trim(),
@@ -222,15 +223,16 @@ function validateInput() {
       au_user_pass: password.value.trim()
     };
 
-    fetch("/auth/register", {
+    fetch("http://localhost:3000/auth/register", {
         method: "POST",
         body: JSON.stringify(register),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          
         }
       }).then(res => res.json())
       .then(back => {
-        if (back.msg == "error") {
+        if (back.msg === "error") {
           setError(email, back.message);
           document.getElementById('form__email').classList.add('is-invalid');
           isAllValid = false;
@@ -239,6 +241,9 @@ function validateInput() {
             form.submit();
           }
         }
+      })
+      .catch(function (err) {
+        console.log(err)
       })
   }
 };
