@@ -1,5 +1,5 @@
-.nav-tree__container {
-  width: 100%;
+.container--nav-tree {
+  width: 80%;
   max-width: 1152px;
   padding: 0;
   margin: auto;
