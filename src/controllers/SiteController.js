@@ -45,6 +45,19 @@ class SiteController {
     );
   }
 
+  // [GET] /logout
+  showLogoutForm(req, res) {
+    if (error) throw error;
+    req.session.loggedin = false;
+    req.session.email = null;
+    session_destroy();
+    localStorage.removeItem();
+    if (!error) {
+      res.render("./pages/site/login.ejs", { title });
+    }
+  }
+
+
   // [GET] /about
   about(req, res) {
     const nav_tree__data = [

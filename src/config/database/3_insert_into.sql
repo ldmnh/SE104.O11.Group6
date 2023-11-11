@@ -176,32 +176,32 @@ VALUES
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
 
-INSERT INTO Booking (book_datetime, book_start_datetime, book_end_datetime, pay_id, book_total_cost, book_first_name, book_last_name, book_email, au_user_id, book_phone, book_note, cancel_cost, book_status, book_is_payed, rea_id)
+INSERT INTO Booking (book_datetime, book_start_datetime, book_end_datetime, pay_id, book_total_cost, book_first_name, book_last_name, book_email, au_user_id, book_phone, book_note, cancel_cost, book_status, book_is_payed, rea_id, book_num_adult, book_num_child)
 VALUES
-    ('2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 1, 0, 'John',       'Doe',      'john@example.com',     1, '1234567890', NULL, 0, 1, 1, NULL),
-    ('2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 'Jane',       'Smith',    'jane@example.com',     2, '9876543210', NULL, 0, 1, 1, NULL),
-    ('2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 3, 0, 'Michael',    'Johnson',  'michael@example.com',  3, '5555555555', NULL, 0, 1, 1, NULL),
-    ('2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 1, 0, 'Emily',      'Brown',    'emily@example.com',    1, '1111111111', NULL, 0, 1, 1, NULL),
-    ('2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 'David',      'Wilson',   'david@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
-    ('2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 1, 0, 'Sarah',      'Jackson',  'sarah@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
-    ('2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 'Robert',     'Anderson', 'robert@example.com',   1, '2222222222', NULL, 0, 1, 1, NULL),
-    ('2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Olivia',     'Thomas',   'olivia@example.com',   2, '8888888888', NULL, 0, 1, 1, NULL),
-    ('2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Daniel',     'Martinez', 'daniel@example.com',   3, '4444444444', NULL, 0, 1, 1, NULL),
-    ('2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 'Sophia',     'Garcia',   'sophia@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL);
+    ('2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 1, 0, 'John',       'Doe',      'john@example.com',     1, '1234567890', NULL, 0, 1, 1, NULL, 3, 0),
+    ('2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 'Jane',       'Smith',    'jane@example.com',     2, '9876543210', NULL, 0, 1, 1, NULL, 2, 1),
+    ('2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 3, 0, 'Michael',    'Johnson',  'michael@example.com',  3, '5555555555', NULL, 0, 1, 1, NULL, 1, 0),
+    ('2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 1, 0, 'Emily',      'Brown',    'emily@example.com',    1, '1111111111', NULL, 0, 1, 1, NULL, 2, 1),
+    ('2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 'David',      'Wilson',   'david@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL, 1, 0),
+    ('2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 1, 0, 'Sarah',      'Jackson',  'sarah@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL, 2, 1),
+    ('2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 'Robert',     'Anderson', 'robert@example.com',   1, '2222222222', NULL, 0, 1, 1, NULL, 1, 0),
+    ('2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Olivia',     'Thomas',   'olivia@example.com',   2, '8888888888', NULL, 0, 1, 1, NULL, 2, 1),
+    ('2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Daniel',     'Martinez', 'daniel@example.com',   3, '4444444444', NULL, 0, 1, 1, NULL, 1, 0),
+    ('2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 'Sophia',     'Garcia',   'sophia@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL, 1, 0);
 
-INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room, book_num_adult, book_num_child)
+INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room)
 VALUES
-    (1,  1, 150.00, 2, 2, 0),
-    (1,  2, 180.00, 1, 1, 0),
-    (2,  3, 200.00, 1, 2, 1),
-    (3,  4, 120.00, 1, 1, 0),
-    (4,  5, 160.00, 2, 2, 1),
-    (5,  6, 180.00, 1, 1, 0),
-    (6,  7, 250.00, 1, 2, 1),
-    (7,  8, 190.00, 1, 1, 0),
-    (8,  9, 170.00, 2, 2, 1),
-    (9,  10, 140.00, 1, 1, 0),
-    (10, 10, 140.00, 1, 1, 0);
+    (1,  1, 150.00,  2),
+    (1,  2, 180.00,  1),
+    (2,  3, 200.00,  1),
+    (3,  4, 120.00,  1),
+    (4,  5, 160.00,  2),
+    (5,  6, 180.00,  1),
+    (6,  7, 250.00,  1),
+    (7,  8, 190.00,  1),
+    (8,  9, 170.00,  2),
+    (9,  10, 140.00, 1),
+    (10, 10, 140.00, 1);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
 VALUES
@@ -213,11 +213,11 @@ VALUES
 
 INSERT INTO Notification (noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url)
 VALUES
-    ('Type 1', 'Notification 1', 'Subtitle for Notification 1', '2023-10-27 10:30:00', 'Content of Notification 1', NULL),
-    ('Type 2', 'Notification 2', 'Subtitle for Notification 2', '2023-10-28 14:45:00', 'Content of Notification 2', NULL),
-    ('Type 1', 'Notification 3', 'Subtitle for Notification 3', '2023-10-29 09:15:00', 'Content of Notification 3', NULL),
-    ('Type 3', 'Notification 4', 'Subtitle for Notification 4', '2023-10-30 12:00:00', 'Content of Notification 4', NULL),
-    ('Type 2', 'Notification 5', NULL,                          '2023-10-31 16:30:00', 'Content of Notification 5', NULL);
+    ('Type 1', 'CẬP NHẬT MẬT KHẨU', 'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.', '2023-10-27 10:30:00', 'Content of Notification 1', NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS', 'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-28 14:45:00', 'Content of Notification 2', NULL),
+    ('Type 1', 'CẬP NHẬT MẬT KHẨU', 'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.', '2023-10-29 09:15:00', 'Content of Notification 3', NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS', 'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-30 12:00:00', 'Content of Notification 4', NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS', NULL,                          '2023-10-31 16:30:00', 'Content of Notification 5', NULL);
 
 INSERT INTO UserNoti (au_user_id, noti_id, usernoti_is_read)
 VALUES

@@ -140,6 +140,7 @@ CREATE TABLE RoomType
     room_date_end_discount	date,
     room_sum_rating     int          DEFAULT 0,
     acco_id             int          NOT NULL,
+    avg_rating          float,
     PRIMARY KEY (room_id),
     FOREIGN KEY (acco_id) REFERENCES Accommodation(acco_id)
 );
@@ -198,7 +199,7 @@ CREATE TABLE Booking
     book_note           text,
     cancel_cost         float           NOT NULL,
     book_status         int             NOT NULL, -- 1: Cancel, 0: Pending, 1: Success
-    book_is_payed       int             NOT NULL, -- 0: unpayed, 1: payed
+    book_is_paid       int             NOT NULL, -- 0: unpayed, 1: payed
     rea_id              int,
     PRIMARY KEY (book_id),
     FOREIGN KEY (pay_id) REFERENCES PayingMethod(pay_id),
@@ -212,8 +213,6 @@ CREATE TABLE BookingDetail
     room_id				int	    NOT NULL,
     book_final_cost		float		    NOT NULL,
     book_num_room		int			    NOT NULL,
-    book_num_adult		int			    NOT NULL,
-    book_num_child		int			    NOT NULL,
     PRIMARY KEY (book_id, room_id),
     FOREIGN KEY (book_id) REFERENCES Booking(book_id),
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)

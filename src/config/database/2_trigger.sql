@@ -35,21 +35,46 @@ CREATE TRIGGER trg_RoomSumRating_Insert
 AFTER INSERT ON Rating
 FOR EACH ROW
 BEGIN
-    DECLARE room_id_char CHAR(12);
+    DECLARE room_id_int INT;
     DECLARE count_ratings INT;
 
     SELECT NEW.room_id, COUNT(*)
-    INTO room_id_char, count_ratings
+    INTO room_id_int, count_ratings
     FROM Rating
     WHERE room_id = NEW.room_id
     GROUP BY room_id;
     
     UPDATE RoomType
     SET room_sum_rating = room_sum_rating + count_ratings
-    WHERE room_id = room_id_char;
+    WHERE room_id = room_id_int;
 END;
 
 DELIMITER ;
+
+
+-- avg_rating trong RoomType được thay đổi khi Rating được thêm.
+DELIMITER //
+CREATE TRIGGER trg_RoomAvgRating_Update 
+AFTER INSERT ON Rating
+FOR EACH ROW
+BEGIN
+    DECLARE total_points FLOAT;
+    DECLARE total_ratings INT;
+
+    -- Calculate total rating points and quantity for the specific room_id
+    SELECT SUM(rating_point), COUNT(*) 
+    INTO total_points, total_ratings
+    FROM Rating
+    WHERE room_id = NEW.room_id;
+
+    -- Update avg_rating in RoomType table
+    UPDATE RoomType
+    SET avg_rating = IF(total_ratings > 0, (avg_rating*room_sum_rating + total_points ) / (room_sum_rating+total_ratings), 0)
+    WHERE room_id = NEW.room_id;
+END;
+//
+DELIMITER ;
+
 
 -- bank_default_id nếu tồn tại trong AuthUser thì phải được sở hữu của AuthUser.
 DELIMITER //
@@ -191,16 +216,16 @@ AFTER INSERT ON BookingDetail
 FOR EACH ROW
 BEGIN
     -- Calculate the total cost from BookingDetails
-    SET @book_id_char = NEW.book_id;
+    SET @book_id_int = NEW.book_id;
     
     -- Calculate the total cost and update the book_total_cost column in the Booking table
     UPDATE Booking
     SET book_total_cost = (
         SELECT SUM(bd.book_final_cost * bd.book_num_room)
         FROM BookingDetail bd
-        WHERE bd.book_id = @book_id_char
+        WHERE bd.book_id = @book_id_int
     )
-    WHERE book_id = @book_id_char;
+    WHERE book_id = @book_id_int;
 END;
 
 DELIMITER ;
