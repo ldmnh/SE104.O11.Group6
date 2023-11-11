@@ -22,6 +22,13 @@ class NotificationController {
         })
     }
 
+    // [PUT] /notification/account-update
+    updateNotiAccount(req, res) {
+        NotificationModel.notiAccountRead(req, res, function (err, res, data_notiacc_isread) {
+            if (err) throw err;
+            res.status(200).redirect('./account-update')
+        })
+    }
 
     // [GET] /notification/promotion
     notiPromotion(req, res) {
@@ -44,19 +51,23 @@ class NotificationController {
 
     }
 
-    // [PUT] /notification/account-update
-    updateNotiAccount(req, res) {
-        NotificationModel.notiAccountRead(req, res, function(err, res,data_notiacc_isread) {
+    // [PUT] /notification/promotion
+    updateNotiPromotion(req, res) {
+        NotificationModel.notiPromotionRead(req, res, function (err, res, data_notiacc_isread) {
             if (err) throw err;
-            res.status(200).redirect('./account-update')
+            res.status(200).redirect('./promotion')
         })
     }
 
-    // [PUT] /notification/promotion
-    updateNotiPromotion(req, res) {
-        NotificationModel.notiPromotionRead(req, res, function(err, res,data_notiacc_isread) {
+    // [POST] /notification/promotion
+    readAllNotification(req, res) {
+        NotificationModel.readAllNotification(req, res, function (err, res, data_read_all) {
             if (err) throw err;
-            res.status(200).redirect('./promotion')
+            res.status(200).redirect('./account-update')
+            // res.send({
+            //     massage:"hello"
+            // })
+
         })
     }
 }

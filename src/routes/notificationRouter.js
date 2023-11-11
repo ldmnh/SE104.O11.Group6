@@ -9,6 +9,7 @@ router.post('/account-update', NotificationController.updateNotiAccount)
 
 router.get('/promotion', NotificationController.notiPromotion)
 router.post('/promotion', NotificationController.updateNotiPromotion)
+router.post('/read-all', NotificationController.readAllNotification)
 
 
 module.exports = router

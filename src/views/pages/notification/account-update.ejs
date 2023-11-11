@@ -28,17 +28,16 @@
                 <p class="btn-promo">Thông tin khuyến mãi</p>
             </div>
         </aside>
-
         <section class="nofi__main">
-            <button class="btn--outlined pri" type="submit">Đánh dấu tất cả là đã đọc</button>
-            <%- include('../../components/noti-item-account', data_noti[0]) %>
-
-
+            <form action="/notifications/read-all" method="POST">
+                <button class="btn--outlined pri" type="submit">Đánh dấu tất cả là đã đọc</button>
+            </form>
+            <%- include('../../components/noti-item-account') %>
         </section>
     </main>
 
     <%- include('../../components/next-page.ejs') %>
-    <%-include('../../partials/footer.ejs') %>
+    <%- include('../../partials/footer.ejs') %>
 
     <script src="/scripts/notifications/account-update.js"></script>
 </body>

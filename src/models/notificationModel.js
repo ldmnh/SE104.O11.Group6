@@ -103,7 +103,7 @@ NotificationModel.notiPromotionRead = function (req, res, callback) {
         return;
     }
 
-    const sql = `
+    const sql = `   
         UPDATE usernoti AS A
         INNER JOIN USERNOTI AS B ON A.noti_id = B.noti_id
         INNER JOIN AUTHUSER AS C ON C.au_user_id = B.au_user_id
@@ -120,6 +120,25 @@ NotificationModel.notiPromotionRead = function (req, res, callback) {
     })
 }
 
+
+// [GET] /notification/read-all
+NotificationModel.readAllNotification = function (req, res, callback) {
+
+    req.session.user = {
+        'id': 'usr000000001'
+    }
+
+    const sql = `
+        UPDATE usernoti
+        SET usernoti_is_read = 1
+        AND au_user_id = ?;
+    `
+    const params = [req.session.user?.id];
+
+    db.query(sql, params, (err, data_read_all) => {
+        callback(err, res, data_read_all)
+    })
+}
 
 
 module.exports = NotificationModel

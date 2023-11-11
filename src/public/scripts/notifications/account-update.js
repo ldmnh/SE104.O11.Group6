@@ -54,16 +54,16 @@ window.onclick = function (e) {
     });
 }
 
-markAllReadButton.addEventListener("click", () => {
-    notiItems.forEach((item) => {
-        item.classList.add("read");
-        item.style.backgroundColor = "white"; //Đổi màu nền
-    });
+// markAllReadButton.addEventListener("click", () => {
+//     notiItems.forEach((item) => {
+//         item.classList.add("read");
+//         item.style.backgroundColor = "white"; //Đổi màu nền
+//     });
 
-    // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
-    markAllReadButton.disabled = true;
-    markAllReadButton.style.color = "gray";
-    markAllReadButton.style.borderColor = "gray";
-    markAllReadButton.style.cursor = "auto";
-    markAllReadButton.style.boxShadow = "none";
-});
+//     // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
+//     markAllReadButton.disabled = true;
+//     markAllReadButton.style.color = "gray";
+//     markAllReadButton.style.borderColor = "gray";
+//     markAllReadButton.style.cursor = "auto";
+//     markAllReadButton.style.boxShadow = "none";
+// });
