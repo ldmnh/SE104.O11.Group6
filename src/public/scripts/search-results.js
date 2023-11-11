@@ -1,5 +1,21 @@
-// // Mặc định, hiển thị giá trị ban đầu
-// priceOutput.textContent = `VND ${priceRange.min} - VND ${priceRange.value}`;
+// Điều hướng nút bản đồ
+const mapBtn = document.getElementById('btn-map');
+const redirect2map = () => {
+    window.location.href = "https://maps.app.goo.gl/GbwxfoKVzvYoN1hn9"
+}
+
+mapBtn.addEventListener("click", redirect2map)
+
+// Điều hướng nút xem ngay
+const detailBtn = document.querySelectorAll('.form__submit');
+
+detailBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.location.href = `http://127.0.0.1:3000/search/:acco_id`;
+    })
+});
+
+
 
 // Lấy danh sách tất cả các thành phần search-results__filter__item
 const filterItems = document.querySelectorAll('.search-results__filter__item');
@@ -21,12 +37,12 @@ filterItems.forEach(item => {
     });
 });
 
-var dropdownButtons = document.querySelectorAll(".dropdown-button");
+let dropdownButtons = document.querySelectorAll(".dropdown-button");
 
 document.body.addEventListener("click", function (event) {
-    var target = event.target;
+    let target = event.target;
     if (target.classList.contains("dropdown-button")) {
-        var dropdownContent = target.nextElementSibling;
+        let dropdownContent = target.nextElementSibling;
         if (dropdownContent.style.display === "block") {
             dropdownContent.style.display = "none";
         } else {
@@ -42,7 +58,7 @@ document.body.addEventListener("click", function (event) {
 
 // Đóng hết
 function closeAllDropdowns() {
-    var dropdownContents = document.querySelectorAll(".dropdown-content");
+    let dropdownContents = document.querySelectorAll(".dropdown-content");
     dropdownContents.forEach(function (content) {
         content.style.display = "none";
     });
@@ -69,7 +85,7 @@ toggleExtend.addEventListener('click', function (e) {
         });
 
         // Thay đổi nội dung và biểu tượng của nút
-        toggleExtend.textContent = 'Ấn bớt';
+        toggleExtend.textContent = 'Ẩn bớt';
         extendContent.querySelector('span').textContent = 'expand_less';
 
         isExpanded = true;
@@ -86,3 +102,4 @@ toggleExtend.addEventListener('click', function (e) {
         isExpanded = false;
     }
 });
+

@@ -24,6 +24,19 @@ class SiteController {
     const title = "Không tìm thấy trang";
     res.render("./pages/site/error404.ejs", { title });
   }
+  // [GET] /about-us
+  about(req, res) {
+    res.render('./pages/site/about')
+  }
+
+  // [GET] /
+  termOfUse(req, res) {
+    res.render('./pages/site/terms-of-use')
+  }
+
+  privacyPolicy(req, res) {
+    res.render('./pages/site/privacy-policy')
+  }
 }
 
 module.exports = new SiteController();
