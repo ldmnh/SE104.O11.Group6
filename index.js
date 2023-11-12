@@ -17,8 +17,10 @@ app.set('view engine', 'ejs');
 // use static folder
 app.use(express.static(path.join('src', 'public')))
 
-// route init
-route(app)
+//  route init
+ route(app)
+
+
 
 app.listen(cfg.port, () => {
     console.log(`Website is running at http://${cfg.host}:${cfg.port}`)
