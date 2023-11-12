@@ -10,7 +10,6 @@ const router = express.Router();
 
 // import controller
 const SiteController = require('../controllers/SiteController.js');
-const AccountController = require('../controllers/AccountController.js')
 
 router.get('/about', SiteController.about)
 
