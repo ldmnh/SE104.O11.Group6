@@ -74,7 +74,7 @@ button {
 
 button.btn--filled {
   background-color: white;
-  color: var(--primary-color-2);
+  color: var(--primary-color-1);
   border: none;
 
   &:hover .status-layer {
@@ -85,18 +85,27 @@ button.btn--filled {
 button.btn--filled.pri {
   background-color: var(--primary-color-1);
   color: white;
+  font-weight: 500;
 }
 
 button.btn--filled.sec {
   background-color: var(--primary-color-4);
   color: white;
+  font-weight: 500;
 }
 
 button.btn--outlined.pri {
   background-color: white;
-  color: var(--primary-color-2);
-  border: 1px solid var(--primary-color-2);
-  font-size: 16px;
+  color: var(--primary-color-1);
+  border: 1px solid var(--primary-color-1);
+  font-weight: 500;
+}
+
+button.btn--outlined.sec {
+  background-color: white;
+  color: var(--primary-color-4);
+  border: 1px solid var(--primary-color-4);
+  font-weight: 500;
 }
 
 .mt-8 {

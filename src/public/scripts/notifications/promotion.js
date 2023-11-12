@@ -65,6 +65,7 @@ window.onclick = function (e) {
     });
 }
 
+// Đánh dấu tất cả là đã đọc
 markAllReadButton.addEventListener("click", () => {
     notiItems.forEach((item) => {
         item.classList.add("read");
