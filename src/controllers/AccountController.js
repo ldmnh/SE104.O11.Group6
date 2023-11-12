@@ -5,32 +5,33 @@ class AccountController {
 
     // [GET] /account/information
     information(req, res) {
-        authuser.getInfoByEmail({ "email": req.session.user.email },
-            (err, result) => {
-                if (err) {
-                    res.status(500).json({ message: 'Lỗi truy vấn!!!' });
-                    throw err;
-                }
-
-                if (result.length > 0) {
-                    res.status(200).render('./pages/account/information', {
-                        message: 'Lấy thông tin tài khoản thành công',
-                        data: {
-                            first_name: result[0].au_user_first_name,
-                            last_name: result[0].au_user_last_name,
-                            email: result[0].au_user_email,
-                            birthday: result[0].au_user_birthday,
-                            sex: result[0].au_user_sex,
-                            avatar: result[0].au_user_avt_url
-                        }
-                    });
-                } else {
-                    res.status(404).json({
-                        message: 'Không tìm thấy tài khoản!!!'
-                    });
-                }
+        authuser.getInfoByEmail({
+            "email": req.session.user.email
+        }, (err, result) => {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+                throw err;
             }
-        )
+
+            if (result.length > 0) {
+                // res.status(200).render('./pages/account/information', {
+                res.status(200).json({
+                    message: 'Lấy thông tin tài khoản thành công',
+                    data: {
+                        first_name: result[0].au_user_first_name,
+                        last_name: result[0].au_user_last_name,
+                        email: result[0].au_user_email,
+                        birthday: result[0].au_user_birthday,
+                        sex: result[0].au_user_sex,
+                        avatar: result[0].au_user_avt_url
+                    }
+                });
+            } else {
+                res.status(404).json({
+                    message: 'Không tìm thấy tài khoản!!!'
+                });
+            }
+        })
     }
 
     // [PUT] /account/information

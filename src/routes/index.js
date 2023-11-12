@@ -15,11 +15,11 @@ const route = (app) => {
     app.use("/", siteRouter)
     app.get("/testing", (req, res) => {
         req.session.user = {
-            "isLoggedIn": true,
+            "id": "1",
             "email": "john.doe@example.com"
         }
         res.status(200).json({
-            loggedin: req.session.user?.isLoggedIn,
+            id: req.session.user?.id,
             email: req.session.user?.email,
             message: "OK"
         })
