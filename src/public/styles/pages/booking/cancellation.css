@@ -93,6 +93,16 @@ p {
     /* padding-left: 13px; */
 }
 
+.cancel__button--submit1 a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.cancel__button--submit2 a {
+    color: var(--primary-color-4);
+    text-decoration: none;
+}
+
 .cancel__button--submit1 {
     width: 96px;
     height: 48px;
