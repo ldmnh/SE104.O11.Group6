@@ -1,5 +1,6 @@
 const db = require('../config/db/connect');
-
+const User = require('../models/User')
+const bcrypt = require('bcrypt');
 class AuthController {
 
     // [GET] /auth/register
@@ -21,8 +22,38 @@ class AuthController {
 
     // [POST] /auth/login
     loginPost(req, res) {
-        // const title = 'Đăng nhập'
-        // res.render('./pages/site/login', { title })
+        const { email, password } = req.body;
+        User.findByEmail(email, (err, user) => {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!' })
+                throw err
+            }
+            if (!user) {
+                return res.status(404).json({
+                    status: "error",
+                    error: "Email không tồn tại!"
+                })
+            } else {
+                // bcrypt.compare(password, user.au_user_pass, (err, result) => {
+                // if (result == true) {
+                if ((password === user.au_user_pass)) {
+                    req.session.loggedin = true;
+                    req.session.user = user;
+                    return res.status(200).json({
+                        status: 'success',
+                        success: 'Thành công',
+                        data: user
+                    })
+                    // res.redirect('/')
+                } else {
+                    return res.status(401).json({
+                        status: "error1",
+                        error: "Mật khẩu không chính xác!"
+                    })
+                }
+                // })
+            }
+        })
     }
 
     // [GET] /auth/forgot-password
@@ -32,7 +63,7 @@ class AuthController {
     }
 
     // [POST] /auth/forgot-password
-    forgotPost(req, res) { 
+    forgotPost(req, res) {
         res.send("forgotPost")
     }
 

@@ -1,4 +1,5 @@
 const db = require('../config/db/connect');
+const BookingModel = require('../models/bookingModel')
 
 class BookingController {
 
@@ -32,7 +33,21 @@ class BookingController {
 
     // [GET] /booking/success
     success(req, res) {
-        res.render('./pages/booking/success')
+        BookingModel.getAllBooking(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!' })
+                throw err
+            }
+            if (result.length > 0) {
+                res.status(200).render('./pages/booking/success',
+                    // res.send(
+                    {
+                        message: 'success',
+                        data: result
+                    })
+            }
+
+        })
     }
 
     // [GET] /booking/detail
@@ -40,14 +55,36 @@ class BookingController {
         res.render('./pages/booking/detail')
     }
 
-    // [GET] /booking/cancel
+    // [GET] /booking/cancellation
     cancel(req, res) {
-        res.render('./pages/booking/cancellation')
+        BookingModel.getAllBooking(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!' })
+                throw err
+            }
+            if (result.length > 0) {
+                res.status(200).render('./pages/booking/cancellation',
+                    // res.send(
+                    {
+                        message: 'success',
+                        data: result
+                    })
+            }
+        })
     }
 
-    // [POST] /booking/cancel
+    // [POST] /booking/cancellation
     cancelPost(req, res) {
-        res.send('cancelPost')
+        BookingModel.cancel(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn!' })
+                throw err
+            }
+            if (result) {
+                req.session.book_id = null
+                res.status(200).json({ message: 'Thành công' })
+            }
+        })
     }
 
 }

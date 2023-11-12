@@ -28,14 +28,14 @@
         </section>
         <section class="login">
             <h1 class="login__title">Đăng nhập</h1>
-            <form class="login__form form" id="login-form" action="/login"
-                method="post">
+            <form class="login__form form" id="login-form" action="/auth/login">
                 <div class="row">
                     <label for="form__email"
                         class="form-label">Email</label>
                     <input type="email" name="email"
                         class="form-control form__email" id="form__email"
                         placeholder="Nhập email">
+                        <div class="error"></div>
                 </div>
                 <div class="row">
                     <label for="form__password" class="form-label">Mật
@@ -48,10 +48,11 @@
                             placeholder="Nhập mật khẩu" />
                         <span class="material-symbols-outlined"
                             id="eye-open">visibility</span>
+                            <div class="error"></div>
                     </div>
                 </div>
                 <div class="error-message" id="error-message"></div>
-                <button id="login-button" type="submit"
+                <button  id="login-button" type="submit"
                     class="btn form__submit">
                     Đăng nhập
                 </button>

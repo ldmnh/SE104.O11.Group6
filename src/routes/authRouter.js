@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const authMiddleware = require('../middlewares/authMiddleware.js')
 
 // import controller
 const AuthController = require('../controllers/AuthController.js')
@@ -7,8 +8,8 @@ const AuthController = require('../controllers/AuthController.js')
 router.get('/register', AuthController.register)
 router.post('/register', AuthController.registerPost)
 
-router.get('/login', AuthController.login)
-router.post('/login', AuthController.loginPost)
+router.get('/login', authMiddleware.isAuth, AuthController.login)
+router.post('/login', authMiddleware.isAuth, AuthController.loginPost)
 
 router.get('/forgot', AuthController.forgot)
 router.post('/forgot', AuthController.forgotPost)
