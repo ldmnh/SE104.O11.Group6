@@ -74,12 +74,13 @@ document
     // Kiểm tra xem .search-quality đang hiển thị hay không
     if (searchQuality.style.visibility === "visible") {
       searchQuality.style.visibility = "hidden";
-      searchQuality.style.opacity = 0;
+      searchQuality.style.display = "none";
     } else {
       searchQuality.style.visibility = "visible";
-      searchQuality.style.opacity = 1;
+      searchQuality.style.display = "block";
     }
   });
+
 //Khi nhấn vào nút Tìm kiếm
 var searchButton = document.querySelector(".button--submit");
 const redirect2AccDetailView = () => {

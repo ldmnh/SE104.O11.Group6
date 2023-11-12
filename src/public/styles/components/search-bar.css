@@ -167,13 +167,14 @@ input[type="number"]::-webkit-outer-spin-button {
 .search-quality {
     position: sticky;
     z-index: 100000;
-    opacity: 0;
+    /* opacity: 0; */
+    display: none;
     margin-left: 60%;
-    margin-top: 2px;
+    margin-top: -6px;
     width: 300px;
     height: 170px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     gap: 12px;
     background-color: var(--white);
     padding: 12px 30px;
