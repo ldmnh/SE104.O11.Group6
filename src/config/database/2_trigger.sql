@@ -221,8 +221,12 @@ BEGIN
     
     -- Calculate the total cost and update the book_total_cost column in the Booking table
     UPDATE Booking
-    SET book_total_cost = (
-        SELECT SUM(bd.book_final_cost * bd.book_num_room)
+    SET book_cost_after = (
+        SELECT SUM(bd.book_room_cost_after * bd.book_num_room)
+        FROM BookingDetail bd
+        WHERE bd.book_id = @book_id_int
+    ),  book_cost_before = (
+        SELECT SUM(bd.book_room_cost_before * bd.book_num_room)
         FROM BookingDetail bd
         WHERE bd.book_id = @book_id_int
     )
@@ -240,17 +244,22 @@ CREATE TRIGGER trg_UpdateBookingTotalCost_Update
 AFTER UPDATE ON BookingDetail
 FOR EACH ROW
 BEGIN
-    -- Tính toán tổng giá trị từ BookingDetails
-    DECLARE TotalCost FLOAT;
-    SELECT SUM(book_final_cost * book_num_room) INTO TotalCost
-    FROM BookingDetail
-    WHERE book_id = NEW.book_id;
-
-    -- Cập nhật cột book_total_cost trong bảng Booking
+    -- Calculate the total cost from BookingDetails
+    SET @book_id_int = NEW.book_id;
+    
+    -- Calculate the total cost and update the book_total_cost column in the Booking table
     UPDATE Booking
-    SET book_total_cost = TotalCost
-    WHERE book_id = NEW.book_id;
-END//
+    SET book_cost_after = (
+        SELECT SUM(bd.book_room_cost_after * bd.book_num_room)
+        FROM BookingDetail bd
+        WHERE bd.book_id = @book_id_int
+    ),  book_cost_before = (
+        SELECT SUM(bd.book_room_cost_before * bd.book_num_room)
+        FROM BookingDetail bd
+        WHERE bd.book_id = @book_id_int
+    )
+    WHERE book_id = @book_id_int;
+END;
 
 DELIMITER ;
 

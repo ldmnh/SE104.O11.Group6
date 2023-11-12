@@ -177,7 +177,7 @@ VALUES
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
 
-INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_cost_before, book_total_cost, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
+INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_cost_before, book_cost_after, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
 VALUES
     (1, 1, '2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 2, 0, 1, 2250000, 0, 'John',       'Doe',      'john@example.com',     '1234567890', NULL, 0, 1, 1, NULL),
     (1, 2, '2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 2, 2250000, 0, 'Jane',       'Smith',    'jane@example.com',     '9876543210', NULL, 0, 1, 1, NULL),
@@ -190,19 +190,19 @@ VALUES
     (1, 3, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 2, 0, 1, 2250000, 0, 'Daniel',     'Martinez', 'daniel@example.com',   '4444444444', NULL, 0, 1, 1, NULL),
     (1, 1, '2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 2, 2250000, 0, 'Sophia',     'Garcia',   'sophia@example.com',   '6666666666', NULL, 0, 1, 1, NULL);
 
-INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room)
+INSERT INTO BookingDetail (book_id, room_id, book_room_cost_before, book_room_cost_after, book_num_room)
 VALUES
-    ( 1,   1, 1500000, 2),
-    ( 1,   2, 1800000, 1),
-    ( 2,   3, 2000000, 1),
-    ( 3,   4, 1200000, 1),
-    ( 4,   5, 1600000, 2),
-    ( 5,   6, 1800000, 1),
-    ( 6,   7, 2500000, 1),
-    ( 7,   8, 1900000, 1),
-    ( 8,   9, 1700000, 2),
-    ( 9,  10, 1400000, 1),
-    (10,  10, 1400000, 1);
+    ( 1,   1, 2500000, 1500000, 2),
+    ( 1,   2, 2800000, 1800000, 1),
+    ( 2,   3, 2000000, 2000000, 1),
+    ( 3,   4, 2200000, 1200000, 1),
+    ( 4,   5, 2600000, 1600000, 2),
+    ( 5,   6, 2800000, 1800000, 1),
+    ( 6,   7, 2500000, 2500000, 1),
+    ( 7,   8, 2900000, 1900000, 1),
+    ( 8,   9, 2700000, 1700000, 2),
+    ( 9,  10, 2400000, 1400000, 1),
+    (10,  10, 2400000, 1400000, 1);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
 VALUES
