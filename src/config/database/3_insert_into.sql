@@ -1,4 +1,4 @@
--- Active: 1699792072449@@127.0.0.1@3306@database_se104
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
@@ -177,18 +177,18 @@ VALUES
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
 
-INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_cost_before, book_cost_after, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
+INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, book_first_name, book_last_name, book_email, pay_id, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
 VALUES
-    ('2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 1, 0, 'Hiếu',    'Lê',     'lehieudn123@example.com',     1, '1234567890', NULL, 0, 1, 1, NULL, 3, 0),
-    ('2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 'Cẩm',     'Lâm',    'lamcamtv123@example.com',     2, '9876543210', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 3, 0, 'Mạnh',    'Lê',     'lemanhtn123@example.com',     3, '5555555555', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 1, 0, 'Nhung',   'Nguyễn', 'nguyennhung123@example.com',  1, '1111111111', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL, 2, 1),
-    ('2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL, 1, 0),
-    ('2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL, 1, 0);
+    (1, 3, '2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 1, 0, 'Hiếu',    'Lê',     'lehieudn123@example.com',     1, '1234567890', NULL, 0, 1, 1, NULL),
+    (2, 2, '2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 'Cẩm',     'Lâm',    'lamcamtv123@example.com',     2, '9876543210', NULL, 0, 1, 1, NULL),
+    (3, 1, '2023-10-29 09:15:00', '2023-11-04 15:00:00', '2023-11-06 12:00:00', 3, 0, 'Mạnh',    'Lê',     'lemanhtn123@example.com',     3, '5555555555', NULL, 0, 1, 1, NULL),
+    (4, 2, '2023-10-30 14:45:00', '2023-11-07 13:00:00', '2023-11-08 09:00:00', 1, 0, 'Nhung',   'Nguyễn', 'nguyennhung123@example.com',  1, '1111111111', NULL, 0, 1, 1, NULL),
+    (3, 1, '2023-10-31 16:30:00', '2023-11-09 10:00:00', '2023-11-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
+    (2, 2, '2023-11-01 12:00:00', '2023-11-12 14:30:00', '2023-11-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
+    (1, 1, '2023-11-02 10:30:00', '2023-11-16 09:00:00', '2023-11-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
+    (2, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
+    (4, 1, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
+    (4, 1, '2023-11-05 09:00:00', '2023-11-25 10:30:00', '2023-11-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL);
 
 INSERT INTO BookingDetail (book_id, room_id, book_room_cost_before, book_room_cost_after, book_num_room)
 VALUES
@@ -213,46 +213,46 @@ VALUES
     (2, 5, '2023-10-31 13:30:00', 'sạch, đẹp, có tiện ích đầy đủ.',                               4.7),
     (3, 1, '2023-11-11 16:30:00', 'Đồ ăn khách sạn dở nhưng dịch vụ tốt.',                        3.0),
     (3, 2, '2023-10-28 13:00:00', '10đ tuyệt vời.',                                               5.0),
-    (4, 3, '2023-10-29 10:45:00', 'Phòng tiện nghi, rất đáng tiền.',                              4.5),
-    (5, 4, '2023-10-30 14:15:00', 'Thích ở đây sự riêng tư',                                      4.8),
-    (4, 5, '2023-10-31 19:30:00', 'Phòng đẹp nhưng phục vụ có thái độ.',                          2.0),
+    (1, 3, '2023-10-29 10:45:00', 'Phòng tiện nghi, rất đáng tiền.',                              4.5),
+    (2, 4, '2023-10-30 14:15:00', 'Thích ở đây sự riêng tư',                                      4.8),
+    (1, 5, '2023-10-31 19:30:00', 'Phòng đẹp nhưng phục vụ có thái độ.',                          2.0),
     (2, 3, '2023-11-05 09:00:00', 'Không gian thoải mái, nhân viên thân thiện.',                  4.2),
     (1, 4, '2023-11-15 20:45:00', 'Giá cả hợp lý, phòng sạch sẽ.',                                3.8),
-    (5, 2, '2023-11-20 12:30:00', 'Dịch vụ chăm sóc khách hàng xuất sắc.',                        4.7),
+    (2, 2, '2023-11-20 12:30:00', 'Dịch vụ chăm sóc khách hàng xuất sắc.',                        4.7),
     (3, 1, '2023-11-25 18:15:00', 'Khách sạn nằm gần trung tâm thành phố, thuận tiện di chuyển.', 4.5),
     (2, 5, '2023-11-30 22:00:00', 'Phòng ốc rộng rãi, view tuyệt vời.',                           4.9),
     (1, 2, '2023-11-05 14:30:00', 'Không gian phòng ấm cúng, nhân viên nhiệt tình.',              4.3),
-    (4, 3, '2023-11-10 11:15:00', 'Bữa sáng ngon miệng, đa dạng lựa chọn.',                       4.8),
-    (5, 4, '2023-11-15 16:45:00', 'Dịch vụ phòng hỗ trợ nhanh chóng.',                            4.5),
+    (1, 3, '2023-11-10 11:15:00', 'Bữa sáng ngon miệng, đa dạng lựa chọn.',                       4.8),
+    (2, 4, '2023-11-15 16:45:00', 'Dịch vụ phòng hỗ trợ nhanh chóng.',                            4.5),
     (2, 5, '2023-11-20 21:00:00', 'Phòng đẹp, view hồ hút mắt.',                                  4.7),
     (3, 1, '2023-11-25 17:30:00', 'Không gian yên tĩnh, thích hợp cho công việc.',                4.6),
-    (5, 2, '2023-10-02 10:00:00', 'Dịch vụ phòng sạch sẽ, thái độ phục vụ tốt.',                  4.4),
+    (2, 2, '2023-10-02 10:00:00', 'Dịch vụ phòng sạch sẽ, thái độ phục vụ tốt.',                  4.4),
     (1, 3, '2023-10-07 08:45:00', 'Nhân viên lễ tân nhiệt tình, nhanh nhẹn.',                     4.2),
-    (4, 4, '2023-11-12 13:15:00', 'Phòng tắm tiện nghi, đầy đủ vật dụng.',                        4.7),
+    (1, 4, '2023-11-12 13:15:00', 'Phòng tắm tiện nghi, đầy đủ vật dụng.',                        4.7),
     (2, 5, '2023-10-17 19:30:00', 'Dịch vụ đáng giá tiền.',                                       4.5),
     (3, 1, '2023-11-22 15:00:00', 'Thức ăn phong phú, hấp dẫn.',                                  4.8),
-    (4, 2, '2023-10-27 12:45:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.',                      4.6),
-    (5, 3, '2023-10-05 09:30:00', 'Không gian quán bar thoải mái, đồ uống ngon.',                 4.7),
+    (1, 2, '2023-10-27 12:45:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.',                      4.6),
+    (2, 3, '2023-10-05 09:30:00', 'Không gian quán bar thoải mái, đồ uống ngon.',                 4.7),
     (1, 4, '2023-09-10 14:00:00', 'Đội ngũ nhân viên phục vụ chu đáo.',                           4.5),
     (2, 5, '2023-09-15 18:45:00', 'Phòng ốc sạch sẽ, trang thiết bị đầy đủ.',                     4.6),
     (3, 1, '2023-09-20 16:15:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.',                        4.3),
-    (4, 2, '2023-09-25 11:30:00', 'Đồ ăn ngon, chất lượng.',                                      4.8),
-    (5, 3, '2023-09-05 20:00:00', 'Phòng được trang bị đầy đủ tiện nghi.',                        4.7),
+    (1, 2, '2023-09-25 11:30:00', 'Đồ ăn ngon, chất lượng.',                                      4.8),
+    (2, 3, '2023-09-05 20:00:00', 'Phòng được trang bị đầy đủ tiện nghi.',                        4.7),
     (1, 4, '2023-09-10 14:45:00', 'Khách sạn nằm gần các điểm tham quan.',                        4.5),
     (2, 5, '2023-09-15 19:30:00', 'Dịch vụ đáng khen ngợi, nhân viên thân thiện.',                4.6),
     (3, 1, '2023-09-20 17:00:00', 'Phòng ốc rộng rãi, thoải mái.',                                4.4),
-    (4, 2, '2023-10-25 12:15:00', 'Bữa tối ngon miệng, phục vụ nhanh chóng.',                     4.8),
-    (5, 3, '2023-11-02 09:30:00', 'Không gian lễ tân sang trọng.',                                4.7),
+    (1, 2, '2023-10-25 12:15:00', 'Bữa tối ngon miệng, phục vụ nhanh chóng.',                     4.8),
+    (2, 3, '2023-11-02 09:30:00', 'Không gian lễ tân sang trọng.',                                4.7),
     (1, 4, '2023-09-07 14:00:00', 'Dịch vụ đáng giá tiền, phòng sạch sẽ.',                        4.5),
     (2, 5, '2023-11-12 18:45:00', 'Nhân viên nhanh nhẹn, phục vụ chu đáo.',                       4.6),
     (3, 1, '2023-10-17 16:15:00', 'Phòng ốc thoải mái, đầy đủ tiện nghi.',                        4.3),
-    (4, 2, '2023-09-22 11:30:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.',                      4.7),
-    (5, 3, '2023-11-25 20:00:00', 'Không gian quán bar thoải mái, đồ uống ngon.',                 4.6),
+    (1, 2, '2023-09-22 11:30:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.',                      4.7),
+    (2, 3, '2023-11-25 20:00:00', 'Không gian quán bar thoải mái, đồ uống ngon.',                 4.6),
     (1, 4, '2023-10-05 14:45:00', 'Đội ngũ nhân viên phục vụ chu đáo.',                           4.5),
     (2, 5, '2023-10-10 19:30:00', 'Phòng ốc sạch sẽ, trang thiết bị đầy đủ.',                     4.6),
     (3, 1, '2023-11-15 17:00:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.',                        4.3),
-    (4, 2, '2023-10-20 16:15:00', 'Đồ ăn ngon, chất lượng.',                                      4.8),
-    (5, 3, '2023-09-25 12:30:00', 'Phòng được trang bị đầy đủ tiện nghi.',                        4.7),
+    (1, 2, '2023-10-20 16:15:00', 'Đồ ăn ngon, chất lượng.',                                      4.8),
+    (2, 3, '2023-09-25 12:30:00', 'Phòng được trang bị đầy đủ tiện nghi.',                        4.7),
     (1, 4, '2023-10-02 09:30:00', 'Khách sạn nằm gần các điểm tham quan.',                        4.5);
 
 
