@@ -16,4 +16,6 @@ router.get('/privacy-policy', SiteController.privacyPolicy)
 router.get('/', SiteController.index)
 
 
+
+
 module.exports = router;
