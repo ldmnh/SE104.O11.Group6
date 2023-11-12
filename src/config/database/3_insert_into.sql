@@ -84,16 +84,16 @@ VALUES
 
 INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id)
 VALUES 
-    ('Tiêu chuẩn',  'Phòng Đôi',     1, 0, 1, 0, 10,    'room_1.jpg', 25.5, 100.0, NULL, NULL,          0, 1),
-    ('Sang trọng',  'Phòng Đôi',     2, 1, 0, 1,  5,    'room_2.jpg', 35.0, 200.0, 0.1,  '2023-01-31',  0, 1),
-    ('Cao cấp',     'Phòng Gia đình',2, 2, 1, 2,  3,    'room_1.jpg', 45.2, 300.0, NULL, NULL,          0, 2),
-    ('Tiêu chuẩn',  'Phòng Đơn',     1, 0, 1, 0,  8,    'room_6.jpg', 30.0, 120.0, 0.05, '2023-02-28',  0, 3),
-    ('Thượng hạng', 'Phòng Đôi',     2, 1, 0, 1,  6,    'room_3.jpg', 28.5, 180.0, NULL, NULL,          0, 4),
-    ('Cao cấp',     'Phòng Gia đình',2, 2, 1, 2,  4,    'room_7.jpg', 50.0, 350.0, 0.15, '2023-03-31',  0, 3),
-    ('Tiêu chuẩn',  'Phòng Đơn',     1, 0, 1, 0, 12,    'room_4.jpg', 32.0, 150.0, NULL, NULL,          0, 2),
-    ('Sang trọng',  'Phòng Đôi',     2, 1, 0, 1,  7,    'room_1.jpg', 38.0, 220.0, 0.2,  '2023-04-30',  0, 1),
-    ('Cao cấp',     'Phòng Gia đình',2, 2, 1, 2,  5,    'room_3.jpg', 48.7, 320.0, NULL, NULL,          0, 2),
-    ('Tiêu chuẩn',  'Phòng Đơn',     1, 0, 1, 0,  9,    'room_2.jpg', 29.8, 110.0, 0.1,  '2023-05-31',  0, 4);
+    ('Tiêu chuẩn',  'Phòng Đôi',     1, 0, 1, 0, 10,    'room_1.jpg', 25.5, 1000000, NULL, NULL,          0, 1),
+    ('Sang trọng',  'Phòng Đôi',     2, 1, 0, 1,  5,    'room_2.jpg', 35.0, 2000000, 0.1,  '2023-01-31',  0, 1),
+    ('Cao cấp',     'Phòng Gia đình',2, 2, 1, 2,  3,    'room_1.jpg', 45.2, 3000000, NULL, NULL,          0, 2),
+    ('Tiêu chuẩn',  'Phòng Đơn',     1, 0, 1, 0,  8,    'room_6.jpg', 30.0, 1200000, 0.05, '2023-02-28',  0, 3),
+    ('Thượng hạng', 'Phòng Đôi',     2, 1, 0, 1,  6,    'room_3.jpg', 28.5, 1800000, NULL, NULL,          0, 4),
+    ('Cao cấp',     'Phòng Gia đình',2, 2, 1, 2,  4,    'room_7.jpg', 50.0, 3500000, 0.15, '2023-03-31',  0, 3),
+    ('Tiêu chuẩn',  'Phòng Đơn',     1, 0, 1, 0, 12,    'room_4.jpg', 32.0, 1500000, NULL, NULL,          0, 2),
+    ('Sang trọng',  'Phòng Đôi',     2, 1, 0, 1,  7,    'room_1.jpg', 38.0, 2200000, 0.2,  '2023-04-30',  0, 1),
+    ('Cao cấp',     'Phòng Gia đình',2, 2, 1, 2,  5,    'room_3.jpg', 48.7, 3200000, NULL, NULL,          0, 2),
+    ('Tiêu chuẩn',  'Phòng Đơn',     1, 0, 1, 0,  9,    'room_2.jpg', 29.8, 1100000, 0.1,  '2023-05-31',  0, 4);
 
 INSERT INTO Extension (exte_name)
 VALUES 
