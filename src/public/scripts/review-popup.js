@@ -1,27 +1,28 @@
 // Lấy tham chiếu đến các phần tử DOM
 const minusButton = document.querySelector(".minus");
 const plusButton = document.querySelector(".plus");
-const numberDisplay = document.querySelector(".number");
 
-// Khởi tạo biến đếm
-let count = 0;
-
-// Gắn sự kiện click cho nút "+" (plus)
-plusButton.addEventListener("click", function () {
-    if (count < 10) {
-        count++;
-        numberDisplay.textContent = count;
+// Thêm sự kiện cho nút -
+minusButton.addEventListener('click', () => {
+    // Khai báo và lấy tham chiếu đến trường nhập số lượng phòng
+    const roomQuantity = document.getElementById('room__quantity')
+    const currentValue = Number(roomQuantity.value);
+    if (currentValue > 0) {
+        roomQuantity.value = currentValue - 1;
     }
-});
 
-// Gắn sự kiện click cho nút "-" (minus) (giảm giá trị)
-minusButton.addEventListener("click", function () {
-    if (count > 0) {
-        count--;
-        numberDisplay.textContent = count;
+})
+
+// Thêm sự kiện cho nút +
+plusButton.addEventListener('click', () => {
+    // Khai báo và lấy tham chiếu đến trường nhập số lượng phòng
+    const roomQuantity = document.getElementById('room__quantity')
+    const currentValue = Number(roomQuantity.value);
+
+    if (currentValue < 10) {
+        roomQuantity.value = currentValue + 1;
     }
-});
-
+})
 
 const closePopupBtn = document.querySelector(".close-popup");
 const modal = document.querySelector(".modal");

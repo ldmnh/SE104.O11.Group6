@@ -1,29 +1,28 @@
-const express = require('express')
-const jwt = require('jsonwebtoken');
+/**
+ * Express router for handling site-related routes.
+ * @module routes/siteRouter
+ * @require express
+ * @require controllers/SiteController
+ */
+
+const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../middlewares/authMiddleware');
-const session = require('express-session')
+
+// import controller
 const SiteController = require('../controllers/SiteController.js');
-const passport = require('passport');
-const port = 3000;
 
 router.get('/about', SiteController.about)
-router.get('/register', SiteController.register)
-router.get('/login', authMiddleware.isAuth, SiteController.showLoginForm)
-router.post('/login', authMiddleware.isAuth, SiteController.login)
-router.get('/logout', authMiddleware.isAuth, SiteController.showLogoutForm)
-router.get('/forgot-password', SiteController.showForgotForm);
-router.post('/forgot-password', SiteController.forgot);
-router.get('/reset-password', SiteController.showResetForm);
-router.put('/reset-password', SiteController.reset);
-
-// router for reset-password testing session 
-router.get('/testing', (req, res) => {
-  req.session.email = 'abc@gmail.com';
-  res.status(200).json({ email: req.session.email, message: 'ok' });
-});
-router.post('/search-results', SiteController.search);
 
 router.get('/', SiteController.index)
 
-module.exports = router
+router.get('/testing', (req, res) => {
+    res.status(200).json({ email: req.session.email, message: 'ok' });
+});
+
+router.get('/testing2', (req, res) => {
+    req.session.loggIn = true;
+    req.session.userId = 'usr000000001'
+    res.status(200).json({ userId: req.session.userId, message: 'ok' });
+});
+
+module.exports = router;

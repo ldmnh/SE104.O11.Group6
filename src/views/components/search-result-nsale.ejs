@@ -2,7 +2,7 @@
     <div class="nresult-block__main">
         <img src="/imgs/branchs/apartment.png" alt="apartment" class="nresult-block__picture">
         <div class="nresult-block__content">
-            <p class="nresult-block__name">Căn hộ 2WAYS Vũng Tàu</p>
+            <p class="nresult-block__name"><%=acco.acco_name%></p>
             <!-- Đánh giá 5 sao -->
             <div class="nresult-block__rate-star">
                 <span class="material-symbols-outlined">grade</span>
@@ -12,7 +12,7 @@
                 <span class="material-symbols-outlined">grade</span>
             </div>
             <div class="nresult-block__extensions">
-                <a href="#" class="nresult-block__map">Xem trên bản đồ</a>
+                <a href="https://www.google.com/maps/place/<%=acco.acco_coordinates%>" target = "blank" class="nresult-block__map">Xem trên bản đồ</a>
                 <div class="nresult-block__details">
                     <span class="material-symbols-outlined">beach_access</span>
                     <p class="nresult-block__details-content">Giáp biển</p>
@@ -51,7 +51,7 @@
             <p class="nresult-block__origin-price">VND 1.350.000</p>
             <label for="nresult-block__origin-price" class="result-block__label">Đã gồm thuế và phí</label>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button id="select-button" type="submit" class="btn form__submit">Xem ngay</button>
+                <a href ="/search/<%=acco.acco_id%>" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
             </div>
         </div>
     </div>

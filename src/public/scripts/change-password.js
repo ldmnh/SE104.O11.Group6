@@ -3,14 +3,14 @@ const historyBtn = document.querySelector(".historyBtn");
 const accountPaymentBtn = document.querySelector(".accountPaymentBtn");
 
 const redirect2profiletView = () => {
-    window.location.href = "http://127.0.0.1:3000/account"
+    window.location.href = "/account/information"
 }
 const redirect2HistoryView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/booking-history";
+    window.location.href = "/account/history";
 }
 
 const redirect2accountPaymentView = () => {
-    window.location.href = "http://127.0.0.1:3000/account/payment-account"
+    window.location.href = "/account/payment"
 }
 
 profileBtn.addEventListener("click", redirect2profiletView)
@@ -20,7 +20,7 @@ accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
 const logoutBtn = document.querySelector('.logoutBtn')
 
 const redirect2LogOutView = () => {
-    window.location.href = "http://127.0.0.1:3000/register"
+    window.location.href = "/auth/logout"
 }
 
 logoutBtn.addEventListener("click", redirect2LogOutView)
@@ -54,12 +54,24 @@ cancelBtn.addEventListener("click", redirectChange1)
 //Mat khau moi
 const confirmBtn = document.querySelector('.confirm-button');
 confirmBtn.addEventListener("click", () => {
-    const newPassword = document.querySelector('.form__password').value;
-    const isPasswordValid = newPassword.length >= 8 && /[a-zA-Z]/.test(newPassword) && /[0-9]/.test(newPassword);
-    console.log('newpss', newPassword);
-    console.log('log', isPasswordValid);
+  const newPassword = document.querySelector('.form__password').value;
+  const isPasswordValid = newPassword.length >= 8 && /[a-zA-Z]/.test(newPassword) && /[0-9]/.test(newPassword);
+  console.log('newpss',newPassword);
+  console.log('log', isPasswordValid);
+  const newConfirmPass = document.querySelector('.form__password-confirm').value;
+  if (!isPasswordValid || newPassword !== newConfirmPass) {
+        //Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = '* Thông tin không hợp lệ';
+        errorMessage.style.color = 'red';
+  }
+  else {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = 'Thành công!';
+        errorMessage.style.color = 'green';
+    }
 })
 
 // Xac nhan mat khau
-const confirmNewPass = document.querySelector('.confirm_newpass').value;
+
 

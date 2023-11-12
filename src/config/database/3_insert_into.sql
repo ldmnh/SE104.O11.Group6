@@ -1,10 +1,11 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
 VALUES
+    ('admin1', 'password1'),
     ('admin2', 'password2'),
     ('admin3', 'password3');
-    ('admin1', 'password1'),
 
 INSERT INTO AuthUser (au_user_first_name, au_user_last_name, au_user_email, au_user_pass, au_user_avt_url)
 VALUES
@@ -41,7 +42,7 @@ VALUES
     ('Thành phố Vĩnh Long',        5),
     ('Thành phố Long Xuyên',       6);
 
-INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id, location_link)
+INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id, acco_location_link)
 VALUES
     ('hotel',        4,  'acc001.jpg', 'Khách sạn Quê Hương',  'Quê Hương là thiên đường', 'Khách sạn 2 sao.', '1 Đường Nguyễn Trung Trực',  1,     1,  'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
     ('resort',       5,  'acc002.jpg', 'Sunrise Hotel Bạc Liêu',  'Phục vụ từ tận tâm Sunrise',  'Khách sạn kết hợp khu trung tâm thương mại.', '22 Đường Trần Huỳnh',   2,  2,  'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
@@ -81,7 +82,7 @@ VALUES
     (3, 'accomodation_4.jpg'),
     (3, 'accomodation_5.jpg');
 
-INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_sum_rating, acco_id)
+INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id)
 VALUES 
     ('Tiêu chuẩn', 'Phòng Đôi', 1, 0, 1, 0, 10,   'room_1.jpg', 25.5, 100.0, NULL, NULL, 0,           1),
     ('Sang trọng',   'Phòng Đôi', 2, 1, 0, 1, 5,    'room_2.jpg', 35.0, 200.0, 0.1, '2023-01-31', 0,    1),
@@ -114,9 +115,9 @@ VALUES
     (7, 1),
     (8, 2),
     (9, 2),
-    (0, 2),
-    (0, 3),
-    (0, 4);
+    (10, 2),
+    (10, 3),
+    (10, 4);
 
 INSERT INTO RoomTypeImg (room_id, room_type_image_url)
 VALUES 
@@ -176,7 +177,7 @@ VALUES
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
 
-INSERT INTO Booking (book_datetime, book_start_datetime, book_end_datetime, pay_id, book_total_cost, book_first_name, book_last_name, book_email, au_user_id, book_phone, book_note, cancel_cost, book_status, book_is_payed, rea_id, book_num_adult, book_num_child)
+INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, pay_id, book_total_cost, book_first_name, book_last_name, book_email, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
 VALUES
     ('2023-10-27 10:00:00', '2023-11-01 14:00:00', '2023-11-05 11:00:00', 1, 0, 'Hiếu',       'Lê',      'lehieudn123@example.com',     1, '1234567890', NULL, 0, 1, 1, NULL, 3, 0),
     ('2023-10-28 11:30:00', '2023-11-02 12:00:00', '2023-11-03 10:00:00', 2, 0, 'Cẩm',       'Lâm',    'lamcamtv123@example.com',     2, '9876543210', NULL, 0, 1, 1, NULL, 2, 1),
@@ -191,17 +192,17 @@ VALUES
 
 INSERT INTO BookingDetail (book_id, room_id, book_final_cost, book_num_room)
 VALUES
-    (1,  1, 150.00,  2),
-    (1,  2, 180.00,  1),
-    (2,  3, 200.00,  1),
-    (3,  4, 120.00,  1),
-    (4,  5, 160.00,  2),
-    (5,  6, 180.00,  1),
-    (6,  7, 250.00,  1),
-    (7,  8, 190.00,  1),
-    (8,  9, 170.00,  2),
-    (9,  10, 140.00, 1),
-    (10, 10, 140.00, 1);
+    ( 1,   1, 1500000, 2),
+    ( 1,   2, 1800000, 1),
+    ( 2,   3, 2000000, 1),
+    ( 3,   4, 1200000, 1),
+    ( 4,   5, 1600000, 2),
+    ( 5,   6, 1800000, 1),
+    ( 6,   7, 2500000, 1),
+    ( 7,   8, 1900000, 1),
+    ( 8,   9, 1700000, 2),
+    ( 9,  10, 1400000, 1),
+    (10,  10, 1400000, 1);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
 VALUES

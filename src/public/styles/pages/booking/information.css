@@ -1,0 +1,380 @@
+@import url('/styles/partials/header-small.css');
+@import url('/styles/partials/nav-tree.css');
+@import url('/styles/partials/footer.css');
+
+.payment--container {
+  width: 80%;
+  max-width: 1152px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 12px auto;
+}
+
+.aside--wrapper {
+  width: 376px;
+  height: 706px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.hotel-detail {
+  width: 100%;
+  height: 128px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 4px;
+  justify-content: flex-start;
+  border: 1px solid #bec8c9;
+  border-radius: 8px;
+}
+
+.type-hotel,
+.wifi-free {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.filled-start {
+  width: 24px;
+  height: 24px;
+  color: #fe9c0b;
+}
+
+.unfilled-start {
+  width: 24px;
+  height: 24px;
+  color: #d9d9d9;
+}
+
+.your-booking-detail {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #bec8c9;
+  border-radius: 8px;
+  width: 100%;
+  height: 447px;
+}
+
+.check-date,
+.method-choice,
+.list-account-title {
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+}
+
+.checkin-date,
+.checkout-date {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 50%;
+}
+
+.countdown-time {
+  display: flex;
+  gap: 4px;
+  color: #ba1a1a;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.total-length-stay {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  padding: 12px 12px 0 12px;
+}
+
+.cost-total {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+  background-color: rgba(0, 105, 109, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.cost-total .red-line {
+  color: #ba1a1a;
+  text-decoration: line-through;
+}
+
+.your-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 12px 12px 12px;
+}
+
+.cost {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+hr {
+  width: 96%;
+  border: 1px solid #bec8c9;
+  margin-left: 5px;
+}
+
+.section--content {
+  width: 740px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.confirm-account {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #bec8c9;
+  border-radius: 8px;
+}
+
+.confirm-account img {
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+}
+
+.account-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.email-logout {
+  display: flex;
+  gap: 8px;
+}
+
+.select-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid #bec8c9;
+  border-radius: 12px;
+  height: 500px;
+}
+
+.select-methods {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-item {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 0 30px;
+  align-items: center;
+}
+
+.account-item img {
+  width: 29px;
+  height: 28px;
+}
+
+.name-bank h5 {
+  width: 100px;
+}
+
+.name-bank {
+  display: flex;
+  gap: 254px;
+}
+
+.list-account {
+  display: flex;
+  flex-direction: column;
+  width: 559px;
+  height: 245px;
+}
+
+.list-account-title {
+  background-color: #00696d;
+  color: white;
+  font-weight: 700;
+  gap: 12px;
+  padding: 8px 30px;
+  border-radius: 10px 10px 0 0;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.account-items {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  padding: 25px 0;
+  border: 1px solid #00696d;
+  border-radius: 0 0 10px 10px;
+}
+
+.method {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #bec8c9;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.confirm-method {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.button-confirm {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+button.check-info {
+  width: 197px;
+  height: 48px;
+  color: #fe9c0b;
+  background-color: white;
+  border: 1px solid #fe9c0b;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+button.submit-booking {
+  width: 197px;
+  height: 48px;
+  color: white;
+  background-color: #fe9c0b;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.cancel-fee {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #bec8c9;
+}
+
+.cancel-free {
+  color: #119726;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.method-choice {
+  align-items: center;
+  gap: 8px;
+}
+
+.info-bill {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #bec8c9;
+}
+
+.form--item {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 12px;
+}
+
+.special-request {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #bec8c9;
+}
+
+h4.required::after {
+  content: " *";
+  color: red;
+}
+
+.form-control {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #bec8c9;
+  padding: 0 8px;
+}
+
+.ext__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ext__item {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+
+  border: 1px solid #bec8c9;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* .section--content {
+  border: 1px solid #bec8c9;
+  border-radius: 8px;
+} */
+
+.info-room {
+  border: 1px solid #bec8c9;
+  border-radius: 8px;
+  padding: 12px;
+}
