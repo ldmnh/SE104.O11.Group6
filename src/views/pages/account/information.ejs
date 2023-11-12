@@ -2,137 +2,158 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="/styles/pages/account/information.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-  <title>2WAYS.com</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="/styles/pages/account/information.css" />
+    <title>2WAYS.com</title>
 </head>
 
 <body>
-  <%- include('../../partials/header-medium') %>
+    <%- include('../../partials/header-medium') %>
 
-  <div class="account-container">
-    <aside class="aside-content">
-      <div class="aside-content__profile">
-        <img class="aside-content__img" src="/imgs/milo.jpg" alt="" />
-        <div class="aside-content__detail">
-          <p class="aside-content__detail-bold">Giàu Phan</p>
-          <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
-        </div>
-      </div>
+    <div class="account-container">
+        <aside class="aside-content">
+            <div class="aside-content__profile">
+                <img class="aside-content__img" src="/imgs/<%= data.avatar ? data.avatar : 'details/user_1.jpg' %>" alt="" />
+                <div class="aside-content__detail">
+                    <p class="aside-content__detail-bold">Giàu Phan</p>
+                    <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
+                </div>
+            </div>
 
-      <hr />
+            <hr />
 
-      <div class="aside-section">
-        <p class="profile-btn">Thông tin cá nhân</p>
-        <p class="history-btn">Lịch sử đặt phòng</p>
-        <p class="account-payment-btn">Tài khoản thanh toán</p>
-        <p class="change-password-btn">Đổi mật khẩu</p>
-      </div>
+            <div class="aside-section">
+                <p class="profile-btn">Thông tin cá nhân</p>
+                <p class="history-btn">Lịch sử đặt phòng</p>
+                <p class="account-payment-btn">Tài khoản thanh toán</p>
+                <p class="change-password-btn">Đổi mật khẩu</p>
+            </div>
 
-      <hr />
+            <hr />
 
-      <div class="aside-item logout-btn">
-        <p>Đăng xuất</p>
-      </div>
-    </aside>
-    <!-- Xem hồ sơ -->
-    <section id="view-profile" class="form">
-      <div class="form__title">
-        <h1>Thông tin cá nhân</h1>
-        <p>Cập nhật thông tin của bạn</p>
-      </div>
+            <div class="aside-item logout-btn">
+                <p>Đăng xuất</p>
+            </div>
+            <div class="popup">
+                <div class="popup__main">
+                    <div class="popup__content-title">
+                        <div class="popup--top">
+                            <p class="popup__title">Đăng xuất</p>
+                            <div class="close-btn">
+                                <span class="material-symbols-outlined">cancel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/imgs/logout.png" alt="logout" class="popup__img">
+                    <div class="popup__content">
+                        <p>Bạn có chắc chắn muốn đăng xuất không?</p>
+                    </div>
+                    <div class="popup__button">
+                        <button class="btn--outlined pri btn-cancel" type="submit">Hủy</button>
+                        <button class="btn--filled pri btn-logout" type="submit">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
-      <hr />
+        <!-- Xem hồ sơ -->
+        <section id="view-profile" class="form">
+            <div class="form__title">
+                <h1>Thông tin cá nhân</h1>
+                <p>Cập nhật thông tin của bạn</p>
+            </div>
 
-      <div class="form__items">
-        <div class="form__item">
-          <h1>Họ và tên:</h1>
-          <input class="form-control" type="text" placeholder="Phan Nguyễn Yến Giàu" disabled />
-        </div>
+            <hr />
 
-        <div class="form__item">
-          <h1>Địa chỉ Email:</h1>
-          <input class="form-control" type="text" placeholder="21520796@gm.uit.edu.vn" disabled />
-        </div>
+            <div class="form__items">
+                <div class="form__item">
+                    <h1>Họ và tên:</h1>
+                    <input class="form-control" type="text" placeholder="<%= data.first_name %> <%= data.last_name %>" disabled />
+                    <p><%- data.first_name %></p>
+                </div>
 
-        <div class="form__item">
-          <h1>Ngày sinh:</h1>
-          <input class="form-control unfilled" type="none" placeholder="Thêm ngày sinh" disabled />
-        </div>
+                <div class="form__item">
+                    <h1>Địa chỉ Email:</h1>
+                    <input class="form-control" type="text" placeholder="<%= data.email %>" disabled />
+                </div>
 
-        <div class="form__item">
-          <h1>Giới tính:</h1>
-          <input class="form-control unfilled" type="none" placeholder="Thêm giới tính" disabled />
-        </div>
+                <div class="form__item">
+                    <h1>Ngày sinh:</h1>
+                    <input class="form-control unfilled" type="none" placeholder="<%= data.birthday ? data.birthday : 'Thêm ngày sinh' %>" disabled />
+                </div>
 
-        <!-- <div class="form__item">
+                <div class="form__item">
+                    <h1>Giới tính:</h1>
+                    <input class="form-control unfilled" type="none" placeholder="<%= data.sex ? data.sex : 'Thêm giới tính' %>" disabled />
+                </div>
+
+                <!-- <div class="form__item">
             <label for="fname">Name</label>
             <input type="text"
                 placeholder="Phan Nguyen Yen Giau"
                 disabled>
           </div> -->
-      </div>
-      <div class="form__submitbutton">
-        <!-- <button class="form--submit1">Hủy</button> -->
+            </div>
+            <div class="form__submitbutton">
+                <!-- <button class="form--submit1">Hủy</button> -->
 
-        <button class="form--submit2 form--submit2-default ">Sửa</button>
-      </div>
-    </section>
-    <!-- Sửa hồ sơ -->
-    <section id="edit-profile" class="form">
-      <div class="form__title">
-        <h1>Thông tin cá nhân</h1>
-        <p>Cập nhật thông tin của bạn</p>
-      </div>
+                <button class="form--submit2 form--submit2-default ">Sửa</button>
+            </div>
+        </section>
 
-      <hr />
+        <!-- Sửa hồ sơ -->
+        <section id="edit-profile" class="form">
+            <div class="form__title">
+                <h1>Thông tin cá nhân</h1>
+                <p>Cập nhật thông tin của bạn</p>
+            </div>
 
-      <div class="form__items">
-        <div class="form__item">
-          <h1>Họ và tên:</h1>
-          <input class="form-control" type="text" placeholder="Phan Nguyễn Yến Giàu" />
-        </div>
+            <hr />
 
-        <div class="form__item">
-          <h1>Địa chỉ Email:</h1>
-          <input class="form-control" type="text" placeholder="21520796@gm.uit.edu.vn" />
-        </div>
+            <div class="form__items">
+                <div class="form__item">
+                    <h1>Họ và tên:</h1>
+                    <input class="form-control" type="text" placeholder="<%= data.first_name %> <%= data.last_name %>" />
+                </div>
 
-        <div class="form__item">
-          <h1>Ngày sinh:</h1>
-          <input class="form-control" type="date" placeholder="Thêm ngày sinh" />
-        </div>
+                <div class="form__item">
+                    <h1>Địa chỉ Email:</h1>
+                    <input class="form-control" type="text" placeholder="<%= data.email %>" />
+                </div>
 
-        <div class="form__item">
-          <h1>Giới tính:</h1>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Thêm giới tính</option>
-            <option value="1">Nam</option>
-            <option value="2">Nữ</option>
-            <option value="3">Khác</option>
-          </select>
-        </div>
-      </div>
-      <div class="form__submitbutton">
-        <button class="form--submit1 cancel-btn">Hủy</button>
+                <div class="form__item">
+                    <h1>Ngày sinh:</h1>
+                    <input class="form-control" type="date" placeholder="Thêm ngày sinh" />
+                </div>
 
-        <button id="save-btn" class="form--submit2">Lưu</button>
-      </div>
-    </section>
-  </div>
-  <%- include('../../components/success-popup')  %>
+                <div class="form__item">
+                    <h1>Giới tính:</h1>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Thêm giới tính</option>
+                        <option value="Male">Nam</option>
+                        <option value="Female">Nữ</option>
+                        <option value="Other">Khác</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form__submitbutton">
+                <button class="form--submit1 cancel-btn">Hủy</button>
 
-  <%- include('../../partials/footer') %>
+                <button id="save-btn" class="form--submit2">Lưu</button>
+            </div>
+        </section>
+    </div>
 
-  <script src="/scripts/account-page.js"></script>
-  <script src="/scripts/search-bar.js"></script>
-  <script src="/scripts/header-medium.js"></script>
+    <%- include('../../components/success-popup')  %>
+    <%- include('../../partials/footer') %>
 
-
+    <script src="/scripts/account-page.js"></script>
+    <script src="/scripts/search-bar.js"></script>
+    <script src="/scripts/header-medium.js"></script>
 
 </body>
 

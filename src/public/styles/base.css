@@ -1,9 +1,13 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
+
 :root {
   --primary-color-1: #085457;
   --primary-color-2: #00696d;
   --primary-color-3: #00a1a6;
   --primary-color-4: #fe9c0b;
   --primary-color-3-o10: rgba(0, 161, 166, 0.1);
+  --primary-color-3-o80: rgba(0, 161, 166, 0.8);
+  --primary-color-4-o80: rgba(254, 156, 11, 0.8);
   --white: #ffffff;
   --black: #000000;
   --black-o60: rgba(0, 0, 0, 0.6);
@@ -33,7 +37,54 @@
 
 html {
   font-size: 16px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: 100ms ease-in-out;
+}
+
+.primary {
+  background-color: var(--primary);
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.secondary {
+  background-color: var(--secondary);
+}
+
+.secondary-text {
+  color: var(--secondary);
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+.mt-64 {
+  margin-top: 64px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1152px;
+  padding: 0;
+  margin: auto;
 }
 
 button {
@@ -72,7 +123,7 @@ button {
 
 button.btn--filled {
   background-color: white;
-  color: var(--primary-color-2);
+  color: var(--primary-color-1);
   border: none;
 
   &:hover .status-layer {
@@ -83,18 +134,27 @@ button.btn--filled {
 button.btn--filled.pri {
   background-color: var(--primary-color-1);
   color: white;
+  font-weight: 500;
 }
 
 button.btn--filled.sec {
   background-color: var(--primary-color-4);
   color: white;
+  font-weight: 500;
 }
 
 button.btn--outlined.pri {
   background-color: white;
-  color: var(--primary-color-2);
-  border: 1px solid var(--primary-color-2);
-  font-size: 16px;
+  color: var(--primary-color-1);
+  border: 1px solid var(--primary-color-1);
+  font-weight: 500;
+}
+
+button.btn--outlined.sec {
+  background-color: white;
+  color: var(--primary-color-4);
+  border: 1px solid var(--primary-color-4);
+  font-weight: 500;
 }
 
 .mt-8 {
@@ -135,4 +195,26 @@ button.btn--outlined.pri {
 
 .primary-color-4-text {
   color: var(--primary-color-4);
+}
+
+#on-top-btn {
+  opacity: 0;
+  position: fixed;
+  right: 10vw;
+  bottom: 10vh;
+  z-index: 999;
+
+  height: 40px;
+  aspect-ratio: 1/1;
+
+  background-color: var(--primary-color-4);
+  color: white;
+
+  outline: none;
+  border: none;
+
+  & .status-layer {
+    margin: 0px;
+    padding: 0px;
+  }
 }

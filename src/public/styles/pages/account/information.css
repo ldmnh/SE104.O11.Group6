@@ -83,6 +83,7 @@ hr {
     height: 64px;
     width: 64px;
     border-radius: 100%;
+    object-fit: cover;
 }
 
 .aside-item p {
@@ -97,11 +98,13 @@ hr {
     border-radius: 8px;
     width: 75%;
 }
+
 .form__items {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .form__item {
     display: flex;
     gap: 12px;
@@ -113,6 +116,7 @@ hr {
 .form-control:disabled::placeholder {
     color: var(--black);
 }
+
 .form__item h1 {
     width: 221px;
     font-size: 22px;
@@ -164,4 +168,90 @@ hr {
 .change-password-btn,
 .logout-btn {
     cursor: pointer;
+}
+
+/*popup*/
+.popup {
+    display: none;
+    position: fixed;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup__main {
+    position: relative;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    margin: auto;
+    width: 45%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+
+}
+
+.close-btn {
+    position: relative;
+    color: var(--primary-color-1);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.popup__img {
+    object-fit: contain;
+    height: 50%;
+    border-radius: 8px;
+}
+
+.popup__content-main {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup--top {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.popup .popup__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.popup p {
+    margin-bottom: 6px;
+}
+
+.popup__content-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn--filled.pri {
+    height: 48px;
+    width: 150px;
+    margin-left: 4px;
+}
+
+button.btn--outlined.pri {
+    height: 48px;
+    width: 150px;
+    margin-right: 4px;
 }

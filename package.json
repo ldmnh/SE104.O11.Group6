@@ -1,7 +1,6 @@
 {
   "name": "se104.o11.group6",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,11 +17,20 @@
   },
   "homepage": "https://github.com/namtuthien/SE104.O11.Group6#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
+    "ejs-async": "^0.0.1",
     "express": "^4.18.2",
-    "jquery": "^3.7.1"
+    "express-session": "^1.17.3",
+    "installable": "^0.2.8",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "status": "^0.0.13"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "description": ""
 }

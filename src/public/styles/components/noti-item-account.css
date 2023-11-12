@@ -48,7 +48,7 @@
     display: inherit;
     flex-direction: row;
     gap: 12px;
-    color: #6F7979;
+    color: var(--dark-gray);
 }
 
 /*popup*/
@@ -76,7 +76,7 @@
 
 .close-btn {
     float: right;
-    color: var(--primary);
+    color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
 }
@@ -116,16 +116,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 35px;
-    /* justify-content: space-between; */
 }
-
-/* .vertical-line {
-    border-left: 0.8px solid var(--outline-variant);
-    height: 300px;
-    margin: 0 49%;
-    align-items: center;
-    justify-content: center;
-} */
 
 .popup__content--left {
     display: flex;
@@ -179,5 +170,5 @@
 }
 
 .popup__details .noti-item__date-time p {
-    font-size: 14px;
+    font-size: 0.875rem;
 }

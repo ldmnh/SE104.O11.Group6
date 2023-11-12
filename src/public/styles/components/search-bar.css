@@ -1,5 +1,3 @@
-@import url("/styles/base.css");
-
 .main--search {
     display: flex;
     margin-top: 64px;
@@ -20,9 +18,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 8px;
-    /* width: 1016px; */
     width: 130%;
+    padding: 8px;
 }
 
 .search-address {
@@ -31,29 +28,24 @@
     width: 100%;
     align-items: center;
     justify-content: flex-start;
-    margin: 20px;
-    height: 48px;
+    padding: 10px 8px;
+    gap: 8px;
 }
 
 .search-address span {
     color: var(--blue-gray);
     width: 24px;
     height: 24px;
-    margin-left: 4px;
 }
 
 .search-address .input_address {
-    margin-left: 10px;
     background-color: var(--white);
     color: var(--blue-gray);
-    height: 45px;
     width: 100%;
     border: none;
     outline: none;
     text-decoration: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
 }
 
@@ -92,6 +84,7 @@
     right: auto;
     display: block;
 }
+
 .btn-primary {
     color: var(--white);
     background-color: var(--primary-color-1);
@@ -99,6 +92,7 @@
     height: 48px;
     width: 128px;
 }
+
 .btn-default {
     height: 48px;
     width: 128px;
@@ -110,10 +104,12 @@
     background-color: var(--primary-color-1);
     border-color: var(--primary-color-1);
 }
+
 div.daterangepicker {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 10px;
 }
+
 .daterangepicker td.active,
 .daterangepicker td.active:hover {
     background-color: black;
@@ -133,6 +129,7 @@ div.daterangepicker {
     justify-content: space-between;
     cursor: pointer;
 }
+
 input#adult__quantity,
 input#child__quantity,
 input#room__quantity {
@@ -170,6 +167,7 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 0px 5px;
     border-radius: 4px;
 }
+
 .search-quality {
     position: sticky;
     z-index: 100000;

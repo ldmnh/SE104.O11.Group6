@@ -1,23 +1,20 @@
 <header>
-  <div class="header-container">
-    <img class="header-container__img logo-click-hs" src="/imgs/logo.svg" alt="Logo" />
-    <div class="header-container__nav-top">
-      <button href="#" class="status-layer homepage-btn-hs">Trang chủ</button>
-      <button href="#" class="status-layer noti-btn-hs">Thông báo</button>
+    <div class="header-container">
+        <img class="header-container__img logo-click-hs" src="/imgs/logo.svg" alt="Logo" />
+        <div class="header-container__nav-top">
+            <button href="#" class="status-layer homepage-btn-hs">Trang chủ</button>
+            <button href="#" class="status-layer noti-btn-hs">Thông báo</button>
+        </div>
+        <div class="header-container__top-authenticator">
+            <% if(status === 'success'){ %>
+            <p>Chào,</p>
+            <span class="name-btn-hs">data</span>
+            <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hs" />
+            <% } else{ %>
+            <button type="button" class="button-signin signin-btn-hs">Đăng nhập</button>
+            <button type="button" class="button-signup signup-btn-hs">Đăng ký</button>
+            <% } %>
+        </div>
     </div>
-    <div class="header-container__top-authenticator">
-      <!-- Header with no login -->
-      <!-- 
-      <button type="button" class="button-signin signin-btn-hs">Đăng nhập</button>
-      <button type="button" class="button-signup signup-btn-hs">Đăng ký</button>    
-      -->
-
-      <!-- Header with Login-->
-
-      <p>Chào,</p>
-      <span class="name-btn-hs">Giau Phan</span>
-      <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hs" />
-    </div>
-  </div>
 </header>
 <div class="space"></div>
