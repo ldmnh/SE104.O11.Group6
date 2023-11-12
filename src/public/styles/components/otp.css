@@ -97,6 +97,9 @@ h1 {
 	top: 16px;
 	right: 19px;
 }
+.otp__close-btn:hover {
+	cursor: pointer;
+}
 
 .otp__close-btn span {
 	color: #00696d;

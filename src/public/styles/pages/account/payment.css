@@ -103,6 +103,9 @@ hr {
     width: 100%;
     align-items: center;
 }
+.form__title{
+    margin-right: auto !important ;
+}
 
 .form__card-items {
     display: flex;

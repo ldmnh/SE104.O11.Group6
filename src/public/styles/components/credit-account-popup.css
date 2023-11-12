@@ -227,6 +227,10 @@ h2 {
     right: 19px;
 }
 
+.credit__close-btn:hover{
+    cursor: pointer;
+}
+
 .credit__close-btn span {
     color: var(--primary-color-2);
 }

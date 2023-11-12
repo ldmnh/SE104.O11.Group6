@@ -11,6 +11,7 @@ footer {
 
 .footer-container {
   width: 80%;
+  max-width: 1152px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
