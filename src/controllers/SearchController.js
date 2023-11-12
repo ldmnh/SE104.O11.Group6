@@ -31,16 +31,7 @@ class SearchController {
         // [GET] /search/:acco_id
         accoDetail(req, res) {
             accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
-                // res.status(200).render('./pages/search/detail', {
-                //     message: 'Lấy thông tin thành công',
-                //     accoDetail : accoDetail, 
-                //     accoFea: accoFea, 
-                //     accoImg: accoImg, 
-                //     accoRoom: accoRoom, 
-                //     accoRoomRating: accoRoomRating,
-                // })
-
-                res.send({
+                res.status(200).render('./pages/search/detail', {
                     message: 'Lấy thông tin thành công',
                     accoDetail : accoDetail, 
                     accoFea: accoFea, 
@@ -48,6 +39,15 @@ class SearchController {
                     accoRoom: accoRoom, 
                     accoRoomRating: accoRoomRating,
                 })
+
+                // res.send({
+                //     message: 'Lấy thông tin thành công',
+                //     accoDetail : accoDetail, 
+                //     accoFea: accoFea, 
+                //     accoImg: accoImg, 
+                //     accoRoom: accoRoom, 
+                //     accoRoomRating: accoRoomRating,
+                // })
             })
         }
 
