@@ -55,9 +55,9 @@ SELECT
   booking.book_datetime,
   booking.book_start_datetime,
   booking.book_end_datetime,
-  booking.book_total_cost,
-  booking.book_first_name + ' ' + booking.book_last_name as 'book_full_name',
   booking.book_cost_before,
+  booking.book_cost_after,
+  booking.book_first_name + ' ' + booking.book_last_name as 'book_full_name',
   booking.book_status,
   booking.book_is_paid,
   booking.au_user_id
