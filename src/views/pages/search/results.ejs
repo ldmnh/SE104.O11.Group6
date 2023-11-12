@@ -12,7 +12,6 @@
 
 <body>
     <%- include('../../partials/header-medium') %>
-
     <main class="content-container">
         <aside class="filter-sidebar">
             <div class="filter-sidebar__expanded-map">
@@ -26,12 +25,27 @@
 
             <div class="filter-sidebar__main">
                 <div class="filter-sidebar__heading">
-                    <p class="filter-sidebar__heading-content">Chọn lọc theo:</p>
+                    <p class="filter-sidebar__heading-content"><span class="material-symbols-outlined">filter_alt</span>Chọn lọc theo:</p>
                 </div>
-                <hr aria-hidden="true">
+                <hr />
                 <div class="filter-sidebar__price">
                     <p class="filter-sidebar__content">Mức giá: (Dành cho 1 đêm)</p>
-                    <label>VND 100.000 - VND 9.000.000+</label>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="something">
+                        <label class="form-check-label">Dưới VND 200.000</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="something">
+                        <label class="form-check-label">VND 200.000 - VND 500.000</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="something">
+                        <label class="form-check-label">VND 500.000 - VND 1.000.000</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="something">
+                        <label class="form-check-label">Trên VND 1.000.000</label>
+                    </div>
                 </div>
                 <hr aria-hidden="true">
                 <div class="filter-sidebar__type">
@@ -254,11 +268,13 @@
 
                 <div class="filter_price">
                     <div class="search-results__filter__item" id="filter__item-price">
-                        <p class="search-results__filter__content">Giá:</p>
-                        <span class="material-symbols-outlined dropdown-button">expand_more</span>
+                        <p class="search-results__filter__content">Giá</p>
+                        <span class="material-symbols-outlined dropdown-button">keyboard_arrow_down</span>
                         <div class="dropdown-content">
-                            <a href="#">Cao đến thấp</a>
-                            <a href="#">Thấp đến cao</a>
+                            <input type="radio" id="sort-z-to-a" name="sort" value="z-to-a" />
+                            <label for="sort-z-to-a" class="sort-label">Cao đến thấp</label>
+                            <input type="radio" id="sort-a-to-z" name="sort" value="a-to-z" />
+                            <label for="sort-a-to-z" class="sort-label">Thấp đến cao</label>
                         </div>
                     </div>
                 </div>

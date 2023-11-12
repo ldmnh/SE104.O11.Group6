@@ -17,6 +17,9 @@ const authuser = require('../models/authuser.model');
 
 class AuthController {
 
+    // [POST] /auth/register
+    registerPost(req, res) { }
+
     // [GET] /auth/register
     register(req, res) {
         const title = 'Đăng ký'
@@ -166,7 +169,13 @@ class AuthController {
             }
         })
     }
-
 }
+// [GET] /auth/change
+// change(req, res) {
+//     const title = 'Đổi mật khẩu'
+//     res.render('./pages/account/change-password', { title })
+// }
 
-module.exports = new AuthController()
+
+module.exports = new AuthController();
+

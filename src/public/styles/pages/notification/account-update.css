@@ -82,7 +82,7 @@ body {
 }
 
 .aside-wrapper__aside-section p:nth-child(1) {
-    background-color: #004f52;
+    background-color: var(--primary-color-1);
     color: white;
     border-radius: 8px;
 }
