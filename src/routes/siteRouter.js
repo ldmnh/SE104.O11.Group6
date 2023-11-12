@@ -15,10 +15,6 @@ router.get('/about', SiteController.about)
 
 router.get('/', SiteController.index)
 
-router.get('/testing', (req, res) => {
-    res.status(200).json({ email: req.session.email, message: 'ok' });
-});
-
 router.get('/testing2', (req, res) => {
     req.session.loggIn = true;
     req.session.userId = 'usr000000001'
