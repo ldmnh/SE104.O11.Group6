@@ -33,44 +33,30 @@ class AccountController {
                     }
                 });
             } else {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!'
-                });
+                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
             }
         })
     }
 
     // [PUT] /account/information
     informationPut(req, res) {
+        const email = req.session.user?.email;
         const {
-            account_first_name,
-            account_last_name,
-            account_birthday,
-            account_sex
+            first_name, last_name, birthday, sex
         } = req.body;
 
         authuser.putInfoByEmail({
-            "email": req.session.user.email,
-            "first_name": account_first_name,
-            "last_name": account_last_name,
-            "birthday": account_birthday,
-            "sex": account_sex
+            email, first_name, last_name, birthday, sex
         }, (err, result) => {
             if (err) {
-                res.status(500).json({
-                    message: 'Lỗi truy vấn!!!'
-                });
+                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
                 throw err;
             }
 
             if (result.affectedRows === 0) {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!'
-                });
+                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
             } else {
-                res.status(200).json({
-                    message: 'Cập nhật thông tin tài khoản thành công'
-                });
+                res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
             }
         })
     }
