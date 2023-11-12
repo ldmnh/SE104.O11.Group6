@@ -37,24 +37,23 @@
 
 html {
   font-size: 16px;
-
   transition: 100ms ease-in-out;
 }
 
 .primary {
-  background-color: var(--primary-color-2);
+  background-color: var(--primary);
 }
 
 .primary-text {
-  color: var(--primary-color-2);
+  color: var(--primary);
 }
 
-.primary-color-4 {
-  background-color: var(--primary-color-4);
+.secondary {
+  background-color: var(--secondary);
 }
 
-.primary-color-4-text {
-  color: var(--primary-color-4);
+.secondary-text {
+  color: var(--secondary);
 }
 
 .mt-8 {
@@ -86,7 +85,6 @@ html {
   max-width: 1152px;
   padding: 0;
   margin: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
@@ -134,7 +132,7 @@ button.btn--filled {
 }
 
 button.btn--filled.pri {
-  background-color: var(--primary-color-2);
+  background-color: var(--primary);
   color: white
 }
 

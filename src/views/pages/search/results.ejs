@@ -19,7 +19,7 @@
                     <span class="material-symbols-outlined">location_on</span>
                 </div>
                 <div class="filter-sidebar__map-button">
-                    <button type="button" class="btn map-button" id="btn-map">Hiển thị trên bản đồ</button>
+                    <a href = "https://www.google.com/maps/place/<%=resultacco[0].prov_name%>" target = "blank" type="button" class="btn map-button">Hiển thị trên bản đồ</a>
                 </div>
             </div>
 
@@ -306,13 +306,10 @@
                 </div>
             </div>
             <hr aria-hidden="true">
-            <%- include('../../components/search-result-sale', {title}) %>
-            <%- include('../../components/search-result-nsale', {title}) %>
-            <%- include('../../components/search-result-sale', {title}) %>
-            <%- include('../../components/search-result-sale', {title}) %>
-            <%- include('../../components/search-result-nsale', {title}) %>
-            <%- include('../../components/search-result-sale', {title}) %>
-            <%- include('../../components/search-result-sale', {title}) %>
+            <% resultacco.forEach(function(acco){%>
+                <%- include('../../components/search-result-sale', {acco}) %>
+            <%})%>
+            
         </section>
     </main>
 

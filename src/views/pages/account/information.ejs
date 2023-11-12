@@ -91,11 +91,11 @@
 
       <hr />
 
-      <div class="form__items">
-        <div class="form__item">
-          <h1>Họ và tên:</h1>
-          <input class="form-control" type="text" placeholder="Phan Nguyễn Yến Giàu" />
-        </div>
+            <form class="form--items">
+                <div class="form--item">
+                    <h1>Họ và tên:</h1>
+                    <input class="form-control" type="text" placeholder="<%= data.first_name %> <%= data.last_name %>" />
+                </div>
 
         <div class="form__item">
           <h1>Địa chỉ Email:</h1>
@@ -107,24 +107,22 @@
           <input class="form-control" type="date" placeholder="Thêm ngày sinh" />
         </div>
 
-        <div class="form__item">
-          <h1>Giới tính:</h1>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Thêm giới tính</option>
-            <option value="1">Nam</option>
-            <option value="2">Nữ</option>
-            <option value="3">Khác</option>
-          </select>
-        </div>
-      </div>
-      <div class="form__submitbutton">
-        <button class="form--submit1 cancel-btn">Hủy</button>
-
-        <button id="save-btn" class="form--submit2">Lưu</button>
-      </div>
-    </section>
-  </div>
-  <%- include('../../components/success-popup')  %>
+                <div class="form--item">
+                    <h1>Giới tính:</h1>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Thêm giới tính</option>
+                        <option value="Male">Nam</option>
+                        <option value="Female">Nữ</option>
+                        <option value="Other">Khác</option>
+                    </select>
+                </div>
+            </form>
+            <div class="form--submitbutton">
+                <button class="form--submit1 cancel-btn">Hủy</button>
+                <button class="form--submit2">Lưu</button>
+            </div>
+        </section>
+    </div>
 
   <%- include('../../partials/footer') %>
 

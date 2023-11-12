@@ -62,6 +62,13 @@ body {
     margin: 0;
 }
 
+/* Nhung */
+.row .error {
+    color: red;
+    font-size: 0.8rem;
+    width: auto;
+  }
+
 .register__title {
     text-align: center;
     font-size: 2rem;

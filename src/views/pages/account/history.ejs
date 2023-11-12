@@ -25,21 +25,17 @@
         </div>
       </div>
 
-      <hr />
+            <div class="aside--section">
+                <p class="profileBtn">Thông tin cá nhân</p>
+                <p class="historyBtn">Lịch sử đặt phòng</p>
+                <p class="accountPaymentBtn">Tài khoản thanh toán</p>
+                <p class="changePasswordBtn">Đổi mật khẩu</p>
+            </div>
 
-      <div class="aside-content__section">
-        <p class="profile-btn">Thông tin cá nhân</p>
-        <p class="history-btn">Lịch sử đặt phòng</p>
-        <p class="account-payment-btn">Tài khoản thanh toán</p>
-        <p class="change-password-btn">Đổi mật khẩu</p>
-      </div>
-
-      <hr />
-
-      <div class="aside-content__item logout-btn">
-        <p>Đăng xuất</p>
-      </div>
-    </aside>
+            <div class="aside--item logoutBtn">
+                <p>Đăng xuất</p>
+            </div>
+        </aside>
 
     <section class="booking-history">
       <div class="booking-history__title">
@@ -48,27 +44,16 @@
 
       <!-- <div class="filter-bar"></div> -->
 
-      <div class="booking-history__items">
-        <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-        <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-        <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-        <div class=" "><%- include('../../components/room-in-hs.ejs') %></div>
-      </div>
-    </section>
-  </main>
-  <%- include('../../components/success-popup')  %>
-  <%- include('../../components/next-page.ejs') %>
-  <%- include('../../components/review-popup.ejs') %>
-  <%-include('../../partials/footer.ejs') %>
-
-  <script src="/scripts/booking-history.js" defer></script>
-  <script script src="/scripts/review-popup.js"></script>
-  <script src="/scripts/search-bar.js"></script>
-  <script src="/scripts/header-medium.js"></script>
-
+            <div class="booking--history--items">
+                <!-- Start Loop -->
+                <%- include('../../components/room-in-hs.ejs', {bookingDetail}) %>
+                <!-- End Loop -->
+            </div>
+        </section>
+    </div>
+    <%- include('../../components/next-page.ejs') %>
+    <%- include('../../components/review-popup.ejs') %>
+    <%- include('../../partials/footer.ejs') %>
 
 </body>
 

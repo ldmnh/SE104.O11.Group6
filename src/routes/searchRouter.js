@@ -8,4 +8,6 @@ router.get('/results', SearchController.searchResult)
 
 router.get('/:acco_id', SearchController.accoDetail)
 
+router.post('/:acco_id', SearchController.submitBooking)
+
 module.exports = router

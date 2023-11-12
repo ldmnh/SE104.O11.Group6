@@ -20,17 +20,18 @@ const redirect2EdefaultView = () => {
   defaultView.style.display = "block";
   editView.style.display = "none";
 };
+
 const redirect2HistoryView = () => {
-  window.location.href = "/account/history";
-};
+    window.location.href = "/account/history";
+}
 
 const redirect2accountPaymentView = () => {
-  window.location.href = "/account/card";
-};
+    window.location.href = "/account/payment"
+}
 
 const redirect2changePasswordView = () => {
-  window.location.href = "/account/change-password";
-};
+    window.location.href = "/account/change-password"
+}
 
 historyBtn.addEventListener("click", redirect2HistoryView);
 accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
@@ -42,8 +43,8 @@ editBtn.addEventListener("click", redirect2EditView);
 const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
-  window.location.href = "/auth/login";
-};
+    window.location.href = "/auth/logout"
+}
 
 logoutBtn.addEventListener("click", redirect2LogOutView);
 
