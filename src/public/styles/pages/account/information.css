@@ -19,8 +19,8 @@ body {
 .account-container {
     margin-top: 12px;
     margin-bottom: 12px;
-    /* width: 80%; */
-    width: 1152px;
+    width: 80%;
+    max-width: 1152px;
     display: flex;
     gap: 12px;
 }
