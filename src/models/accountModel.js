@@ -2,27 +2,13 @@ const db = require('../config/db/connect');
 
 const AccountModel = function () { }
 
-AccountModel.addBank = function (req, res, callback) {
-
-    if (!req.session.email) {
-        res.status(404).json({ message: 'Không tìm thấy email!!!' });
-        return;
-    }
-
-    const {
-        bank_name,
-        bank_branch,
-        bank_num,
-        bank_name_pers
-    } = req.body
-    // const sql = `CALL sp_insert_autoID_bankcard(
-    //     '${bank_name}',
-    //     '${bank_branch}',
-    //     '${bank_num}',
-    //     '${bank_name_pers}',
-    //     '${req.session.email}'
-    // )`;
-
+AccountModel.addBank = ({
+    bank_name,
+    bank_num,
+    bank_branch,
+    bank_name_pers,
+    id
+}, callback) => {
     const sql = `
         INSERT INTO bankcard
         (bank_name,
@@ -30,43 +16,31 @@ AccountModel.addBank = function (req, res, callback) {
          bank_num,
          bank_name_pers,
          au_user_id)
-        VALUES (?, ?, ?, ?,
-                (SELECT au_user_id
-                 FROM AUTHUSER
-                 WHERE au_user_email = ?)
-                )`;
+        VALUES (?, ?, ?, ?, ${id})`;
     const params = [
         bank_name,
         bank_branch,
         bank_num,
-        bank_name_pers,
-        req.session.email
+        bank_name_pers
     ];
 
-    db.query(sql, params, (err, data_bank) => {
-        callback(err, res, data_bank)
+    db.query(sql, params, (err, result) => {
+        callback(err, result);
     })
-
 }
 
 
-AccountModel.addDebit = function (req, res, callback) {
-
-    if (!req.session.email) {
-        res.status(404).json({ message: 'Không tìm thấy email!!!' });
-        return;
-    }
-    const {
-        debit_num,
-        debit_end_date,
-        debit_CCV,
-        debit_name,
-        debit_address,
-        debit_postal,
-    } = req.body
-
+AccountModel.addDebit = ({
+    debit_num,
+    debit_end_date,
+    debit_CCV,
+    debit_name,
+    debit_address,
+    debit_postal,
+    id
+}, callback) => {
     const sql = `
-    INSERT INTO debitcard
+        INSERT INTO debitcard
         (debit_num,
         debit_end_date,
         debit_CCV,
@@ -74,12 +48,7 @@ AccountModel.addDebit = function (req, res, callback) {
         debit_address,
         debit_postal,
         au_user_id)
-        VALUES (?, ?, ?, ?, ?, ?,
-    (SELECT au_user_id
-     FROM AUTHUSER
-     WHERE au_user_email = ?)
-    );`;
-
+        VALUES (?, ?, ?, ?, ?, ?, ${id})`;
     const params = [
         debit_num,
         debit_end_date,
@@ -87,113 +56,80 @@ AccountModel.addDebit = function (req, res, callback) {
         debit_name,
         debit_address,
         debit_postal,
-        req.session.email
     ];
 
-    db.query(sql, params, (err, data_debit) => {
-        callback(err, res, data_debit)
+    db.query(sql, params, (err, result) => {
+        callback(err, result);
     })
-
 }
 
-AccountModel.cardAccount = function (req, res, callback) {
-    if (!req.session.email) {
-        res.status(404).json({ message: 'Không tìm thấy email!!!' });
-        return;
-    }
-
+AccountModel.cardAccount = ({ id }, callback) => {
     const sql = `
         SELECT BANK_ID AS 'BANK_ID', BANK_NAME as 'NAME', BANK_NUM AS 'NUM', 'BANK' as 'TYPE'
-        FROM view_BANKCARD AS A
-        INNER JOIN AUTHUSER AS B
-            ON A.au_user_id = B.au_user_id
-        WHERE B.au_user_email = ?
+        FROM view_BANKCARD
+        WHERE au_user_id = ${id}
         
         UNION
         
         SELECT DEBIT_ID AS 'DEBIT_ID', 'SACOMBANK' AS 'NAME', DEBIT_NUM AS 'NUM', 'DEBIT' as 'TYPE'
-        FROM view_DEBITCARD AS A
-        INNER JOIN AUTHUSER AS B
-            ON A.au_user_id = B.au_user_id
-        WHERE B.au_user_email = ?`;
-    const params = [req.session.email, req.session.email];
-
-    db.query(sql, params, (err, result, fields) => {
-        callback(err, res, result)
-    });
+        FROM view_DEBITCARD
+        WHERE au_user_id = ${id}
+        `;
+    db.query(sql, (err, result) => {
+        callback(err, result);
+    })
 }
 
 
 // [PUT] /account/delBank
-AccountModel.delBank = function (req, res, callback) {
-
-    req = {
-        'bank_id': '1'
-    }
-
+AccountModel.delBank = ({ id, bank_id }, callback) => {
     const sql = `
-        UPDATE bankcard
-        SET au_user_id = NULL
-        WHERE bank_id=?
-    `
-    const params = [req.bank_id];
-
-    db.query(sql, params, (err, data_del_bank) => {
-        callback(err, res, data_del_bank)
+            UPDATE bankcard
+            SET au_user_id = NULL
+            WHERE bank_id=?
+            and au_user_id=${id}
+        `
+    const params = [bank_id];
+    db.query(sql, params, (err, result) => {
+        callback(err, result);
     })
 }
 
-AccountModel.delDebit = function (req, res, callback) {
-
-    req = {
-        'debit_id': '12'
-    }
-
+AccountModel.delDebit = ({ id, debit_id }, callback) => {
     const sql = `
-        UPDATE debitcard
-        SET au_user_id = NULL
-        WHERE debit_id=?
-    `
-    const params = [req.debit_id];
-
-    db.query(sql, params, (err, data_del_debit) => {
-        callback(err, res, data_del_debit)
+            UPDATE debitcard
+            SET au_user_id = NULL
+            WHERE debit_id=?
+            and au_user_id=${id}
+        `
+    const params = [debit_id];
+    db.query(sql, params, (err, result) => {
+        callback(err, result);
     })
 }
 
-
-AccountModel.addReview = function (req, res, callback) {
-    req = {
-        'room_id': 'roo000000004',
-        'au_user_email': 'john.doe@example.com',
-        'rating_point': '9',
-        'rating_context': 'hello'
-    }
-
-    // const {
-    //     rating_point,
-    //     rating_context,
-    // } = req.body;
-
+AccountModel.addReview = ({
+    room_id,
+    rating_point,
+    rating_context,
+    id
+}, callback) => {
     const sql = `
         INSERT INTO rating
-            (rating_point,
-            rating_context,
-            room_id,
-            au_user_id)
-            VALUES (?, ?, ?,
-            (SELECT au_user_id
-             FROM AUTHUSER
-             WHERE au_user_email = ?)
-            );`;
+        (room_id,
+        rating_point,
+        rating_context,
+        au_user_id)
+        VALUES (?, ?, ?, ${id})`;
+    const params = [
+        room_id,
+        rating_point,
+        rating_context,
+    ];
 
-    const params = [req.rating_point, req.rating_context, req.room_id, req.au_user_email];
-
-    db.query(sql, params, (err, data_debit) => {
-        callback(err, res, data_debit)
+    db.query(sql, params, (err, result) => {
+        callback(err, result);
     })
-
 }
-
 
 module.exports = AccountModel

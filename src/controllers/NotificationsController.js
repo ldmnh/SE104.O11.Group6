@@ -2,72 +2,73 @@ const db = require('../config/db/connect');
 const NotificationModel = require('../models/notificationModel')
 
 
+// [GET] /notifications/account-update
 class NotificationController {
-    // [GET] /notifications/account-update
     notiAccountUpdate(req, res) {
-        NotificationModel.getNotiAccount(req, res, function (err, res, result) {
-            if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn!!!', });
-                throw err;
-            }
-            res.status(200).render('./pages/notification/account-update', {
-                message: 'Lấy thông tin phương thức thanh toán thành công',
-                data_noti: result,
-            });
-            // res.send({
-            //     message: 'Lấy thông tin phương thức thanh toán thành công',
-            //     data_noti: result,
-            // })
+        NotificationModel.getNoti({
+            "id": req.session.user?.id,
+            "noti_type": "Type 1"
+        }, (err, result) => {
+            if (err) throw err;
 
+            res.status(200).json({
+                data: result,
+            })
         })
     }
 
     // [PUT] /notifications/account-update
     updateNotiAccount(req, res) {
-        NotificationModel.notiAccountRead(req, res, function (err, res, data_notiacc_isread) {
+        NotificationModel.notiRead({
+            "id": req.session.user?.id,
+            "noti_type": "Type 1"
+        }, (err, result) => {
             if (err) throw err;
-            res.status(200).redirect('account-update')
+
+            res.status(200).json({
+                massage: "Đánh dấu đã đọc thông báo cập nhật tài khoản thành công"
+            })
         })
     }
 
     // [GET] /notifications/promotion
     notiPromotion(req, res) {
-        NotificationModel.getNotiPromotion(req, res, function (err, res, result) {
-            if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn!!!', });
-                throw err;
-            }
-            // const title = 'Thông báo'
-            res.status(200).render('./pages/notification/promotion', {
-                message: 'Lấy thông tin phương thức thanh toán thành công',
-                data_noti: result,
-            });
-            // res.send({
-            //     message: 'Lấy thông tin phương thức thanh toán thành công',
-            //     data_noti_Promotion: result,
-            // })
+        NotificationModel.getNoti({
+            "id": req.session.user?.id,
+            "noti_type": "Type 2"
+        }, (err, result) => {
+            if (err) throw err;
 
+            res.status(200).json({
+                data: result,
+            })
         })
-
     }
 
     // [PUT] /notifications/promotion
     updateNotiPromotion(req, res) {
-        NotificationModel.notiPromotionRead(req, res, function (err, res, data_notiacc_isread) {
+        NotificationModel.notiRead({
+            "id": req.session.user?.id,
+            "noti_type": "Type 2"
+        }, (err, result) => {
             if (err) throw err;
-            res.status(200).redirect('promotion')
+
+            res.status(200).json({
+                massage: "Đánh dấu đã đọc thông báo khuyến mãi thành công"
+            })
         })
     }
 
     // [POST] /notifications/read-all
     readAllNotification(req, res) {
-        NotificationModel.readAllNotification(req, res, function (err, res, data_read_all) {
+        NotificationModel.readAllNotification({
+            "id": req.session.user?.id,
+        }, (err, result) => {
             if (err) throw err;
-            res.status(200).redirect('account-update')
-            // res.send({
-            //     massage:"hello"
-            // })
 
+            res.status(200).json({
+                massage: "Đánh dấu đã đọc tất cả thông báo thành công"
+            })
         })
     }
 }
