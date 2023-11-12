@@ -22,19 +22,10 @@ body {
 .payment-account-container {
     margin-top: 12px;
     margin-bottom: 12px;
-    /* width: 80%; */
+    width: 80%;
     width: 1152px;
     display: flex;
     gap: 12px;
-}
-
-hr {
-    background-color: var(--outline-variant);
-    border-width: 2px;
-    width: 100%;
-    margin: 12px;
-    margin-left: 2px;
-    opacity: none;
 }
 
 .aside-content {
@@ -43,7 +34,7 @@ hr {
     width: 25%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--outline-variant);
     background: var(--white);
     height: 450px;
 }
@@ -76,7 +67,6 @@ hr {
     background-color: var(--primary-color-1);
     color: var(--white);
     border-radius: 8px;
-    padding: 12px;
 }
 
 .aside-content__img {

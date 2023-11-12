@@ -10,8 +10,26 @@ closePopupOtp2.addEventListener("click", () => {
   modalOtp.style.display = "none";
 });
 
+// const continueBtn = document.querySelector(".otp__button--submit2");
+// console.log(continueBtn, "hihi");
+// continueBtn.addEventListener("click", () => {
+//   window.location.href = "/account/card-fill";
+// });
+
+const currentPart = window.location.pathname;
+
 const continueBtn = document.querySelector(".otp__button--submit2");
-console.log(continueBtn, "hihi");
 continueBtn.addEventListener("click", () => {
-  window.location.href = "/account/card-fill";
+  let nextPart;
+  if (currentPart.includes("/booking/payment")) {
+    nextPart = "booking/success";
+  } else if (currentPart === "/account/card") {
+    nextPart = "account/card-fill";
+  } else {
+    nextPart = "fallback";
+  }
+
+  const nextURL = `/${nextPart}`;
+
+  window.location.href = nextURL;
 });

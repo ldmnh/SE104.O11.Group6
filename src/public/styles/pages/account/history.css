@@ -22,7 +22,7 @@ body {
 .booking-history-container {
     margin-top: 12px;
     margin-bottom: 12px;
-    /* width: 80%; */
+    width: 80%;
     width: 1152px;
     display: flex;
     gap: 12px;
@@ -34,7 +34,7 @@ body {
     width: 25%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--outline-variant);
     background: var(--white);
     height: 450px;
 }
@@ -83,6 +83,7 @@ body {
     color: var(--red);
     font-weight: 500;
     padding-left: 12px;
+    cursor: pointer;
 }
 
 .booking-history {

@@ -25,7 +25,21 @@ class BookingController {
 
   // [GET] /booking/payment
   payment(req, res) {
-    res.render("./pages/booking/payment");
+    const nav_tree__data = [
+      {
+        text: "Trang chủ",
+        link: "/",
+      },
+      {
+        text: "Đặt phòng",
+        link: "/booking/infomation",
+      },
+      {
+        text: "Thanh toán",
+        link: "/booking/payment",
+      },
+    ];
+    res.render("./pages/booking/payment", { nav_tree__data });
   }
 
   // [POST] /booking/payment

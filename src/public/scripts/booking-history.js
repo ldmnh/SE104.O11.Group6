@@ -40,8 +40,17 @@ reviewBtns.forEach((reviewBtn) => {
 //Khi nhấn vào nút xem chi tiết: detail-btn
 const detailBtns = document.querySelectorAll(".detail-btn");
 const redirect2OrderConfirmView = () => {
-  window.location.href = "/order-confirm";
+  window.location.href = "/booking/detail";
 };
 detailBtns.forEach((detailBtn) => {
   detailBtn.addEventListener("click", redirect2OrderConfirmView);
+});
+
+//Khi nhấn nút chính sách hủy phòng: cancel-policy
+const cancelPolicys = document.querySelectorAll(".cancel-policy");
+const redirect2CancelPolicy = () => {
+  window.location.href = "/terms-of-use";
+};
+cancelPolicys.forEach((cancelPolicy) => {
+  cancelPolicy.addEventListener("click", redirect2CancelPolicy);
 });
