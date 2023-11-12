@@ -248,6 +248,7 @@ hr {
     display: flex;
     flex-direction: column;
 }
+
 .section-content__confirm-detail {
     display: flex;
     flex-direction: column;
@@ -344,7 +345,7 @@ button.submit-booking {
     z-index: 10;
 }
 
-.form-check-input:checked[type="radio"] ~ .list-account {
+.form-check-input:checked[type="radio"]~.list-account {
     display: block;
 }
 

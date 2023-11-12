@@ -44,6 +44,7 @@ body {
     align-items: center;
     gap: 12px;
 }
+
 .aside-content__detail-bold {
     font-weight: 500;
     margin: 12px 0 0 0;

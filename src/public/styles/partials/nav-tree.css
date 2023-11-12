@@ -1,43 +1,43 @@
 .container--nav-tree {
-  width: 80%;
-  max-width: 1152px;
-  padding: 0;
-  margin: auto;
+	width: 80%;
+	max-width: 1152px;
+	padding: 0;
+	margin: auto;
 }
 
 .nav-tree {
-  height: 48px;
+	height: 48px;
 
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  & ul {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    width: 100%;
+	& ul {
+		display: flex;
+		flex-direction: row;
+		gap: 8px;
+		width: 100%;
 
-    padding: 0;
-    margin: 0;
+		padding: 0;
+		margin: 0;
 
-    & li {
-      display: inline;
-      padding: 0;
-      list-style-type: none;
+		& li {
+			display: inline;
+			padding: 0;
+			list-style-type: none;
 
-      &:not(:last-child)::after {
-        content: ">";
-        padding-left: 8px;
-      }
+			&:not(:last-child)::after {
+				content: ">";
+				padding-left: 8px;
+			}
 
-      &:last-child {
-        font-weight: bold;
-      }
+			&:last-child {
+				font-weight: bold;
+			}
 
-      & a {
-        text-decoration: none;
-        color: var(--color-text);
-      }
-    }
-  }
+			& a {
+				text-decoration: none;
+				color: var(--color-text);
+			}
+		}
+	}
 }

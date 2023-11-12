@@ -1,5 +1,3 @@
-@import url("/styles/base.css");
-
 .modal2 {
     position: fixed;
     display: none;
@@ -58,7 +56,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
+
 
 }
 
@@ -103,7 +101,9 @@ h2 {
     width: 100%;
     white-space: nowrap;
 }
-.form__item-2__date, .form__item-2__CCV{
+
+.form__item-2__date,
+.form__item-2__CCV {
     display: flex;
     gap: 12px;
     padding: 10px 0;
@@ -111,15 +111,18 @@ h2 {
     justify-content: center;
     width: 100%;
 }
-.form__item-2__date h3, .form__item-2__CCV h3 {
+
+.form__item-2__date h3,
+.form__item-2__CCV h3 {
     display: block;
     /* min-width: 40px; */
     font-size: 22px;
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    white-space:nowrap;
+    white-space: nowrap;
 }
+
 /* .form__item-2 {
     display: flex;
     flex-direction: row;
@@ -173,12 +176,13 @@ h2 {
     height: 48px;
 }
 
-.from__item-2__date{
+.from__item-2__date {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
- .from__item-2__CCV{
+
+.from__item-2__CCV {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -227,7 +231,7 @@ h2 {
     right: 19px;
 }
 
-.credit__close-btn:hover{
+.credit__close-btn:hover {
     cursor: pointer;
 }
 

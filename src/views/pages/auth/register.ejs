@@ -25,30 +25,41 @@
         <section class="register">
             <h1 class="register__title">Đăng ký</h1>
             <p class="register__note"> Thông tin có dấu <span class="red">*</span> là những thông tin bắt buộc.</p>
-            <form class="register__form form" id="register-form">
+            <!-- thêm action -->
+            <form class="register__form form" action="/auth/login" method="get" id="register-form">
                 <div class="row double">
                     <div class="col">
                         <label for="form__first-name" class="form-label">Họ <span class="red">*</span></label>
                         <input type="text" class="form-control form__first-name" id="form__first-name" placeholder="Nhập họ" />
+                        <div class="error"></div>
                     </div>
                     <div class="col">
                         <label for="form__last-name" class="form-label">Tên <span class="red">*</span></label>
                         <input type="text" class="form-control form__last-name" id="form__last-name" aria-describedby="emailHelp" placeholder="Nhập tên" />
+                        <div class="error"></div>
                     </div>
                 </div>
 
+                <!-- nhung them div input_form lồng email -->
                 <div class="row">
-                    <label for="form__email" class="form-label">Email <span class="red">*</span></label>
-                    <input type="email" class="form-control form__email" id="form__email" placeholder="Nhập email" />
+                    <div class="input_form">
+                        <label for="form__email" class="form-label">Email <span class="red">*</span></label>
+                        <!-- nhung để text -->
+                        <input type="text" class="form-control form__email" id="form__email" placeholder="Nhập email" />
+                        <div class="error"></div>
+                    </div>
                 </div>
 
                 <div class="row">
                     <label for="form__password" class="form-label">Mật khẩu <span class="red">*</span></label>
-                    <p class="form-text register__note">Đặt mật khẩu có ít nhất là 8 ký tự, trong đó có cả chữ và số.</p>
+                    <p class="form-text register__note">Đặt mật khẩu có ít nhất là 8 ký tự, trong đó có cả chữ và
+                        số.</p>
                     <div class="input_form">
                         <input type="password" class="form-control form__password" id="form__password" placeholder="Nhập mật khẩu" />
                         <span class="material-symbols-outlined" id="eye-open-psw">visibility</span>
+                        <div class="error"></div>
                     </div>
+                    <!-- <div class="error"></div> -->
                 </div>
 
                 <div class="row">
@@ -57,13 +68,15 @@
                     <div class="input_form">
                         <input type="password" class="form-control form__password-confirm" id="form__password-confirm" placeholder="Nhập lại mật khẩu" />
                         <span class="material-symbols-outlined" id="eye-open-cpsw">visibility</span>
+                        <div class="error"></div>
                     </div>
+                    <!-- <div class="error"></div> -->
                 </div>
-                <div class="error-message" id="error-message"></div>
+                <!-- <div class="error-message" id="error-message"></div> -->
                 <button id="register-button" type="submit" class="btn form__submit">Đăng ký</button>
             </form>
 
-            <a href="/login" class="btn register__login" role="button">Bạn đã có tài khoản? <span class="highlight">Đăng nhập</span></a>
+            <button class="btn register__login" role="button">Bạn đã có tài khoản? <span class="highlight">Đăng nhập</span></button>
             <p class="register__confirm">
                 Bằng việc đăng ký, bạn đã đồng ý với 2WAYS về <br />
                 <a href="#">điều khoản dịch vụ</a> và

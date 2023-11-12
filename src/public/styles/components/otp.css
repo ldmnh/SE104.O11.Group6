@@ -1,5 +1,3 @@
-@import url("/styles/base.css");
-
 .modal-otp {
 	position: fixed;
 	display: none;
@@ -97,6 +95,7 @@ h1 {
 	top: 16px;
 	right: 19px;
 }
+
 .otp__close-btn:hover {
 	cursor: pointer;
 }

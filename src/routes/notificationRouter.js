@@ -8,5 +8,4 @@ router.get('/account-update', NotificationController.notiAccountUpdate)
 
 router.get('/promotion', NotificationController.notiPromotion)
 
-
 module.exports = router
