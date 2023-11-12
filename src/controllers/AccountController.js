@@ -1,7 +1,8 @@
 class AccountController {
   // [GET] /account/information
   information(req, res) {
-    res.render("./pages/account/information");
+    const status = "success";
+    res.render("./pages/account/information", { status });
   }
 
   // [PUT] /account/

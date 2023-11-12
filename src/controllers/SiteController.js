@@ -21,8 +21,10 @@ class SiteController {
 
   // [GET] /error404
   error404(req, res) {
+    const data = "Xnhi";
     const title = "Không tìm thấy trang";
-    res.render("./pages/site/error404.ejs", { title });
+    const status = "success";
+    res.render("./pages/site/error404.ejs", { title, data, status });
   }
   // [GET] /about-us
   about(req, res) {

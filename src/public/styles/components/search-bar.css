@@ -20,9 +20,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 8px;
-    /* width: 1016px; */
     width: 130%;
+    padding: 8px;
 }
 
 .search-address {
@@ -31,29 +30,24 @@
     width: 100%;
     align-items: center;
     justify-content: flex-start;
-    margin: 20px;
-    height: 48px;
+    padding: 10px 8px;
+    gap: 8px;
 }
 
 .search-address span {
     color: var(--blue-gray);
     width: 24px;
     height: 24px;
-    margin-left: 4px;
 }
 
 .search-address .input_address {
-    margin-left: 10px;
     background-color: var(--white);
     color: var(--blue-gray);
-    height: 45px;
     width: 100%;
     border: none;
     outline: none;
     text-decoration: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
 }
 

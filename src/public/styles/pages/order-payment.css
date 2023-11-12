@@ -255,7 +255,7 @@ hr {
     border: 1px solid var(--outline-variant);
     border-radius: 12px;
     padding: 12px;
-    align-items: center;
+    align-items: stretch;
 }
 
 .button-confirm {
