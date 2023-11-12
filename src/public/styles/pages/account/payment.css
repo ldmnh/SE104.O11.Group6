@@ -1,14 +1,15 @@
 @import url("/styles/base.css");
-@import url("/styles/partials/header-small.css");
-/* @import url("/styles/components/room-in-hs.css"); */
+@import url("/styles/partials/header-medium.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/components/bank-account-popup.css");
 @import url("/styles/components/credit-account-popup.css");
+@import url("/styles/components/otp.css");
+@import url("/styles/components/success-popup.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 body {
@@ -18,7 +19,7 @@ body {
     align-items: center;
 }
 
-.paymentaccount--container {
+.payment-account-container {
     margin-top: 12px;
     margin-bottom: 12px;
     /* width: 80%; */
@@ -28,7 +29,7 @@ body {
 }
 
 hr {
-    background-color: #bec8c9;
+    background-color: var(--outline-variant);
     border-width: 2px;
     width: 100%;
     margin: 12px;
@@ -36,89 +37,97 @@ hr {
     opacity: none;
 }
 
-.aside--wrapper {
+.aside-content {
     display: flex;
     flex-direction: column;
     width: 25%;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    background: #fff;
+    background: var(--white);
     height: 450px;
 }
 
-.aside--content {
+.aside-content__profile {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.aside--section {
+.aside-content__section {
     font-weight: 500;
 }
 
-.aside--section p {
+.aside-content__section p {
     padding: 12px;
     height: 48px;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
-.aside--section p:hover {
+.aside-content__section p:hover {
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--gray);
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.aside--section p:nth-child(3) {
-    background-color: #004f52;
-    color: white;
+.aside-content__section p:nth-child(3) {
+    background-color: var(--primary-color-1);
+    color: var(--white);
     border-radius: 8px;
     padding: 12px;
 }
 
-.aside--wrapper img {
+.aside-content__img {
     height: 64px;
     width: 64px;
     border-radius: 100%;
 }
 
-.aside--item p {
-    color: var(--material-theme-sys-light-error, #ba1a1a);
+.aside-content__detail-bold {
+    font-weight: 500;
+    margin: 12px 0 0 0;
+}
+
+.aside-content__item p {
+    color: var(--red);
     font-weight: 500;
     padding-left: 12px;
 }
 
-.form--input {
+.form {
     padding: 24px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     width: 75%;
+    align-items: start;
 }
 
-.card--items {
+.form__card-items {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
 }
 
-.card--item {
+.form__card-item {
     display: flex;
     gap: 30px;
     padding: 12px;
     flex-direction: column;
-    height: 200px;
+    /* height: 200px; */
     width: 814px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
 }
 
-.card--item h1 {
+.form__card-item h1 {
     font-size: 24px;
     font-weight: 600px;
 }
 
-.card--item h2 {
+.form__card-item h2 {
     font-size: 22px;
     font-weight: 500px;
     color: rgba(0, 0, 0, 0.38);
@@ -129,8 +138,8 @@ hr {
     width: 160px;
     height: 48px;
     border-radius: 8px;
-    background-color: #085457;
-    color: white;
+    background-color: var(--primary-color-1);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
@@ -139,22 +148,71 @@ hr {
     width: 251px;
     height: 48px;
     border-radius: 8px;
-    background-color: #085457;
-    color: white;
+    background-color: var(--primary-color-1);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
 
-.debit-credit-card,
-.bank-account {
+.form__debit-credit-card,
+.form__bank-account {
     display: flex;
     justify-content: space-between;
 }
 
-.profileBtn,
-.historyBtn,
-.accountPaymentBtn,
-.changePasswordBtn,
-.logoutBtn {
+.profile-btn,
+.history-btn,
+.accountPayment-btn,
+.changePassword-btn,
+.logout-btn {
     cursor: pointer;
+}
+
+.form__card-detail,
+.form__debit-detail-one,
+.form__debit-credit-card,
+.forn__bank-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__card-detail img,
+.form__debit-detail-one img {
+    width: 38.491px;
+    height: 30px;
+}
+
+.form__card-detail,
+.form__debit-detail-one p {
+    margin: 0;
+    padding: 0;
+}
+
+.form__card-detail .name-bank,
+.form__debit-detail-one .name-bank {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.form__card-detail .line-delete {
+    text-decoration-line: underline;
+}
+
+button.filled-default {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    color: #bec8c9;
+    border: 1px solid #bec8c9;
+    border-radius: 8px;
+}
+
+button.unfilled-default {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    color: #085457;
+    border: 1px solid #085457;
+    border-radius: 8px;
 }

@@ -10,8 +10,8 @@
                     <p>50 m<sup>2</sup></p>
                 </div>
                 <div class="room__feature">
-                    <button type="button" class="btn">Máy lạnh</button>
-                    <button type="button" class="btn">Bồn tắm</button>
+                    <p>Máy lạnh</p>
+                    <p>Bồn tắm</p>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
                         <p class="room__origin-price"><del>VND </del></p>
                         <p class="room__price"></p>
                         <p class="room__unit">/phòng/đêm</p>
-                        <button type="button" class="bt" data-bs-toggle="modal" data-bs-target="#room-detail">Xem chi tiết phòng</button>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#room-detail">Xem chi tiết phòng</button>
                     </div>
                 </div>
             </div>
@@ -77,15 +77,15 @@
                 <div class="modal__view">
                     <h1></h1>
                     <div class="modal__view--big">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                        <img src="/imgs/details/1.jpg" alt="">
-                        <span class="material-symbols-outlined">chevron_right</span>
+                        <button onclick="prevSlide(event)" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
+                        <img class="modal__slide" src="/imgs/details/1.jpg" alt="">
+                        <button onclick="nextSlide(event)" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
                     </div>
                     <div class="modal__view--small">
-                        <img src="/imgs/details/2.jpg" alt="">
-                        <img src="/imgs/details/3.jpg" alt="">
-                        <img src="/imgs/details/4.jpg" alt="">
-                        <img src="/imgs/details/1.jpg" alt="">
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/1.jpg" alt=""></button>
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/2.jpg" alt=""></button>
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/3.jpg" alt=""></button>
+                        <button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/details/4.jpg" alt=""></button>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                     <div class="detail__info">
                         <div class="modal__header">
                             <h2>Thông tin phòng</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button onclick="resetSlide(event)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="detail__item">
                             <span class="material-symbols-outlined">square_foot</span>

@@ -1,6 +1,6 @@
-const profileBtn = document.querySelector(".profileBtn")
-const historyBtn = document.querySelector(".historyBtn");
-const changePasswordBtn = document.querySelector(".changePasswordBtn");
+const profileBtn = document.querySelector(".profile-btn");
+const historyBtn = document.querySelector(".history-btn");
+const changePasswordBtn = document.querySelector(".change-password-btn");
 
 const redirect2profiletView = () => {
     window.location.href = "/account/information"
@@ -15,7 +15,7 @@ profileBtn.addEventListener("click", redirect2profiletView)
 historyBtn.addEventListener("click", redirect2HistoryView);
 changePasswordBtn.addEventListener("click", redirect2changePasswordView);
 
-const logoutBtn = document.querySelector('.logoutBtn')
+const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
     window.location.href = "/auth/logout"
@@ -23,20 +23,21 @@ const redirect2LogOutView = () => {
 
 logoutBtn.addEventListener("click", redirect2LogOutView)
 
+logoutBtn.addEventListener("click", redirect2LogOutView);
 
 //
-const addBankAccountpopup = document.querySelector('.modal');
-const addBankAccountBtn = document.querySelector('.addBankAccountBtn');
+const addBankAccountpopup = document.querySelector(".modal");
+const addBankAccountBtn = document.querySelector(".add-bank-account-btn");
 
 const onClickAddBankAccountBtn = () => {
-    addBankAccountpopup.style.display = 'block';
+  addBankAccountpopup.style.display = "block";
 };
-addBankAccountBtn.addEventListener('click', onClickAddBankAccountBtn);
+addBankAccountBtn.addEventListener("click", onClickAddBankAccountBtn);
 
 //
-const addCreditAccountpopup = document.querySelector('.modal2');
-const addCreditAccountBtn = document.querySelector('.addCreditAccountBtn');
+const addCreditAccountpopup = document.querySelector(".modal2");
+const addCreditAccountBtn = document.querySelector(".add-credit-account-btn");
 const onClickAddCreditAccountBtn = () => {
-    addCreditAccountpopup.style.display = 'block';
+  addCreditAccountpopup.style.display = "block";
 };
-addCreditAccountBtn.addEventListener('click', onClickAddCreditAccountBtn);
+addCreditAccountBtn.addEventListener("click", onClickAddCreditAccountBtn);
