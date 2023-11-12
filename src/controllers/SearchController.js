@@ -1,5 +1,4 @@
 const db = require('../config/db/connect');
-const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const accoRoomDetail = require('../models/AccoRoomDetail.model')
@@ -82,17 +81,8 @@ class SearchController {
             ON X.room_id = Y.room_id`;
         const searchQuery = `%${location}%`;
         const params = [
-            searchQuery,
-            searchQuery,
-            adult,
-            child,
-            checkIn,
-            checkIn,
-            checkOut,
-            checkOut,
-            checkIn,
-            checkOut,
-            room,
+            searchQuery, searchQuery, adult, child, checkIn, checkIn,
+            checkOut, checkOut, checkIn, checkOut, room,
         ];
 
         db.query(sql, params, (err, result) => {
@@ -110,32 +100,37 @@ class SearchController {
 
     }
 
-        // [GET] /search/:acco_id
-        accoDetail(req, res) {
-            accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
-                res.status(200).render('./pages/search/detail', {
-                    message: 'Lấy thông tin thành công',
-                    accoDetail : accoDetail, 
-                    accoFea: accoFea, 
-                    accoImg: accoImg, 
-                    accoRoom: accoRoom, 
-                    accoRoomRating: accoRoomRating,
-                })
-
-                // res.send({
-                //     message: 'Lấy thông tin thành công',
-                //     accoDetail : accoDetail, 
-                //     accoFea: accoFea, 
-                //     accoImg: accoImg, 
-                //     accoRoom: accoRoom, 
-                //     accoRoomRating: accoRoomRating,
-                // })
+    // [GET] /search/:acco_id
+    accoDetail(req, res) {
+        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
+            res.status(200).render('./pages/search/detail', {
+                // res.status(200).json({
+                message: 'Lấy thông tin thành công',
+                accoDetail: accoDetail,
+                accoFea: accoFea,
+                accoImg: accoImg,
+                accoRoom: accoRoom,
+                accoRoomRating: accoRoomRating,
             })
-        }
+        })
+    }
 
-    // [PORT] /search:acco_id
+    // [POST] /search:acco_id
     submitBooking(req, res) {
-        console.log(req.body)
+        const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
+
+        req.session.acco = { id: acco_id }
+
+        req.session.rooms = room_number.map((value, index) => {
+            return {
+                id: Number(room_id[index]),
+                num: Number(value),
+                cost_before: Number(room_cost_before[index]),
+                cost_after: Number(room_cost_after[index]),
+            };
+        }).filter(value => value.num > 0);
+
+        res.redirect('/booking/information');
     }
 
 }
