@@ -33,7 +33,7 @@ body {
     border-radius: 8px;
     border: 1px solid var(--outline-variant);
     background: var(--white);
-    height: 450px;
+    align-self: flex-start;
 }
 
 .aside-content__profile {
@@ -58,7 +58,8 @@ body {
     cursor: pointer;
 }
 
-.aside-section p:hover {
+.aside-section p:hover,
+.logout-btn:hover {
     border-radius: 8px;
     background-color: var(--gray);
     transition: 0.3s;
@@ -80,7 +81,7 @@ body {
 .aside-item p {
     color: var(--red);
     font-weight: 500;
-    padding-left: 12px;
+    margin: 12px;
 }
 
 .form {

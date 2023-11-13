@@ -25,6 +25,8 @@ continueBtn.addEventListener("click", () => {
     nextPart = "booking/success";
   } else if (currentPart === "/account/card") {
     nextPart = "account/card-fill";
+  } else if (currentPart === "/account/card-fill") {
+    nextPart = "account/card-fill";
   } else {
     nextPart = "fallback";
   }

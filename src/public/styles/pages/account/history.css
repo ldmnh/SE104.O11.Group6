@@ -23,7 +23,7 @@ body {
     margin-top: 12px;
     margin-bottom: 12px;
     width: 80%;
-    width: 1152px;
+    max-width: 1152px;
     display: flex;
     gap: 12px;
 }
@@ -36,7 +36,7 @@ body {
     border-radius: 8px;
     border: 1px solid var(--outline-variant);
     background: var(--white);
-    height: 450px;
+    align-self: flex-start;
 }
 
 .aside-content__profile {
@@ -60,7 +60,8 @@ body {
     cursor: pointer;
 }
 
-.aside-content__section p:hover {
+.aside-content__section p:hover,
+.logout-btn:hover {
     border-radius: 8px;
     background-color: var(--gray);
     transition: 0.3s;
@@ -82,7 +83,7 @@ body {
 .aside-content__item p {
     color: var(--red);
     font-weight: 500;
-    padding-left: 12px;
+    margin: 12px;
     cursor: pointer;
 }
 
