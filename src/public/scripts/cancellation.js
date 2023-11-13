@@ -8,3 +8,4 @@ const cancelButtonSubmit2=document.querySelector('.cancel__button--submit2')
 cancelButtonSubmit2.addEventListener('click',()=>{
     window.location.href = '/';
 })
+
