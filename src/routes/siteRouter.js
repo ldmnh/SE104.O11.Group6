@@ -17,7 +17,7 @@ router.get('/', SiteController.index)
 
 router.get('/testing2', (req, res) => {
     req.session.loggIn = true;
-    req.session.userId = 'usr000000001'
+    req.session.userId = '1'
     res.status(200).json({ userId: req.session.userId, message: 'ok' });
 });
 

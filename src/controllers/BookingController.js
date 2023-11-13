@@ -1,3 +1,4 @@
+const bookingModel = require('../models/booking.model')
 class BookingController {
 
     // [GET] /booking/information
@@ -7,12 +8,23 @@ class BookingController {
             rooms: req.session.rooms,
         };
 
-        const nav_tree__data = [
-            { text: 'Trang chủ', link: '/' },
-            { text: 'Đặt phòng', link: '/booking' },
-            { text: 'Thông tin đặt phòng', link: '/booking/information' }
+        const nav_tree__data = [{
+                text: 'Trang chủ',
+                link: '/'
+            },
+            {
+                text: 'Đặt phòng',
+                link: '/booking'
+            },
+            {
+                text: 'Thông tin đặt phòng',
+                link: '/booking/information'
+            }
         ]
-        res.render('./pages/booking/information', { nav_tree__data, data })
+        res.render('./pages/booking/information', {
+            nav_tree__data,
+            data
+        })
     }
 
     // [POST] /booking/information
@@ -24,7 +36,8 @@ class BookingController {
             book_num_child,
             book_email,
             book_phone,
-            book_note } = req.body;
+            book_note
+        } = req.body;
 
         req.session.book = {
             'book_first_name': book_first_name,
@@ -40,13 +53,23 @@ class BookingController {
 
     // [GET] /booking/payment
     payment(req, res) {
-        const nav_tree__data = [
-            { text: 'Trang chủ', link: '/' },
-            { text: 'Đặt phòng', link: '/booking' },
-            { text: 'Phương thức thanh toán', link: '/booking/payment' }
+        const nav_tree__data = [{
+                text: 'Trang chủ',
+                link: '/'
+            },
+            {
+                text: 'Đặt phòng',
+                link: '/booking'
+            },
+            {
+                text: 'Phương thức thanh toán',
+                link: '/booking/payment'
+            }
         ]
 
-        res.status(200).render('./pages/booking/payment', { nav_tree__data })
+        res.status(200).render('./pages/booking/payment', {
+            nav_tree__data
+        })
     }
 
     // [POST] /booking/payment
@@ -61,7 +84,17 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        res.render('./pages/booking/detail')
+        bookingModel.getDetail(req, res, function (err, booking, bookingDetails) {
+            if (err) throw err;
+            res.render('./pages/booking/detail', {
+                booking: booking,
+                bookingDetails: bookingDetails,
+            })
+            // res.send({
+            //     booking: booking,
+            //     bookingDetails: bookingDetails,
+            // })
+        })
     }
 
     // [GET] /booking/cancel
