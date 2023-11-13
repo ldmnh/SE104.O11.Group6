@@ -1,7 +1,13 @@
+const db = require('../config/db/connect');
+const AccountModel = require('../models/accountModel')
 const authuser = require('../models/authuser.model');
 const accountHistory = require('../models/accountHistory.model');
 
 class AccountController {
+    // [GET] /account/information
+    information(req, res) {
+        res.render("./pages/account/information");
+    }
 
     // [GET] /account/information
     information(req, res) {
@@ -27,44 +33,30 @@ class AccountController {
                     }
                 });
             } else {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!'
-                });
+                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
             }
         })
     }
 
     // [PUT] /account/information
     informationPut(req, res) {
+        const email = req.session.user?.email;
         const {
-            account_first_name,
-            account_last_name,
-            account_birthday,
-            account_sex
+            first_name, last_name, birthday, sex
         } = req.body;
 
         authuser.putInfoByEmail({
-            "email": req.session.user.email,
-            "first_name": account_first_name,
-            "last_name": account_last_name,
-            "birthday": account_birthday,
-            "sex": account_sex
+            email, first_name, last_name, birthday, sex
         }, (err, result) => {
             if (err) {
-                res.status(500).json({
-                    message: 'Lỗi truy vấn!!!'
-                });
+                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
                 throw err;
             }
 
             if (result.affectedRows === 0) {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!'
-                });
+                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
             } else {
-                res.status(200).json({
-                    message: 'Cập nhật thông tin tài khoản thành công'
-                });
+                res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
             }
         })
     }
@@ -85,29 +77,130 @@ class AccountController {
         })
     }
 
-    // [GET] /account/payment
-    payment(req, res) {
-        res.render('./pages/account/payment')
+    // [POST] /account/booking-history
+    addReview(req, res) {
+        const {
+            // room_id section trước lưu lại
+            room_id,
+            rating_point,
+            rating_context,
+        } = req.body;
+
+        AccountModel.addReview({
+            room_id,
+            rating_point,
+            rating_context,
+            id: req.session.user?.id
+        }, (err, result) => {
+            if (err) throw err;
+
+            res.status(200).json({
+                message: "Thêm đánh giá phòng thành công",
+            })
+        })
+
     }
 
-    // [POST] /account/payment/addBank
+
+
+    // [GET] /account/change-password
+    showChangeForm(req, res) {
+        res.render('./pages/account/change-password')
+    }
+
+    // [GET] /account/card
+    card(req, res) {
+        AccountModel.cardAccount({
+            "id": req.session.user?.id,
+        }, (err, result) => {
+            if (err) throw err;
+
+            res.status(200).json({
+                massage: "Lấy thông tin thẻ thành công",
+                data: result
+            })
+        })
+    }
+
+
+    // [POST] /account/card/addBank
     addBank(req, res) {
-        res.send("addBank")
+        const {
+            bank_name,
+            bank_branch,
+            bank_num,
+            bank_name_pers
+        } = req.body;
+
+        AccountModel.addBank({
+            bank_name,
+            bank_num,
+            bank_branch,
+            bank_name_pers,
+            id: req.session.user?.id
+        }, (err, result) => {
+            if (err) throw err;
+
+            res.status(200).json({
+                message: "Thêm thẻ ngân hàng thành công",
+            })
+        })
     }
 
-    // [POST] /account/payment/addDebit
+    // [POST] /account/card/addDebit
     addDebit(req, res) {
-        res.send("addDebit")
+        const {
+            debit_num,
+            debit_end_date,
+            debit_CCV,
+            debit_name,
+            debit_address,
+            debit_postal
+        } = req.body;
+
+        AccountModel.addDebit({
+            debit_num,
+            debit_end_date,
+            debit_CCV,
+            debit_name,
+            debit_address,
+            debit_postal,
+            id: req.session.user?.id
+        }, (err, result) => {
+            if (err) throw err;
+
+            res.status(200).json({
+                message: "Thêm thẻ tín dụng thành công",
+            })
+        })
     }
 
-    // [POST] /account/payment/delBank
+    // [PUT] /account/card/delBank
     delBank(req, res) {
-        res.send("delBank")
+        AccountModel.delBank({
+            "id": req.session.user?.id,
+            "bank_id": "4"
+        }, (err, result) => {
+            if (err) throw err;
+
+            res.status(200).json({
+                massage: "Xóa thẻ ngân hàng thành công"
+            })
+        })
     }
 
-    // [POST] /account/payment/delDebit
+    // [PUT] /account/card/delDebit
     delDebit(req, res) {
-        res.send("delDebit")
+        AccountModel.delDebit({
+            "id": req.session.user?.id,
+            "debit_id": "4"
+        }, (err, result) => {
+            if (err) throw err;
+
+            res.status(200).json({
+                massage: "Xóa thẻ tín dụng thành công"
+            })
+        })
     }
 
     // [GET] /account/change-password
@@ -116,4 +209,4 @@ class AccountController {
     }
 }
 
-module.exports = new AccountController()
+module.exports = new AccountController();

@@ -10,7 +10,6 @@
  * @param {Function} next - Express next function
  */
 exports.isChoosingRooms = (req, res, next) => {
-    console.log(`isChoosingRooms: ${req.session.rooms}`)
     if (req.session.rooms) { next(); }
     else { res.status(401).redirect('/'); }
 }

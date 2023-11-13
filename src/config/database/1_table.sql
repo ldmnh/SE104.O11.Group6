@@ -194,7 +194,7 @@ CREATE TABLE Booking
     book_end_datetime   datetime        NOT NULL,
     book_num_adult      int             NOT NULL,
     book_num_child      int             NOT NULL,
-    book_cost_before    float           NOT NULL,
+    book_cost_before    float           NOT NULL    DEFAULT 0,
     book_cost_after     float           NOT NULL    DEFAULT 0,
     book_first_name     char(50)        NOT NULL,
     book_last_name      char(50)        NOT NULL,
