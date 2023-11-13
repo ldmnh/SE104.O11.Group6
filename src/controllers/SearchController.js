@@ -1,7 +1,7 @@
 const db = require('../config/db/connect');
 const jwt = require('jsonwebtoken')
 
-const accoRoomDetail = require('../models/AccoRoomDetail.model')
+const accoRoomDetail = require('../models/accoRoomDetail.model')
 
 class SearchController {
 

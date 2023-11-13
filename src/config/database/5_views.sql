@@ -117,5 +117,9 @@ SELECT
     booking.book_is_paid,
     booking.au_user_id
 FROM accommodation, booking
-WHERE
-    accommodation.acco_id = booking.acco_id;
+WHERE accommodation.acco_id = booking.acco_id;
+
+CREATE VIEW view_booking_detail AS
+SELECT bookingdetail.*, roomtype.room_class, roomtype.room_type, roomtype.room_details_img_url 
+FROM bookingdetail, roomtype
+WHERE roomtype.room_id = bookingdetail.room_id

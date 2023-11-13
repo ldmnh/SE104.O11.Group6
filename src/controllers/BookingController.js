@@ -2,6 +2,7 @@ const accommodation = require('../models/accommodation.model');
 const authuser = require('../models/authuser.model');
 const booking = require('../models/booking.model');
 
+const bookingModel = require('../models/booking.model')
 class BookingController {
 
     // [GET] /booking/information
@@ -163,7 +164,17 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        res.render("./pages/booking/detail");
+        bookingModel.getDetail(req, res, function (err, booking, bookingDetails) {
+            if (err) throw err;
+            res.render('./pages/booking/detail', {
+                booking: booking,
+                bookingDetails: bookingDetails,
+            })
+            // res.send({
+            //     booking: booking,
+            //     bookingDetails: bookingDetails,
+            // })
+        })
     }
 
     // [GET] /booking/cancel
