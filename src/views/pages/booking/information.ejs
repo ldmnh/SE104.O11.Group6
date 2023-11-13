@@ -24,14 +24,14 @@
                         <h6><%= data.acco.type %></h6>
                         <div class="starts-icon">
                             <% for (let i = 0; i < data.acco.star; i++ ) {%>
-                                <span class="material-symbols-outlined filled-start">
-                                    star_rate
-                                </span>
+                            <span class="material-symbols-outlined filled-start">
+                                star_rate
+                            </span>
                             <% } %>
                             <% for (let i = data.acco.star; i < 5; i++ ) {%>
-                                <span class="material-symbols-outlined unfilled-start">
-                                    star_rate
-                                </span>
+                            <span class="material-symbols-outlined unfilled-start">
+                                star_rate
+                            </span>
                             <% } %>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                 </div>
 
             </aside>
-            <form style="gap: 12px; display: flex; flex-direction: column" method="POST" action="/booking/info">
+            <form style="gap: 12px; display: flex; flex-direction: column" method="POST" action="/booking/information">
                 <section id="" class="section--content">
                     <div class="confirm-account">
                         <img src="/imgs/milo.jpg" alt="" />
