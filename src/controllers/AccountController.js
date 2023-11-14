@@ -124,15 +124,21 @@ class AccountController {
 
     // [GET] /account/card
     card(req, res) {
-        AccountModel.cardAccount({
-            "id": req.session.user?.id,
-        }, (err, result) => {
-            if (err) throw err;
+        // AccountModel.cardAccount({
+        //     "id": req.session.user?.id,
+        // }, (err, result) => {
+        //     if (err) throw err;
 
-            res.status(200).json({
-                massage: "Lấy thông tin thẻ thành công",
-                data: result
-            })
+        //     res.status(200).json({
+        //         massage: "Lấy thông tin thẻ thành công",
+        //         data: result
+        //     })
+        // })
+
+        AccountModel.getBankById({
+            id: req.session.user?.id,
+        }, (err, result) => {
+
         })
     }
 

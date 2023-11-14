@@ -17,7 +17,7 @@ NotificationModel.getNoti = ({ id, noti_type }, callback) => {
             CONCAT(
                 RIGHT('0' + CAST(DAY(noti_datetime) AS VARCHAR(2)), 2),
                 RIGHT('0' + CAST(MONTH(noti_datetime) AS VARCHAR(2)), 2),
-                CAST(MONTH(noti_datetime) AS VARCHAR(4))
+                CAST(YEAR(noti_datetime) AS VARCHAR(4))
             ) AS noti_date,
             noti_content,
             noti_dest_url,
