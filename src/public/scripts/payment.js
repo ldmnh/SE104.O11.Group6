@@ -31,11 +31,3 @@ const redirect2AccountPagee = () => {
 
 addCreditCardBtn.addEventListener("click", redirect2AccountPagee);
 
-// Nhan vao nut xoa
-const deleteBtn = document.querySelectorAll(".delete-btn");
-const modalCard = document.querySelector(".form__debit-detail-one");
-deleteBtn.forEach((item) => {
-  item.addEventListener("click", () => {
-    modalCard.style.opacity = 0;
-  });
-});
