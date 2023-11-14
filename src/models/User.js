@@ -1,6 +1,4 @@
-const db = require('../config/db/connect');
-const bcrypt = require('bcrypt');
-const { query } = require('express');
+const db = require("../config/db/connect");
 
 const User = function (user) {
     // this.name = user.name;
@@ -9,16 +7,19 @@ const User = function (user) {
 };
 
 User.findByEmail = (email, results) => {
-    db.query(`SELECT * from authuser WHERE au_user_email = '${email}'`, (err, result) => {
-        if (err) {
-            results(err, null)
-            return;
+    db.query(
+        `SELECT * from authuser WHERE au_user_email = '${email}'`,
+        (err, result) => {
+            if (err) {
+                results(err, null);
+                return;
+            }
+            if (result.length > 0) {
+                results(null, result[0]);
+                return;
+            }
+            results(null, null);
         }
-        if (result.length > 0) {
-            results(null, result[0])
-            return;
-        }
-        results(null, null);
-    });
-}
+    );
+};
 module.exports = User;
