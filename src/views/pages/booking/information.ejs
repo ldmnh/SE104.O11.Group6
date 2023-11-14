@@ -12,10 +12,12 @@
 </head>
 
 <body>
-    <%- include('../../partials/header-small') %>
-    <!--  -->
-    <%- include('../../partials/nav-tree', { nav_tree__data }) %>
-    <!--  -->
+    <%- include('../../partials/header-small', { status: 'success' }) %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Đặt phòng', link: null },
+        { text: 'Thông tin', link: "/booking/info" }
+    ] }) %>
     <main>
         <div class="payment--container">
             <aside class="aside--wrapper">

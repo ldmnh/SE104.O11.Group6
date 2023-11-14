@@ -1,7 +1,3 @@
-const db = require('../config/db/connect')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-
 class SiteController {
 
     // [GET] /
@@ -11,131 +7,20 @@ class SiteController {
 
     // [GET] /about-us
     about(req, res) {
-        const nav_tree__data = [
-            { name: 'Giới thiệu', link: '/about' }
-        ]
-        res.render('./pages/site/about', { nav_tree__data })
-    }
-
-    // [POST] /search-results
-    search(req, res) {
-        const title = 'Kết quả tìm kiếm'
-        const { location, checkIn, checkOut, adult, child, room } = req.body
-
-        const sql = `
-            SELECT X.room_id
-            FROM 
-            (
-                SELECT room_id
-                FROM roomtype AS E
-                INNER JOIN    
-                    (
-                    SELECT acco_id
-                    FROM accommodation AS A
-                    INNER JOIN 
-                        (
-                        SELECT prov_id
-                        FROM province
-                        WHERE prov_name LIKE ?
-                        ) AS B
-                    ON A.prov_id = B.prov_id
-
-                    UNION
-
-                    SELECT acco_id
-                    FROM accommodation AS C
-                    INNER JOIN 
-                        (
-                        SELECT city_id
-                        FROM city
-                        WHERE city_name LIKE ?
-                        ) AS D
-                    ON C.city_id = D.city_id
-                    ) AS F
-                ON E.acco_id = F.acco_id
-                WHERE E.room_max_adult >= ? AND E.room_max_child >= ?
-                ) AS X
-                INNER JOIN
-                (
-                SELECT FF.room_id, room_available
-                FROM 
-                (
-                    (
-                    SELECT AA.room_id
-                    FROM roomtype AS AA
-                    WHERE AA.room_id NOT IN 
-                    (
-                        SELECT BB.room_id
-                        FROM 
-                        (
-                            SELECT DD.*
-                            FROM booking AS CC
-                            INNER JOIN
-                                bookingdetail AS DD
-                            ON CC.book_id = DD.book_id
-                            WHERE (? >= CC.book_start_datetime AND ? <= CC.book_end_datetime)
-                                OR  (? >= CC.book_start_datetime AND ? <= CC.book_end_datetime)
-                                OR  (? < CC.book_start_datetime AND ? > CC.book_end_datetime)
-                        ) AS BB
-                    )
-                    ) AS EE
-                    INNER JOIN 
-                    (
-                    SELECT RT.room_id,
-                        (RT.room_total - COALESCE(SUM(BD.book_num_room), 0)) AS room_available
-                    FROM RoomType AS RT
-                    LEFT JOIN BookingDetail AS BD ON RT.room_id = BD.room_id
-                    GROUP BY RT.room_id, RT.room_total
-                    HAVING room_available >= ?
-                    ) AS FF
-                    ON EE.room_id = FF.room_id
-                )
-            ) AS Y
-            ON X.room_id = Y.room_id`
-        const searchQuery = `%${location}%`
-        const params = [
-            searchQuery,
-            searchQuery,
-            adult,
-            child,
-            checkIn,
-            checkIn,
-            checkOut,
-            checkOut,
-            checkIn,
-            checkOut,
-            room,
-        ]
-
-        db.query(sql, params, (err, result) => {
-            const formattedSQL = formatSQL(sql, params)
-            console.log('Formatted SQL Statement:', formattedSQL)
-            if (err) {
-                console.error('Database error:', err)
-                res.status(500).json({ message: 'Lỗi truy cập cơ sở dữ liệu' })
-            } else {
-                if (result.length > 0) {
-                    res.status(200).json({ message: 'Đã tìm thành công', data: result })
-                } else {
-                    res.status(404).json({ message: 'Không tìm thấy kết quả' })
-                }
-            }
-        })
+        res.render('./pages/site/about')
     }
 
     // [GET] /error404
     error404(req, res) {
-        const data = 'Xnhi'
-        const title = 'Không tìm thấy trang'
-        const status = 'success'
-        res.render('./pages/site/error404.ejs', { title, data, status })
+        res.render('./pages/site/error404.ejs')
     }
 
-    // [GET] /
+    // [GET] /term-of-use
     termOfUse(req, res) {
         res.render('./pages/site/terms-of-use')
     }
 
+    // [GET] /privacy-policy
     privacyPolicy(req, res) {
         res.render('./pages/site/privacy-policy')
     }

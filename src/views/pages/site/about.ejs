@@ -9,11 +9,16 @@
     <title>2WAYS.com</title>
     <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/pages/site/about.css" />
+    <script src="/scripts/base.js"></script>
 </head>
 
 <body>
     <%# include('../../partials/header-small') %>
-    <%- include('../../partials/nav-tree', { nav_tree__data }) %>
+    <%- include('../../components/on-top-btn') %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Giới thiệu', link: "/about"}
+    ] }) %>
     <main>
         <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
         <section>
