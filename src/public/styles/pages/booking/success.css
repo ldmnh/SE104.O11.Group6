@@ -94,6 +94,11 @@ h3 {
     color: var(--white);
 }
 
+a.order-btn {
+    width: 25%;
+    text-indent: 8px;
+}
+
 .order-btn:hover {
     color: white;
 }
