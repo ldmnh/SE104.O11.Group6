@@ -12,20 +12,15 @@
 
 <body>
     <div id="main">
-        <%- include('../../partials/header-small') %>
-        <!--  -->
+        <%- include('../../partials/header-small', { status: "success" }) %>
         <div class="error-page">
             <div>
                 <h1 data-h1="404">404</h1>
                 <p data-p="BAD REQUEST">BAD REQUEST</p>
             </div>
         </div>
-        <!-- <button class="btn--filled sec back" type="button">
-            <div class="status-layer">
-                <span>Go back</span>
-            </div>
-        </button> -->
     </div>
 </body>
+<script src="/scripts/header-small.js"></script>
 
 </html>
