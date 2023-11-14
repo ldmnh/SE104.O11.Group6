@@ -14,14 +14,14 @@
     <main class="content-container">
         <section class="main-content">
             <div class="cancel-status">
-                <h1>Đặt phòng của bạn ở Hội An đã được <p>hủy miễn phí</p>
+                <h1>Đặt phòng của bạn ở <%= data[0].city_name %> đã được <p>hủy miễn phí</p>
                 </h1>
             </div>
 
             <div class="cancel-description">
                 <div class="cancel-description__item">
                     <span class="material-symbols-outlined">done</span>
-                    <h3>Xác nhận hủy phòng đang được gửi tới <p>21520796@gm.uit.edu.vn.</p>
+                    <h3>Xác nhận hủy phòng đang được gửi tới <p><%= data[0].book_email %>.</p>
                     </h3>
                 </div>
                 <div class="cancel-description__item">
@@ -31,13 +31,13 @@
                 </div>
                 <div class="cancel-description__item">
                     <span class="material-symbols-outlined">done</span>
-                    <h3>Nếu có bất kỳ phát sinh nào về chi phí, hãy liên hệ với <a class="hotel" href="#">The Soul Hotel</a> để biết thêm thông tin.</h3>
+                    <h3>Nếu có bất kỳ phát sinh nào về chi phí, hãy liên hệ với <a class="hotel" href="#"><%= data[0].acco_name %></a> để biết thêm thông tin.</h3>
                 </div>
             </div>
             <div class="cancel__button">
-                <button class="cancel__button--submit1">Đặt lại</button>
+                <a href="/search/detail"><button class="cancel__button--submit1">Đặt lại</button></a>
 
-                <button class="cancel__button--submit2">Tìm chỗ nghỉ khác</button>
+                <a href="/"><button class="cancel__button--submit2">Tìm chỗ nghỉ khác</button></a>
             </div>
         </section>
         <section class="extend-content">
@@ -46,12 +46,15 @@
                 <div class="hotel-detail">
                     <img src="../../public/imgs/milo.jpg" alt="">
                     <div class="rating">
-                        <p>The Soul Hotel</p>
+                        <p><%= data[0].acco_name %></p>
+                        <% data.forEach (function(stars){ %>
+                        <span class="material-symbols-outlined">star</span>
+                        <% }) %>
+                        <!-- <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
                         <span class="material-symbols-outlined">star</span>
-                        <span class="material-symbols-outlined">star</span>
-                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span> -->
                     </div>
                 </div>
                 <div class="cancel-summary__content">
@@ -59,21 +62,34 @@
                         <p>Nhận phòng</p>
                     </div>
                     <div class="cancel-summary__content--text">
-                        <p>Thứ 5, ngày 12 tháng 10 năm 2023
+                        <p> <%if(data[0].book_start_dayofweek==1) { %> CN,
+                            <% } else { %> 
+                            T<%= data[0].book_start_dayofweek %>,
+                            <% } %> ngày 
+                            <%= data[0].book_start_day %> tháng 
+                            <%= data[0].book_start_month %> năm
+                            <%= data[0].book_start_year %> 
                         </p>
                     </div>
                     <div class="cancel-summary__content--title">
                         <p>Thông tin lưu trú</p>
                     </div>
                     <div class="cancel-summary__content--text">
-                        <p>3 phòng, 3 đêm
+                        <p> <%= data[0].book_num_room %> phòng, 
+                            <%= data[0].book_num_day %> đêm
                         </p>
                     </div>
                     <div class="cancel-summary__content--title">
                         <p>Trả phòng</p>
                     </div>
                     <div class="cancel-summary__content--text">
-                        <p>Thứ 5, ngày 12 tháng 10 năm 2023
+                        <p> <%if(data[0].book_end_dayofweek==1) { %> CN,
+                            <% } else { %> 
+                            T<%= data[0].book_end_dayofweek %>,
+                            <% } %> ngày 
+                            <%= data[0].book_end_day %> tháng 
+                            <%= data[0].book_end_month %> năm
+                            <%= data[0].book_end_year %> 
                         </p>
                     </div>
                 </div>

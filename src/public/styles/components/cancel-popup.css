@@ -1,3 +1,13 @@
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
 @import url("/styles/base.css");
 
 .cancel-container {
@@ -6,7 +16,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--black);
+  /* background-color: #000000; */
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .cancel {
@@ -163,3 +174,14 @@ hr {
   opacity: 0.6;
   cursor: default;
 }
+/* @keyframes modalFadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-200px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+} */
