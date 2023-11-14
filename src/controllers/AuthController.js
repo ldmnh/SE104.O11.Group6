@@ -1,9 +1,7 @@
 class SiteController {
   // [GET] /auth/register
   register(req, res) {
-    const title = "Đăng ký";
-    const help = "Bạn cần sự trợ giúp?";
-    res.render("./pages/auth/register", { title, help });
+    res.render("./pages/auth/register");
   }
 
   // [POST] /auth/register
@@ -11,9 +9,7 @@ class SiteController {
 
   // [GET] /auth/login
   login(req, res) {
-    const title = "Đăng nhập";
-    const help = "Bạn quên mật khẩu?";
-    res.render("./pages/auth/login", { title, help });
+    res.render("./pages/auth/login");
   }
 
   // [POST] /auth/login

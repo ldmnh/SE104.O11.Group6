@@ -32,7 +32,7 @@ class BookingController {
       },
       {
         text: "Đặt phòng",
-        link: "/booking/infomation",
+        link: "/booking/information",
       },
       {
         text: "Thanh toán",
