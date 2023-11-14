@@ -58,6 +58,7 @@ h1 {
     gap: 25px;
     padding: 10px 0;
     align-items: center;
+    width: 100%;
 }
 
 .form-control:disabled::placeholder {
@@ -90,7 +91,7 @@ h1 {
 }
 
 .account__item select {
-    width: 590px;
+    width: 526px;
     height: 48px;
 }
 
@@ -141,6 +142,10 @@ h1 {
     position: absolute;
     top: 16px;
     right: 19px;
+}
+
+.account__btn-close:hover {
+    cursor: pointer;
 }
 
 .account__btn-close span {

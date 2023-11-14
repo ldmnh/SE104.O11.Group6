@@ -9,15 +9,20 @@
     <title>2WAYS.com</title>
     <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/pages/site/about.css" />
+    <script src="/scripts/base.js"></script>
 </head>
 
 <body>
-    <%- include('../../partials/header-small') %>
-    <%- include('../../partials/nav-tree', { nav_tree__data }) %>
+    <%- include('../../partials/header-small', { status: 'success' }) %>
+    <%- include('../../components/on-top-btn') %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Giới thiệu', link: "/about"}
+    ] }) %>
     <main>
         <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
         <section>
-            <div class="about__container">
+            <div class="container--about">
                 <h1 class="section__title primary-text mt-48">Về chúng tôi</h1>
                 <div class="section__content mt-24">
                     <h2>Vincom Center Bà Triệu: Tọa độ mua sắm thời thượng cho giới mộ điệu
@@ -65,9 +70,9 @@
                 </div>
             </div>
         </section>
-        <img class="homepage__banner" src="/imgs/banner.png" alt="Banner">
+        <img class="homepage__banner" id="partner" src="/imgs/banner.png" alt="Banner">
         <section class="mt-48">
-            <div class="about__container">
+            <div class="container--about">
                 <h1 class="section__title primary-text mt-48">Thông tin đối tác</h1>
                 <div class="section__content mt-24">
                     <h2>Vincom Center Bà Triệu: Tọa độ mua sắm thời thượng cho giới mộ điệu
@@ -119,5 +124,6 @@
     <div class="mt-12"></div>
     <%- include('../../partials/footer') %>
 </body>
+<script src="/scripts/header-small.js"></script>
 
 </html>
