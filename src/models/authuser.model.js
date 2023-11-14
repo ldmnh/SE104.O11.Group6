@@ -131,7 +131,7 @@ AuthUser.getBankCardsById = ({ id }, callback) => {
         SELECT
             bank_name,
             bank_num
-        FROM BANKCARD AS N
+        FROM BANKCARD AS B
         WHERE B.au_user_id = ?;`;
     db.query(sql, [id], (err, result) => {
         callback(err, result);
