@@ -1,4 +1,3 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 DELETE FROM usernoti;
