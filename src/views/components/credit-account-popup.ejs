@@ -1,15 +1,16 @@
-<div class="modal2" style="display: none;">
+<!-- Co inline form_item Ma cvv -->
+<div class="modal2">credit__info
     <div class="credit-container">
-        <div class="credit">
+        <section class="credit">
             <div class="credit__card">
                 <h1>Thêm thẻ tín dụng/ghi nợ</h1>
                 <div class="credit__secure">
-                    <div class="icon">
+                    <div class="credit__icon">
                         <span class="material-symbols-outlined">beenhere </span>
                     </div>
-                    <div class="info">
-                        <p class="info--title">Thông tin thẻ của bạn được bảo mật.</p>
-                        <p class="info--text">
+                    <div class="credit__info">
+                        <p class="credit__info-title">Thông tin thẻ của bạn được bảo mật.</p>
+                        <p class="credit__info-text">
                             Chúng tôi hợp tác với CyberSource để đảm bảo thông tin thẻ của bạn
                             được an toàn và bảo mật tuyệt đối. Shopee sẽ không được cấp quyền
                             truy cập vào thông tin thẻ của bạn.
@@ -18,50 +19,55 @@
                 </div>
                 <div class="credit__details">
                     <h2>Chi tiết thẻ</h2>
-                    <div class="credit--img">
+                    <div class="credit__img">
                         <a href="#"><img class="credit__logo" src="/src/public/imgs/brands/visa_logo.png" alt="visa" /></a>
                         <a href="#"><img class="credit__logo" src="/src/public/imgs/brands/credit-card_logo.png" alt="credit-card" /></a>
                         <a href="#"><img class="credit__logo" src="/src/public/imgs/brands/jcb_logo.png" alt="jcb" /></a>
                     </div>
                 </div>
 
-                <div class="form--items">
-                    <div class="form--item">
+                <div class="form">
+                    <div class="form__item">
                         <h3>Số thẻ:</h3>
                         <input class="form-control" type="text" placeholder="Nhập số thẻ" />
                     </div>
-                    <div class="form--item-2">
-                        <h3 class="input-1">Ngày hết hạn:</h3>
-                        <input class="form-control" type="date" placeholder="mm/yyyy" />
-                        <h3 class="input-2">Mã CCV:</h3>
-                        <input class="form-control" type="text" placeholder="Nhập mã CCV" />
+                    <!-- form__item-2 -->
+                    <div class="form__item">
+                        <div class="form__item-2__date">
+                            <h3 class="input-1">Ngày hết hạn:</h3>
+                            <input class="form-control" type="date" placeholder="mm/yyyy" />
+                        </div>
+
+                        <div class="form__item-2__CCV">
+                            <h3 class="input-2"">Mã CCV:</h3>
+              <input class=" form-control" type="text" placeholder="Nhập mã CCV" />
+                        </div>
                     </div>
-                    <div class="form--item">
+                    <div class="form__item">
                         <h3>Họ và tên chủ thẻ:</h3>
                         <input class="form-control" type="text" placeholder="Nhập họ và tên chủ thẻ" />
                     </div>
                 </div>
                 <h2>Địa chỉ đăng ký thẻ tín dụng/ghi nợ</h2>
-                <div class="form--items">
-                    <div class="form--item">
+                <div class="form">
+                    <div class="form__item">
                         <h3>Địa chỉ:</h3>
                         <input class="form-control" type="text" placeholder="Nhập địa chỉ" />
                     </div>
-                    <div class="form--item">
+                    <div class="form__item">
                         <h3>Mã bưu chính:</h3>
                         <input class="form-control" type="text" placeholder="Nhập mã bưu chính" />
                     </div>
                 </div>
                 <div class="credit__button">
-                    <button class="credit__button--submit1 closeBtn2">Hủy</button>
+                    <button class="credit-button--submit1 closeBtn2">Hủy</button>
 
-                    <button class="credit__button--submit2">Hoàn thành</button>
+                    <button class="credit-button--submit2">Hoàn thành</button>
                 </div>
-                <div class="credit__close--btn">
+                <div class="credit__close-btn">
                     <span class="material-symbols-outlined closeIcon2">cancel</span>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-</div>
 </div>

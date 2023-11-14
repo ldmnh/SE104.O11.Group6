@@ -1,0 +1,374 @@
+@import url("/styles/base.css");
+@import url("/styles/partials/header-small.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/partials/nav-tree.css");
+
+body {
+    width: 100vw;
+}
+
+.payment-container {
+    width: 80%;
+    max-width: 1152px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: 12px auto;
+}
+
+.aside-wrapper {
+    width: 376px;
+    height: 706px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.aside-wrapper__hotel-detail {
+    width: 100%;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 4px;
+    justify-content: flex-start;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+}
+
+.aside-wrapper__type-hotel,
+.aside-wrapper__wifi-free {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.filled-start {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color-4);
+}
+
+.unfilled-start {
+    width: 24px;
+    height: 24px;
+    color: var(--gray);
+}
+
+.aside-wrapper__your-booking-detail {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--outline-variant);
+    border-radius: 8px;
+    width: 100%;
+    height: 447px;
+}
+
+.aside-wrapper__your-booking-detail h1 {
+    margin: 12px 12px 0 12px;
+}
+
+.aside-wrapper__check-date,
+.method-choice,
+.list-account-title {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+}
+
+.aside-wrapper__checkin-date,
+.aside-wrapper__checkout-date {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+}
+
+.aside-wrapper__countdown-time {
+    display: flex;
+    gap: 4px;
+    color: var(--red);
+    align-items: center;
+    padding: 0 12px;
+}
+
+.aside-wrapper__total-length-stay {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    padding: 12px 12px 0 12px;
+}
+
+.aside-wrapper__cost-total {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+    background-color: rgba(0, 105, 109, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.aside-wrapper__cost-total .aside-wrapper__red-line {
+    color: var(--red);
+    text-decoration: line-through;
+}
+
+.aside-wrapper__your-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 12px 12px 12px;
+}
+
+.aside-wrapper__cost {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+hr {
+    width: 96%;
+    border: 1px solid var(--outline-variant);
+    margin-left: 5px;
+}
+
+.section-content {
+    width: 740px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-content__confirm-account {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+}
+
+.section-content__img {
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+}
+
+.section-content__account-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.email-logout {
+    display: flex;
+    gap: 8px;
+}
+
+.section-content__select-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+    height: 526px;
+}
+
+.account-item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+.account-item img {
+    width: 29px;
+    height: 28px;
+}
+
+.name-bank h5 {
+    width: 100px;
+}
+
+.name-bank {
+    display: flex;
+    gap: 254px;
+}
+
+.list-account {
+    display: flex;
+    flex-direction: column;
+    width: 559px;
+    height: 245px;
+}
+
+.list-account-title {
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    font-weight: 700;
+    gap: 12px;
+    padding: 8px 30px;
+    border-radius: 10px 10px 0 0;
+
+    & p {
+        margin: 0;
+    }
+}
+
+.account-items {
+    display: flex;
+    /* gap: 25px; */
+    flex-direction: column;
+    padding: 25px 0;
+    border: 1px solid var(-primary-color-2);
+    border-radius: 0 0 10px 10px;
+}
+
+.method {
+    display: flex;
+    flex-direction: column;
+}
+.section-content__confirm-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+    padding: 12px;
+    align-items: stretch;
+}
+
+.button-confirm {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+button.check-info {
+    width: 197px;
+    height: 48px;
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+button.submit-booking {
+    width: 197px;
+    height: 48px;
+    color: var(--white);
+    background-color: var(--primary-color-4);
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.aside-wrapper__cancel-fee {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--outline-variant);
+}
+
+.aside-wrapper__cancel-free {
+    color: var(--green);
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+.method-choice {
+    gap: 8px;
+    align-items: center;
+}
+
+.method-choice input {
+    background-color: var(--white);
+    border-radius: 50px;
+    border: 2px solid var(--primary-color-2);
+    margin-bottom: 5px;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color-2);
+    border-color: var(--primary-color-2);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary-color-2);
+    outline: 0;
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.method-two,
+.method-three {
+    position: relative;
+    display: inline-block;
+}
+
+.list-account {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    z-index: 10;
+}
+
+.form-check-input:checked[type="radio"] ~ .list-account {
+    display: block;
+}
+
+.section-content__select-method {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-item:hover {
+    background-color: var(--outline-variant);
+    border-radius: 8px;
+}
+
+.account-item.active {
+    background-color: var(--primary-color-2);
+    border-radius: 8px;
+    color: var(--white);
+}
+
+.form-check-input {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.form-check-label {
+    margin: 0 0 0 12px;
+}

@@ -12,11 +12,13 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .content-container {
     width: 80%;
-    margin: 5vh auto;
+    max-width: 1152px;
+    margin: 5vh 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +58,7 @@ body {
 }
 
 .login {
-    width: 55%;
+    width: calc(50% - 6px);
     box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     box-sizing: border-box;

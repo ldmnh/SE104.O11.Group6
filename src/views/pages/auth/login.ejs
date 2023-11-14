@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <%- include('../../partials/header-small-title') %>
+    <%- include('../../partials/header-small-title', { title }) %>
 
     <main class="content-container">
         <section class="intro">
@@ -27,15 +27,15 @@
         </section>
         <section class="login">
             <h1 class="login__title">Đăng nhập</h1>
-            <form class="login__form form" id="login-form" action="post">
+            <form class="login__form form" id="login-form" action="/login" method="post">
                 <div class="row">
                     <label for="form__email" class="form-label">Email</label>
-                    <input type="email" class="form-control form__email" id="form__email" placeholder="Nhập email" />
+                    <input type="email" name="email" class="form-control form__email" id="form__email" placeholder="Nhập email">
                 </div>
                 <div class="row">
                     <label for="form__password" class="form-label">Mật khẩu</label>
                     <div class="input_form">
-                        <input type="password" class="form-control form__password" id="form__password" placeholder="Nhập mật khẩu" />
+                        <input type="password" name="password" class="form-control form__password" id="form__password" placeholder="Nhập mật khẩu" />
                         <span class="material-symbols-outlined" id="eye-open">visibility</span>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 </button>
             </form>
 
-            <a href="/register" class="btn login__register" role="button">Bạn chưa có tài khoản? <span class="highlight">Đăng ký</span></a>
+            <button class="btn register__register" role="button" id="btn-register">Bạn chưa có tài khoản? <span class="highlight">Đăng ký</span></button>
         </section>
     </main>
 
@@ -53,6 +53,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/scripts/login.js"></script>
+    <script src="/scripts/header-small-title.js"></script>
 </body>
 
 </html>

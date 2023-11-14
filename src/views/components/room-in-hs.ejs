@@ -1,9 +1,30 @@
-<div class="room__in__hs">
-    <div class="room__in__hs_img">
-        <img src="/imgs/room.png" alt="" />
+<div class="room-in-hs">
+    <div class="room-in-hs__detail">
+        <h2 class="room-in-hs__name"><b>acco_name</b></h2>
+        <div class="room-in-hs__book-date">
+            <label for="">Ngày đặt:</label>
+            <span>book_datetime</span>
+        </div>
+        <div class="room-in-hs__checkin-date">
+            <label for="">Ngày bắt đầu:</label>
+            <span>book_start_datetime</span>
+        </div>
+        <div class="room-in-hs__checkout-date">
+            <label for="">Ngày kết thúc:</label>
+            <span>book_end_datetime</span>
+        </div>
+        <div class="room-in-hs__book-name">
+            <label for="">Người đặt phòng:</label>
+            <span>book_full_name</span>
+        </div>
+        <div class="room-in-hs__payment-status">
+            <label for="">Trạng thái thanh toán:</label>
+            <span>book_is_paid</span>
+        </div>
     </div>
-    <div class="room__in__title">
-        <h1>Phòng gia đình</h1>
+
+    <div class="room-in__title">
+        <h1><%=bookingDetail[0].acco_name%></h1>
         <div class="quantity__bed__guest">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
                 <mask id="mask0_837_10952" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="31">
@@ -24,6 +45,8 @@
             </svg>
             <p>4 khách</p>
         </div>
+
+        <h5 class="room-in__status">Đã đặt</h5>
         <div class="policy__price">
             <div class="policy__room">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
@@ -42,9 +65,9 @@
                 <p class="room-day">/ phòng/ đêm</p>
             </div>
         </div>
-        <div class="button-room__in__hs">
-            <button class="form--submit1">Xem chi tiết</button>
-            <button class="form--submit2 reviewBtn">Đánh giá</button>
+        <div class="button-room-in-hs">
+            <button class="form--submit1 detail-btn">Xem chi tiết</button>
+            <button class="form--submit2 review-btn">Đánh giá</button>
         </div>
     </div>
 </div>
