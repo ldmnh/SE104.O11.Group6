@@ -5,8 +5,10 @@ const notificationRouter = require('./notificationRouter')
 const accountRouter = require('./accountRouter')
 const bookingRouter = require('./bookingRouter')
 const siteRouter = require('./siteRouter')
+const adminRouter = require('./adminRouter')
 
 const route = (app) => {
+    app.use('/admin', adminRouter)
     app.use('/auth', authRouter)
     app.use('/search', searchRouter)
     app.use('/notification', notificationRouter)

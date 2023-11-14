@@ -11,9 +11,6 @@
 </head>
 
 <body>
-    <%- include('../../partials/header-small') %>
-    <%- include('../../partials/header-small') %>
-
     <main class="content-container">
         <section class="title">
             <h1><%=accoDetail[0].acco_name%></h1>
@@ -36,7 +33,7 @@
                     </div>
                 </div>
                 <div class="title__btn">
-                    <a class="btn" href="#" role="button">Chọn phòng</a>
+                    <a class="btn" href="#room-list" role="button">Chọn phòng</a>
                 </div>
             </div>
         </section>
@@ -86,7 +83,9 @@
             </div>
         </section>
 
-        <section class="room-list">
+        <%- include('../../components/search-bar') %>
+
+        <section class="room-list" id="room-list">
             <form action="#" method="POST">
                 <input type="hidden" value="<%=accoDetail[0].acco_id%>" name="acco_id" class="form-control">
                 <!-- Start Loop -->
@@ -104,7 +103,7 @@
         <section class="general-info">
             <div class="general-info--left">
                 <h2>Thông tin chung</h2>
-                <img src="/imgs/details/1.jpg" alt="" />
+                <img src="/imgs/accommodation/accommodation_1.jpg" alt="" />
             </div>
             <div class="general-info--right">
                 <div class="general-info__time time">
@@ -147,6 +146,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/scripts/room.js"></script>
+    <script src="/scripts/search-bar.js"></script>
     <script src="/scripts/header-small.js"></script>
 
 </body>
