@@ -1,10 +1,13 @@
 class NotificationsController {
-    accountUpdate(req, res) {
-        res.render('./pages/notifications/account-update.ejs')
+
+    // [GET] /auth/notification/account-update
+    notiAccountUpdate(req, res) {
+        res.render('./pages/notification/account-update')
     }
 
-    promotion(req, res) {
-        res.render('./pages/notifications/promotion.ejs')
+    // [GET] /auth/notification/promotion
+    notiPromotion(req, res) {
+        res.render('./pages/notification/promotion')
     }
 
 }
