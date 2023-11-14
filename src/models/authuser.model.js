@@ -41,7 +41,7 @@ AuthUser.checkRegister = function (req, res) {
                 return res.status(200).json({
                     msg: "success",
                     message: "Register successfully"
-                })                    
+                })
             })
         }
     })
@@ -109,7 +109,7 @@ AuthUser.putChangePassById = ({ id, oldPass, newPass }, callback) => {
         SET au_user_password = ?
         WHERE au_user_id = ?
             AND au_user_password = ?;`;
-    const values = [ newPass, id, oldPass ]
+    const values = [newPass, id, oldPass]
     db.query(sql, values, (err, result) => {
         callback(err, result);
     });
@@ -120,7 +120,7 @@ AuthUser.putResetPassByEmail = ({ email, password }, callback) => {
         UPDATE AUTHUSER
         SET au_user_pass = ?
         WHERE au_user_email = ?;`;
-    const values = [ password, email ]
+    const values = [password, email]
     db.query(sql, values, (err, result) => {
         callback(err, result);
     });
@@ -131,7 +131,7 @@ AuthUser.getBankCardsById = ({ id }, callback) => {
         SELECT
             bank_name,
             bank_num
-        FROM BANKCARD AS N
+        FROM BANKCARD AS B
         WHERE B.au_user_id = ?;`;
     db.query(sql, [id], (err, result) => {
         callback(err, result);

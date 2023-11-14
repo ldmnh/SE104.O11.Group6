@@ -1,5 +1,5 @@
 const db = require('../config/db/connect');
-const NotificationModel = require('../models/notificationModel')
+const NotificationModel = require('../models/notifications.model')
 
 
 // [GET] /notifications/account-update

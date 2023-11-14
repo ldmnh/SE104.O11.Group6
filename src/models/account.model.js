@@ -63,48 +63,6 @@ AccountModel.addDebit = ({
     })
 }
 
-AccountModel.cardAccount = ({ id }, callback) => {
-    const sql = `
-        SELECT BANK_ID AS 'BANK_ID', BANK_NAME as 'NAME', BANK_NUM AS 'NUM', 'BANK' as 'TYPE'
-        FROM view_BANKCARD
-        WHERE au_user_id = ${id}
-        
-        UNION
-        
-        SELECT DEBIT_ID AS 'DEBIT_ID', 'SACOMBANK' AS 'NAME', DEBIT_NUM AS 'NUM', 'DEBIT' as 'TYPE'
-        FROM view_DEBITCARD
-        WHERE au_user_id = ${id}
-        `;
-    db.query(sql, (err, result) => {
-        callback(err, result);
-    })
-}
-
-
-AccountModel.getBankById=({id},callback){
-    const sql = `
-    SELECT BANK_ID AS 'BANK_ID', BANK_NAME as 'NAME', BANK_NUM AS 'NUM'
-    FROM view_BANKCARD
-    WHERE au_user_id = ${id}`
-
-    db.query(sql, (err, result) => {
-        callback(err, result);
-    })
-}
-
-AccountModel.getDebitById=({id},callback){
-    const sql = `
-    SELECT DEBIT_ID AS 'DEBIT_ID', 'SACOMBANK' AS 'NAME', DEBIT_NUM AS 'NUM'
-    FROM view_DEBITCARD
-    WHERE au_user_id = ${id}`
-
-    db.query(sql, (err, result) => {
-        callback(err, result);
-    })
-}
-
-
-
 
 // [PUT] /account/delBank
 AccountModel.delBank = ({ id, bank_id }, callback) => {

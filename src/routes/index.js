@@ -17,9 +17,9 @@ const route = (app) => {
     app.use("/", siteRouter)
     app.get("/testing1", (req, res) => {
         req.session.user = {
-            id: "1",
-            email: "lehieudn123@example.com",
-            avt_url: "user_1.jpg"
+            id: 1,
+            email: "lanlyst123@example.com",
+            avt_url: "user_3.jpg"
         }
         res.status(200).json({
             user: req.session.user,

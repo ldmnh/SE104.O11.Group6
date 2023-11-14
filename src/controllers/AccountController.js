@@ -1,4 +1,4 @@
-const AccountModel = require('../models/accountModel')
+const AccountModel = require('../models/account.model')
 const authuser = require('../models/authuser.model');
 const accountHistory = require('../models/accountHistory.model');
 
@@ -94,21 +94,42 @@ class AccountController {
 
     // [GET] /account/card
     card(req, res) {
-        // AccountModel.cardAccount({
-        //     "id": req.session.user?.id,
-        // }, (err, result) => {
-        //     if (err) throw err;
 
-        //     res.status(200).json({
-        //         massage: "Lấy thông tin thẻ thành công",
-        //         data: result
-        //     })
-        // })
-
-        AccountModel.getBankById({
-            id: req.session.user?.id,
+        authuser.getBankCardsById({
+            id: req.session.user?.id
         }, (err, result) => {
+            if (err) throw err;
 
+            if (result.length > 0) {
+                req.session.user.bank_cards = result;
+            } else {
+                req.session.user.bank_cards = [];
+            }
+
+            authuser.getDebitCardsById({
+                id: req.session.user?.id
+            }, (err, result) => {
+                if (err) throw err;
+
+                if (result.length > 0) {
+                    req.session.user.debit_cards = result;
+                } else {
+                    req.session.user.debit_cards = [];
+                }
+
+                const nav_tree__data = [
+                    { text: 'Trang chủ', link: '/' },
+                    { text: 'Đặt phòng', link: null },
+                    { text: 'Phương thức thanh toán', link: '/booking/payment' }
+                ]
+
+                const data = {
+                    bank_cards: req.session.user?.bank_cards,
+                    debit_cards: req.session.user?.debit_cards
+                }
+                res.status(200).render('./pages/account/card', { nav_tree__data, data })
+                // res.status(200).json({ nav_tree__data, data })
+            })
         })
     }
 

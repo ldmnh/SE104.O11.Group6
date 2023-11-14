@@ -56,7 +56,7 @@
             <h1>Thẻ tín dụng/ghi nợ</h1>
             <button class="debit-credit-card--submit add-credit-account-btn">+ Thêm thẻ mới</button>
           </div>
-          <% if (true) { %>
+          <% if (data.debit_cards.length==0) { %>
           <h2>Bạn chưa liên kết thẻ tín dụng/ghi nợ</h2>
           <% } else { %>
           <%-include('../../components/card-fill')%>
@@ -68,7 +68,11 @@
             <h1>Tài khoản ngân hàng của tôi</h1>
             <button class="bank-account--submit add-bank-account-btn">+ Thêm tài khoản ngân hàng</button>
           </div>
-          <h2>Bạn chưa liên kết tài khoản ngân hàng</h2>
+          <% if (data.bank_cards.length == 0) { %>
+          <h2>Bạn chưa liên kết thẻ tín dụng/ghi nợ</h2>
+          <% } else { %>
+          <%-include('../../components/card-fill')%>
+          <% } %>
         </div>
       </div>
 
