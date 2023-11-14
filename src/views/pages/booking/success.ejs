@@ -21,7 +21,7 @@
                     <span class="material-symbols-outlined">done_all</span>
                     <p>Đã xác nhận</p>
                 </div>
-                <h1>Đặt phòng của bạn ở Hội An đã được xác nhận.</h1>
+                <h1>Đặt phòng của bạn ở <%= data[0].city_name %> đã được xác nhận.</h1>
             </div>
 
             <div class="order-description">
@@ -58,7 +58,7 @@
                         <h3><%= data[0].room_class %></h3>
                         <div>
                             <span class="material-symbols-outlined">local_atm</span>
-                            <p>Tổng giá: VND <%= data[0].book_final_cost %></p>
+                            <p>Tổng giá: VND <%= data[0].book_room_cost_after %></p>
                         </div>
                         <div>
                             <span class="material-symbols-outlined">calendar_month</span>

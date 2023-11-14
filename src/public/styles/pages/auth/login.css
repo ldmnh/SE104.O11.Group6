@@ -71,6 +71,12 @@ body {
     margin: 0;
 }
 
+.row .error {
+    color: red;
+    font-size: 0.8rem;
+    width: auto;
+  }
+
 .login__title {
     text-align: center;
     font-size: 2rem;
