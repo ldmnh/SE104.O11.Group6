@@ -13,8 +13,6 @@ SELECT
     au_user_birthday
 FROM AUTHUSER;
 
-SELECT * FROM VIEW_AUTHUSER;
-
 DROP VIEW IF EXISTS VIEW_BANKCARD;
 
 CREATE VIEW VIEW_BANKCARD AS
@@ -24,8 +22,6 @@ SELECT
     au_user_id,
     bank_id
 FROM BANKCARD;
-
-SELECT * FROM VIEW_BANKCARD;
 
 DROP VIEW IF EXISTS VIEW_DEBITCARD;
 
@@ -37,8 +33,6 @@ SELECT
     debit_id
 FROM DEBITCARD;
 
-SELECT * FROM VIEW_DEBITCARD;
-
 DROP VIEW IF EXISTS VIEW_RATING;
 
 CREATE VIEW VIEW_RATING AS
@@ -49,8 +43,6 @@ SELECT
     rating_point,
     au_user_id
 FROM RATING;
-
-SELECT * FROM VIEW_RATING;
 
 DROP VIEW IF EXISTS VIEW_NOTIFICATION;
 
@@ -65,8 +57,6 @@ SELECT
     noti_content,
     noti_dest_url
 FROM NOTIFICATION;
-
-SELECT * FROM VIEW_NOTIFICATION;
 
 DROP VIEW IF EXISTS VIEW_NAME_FEA;
 
@@ -128,5 +118,9 @@ SELECT
     booking.book_is_paid,
     booking.au_user_id
 FROM accommodation, booking
-WHERE
-    accommodation.acco_id = booking.acco_id;
+WHERE accommodation.acco_id = booking.acco_id;
+
+CREATE VIEW view_booking_detail AS
+SELECT bookingdetail.*, roomtype.room_class, roomtype.room_type, roomtype.room_details_img_url 
+FROM bookingdetail, roomtype
+WHERE roomtype.room_id = bookingdetail.room_id

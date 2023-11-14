@@ -1,4 +1,4 @@
--- Active: 1699792072449@@127.0.0.1@3306@database_se104
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 DROP DATABASE IF EXISTS DATABASE_SE104;
 
 CREATE DATABASE DATABASE_SE104;
@@ -194,7 +194,7 @@ CREATE TABLE Booking
     book_end_datetime   datetime        NOT NULL,
     book_num_adult      int             NOT NULL,
     book_num_child      int             NOT NULL,
-    book_cost_before    float           NOT NULL,
+    book_cost_before    float           NOT NULL    DEFAULT 0,
     book_cost_after     float           NOT NULL    DEFAULT 0,
     book_first_name     char(50)        NOT NULL,
     book_last_name      char(50)        NOT NULL,
