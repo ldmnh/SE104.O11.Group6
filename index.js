@@ -7,15 +7,12 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
-// connect to db
-const db = require('./src/config/db/connect');
-
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
 }))
 
 // set view engine

@@ -197,3 +197,7 @@ h3 {
     font-weight: 700;
     font-variation-settings: 'FILL' 1;
 }
+
+a {
+    text-decoration: none;
+  }

@@ -223,12 +223,11 @@ function validateInput() {
       au_user_pass: password.value.trim()
     };
 
-    fetch("http://localhost:3000/auth/register", {
+    fetch("/auth/register", {
         method: "POST",
         body: JSON.stringify(register),
         headers: {
           "Content-Type": "application/json",
-          
         }
       }).then(res => res.json())
       .then(back => {

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/namtuthien/SE104.O11.Group6#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
@@ -34,4 +35,3 @@
   },
   "description": ""
 }
-
