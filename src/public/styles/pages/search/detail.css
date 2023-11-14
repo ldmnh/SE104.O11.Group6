@@ -278,7 +278,7 @@ body {
 
 .general-info__time span {
     font-size: 64px;
-    color: var(--primary-color);
+    color: var(--primary-color-1);
 }
 
 .time__text {

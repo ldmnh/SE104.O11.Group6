@@ -164,17 +164,18 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        bookingModel.getDetail(req, res, function (err, booking, bookingDetails) {
-            if (err) throw err;
-            res.render('./pages/booking/detail', {
-                booking: booking,
-                bookingDetails: bookingDetails,
-            })
-            // res.send({
-            //     booking: booking,
-            //     bookingDetails: bookingDetails,
-            // })
-        })
+        // bookingModel.getDetail(req, res, function (err, booking, bookingDetails) {
+        //     if (err) throw err;
+        //     res.render('./pages/booking/detail', {
+        //         booking: booking,
+        //         bookingDetails: bookingDetails,
+        //     })
+        // res.send({
+        //     booking: booking,
+        //     bookingDetails: bookingDetails,
+        // })
+        // })
+        res.render('./pages/booking/detail')
     }
 
     // [GET] /booking/cancel

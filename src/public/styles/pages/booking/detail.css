@@ -206,3 +206,37 @@ a {
 .progress__time {
     font-weight: 600;
 }
+
+
+.modal-content {
+    gap: 36px;
+    align-items: center;
+    padding: 36px 36px 64px 36px;
+    border-radius: 12px;
+}
+
+.modal-content div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-content div button {
+    font-size: 1rem;
+}
+
+.modal-content span,
+.modal-content p {
+    color: var(--error);
+}
+
+.modal-content span {
+    font-size: 10rem;
+    font-variation-settings: 'FILL' 1;
+}
+
+.modal-content p {
+    font-size: 2rem;
+    font-weight: 700;
+    font-variation-settings: 'FILL' 1;
+}
