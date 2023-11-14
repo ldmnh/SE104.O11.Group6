@@ -22,109 +22,110 @@ class AuthController {
 
     // [GET] /auth/register
     register(req, res) {
-        const title = 'Đăng ký'
-        res.render('./pages/auth/register', { title })
+        res.render('./pages/auth/register')
     }
 
     // [POST] /auth/register
     registerPost(req, res) {
-        authuser.checkRegister(req, res)
+        res.status(200).json({ message: '/auth/registerPost' })
+        // authuser.checkRegister(req, res)
     }
 
     // [GET] /auth/login
     login(req, res) {
-        const title = 'Đăng nhập'
-        res.render('./pages/auth/login', { title })
+        res.status(200).render('./pages/auth/login')
     }
 
     // [POST] /auth/login
     loginPost(req, res) {
-        req.session.email = req.body.email
-        res.send('loginPost')
+        // req.session.email = req.body.email
+        res.status(200).json({ message: '/auth/loginPost' })
     }
 
     // [GET] /auth/forgot-password
     forgot(req, res) {
-        const title = 'Nhận liên kết đặt lại mật khẩu'
-        res.render('./pages/auth/forgot', { title })
+        res.status(200).render('./pages/auth/forgot')
     }
 
     // [POST] /auth/forgot-password
     forgotPost(req, res) {
-        const { email } = req.body;
+        // const { email } = req.body;
 
-        authuser.checkEmail({
-            email: email
-        }, (err, result) => {
-            if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
-                throw err;
-            }
+        // authuser.checkEmail({
+        //     email: email
+        // }, (err, result) => {
+        //     if (err) {
+        //         res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+        //         throw err;
+        //     }
 
-            if (result.length === 0) {
-                res.status(404).json({ message: 'Không tìm thấy email!!!' });
-            } else {
-                req.session.emailOfForgot = email;
-                res.status(200).json({ message: 'Gửi liên kết đặt lại mật khẩu thành công' });
-            }
-        })
+        //     if (result.length === 0) {
+        //         res.status(404).json({ message: 'Không tìm thấy email!!!' });
+        //     } else {
+        //         req.session.emailOfForgot = email;
+        //         res.status(200).json({ message: 'Gửi liên kết đặt lại mật khẩu thành công' });
+        //     }
+        // })
+        res.status(200).json({ message: '/auth/forgotPost' })
     }
 
     // [GET] /auth/reset-password
     reset(req, res) {
-        const title = 'Đặt lại mật khẩu'
-        res.render('./pages/auth/reset', { title })
+        res.status(200).render('./pages/auth/reset')
     }
 
     // [PUT] /auth/reset-password
     resetPost(req, res) {
-        const email = req.session.emailOfForgot;
-        const { password } = req.body;
+        // const email = req.session.emailOfForgot;
+        // const { password } = req.body;
 
-        authuser.putResetPassByEmail({
-            email: email,
-            password: password
-        }, (err, result) => {
-            if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
-                throw err;
-            }
+        // authuser.putResetPassByEmail({
+        //     email: email,
+        //     password: password
+        // }, (err, result) => {
+        //     if (err) {
+        //         res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+        //         throw err;
+        //     }
 
-            res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
-        })
+        //     res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
+        // })
+        res.status(200).json({ message: '/auth/resetPost' })
     }
 
     // [GET] /auth/logout
     logout(req, res) {
-        req.session.user = null
-        req.session.booking = null
-        req.session.rooms = null
-        req.session.acco = null
+        // req.session.user = null
+        // req.session.booking = null
+        // req.session.rooms = null
+        // req.session.acco = null
 
-        res.status(200).redirect('/');
+        // res.status(200).redirect('/');
+        res.status(200).json({ message: '/auth/logout' })
     }
 
     // [PUT] /auth/change-password
     changePassPut(req, res) {
-        const { oldPass, newPass } = req.body;
-        const email = req.session.user?.email;
+        // const { oldPass, newPass } = req.body;
+        // const email = req.session.user?.email;
 
-        authuser.putPass({
-            email,
-            oldPass,
-            newPass
-        }, (err, result) => {
-            if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn!!!' });
-                throw err;
-            }
+        // authuser.putPass({
+        //     email,
+        //     oldPass,
+        //     newPass
+        // }, (err, result) => {
+        //     if (err) {
+        //         res.status(500).json({ message: 'Lỗi truy vấn!!!' });
+        //         throw err;
+        //     }
 
-            if (result.affectedRows === 0) {
-                res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
-            } else {
-                res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
-            }
-        })
+        //     if (result.affectedRows === 0) {
+        //         res.status(404).json({ message: 'Không tìm thấy tài khoản!!!' });
+        //     } else {
+        //         res.status(200).json({ message: 'Cập nhật thông tin tài khoản thành công' });
+        //     }
+        // })
+        res.status(200).json({ message: '/auth/changePassPut' })
     }
 }
 

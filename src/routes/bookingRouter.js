@@ -21,8 +21,10 @@ const BookingController = require('../controllers/BookingController.js')
 router.get('/information', BookingController.information)
 router.post('/information', BookingController.informationPost)
 
-router.get('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.payment)
-router.post('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.paymentPost)
+// router.get('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.payment)
+// router.post('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.paymentPost)
+router.get('/payment', BookingController.payment)
+router.post('/payment', BookingController.paymentPost)
 
 // router.get('/success', authMiddleware.isLoggedIn, BookingController.success)
 router.get('/success', BookingController.success)
