@@ -2,6 +2,8 @@
 @import url("/styles/partials/header-small.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/nav-tree.css");
+@import url("/styles/components/success-popup.css");
+@import url("/styles/components/otp.css");
 
 body {
     width: 100vw;
@@ -248,6 +250,7 @@ hr {
     display: flex;
     flex-direction: column;
 }
+
 .section-content__confirm-detail {
     display: flex;
     flex-direction: column;
@@ -344,7 +347,7 @@ button.submit-booking {
     z-index: 10;
 }
 
-.form-check-input:checked[type="radio"] ~ .list-account {
+.form-check-input:checked[type="radio"]~.list-account {
     display: block;
 }
 

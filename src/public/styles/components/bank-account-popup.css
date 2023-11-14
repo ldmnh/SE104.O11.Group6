@@ -1,3 +1,7 @@
+@import url("/styles/base.css");
+
+@import url("/styles/base.css");
+
 .modal {
     position: fixed;
     display: none;

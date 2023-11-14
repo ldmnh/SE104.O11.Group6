@@ -14,6 +14,8 @@
 
 <body>
     <%- include('../../partials/header-medium.ejs') %>
+    <%- include('../../partials/nav-tree') %>
+
 
     <main class="booking-history-container">
         <aside class=" aside-content">
@@ -39,26 +41,6 @@
             <div class="aside-content__item logout-btn">
                 <p>Đăng xuất</p>
             </div>
-            <div class="popup">
-                <div class="popup__main">
-                    <div class="popup__content-title">
-                        <div class="popup--top">
-                            <p class="popup__title">Đăng xuất</p>
-                            <div class="close-btn">
-                                <span class="material-symbols-outlined">cancel</span>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="/imgs/logout.png" alt="logout" class="popup__img">
-                    <div class="popup__content">
-                        <p>Bạn có chắc chắn muốn đăng xuất không?</p>
-                    </div>
-                    <div class="popup__button">
-                        <button class="btn--outlined pri btn-cancel" type="submit">Hủy</button>
-                        <button class="btn--filled pri btn-logout" type="submit">Đăng xuất</button>
-                    </div>
-                </div>
-            </div>
         </aside>
 
         <section class="booking-history">
@@ -69,13 +51,9 @@
             <!-- <div class="filter-bar"></div> -->
 
             <div class="booking-history__items">
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-                <div class=" "><%- include('../../components/room-in-hs.ejs') %></div>
+                <% bookingDetail.forEach(function(detail){ %>
+                <div class=""><%- include('../../components/room-in-hs.ejs', {detail}) %></div>
+                <% }); %>
             </div>
         </section>
     </main>

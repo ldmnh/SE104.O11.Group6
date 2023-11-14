@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 header {
     background-color: var(--primary-color-1);
     height: 112px;

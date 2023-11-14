@@ -1,38 +1,35 @@
 <header>
-  <div class="header-container">
-    <div class="header-container__top">
-      <div class="header-container__logo-img">
-        <img src="/imgs/logo.svg" alt="Logo" class="logo-click-hm" />
-      </div>
-      <div class="header-container__nav-top">
-        <button href="#" class="status-layer homepage-btn-hm">Trang chủ</button>
-        <button href="#" class="status-layer noti-btn-hm">Thông báo</button>
-      </div>
-      <div class="header-container__top-authenticator">
-        <% if(true){ %>
-        <p>Chào,</p>
-        <p class="name-btn-hm">data</p>
-        <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hm" />
-        <% } else{ %>
-        <button type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
-        <button type="button" class="button-signup signup-btn-hm">Đăng ký</button>
-        <% } %>
+    <div class="header-container">
+        <div class="header-container__top">
+            <div class="header-container__logo-img">
+                <img src="/imgs/logo.svg" alt="Logo" class="logo-click-hm" />
+            </div>
+            <div class="header-container__nav-top">
+                <button href="#" class="status-layer homepage-btn-hm">Trang chủ</button>
+                <button href="#" class="status-layer noti-btn-hm">Thông báo</button>
+            </div>
+            <div class="header-container__top-authenticator">
+                <p>Chào,</p>
+                <p class="name-btn-hm">data</p>
+                <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hm" />
+                <!-- <button type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
+          <button type="button" class="button-signup signup-btn-hm">Đăng ký</button> -->
 
-        <!-- Header with no login -->
-        <!-- 
-        <button href="#" type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
-        <button href="#" type="button" class="button-signup signup-btn-hm">Đăng ký</button>
-      -->
+                <!-- Header with no login -->
+                <!-- 
+          <button href="#" type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
+          <button href="#" type="button" class="button-signup signup-btn-hm">Đăng ký</button>
+        -->
 
-        <!-- Header with Login-->
+                <!-- Header with Login-->
 
-        <!-- <p>Chào,</p>
-        <p class="name-btn-hm">Giau Phan</p>
-        <img class="avatar-btn-hm" src="/imgs/milo.jpg" alt="avatar" /> -->
-      </div>
+                <!-- <p>Chào,</p>
+          <p class="name-btn-hm">Giau Phan</p>
+          <img class="avatar-btn-hm" src="/imgs/milo.jpg" alt="avatar" /> -->
+            </div>
+        </div>
+        <div>
+            <%- include('../components/search-bar.ejs') %>
+        </div>
     </div>
-    <div>
-      <%- include('../components/search-bar.ejs') %>
-    </div>
-  </div>
 </header>

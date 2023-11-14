@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="/styles/pages/account/payment.css" />
     <title>2WAYS.com</title>
+    <link rel="stylesheet" href="/styles/pages/account/payment.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body>
     <%- include('../../partials/header-medium') %>
+    <%- include('../../partials/nav-tree') %>
+
 
     <div class="payment-account-container">
         <aside class="aside-content">
@@ -38,29 +40,9 @@
             <div class="aside-content__item logout-btn">
                 <p>Đăng xuất</p>
             </div>
-            <div class="popup">
-                <div class="popup__main">
-                    <div class="popup__content-title">
-                        <div class="popup--top">
-                            <p class="popup__title">Đăng xuất</p>
-                            <div class="close-btn">
-                                <span class="material-symbols-outlined">cancel</span>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="/imgs/logout.png" alt="logout" class="popup__img">
-                    <div class="popup__content">
-                        <p>Bạn có chắc chắn muốn đăng xuất không?</p>
-                    </div>
-                    <div class="popup__button">
-                        <button class="btn--outlined pri btn-cancel" type="submit">Hủy</button>
-                        <button class="btn--filled pri btn-logout" type="submit">Đăng xuất</button>
-                    </div>
-                </div>
-            </div>
         </aside>
 
-        <section class="form">
+        <section class="form form-input">
             <div class="form__title">
                 <h1>Thông tin thanh toán</h1>
                 <p>Thêm hoặc bỏ các phương thức thanh toán</p>
@@ -74,7 +56,11 @@
                         <h1>Thẻ tín dụng/ghi nợ</h1>
                         <button class="debit-credit-card--submit add-credit-account-btn">+ Thêm thẻ mới</button>
                     </div>
+                    <% if (false) { %>
                     <h2>Bạn chưa liên kết thẻ tín dụng/ghi nợ</h2>
+                    <% } else { %>
+                    <%-include('../../components/card-fill')%>
+                    <% } %>
                 </div>
 
                 <div class="form__card-item ">
@@ -88,11 +74,12 @@
 
         </section>
     </div>
-
     <%- include('../../components/otp') %>
     <%- include('../../components/success-popup') %>
     <%- include('../../components/bank-account-popup') %>
     <%- include('../../components/credit-account-popup') %>
+
+
     <%- include('../../partials/footer') %>
 
     <script src="/scripts/payment-account.js"></script>
@@ -101,7 +88,6 @@
     <script src="/scripts/search-bar.js"></script>
     <script src="/scripts/otp.js" defer></script>
     <script src="/scripts/header-medium.js"></script>
-
 </body>
 
 </html>
