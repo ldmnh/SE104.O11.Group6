@@ -49,13 +49,9 @@
       <!-- <div class="filter-bar"></div> -->
 
       <div class="booking-history__items">
-        <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-        <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-        <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-
-        <div class=" "><%- include('../../components/room-in-hs.ejs') %></div>
+        <% bookingDetail.forEach(function(detail){ %>
+        <div class=""><%- include('../../components/room-in-hs.ejs', {detail}) %></div>
+        <% }); %>
       </div>
     </section>
   </main>
