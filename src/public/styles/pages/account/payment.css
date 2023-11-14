@@ -5,6 +5,7 @@
 @import url("/styles/components/credit-account-popup.css");
 @import url("/styles/components/otp.css");
 @import url("/styles/components/success-popup.css");
+@import url("/styles/partials/nav-tree.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -14,14 +15,10 @@ html {
 
 body {
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .payment-account-container {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin: 0 auto;
     width: 80%;
     max-width: 1152px;
     display: flex;

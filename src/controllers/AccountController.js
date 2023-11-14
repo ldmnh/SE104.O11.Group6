@@ -1,8 +1,21 @@
 class AccountController {
   // [GET] /account/information
   information(req, res) {
-    const status = "success";
-    res.render("./pages/account/information", { status });
+    const nav_tree__data = [
+      {
+        text: "Trang chủ",
+        link: "/",
+      },
+      {
+        text: "Trang cá nhân",
+        link: "/account/information",
+      },
+      {
+        text: "Thông tin cá nhân",
+        link: "/account/information",
+      },
+    ];
+    res.render("./pages/account/information", { nav_tree__data });
   }
 
   // [PUT] /account/
@@ -12,12 +25,40 @@ class AccountController {
 
   // [GET] /account/history
   history(req, res) {
-    res.render("./pages/account/history");
+    const nav_tree__data = [
+      {
+        text: "Trang chủ",
+        link: "/",
+      },
+      {
+        text: "Trang cá nhân",
+        link: "/account/information",
+      },
+      {
+        text: "Lịch sử đặt phòng",
+        link: "/account/history",
+      },
+    ];
+    res.render("./pages/account/history", { nav_tree__data });
   }
 
   // [GET] /account/card
   card(req, res) {
-    res.render("./pages/account/card");
+    const nav_tree__data = [
+      {
+        text: "Trang chủ",
+        link: "/",
+      },
+      {
+        text: "Trang cá nhân",
+        link: "/account/information",
+      },
+      {
+        text: "Tài khoản thanh toán",
+        link: "/account/card",
+      },
+    ];
+    res.render("./pages/account/card", { nav_tree__data });
   }
 
   // [GET] /account/card-fill
@@ -47,7 +88,21 @@ class AccountController {
 
   // [GET] /account/change-password
   changePassword(req, res) {
-    res.render("./pages/account/change-password");
+    const nav_tree__data = [
+      {
+        text: "Trang chủ",
+        link: "/",
+      },
+      {
+        text: "Trang cá nhân",
+        link: "/account/information",
+      },
+      {
+        text: "Đổi mật khẩu",
+        link: "/account/change-password",
+      },
+    ];
+    res.render("./pages/account/change-password", { nav_tree__data });
   }
 }
 
