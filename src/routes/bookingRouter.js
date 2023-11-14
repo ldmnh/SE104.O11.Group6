@@ -16,8 +16,10 @@ const bookingMiddleware = require('../middlewares/booking.middleware')
 // import controller
 const BookingController = require('../controllers/BookingController.js')
 
-router.get('/information', authMiddleware.isLoggedIn, bookingMiddleware.isChoosingRooms, BookingController.information)
-router.post('/information', authMiddleware.isLoggedIn, bookingMiddleware.isChoosingRooms, BookingController.informationPost)
+// router.get('/information', authMiddleware.isLoggedIn, bookingMiddleware.isChoosingRooms, BookingController.information)
+// router.post('/information', authMiddleware.isLoggedIn, bookingMiddleware.isChoosingRooms, BookingController.informationPost)
+router.get('/information', BookingController.information)
+router.post('/information', BookingController.informationPost)
 
 router.get('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.payment)
 router.post('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.paymentPost)
