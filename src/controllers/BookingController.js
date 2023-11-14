@@ -43,7 +43,8 @@ class BookingController {
 		const nav_tree__data = [
 			{ text: 'Trang chủ', link: '/' },
 			{ text: 'Đặt phòng', link: '/booking' },
-			{ text: 'Phương thức thanh toán', link: '/booking/payment' }
+			{ text: 'Phương thức thanh toán', link: '/booking/payment' },
+			
 		]
 
 		res.status(200).render('./pages/booking/payment', { nav_tree__data })
@@ -66,7 +67,13 @@ class BookingController {
 
 	// [GET] /booking/cancel
 	cancel(req, res) {
-		res.render('./pages/booking/cancellation')
+		const nav_tree__data = [
+			{ text: 'Trang chủ', link: '/' },
+			{ text: 'Đặt phòng', link: '/booking' },
+			{ text: 'Hủy đặt phòng', link: '/booking/cancellation' },
+			
+		]
+		res.render('./pages/booking/cancellation', {nav_tree__data})
 	}
 
 	// [POST] /booking/cancel
