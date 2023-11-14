@@ -134,8 +134,8 @@ footer {
 	padding: 0 16px;
 }
 
-.footer-container__form{
+.footer-container__form {
 	display: flex;
-	gap:10px;
+	gap: 10px;
 	justify-content: space-between;
 }

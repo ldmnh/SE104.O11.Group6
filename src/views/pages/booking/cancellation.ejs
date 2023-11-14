@@ -12,11 +12,9 @@
 </head>
 
 <body>
-    <div>
-        <%- include('../../components/on-top-btn.ejs') %>
-        <!-- static to booking css to incluce on top button -->
-        <!-- app.use(express.static(path.join(__dirname, "static"))); -->
-    </div>
+    <%- include('../../partials/header-small') %>
+
+    <%- include('../../partials/nav-tree', { nav_tree__data }) %>
 
     <main class="content-container">
         <section class="main-content">
