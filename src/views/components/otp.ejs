@@ -1,39 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../public/styles/components/otp.css">
-    </head>
-    <body>
-        <div class="otp-container">
-            <div class="otp">
-                <div class="otp__card">
-                    <h1>Xác thực OTP</h1>
-                    <p class="otp__notice">Mã OTP đã được gửi đến số điện thoại của bạn!</p>
-                    <div class="otp__card--input">
-                        <input type="text" class="form-control otp__card-text" maxlength="1">
-                        <input type="text" class="form-control otp__card-text" maxlength="1">
-                        <input type="text" class="form-control otp__card-text" maxlength="1">
-                        <input type="text" class="form-control otp__card-text" maxlength="1">
-                        <input type="text" class="form-control otp__card-text" maxlength="1">
-                        <input type="text" class="form-control otp__card-text" maxlength="1">
-                    </div>
-                    <p class="otp__reject">Không nhận được OTP?
-                        <a class="retry" href="#">Gửi lại OTP</a>
-                    </p>
-                    <div class="otp__button">
-                        <button class="otp__button--submit1">Hủy</button>
+<div class="modal-otp">
+    <div class="otp-container">
+        <section class="otp">
+            <div class="otp__card">
+                <h1>Xác thực OTP</h1>
+                <p class="otp__notice">Mã OTP đã được gửi đến số điện thoại của bạn!</p>
+                <div class="otp__card-input">
+                    <input type="text" class="form-control otp__card-text" maxlength="1">
+                    <input type="text" class="form-control otp__card-text" maxlength="1">
+                    <input type="text" class="form-control otp__card-text" maxlength="1">
+                    <input type="text" class="form-control otp__card-text" maxlength="1">
+                    <input type="text" class="form-control otp__card-text" maxlength="1">
+                    <input type="text" class="form-control otp__card-text" maxlength="1">
+                </div>
+                <p class="otp__reject">Không nhận được OTP?
+                    <a class="retry" href="#">Gửi lại OTP</a>
+                </p>
+                <div class="otp__button">
+                    <button class="otp__button--submit1">Hủy</button>
 
-                        <button class="otp__button--submit2">Tiếp tục</button>
-                    </div>
-                    <div class="otp__close--btn">
-                        <span class="material-symbols-outlined">cancel</span>
-                    </div>
+                    <button class="otp__button--submit2">Tiếp tục</button>
+                </div>
+                <div class="otp__close-btn">
+                    <span class="material-symbols-outlined">cancel</span>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+        </section>
+    </div>
+</div>

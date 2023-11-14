@@ -1,7 +1,5 @@
 const form = document.getElementById('cancel-form');
 const closePopupBtn = document.querySelector(".closeIcon");
-const modal = document.querySelector(".modal");
-
 closePopupBtn.addEventListener("click", () => {
     modal.style.display = "none";
 })

@@ -6,6 +6,8 @@ html {
     font-size: 16px;
     color: #000000;
 }
+@import url("/styles/partials/header-small.css");
+@import url("/styles/partials/footer.css");
 
 body {
     width: 100vw;
@@ -62,7 +64,7 @@ a {
 .title__rating {
     display: flex;
     align-items: center;
-    color: #fe9c0b;
+    color: var(--primary-color-4);
     font-variation-settings: 'FILL' 1;
 }
 
@@ -121,9 +123,13 @@ a {
     border-radius: 8px;
     display: inherit;
     gap: 12px;
-    background-color: #fe9c0b;
+    background-color: var(--primary-color-4);
     font-size: 0.875rem;
     color: var(--white)
+}
+
+.detail__btn:hover {
+    color: var(--white);
 }
 
 .detail__contact button {
@@ -156,7 +162,7 @@ a {
 .price__strong {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #fe9c0b;
+    color: var(--primary-color-4);
 }
 
 .abort {
@@ -187,7 +193,7 @@ a {
 
 .abort__highlight {
     font-weight: 700;
-    color: #00696D;
+    color: var(--primary-color-2);
 }
 
 .abort__progress {

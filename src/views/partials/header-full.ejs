@@ -10,23 +10,17 @@
             </div>
             <div class="top-authenticator">
                 <!-- Header with no login -->
-
-                <!-- <button type="button" class="button-signin">Đăng nhập</button>
-        <button type="button" class="button-signup">Đăng ký</button> -->
-
-                <button class="btn--filled" type="button">
+                <button class="btn--filled" type="button" href="/auth/login">
                     <div class="status-layer">
                         <span>Đăng nhập</span>
                     </div>
                 </button>
 
-                <button class="btn--filled sec" type="button">
+                <button class="btn--filled sec" type="button" href="/auth/register">
                     <div class="status-layer">
                         <span>Đăng ký</span>
                     </div>
                 </button>
-
-                <!-- Header with login -->
 
                 <!-- <p>Chào,</p>
             <p>Giau Phan</p>
@@ -42,5 +36,13 @@
 
         <%- include('../components/search-bar.ejs') %>
     </div>
+
+    <div class="header-container__title">
+      <h1>Cần nơi dừng chân</h1>
+      <h1>Đến ngay 2WAYS.com</h1>
+      <h3>Tìm phòng với giá ưu đãi nhất từ khách sạn, nhà nghỉ,...</h3>
+    </div>
+
+    <%- include('../components/search-bar.ejs') %>
+  </div>
 </header>
-<script src="/scripts/header.js"></script>

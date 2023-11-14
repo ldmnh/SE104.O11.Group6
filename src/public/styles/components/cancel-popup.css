@@ -8,6 +8,8 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.2);
 }
+@import url("/styles/base.css");
+
 .cancel-container {
   padding: 160px;
   margin: 0;
@@ -26,7 +28,7 @@
 
 .cancel__card {
   text-align: left;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px;
   padding: 22px 22px 21px 21px;
   position: relative;
@@ -38,8 +40,8 @@
   text-align: left;
   position: relative;
   border-radius: 10px;
-  border: 1px solid #a9acab;
-  background: #e6f0f1;
+  border: 1px solid var(--mint-grey);
+  background: var(--mint-blue);
 }
 
 h1 {
@@ -89,14 +91,14 @@ h2 {
 }
 
 .free {
-  color: #119726;
+  color: var(--green);
 }
 
 hr {
   width: 496px;
   margin: 0;
   margin-left: 19px;
-  color: #c4c7c7;
+  color: var(--medium-gray);
 }
 
 .cancel__info--total {
@@ -133,8 +135,8 @@ hr {
   width: 275px;
   height: 48px;
   border-radius: 8px;
-  background-color: #fe9c0b;
-  color: white;
+  background-color: var(--primary-color-4);
+  color: var(--white);
   border: none;
   font-size: 16px;
 }
@@ -145,9 +147,9 @@ hr {
   border-radius: 8px;
 
   font-size: 16px;
-  color: #fe9c0b;
-  background-color: white;
-  border: 1px solid #fe9c0b;
+  color: var(--primary-color-4);
+  background-color: var(--white);
+  border: 1px solid var(--primary-color-4);
 }
 
 .cancel__close--btn {
@@ -157,7 +159,7 @@ hr {
 }
 
 .cancel__close--btn span {
-  color: #00696d;
+  color: var( --primary-color-2);
 }
 
 .cancel__button--submit1:hover {

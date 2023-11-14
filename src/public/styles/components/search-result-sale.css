@@ -68,7 +68,7 @@
     font-size: 20px;
     padding: 0;
     margin: 0;
-    color: orange;
+    color: var(--primary-color-4);
 }
 
 .result-block__extensions {
@@ -118,6 +118,7 @@
     align-items: center;
     color: var(--green);
     padding: 4px 0 0px 12px;
+    gap: 2px;
 }
 
 
@@ -228,6 +229,10 @@
     font-weight: 500;
     border-radius: 8px;
     margin-top: 4px;
+}
+
+.form__submit:hover {
+    color: white;
 }
 
 .result-block__main-container {
