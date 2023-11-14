@@ -1,7 +1,10 @@
 <div class="noti-item__block">
     <img src="/imgs/avatar.png" alt="img" class="noti-item__img">
-    <div class="noti-item__main">
+    <form action="/notifications/account-update" method="POST" class="noti-item__main">
+        <input type="hidden" name="hello" value="">
         <div>
+
+
             <p class="noti-item__title">CẬP NHẬT MẬT KHẨU</p>
             <p class="noti-item__sub-title">Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.</p>
         </div>
@@ -61,5 +64,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

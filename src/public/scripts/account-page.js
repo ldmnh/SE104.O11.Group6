@@ -66,6 +66,7 @@ const redirect2EdefaultView = () => {
 }
 
 const redirect2HistoryView = () => {
+	window.location.href = "/account/history";
 	window.location.href = '/account/history'
 }
 window.location.href = '/account/history'
@@ -76,13 +77,25 @@ const redirect2accountPaymentView = () => {
 }
 
 const redirect2changePasswordView = () => {
-	window.location.href = '/account/change-password'
+	window.location.href = "/account/change-password"
+}
+window.location.href = '/account/change-password'
 }
 
 historyBtn.addEventListener('click', redirect2HistoryView)
 accountPaymentBtn.addEventListener('click', redirect2accountPaymentView)
 changePasswordBtn.addEventListener('click', redirect2changePasswordView)
 
+cancelBtn.addEventListener("click", redirect2EdefaultView);
+editBtn.addEventListener("click", redirect2EditView);
+
+const logoutBtn = document.querySelector(".logout-btn");
+
+const redirect2LogOutView = () => {
+	window.location.href = "/auth/logout"
+}
+
+logoutBtn.addEventListener("click", redirect2LogOutView);
 cancelBtn.addEventListener('click', redirect2EdefaultView)
 editBtn.addEventListener('click', redirect2EditView)
 

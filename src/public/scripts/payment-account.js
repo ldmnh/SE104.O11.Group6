@@ -49,6 +49,7 @@ const changePasswordBtn = document.querySelector('.change-password-btn')
 
 const redirect2profiletView = () => {
 	window.location.href = '/account/information'
+	window.location.href = "/account/information"
 }
 const redirect2HistoryView = () => {
 	window.location.href = '/account/history'
@@ -60,9 +61,15 @@ profileBtn.addEventListener('click', redirect2profiletView)
 historyBtn.addEventListener('click', redirect2HistoryView)
 changePasswordBtn.addEventListener('click', redirect2changePasswordView)
 const logoutBtn = document.querySelector('.logoutBtn')
+profileBtn.addEventListener("click", redirect2profiletView)
+historyBtn.addEventListener("click", redirect2HistoryView);
+changePasswordBtn.addEventListener("click", redirect2changePasswordView);
+
+const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
 	window.location.href = '/auth/logout'
+	window.location.href = "/auth/logout"
 }
 
 logoutBtn.addEventListener('click', redirect2LogOutView)
@@ -71,6 +78,14 @@ addCreditAccountBtn.addEventListener('click', onClickAddCreditAccountBtn)
 
 const addBankAccountpopup = document.querySelector('.modal')
 const addBankAccountBtn = document.querySelector('.add-bank-account-btn')
+logoutBtn.addEventListener("click", redirect2LogOutView)
+
+logoutBtn.addEventListener("click", redirect2LogOutView);
+
+//
+const addBankAccountpopup = document.querySelector(".modal");
+const addBankAccountBtn = document.querySelector(".add-bank-account-btn");
+
 const onClickAddBankAccountBtn = () => {
 	addBankAccountpopup.style.display = 'block'
 }

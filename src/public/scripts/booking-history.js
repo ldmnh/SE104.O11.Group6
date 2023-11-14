@@ -48,6 +48,7 @@ const changePasswordBtn = document.querySelector('.change-password-btn')
 
 const redirect2profiletView = () => {
     window.location.href = '/account/information'
+    window.location.href = "/account/information"
 }
 
 const redirect2accountPaymentView = () => {
@@ -60,12 +61,17 @@ const redirect2changePasswordView = () => {
 profileBtn.addEventListener('click', redirect2profiletView)
 accountPaymentBtn.addEventListener('click', redirect2accountPaymentView)
 changePasswordBtn.addEventListener('click', redirect2changePasswordView)
+profileBtn.addEventListener("click", redirect2profiletView)
+accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
+changePasswordBtn.addEventListener("click", redirect2changePasswordView);
 
 const logoutBtn = document.querySelector('.logoutBtn')
 
 const redirect2LogOutView = () => {
     window.location.href = '/auth/logout'
 }
+window.location.href = "/auth/logout"
+};
 
 logoutBtn.addEventListener('click', redirect2LogOutView)
 

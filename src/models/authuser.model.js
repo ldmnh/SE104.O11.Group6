@@ -68,7 +68,7 @@ AuthUser.checkAccount = ({ email, password }, callback) => {
     })
 }
 
-AuthUser.getInfoByEmail = ({ email }, callback) => {
+AuthUser.getInfoById = ({ id }, callback) => {
     const sql = `
         SELECT
             au_user_first_name, 
@@ -78,14 +78,14 @@ AuthUser.getInfoByEmail = ({ email }, callback) => {
             au_user_birthday,
             au_user_sex
         FROM AUTHUSER
-        WHERE au_user_email = ?`
-    db.query(sql, [email], (err, result) => {
-        callback(err, result)
-    })
+        WHERE au_user_id = ?`;
+    db.query(sql, [id], (err, result) => {
+        callback(err, result);
+    });
 }
 
-AuthUser.putInfoByEmail = ({
-    email, first_name, last_name, birthday, sex
+AuthUser.putInfoById = ({
+    id, first_name, last_name, birthday, sex
 }, callback) => {
     const sql = `
         UPDATE AUTHUSER 
@@ -93,9 +93,9 @@ AuthUser.putInfoByEmail = ({
             au_user_last_name = ?,
             au_user_birthday = ?,
             au_user_sex = ?
-        WHERE au_user_email = ?`
+        WHERE au_user_id = ?;`
     const values = [
-        first_name, last_name, birthday, sex, email
+        first_name, last_name, birthday, sex, id
     ]
 
     db.query(sql, values, (err, result) => {
@@ -103,13 +103,13 @@ AuthUser.putInfoByEmail = ({
     })
 }
 
-AuthUser.putChangePassByEmail = ({ email, oldPass, newPass }, callback) => {
+AuthUser.putChangePassById = ({ id, oldPass, newPass }, callback) => {
     const sql = `
         UPDATE AUTHUSER
         SET au_user_password = ?
-        WHERE au_user_email = ?
-            AND au_user_password = ?`
-    const values = [newPass, email, oldPass]
+        WHERE au_user_id = ?
+            AND au_user_password = ?;`;
+    const values = [newPass, id, oldPass]
     db.query(sql, values, (err, result) => {
         callback(err, result)
     })
@@ -126,37 +126,27 @@ AuthUser.putResetPassByEmail = ({ email, password }, callback) => {
     })
 }
 
-AuthUser.getBankCardsByEmail = ({ email }, callback) => {
+AuthUser.getBankCardsById = ({ id }, callback) => {
     const sql = `
         SELECT
             bank_name,
-            bank_num,
-        FROM BANKCARD AS B
-        INNER JOIN (
-            SELECT au_user_id
-            FROM AUTHUSER
-            WHERE au_user_email = ?
-        ) AS A
-            ON B.au_user_id = A.au_user_id`
-    db.query(sql, [email], (err, result) => {
-        callback(err, result)
-    })
+            bank_num
+        FROM BANKCARD AS N
+        WHERE B.au_user_id = ?;`;
+    db.query(sql, [id], (err, result) => {
+        callback(err, result);
+    });
 }
 
-AuthUser.getDebitCardsByEmail = ({ email }, callback) => {
+AuthUser.getDebitCardsById = ({ id }, callback) => {
     const sql = `
         SELECT
-            debit_num,
+            debit_num
         FROM DEBITCARD AS D
-        INNER JOIN (
-            SELECT au_user_id
-            FROM AUTHUSER
-            WHERE au_user_email = ?
-        ) AS A
-            ON D.au_user_id = A.au_user_id`
-    db.query(sql, [email], (err, result) => {
-        callback(err, result)
-    })
+        WHERE D.au_user_id = ?;`;
+    db.query(sql, [id], (err, result) => {
+        callback(err, result);
+    });
 }
 
 module.exports = AuthUser

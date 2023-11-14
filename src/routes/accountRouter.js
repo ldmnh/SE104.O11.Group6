@@ -11,13 +11,14 @@ router.get('/information', authMiddleware.isLoggedIn, AccountController.informat
 router.put('/information', authMiddleware.isLoggedIn, AccountController.informationPut)
 
 router.get('/history', AccountController.history)
+router.post('/history', AccountController.addReview)
 
 router.get('/card', AccountController.card)
-router.get('/card-fill', AccountController.cardFill)
-router.post('/card/addBank', AccountController.addBank);
-router.post('/card/addDebit', AccountController.addDebit);
-router.post('/card/delBank', AccountController.delBank);
-router.post('/card/delDebit', AccountController.delDebit);
+// router.get('/card-fill', AccountController.cardFill)
+router.post("/card/addBank", AccountController.addBank);
+router.post("/card/addDebit", AccountController.addDebit);
+router.put("/card/delBank", AccountController.delBank);
+router.put("/card/delDebit", AccountController.delDebit);
 
 router.get('/change-password', AccountController.changePass)
 

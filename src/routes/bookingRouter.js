@@ -24,7 +24,7 @@ router.post('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBoo
 
 router.get('/success', authMiddleware.isLoggedIn, BookingController.success)
 
-router.get('/detail', BookingController.detail)
+router.get('/:detail', BookingController.detail)
 
 router.get('/cancellation', BookingController.cancel)
 router.post('/cancellation', BookingController.cancelPost)

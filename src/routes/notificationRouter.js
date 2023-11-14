@@ -2,10 +2,13 @@ const express = require('express')
 const router = express.Router();
 
 // import controller
-const NotificationController = require('../controllers/NotificationController.js')
+const NotificationsController = require('../controllers/NotificationsController.js')
 
-router.get('/account-update', NotificationController.notiAccountUpdate)
+router.get('/account-update', NotificationsController.notiAccountUpdate)
+router.post('/account-update', NotificationsController.updateNotiAccount)
 
-router.get('/promotion', NotificationController.notiPromotion)
+router.get('/promotion', NotificationsController.notiPromotion)
+router.post('/promotion', NotificationsController.updateNotiPromotion)
+router.post('/read-all', NotificationsController.readAllNotification)
 
 module.exports = router
