@@ -17,7 +17,7 @@ class SiteController {
 
     // [GET] /term-of-use
     termOfUse(req, res) {
-        res.render('./pages/site/term-of-use')
+        res.render('./pages/site/terms-of-use')
     }
 
     // [GET] /privacy-policy

@@ -186,6 +186,9 @@ class SearchController {
     // [GET] /search/:acco_id
     accoDetail(req, res) {
         accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
+            if (!accoDetail[0]) {
+                res.status(404).render('./pages/site/error404.ejs')
+            }
             res.status(200).render('./pages/search/detail', {
                 // res.status(200).json({
                 message: 'Lấy thông tin thành công',
@@ -201,6 +204,7 @@ class SearchController {
 
     // [POST] /search:acco_id
     submitBooking(req, res) {
+        console.log(req.body)
         const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
 
         req.session.acco = { id: acco_id }
@@ -214,7 +218,7 @@ class SearchController {
             };
         }).filter(value => value.num > 0);
 
-        // res.redirect('/booking/information');
+        res.redirect('/booking/information');
     }
 }
 
