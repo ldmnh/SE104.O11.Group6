@@ -1,10 +1,10 @@
 <div class="room-container">
     <div class="room">
-        <input type="hidden" value="<%= room.room_id %>" name="room_id[]" class="form-control">
-        <h2 class="room__type"><%= room.room_class%></h2>
+        <!-- <input type="hidden" value="" name="room_id[]" class="form-control"> -->
+        <h2 class="room__type">Phòng hạng sang</h2>
         <div class="room__detail">
             <div class="room__detail--left">
-                <img src="/imgs/details/1.jpg" alt="" class="room__preview">
+                <img src="/imgs/accommodation/accommodation_1.jpg" alt="" class="room__preview">
                 <div class="room__area">
                     <span class="material-symbols-outlined">square_foot</span>
                     <p>50 m<sup>2</sup></p>
@@ -17,11 +17,11 @@
 
             <div class="room__detail--right">
                 <div class="room__title">
-                    <h2></h2>
+                    <h2>Phòng Deluxe giường đôi nhìn ra biển</h2>
                     <div>
-                        <span id="room__minus" class="material-symbols-outlined">remove</span>
-                        <input type="number" name = "room_number[]" value="0" id="room__quantity" class="form-control">
-                        <span id="room__plus" class="material-symbols-outlined">add</span>
+                        <span onclick="minus(event)" class="material-symbols-outlined">remove</span>
+                        <input type="number" name="room_number[]" value="0" class="form-control">
+                        <span onclick="plus(event)" class="material-symbols-outlined">add</span>
                     </div>
                 </div>
                 <div class="room__content">
@@ -54,15 +54,15 @@
                         </div>
                         <div>
                             <span class="material-symbols-outlined">help</span>
-                            <a href="#">Chính sách hủy phòng</a>
+                            <a href="/terms-of-use">Chính sách hủy phòng</a>
                         </div>
                     </div>
                     <div class="room__content--right">
                         <p class="room__left">(5 phòng trống)</p>
-                        <input type="hidden" value="<%=room.room_cost %>" name="room_cost_before[]" class="form-control">
-                        <input type="hidden" value="<%=room.room_cost - (room.room_cost*room.room_discount) %>" name="room_cost_after[]" class="form-control">
-                        <p class="room__origin-price"><del>VND </del></p>
-                        <p class="room__price"></p>
+                        <!-- <input type="hidden" value="" name="room_cost_before[]" class="form-control"> -->
+                        <!-- <input type="hidden" value="" name="room_cost_after[]" class="form-control"> -->
+                        <p class="room__origin-price"><del>10000 VND </del></p>
+                        <p class="room__price">100000000</p>
                         <p class="room__unit">/phòng/đêm</p>
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#room-detail">Xem chi tiết phòng</button>
                     </div>
@@ -75,10 +75,10 @@
         <div class="modal-dialog modal-xl modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal__view">
-                    <h1></h1>
+                    <h1>ABc</h1>
                     <div class="modal__view--big">
                         <button onclick="prevSlide(event)" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
-                        <img class="modal__slide" src="/imgs/details/1.jpg" alt="">
+                        <img class="modal__slide" src="/imgs/accommodation/accommodation_1.jpg" alt="">
                         <button onclick="nextSlide(event)" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
                     </div>
                     <div class="modal__view--small">
@@ -111,7 +111,7 @@
                             <div class="feature__col-left">
                                 <div class="detail__item">
                                     <span class="material-symbols-outlined">king_bed</span>
-                                    <p><%= room.extension[0].exte_id %></p>
+                                    <p>Abc</p>
                                 </div>
                                 <div class="detail__item">
                                     <span class="material-symbols-outlined">king_bed</span>

@@ -30,4 +30,6 @@ router.get('/:detail', BookingController.detail)
 router.get('/cancellation', BookingController.cancel)
 router.post('/cancellation', BookingController.cancelPost)
 
+router.get('/:detail', BookingController.detail)
+
 module.exports = router

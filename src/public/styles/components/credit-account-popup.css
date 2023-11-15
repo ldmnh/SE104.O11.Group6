@@ -57,6 +57,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .credit__secure {
@@ -96,17 +97,46 @@ h2 {
     gap: 12px;
     padding: 10px 0;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    white-space: nowrap;
 }
 
-.form__item-2 {
+.form__item-2__date,
+.form__item-2__CCV {
     display: flex;
     gap: 12px;
     padding: 10px 0;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
+.form__item-2__date h3,
+.form__item-2__CCV h3 {
+    display: block;
+    /* min-width: 40px; */
+    font-size: 22px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+/* .form__item-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+} */
+
 .form__item h3 {
-    width: 191px;
+    display: block;
+    /* width: 20%; */
+    min-width: 191px;
     font-size: 22px;
     display: flex;
     justify-content: flex-end;
@@ -117,6 +147,7 @@ h2 {
     /* width: 189px; */
     font-size: 22px;
     display: flex;
+    /* min-width: 191px; */
     justify-content: flex-end;
     padding-top: 8px;
     padding: 10px;
@@ -126,18 +157,35 @@ h2 {
     width: 191px;
 }
 
-.input-2 {
-    width: 107px;
+.form__item-2__CCV .input-2 {
+    width: 100px;
 }
 
 .form__item input {
-    width: 587px;
+    display: flex;
+    /* justify-content: stretch; */
+    justify-content: flex-end;
     height: 48px;
+    max-width: 587px;
 }
 
 .form__item-2 input {
-    width: 230px;
+    /* width: 230px; */
+    display: flex;
+    justify-content: stretch;
     height: 48px;
+}
+
+.from__item-2__date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.from__item-2__CCV {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .form__item select {
@@ -181,6 +229,10 @@ h2 {
     position: absolute;
     top: 16px;
     right: 19px;
+}
+
+.credit__close-btn:hover {
+    cursor: pointer;
 }
 
 .credit__close-btn span {

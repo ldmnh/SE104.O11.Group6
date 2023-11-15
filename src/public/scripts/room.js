@@ -1,7 +1,8 @@
 function minus(event) {
     const element = event.currentTarget
     const input = element.nextElementSibling
-    input.value = Number(input.value) - 1
+    if (input.value > 0)
+        input.value = Number(input.value) - 1
 }
 
 function plus(event) {

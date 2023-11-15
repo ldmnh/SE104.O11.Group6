@@ -12,26 +12,25 @@ const changePasswordBtn = document.querySelector(".change-password-btn");
 editView.style.display = "none";
 
 const redirect2EditView = () => {
-  defaultView.style.display = "none";
-  editView.style.display = "block";
+	defaultView.style.display = "none";
+	editView.style.display = "block";
 };
 
 const redirect2EdefaultView = () => {
-  defaultView.style.display = "block";
-  editView.style.display = "none";
+	defaultView.style.display = "block";
+	editView.style.display = "none";
+};
+const redirect2HistoryView = () => {
+	window.location.href = "/account/history";
 };
 
-const redirect2HistoryView = () => {
-    window.location.href = "/account/history";
-}
-
 const redirect2accountPaymentView = () => {
-    window.location.href = "/account/payment"
-}
+	window.location.href = "/account/card";
+};
 
 const redirect2changePasswordView = () => {
-    window.location.href = "/account/change-password"
-}
+	window.location.href = "/account/change-password";
+};
 
 historyBtn.addEventListener("click", redirect2HistoryView);
 accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
@@ -43,8 +42,8 @@ editBtn.addEventListener("click", redirect2EditView);
 const logoutBtn = document.querySelector(".logout-btn");
 
 const redirect2LogOutView = () => {
-    window.location.href = "/auth/logout"
-}
+	window.location.href = "/auth/login";
+};
 
 logoutBtn.addEventListener("click", redirect2LogOutView);
 
@@ -53,7 +52,7 @@ const successPopup = document.querySelector(".modal-success");
 const saveBtn = document.querySelector("#save-btn");
 
 const redirect2SavePopupView = () => {
-  successPopup.style.display = "block";
+	successPopup.style.display = "block";
 };
 
 saveBtn.addEventListener("click", redirect2SavePopupView);

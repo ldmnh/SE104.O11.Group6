@@ -1,48 +1,46 @@
 <div class="modal">
     <div class="account-container">
-        <form class="account" action="/account/card/addBank" method="POST">
+        <section class="account">
             <div class="account__card">
                 <h1>Thêm tài khoản ngân hàng</h1>
-                <div class="form--items">
-                    <div class="form--item">
+                <div class="account__items">
+                    <div class="account__item">
                         <h2>Tên ngân hàng:</h2>
-                        <select name="bank_name" class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example">
                             <option selected>Chọn ngân hàng</option>
-                            <option value="BnameV">BnameV</option>
-                            <option value="Vietcombank">Vietcombank</option>
-                            <option value="MB">MB</option>
-                            <option value="Agribank">Agribank</option>
-                            <option value="ACB">ACB</option>
+                            <option value="1">BIDV</option>
+                            <option value="2">Vietcombank</option>
+                            <option value="3">MB</option>
+                            <option value="4">Agribank</option>
+                            <option value="5">ACB</option>
                         </select>
                     </div>
 
-                    <div class="form--item">
+                    <div class="account__item">
                         <h2>Tên chi nhánh:</h2>
-                        <input class="form-control" name="bank_branch" type="text" placeholder="Chọn tên chi nhánh" />
+                        <input class="form-control" type="text" placeholder="Chọn tên chi nhánh" />
                     </div>
-                    <div class="form--item">
+                    <div class="account__item">
                         <h2>Số tài khoản:</h2>
-                        <input class="form-control" name="bank_num" type="text" placeholder="Nhập số tài khoản" />
+                        <input class="form-control" type="text" placeholder="Nhập số tài khoản" />
                     </div>
-                    <div class="form--item">
-                        <div class="form--item--notice">
+                    <div class="account__item">
+                        <div class="account__item--notice">
                             <h2>Tên chủ tài khoản:</h2>
                             <p>(In hoa, không dấu)</p>
                         </div>
-                        <input class="form-control" name="bank_name_pers" type="text"
-                            placeholder="Nhập tên chủ tài khoản" />
+                        <input class="form-control" type="text" placeholder="Nhập tên chủ tài khoản" />
                     </div>
                 </div>
                 <div class="account__button">
-                    <button class="account__button--submit1 closeBtn">Hủy</button>
+                    <button class="form-button--submit1 close-btn">Hủy</button>
 
-                    <button name="bank-accouunt-button" class="account__button--submit2" type="submit">Hoàn
-                        thành</button>
+                    <button class="form-button--submit2">Hoàn thành</button>
                 </div>
-                <div class="account__close--btn">
+                <div class="account__btn-close">
                     <span class="material-symbols-outlined closeIcon">cancel</span>
                 </div>
             </div>
-        </form>
+        </section>
     </div>
 </div>

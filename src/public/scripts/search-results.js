@@ -38,6 +38,7 @@ filterItems.forEach(item => {
 })
 
 let dropdownButtons = document.querySelectorAll('.dropdown-button')
+console.log(dropdownButtons)
 
 document.body.addEventListener('click', function (event) {
     let target = event.target

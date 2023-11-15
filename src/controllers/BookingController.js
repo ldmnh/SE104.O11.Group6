@@ -214,7 +214,7 @@ class BookingController {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
             }
-            
+
             if (result) {
                 req.session.book_id = null;
                 res.status(200).json({ message: "Thành công" });
@@ -223,4 +223,4 @@ class BookingController {
     }
 }
 
-module.exports = new BookingController();
+module.exports = new BookingController()
