@@ -131,18 +131,55 @@ INNER JOIN roomtype
 
 
 DROP VIEW IF EXISTS view_rating_admin;
+
 CREATE VIEW view_rating_admin AS
-SELECT rating.au_user_id, CONCAT(authuser.au_user_last_name,' ', authuser.au_user_first_name) as 'au_user_full_name', rating.room_id, rating.rating_datetime, rating.rating_context, rating.rating_point, 
-roomtype.room_class, roomtype.room_type, accommodation.acco_id, accommodation.acco_name
-FROM rating, authuser, accommodation, roomtype
-WHERE rating.au_user_id = authuser.au_user_id
-AND rating.room_id = roomtype.room_id
-AND roomtype.acco_id = accommodation.acco_id;
+SELECT
+    rating.au_user_id,
+    CONCAT(authuser.au_user_last_name, ' ', authuser.au_user_first_name) as 'au_user_full_name',
+    rating.room_id,
+    rating.rating_datetime,
+    rating.rating_context,
+    rating.rating_point, 
+    roomtype.room_class,
+    roomtype.room_type,
+    accommodation.acco_id,
+    accommodation.acco_name
+FROM rating
+INNER JOIN authuser
+    ON rating.au_user_id = authuser.au_user_id
+INNER JOIN roomtype
+    ON rating.room_id = roomtype.room_id
+INNER JOIN accommodation
+    ON roomtype.acco_id = accommodation.acco_id;
 
 
 DROP VIEW IF EXISTS view_booking_admin;
+
 CREATE VIEW view_booking_admin AS
-SELECT booking.book_id, booking.au_user_id, CONCAT(authuser.au_user_last_name,' ', authuser.au_user_first_name) as 'au_user_full_name', booking.acco_id, accommodation.acco_name, booking.book_datetime, booking.book_start_datetime, booking.book_end_datetime, booking.book_num_adult, booking.book_num_child, booking.book_cost_before, booking.book_cost_after, CONCAT(booking.book_first_name, ' ', booking.book_last_name) as 'book_customer_name', booking.book_email, booking.book_phone, booking.pay_id, booking.book_note, booking.cancel_cost, booking.book_status, booking.book_is_paid, booking.rea_id 
-FROM booking, authuser, accommodation
-WHERE booking.au_user_id = authuser.au_user_id
-AND booking.acco_id = accommodation.acco_id;
+SELECT
+    booking.book_id,
+    booking.au_user_id,
+    CONCAT(authuser.au_user_last_name, ' ', authuser.au_user_first_name) as 'au_user_full_name',
+    booking.acco_id,
+    accommodation.acco_name,
+    booking.book_datetime,
+    booking.book_start_datetime,
+    booking.book_end_datetime,
+    booking.book_num_adult,
+    booking.book_num_child,
+    booking.book_cost_before,
+    booking.book_cost_after,
+    CONCAT(booking.book_first_name, ' ', booking.book_last_name) as 'book_customer_name',
+    booking.book_email,
+    booking.book_phone,
+    booking.pay_id,
+    booking.book_note,
+    booking.cancel_cost,
+    booking.book_status,
+    booking.book_is_paid,
+    booking.rea_id 
+FROM booking
+INNER JOIN authuser
+    ON booking.au_user_id = authuser.au_user_id
+INNER JOIN accommodation
+    ON booking.acco_id = accommodation.acco_id;
