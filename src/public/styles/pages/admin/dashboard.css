@@ -1,0 +1,136 @@
+@import url('/styles/base.css');
+@import url('/styles/partials/admin-nav.css');
+
+body {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg-white);
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+main {
+    width: 85%;
+    margin-left: 15%;
+    display: inherit;
+    flex-direction: column;
+}
+
+.main-container {
+    width: 90%;
+    margin: 5vh auto;
+    padding: 24px;
+    border-radius: 16px;
+    display: inherit;
+    flex-direction: column;
+    gap: 24px;
+    background-color: var(--white);
+    box-shadow: 0 1px 8px 0px rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.summary {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.summary__rooms,
+.summary__ratings {
+    background-color: var(--primary-color-3-o80);
+}
+
+.summary__bookings {
+    background-color: var(--primary-color-4-o80);
+}
+
+.summary div {
+    width: 32%;
+    height: 150px;
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 12px;
+    color: var(--white);
+}
+
+.summary div p {
+    font-size: 2rem;
+}
+
+.tables {
+    display: inherit;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.tables__bookings,
+.tables__ratings {
+    width: 49%;
+    padding: 16px 24px 16px 16px;
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 12px;
+    background-color: var(--primary-color-3-o10);
+}
+
+.tables__title {
+    display: inherit;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tables__title h2 {
+    font-size: 1.5rem;
+}
+
+.tables__rows {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tables__col,
+.tables__rows div {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.tables__col p,
+.tables__rows div p {
+    width: 25%;
+}
+
+.tables__last-col {
+    width: 14%;
+}
+
+.tables__col a,
+.tables__rows div a {
+    width: 15%;
+    text-align: right;
+}
+
+
+.tables__col p {
+    font-weight: 500;
+}
+
+.tables__ratings .tables__rows div p:nth-child(2) {
+    text-indent: 24px;
+}
+
+.chart {
+    width: 100%;
+}
+
+.chart p {
+    text-align: center;
+    font-size: 1.25rem;
+}

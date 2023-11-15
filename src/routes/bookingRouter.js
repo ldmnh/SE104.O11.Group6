@@ -22,11 +22,14 @@ router.post('/information', authMiddleware.isLoggedIn, bookingMiddleware.isChoos
 router.get('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.payment)
 router.post('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBookingInfo, BookingController.paymentPost)
 
-router.get('/success', authMiddleware.isLoggedIn, BookingController.success)
+// router.get('/success', authMiddleware.isLoggedIn, BookingController.success)
+router.get('/success', BookingController.success)
 
-router.get('/detail', BookingController.detail)
+router.get('/:detail', BookingController.detail)
 
 router.get('/cancellation', BookingController.cancel)
 router.post('/cancellation', BookingController.cancelPost)
+
+router.get('/:detail', BookingController.detail)
 
 module.exports = router

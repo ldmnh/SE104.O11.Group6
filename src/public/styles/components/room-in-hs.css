@@ -1,44 +1,45 @@
-.room__in__hs {
+@import url("/styles/base.css");
+
+.room-in-hs {
     height: 307px;
     width: 804px;
     display: flex;
-    gap: 32px;
-    background-color: white;
-    border: 1px solid #bec8c9;
+    justify-content: space-between;
+    background-color: var(--white);
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     margin: 6px 0;
+    padding: 24px;
 }
 
-.room__in__hs_img img {
-    height: 305px;
-    width: 280px;
-    border-radius: 8px;
+.room-in-hs__detail {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
 }
 
-.room__in__title {
-    width: 546px;
+.room-in-hs__detail label {
+    font-weight: 600;
+}
+
+.room-in__status {
+    text-align: end;
+    font-size: 14px;
+}
+
+.room-in__title {
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 16px;
     justify-content: space-around;
 }
 
-.room__in__title h1 {
+.room-in__title h1 {
     font-size: 24px;
     font-weight: 700;
-    margin: 0;
-    padding: 0;
-}
-
-.quantity__bed__guest {
-    display: flex;
-    font-weight: 500px;
-    font-size: 22px;
-    gap: 8px;
-}
-
-.quantity__bed__guest p {
     margin: 0;
     padding: 0;
 }
@@ -51,7 +52,6 @@
 
 .policy__room {
     display: flex;
-    color: var(--primary-color);
     gap: 8px;
 }
 
@@ -90,30 +90,13 @@
     font-weight: 500;
 }
 
-.button-room__in__hs {
+.button-room-in-hs {
     display: flex;
     gap: 8px;
     justify-content: flex-end;
 }
 
-.form--submit1 {
-    width: 206px;
-    height: 48px;
-    border-radius: 8px;
-    color: white;
-    background-color: var(--primary-color);
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-}
-
+.form--submit1,
 .form--submit2 {
-    width: 206px;
-    height: 48px;
-    border-radius: 8px;
-    color: white;
-    background-color: #fe9c0b;
-    font-size: 16px;
     font-weight: 500;
-    border: none;
 }

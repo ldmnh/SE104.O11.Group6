@@ -10,7 +10,6 @@
  * @param {Function} next - Express next function
  */
 exports.isChoosingRooms = (req, res, next) => {
-    console.log(`isChoosingRooms: ${req.session.rooms}`)
     if (req.session.rooms) { next(); }
     else { res.status(401).redirect('/'); }
 }
@@ -22,6 +21,6 @@ exports.isChoosingRooms = (req, res, next) => {
  * @param {Function} next - Express next function
  */
 exports.isFilledBookingInfo = (req, res, next) => {
-    if (req.session.booking) { next(); }
+    if (req.session.book) { next(); }
     else { res.status(401).redirect('/booking/information'); }
 }

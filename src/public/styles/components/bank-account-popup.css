@@ -1,3 +1,7 @@
+@import url("/styles/base.css");
+
+@import url("/styles/base.css");
+
 .modal {
     position: fixed;
     display: none;
@@ -35,31 +39,34 @@ h1 {
     /* width: 764px;
   height: 391px; */
     text-align: left;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 8px;
     padding: 32px 38px 34px 38px;
-    box-shadow: 0 10px 40px -20px black;
+    box-shadow: 0 10px 40px -20px var(--black);
+    box-shadow: 0 10px 40px -20px var(--black);
     position: relative;
 }
 
-.form--items {
+.account__items {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form--item {
+.account__item {
     display: flex;
     gap: 25px;
     padding: 10px 0;
     align-items: center;
+    width: 100%;
 }
 
 .form-control:disabled::placeholder {
-    color: black;
+    color: var(--black);
+    color: var(--black);
 }
 
-.form--item h2 {
+.account__item h2 {
     width: 189px;
     font-size: 22px;
     display: flex;
@@ -67,36 +74,39 @@ h1 {
     padding-top: 8px;
 }
 
-.form--item--notice {
+.account__item--notice {
     width: 189px;
     font-size: 22px;
     margin: -10px 0;
 }
 
-.form--item--notice p {
+.account__item--notice p {
     font-size: 14px;
     text-align: right;
 }
 
-.form--item input {
+.account__item input {
     width: 526px;
     height: 48px;
 }
 
-.form--item select {
-    width: 590px;
+.account__item select {
+    width: 526px;
     height: 48px;
 }
 
 .form-control:disabled {
     border: none;
-    background-color: white;
+    background-color: var(--white);
+    background-color: var(--white);
 }
 
 .form-control.unfilled:disabled::placeholder {
     border: none;
-    background-color: white;
-    color: #bec8c9;
+    background-color: var(--white);
+    color: var(--outline-variant);
+    background-color: var(--white);
+    color: var(--outline-variant);
 }
 
 .account__button {
@@ -106,34 +116,40 @@ h1 {
     margin: 18px 0 0 0;
 }
 
-.account__button--submit1 {
+.form-button--submit1 {
     width: 96px;
     height: 48px;
     border-radius: 8px;
-    color: #fe9c0b;
-    background-color: white;
-    border: 1px solid #fe9c0b;
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
 }
 
-.account__button--submit2 {
+.form-button--submit2 {
     width: 131px;
     height: 48px;
     border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
+    background-color: var(--primary-color-4);
+    color: var(--white);
+    background-color: var(--primary-color-4);
+    color: var(--white);
     border: none;
     font-size: 16px;
 }
 
-.account__close--btn {
+.account__btn-close {
     position: absolute;
     top: 16px;
     right: 19px;
 }
 
-.account__close--btn span {
-    color: #00696d;
+.account__btn-close:hover {
+    cursor: pointer;
+}
+
+.account__btn-close span {
+    color: var(--primary-color-2);
 }
 
 .account__button:hover {

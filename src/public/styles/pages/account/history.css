@@ -1,91 +1,98 @@
 @import url("/styles/base.css");
-@import url("/styles/partials/header-small.css");
+@import url("/styles/partials/header-medium.css");
 @import url("/styles/components/room-in-hs.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/components/review-popup.css");
 @import url("/styles/components/next-page.css");
+@import url("/styles/components/success-popup.css");
+@import url("/styles/partials/nav-tree.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 body {
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.bookinghistory--container {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    /* width: 80%; */
-    width: 1152px;
+.booking-history-container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1152px;
     display: flex;
     gap: 12px;
 }
 
-.aside--wrapper {
+.aside-content {
     display: flex;
     flex-direction: column;
     width: 25%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    background: #fff;
-    height: 450px;
+    border: 1px solid var(--outline-variant);
+    background: var(--white);
+    align-self: flex-start;
 }
 
-.aside--content {
+.aside-content__profile {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.aside--section {
+.aside-content__detail-bold {
+    font-weight: 500;
+    margin: 12px 0 0 0;
+}
+
+.aside-content__section {
     font-weight: 500;
 }
 
-.aside--section p {
+.aside-content__section p {
     padding: 12px;
     height: 48px;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
-.aside--section p:hover {
+.aside-content__section p:hover,
+.logout-btn:hover {
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--gray);
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.aside--section p:nth-child(2) {
-    background-color: #004f52;
-    color: white;
+.aside-content__section p:nth-child(2) {
+    background-color: var(--primary-color-1);
+    color: var(--white);
     border-radius: 8px;
 }
 
-.aside--wrapper img {
+.aside-content__img {
     height: 64px;
     width: 64px;
     border-radius: 100%;
 }
 
-.aside--item p {
-    color: var(--material-theme-sys-light-error, #ba1a1a);
+.aside-content__item p {
+    color: var(--red);
     font-weight: 500;
-    padding-left: 12px;
+    margin: 12px;
+    cursor: pointer;
 }
 
-.booking--history {
+.booking-history {
     padding: 24px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     width: 75%;
 }
 
-.booking--history--items {
+.booking-history__items {
     display: flex;
     flex-direction: column;
     align-items: center;

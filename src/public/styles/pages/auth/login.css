@@ -12,11 +12,13 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .content-container {
     width: 80%;
-    margin: 5vh auto;
+    max-width: 1152px;
+    margin: 5vh 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,18 +47,18 @@ body {
 }
 
 .intro__slogan {
-    color: #004F52;
+    color: var(--primary-color-1);
     font-size: 2.7rem;
     font-weight: 700;
 }
 
 .intro__sub-title {
-    color: #00696D;
+    color: var(--primary-color-2);
     font-size: 1.5rem;
 }
 
 .login {
-    width: 55%;
+    width: calc(50% - 6px);
     box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     box-sizing: border-box;
@@ -64,11 +66,18 @@ body {
     display: inherit;
     flex-direction: column;
     gap: 18px;
+    box-shadow: 0 1px 8px 0px rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .row {
     margin: 0;
 }
+
+.row .error {
+    color: red;
+    font-size: 0.8rem;
+    width: auto;
+  }
 
 .login__title {
     text-align: center;
@@ -106,20 +115,24 @@ body {
 }
 
 .form__submit {
-    background-color: #FE9C0B;
+    background-color: var(--primary-color-4);
     color: white;
     font-size: 1.25rem;
     font-weight: 500;
 }
 
+.form__submit:hover {
+    color: white;
+}
+
 .login__register {
-    border: 1px solid #FE9C0B;
+    border: 1px solid var(--primary-color-4);
     font-weight: 500;
     padding-top: 10px;
 }
 
 .highlight {
-    color: #FE9C0B;
+    color: var(--primary-color-4);
 }
 
 
@@ -130,14 +143,12 @@ body {
 
 span.material-symbols-outlined {
     position: absolute;
-    bottom: 28%;
+    bottom: 22%;
     right: 3%;
-    color: #00696D;
+    color: var(--primary-color-2);
     cursor: pointer;
 }
 
 .form-control.is-invalid {
     background-image: none;
 }
-
- 

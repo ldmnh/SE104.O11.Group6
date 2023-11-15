@@ -1,93 +1,119 @@
-@import url("/styles/variables.css");
-
-/* html {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: 500;
-} */
+@import url("/styles/base.css");
 
 header {
+    background-color: var(--primary-color-1);
+    height: 112px;
+    display: flex;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    z-index: 100;
     width: 100%;
-    background-color: var(--primary-color);
-    height: 112px;
-    top: 0;
-    z-index: 1;
 }
 
-.container {
+.header-container {
+    width: 80%;
+    max-width: 1152px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-}
-
-.container__header--top {
-    display: flex;
-    height: 112px;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    align-self: stretch;
+    gap: 32px;
 }
 
-.container__header--top img {
-    display: flex;
-    width: 167.652px;
-    height: 48px;
-}
-
-.container__nav--top {
+.header-container__nav-top {
     width: 656px;
-    /* height: 48px; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: row;
-    flex-wrap: nowrap;
+    gap: 8px;
 }
 
-.container__nav--top ul {
-    list-style: none;
+.header-container__top-authenticator {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    gap: 8px;
 }
 
-.container__nav--top ul li {
-    display: inline;
-    margin: 0 24px;
-    padding-top: 15px;
+/* Header with no login*/
+.header-container__nav-top button,
+.header-container__top-authenticator button {
+    width: 128px;
+    height: 48px;
+    background-color: var(--white);
+    color: var(--primary-color-1);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border-style: none;
+
+    &:hover {
+        box-shadow:
+            0 1px 3px 1px rgba(0, 0, 0, 0.2),
+            0 0 2px 0 rgba(0, 0, 0, 0.2);
+    }
 }
 
-.container__nav--top ul li a {
-    font-size: 24px;
-    text-decoration: none;
+.header-container__nav-top button {
+    background-color: transparent;
+    color: var(--white);
 }
 
-.container__nav--top a {
-    color: #ffffff;
+.header-container__nav-top button:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
 }
 
-.top-authenticator {
-    /* top: 0;
-    right: 0; */
-    width: 260px;
+.header-container__top-authenticator .button-signup {
+    color: var(--white);
+    background-color: var(--primary-color-4);
+
+    &:hover {
+        box-shadow:
+            0 1px 3px 1px rgba(0, 0, 0, 0.2),
+            0 0 2px 0 rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Header with login*/
+.header-container__top-authenticator {
+    top: 0;
+    right: 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 
-.top-authenticator img {
+.header-container__top-authenticator img {
     width: 64px;
     height: 64px;
-    margin: 0 5px;
     border-radius: 100%;
-    background-image: url(/imgs/milo.jpg);
+    cursor: pointer;
 }
 
-.top-authenticator p {
-    margin: 0 5px;
+.header-container__top-authenticator p,
+.header-container__top-authenticator span {
     font-size: 20px;
     font-weight: 600;
     line-height: 32px;
-    color: white;
+    white-space: nowrap;
+    color: var(--white);
+    margin: 0;
+}
+
+.space {
+    width: 100%;
+    height: 112px;
+}
+
+.name-btn-hs,
+.avatar-btn-hs {
+    cursor: pointer;
+}
+
+.name-btn-hs:hover {
+    opacity: 0.7;
+}
+
+.avatar-btn-hs {
+    position: relative;
 }

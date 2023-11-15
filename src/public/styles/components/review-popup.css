@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 .modal {
     position: fixed;
     display: none;
@@ -17,12 +19,11 @@
     margin-left: 375px;
     margin-top: 100px;
     translate: translateY(200px);
-    background-color: white;
-    /* display: none; */
+    background-color: var(--white);
     border-radius: 8px;
     animation: modalFadeIn ease 0.5s;
     /* transform: translateX(385px) translateY(150px); */
-    box-shadow: 0 10px 40px -20px black;
+    box-shadow: 0 10px 40px -20px var(--black);
 }
 
 .container--title {
@@ -53,9 +54,9 @@
     width: 106px;
     height: 48px;
     border-radius: 8px;
-    color: #fe9c0b;
-    background-color: white;
-    border: 1px solid #fe9c0b;
+    color: var(--primary-color-4);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
     font-weight: 500px;
 }
@@ -64,8 +65,8 @@
     width: 106px;
     height: 48px;
     border-radius: 8px;
-    background-color: #fe9c0b;
-    color: white;
+    background-color: var(--primary-color-4);
+    color: var(--white);
     border: none;
     font-size: 16px;
     font-weight: 500px;
@@ -94,16 +95,19 @@
     border-radius: 100%;
 }
 
+/*Nút thêm số lượng */
+
 .counter--wraper {
     display: flex;
     width: 100px;
     height: 58px;
     padding: 10px;
-    border: 1px solid var(--material-theme-sys-light-outline, #6f7979);
-    background: #fff;
+    border: 1px solid var(--dark-gray);
+    background: var(--white);
     border-radius: 8px;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 input#room__quantity {
@@ -147,7 +151,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: 700;
     align-items: center;
     gap: 20px;
-    background-color: #e6f0f1;
+    background-color: var(--mint-blue);
     border-radius: 8px;
     padding: 10px;
     height: 72px;
@@ -165,27 +169,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .input--detail {
     height: 224px;
     padding: 10px;
-    z-index: 1; /* Đặt z-index để đặt lớp input trên placeholder */
+    z-index: 1;
+    /* Đặt z-index để đặt lớp input trên placeholder */
 }
 
-.input--detail:focus + .custom-input::before {
+.input--detail:focus+.custom-input::before {
     top: -10px;
     left: 10px;
     font-size: 16px;
-    color: #000;
+    color: var(--black);
 }
 
-/* .custom-input::before {
-    content: "Mô tả cụ thể trải nghiệm của bạn tại đây.";
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    color: #999;
-    padding: 10px;
-    font-weight: 500;
-    transition: all 0.3s;
-} */
+.close-popup {
+    cursor: pointer;
+}
 
 @keyframes modalFadeIn {
     from {

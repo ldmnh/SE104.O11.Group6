@@ -8,54 +8,66 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
     <title>2WAYS.com</title>
     <link rel="stylesheet" href="/styles/pages/account/history.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 </head>
 
 <body>
-    <%- include('../../partials/header-small.ejs') %>
+    <%- include('../../partials/header-medium.ejs') %>
+    <%- include('../../partials/nav-tree') %>
 
-    <div class="bookinghistory--container">
-        <aside class="aside--wrapper">
-            <div class="aside--content">
-                <img src="../../img/row-1-column-6.png" alt="" />
-                <div class="aside__content--detail">
-                    <p style="font-weight: 500; margin: 12px 0 0 0">Giàu Phan</p>
+
+    <main class="booking-history-container">
+        <aside class=" aside-content">
+            <div class="aside-content__profile">
+                <img class="aside-content__img" src="/imgs/milo.jpg" alt="avatar" />
+                <div class="aside-content__detail">
+                    <p class="aside-content__detail-bold">Giàu Phan</p>
                     <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
                 </div>
             </div>
 
-            <div class="aside--section">
-                <p class="profileBtn">Thông tin cá nhân</p>
-                <p class="historyBtn">Lịch sử đặt phòng</p>
-                <p class="accountPaymentBtn">Tài khoản thanh toán</p>
-                <p class="changePasswordBtn">Đổi mật khẩu</p>
+            <hr />
+
+            <div class="aside-content__section">
+                <p class="profile-btn">Thông tin cá nhân</p>
+                <p class="history-btn">Lịch sử đặt phòng</p>
+                <p class="account-payment-btn">Tài khoản thanh toán</p>
+                <p class="change-password-btn">Đổi mật khẩu</p>
             </div>
 
-            <div class="aside--item logoutBtn">
+            <hr />
+
+            <div class="aside-content__item logout-btn">
                 <p>Đăng xuất</p>
             </div>
         </aside>
 
-        <section class="booking--history">
-            <div class="booking--history-title">
+        <section class="booking-history">
+            <div class="booking-history__title">
                 <h1>Lịch sử đặt phòng</h1>
             </div>
 
-            <div class="filter-bar"></div>
+            <!-- <div class="filter-bar"></div> -->
 
-            <div class="booking--history--items">
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
-                <div class=""><%- include('../../components/room-in-hs.ejs') %></div>
+            <div class="booking-history__items">
+                <% bookingDetail.forEach(function(detail){ %>
+                <div class=""><%- include('../../components/room-in-hs.ejs', {detail}) %></div>
+                <% }); %>
             </div>
         </section>
-    </div>
+    </main>
+    <%- include('../../components/success-popup')  %>
     <%- include('../../components/next-page.ejs') %>
     <%- include('../../components/review-popup.ejs') %>
-    <%- include('../../partials/footer.ejs') %>
+    <%-include('../../partials/footer.ejs') %>
 
-    <script src="/scripts/booking-history.js"></script>
-    <script src="/scripts/review-popup.js"></script>
+    <script src="/scripts/booking-history.js" defer></script>
+    <script script src="/scripts/review-popup.js"></script>
+    <script src="/scripts/search-bar.js"></script>
+    <script src="/scripts/header-medium.js"></script>
+
+
 </body>
 
 </html>

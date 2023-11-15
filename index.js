@@ -1,43 +1,39 @@
 // import lib
-const ejs = require('ejs');
+const ejs = require('ejs')
 const path = require('path')
 const express = require('express')
 const app = express()
 const session = require('express-session')
-const flash = require("connect-flash")
-const passport = require("passport")
-const passportLocal = require('passport-local')
 const bodyParser = require('body-parser')
-const sequelize = require("sequelize");
 const cookieParser = require('cookie-parser')
-
 
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
+
+// use session
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
 }))
 
-//parse URL-encoded bodies
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(flash())
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(cookieParser('secret'))
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://127.0.0.1:3000',
+}));
 
 // set view engine
-app.set('views', path.join(__dirname, 'src', 'views'));
-app.set('view engine', 'ejs');
-
-//app.use('/', require('./routes/index'))
-
+app.set('views', path.join(__dirname, 'src', 'views'))
+app.set('view engine', 'ejs')
 
 // use static folder
 app.use(express.static(path.join('src', 'public')))
+
+// parse URL-encoded bodies
+app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser('secret'))
 
 // route init
 route(app)
