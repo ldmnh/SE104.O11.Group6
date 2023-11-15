@@ -12,7 +12,7 @@ const avatarClickHs = document.querySelector(".avatar-btn-hs");
 
 homepageBtnHs.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHs.addEventListener("click", () =>
-	redirectToUrl("/notification/account-update")
+	redirectToUrl("/notifications/account-update")
 );
 // signinBtnHs.addEventListener("click", () => redirectToUrl("/auth/login"));
 // signupBtnHs.addEventListener("click", () => redirectToUrl("/auth/register"));
