@@ -9,19 +9,9 @@ class SearchController {
     // [GET] /search/results
     searchResult(req, res) {
         const {
-            location,
-            checkIn,
-            checkOut,
-            adult,
-            child,
-            room,
-            acco_type,
-            rating_point,
-            bed_type,
-            acco_star,
-            cost,
-            accoStar,
-            countRating,
+            location, checkIn, checkOut, adult, child, room,
+            acco_type, rating_point, bed_type, acco_star, cost,
+            accoStar, countRating,
         } = req.query;
         let sql = `
         SELECT X.room_id
@@ -93,7 +83,8 @@ class SearchController {
                 )
             ) AS Y
             ON X.room_id = Y.room_id`;
-        const searchQuery = `%${location}%`;
+
+        const searchQuery = `%${location}%`
         const params = [
             searchQuery,
             searchQuery,
@@ -110,8 +101,8 @@ class SearchController {
 
         db.query(sql, params, (err, result) => {
             if (err) {
-                res.status(500).json({ message: "Lỗi truy cập cơ sở dữ liệu" });
-                throw err;
+                res.status(500).json({ message: 'Lỗi truy cập cơ sở dữ liệu' })
+                throw err
             }
 
             if (result.length > 0) {
@@ -211,28 +202,18 @@ class SearchController {
 
     // [GET] /search/:acco_id
     accoDetail(req, res) {
-        accoRoomDetail.getDetail(
-            req,
-            res,
-            function (
-                err,
-                accoDetail,
-                accoFea,
-                accoImg,
-                accoRoom,
-                accoRoomRating
-            ) {
-                res.status(200).render("./pages/search/detail", {
-                    // res.status(200).json({
-                    message: "Lấy thông tin thành công",
-                    accoDetail: accoDetail,
-                    accoFea: accoFea,
-                    accoImg: accoImg,
-                    accoRoom: accoRoom,
-                    accoRoomRating: accoRoomRating,
-                });
-            }
-        );
+        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
+            res.status(200).render('./pages/search/detail', {
+                // res.status(200).json({
+                message: 'Lấy thông tin thành công',
+                accoDetail: accoDetail,
+                accoFea: accoFea,
+                accoImg: accoImg,
+                accoRoom: accoRoom,
+                accoRoomRating: accoRoomRating,
+            })
+        })
+        // res.status(200).render('./pages/search/detail')
     }
 
     // [POST] /search:acco_id
@@ -258,7 +239,7 @@ class SearchController {
             })
             .filter((value) => value.num > 0);
 
-        res.redirect("/booking/information");
+        // res.redirect('/booking/information');
     }
 }
 

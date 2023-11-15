@@ -26,6 +26,7 @@ hr {
 
 .content-container {
     width: 80%;
+    max-width: 1152px;
     margin: 0;
     padding: 12px 0;
     display: flex;

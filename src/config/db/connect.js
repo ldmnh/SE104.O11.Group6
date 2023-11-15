@@ -1,8 +1,8 @@
-const mysql = require('mysql');
-const express = require('express');
-const router = express.Router();
-const bodyParser = require('body-parser');
-const dotenv = require("dotenv").config();
+const mysql = require('mysql')
+const express = require('express')
+const router = express.Router()
+const bodyParser = require('body-parser')
+const dotenv = require('dotenv').config()
 
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
@@ -19,4 +19,4 @@ db.connect(function (err) {
     }
 })
 
-module.exports = db;
+module.exports = db

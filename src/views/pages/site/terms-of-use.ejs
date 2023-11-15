@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <%- include('../../partials/header-small') %>
+  <%- include('../../partials/nav-tree', { nav_tree__data }) %>
+
   <main class="term__container">
     <h1 class="term__header">ĐIỀU KHOẢN CHUNG</h1>
     <div class="term-intro">
@@ -22,6 +25,7 @@
         trang web chính thức của 2WAYS tại địa chỉ <a href="#"></a>.</p>
       <p>ĐKC là một phần không thể tách rời của hợp đồng, thỏa thuận cung cấp, sử dụng dịch vụ hoặc Yêu Cầu Dịch Vụ được xác nhận giữa 2WAYS và Khách /Đối Tác.</p>
       </section>
+
       <section class="term-defi">
         <h2>ĐIỀU 1. ĐỊNH NGHĨA:</h2>
         <ol>
@@ -34,6 +38,7 @@
           <!-- <li></li> -->
         </ol>
       </section>
+
       <section class="term-rule">
         <h2>ĐIỀU 2. QUY ĐỊNH NHẬN VÀ TRẢ PHÒNG:</h2>
         <ol>
@@ -52,6 +57,7 @@
             nếu đang áp dụng tại thời điểm thanh toán) giữa 2WAYS và Đối Tác nếu Đối Tác là bên thanh toán.</li>
         </ol>
       </section>
+
       <section>
         <h2>ĐIỀU 3. CHÍNH SÁCH ĐẶT PHÒNG</h2>
         <ol>
@@ -65,6 +71,7 @@
             với Đại lý/Đối tác/khách hàng.</li>
         </ol>
       </section>
+
       <section>
         <h2>ĐIỀU 4. BẤT KHẢ KHÁNG</h2>
         <ol>
@@ -89,6 +96,7 @@
 
         </ol>
       </section>
+
       <section>
         <h2>ĐIỀU 5. GIẢI QUYẾT TRANH CHẤP</h2>
         <ol>
@@ -101,6 +109,9 @@
         </ol>
     </div>
   </main>
+  <%- include('../../partials/footer.ejs') %>
+
+  <script src="/scripts/header-small.js"></script>
 </body>
 
 </html>
