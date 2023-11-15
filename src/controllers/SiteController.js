@@ -22,7 +22,7 @@ class SiteController {
 
     // [GET] /privacy-policy
     privacyPolicy(req, res) {
-        res.render('./pages/site/privacy-pocily')
+        res.render('./pages/site/privacy-policy')
     }
 
 }
