@@ -19,10 +19,9 @@ const bcrypt = require("bcrypt");
 const authuser = require("../models/authuser.model");
 
 class AuthController {
-
     // [GET] /auth/register
     register(req, res) {
-        res.render('./pages/auth/register')
+        res.render("./pages/auth/register");
     }
 
     // [POST] /auth/register
@@ -32,7 +31,9 @@ class AuthController {
 
     // [GET] /auth/login
     login(req, res) {
-        res.status(200).render('./pages/auth/login')
+        const title = "Đăng nhập";
+        const help = "Bạn quên mật khẩu?";
+        res.status(200).render("./pages/auth/login", { title, help });
     }
 
     // [POST] /auth/login
@@ -75,7 +76,7 @@ class AuthController {
 
     // [GET] /auth/forgot-password
     forgot(req, res) {
-        res.status(200).render('./pages/auth/forgot')
+        res.status(200).render("./pages/auth/forgot");
     }
 
     // [POST] /auth/forgot-password
@@ -110,7 +111,7 @@ class AuthController {
 
     // [GET] /auth/reset-password
     reset(req, res) {
-        res.status(200).render('./pages/auth/reset')
+        res.status(200).render("./pages/auth/reset");
     }
 
     // [PUT] /auth/reset-password
@@ -152,7 +153,7 @@ class AuthController {
         // req.session.acco = null
 
         // res.status(200).redirect('/');
-        res.status(200).json({ message: '/auth/logout' })
+        res.status(200).json({ message: "/auth/logout" });
     }
 
     // [PUT] /auth/change-password
@@ -160,30 +161,32 @@ class AuthController {
         // const { oldPass, newPass } = req.body;
         // const email = req.session.user?.email;
 
-        authuser.putPass({
-            email,
-            oldPass,
-            newPass,
-        }, (err, result) => {
-            if (err) {
-                res.status(500).json({
-                    message: "Lỗi truy vấn!!!",
-                });
-                throw err;
-            }
+        authuser.putPass(
+            {
+                email,
+                oldPass,
+                newPass,
+            },
+            (err, result) => {
+                if (err) {
+                    res.status(500).json({
+                        message: "Lỗi truy vấn!!!",
+                    });
+                    throw err;
+                }
 
-            if (result.affectedRows === 0) {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!'
-                });
-            } else {
-                res.status(200).json({
-                    message: 'Cập nhật thông tin tài khoản thành công'
-                });
+                if (result.affectedRows === 0) {
+                    res.status(404).json({
+                        message: "Không tìm thấy tài khoản!!!",
+                    });
+                } else {
+                    res.status(200).json({
+                        message: "Cập nhật thông tin tài khoản thành công",
+                    });
+                }
             }
-        })
+        );
     }
 }
-
 
 module.exports = new AuthController();
