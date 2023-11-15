@@ -15,6 +15,11 @@ app.use(session({
     saveUninitialized: false,
 }))
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://127.0.0.1:3000',
+}));
+
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');

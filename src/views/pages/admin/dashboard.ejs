@@ -20,15 +20,15 @@
             <h2>Chào mừng Admin0123</h2>
             <div class="summary">
                 <div class="summary__rooms">
-                    <h1>123</h1>
+                    <h1><%=totalRoomType%></h1>
                     <p>Phòng</p>
                 </div>
                 <div class="summary__bookings">
-                    <h1>123</h1>
+                    <h1><%=totalBooking%></h1>
                     <p>Lượt đặt phòng</p>
                 </div>
                 <div class="summary__ratings">
-                    <h1>123</h1>
+                    <h1><%=totalRating%></h1>
                     <p>Đánh giá</p>
                 </div>
             </div>
@@ -46,26 +46,15 @@
                         <p>Thời gian</p>
                         <div class="tables__last-col"></div>
                     </div>
-
                     <div class="tables__rows">
-                        <div>
-                            <p>User 1</p>
-                            <p>100.000</p>
-                            <p>13:00 22/10</p>
-                            <a href="#">Chi tiết</a>
-                        </div>
-                        <div>
-                            <p>User 1</p>
-                            <p>100.000</p>
-                            <p>13:00 22/10</p>
-                            <a href="#">Chi tiết</a>
-                        </div>
-                        <div>
-                            <p>User 1</p>
-                            <p>100.000</p>
-                            <p>13:00 22/10</p>
-                            <a href="#">Chi tiết</a>
-                        </div>
+                        <% lastestBooking.forEach(function(booking) { %>
+                            <div>
+                                <p><%=booking.au_user_full_name%></p>
+                                <p><%=booking.book_cost_after%></p>
+                                <p><%=booking.book_datetime%></p>
+                                <a href="#">Chi tiết</a>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
                 <div class="tables__ratings">
@@ -82,24 +71,14 @@
                     </div>
 
                     <div class="tables__rows">
-                        <div>
-                            <p>User 1</p>
-                            <p>5</p>
-                            <p>13:00 22/10</p>
-                            <a href="#">Chi tiết</a>
-                        </div>
-                        <div>
-                            <p>User 1</p>
-                            <p>3</p>
-                            <p>13:00 22/10</p>
-                            <a href="#">Chi tiết</a>
-                        </div>
-                        <div>
-                            <p>User 1</p>
-                            <p>1</p>
-                            <p>13:00 22/10</p>
-                            <a href="#">Chi tiết</a>
-                        </div>
+                        <% lastestRating.forEach(function(rating) { %>
+                            <div>
+                                <p><%=rating.au_user_full_name%></p>
+                                <p><%=rating.rating_point%></p>
+                                <p><%=rating.rating_datetime%></p>
+                                <a href="#">Chi tiết</a>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
             </div>
