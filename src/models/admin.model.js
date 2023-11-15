@@ -38,6 +38,11 @@ adminModel.getLastestBooking = function (callback) {
         if (err) {
             throw err
         }
+        getLastestBooking.forEach(function (booking) {
+            booking.book_datetime = booking.book_datetime.getDate() +'/'+ booking.book_datetime.getMonth()+'/'+ booking.book_datetime.getYear()
+            booking.book_start_datetime = booking.book_start_datetime.getDate() +'/'+ booking.book_start_datetime.getMonth()+'/'+ booking.book_start_datetime.getYear()
+            booking.book_end_datetime = booking.book_end_datetime.getDate() +'/'+ booking.book_end_datetime.getMonth()+'/'+ booking.book_end_datetime.getYear()
+        })
         callback(getLastestBooking)
     })
 }
@@ -48,6 +53,10 @@ adminModel.getLastestRating = function (callback) {
         if (err) {
             throw err
         }
+        getLastestRating.forEach(function (rating) {
+            rating.rating_datetime = rating.rating_datetime.getDate() +'/'+ rating.rating_datetime.getMonth()+'/'+ rating.rating_datetime.getYear()
+        })
+
         callback(getLastestRating)
     })
 }
