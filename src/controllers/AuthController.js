@@ -22,11 +22,7 @@ class AuthController {
 
     // [GET] /auth/register
     register(req, res) {
-        const title = "Đăng ký";
-        const help = "Bạn cần sự trợ giúp?";
-        res.render("./pages/auth/register", {
-            title, help
-        });
+        res.render('./pages/auth/register')
     }
 
     // [POST] /auth/register
@@ -36,11 +32,7 @@ class AuthController {
 
     // [GET] /auth/login
     login(req, res) {
-        const title = "Đăng nhập";
-        const help = "Bạn quên mật khẩu";
-        res.render("./pages/auth/login", {
-            title, help
-        });
+        res.status(200).render('./pages/auth/login')
     }
 
     // [POST] /auth/login
@@ -83,15 +75,12 @@ class AuthController {
 
     // [GET] /auth/forgot-password
     forgot(req, res) {
-        const title = "Nhận liên kết đặt lại mật khẩu";
-        res.render("./pages/auth/forgot", {
-            title,
-        });
+        res.status(200).render('./pages/auth/forgot')
     }
 
     // [POST] /auth/forgot-password
     forgotPost(req, res) {
-        const { email } = req.body;
+        // const { email } = req.body;
 
         authuser.checkEmail(
             {
@@ -121,16 +110,13 @@ class AuthController {
 
     // [GET] /auth/reset-password
     reset(req, res) {
-        const title = "Đặt lại mật khẩu";
-        res.render("./pages/auth/reset", {
-            title,
-        });
+        res.status(200).render('./pages/auth/reset')
     }
 
     // [PUT] /auth/reset-password
     resetPost(req, res) {
-        const email = req.session.emailOfForgot;
-        const { password } = req.body;
+        // const email = req.session.emailOfForgot;
+        // const { password } = req.body;
 
         authuser.putResetPassByEmail(
             {
@@ -160,18 +146,19 @@ class AuthController {
 
     // [GET] /auth/logout
     logout(req, res) {
-        req.session.user = null;
-        req.session.booking = null;
-        req.session.rooms = null;
-        req.session.acco = null;
+        // req.session.user = null
+        // req.session.booking = null
+        // req.session.rooms = null
+        // req.session.acco = null
 
-        res.status(200).redirect("/");
+        // res.status(200).redirect('/');
+        res.status(200).json({ message: '/auth/logout' })
     }
 
     // [PUT] /auth/change-password
     changePassPut(req, res) {
-        const { oldPass, newPass } = req.body;
-        const email = req.session.user?.email;
+        // const { oldPass, newPass } = req.body;
+        // const email = req.session.user?.email;
 
         authuser.putPass({
             email,
@@ -197,11 +184,6 @@ class AuthController {
         })
     }
 }
-// [GET] /auth/change
-// change(req, res) {
-//     const title = 'Đổi mật khẩu'
-//     res.render('./pages/account/change-password', { title })
-// }
 
 
 module.exports = new AuthController();

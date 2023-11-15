@@ -1,8 +1,9 @@
-@import url("/styles/base.css");
-@import url("/styles/partials/header-small.css");
-@import url("/styles/components/room.css");
-@import url("/styles/components/comment.css");
-@import url("/styles/partials/footer.css");
+@import url('/styles/base.css');
+@import url('/styles/partials/header-small.css');
+@import url('/styles/components/room.css');
+@import url('/styles/components/comment.css');
+@import url('/styles/components/search-bar.css');
+@import url('/styles/partials/footer.css');
 
 body {
     width: 100vw;
@@ -277,7 +278,7 @@ body {
 
 .general-info__time span {
     font-size: 64px;
-    color: var(--primary-color);
+    color: var(--primary-color-1);
 }
 
 .time__text {

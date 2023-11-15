@@ -5,5 +5,6 @@ const router = express.Router();
 const AdminController = require('../controllers/AdminController.js')
 
 router.get('/dashboard', AdminController.dashboard)
+router.get('/dashboard/getchart', AdminController.getChart)
 
 module.exports = router

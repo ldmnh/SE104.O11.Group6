@@ -1,173 +1,174 @@
 .credit {
-  height: 810px;
-  width: 840px;
-  box-sizing: border-box;
+	height: 810px;
+	width: 840px;
+	box-sizing: border-box;
 }
 
 h1 {
-  margin: 0;
-  font-size: 32px;
-  text-align: left;
-  padding-bottom: 35px;
+	margin: 0;
+	font-size: 32px;
+	text-align: left;
+	padding-bottom: 35px;
 }
 
 h2 {
-  font-size: 24px;
-  padding-top: 40px;
+	font-size: 24px;
+	padding-top: 40px;
 }
 
 .credit-container {
-  padding: 160px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000000;
+	padding: 160px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #000000;
 }
 
 .credit__card {
-  /* width: 764px;
+	/* width: 764px;
     height: 391px; */
-  text-align: left;
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 10px 40px -20px black;
-  position: relative;
+	text-align: left;
+	background-color: #ffffff;
+	border-radius: 8px;
+	padding: 25px;
+	box-shadow: 0 10px 40px -20px black;
+	position: relative;
 }
 
 .form--items {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .credit__secure {
-  display: flex;
-  /* flex-direction: row; */
-  align-items: center;
-  gap: 15px;
-  padding: 20px 7px;
-  background: #f1fff3;
+	display: flex;
+	/* flex-direction: row; */
+	align-items: center;
+	gap: 15px;
+	padding: 20px 7px;
+	background: #f1fff3;
 }
 
 .icon span {
-  font-size: 85px;
-  color: #119726;
+	font-size: 85px;
+	color: #119726;
 }
 
 .info--title {
-  font-size: 22px;
-  margin: 0;
+	font-size: 22px;
+	margin: 0;
 }
 
 .info--text {
-  font-size: 16px;
-  margin: 0;
-  padding-top: 10px;
+	font-size: 16px;
+	margin: 0;
+	padding-top: 10px;
 }
 
 .credit__details {
-  display: flex;
-  align-items: end;
-  gap: 519px;
+	display: flex;
+	align-items: end;
+	gap: 519px;
 }
 
 .form--item {
-  display: flex;
-  gap: 12px;
-  padding: 10px 0;
-  align-items: center;
+	display: flex;
+	gap: 12px;
+	padding: 10px 0;
+	align-items: center;
 }
 
 .form--item-2 {
-  display: flex;
-  gap: 12px;
-  padding: 10px 0;
-  align-items: center;
+	display: flex;
+	gap: 12px;
+	padding: 10px 0;
+	align-items: center;
 }
 
 .form--item h3 {
-  width: 191px;
-  font-size: 22px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
+	width: 191px;
+	font-size: 22px;
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px;
 }
 
 .form--item-2 h3 {
-  /* width: 189px; */
-  font-size: 22px;
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 8px;
-  padding: 10px;
+	/* width: 189px; */
+	font-size: 22px;
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 8px;
+	padding: 10px;
 }
 
 .input-1 {
-  width: 191px;
+	width: 191px;
 }
 
 .input-2 {
-  width: 107px;
+	width: 107px;
 }
 
 .form--item input {
-  width: 587px;
-  height: 48px;
+	width: 587px;
+	height: 48px;
 }
+
 .form--item-2 input {
-  width: 230px;
-  height: 48px;
+	width: 230px;
+	height: 48px;
 }
 
 .form--item select {
-  width: 526px;
-  height: 48px;
+	width: 526px;
+	height: 48px;
 }
 
 .credit__button {
-  display: inline-flex;
-  gap: 11px;
-  padding-left: 551px;
-  margin: 18px 0 0 0;
+	display: inline-flex;
+	gap: 11px;
+	padding-left: 551px;
+	margin: 18px 0 0 0;
 }
 
 .credit__button--submit1 {
-  width: 96px;
-  height: 48px;
-  border-radius: 8px;
-  color: #fe9c0b;
-  background-color: white;
-  border: 1px solid #fe9c0b;
-  font-size: 16px;
+	width: 96px;
+	height: 48px;
+	border-radius: 8px;
+	color: #fe9c0b;
+	background-color: white;
+	border: 1px solid #fe9c0b;
+	font-size: 16px;
 }
 
 .credit__button--submit2 {
-  width: 131px;
-  height: 48px;
-  border-radius: 8px;
-  background-color: #fe9c0b;
-  color: white;
-  border: none;
-  font-size: 16px;
+	width: 131px;
+	height: 48px;
+	border-radius: 8px;
+	background-color: #fe9c0b;
+	color: white;
+	border: none;
+	font-size: 16px;
 }
 
 .credit__close--btn {
-  position: absolute;
-  top: 16px;
-  right: 19px;
+	position: absolute;
+	top: 16px;
+	right: 19px;
 }
 
 .credit__close--btn span {
-  color: #00696d;
+	color: #00696d;
 }
 
 .credit__button:hover {
-  opacity: 0.9;
+	opacity: 0.9;
 }
 
 .credit__button[disabled] {
-  opacity: 0.6;
-  cursor: default;
+	opacity: 0.6;
+	cursor: default;
 }

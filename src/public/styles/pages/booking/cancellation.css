@@ -1,4 +1,7 @@
 @import url("/styles/base.css");
+@import url("/styles/partials/header-small.css");
+@import url("/styles/partials/footer.css");
+@import url('/styles/partials/nav-tree.css');
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -13,13 +16,14 @@ body {
 }
 
 .content-container {
-    width: 80%;
+    width: 100%;
+    max-width: 1152px;
     margin: 5vh auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     /* gap: 12px; */
     box-sizing: border-box;
-    padding: 20px 12px;
+    padding: 20px;
     border: 1px solid var(--outline-variant);
     border-radius: 12px;
 }
@@ -51,7 +55,7 @@ p {
 }
 
 .main-content {
-    /* width: 55%; */
+    width: 60%;
     display: inherit;
     flex-direction: column;
     gap: 12px;
@@ -63,7 +67,7 @@ p {
     gap: 8px;
 }
 
-.cancel-status p {
+.cancel-status span {
     font-size: 28px;
     font-weight: 600;
     color: var(--green);
@@ -86,7 +90,17 @@ p {
     display: inline-flex;
     gap: 15px;
     margin: 20px 0 0 0;
-    padding-left: 13px;
+    /* padding-left: 13px; */
+}
+
+.cancel__button--submit1 a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.cancel__button--submit2 a {
+    color: var(--primary-color-4);
+    text-decoration: none;
 }
 
 .cancel__button--submit1 {
@@ -119,7 +133,9 @@ p {
 }
 
 .extend-content {
-    display: inherit;
+    display: flex;
+    justify-content: stretch;
+    width: 450px;
     flex-direction: column;
     gap: 24px;
     border-radius: 10px;
@@ -182,7 +198,8 @@ p {
     display: inline-flex;
     align-items: center;
     padding: 18px 13px;
-    gap: 120px;
+    /* gap: 120px; */
+    justify-content: space-between;
     border-radius: 0px 0px 10px 10px;
     background: #e7fde9;
 }

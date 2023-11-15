@@ -12,6 +12,8 @@ const router = express.Router();
 const SiteController = require('../controllers/SiteController.js');
 
 
+router.get('/error404', SiteController.error404);
+
 router.get('/about', SiteController.about)
 
 router.get('/terms-of-use', SiteController.termOfUse)
