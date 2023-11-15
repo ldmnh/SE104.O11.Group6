@@ -1,5 +1,3 @@
-console.log("aaaaaa");
-
 const editView = document.getElementById("edit-profile");
 const defaultView = document.getElementById("view-profile");
 
