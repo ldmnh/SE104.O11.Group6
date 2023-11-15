@@ -257,7 +257,7 @@ CREATE TABLE UserNoti
 (
     au_user_id			int	NOT NULL,
     noti_id				int	NOT NULL,
-    usernoti_is_read	bit			NOT NULL,
+    usernoti_is_read	int	NOT NULL    DEFAULT 0,
     PRIMARY KEY (au_user_id, noti_id),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (noti_id) REFERENCES Notification(noti_id)
