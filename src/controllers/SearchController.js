@@ -23,15 +23,6 @@ class SearchController {
             accoStar,
             countRating,
         } = req.query;
-        console.log({
-            acco_type,
-            rating_point,
-            bed_type,
-            acco_star,
-            cost,
-            accoStar,
-            countRating,
-        });
         let sql = `
         SELECT X.room_id
             FROM 
@@ -104,8 +95,17 @@ class SearchController {
             ON X.room_id = Y.room_id`;
         const searchQuery = `%${location}%`;
         const params = [
-            searchQuery, searchQuery, adult, child, checkIn, checkIn,
-            checkOut, checkOut, checkIn, checkOut, room,
+            searchQuery,
+            searchQuery,
+            adult,
+            child,
+            checkIn,
+            checkIn,
+            checkOut,
+            checkOut,
+            checkIn,
+            checkOut,
+            room,
         ];
 
         db.query(sql, params, (err, result) => {
@@ -115,22 +115,25 @@ class SearchController {
             }
 
             if (result.length > 0) {
-                res.status(200).json({
-                    message: "Đã tìm thành công",
-                    data: result,
-                });
-                let sql1 = `SELECT * FROM accommodation, typeroom WHERE accommodation.acco_id=typeroom.acco_id AND typeroom.room_id IN ${data.room_id.join(
-                    ","
-                )}`;
+                // res.status(200).json({
+                //     message: "Đã tìm thành công",
+                //     data: result,
+                // });
+                let resultFilter = result.map((obj) => obj.room_id).join(",");
+                let sql1 = `SELECT A.acco_id, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url FROM accommodation as A, roomtype as R WHERE A.acco_id = R.acco_id AND R.room_id IN (${resultFilter})`;
                 if (acco_type) {
-                    let acco_typeFilter = acco_type.join("','");
+                    let acco_typeFilter = acco_type.join(",");
                     sql1 += ` AND acco_type IN ('${acco_typeFilter}')`;
                 }
 
-                if (rating_point == "9+") sql1 += ` AND rating_point BETWEEN 9 AND 10`;
-                if (rating_point == "8+") sql1 += ` AND rating_point BETWEEN 8 AND 9`;
-                if (rating_point == "7+") sql1 += ` AND rating_point BETWEEN 7 AND 8`;
-                if (rating_point == "6+") sql1 += ` AND rating_point BETWEEN 6 AND 7`;
+                if (rating_point == "9+")
+                    sql1 += ` AND rating_point BETWEEN 9 AND 10`;
+                if (rating_point == "8+")
+                    sql1 += ` AND rating_point BETWEEN 8 AND 9`;
+                if (rating_point == "7+")
+                    sql1 += ` AND rating_point BETWEEN 7 AND 8`;
+                if (rating_point == "6+")
+                    sql1 += ` AND rating_point BETWEEN 6 AND 7`;
 
                 if (bed_type == "Giường đơn") {
                     sql1 += ` AND room_single_bed > 0`;
@@ -151,7 +154,7 @@ class SearchController {
                 // }
 
                 if (acco_star) {
-                    let acco_starFilter = acco_star.join("','");
+                    let acco_starFilter = acco_star.join(",");
                     sql1 += ` AND acco_star IN ('${acco_starFilter}')`;
                 }
 
@@ -173,28 +176,33 @@ class SearchController {
                     // result.sort((a, b) => a.room_cost - b.room_cost)
                     sql1 += ` ORDER BY room_cost DESC`;
                 if (cost == "Thấp đến cao") sql1 += ` ORDER BY room_cost ASC`;
-                if (accoStar == "Cao đến thấp") sql1 += ` ORDER BY acco_star DESC`;
-                if (accoStar == "Thấp đến cao") sql1 += ` ORDER BY acco_star ASC`;
+                if (accoStar == "Cao đến thấp")
+                    sql1 += ` ORDER BY acco_star DESC`;
+                if (accoStar == "Thấp đến cao")
+                    sql1 += ` ORDER BY acco_star ASC`;
                 if (countRating == "Cao đến thấp")
                     sql1 += ` ORDER BY room_sum_rating DESC`;
                 if (countRating == "Thấp đến cao")
                     sql1 += ` ORDER BY room_sum_rating ASC`;
                 db.query(sql1, (err, result1) => {
                     if (err) {
-                        res.status(500).json({ message: "Lỗi truy cập cơ sở dữ liệu" });
+                        res.status(500).json({
+                            message: "Lỗi truy cập cơ sở dữ liệu",
+                        });
                         throw err;
                     }
 
                     if (result1.length > 0) {
-                        res.status(200).json({
+                        res.status(200).render('./pages/search/results',{
                             message: "Đã tìm thành công",
                             data: result1,
                         });
                     } else {
-                        res.status(404).json({ message: "Không tìm thấy kết quả" });
+                        res.status(404).json({
+                            message: "Không tìm thấy kết quả",
+                        });
                     }
                 });
-
             } else {
                 res.status(404).json({ message: "Không tìm thấy kết quả" });
             }
@@ -203,35 +211,54 @@ class SearchController {
 
     // [GET] /search/:acco_id
     accoDetail(req, res) {
-        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
-            res.status(200).render('./pages/search/detail', {
-                // res.status(200).json({
-                message: 'Lấy thông tin thành công',
-                accoDetail: accoDetail,
-                accoFea: accoFea,
-                accoImg: accoImg,
-                accoRoom: accoRoom,
-                accoRoomRating: accoRoomRating,
-            })
-        })
+        accoRoomDetail.getDetail(
+            req,
+            res,
+            function (
+                err,
+                accoDetail,
+                accoFea,
+                accoImg,
+                accoRoom,
+                accoRoomRating
+            ) {
+                res.status(200).render("./pages/search/detail", {
+                    // res.status(200).json({
+                    message: "Lấy thông tin thành công",
+                    accoDetail: accoDetail,
+                    accoFea: accoFea,
+                    accoImg: accoImg,
+                    accoRoom: accoRoom,
+                    accoRoomRating: accoRoomRating,
+                });
+            }
+        );
     }
 
     // [POST] /search:acco_id
     submitBooking(req, res) {
-        const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
+        const {
+            acco_id,
+            room_id,
+            room_number,
+            room_cost_before,
+            room_cost_after,
+        } = req.body;
 
-        req.session.acco = { id: acco_id }
+        req.session.acco = { id: acco_id };
 
-        req.session.rooms = room_number.map((value, index) => {
-            return {
-                id: Number(room_id[index]),
-                num: Number(value),
-                cost_before: Number(room_cost_before[index]),
-                cost_after: Number(room_cost_after[index]),
-            };
-        }).filter(value => value.num > 0);
+        req.session.rooms = room_number
+            .map((value, index) => {
+                return {
+                    id: Number(room_id[index]),
+                    num: Number(value),
+                    cost_before: Number(room_cost_before[index]),
+                    cost_after: Number(room_cost_after[index]),
+                };
+            })
+            .filter((value) => value.num > 0);
 
-        res.redirect('/booking/information');
+        res.redirect("/booking/information");
     }
 }
 
