@@ -80,9 +80,11 @@
                 </div>
             </div>
             <div class="form__submitbutton">
-                <button class="form--submit2 form--submit2-default ">Sửa</button>
+                <!-- <button class="form--submit2 form--submit2-default ">Sửa</button> -->
+                <button class="form__btn--edit form--submit2 form--submit2-default">Sửa</button>
             </div>
         </section>
+
         <!-- Sửa hồ sơ -->
         <section id="edit-profile" class="form">
             <div class="form__title">
@@ -92,7 +94,7 @@
 
             <hr />
 
-            <form id='informationPut' class="form__items" action='/booking/information' method='put'>
+            <form id='informationPut' class="form__items" action='/account/information' method='PUT'>
                 <div class="form__item">
                     <h1>Họ:</h1>
                     <input class="form-control" type="text" value="<%= data.last_name %>" required />
@@ -142,12 +144,13 @@
                         <% } %>
                     </select>
                 </div>
-                <div class="form__submitbutton">
-                    <button class="form--submit1 cancel-btn">Hủy</button>
-    
-                    <button type="submit" id="save-btn" class="form--submit2">Lưu</button>
-                </div>
             </form>
+            <div class="form__submitbutton">
+                <!-- <button class="form--submit1 cancel-btn">Hủy</button>
+                <button type="submit" id="save-btn" class="form--submit2">Lưu</button> -->
+                <button class="form__btn--cancel form--submit1">Hủy</button>
+                <button class="form__btn--save form--submit2" type="submit" data-form-id="#informationPut">Lưu</button>
+            </div>
         </section>
     </div>
     <%- include('../../components/success-popup')  %>
