@@ -15,6 +15,21 @@ const route = (app) => {
     app.use("/account", accountRouter)
     app.use("/booking", bookingRouter)
     app.use("/", siteRouter)
+
+    app.get("/testing-login", (req, res) => {
+        req.session.user = {
+            id: 1,
+            email: 'lehieudn123@example.com',
+            first_name: 'Hiếu',
+            last_name: 'Lê',
+            avatar: 'user_1.jpg'
+        }
+
+        res.status(200).json({
+            message: "Đăng nhập thành công",
+            data: req.session.user
+        })
+    })
 }
 
 module.exports = route
