@@ -120,7 +120,11 @@ INNER JOIN booking
 DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
 CREATE VIEW view_booking_detail AS
-SELECT bookingdetail.*, roomtype.room_class, roomtype.room_type, roomtype.room_details_img_url 
+SELECT
+    bookingdetail.*,
+    roomtype.room_class,
+    roomtype.room_type,
+    roomtype.room_details_img_url 
 FROM bookingdetail
 INNER JOIN roomtype
     ON roomtype.room_id = bookingdetail.room_id;
