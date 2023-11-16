@@ -112,7 +112,7 @@ $(window).on('load', () => {
 
                     setTimeout(() => {
                         window.location.href = '/auth/reset'
-                    }, 5000)
+                    }, 3000)
                 } else {
                     $('#error-message').text('Email không tồn tại')
                     $('#error-message').css('color', 'red')
