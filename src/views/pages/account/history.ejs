@@ -14,15 +14,15 @@
 
 <body>
     <%- include('../../partials/header-medium.ejs') %>
-    <%- include('../../partials/nav-tree') %>
+    <%# include('../../partials/nav-tree') %>
 
 
     <main class="booking-history-container">
         <aside class=" aside-content">
             <div class="aside-content__profile">
-                <img class="aside-content__img" src="/imgs/milo.jpg" alt="avatar" />
+                <img class="aside-content__img" src="/imgs/user/<%=user.au_user_avt_url%>" alt="avatar" />
                 <div class="aside-content__detail">
-                    <p class="aside-content__detail-bold">Giàu Phan</p>
+                    <p class="aside-content__detail-bold"><%=user.au_user_last_name%>&nbsp<%=user.au_user_first_name%></p>
                     <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
                 </div>
             </div>
@@ -49,10 +49,12 @@
             </div>
 
             <!-- <div class="filter-bar"></div> -->
-
+            <% if(!bookingDetails[0]) { %>
+                <p>Không tìm thấy</p>
+            <% } %>
             <div class="booking-history__items">
-                <% bookingDetail.forEach(function(detail){ %>
-                <div class=""><%- include('../../components/room-in-hs.ejs', {detail}) %></div>
+                <% bookingDetails.forEach(function(bookingDetail){ %>
+                <div class=""><%- include('../../components/room-in-hs.ejs', {bookingDetail}) %></div>
                 <% }); %>
             </div>
         </section>

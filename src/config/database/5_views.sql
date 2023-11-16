@@ -112,6 +112,8 @@ INNER JOIN extension
 
 DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
+DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
+
 CREATE VIEW VIEW_BOOKING_HISTORY AS
 SELECT
     accommodation.acco_name,
@@ -121,7 +123,7 @@ SELECT
     booking.book_end_datetime,
     booking.book_cost_before,
     booking.book_cost_after,
-    CONCAT(booking.book_first_name, ' ', booking.book_last_name) AS 'book_full_name',
+    CONCAT(booking.book_last_name, ' ', booking.book_first_name) as 'book_customer_name',
     booking.book_status,
     booking.book_is_paid,
     booking.au_user_id

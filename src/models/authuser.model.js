@@ -15,7 +15,7 @@ AuthUser.checkRegister = function (req, res) {
         au_user_last_name,
         au_user_first_name,
         au_user_email,
-        au_user_pass: NewPassword
+        au_user_pass
     } = req.body
 
     console.log(req.body)
@@ -30,13 +30,15 @@ AuthUser.checkRegister = function (req, res) {
             message: 'Email đã được sử dụng'
         })
         else {
-            const au_user_pass = bcrypt.hash(NewPassword, 8)
+            // const au_user_pass = bcrypt.hash(NewPassword, 8)
+            let hashedPassword = await bcrypt.hash(au_user_pass, 8);
+            console.log(hashedPassword);
             db.query(insertUser, {
                 au_user_last_name: au_user_last_name,
                 au_user_first_name: au_user_first_name,
                 au_user_email: au_user_email,
-                au_user_pass: au_user_pass
-            }, async (error, results) => {
+                au_user_pass: hashedPassword
+            }, (error, results) => {
                 if (error) throw error
                 return res.status(200).json({
                     msg: 'success',
