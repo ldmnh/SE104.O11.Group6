@@ -30,15 +30,17 @@
                 <div class="row">
                     <label for="form__email" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control form__email" id="form__email" placeholder="Nhập email">
+                    <div class="error"></div>
                 </div>
                 <div class="row">
                     <label for="form__password" class="form-label">Mật khẩu</label>
                     <div class="input_form">
                         <input type="password" name="password" class="form-control form__password" id="form__password" placeholder="Nhập mật khẩu" />
                         <span class="material-symbols-outlined" id="eye-open">visibility</span>
+                        <div class="error"></div>
                     </div>
                 </div>
-                <div class="error-message" id="error-message"></div>
+                <!-- <div class="error-message" id="error-message"></div> -->
                 <button id="login-button" type="submit" class="btn form__submit">
                     Đăng nhập
                 </button>
