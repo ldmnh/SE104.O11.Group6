@@ -5,14 +5,29 @@
  * @exports Booking
  */
 const db = require('../config/db/connect');
+const index = require('../models/index.model')
 
-function Booking() { }
+function Booking() {}
 
 Booking.postInfo = ({
-    acco_id, au_user_id, book_datetime, book_start_datetime,
-    book_end_datetime, book_num_adult, book_num_child, book_cost_before,
-    book_cost_after, book_first_name, book_last_name, book_email,
-    book_phone, book_note, pay_id, cancel, book_status, book_is_paid
+    acco_id,
+    au_user_id,
+    book_datetime,
+    book_start_datetime,
+    book_end_datetime,
+    book_num_adult,
+    book_num_child,
+    book_cost_before,
+    book_cost_after,
+    book_first_name,
+    book_last_name,
+    book_email,
+    book_phone,
+    book_note,
+    pay_id,
+    cancel,
+    book_status,
+    book_is_paid
 }, callback) => {
     const sql = `
         INSERT INTO BOOKING (
@@ -37,7 +52,11 @@ Booking.postInfo = ({
 }
 
 Booking.postInfoDetailByIds = ({
-    book_id, room_id, book_room_cost_before, book_room_cost_after, book_num_room
+    book_id,
+    room_id,
+    book_room_cost_before,
+    book_room_cost_after,
+    book_num_room
 }, callback) => {
     const sql = `
         INSERT INTO BOOKING_DETAIL (
@@ -59,28 +78,40 @@ Booking.getDetail = function (req, res, callback) {
     const getBooking = 'SELECT * FROM view_booking_history WHERE book_id = ? AND au_user_id = ?'
     const getBookingDetails = 'SELECT * FROM view_booking_detail WHERE book_id = ?'
 
-    const params = [req.params.detail]
-    const params2 = [req.session.userId]
+    const params = [req.query.book_id]
+    const params2 = [req.session.user.au_user_id]
 
     db.query(getBooking, [params, params2], (err, booking) => {
         if (err) {
-            res.status(500).json({
+            console.log({
                 message: 'Lỗi truy vấn getBooking',
             });
             throw err;
         }
+        
+        booking.forEach((book) => {
+           book.book_date_format = index.toXDDMMYYY(book.book_datetime)
+           book.book_start_date_format = index.toXDDMMYYY(book.book_start_date)
+           book.book_end_date_format = index.toXDDMMYYY(book.book_end_date)
 
-        db.query(getBookingDetails, params, (err, bookingDetails) =>{
-            if (err) {
-                res.status(500).json({
-                    message: 'Lỗi truy vấn getBooking',
-                });
-                throw err;
-            }
-
-            callback(err, booking, bookingDetails)
+           book.book_time_format = index.toHHMM(book.book_datetime)
+           book.book_start_time_format = index.toHHMM(book.book_start_date)
+           book.book_end_time_format = index.toHHMM(book.book_end_date)
         })
-    })
+
+        
+            db.query(getBookingDetails, params, (err, bookingDetails) => {
+                if (err) {
+                    console.log({
+                        message: 'Lỗi truy vấn getBooking',
+                    });
+                    throw err;
+                }
+
+                callback(err, booking, bookingDetails)
+            })
+        })
+    // })
 }
 
 Booking.getAllBooking = function (req, res, callback) {

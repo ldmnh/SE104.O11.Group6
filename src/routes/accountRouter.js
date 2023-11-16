@@ -12,7 +12,7 @@ const AccountController = require('../controllers/AccountController.js')
 router.get('/information', AccountController.information)
 router.post('/information', AccountController.informationPost)
 
-router.get('/history', AccountController.history)
+router.get('/history', authMiddleware.isLoggedIn, AccountController.history)
 router.post('/history', AccountController.addReview)
 
 router.get('/card', AccountController.card)
