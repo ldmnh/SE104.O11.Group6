@@ -3,7 +3,7 @@ const accountRouter = require("./accountRouter")
 const adminRouter = require("./adminRouter")
 const authRouter = require("./authRouter")
 const bookingRouter = require("./bookingRouter")
-const notificationRouter = require("./notificationRouter")
+const notificationRouter = require("./notificationsRouter")
 const searchRouter = require("./searchRouter")
 const siteRouter = require("./siteRouter")
 

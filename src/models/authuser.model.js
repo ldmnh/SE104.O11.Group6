@@ -115,7 +115,7 @@ AuthUser.putResetPassByEmail = ({ email, password }, callback) => {
     const sql = `
         UPDATE AUTHUSER
         SET au_user_pass = ?
-        WHERE au_user_email = ?`
+        WHERE au_user_email = ?;`;
     const values = [password, email]
     db.query(sql, values, (err, result) => {
         callback(err, result)
@@ -125,8 +125,10 @@ AuthUser.putResetPassByEmail = ({ email, password }, callback) => {
 AuthUser.getBankCardsById = ({ id }, callback) => {
     const sql = `
         SELECT
+            bank_id,
             bank_name,
-            bank_num
+            bank_num,
+            CONCAT('*', SUBSTRING(bank_num, -4)) AS bank_num_hide
         FROM BANKCARD AS B
         WHERE B.au_user_id = ?;`;
     db.query(sql, [id], (err, result) => {
@@ -137,7 +139,9 @@ AuthUser.getBankCardsById = ({ id }, callback) => {
 AuthUser.getDebitCardsById = ({ id }, callback) => {
     const sql = `
         SELECT
-            debit_num
+            debit_id,
+            debit_num,
+            CONCAT('*', SUBSTRING(debit_num, -4)) AS debit_num_hide
         FROM DEBITCARD AS D
         WHERE D.au_user_id = ?;`;
     db.query(sql, [id], (err, result) => {
