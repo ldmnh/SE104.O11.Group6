@@ -24,7 +24,7 @@ router.get("/forgot", AuthController.forgot);
 router.post("/forgot", AuthController.forgotPost);
 
 router.get("/reset", authMiddleware.checkForgot, AuthController.reset);
-router.put("/reset", authMiddleware.checkForgot, AuthController.resetPost);
+router.post("/reset", authMiddleware.checkForgot, AuthController.resetPost);
 
 router.get("/logout", authMiddleware.checkUnauth, AuthController.logout);
 
