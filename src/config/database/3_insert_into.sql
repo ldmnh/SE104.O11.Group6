@@ -51,8 +51,6 @@ VALUES
 
 INSERT INTO Feature (fea_name)
 VALUES 
-    ('Miễn phí hủy'),
-    ('Wifi miễn phí'),
     ('Không cần thanh toán trước'),
     ('Giáp biển'),
     ('Sân vườn'),
@@ -77,7 +75,7 @@ VALUES
 
 INSERT INTO AccoFea (fea_id, acco_id)
 VALUES 
-    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (2, 2),
+    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (1, 1), (2, 2),
     (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (1, 3), (2, 3),
     (3, 3), (4, 3), (5, 3), (6, 3), (3, 4), (4, 4), (5, 4),
     (6, 4), (7, 4);
