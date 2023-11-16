@@ -51,8 +51,6 @@ VALUES
 
 INSERT INTO Feature (fea_name)
 VALUES 
-    ('Miễn phí hủy'),
-    ('Wifi miễn phí'),
     ('Không cần thanh toán trước'),
     ('Giáp biển'),
     ('Sân vườn'),
@@ -77,7 +75,7 @@ VALUES
 
 INSERT INTO AccoFea (fea_id, acco_id)
 VALUES 
-    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (2, 2),
+    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (1, 1), (2, 2),
     (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (1, 3), (2, 3),
     (3, 3), (4, 3), (5, 3), (6, 3), (3, 4), (4, 4), (5, 4),
     (6, 4), (7, 4);
@@ -123,20 +121,16 @@ VALUES
 
 INSERT INTO RoomTypeImg (room_id, room_type_image_url)
 VALUES 
-    (1,  'room_1.jpg'), (1,  'room_2.jpg'), (1,  'room_3.jpg'),
-    (1,  'room_4.jpg'), (2,  'room_1.jpg'), (2,  'room_2.jpg'),
-    (2,  'room_4.jpg'), (3,  'room_1.jpg'), (3,  'room_2.jpg'),
-    (3,  'room_3.jpg'), (3,  'room_4.jpg'), (4,  'room_1.jpg'),
-    (4,  'room_2.jpg'), (4,  'room_3.jpg'), (4,  'room_4.jpg'),
-    (5,  'room_1.jpg'), (5,  'room_2.jpg'), (5,  'room_3.jpg'),
-    (5,  'room_4.jpg'), (6,  'room_1.jpg'), (6,  'room_2.jpg'),
-    (6,  'room_3.jpg'), (6,  'room_4.jpg'), (7,  'room_1.jpg'),
-    (7,  'room_2.jpg'), (7,  'room_3.jpg'), (7,  'room_4.jpg'),
-    (8,  'room_1.jpg'), (8,  'room_2.jpg'), (8,  'room_3.jpg'),
-    (8,  'room_4.jpg'), (9,  'room_1.jpg'), (9,  'room_2.jpg'),
-    (9,  'room_3.jpg'), (9,  'room_4.jpg'), (10, 'room_1.jpg'),
-    (10, 'room_2.jpg'), (10, 'room_3.jpg'), (10, 'room_4.jpg'),
-    (2,  'room_3.jpg');
+    (1,  'room_1.jpg'),     (1,  'room_2.jpg'),     (1,  'room_3.jpg'),     (1,  'room_4.jpg'),     (1,  'room_5.jpg'),     (1,  'room_6.jpg'),
+    (2,  'room_7.jpg'),     (2,  'room_8.jpg'),     (2,  'room_9.jpg'),     (2,  'room_10.jpg'),    (2,  'room_11.jpg'),    (2,  'room_12.jpg'),
+    (3,  'room_13.jpg'),    (3,  'room_14.jpg'),    (3,  'room_15.jpg'),    (3,  'room_16.jpg'),    (3,  'room_17.jpg'),    (3,  'room_18.jpg'),
+    (4,  'room_19.jpg'),    (4,  'room_20.jpg'),    (4,  'room_21.jpg'),    (4,  'room_22.jpg'),    (4,  'room_23.jpg'),    (5,  'room_24.jpg'),
+    (5,  'room_25.jpg'),    (5,  'room_26.jpg'),    (5,  'room_27.jpg'),    (5,  'room_28.jpg'),    (5,  'room_29.jpg'),    (6,  'room_30.jpg'),
+    (6,  'room_2.jpg'),     (6,  'room_4.jpg'),     (6,  'room_6.jpg'),     (6,  'room_8.jpg'),     (6,  'room_10.jpg'),    (7,  'room_12.jpg'),
+    (7,  'room_14.jpg'),    (7,  'room_16.jpg'),    (7,  'room_18.jpg'),    (7,  'room_20.jpg'),    (7,  'room_22.jpg'),    (8,  'room_24.jpg'),
+    (8,  'room_26.jpg'),    (8,  'room_28.jpg'),    (8,  'room_30.jpg'),    (8,  'room_1.jpg'),     (8,  'room_3.jpg'),     (9,  'room_5.jpg'),
+    (9,  'room_7.jpg'),     (9,  'room_9.jpg'),     (9,  'room_11.jpg'),    (9,  'room_13.jpg'),    (9,  'room_15.jpg'),    (10, 'room_17.jpg'),
+    (10, 'room_19.jpg'),    (10, 'room_21.jpg'),    (10, 'room_23.jpg'),    (10,  'room_25.jpg'),   (10,  'room_27.jpg');
 
 INSERT INTO PayingMethod (pay_name)
 VALUES 

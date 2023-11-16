@@ -1,16 +1,28 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 DROP VIEW IF EXISTS VIEW_AUTHUSER;
 
 CREATE VIEW VIEW_AUTHUSER AS
 SELECT
+    au_user_id,
     au_user_first_name,
     au_user_last_name,
     au_user_email,
     au_user_avt_url,
     au_user_sex,
-    au_user_birthday
+    CONCAT(
+        LPAD(YEAR(au_user_birthday), 4, '0'),
+        '-',
+        LPAD(MONTH(au_user_birthday), 2, '0'),
+        -- RIGHT('0' + CAST(MONTH(au_user_birthday) AS VARCHAR(2)), 2),
+        '-',
+        LPAD(DAY(au_user_birthday), 2, '0')
+        -- RIGHT('0' + CAST(DAY(au_user_birthday) AS VARCHAR(2)), 2)
+    ) AS au_user_birthday
 FROM AUTHUSER;
+
+SELECT * FROM VIEW_AUTHUSER;
 
 DROP VIEW IF EXISTS VIEW_BANKCARD;
 
@@ -45,7 +57,7 @@ FROM RATING;
 
 DROP VIEW IF EXISTS VIEW_NOTIFICATION;
 
-CREATE VIEW
+CREATE VIEW 
     VIEW_NOTIFICATION AS
 SELECT
     noti_id,
