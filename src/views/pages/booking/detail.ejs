@@ -15,13 +15,7 @@
     <main class="content-container">
         <section class="title">
             <h1>Đặt phòng đã được xác nhận của bạn tại 2way.com</h1>
-            <div class="title__rating">
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-            </div>
+            
         </section>
 
         <section class="detail">
@@ -29,11 +23,21 @@
                 <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
                 <div class="detail__location">
                     <div>
-                        <p>44D Trần Khánh Dư, phường 8,</p>
+                        <h3><%=booking[0].acco_name%></h3>
+                        <div class="title__rating">
+                            <% for (let i = 0; i < booking[0].acco_star; i++) {%>
+                                <span class="material-symbols-outlined">grade</span>
+                                <%}%>
+                                <% for (let i = 0; i < 5-(booking[0].acco_star) ; i++) {%>
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 0">star</span>
+                            <%}%>
+                        </div>  
+                        <p><%=booking[0].acco_exac_location%></p>
                         <p>Hội An,</p>
                         <p>Việt Nam.</p>
                     </div>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Hiển thị bản đồ</a>
+                    <a href="<%=booking[0].acco_location_link%>" data-bs-toggle="modal" data-bs-target="#modal">Hiển thị bản đồ</a>
                 </div>
                 <div class="detail__contact">
                     <h2>Bạn có thắc mắc?</h2>
@@ -60,30 +64,37 @@
                         <h3>Mã xác nhận:</h3>
                         <p>12345678</p>
                     </div>
-                    <div>
-                        <h3>Mã PIN:</h3>
-                        <p>12345678</p>
-                    </div>
                 </div>
                 <hr>
                 <div class="detail__checkin">
                     <h3>Nhận phòng</h3>
-                    <p>Thứ 5, ngày 12 tháng 10 năm 2023</p>
-                    <p>14:00 - 00:00</p>
+                    <p><%=booking[0].book_start_date_format%></p>
+                    <p><%=booking[0].book_start_time_format%></p>
                 </div>
                 <hr>
                 <div class="detail__checkout">
                     <h3>Trả phòng</h3>
-                    <p>Thứ 5, ngày 12 tháng 10 năm 2023</p>
-                    <p>14:00 - 00:00</p>
+                    <p><%=booking[0].book_end_date_format%></p>
+                    <p><%=booking[0].book_end_time_format%></p>
                 </div>
                 <hr>
                 <div class="detail__price price">
                     <h3>Giá</h3>
                     <p>3 đêm, 3 phòng</p>
-                    <p class="price__strong">VND 2.800.000</p>
+                    <p class="price__strong">VND <%=booking[0].book_cost_after%></p>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Giá này đã bao gồm những gì?</a>
                 </div>
+
+                <% bookingDetails.forEach(function(book){ %>
+                    <p><%=book.room_id%></p>
+                    <div class="detail__price price">
+                        <form action="/account/addReview" method="POST">
+                            <input type="hidden" value="<%=book.room_id%>" name="room_id">
+                            <button type = "submit" class="form--submit2 review-btn">Đánh giá</button>
+                        </form>
+                    </div>
+                <% }) %> 
+
             </div>
 
             <div class="detail__col-3">
