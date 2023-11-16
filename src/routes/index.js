@@ -30,8 +30,6 @@ const route = (app) => {
             data: req.session.user
         })
     })
-
 }
-
 
 module.exports = route

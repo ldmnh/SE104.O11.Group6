@@ -5,7 +5,7 @@ class SiteController {
         res.render('./pages/site/index')
     }
 
-    // [GET] /about-us
+    // [GET] /about
     about(req, res) {
         res.render('./pages/site/about')
     }
@@ -17,12 +17,12 @@ class SiteController {
 
     // [GET] /term-of-use
     termOfUse(req, res) {
-        res.render('./pages/site/term-of-use')
+        res.render('./pages/site/terms-of-use')
     }
 
     // [GET] /privacy-policy
     privacyPolicy(req, res) {
-        res.render('./pages/site/privacy-pocily')
+        res.render('./pages/site/privacy-policy')
     }
 
 }

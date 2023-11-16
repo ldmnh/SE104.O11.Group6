@@ -6,36 +6,36 @@ class AccountController {
 
     // [GET] /account/information
     information(req, res) {
-        // authuser.getInfoById({
-        //     id: req.session.user?.id
-        // }, (err, result) => {
-        //     if (err) {
-        //         res.status(500).json({
-        //             message: 'Lỗi truy vấn!!!',
-        //         });
-        //         throw err;
-        //     }
+        authuser.getInfoById({
+            id: req.session.user?.id
+        }, (err, result) => {
+            if (err) {
+                res.status(500).json({
+                    message: 'Lỗi truy vấn!!!',
+                });
+                throw err;
+            }
 
-        //     if (result.length > 0) {
-        //         // res.status(200).render('./pages/account/information', {
-        //         res.status(200).json({
-        //             message: 'Lấy thông tin tài khoản thành công',
-        //             data: {
-        //                 first_name: result[0].au_user_first_name,
-        //                 last_name: result[0].au_user_last_name,
-        //                 email: result[0].au_user_email,
-        //                 birthday: result[0].au_user_birthday,
-        //                 sex: result[0].au_user_sex,
-        //                 avatar: result[0].au_user_avt_url
-        //             }
-        //         })
-        //     } else {
-        //         res.status(404).json({
-        //             message: 'Không tìm thấy tài khoản!!!',
-        //         });
-        //     }
-        // })
-        res.render('./pages/account/information')
+            if (result.length > 0) {
+                const data = {
+                    first_name: result[0].au_user_first_name,
+                    last_name: result[0].au_user_last_name,
+                    email: result[0].au_user_email,
+                    birthday: result[0].au_user_birthday?.toISOString().split('T')[0] ?? null,
+                    sex: result[0].au_user_sex,
+                    avatar: result[0].au_user_avt_url
+                }
+                res.status(200).render('./pages/account/information', {
+                // res.status(200).json({
+                    message: 'Lấy thông tin tài khoản thành công',
+                    data
+                })
+            } else {
+                res.status(404).json({
+                    message: 'Không tìm thấy tài khoản!!!',
+                });
+            }
+        })
     }
 
     // [PUT] /account/information
@@ -68,19 +68,19 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-        accountHistory.getDetail(req, res, function (err, bookingDetail) {
+        accountHistory.getDetail(req, res, function (err, user, bookingDetails) {
             if (err) {
-                res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
+                res.status(404).render('./pages/site/error404')
+                // res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
                 throw err;
             }
-            // res.send({bookingDetail: bookingDetail,})
+
+            // res.send({bookingDetails: bookingDetails})
             res.status(200).render('./pages/account/history', {
-                bookingDetail: bookingDetail
+                user: user,
+                bookingDetails: bookingDetails
             })
         })
-        // res.status(200).render('./pages/account/history')
-        // res.status(200).json({ bookingDetail: bookingDetail })
-
     }
 
     // [POST] /account/booking-history
