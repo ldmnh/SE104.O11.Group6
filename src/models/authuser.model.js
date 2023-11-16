@@ -70,14 +70,8 @@ AuthUser.checkAccount = ({ email, password }, callback) => {
 
 AuthUser.getInfoById = ({ id }, callback) => {
     const sql = `
-        SELECT
-            au_user_first_name, 
-            au_user_last_name,
-            au_user_email,
-            au_user_avt_url,
-            au_user_birthday,
-            au_user_sex
-        FROM AUTHUSER
+        SELECT *
+        FROM VIEW_AUTHUSER
         WHERE au_user_id = ?`;
     db.query(sql, [id], (err, result) => {
         callback(err, result);

@@ -68,15 +68,58 @@ const showViewProfile = () => {
 	viewProfile[0].style.display = "block";
 }
 
-$(document).ready(() => {
+showViewProfile();
+
+$('.form__btn--edit')[0].addEventListener('click', (event) => {
+	event.preventDefault();
+	showEditProfile();
+});
+
+$('.form__btn--cancel')[0].addEventListener('click', (event) => {
+	event.preventDefault();
 	showViewProfile();
-	$('.form__btn--edit')[0].addEventListener('click', showEditProfile);
+});
 
-	$('.form__btn--cancel')[0].addEventListener('click', showViewProfile);
+const formBtn__save = $('.form__btn--save')[0];
+formBtn__save.addEventListener('click', (event) => {
+	event.preventDefault();
+	form = $(formBtn__save.dataset.formId)[0];
+	// console.log(form);
+	// console.log(form.method);
+	// console.log(form.action);
+	form.submit();
+	// fetch('/account/information', {
+	// 	method: 'PUT',
+	// 	body: new FormData(form)
+	// }
+	// ).then(async res => {
+	// 	return {
+	// 		statusCode: res.status,
+	// 		data: await res.json()
+	// 	};
+	// }
+	// ).then(({ statusCode, data }) => {
+	// 	console.log(statusCode, data)
+	// 	if (statusCode == 200) {
+	// 		alert(data.message);
+	// 		// showViewProfile();
+	// 	} else {
+	// 		alert(data.message);
+	// 	}
+	// 	// if (data.status == 'error') {
+	// 	// 	// success.style.display = 'none'
+	// 	// 	// error.style.display = 'block'
+	// 	// 	// setError(PhoneNumber, data.error)
+	// 	// 	// error.innerText = data.error
+	// 	// 	alert(data.error);
+	// 	// } else {
+	// 	// 	// success.style.display = 'block'
+	// 	// 	// error.style.display = 'none'
+	// 	// 	// success.innerText = data.success
+	// 	// 	alert(data.success);
+	// 	// 	showViewProfile();
+	// 	// }
+	// });
 
-	const formBtn__save = $('.form__btn--save')[0];
-	formBtn__save.addEventListener('click', () => {
-		// alert('Lưu thành công');
-		
-	});
-})
+});
+

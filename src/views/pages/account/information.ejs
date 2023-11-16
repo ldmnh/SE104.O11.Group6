@@ -71,7 +71,7 @@
 
                 <div class="form__item">
                     <h1>Ngày sinh:</h1>
-                    <input class="form-control account__birthday <%- data.birthday ? null : 'unfilled' %>" type="text" placeholder="<%= data.birthday ?? 'Thêm ngày sinh' %>" value="<%= data.birthday %>" readonly />
+                    <input class="form-control account__birthday <%- data.birthday ? null : 'unfilled' %>" type="date" placeholder="<%= data.birthday ?? 'Thêm ngày sinh' %>" value="<%= data.birthday %>" readonly />
                 </div>
 
                 <div class="form__item">
@@ -94,28 +94,28 @@
 
             <hr />
 
-            <form id='informationPut' class="form__items" action='/account/information' method='PUT'>
+            <form id='informationPut' class="form__items" action='/account/information' method="POST">
                 <div class="form__item">
                     <h1>Họ:</h1>
-                    <input class="form-control" type="text" value="<%= data.last_name %>" required />
-
+                    <input class="form-control" name='last_name' type="text" value="<%= data.last_name %>" required />
+                    
                     <h1>Tên:</h1>
-                    <input class="form-control" type="text" value="<%= data.first_name %>" required />
+                    <input class="form-control" name='first_name' type="text" value="<%= data.first_name %>" required />
                 </div>
 
                 <div class="form__item">
                     <h1>Địa chỉ Email:</h1>
-                    <input class="form-control" type="text" value="<%= data.email %>" required />
+                    <input class="form-control" type="text" value="<%= data.email %>" disabled />
                 </div>
 
                 <div class="form__item">
                     <h1>Ngày sinh:</h1>
-                    <input class="form-control account__birthday" type="date" value="<%= data.birthday %>" />
+                    <input class="form-control account__birthday" name='birthday' type="date" value="<%= data.birthday %>" />
                 </div>
-
+ 
                 <div class="form__item">
                     <h1>Giới tính:</h1>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name='sex' aria-label="Default select example">
                         <% if (!data.sex) { %>
                         <option value=null selected>Thêm giới tính</option>
                         <option value="Nam">Nam</option>
@@ -147,9 +147,9 @@
             </form>
             <div class="form__submitbutton">
                 <!-- <button class="form--submit1 cancel-btn">Hủy</button>
-                <button type="submit" id="save-btn" class="form--submit2">Lưu</button> -->
+                    <button type="submit" id="save-btn" class="form--submit2">Lưu</button> -->
                 <button class="form__btn--cancel form--submit1">Hủy</button>
-                <button class="form__btn--save form--submit2" type="submit" data-form-id="#informationPut">Lưu</button>
+                <button class="form__btn--save   form--submit2" type="submit" data-form-id="#informationPut">Lưu</button>
             </div>
         </section>
     </div>
