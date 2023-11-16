@@ -1,138 +1,178 @@
-const db = require('../config/db/connect');
-const jwt = require('jsonwebtoken')
+const db = require("../config/db/connect");
+const jwt = require("jsonwebtoken");
 
-const accoRoomDetail = require('../models/accoRoomDetail.model')
+const accoRoomDetail = require("../models/accoRoomDetail.model");
 
 class SearchController {
+  // [GET] /search/results
+  searchResult(req, res) {
+    // const { location, checkIn, checkOut, adult, child, room } = req.query;
 
-    // [GET] /search/results
-    searchResult(req, res) {
-        const { location, checkIn, checkOut, adult, child, room } = req.query;
+    // const sql = `
+    // SELECT *
+    // FROM
+    // (
+    //     SELECT X.room_id
+    //     FROM 
+    //     (
+    //         SELECT room_id
+    //         FROM roomtype AS E
+    //         INNER JOIN    
+    //             (
+    //             SELECT acco_id
+    //             FROM accommodation AS A
+    //             INNER JOIN 
+    //                 (
+    //                 SELECT prov_id
+    //                 FROM province
+    //                 WHERE prov_name LIKE ?
+    //                 ) AS B
+    //             ON A.prov_id = B.prov_id
 
-        const sql = `
-            SELECT X.room_id
-            FROM 
-            (
-                SELECT room_id
-                FROM roomtype AS E
-                INNER JOIN    
-                    (
-                    SELECT acco_id
-                    FROM accommodation AS A
-                    INNER JOIN 
-                        (
-                        SELECT prov_id
-                        FROM province
-                        WHERE prov_name LIKE ?
-                        ) AS B
-                    ON A.prov_id = B.prov_id
+    //             UNION
 
-                    UNION
+    //             SELECT acco_id
+    //             FROM accommodation AS C
+    //             INNER JOIN 
+    //                 (
+    //                 SELECT city_id
+    //                 FROM city
+    //                 WHERE city_name LIKE ?
+    //                 ) AS D
+    //             ON C.city_id = D.city_id
+    //             ) AS F
+    //         ON E.acco_id = F.acco_id
+    //         WHERE E.room_max_adult >= ? AND E.room_max_child >= ?
+    //         ) AS X
+    //         INNER JOIN
+    //         (
+    //         SELECT FF.room_id, room_available
+    //         FROM 
+    //         (
+    //             (
+    //             SELECT AA.room_id
+    //             FROM roomtype AS AA
+    //             WHERE AA.room_id NOT IN 
+    //             (
+    //                 SELECT BB.room_id
+    //                 FROM 
+    //                 (
+    //                     SELECT DD.*
+    //                     FROM booking AS CC
+    //                     INNER JOIN
+    //                         bookingdetail AS DD
+    //                     ON CC.book_id = DD.book_id
+    //                     WHERE (? >= CC.book_start_datetime AND ? <= CC.book_end_datetime)
+    //                         OR  (? >= CC.book_start_datetime AND ? <= CC.book_end_datetime)
+    //                         OR  (? < CC.book_start_datetime AND ? > CC.book_end_datetime)
+    //                 ) AS BB
+    //             )
+    //             ) AS EE
+    //             INNER JOIN 
+    //             (
+    //             SELECT RT.room_id,
+    //                 (RT.room_total - COALESCE(SUM(BD.book_num_room), 0)) AS room_available
+    //             FROM RoomType AS RT
+    //             LEFT JOIN BookingDetail AS BD ON RT.room_id = BD.room_id
+    //             GROUP BY RT.room_id, RT.room_total
+    //             HAVING room_available >= ?
+    //             ) AS FF
+    //             ON EE.room_id = FF.room_id
+    //         )
+    //     ) AS Y
+    //     ON X.room_id = Y.room_id
+    // ) AS RE
+    // INNER JOIN
+    // (
+    //     SELECT DISTINCT
+    //       RoomType.room_id AS room_id,
+    //       Accommodation.acco_id,
+    //       RoomType.room_date_end_discount,
+    //       Accommodation.acco_name,
+    //       RoomType.room_avg_rating,
+    //       RoomType.room_count_rating,
+    //       Accommodation.acco_location_link,
+    //       RoomType.room_class,
+    //       RoomType.room_max_adult,
+    //       RoomType.room_type,
+    //       RoomType.room_cost,
+    //       RoomType.room_discount,
+    //       Accommodation.acco_tiny_img_url
+    //     FROM Accommodation, RoomType
+    //     WHERE Accommodation.acco_id = RoomType.acco_id
+    // ) AS REF
+    // ON RE.room_id = REF.room_id
+    // `;
 
-                    SELECT acco_id
-                    FROM accommodation AS C
-                    INNER JOIN 
-                        (
-                        SELECT city_id
-                        FROM city
-                        WHERE city_name LIKE ?
-                        ) AS D
-                    ON C.city_id = D.city_id
-                    ) AS F
-                ON E.acco_id = F.acco_id
-                WHERE E.room_max_adult >= ? AND E.room_max_child >= ?
-                ) AS X
-                INNER JOIN
-                (
-                SELECT FF.room_id, room_available
-                FROM 
-                (
-                    (
-                    SELECT AA.room_id
-                    FROM roomtype AS AA
-                    WHERE AA.room_id NOT IN 
-                    (
-                        SELECT BB.room_id
-                        FROM 
-                        (
-                            SELECT DD.*
-                            FROM booking AS CC
-                            INNER JOIN
-                                bookingdetail AS DD
-                            ON CC.book_id = DD.book_id
-                            WHERE (? >= CC.book_start_datetime AND ? <= CC.book_end_datetime)
-                                OR  (? >= CC.book_start_datetime AND ? <= CC.book_end_datetime)
-                                OR  (? < CC.book_start_datetime AND ? > CC.book_end_datetime)
-                        ) AS BB
-                    )
-                    ) AS EE
-                    INNER JOIN 
-                    (
-                    SELECT RT.room_id,
-                        (RT.room_total - COALESCE(SUM(BD.book_num_room), 0)) AS room_available
-                    FROM RoomType AS RT
-                    LEFT JOIN BookingDetail AS BD ON RT.room_id = BD.room_id
-                    GROUP BY RT.room_id, RT.room_total
-                    HAVING room_available >= ?
-                    ) AS FF
-                    ON EE.room_id = FF.room_id
-                )
-            ) AS Y
-            ON X.room_id = Y.room_id`;
-        const searchQuery = `%${location}%`;
-        const params = [
-            searchQuery, searchQuery, adult, child, checkIn, checkIn,
-            checkOut, checkOut, checkIn, checkOut, room,
-        ];
+    // const searchQuery = `%${location}%`;
+    // const params = [
+    //   searchQuery,
+    //   searchQuery,
+    //   adult,
+    //   child,
+    //   checkIn,
+    //   checkIn,
+    //   checkOut,
+    //   checkOut,
+    //   checkIn,
+    //   checkOut,
+    //   room,
+    // ];
 
-        db.query(sql, params, (err, result) => {
-            if (err) {
-                res.status(500).json({ message: "Lỗi truy cập cơ sở dữ liệu" });
-                throw err;
-            }
+    // db.query(sql, params, (err, result) => {
+    //   if (err) {
+    //     res.status(500).json({ message: "Lỗi truy cập cơ sở dữ liệu" });
+    //     throw err;
+    //   }
 
-            if (result.length > 0) {
-                res.status(200).json({ message: "Đã tìm thành công", data: result });
-            } else {
-                res.status(404).json({ message: "Không tìm thấy kết quả" });
-            }
+    //   if (result.length > 0) {
+    //     res.status(200).json({ message: "Đã tìm thành công", data: result });
+    //   } else {
+    //     res.status(404).json({ message: "Không tìm thấy kết quả" });
+    //   }
+    // });
+    res.render('./pages/search/results',)
+  }
+
+  // [GET] /search/:acco_id
+  accoDetail(req, res) {
+    accoRoomDetail.getDetail(
+      req,
+      res,
+      function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
+        res.status(200).render("./pages/search/detail", {
+          // res.status(200).json({
+          message: "Lấy thông tin thành công",
+          accoDetail: accoDetail,
+          accoFea: accoFea,
+          accoImg: accoImg,
+          accoRoom: accoRoom,
+          accoRoomRating: accoRoomRating,
         });
+      }
+    );
+  }
 
-    }
+  // [POST] /search:acco_id
+  submitBooking(req, res) {
+    const { acco_id, room_id, room_number, room_cost_before, room_cost_after } =
+      req.body;
 
-    // [GET] /search/:acco_id
-    accoDetail(req, res) {
-        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
-            res.status(200).render('./pages/search/detail', {
-                // res.status(200).json({
-                message: 'Lấy thông tin thành công',
-                accoDetail: accoDetail,
-                accoFea: accoFea,
-                accoImg: accoImg,
-                accoRoom: accoRoom,
-                accoRoomRating: accoRoomRating,
-            })
-        })
-    }
+    req.session.acco = { id: acco_id };
 
-    // [POST] /search:acco_id
-    submitBooking(req, res) {
-        const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
+    req.session.rooms = room_number
+      .map((value, index) => {  
+        return {
+          id: Number(room_id[index]),
+          num: Number(value),
+          cost_before: Number(room_cost_before[index]),
+          cost_after: Number(room_cost_after[index]),
+        };
+      })
+      .filter((value) => value.num > 0);
 
-        req.session.acco = { id: acco_id }
-
-        req.session.rooms = room_number.map((value, index) => {
-            return {
-                id: Number(room_id[index]),
-                num: Number(value),
-                cost_before: Number(room_cost_before[index]),
-                cost_after: Number(room_cost_after[index]),
-            };
-        }).filter(value => value.num > 0);
-
-        res.redirect('/booking/information');
-    }
-
+    res.redirect("/booking/information");
+  }
 }
 
-module.exports = new SearchController()
+module.exports = new SearchController();
