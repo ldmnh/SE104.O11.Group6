@@ -10,7 +10,7 @@ const AccountController = require('../controllers/AccountController.js')
 // router.get('/information', authMiddleware.isLoggedIn, AccountController.information)
 // router.put('/information', authMiddleware.isLoggedIn, AccountController.informationPut)
 router.get('/information', AccountController.information)
-router.put('/information', AccountController.informationPut)
+router.post('/information', AccountController.informationPost)
 
 router.get('/history', AccountController.history)
 router.post('/addReview', AccountController.addReview)
