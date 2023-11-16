@@ -80,32 +80,29 @@ class AuthController {
 
     // [POST] /auth/forgot-password
     forgotPost(req, res) {
-        // const { email } = req.body;
+        const { email } = req.body;
 
-        authuser.checkEmail(
-            {
-                email: email,
-            },
-            (err, result) => {
-                if (err) {
-                    res.status(500).json({
-                        message: "Lỗi truy vấn!!!",
-                    });
-                    throw err;
-                }
-
-                if (result.length === 0) {
-                    res.status(404).json({
-                        message: "Không tìm thấy email!!!",
-                    });
-                } else {
-                    req.session.emailOfForgot = email;
-                    res.status(200).json({
-                        message: "Gửi liên kết đặt lại mật khẩu thành công",
-                    });
-                }
+        authuser.checkEmail({
+            email: email,
+        }, (err, result) => {
+            if (err) {
+                res.status(500).json({
+                    message: "Lỗi truy vấn!!!",
+                });
+                throw err;
             }
-        );
+
+            if (result.length === 0) {
+                res.status(404).json({
+                    message: "Không tìm thấy email!!!",
+                });
+            } else {
+                req.session.emailOfForgot = email;
+                res.status(200).json({
+                    message: "Gửi liên kết đặt lại mật khẩu thành công",
+                });
+            }
+        });
     }
 
     // [GET] /auth/reset-password
