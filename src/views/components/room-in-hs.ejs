@@ -56,7 +56,7 @@
         <div class="button-room-in-hs">
             <form action="/booking/detail" method="GET">
                 <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
-                <button class="form--submit1 detail-btn">Xem chi tiết</button>
+                <button type= "submit" class="form--submit1 detail-btn">Xem chi tiết</button>
             </form>
             <form action="account/addReview" method="POST">
                 <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">

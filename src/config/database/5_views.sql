@@ -1,4 +1,4 @@
--- Active: 1699792072449@@127.0.0.1@3306@database_se104
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 DROP VIEW IF EXISTS VIEW_AUTHUSER;
@@ -112,11 +112,9 @@ INNER JOIN extension
 
 DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
-DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
-
 CREATE VIEW VIEW_BOOKING_HISTORY AS
 SELECT
-    accommodation.acco_name,
+	accommodation.*,
     booking.book_id,
     booking.book_datetime,
     booking.book_start_datetime,
