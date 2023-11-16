@@ -13,7 +13,7 @@ router.get('/information', AccountController.information)
 router.put('/information', AccountController.informationPut)
 
 router.get('/history', AccountController.history)
-router.post('/history', AccountController.addReview)
+router.post('/addReview', AccountController.addReview)
 
 router.get('/card', AccountController.card)
 // router.get('/card-fill', AccountController.cardFill)
