@@ -1,5 +1,6 @@
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
+const { promisify } = require("util");
 
 /**
  * AuthController class handles authentication related requests such as register, login, forgot password, reset password, logout, and change password.
@@ -49,8 +50,7 @@ class AuthController {
                     error: "Email không tồn tại!",
                 });
             } else {
-                // bcrypt.compare(password, user.au_user_pass, (err, result) => {
-                // if (result == true) {
+                // if (bcrypt.compare(password, user.au_user_pass)) {
                 if (password === user.au_user_pass) {
                     req.session.loggedin = true;
                     req.session.user = user;

@@ -1,31 +1,35 @@
 <div class="room-in-hs">
     <div class="room-in-hs__detail">
-        <h2 class="room-in-hs__name"><b><%= detail.acco_name %></b></h2>
+        <h2 class="room-in-hs__name"><b><%= bookingDetail.acco_name %></b></h2>
         <div class="room-in-hs__book-date">
             <label for="">Ngày đặt:</label>
-            <span><%=detail.book_datetime%></span>
+            <span><%=bookingDetail.book_datetime%></span>
         </div>
         <div class="room-in-hs__checkin-date">
             <label for="">Ngày bắt đầu:</label>
-            <span><%= detail.book_start_datetime %></span>
+            <span><%= bookingDetail.book_start_datetime %></span>
         </div>
         <div class="room-in-hs__checkout-date">
             <label for="">Ngày kết thúc:</label>
-            <span><%=detail.book_end_datetime%></span>
+            <span><%=bookingDetail.book_end_datetime%></span>
         </div>
         <div class="room-in-hs__book-name">
             <label for="">Người đặt phòng:</label>
-            <span><%=detail.book_full_name%></span>
+            <span><%=bookingDetail.book_customer_name%></span>
         </div>
         <div class="room-in-hs__payment-status">
             <label for="">Trạng thái thanh toán:</label>
-            <span><%=detail.book_is_paid%></span>
+            <span>
+                <%=bookingDetail.book_is_paid_msg%>
+            </span>
         </div>
     </div>
 
     <div class="room-in__title">
 
-        <h5 class="room-in__status"><%=detail.book_status%></h5>
+        <h5 class="room-in__status">
+            <%=bookingDetail.book_status_msg%>
+        </h5>
 
         <div class="policy__price">
             <div class="policy__room">
@@ -40,14 +44,20 @@
                 <a href="#" class="cancel-policy">Chính sách hủy phòng</a>
             </div>
             <div class="price__room">
-                <p class="before-discount">VND 2.500.000</p>
-                <p class="after-discount">VND 500.000</p>
+                <p class="before-discount">VND <%=bookingDetail.book_cost_before_currency%></p>
+                <p class="after-discount">VND  <%=bookingDetail.book_cost_after_currency%></p>
                 <p class="room-day">/ phòng/ đêm</p>
             </div>
         </div>
         <div class="button-room-in-hs">
-            <button class="form--submit1 detail-btn">Xem chi tiết</button>
-            <button class="form--submit2 review-btn">Đánh giá</button>
+            <form action="/booking/detail" method="GET">
+                <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
+                <button class="form--submit1 detail-btn">Xem chi tiết</button>
+            </form>
+            <form action="account/addReview" method="POST">
+                <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
+                <button class="form--submit2 review-btn">Đánh giá</button>
+            </form>
         </div>
     </div>
 </div>

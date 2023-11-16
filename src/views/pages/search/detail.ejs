@@ -34,7 +34,9 @@
                     </div>
                     <div class="info__location">
                         <span class="material-symbols-outlined">location_on</span>
+                        <a href="<%=accoDetail[0].acco_location_link%>" target="blank">
                         <p><%=accoDetail[0].acco_exac_location%></p>
+                        </a>
                         </div>
                     </div>
                     <div class="title__btn">
@@ -72,32 +74,33 @@
                     <div class="feature__item">
                         <span class="material-symbols-outlined">
                             <% switch (feature.fea_id) {
+
                                 case 1 : %>
+                                wifi
+                                <% break;
+
+                                case 2 : %>
                                 beach_access
                                 <% break;
-                                    
-                                case 2 : %>
+
+                                case 3 : %>
                                 yard
                                 <% break;
                                     
-                                case 3 : %>
+                                case 4 : %>
                                 local_parking
                                 <% break;
                                 
-                                case 4 : %>
+                                case 5 : %>
                                 lock
                                 <% break;
 
-                                case 5 : %>
+                                case 6 : %>
                                 elevator
                                 <% break;
 
-                                case 6 : %>
-                                pool
-                                <% break;
-
                                 case 7 : %>
-                                wifi
+                                pool
                                 <% break;
 
                                 default : %>

@@ -102,7 +102,7 @@ class BookingController {
         })
     }
 
-    // [POST] /bookinh/payment
+    // [POST] /booking/payment
     paymentPost(req, res) {
         const {
             pay_id     // Phương thức thanh toán 0: tiền mặt, 1: thẻ ngân hàng, 2: thẻ tín dụng
@@ -172,6 +172,7 @@ class BookingController {
         });
     }
 
+    // [GET] /booking/detail
     detail(req, res) {
         booking.getAllBooking(req, res, function (err, res, result) {
             if (err) {

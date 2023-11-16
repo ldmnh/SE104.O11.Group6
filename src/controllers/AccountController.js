@@ -68,17 +68,19 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-        // accountHistory.getDetail(req, res, function (err, bookingDetail) {
-        //     if (err) {
-        //         res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
-        //         throw err;
-        //     }
-        //     // res.send({bookingDetail: bookingDetail,})
-        //     res.status(200).render('./pages/account/history', {
-        //         bookingDetail: bookingDetail
-        //     })
-        // })
-        res.status(200).render('./pages/account/history')
+        accountHistory.getDetail(req, res, function (err, user, bookingDetails) {
+            if (err) {
+                res.status(404).render('./pages/site/error404')
+                // res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
+                throw err;
+            }
+
+            // res.send({bookingDetails: bookingDetails})
+            res.status(200).render('./pages/account/history', {
+                user: user,
+                bookingDetails: bookingDetails
+            })
+        })
     }
 
     // [POST] /account/booking-history
