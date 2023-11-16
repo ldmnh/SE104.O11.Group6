@@ -12,8 +12,6 @@
 
 <body>
 
-    <%- include('../../partials/header-small') %>
-
     <main class="content-container">
         <section class="main-content">
             <div class="order-status">
@@ -21,13 +19,13 @@
                     <span class="material-symbols-outlined">done_all</span>
                     <p>Đã xác nhận</p>
                 </div>
-                <h1>Đặt phòng của bạn ở Hội An đã được xác nhận.</h1>
+                <h1>Đặt phòng của bạn ở <%= data[0].city_name %> đã được xác nhận.</h1>
             </div>
 
             <div class="order-description">
                 <div class="order-description__item">
                     <span class="material-symbols-outlined">done</span>
-                    <p>Xác nhận đang được gửi tới 2152xxxx@gm.uit.edu.vn.</p>
+                    <p>Xác nhận đang được gửi tới <%= data[0].book_email %>.</p>
                 </div>
                 <div class="order-description__item">
                     <span class="material-symbols-outlined">done</span>
@@ -53,23 +51,36 @@
             <div class="order-summary">
                 <h2>Tóm tắt đơn đặt</h2>
                 <div class="order-summary__item">
-                    <img src="/imgs/details/1.jpg" alt="">
+                    <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
                     <div class="order-summary__content">
-                        <h3>Room Soul</h3>
+                        <h3><%= data[0].room_class %></h3>
                         <div>
                             <span class="material-symbols-outlined">local_atm</span>
-                            <p>Tổng giá: VND 1.500.000</p>
+                            <p>Tổng giá: VND <%= data[0].book_room_cost_after %></p>
                         </div>
                         <div>
                             <span class="material-symbols-outlined">calendar_month</span>
-                            <p>T5, ngày 12 tháng 10 - CN, ngày 15 tháng 10, 2023, 3 đêm </p>
-                        </div>
+                            <p><%if(data[0].book_start_dayofweek==1) { %> CN,
+                               <% } else { %> 
+                                T<%- data[0].book_start_dayofweek %>,
+                               <% } %> ngày 
+                               <%= data[0].book_start_day %> tháng 
+                                <%= data[0].book_start_month %> - 
+                                <%if(data[0].book_end_dayofweek==1) { %> CN,
+                                <% } else { %> 
+                                T<%- data[0].book_end_dayofweek %>,
+                                <% } %> ngày 
+                                <%= data[0].book_end_day %> tháng 
+                                <%= data[0].book_end_month %>, 
+                                <%= data[0].book_end_year %>, 
+                                <%= data[0].book_num_day %> đêm </p>                        
+                        </div> 
                         <div>
                             <span class="material-symbols-outlined">bed</span>
-                            <p>3 phòng</p>
+                            <p><%= data[0].book_num_room %> phòng</p>
                         </div>
                     </div>
-                    <button type="button" class="btn order-btn">Xem chi tiết</button>
+                    <a href="/booking/detail" class="btn order-btn" role="button">Xem chi tiết</a>
                 </div>
             </div>
         </section>
@@ -77,7 +88,7 @@
         <section class="extend-content">
             <div class="order-code">
                 <div>
-                    <p>Mã xác nhận: 123456789</p>
+                    <p>Mã xác nhận: <%= data[0].book_id %></p>
                     <span class="material-symbols-outlined">content_copy</span>
                 </div>
                 <div>
@@ -90,7 +101,7 @@
                 <div class="order-description">
                     <div class="order-description__item">
                         <span class="material-symbols-outlined">done</span>
-                        <p>Xác nhận đang được gửi tới 2152xxxx@gm.uit.edu.vn.</p>
+                        <p>Xác nhận đang được gửi tới <%= data[0].book_email %>.</p>
                     </div>
                     <div class="order-description__item">
                         <span class="material-symbols-outlined">done</span>

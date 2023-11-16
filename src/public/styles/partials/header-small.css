@@ -13,6 +13,7 @@ header {
 
 .header-container {
     width: 80%;
+    max-width: 1152px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -53,6 +54,7 @@ header {
             0 0 2px 0 rgba(0, 0, 0, 0.2);
     }
 }
+
 .header-container__nav-top button {
     background-color: transparent;
     color: var(--white);

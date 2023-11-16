@@ -1,165 +1,185 @@
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
 @import url("/styles/base.css");
 
+.modal {
+	position: fixed;
+	display: none;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
 .cancel-container {
-  padding: 160px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--black);
+	padding: 160px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .cancel {
-  height: 730px;
-  width: 573px;
-  box-sizing: border-box;
+	height: 730px;
+	width: 573px;
+	box-sizing: border-box;
 }
 
 .cancel__card {
-  text-align: left;
-  background-color: var(--white);
-  border-radius: 8px;
-  padding: 22px 22px 21px 21px;
-  position: relative;
+	text-align: left;
+	background-color: var(--white);
+	border-radius: 8px;
+	padding: 22px 22px 21px 21px;
+	position: relative;
 }
 
 .cancel__content {
-  width: 530px;
-  height: 635px;
-  text-align: left;
-  position: relative;
-  border-radius: 10px;
-  border: 1px solid var(--mint-grey);
-  background: var(--mint-blue);
+	width: 530px;
+	height: 635px;
+	text-align: left;
+	position: relative;
+	border-radius: 10px;
+	border: 1px solid var(--mint-grey);
+	background: var(--mint-blue);
 }
 
 h1 {
-  margin: 0;
-  font-size: 28px;
-  text-align: left;
-  padding-bottom: 16px;
-  padding-left: 4px;
+	margin: 0;
+	font-size: 28px;
+	text-align: left;
+	padding-bottom: 16px;
+	padding-left: 4px;
 }
 
 .cancel__warning {
-  width: 496px;
-  height: 54px;
-  display: inline-flex;
-  padding: 7px 18px 7px 24px;
-  margin: 14px 17px 0 17px;
-  align-items: center;
-  gap: 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
+	width: 496px;
+	height: 54px;
+	display: inline-flex;
+	padding: 7px 18px 7px 24px;
+	margin: 14px 17px 0 17px;
+	align-items: center;
+	gap: 12px;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.9);
 }
 
 .cancel__warning--text {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 .cancel__warning--text p {
-  margin: 0;
+	margin: 0;
 }
 
 h2 {
-  font-size: 24px;
-  padding-top: 16px;
-  padding-left: 15px;
-  margin: 0;
+	font-size: 24px;
+	padding-top: 16px;
+	padding-left: 15px;
+	margin: 0;
 }
 
 .cancel__info {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .cancel__info--room {
-  display: flex;
-  padding: 11px 14px 0 15px;
-  font-weight: 600;
+	display: flex;
+	padding: 11px 14px 0 15px;
+	font-weight: 600;
 }
 
 .free {
-  color: var(--green);
+	color: var(--green);
 }
 
 hr {
-  width: 496px;
-  margin: 0;
-  margin-left: 19px;
-  color: var(--medium-gray);
+	width: 496px;
+	margin: 0;
+	margin-left: 19px;
+	color: var(--medium-gray);
 }
 
 .cancel__info--total {
-  display: flex;
-  padding: 15px 14px 0 15px;
-  font-weight: 700;
+	display: flex;
+	padding: 15px 14px 0 15px;
+	font-weight: 700;
 }
 
 .cancel__reason p {
-  font-size: 14px;
-  padding-left: 15px;
-  padding-top: 3px;
-  margin: 0;
+	font-size: 14px;
+	padding-left: 15px;
+	padding-top: 3px;
+	margin: 0;
 }
 
 .cancel__option {
-  padding-top: 16px;
-  padding-left: 15px;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-weight: 500;
-  gap: 17px;
+	padding-top: 16px;
+	padding-left: 15px;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	font-weight: 500;
+	gap: 17px;
 }
 
 .cancel__button {
-  display: inline-flex;
-  gap: 10px;
-  margin: 23px 0 0 0;
-  padding-left: 13px;
+	display: inline-flex;
+	gap: 10px;
+	margin: 23px 0 0 0;
+	padding-left: 13px;
 }
 
 .cancel__button--submit1 {
-  width: 275px;
-  height: 48px;
-  border-radius: 8px;
-  background-color: var(--primary-color-4);
-  color: var(--white);
-  border: none;
-  font-size: 16px;
+	width: 275px;
+	height: 48px;
+	border-radius: 8px;
+	background-color: var(--primary-color-4);
+	color: var(--white);
+	border: none;
+	font-size: 16px;
 }
 
 .cancel__button--submit2 {
-  width: 218px;
-  height: 48px;
-  border-radius: 8px;
+	width: 218px;
+	height: 48px;
+	border-radius: 8px;
 
-  font-size: 16px;
-  color: var(--primary-color-4);
-  background-color: var(--white);
-  border: 1px solid var(--primary-color-4);
+	font-size: 16px;
+	color: var(--primary-color-4);
+	background-color: var(--white);
+	border: 1px solid var(--primary-color-4);
 }
 
 .cancel__close--btn {
-  position: absolute;
-  top: 23px;
-  right: 22px;
+	position: absolute;
+	top: 23px;
+	right: 22px;
 }
 
 .cancel__close--btn span {
-  color: var( --primary-color-2);
+	color: var(--primary-color-2);
 }
 
 .cancel__button--submit1:hover {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cancel__button--submit2:hover {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cancel__button[disabled] {
-  opacity: 0.6;
-  cursor: default;
+	opacity: 0.6;
+	cursor: default;
 }

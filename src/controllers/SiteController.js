@@ -1,32 +1,30 @@
-const db = require('../config/db/connect');
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-
 class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.render("./pages/site/index");
+        res.render('./pages/site/index')
     }
 
-    // [GET] /about-us
+    // [GET] /about
     about(req, res) {
-        const nav_tree__data = [
-            { text: 'Trang chủ', link: '/' },
-            { text: 'Giới thiệu', link: '/about' }
-        ]
-        res.render('./pages/site/about', { nav_tree__data })
+        res.render('./pages/site/about')
     }
 
-    // [GET] /terms-of-use
+    // [GET] /error404
+    error404(req, res) {
+        res.render('./pages/site/error404.ejs')
+    }
+
+    // [GET] /term-of-use
     termOfUse(req, res) {
-        res.render('./pages/site/term-of-use')
+        res.render('./pages/site/terms-of-use')
     }
 
+    // [GET] /privacy-policy
     privacyPolicy(req, res) {
-        res.render('./pages/site/privacy-pocily')
+        res.render('./pages/site/privacy-policy')
     }
 
 }
 
-module.exports = new SiteController();
+module.exports = new SiteController()

@@ -4,7 +4,7 @@
  * @requires ../config/db/connect
  * @exports AuthUser
  */
-const db = require('../config/db/connect');
+const db = require('../config/db/connect')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -15,7 +15,7 @@ AuthUser.checkRegister = function (req, res) {
         au_user_last_name,
         au_user_first_name,
         au_user_email,
-        au_user_pass: NewPassword
+        au_user_pass
     } = req.body
 
     console.log(req.body)
@@ -24,24 +24,26 @@ AuthUser.checkRegister = function (req, res) {
     const insertUser = 'INSERT INTO authuser SET ?'
 
     db.query(checkEmail, [au_user_email], async (err, result) => {
-        if (err) throw err;
+        if (err) throw err
         if (result[0]) return res.status(500).json({
-            msg: "error",
-            message: "Email đã được sử dụng"
+            msg: 'error',
+            message: 'Email đã được sử dụng'
         })
         else {
-            const au_user_pass = bcrypt.hash(NewPassword, 8)
+            // const au_user_pass = bcrypt.hash(NewPassword, 8)
+            let hashedPassword = await bcrypt.hash(au_user_pass, 8);
+            console.log(hashedPassword);
             db.query(insertUser, {
                 au_user_last_name: au_user_last_name,
                 au_user_first_name: au_user_first_name,
                 au_user_email: au_user_email,
-                au_user_pass: au_user_pass
-            }, async (error, results) => {
-                if (error) throw error;
+                au_user_pass: hashedPassword
+            }, (error, results) => {
+                if (error) throw error
                 return res.status(200).json({
-                    msg: "success",
-                    message: "Register successfully"
-                })                    
+                    msg: 'success',
+                    message: 'Register successfully'
+                })
             })
         }
     })
@@ -51,10 +53,10 @@ AuthUser.checkEmail = ({ email }, callback) => {
     const sql = `
         SELECT au_user_email
         FROM AUTHUSER
-        WHERE au_user_email = ?;`;
+        WHERE au_user_email = ?`
     db.query(sql, [email], (err, result) => {
-        callback(err, result);
-    });
+        callback(err, result)
+    })
 }
 
 AuthUser.checkAccount = ({ email, password }, callback) => {
@@ -62,10 +64,10 @@ AuthUser.checkAccount = ({ email, password }, callback) => {
         SELECT au_user_email
         FROM AUTHUSER
         WHERE au_user_email = ?
-            AND au_user_password = ?;`;
+            AND au_user_password = ?`
     db.query(sql, [email, password], (err, result) => {
-        callback(err, result);
-    });
+        callback(err, result)
+    })
 }
 
 AuthUser.getInfoById = ({ id }, callback) => {
@@ -99,7 +101,7 @@ AuthUser.putInfoById = ({
     ]
 
     db.query(sql, values, (err, result) => {
-        callback(err, result);
+        callback(err, result)
     })
 }
 
@@ -109,21 +111,21 @@ AuthUser.putChangePassById = ({ id, oldPass, newPass }, callback) => {
         SET au_user_password = ?
         WHERE au_user_id = ?
             AND au_user_password = ?;`;
-    const values = [ newPass, id, oldPass ]
+    const values = [newPass, id, oldPass]
     db.query(sql, values, (err, result) => {
-        callback(err, result);
-    });
+        callback(err, result)
+    })
 }
 
 AuthUser.putResetPassByEmail = ({ email, password }, callback) => {
     const sql = `
         UPDATE AUTHUSER
         SET au_user_pass = ?
-        WHERE au_user_email = ?;`;
-    const values = [ password, email ]
+        WHERE au_user_email = ?`
+    const values = [password, email]
     db.query(sql, values, (err, result) => {
-        callback(err, result);
-    });
+        callback(err, result)
+    })
 }
 
 AuthUser.getBankCardsById = ({ id }, callback) => {
@@ -149,4 +151,4 @@ AuthUser.getDebitCardsById = ({ id }, callback) => {
     });
 }
 
-module.exports = AuthUser;
+module.exports = AuthUser

@@ -1,4 +1,3 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_se104
 DROP DATABASE IF EXISTS DATABASE_SE104;
 
 CREATE DATABASE DATABASE_SE104;
@@ -259,7 +258,7 @@ CREATE TABLE UserNoti
 (
     au_user_id			int	NOT NULL,
     noti_id				int	NOT NULL,
-    usernoti_is_read	int			NOT NULL,
+    usernoti_is_read	int	NOT NULL    DEFAULT 0,
     PRIMARY KEY (au_user_id, noti_id),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (noti_id) REFERENCES Notification(noti_id)

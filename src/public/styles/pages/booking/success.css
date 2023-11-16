@@ -94,6 +94,11 @@ h3 {
     color: var(--white);
 }
 
+a.order-btn {
+    width: 25%;
+    text-indent: 8px;
+}
+
 .order-btn:hover {
     color: white;
 }
@@ -197,3 +202,7 @@ h3 {
     font-weight: 700;
     font-variation-settings: 'FILL' 1;
 }
+
+a {
+    text-decoration: none;
+  }

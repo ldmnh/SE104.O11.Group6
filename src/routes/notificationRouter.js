@@ -11,5 +11,4 @@ router.get('/promotion', NotificationsController.notiPromotion)
 router.post('/promotion', NotificationsController.updateNotiPromotion)
 router.post('/read-all', NotificationsController.readAllNotification)
 
-
-module.exports = router
+module.exports = router 

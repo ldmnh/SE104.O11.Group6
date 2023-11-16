@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/namtuthien/SE104.O11.Group6#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "ejs-async": "^0.0.1",
@@ -26,6 +28,7 @@
     "express-session": "^1.17.3",
     "installable": "^0.2.8",
     "jsonwebtoken": "^9.0.2",
+    "moment": "^2.29.4",
     "mysql": "^2.18.1",
     "status": "^0.0.13"
   },
@@ -34,4 +37,3 @@
   },
   "description": ""
 }
-

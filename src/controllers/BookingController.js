@@ -2,7 +2,6 @@ const accommodation = require('../models/accommodation.model');
 const authuser = require('../models/authuser.model');
 const booking = require('../models/booking.model');
 
-const bookingModel = require('../models/booking.model')
 class BookingController {
 
     // [GET] /booking/information
@@ -103,7 +102,7 @@ class BookingController {
         })
     }
 
-    // [POST] /bookinh/payment
+    // [POST] /booking/payment
     paymentPost(req, res) {
         const {
             pay_id     // Phương thức thanh toán 0: tiền mặt, 1: thẻ ngân hàng, 2: thẻ tín dụng
@@ -145,7 +144,7 @@ class BookingController {
                         book_num_room: room.num
                     }, (err, result) => {
                         if (err) throw err;
-    
+
                         if (result.length > 0) {
                             res.redirect('/booking/success');
                         } else {
@@ -159,33 +158,70 @@ class BookingController {
 
     // [GET] /booking/success
     success(req, res) {
-        res.render("./pages/booking/success");
+        booking.getAllBooking(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: "Lỗi truy vấn!" });
+                throw err;
+            }
+            if (result.length > 0) {
+                res.status(200).render("./pages/booking/success", {
+                    message: "success",
+                    data: result,
+                });
+            }
+        });
     }
 
     // [GET] /booking/detail
     detail(req, res) {
-        bookingModel.getDetail(req, res, function (err, booking, bookingDetails) {
-            if (err) throw err;
-            res.render('./pages/booking/detail', {
-                booking: booking,
-                bookingDetails: bookingDetails,
-            })
-            // res.send({
-            //     booking: booking,
-            //     bookingDetails: bookingDetails,
-            // })
-        })
+        booking.getAllBooking(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: "Lỗi truy vấn!" });
+                throw err;
+            }
+            if (result.length > 0) {
+                res.status(200).render("./pages/booking/detail", {
+                    message: "success",
+                    data: result,
+                });
+            }
+        });
     }
 
-    // [GET] /booking/cancel
+    // [GET] /booking/cancellation
     cancel(req, res) {
-        res.render("./pages/booking/cancellation");
+        booking.getAllBooking(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: "Lỗi truy vấn!" });
+                throw err;
+            }
+            if (result.length > 0) {
+                res.status(200).render(
+                    "./pages/booking/cancellation",
+                    // res.send(
+                    {
+                        message: "success",
+                        data: result,
+                    }
+                );
+            }
+        });
     }
 
-    // [POST] /booking/cancel
+    // [POST] /booking/cancellation
     cancelPost(req, res) {
-        res.send("cancelPost");
+        booking.cancel(req, res, function (err, res, result) {
+            if (err) {
+                res.status(500).json({ message: "Lỗi truy vấn!" });
+                throw err;
+            }
+
+            if (result) {
+                req.session.book_id = null;
+                res.status(200).json({ message: "Thành công" });
+            }
+        });
     }
 }
 
-module.exports = new BookingController();
+module.exports = new BookingController()

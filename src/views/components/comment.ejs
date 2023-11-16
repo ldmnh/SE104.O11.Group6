@@ -1,13 +1,13 @@
-<div class="comment--wrapper">
-    <div class="comment--profile">
-        <img src="/img/row-1-column-6.png" alt="" />
-        <p><%= accoRoomRating[0].au_user_name %></p>
+<div class="comment-wrapper">
+    <div class="comment-wrapper__profile">
+        <img src="/imgs/user/<%=rating.au_user_avt_url%>" alt="avatar" />
+        <p><%=rating.au_user_full_name%></p>
     </div>
-    <p>
-        <%- accoRoomRating[0].rating_context %>
+    <p class="comment-wrapper__comment">
+        <%=rating.rating_context%>
     </p>
-    <div class="point--day">
-        <p class="point"><%= accoRoomRating[0].rating_point %>/5</p>
-        <p><%= accoRoomRating[0].rating_datetime %></p>
+    <div class="comment-wrapper__point-day">
+        <p class="comment-wrapper__point"><%=rating.rating_point%></p>
+        <p><%=rating.rating_datetime%></p>
     </div>
 </div>

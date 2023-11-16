@@ -62,14 +62,13 @@ DROP VIEW IF EXISTS VIEW_NAME_FEA;
 CREATE VIEW VIEW_NAME_FEA AS
 SELECT
     accommodation.acco_id,
+    feature.fea_id,
     feature.fea_name
-FROM
-    accommodation,
-    feature,
-    accofea
-WHERE
-    accommodation.acco_id = accofea.acco_id
-    AND accofea.fea_id = feature.fea_id;
+FROM accommodation
+INNER JOIN accofea
+    ON accommodation.acco_id = accofea.acco_id
+INNER JOIN feature
+    ON accofea.fea_id = feature.fea_id;
 
 DROP VIEW IF EXISTS VIEW_ROOM_RATING;
 
@@ -77,33 +76,33 @@ CREATE VIEW VIEW_ROOM_RATING AS
 SELECT
     rating.*,
     roomtype.acco_id,
-    authuser.au_user_first_name + ' ' + authuser.au_user_last_name as 'au_user_full_name'
-FROM
-    roomtype,
-    rating,
-    authuser
-WHERE
-    roomtype.room_id = rating.room_id
-    AND authuser.au_user_id = rating.au_user_id;
+    CONCAT(authuser.au_user_first_name, ' ', authuser.au_user_last_name) AS 'au_user_full_name',
+    authuser.au_user_avt_url
+FROM roomtype
+INNER JOIN rating
+    ON roomtype.room_id = rating.room_id
+INNER JOIN authuser
+    ON rating.au_user_id = authuser.au_user_id;
+
 
 DROP VIEW IF EXISTS VIEW_ROOM_EXTE;
 
 CREATE VIEW VIEW_ROOM_EXTE AS
 SELECT
     roomtype.room_id,
+   	extension.exte_id,
     extension.exte_name
-FROM
-    roomtype,
-    extension,
-    roomexte
-WHERE
-    roomtype.room_id = roomexte.room_id
-    AND roomexte.exte_id = extension.exte_id;
+FROM roomtype
+INNER JOIN roomexte
+    ON roomtype.room_id = roomexte.room_id
+INNER JOIN extension
+    ON roomexte.exte_id = extension.exte_id;
 
 DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
-CREATE VIEW
-    VIEW_BOOKING_HISTORY AS
+DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
+
+CREATE VIEW VIEW_BOOKING_HISTORY AS
 SELECT
     accommodation.acco_name,
     booking.book_id,
@@ -112,14 +111,77 @@ SELECT
     booking.book_end_datetime,
     booking.book_cost_before,
     booking.book_cost_after,
-    booking.book_first_name + ' ' + booking.book_last_name as 'book_full_name',
+    CONCAT(booking.book_last_name, ' ', booking.book_first_name) as 'book_customer_name',
     booking.book_status,
     booking.book_is_paid,
     booking.au_user_id
-FROM accommodation, booking
-WHERE accommodation.acco_id = booking.acco_id;
+FROM accommodation
+INNER JOIN booking
+    ON accommodation.acco_id = booking.acco_id;
+
+DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
 CREATE VIEW view_booking_detail AS
-SELECT bookingdetail.*, roomtype.room_class, roomtype.room_type, roomtype.room_details_img_url 
-FROM bookingdetail, roomtype
-WHERE roomtype.room_id = bookingdetail.room_id
+SELECT
+    bookingdetail.*,
+    roomtype.room_class,
+    roomtype.room_type,
+    roomtype.room_details_img_url 
+FROM bookingdetail
+INNER JOIN roomtype
+    ON roomtype.room_id = bookingdetail.room_id;
+
+
+DROP VIEW IF EXISTS view_rating_admin;
+
+CREATE VIEW view_rating_admin AS
+SELECT
+    rating.au_user_id,
+    CONCAT(authuser.au_user_last_name, ' ', authuser.au_user_first_name) as 'au_user_full_name',
+    rating.room_id,
+    rating.rating_datetime,
+    rating.rating_context,
+    rating.rating_point, 
+    roomtype.room_class,
+    roomtype.room_type,
+    accommodation.acco_id,
+    accommodation.acco_name
+FROM rating
+INNER JOIN authuser
+    ON rating.au_user_id = authuser.au_user_id
+INNER JOIN roomtype
+    ON rating.room_id = roomtype.room_id
+INNER JOIN accommodation
+    ON roomtype.acco_id = accommodation.acco_id;
+
+
+DROP VIEW IF EXISTS view_booking_admin;
+
+CREATE VIEW view_booking_admin AS
+SELECT
+    booking.book_id,
+    booking.au_user_id,
+    CONCAT(authuser.au_user_last_name, ' ', authuser.au_user_first_name) as 'au_user_full_name',
+    booking.acco_id,
+    accommodation.acco_name,
+    booking.book_datetime,
+    booking.book_start_datetime,
+    booking.book_end_datetime,
+    booking.book_num_adult,
+    booking.book_num_child,
+    booking.book_cost_before,
+    booking.book_cost_after,
+    CONCAT(booking.book_first_name, ' ', booking.book_last_name) as 'book_customer_name',
+    booking.book_email,
+    booking.book_phone,
+    booking.pay_id,
+    booking.book_note,
+    booking.cancel_cost,
+    booking.book_status,
+    booking.book_is_paid,
+    booking.rea_id 
+FROM booking
+INNER JOIN authuser
+    ON booking.au_user_id = authuser.au_user_id
+INNER JOIN accommodation
+    ON booking.acco_id = accommodation.acco_id;

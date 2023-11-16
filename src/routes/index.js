@@ -15,46 +15,19 @@ const route = (app) => {
     app.use("/account", accountRouter)
     app.use("/booking", bookingRouter)
     app.use("/", siteRouter)
-    app.get("/testing1", (req, res) => {
+
+    app.get("/testing-login", (req, res) => {
         req.session.user = {
-            id: "1",
-            email: "lehieudn123@example.com",
-            avt_url: "user_1.jpg"
-        }
-        res.status(200).json({
-            user: req.session.user,
-            message: "OK"
-        })
-    })
-    app.get("/testing2", (req, res) => {
-        req.session.acco = {
             id: 1,
-            star: 4,
-            name: "Khách sạn Quê Hương",
-        };
-
-        req.session.search = {
-            location: "Sóc Trăng",
-            check_in: "2023-11-11 14:00",
-            check_out: "2023-11-15 09:00",
-            num_adult: 2,
-            num_child: 0,
-            num_room: 1,
+            email: 'lehieudn123@example.com',
+            first_name: 'Hiếu',
+            last_name: 'Lê',
+            avatar: 'user_1.jpg'
         }
 
-        req.session.rooms = [{
-            id: 1,
-            num: 1,
-        }, {
-            id: 2,
-            num: 1,
-        }];
-
         res.status(200).json({
-            acco: req.session.acco,
-            search: req.session.search,
-            rooms: req.session.rooms,
-            message: "OK"
+            message: "Đăng nhập thành công",
+            data: req.session.user
         })
     })
 }

@@ -13,7 +13,7 @@
 exports.isLoggedIn = (req, res, next) => {
     console.log(`isLoggedIn: ${req.session.user}`)
     if (req.session.user) {
-        next();
+        next()
     } else {
         res.status(401).redirect('/auth/login')
     }
@@ -30,9 +30,9 @@ exports.isLoggedIn = (req, res, next) => {
 exports.checkAuth = (req, res, next) => {
     console.log(`checkAuth: ${req.session.user}`)
     if (req.session.user) {
-        res.redirect('/');
+        res.redirect('/')
     } else {
-        next();
+        next()
     }
 }
 
@@ -47,9 +47,9 @@ exports.checkAuth = (req, res, next) => {
 exports.checkUnauth = (req, res, next) => {
     console.log(`checkUnauth: ${req.session.user}`)
     if (!req.session.user) {
-        res.status(401).redirect('/');
+        res.status(401).redirect('/')
     } else {
-        next();
+        next()
     }
 }
 
@@ -64,8 +64,8 @@ exports.checkUnauth = (req, res, next) => {
 exports.checkForgot = (req, res, next) => {
     console.log(`checkForgot: ${req.session.emailOfForgot}`)
     if (!req.session.emailOfForgot) {
-        res.status(401).redirect('/auth/forgot');
+        res.status(401).redirect('/auth/forgot')
     } else {
-        next();
+        next()
     }
 }
