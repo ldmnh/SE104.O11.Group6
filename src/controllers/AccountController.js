@@ -68,32 +68,34 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-        // accountHistory.getDetail(req, res, function (err, bookingDetail) {
-        //     if (err) {
-        //         res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
-        //         throw err;
-        //     }
-        //     // res.send({bookingDetail: bookingDetail,})
-        //     res.status(200).render('./pages/account/history', {
-        //         bookingDetail: bookingDetail
-        //     })
-        // })
-        res.status(200).render('./pages/account/history')
+        accountHistory.getDetail(req, res, function (err, bookingDetail) {
+            if (err) {
+                res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
+                throw err;
+            }
+            // res.send({bookingDetail: bookingDetail,})
+            res.status(200).render('./pages/account/history', {
+                bookingDetail: bookingDetail
+            })
+        })
+        // res.status(200).render('./pages/account/history')
+        // res.status(200).json({ bookingDetail: bookingDetail })
+
     }
 
     // [POST] /account/booking-history
     addReview(req, res) {
-        // const id = req.session.user?.id;
-        // const { room_id, rating_point, rating_context } = req.body;
+        const id = req.session.user?.id;
+        const { room_id, rating_point, rating_context } = req.body;
 
-        // AccountModel.addReview({
-        //     room_id, rating_point, rating_context, id
-        // }, (err, result) => {
-        //     if (err) throw err;
+        AccountModel.addReview({
+            room_id, rating_point, rating_context, id
+        }, (err, result) => {
+            if (err) throw err;
 
-        //     res.status(200).json({ message: "Thêm đánh giá phòng thành công" })
-        // })
-        res.status(200).json({ message: "/account/addReview" })
+            res.status(200).json({ message: "Thêm đánh giá phòng thành công" })
+        })
+        // res.status(200).json({ message: "/account/addReview" })
     }
 
     // [GET] /account/card
@@ -131,6 +133,8 @@ class AccountController {
                     bank_cards: req.session.user?.bank_cards,
                     debit_cards: req.session.user?.debit_cards
                 }
+                // res.status(200).render('./pages/account/card', { data })
+
                 res.status(200).render('./pages/account/card', { nav_tree__data, data })
                 // res.status(200).json({ nav_tree__data, data })
             })
@@ -139,86 +143,88 @@ class AccountController {
 
     // [POST] /account/card/addBank
     addBank(req, res) {
-        // const {
-        //     bank_name,
-        //     bank_branch,
-        //     bank_num,
-        //     bank_name_pers
-        // } = req.body;
+        const {
+            bank_name,
+            bank_branch,
+            bank_num,
+            bank_name_pers
+        } = req.body;
 
-        // AccountModel.addBank({
-        //     bank_name,
-        //     bank_num,
-        //     bank_branch,
-        //     bank_name_pers,
-        //     id: req.session.user?.id
-        // }, (err, result) => {
-        //     if (err) throw err;
+        AccountModel.addBank({
+            bank_name,
+            bank_num,
+            bank_branch,
+            bank_name_pers,
+            id: req.session.user?.id
+        }, (err, result) => {
+            if (err) throw err;
 
-        //     res.status(200).json({
-        //         message: "Thêm thẻ ngân hàng thành công",
-        //     })
-        // })
-        res.status(200).json({ message: "/account/addBank" })
+            res.status(200).redirect('/account/card')
+            // json({message: "Thêm thẻ ngân hàng thành công",
+        })
+        // res.status(200).json({ message: "/account/addBank" })
     }
 
     // [POST] /account/card/addDebit
     addDebit(req, res) {
-        // const {
-        //     debit_num,
-        //     debit_end_date,
-        //     debit_CCV,
-        //     debit_name,
-        //     debit_address,
-        //     debit_postal
-        // } = req.body;
+        const {
+            debit_num,
+            debit_end_date,
+            debit_CCV,
+            debit_name,
+            debit_address,
+            debit_postal
+        } = req.body;
 
-        // AccountModel.addDebit({
-        //     debit_num,
-        //     debit_end_date,
-        //     debit_CCV,
-        //     debit_name,
-        //     debit_address,
-        //     debit_postal,
-        //     id: req.session.user?.id
-        // }, (err, result) => {
-        //     if (err) throw err;
-
-        //     res.status(200).json({
-        //         message: "Thêm thẻ tín dụng thành công",
-        //     })
-        // })
-        res.status(200).json({ message: "/account/addDebit" })
+        AccountModel.addDebit({
+            debit_num,
+            debit_end_date,
+            debit_CCV,
+            debit_name,
+            debit_address,
+            debit_postal,
+            id: req.session.user?.id
+        }, (err, result) => {
+            if (err) throw err;
+            res.status(200).redirect('/account/card')
+            // res.status(200).json({
+            //     message: "Thêm thẻ tín dụng thành công",
+            // })
+        })
+        // res.status(200).json({ message: "/account/addDebit" })
     }
 
     // [PUT] /account/card/delBank
     delBank(req, res) {
-        // AccountModel.delBank({
-        //     "id": req.session.user?.id,
-        //     "bank_id": "4"                     // bank_id lấy từ req.body
-        // }, (err, result) => {
-        //     if (err) throw err;
-
-        //     res.status(200).json({
-        //         massage: "Xóa thẻ ngân hàng thành công"
-        //     })
-        // })
-        res.status(200).json({ message: "/account/delBank" })
+        const { bank_id } = req.body
+        AccountModel.delBank({
+            "id": req.session.user?.id,
+            bank_id                    // bank_id lấy từ req.body
+        }, (err, result) => {
+            if (err) throw err;
+            res.status(200).redirect('/account/card')
+            // res.status(200).json({
+            //     massage: "Xóa thẻ ngân hàng thành công"
+            // })
+        })
+        // res.status(200).json({ message: "/account/delBank" })
     }
 
-    // [PUT] /account/card/delDebit
+    // [POST] /account/card/delDebit
     delDebit(req, res) {
-        // AccountModel.delDebit({
-        //     "id": req.session.user?.id,
-        //     "debit_id": "4"                    // bank_id lấy từ req.body
-        // }, (err, result) => {
-        //     if (err) throw err;
-
-        //     res.status(200).json({
-        //         massage: "Xóa thẻ tín dụng thành công"
-        //     })
-        // })
-        res.status(200).json({ message: "/account/delDebit" })
+        const { debit_id } = req.body
+        AccountModel.delDebit({
+            "id": req.session.user?.id,
+            debit_id                   // bank_id lấy từ req.body
+        }, (err, result) => {
+            if (err) throw err;
+            res.status(200).redirect('/account/card')
+            // res.status(200).json({
+            //     massage: "Xóa thẻ tín dụng thành công"
+            // })
+        })
+        // res.status(200).json({ message: "/account/delDebit" })
+        // res.status(200).redirect('/account/card')
     }
 
     // [GET] /account/change-password

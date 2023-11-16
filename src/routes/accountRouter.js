@@ -19,8 +19,8 @@ router.get('/card', AccountController.card)
 // router.get('/card-fill', AccountController.cardFill)
 router.post("/card/addBank", AccountController.addBank);
 router.post("/card/addDebit", AccountController.addDebit);
-router.put("/card/delBank", AccountController.delBank);
-router.put("/card/delDebit", AccountController.delDebit);
+router.post("/card/delBank", AccountController.delBank);
+router.post("/card/delDebit", AccountController.delDebit);
 
 router.get('/change-password', AccountController.changePass)
 

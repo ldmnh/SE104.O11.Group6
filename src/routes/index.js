@@ -18,7 +18,7 @@ const route = (app) => {
 
     app.get("/testing-login", (req, res) => {
         req.session.user = {
-            id: 3,
+            id: 1,
             email: 'lehieudn123@example.com',
             first_name: 'Hiếu',
             last_name: 'Lê',
