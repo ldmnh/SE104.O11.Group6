@@ -53,8 +53,13 @@ class AuthController {
             } else {
                 // if (bcrypt.compare(password, user.au_user_pass)) {
                 if (password === user.au_user_pass) {
-                    req.session.loggedin = true;
-                    req.session.user = user;
+                    req.session.user = {
+                        id: user.au_user_id,
+                        first_name: user.au_user_first_name,
+                        last_name: user.au_user_last_name,
+                        email: user.au_user_email,
+                        phone: user.au_user_phone,
+                    };
                     return res.status(200).json({
                         status: "success",
                         success: "Thành công",
