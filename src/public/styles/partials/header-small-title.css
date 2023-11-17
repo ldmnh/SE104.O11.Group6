@@ -12,6 +12,7 @@ header {
 
 .header-container {
     width: 80%;
+    max-width: 1152px;
     margin: 0 auto;
     display: inherit;
     align-items: center;
