@@ -2,7 +2,7 @@ class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.render('./pages/site/index')
+        res.render('./pages/site/index', { user: req.session.user })
     }
 
     // [GET] /about
