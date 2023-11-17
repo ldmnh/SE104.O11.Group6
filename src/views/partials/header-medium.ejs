@@ -9,9 +9,24 @@
                 <button href="#" class="status-layer noti-btn-hm">Thông báo</button>
             </div>
             <div class="header-container__top-authenticator">
+                <% if( user ){ %>
                 <p>Chào,</p>
-                <p class="name-btn-hm">data</p>
-                <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hm" />
+                <p class="name-btn-hm"><%= user?.last_name + ' ' + user?.first_name %></p>
+                <img src="/imgs/user/<%= user?.avatar ?? 'user_1.jpg'%>" alt="avatar" class="avatar-btn-hm" />
+                <% } else{ %>
+                <a class="button-signin signin-btn-hf" type="button" href="/auth/login">
+                    <div class="status-layer">
+                        <span>Đăng nhập</span>
+                    </div>
+                </a>
+
+                <a class="sec button-signup signup-btn-hf" type="button" href="/auth/register">
+                    <div class="status-layer">
+                        <span>Đăng ký</span>
+                    </div>
+                </a>
+                <% } %>
+
                 <!-- <button type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
           <button type="button" class="button-signup signup-btn-hm">Đăng ký</button> -->
 
