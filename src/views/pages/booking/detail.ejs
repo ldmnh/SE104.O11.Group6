@@ -67,6 +67,12 @@
                 </div>
                 <hr>
                 <div class="detail__checkin">
+                    <h3>Ngày đặt</h3>
+                    <p><%=booking[0].book_date_format%></p>
+                    <p><%=booking[0].book_time_format%></p>
+                </div>
+                <hr>
+                <div class="detail__checkin">
                     <h3>Nhận phòng</h3>
                     <p><%=booking[0].book_start_date_format%></p>
                     <p><%=booking[0].book_start_time_format%></p>
@@ -81,18 +87,20 @@
                 <div class="detail__price price">
                     <h3>Giá</h3>
                     <p>3 đêm, 3 phòng</p>
-                    <p class="price__strong">VND <%=booking[0].book_cost_after%></p>
+                    <p class="price__strong">VND <%=booking[0].book_cost_after_currency%></p>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Giá này đã bao gồm những gì?</a>
                 </div>
 
                 <% bookingDetails.forEach(function(book){ %>
-                    <p><%=book.room_id%></p>
+                    <p><%=book.room_name%></p>
+                    <% if (booking[0].book_status == 1){ %>
                     <div class="detail__price price">
                         <form action="/account/addReview" method="POST">
                             <input type="hidden" value="<%=book.room_id%>" name="room_id">
                             <button type = "submit" class="form--submit2 review-btn">Đánh giá</button>
                         </form>
                     </div>
+                    <% } %> 
                 <% }) %> 
 
             </div>
@@ -110,8 +118,12 @@
         <section class="abort">
             <div class="abort__info">
                 <h2>Miễn phí hủy đặt phòng</h2>
-                <p class="abort__time-left">Còn 6 ngày 14 giờ 24 phút!!!</p>
-                <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy <span class="abort__highlight">trước 12 tháng 10 18:00 giờ</span> Hội An.</p>
+                <% if (!booking[0].book_time_left_format){ %>
+                    <p class="abort__time-left">Hết hạn hủy miễn phí!!!</p>
+                <% } else { %>
+                    <p class="abort__time-left">Còn <%=booking[0].book_time_left_format%>!!!</p>
+                <% } %>        
+                <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy <span class="abort__highlight">trước <%=booking[0].book_time_count_format%> <%=booking[0].book_time_format%> giờ</span></p>
                 <p>Sau thời gian này bạn sẽ phải thanh toán VND 2.800.000 để hủy</p>
             </div>
             <div class="abort__progress">
@@ -122,7 +134,7 @@
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="progress__time">12 tháng 10</p>
+                <p class="progress__time"><%=booking[0].book_time_count_format%></p>
             </div>
             <a href="/booking/success" class="btn detail__btn" role="button">Hủy đặt phòng</a>
         </section>

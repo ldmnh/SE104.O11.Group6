@@ -1,8 +1,8 @@
 const index = function () {}
 
-// Hàm xử lý datetỉm ---> Thứ x, ngày x tháng x năm x
-index.toXDDMMYYY = function (datetime = new Date()) {
-    let book_day = ''
+// Hàm xử lý datetỉme ---> Thứ x, ngày x tháng x năm x
+index.toXDDMMYYYY = function (datetime) {
+    let day = ''
     switch (datetime.getDay()) {
         case 0:
             day = 'Chủ nhật'
@@ -34,106 +34,55 @@ index.toXDDMMYYY = function (datetime = new Date()) {
 
     }
 
-    return (day + ', ngày ' + datetime.getDate() + ' tháng ' + datetime.getMonth() + ' năm ' + datetime.getYear())
+    let date = datetime.getDate()
+    if (date < 10) {
+        date = "0" + datetime.getDate();
+    }
+
+    let year = datetime.getYear() + 1900
+    return (day + ', ngày ' + datetime.getDate() + ' tháng ' + datetime.getMonth() + ' năm ' + year)
 }
 
-// Hàm xử lý datetỉm ---> giờ:phút
-index.toHHMM = function (datetime = new Date()) {
-    let hour = ''
-    switch (datetime.getHours()) {
-        case 0:
-            hour = '00'
-            break;
-
-        case 1:
-            hour = '01'
-            break;
-
-        case 2:
-            hour = '02'
-            break;
-
-        case 3:
-            hour = '03'
-            break;
-
-        case 4:
-            hour = '04'
-            break;
-
-        case 5:
-            hour = '05'
-            break;
-
-        case 6:
-            hour = '06'
-            break;
-
-        case 7:
-            hour = '07'
-            break;
-
-        case 8:
-            hour = '08'
-            break;
-
-        case 8:
-            hour = '09'
-            break;
-
-        default:
-            hour = datetime.getHours()
-            break;
+// Hàm xử lý datetime ---> DD tháng MM năm YYYY
+index.toDDMMYYYY = function (datetime) {
+    let date = datetime.getDate()
+    if (date < 10) {
+        date = "0" + datetime.getDate();
     }
+    let year = datetime.getYear() + 1900
+    return (datetime.getDate() + ' tháng ' + datetime.getMonth() + ' năm ' + year)
+}
 
-    let minute = ''
-    switch (datetime.getMinutes()) {
-        case 0:
-             minute = '00'
-            break;
-
-        case 1:
-             minute = '01'
-            break;
-
-        case 2:
-             minute = '02'
-            break;
-
-        case 3:
-             minute = '03'
-            break;
-
-        case 4:
-             minute = '04'
-            break;
-
-        case 5:
-             minute = '05'
-            break;
-
-        case 6:
-             minute = '06'
-            break;
-
-        case 7:
-             minute = '07'
-            break;
-
-        case 8:
-             minute = '08'
-            break;
-
-        case 8:
-             minute = '09'
-            break;
-
-        default:
-             minute = datetime.getMinutes()
-            break;
+// Hàm xử lý datetime ---> DD tháng MM HH:MM
+index.toDDMMYYYYHHMM = function (datetime) {
+    let date = datetime.getDate()
+    if (date < 10) {
+        date = "0" + datetime.getDate();
     }
+    let year = datetime.getYear() + 1900
+    return (datetime.getDate() + ' tháng ' + datetime.getMonth() + ' năm ' + year + ' ' + index.toHHMM(datetime))
+}
 
+// Hàm xử lý datetime ---> giờ:phút
+index.toHHMM = function (datetime) {
+    let hour = datetime.getHours()
+    if (hour < 10) {
+        hour = "0" + datetime.getHours();
+    }
+    
+    let minute = datetime.getMinutes()
+    if (minute < 10) {
+        minute = "0" + datetime.getMinutes();
+    }
+   
     return (hour + ':' + minute)
+}
+
+index.toCurrency = function (money) {
+   let currency = money.toFixed(0).replace(/./g, function(c, i, a) {
+        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c;
+      });
+    return currency;
 }
 
 module.exports = index;

@@ -90,13 +90,25 @@ Booking.getDetail = function (req, res, callback) {
         }
         
         booking.forEach((book) => {
-           book.book_date_format = index.toXDDMMYYY(book.book_datetime)
-           book.book_start_date_format = index.toXDDMMYYY(book.book_start_date)
-           book.book_end_date_format = index.toXDDMMYYY(book.book_end_date)
+           book.book_date_format = index.toXDDMMYYYY(new Date(book.book_datetime))
+           book.book_start_date_format = index.toXDDMMYYYY(new Date(book.book_start_datetime))
+           book.book_end_date_format = index.toXDDMMYYYY(new Date(book.book_end_datetime))
 
-           book.book_time_format = index.toHHMM(book.book_datetime)
-           book.book_start_time_format = index.toHHMM(book.book_start_date)
-           book.book_end_time_format = index.toHHMM(book.book_end_date)
+           book.book_time_format = index.toHHMM(new Date(book.book_datetime))
+           book.book_start_time_format = index.toHHMM(new Date(book.book_start_datetime))
+           book.book_end_time_format = index.toHHMM(new Date(book.book_end_datetime))
+
+           book.book_time_count = new Date(book.book_datetime)
+           book.book_time_count.setDate(book.book_time_count.getDate() + 7)
+           book.book_time_count_format = index.toDDMMYYYY(new Date(book.book_time_count))
+
+           book.book_time_left = new Date(book.book_time_count)
+           if (book.book_time_left.getTime() > new Date().getTime) {
+            book.book_time_left.setDate(book.book_time_left.getDate() - new Date().getDate)
+            book.book_time_left_format = index.toDDMMYYYYHHMM(new Date(book.book_time_left))
+           }            
+           book.book_cost_before_currency = index.toCurrency(Number(book.book_cost_before))
+           book.book_cost_after_currency = index.toCurrency(Number(book.book_cost_after))
         })
 
         

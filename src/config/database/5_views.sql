@@ -133,10 +133,10 @@ DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
 CREATE VIEW view_booking_detail AS
 SELECT
-    bookingdetail.*,
-    roomtype.room_class,
-    roomtype.room_type,
-    roomtype.room_details_img_url 
+    bookingdetail.book_id,
+    roomtype.*, 
+    bookingdetail.book_room_cost_before,
+    bookingdetail.book_room_cost_after   
 FROM bookingdetail
 INNER JOIN roomtype
     ON roomtype.room_id = bookingdetail.room_id;
