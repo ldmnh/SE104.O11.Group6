@@ -49,6 +49,10 @@ class AdminController {
             })
         })
     }
+
+    delRating(req,res){
+        
+    }
 }
 
 module.exports = new AdminController()

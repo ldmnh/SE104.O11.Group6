@@ -11,7 +11,7 @@ const logoClickHf = document.querySelector(".logo-click-hf");
 
 homepageBtnHf.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHf.addEventListener("click", () =>
-    redirectToUrl("/notification/account-update")
+    redirectToUrl("/notifications/account-update")
 );
 // signinBtnHf.addEventListener("click", () => redirectToUrl("/auth/login"));
 // signupBtnHf.addEventListener("click", () => redirectToUrl("/auth/register"));

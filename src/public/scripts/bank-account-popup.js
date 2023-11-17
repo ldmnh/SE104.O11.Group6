@@ -14,7 +14,7 @@ closeeBtn.addEventListener("click", () => {
 
 //Khi nhấn nút hoàn thành
 const doneClosePopup = document.querySelector(".form-button--submit2");
-const doneBankOtp = document.querySelector(".modal-otp");
+const doneBankOtp = document.querySelector(".otp-bank-card");
 doneClosePopup.addEventListener("click", () => {
 	modal.style.display = "none";
 	doneBankOtp.style.display = "block";

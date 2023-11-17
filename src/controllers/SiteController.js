@@ -1,8 +1,22 @@
+const SiteModel = require('../models/site.model')
+
 class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.render('./pages/site/index', { user: req.session.user })
+        SiteModel.hintSearch({}, (err, result) => {
+            if (err) {
+                res.status(500).json({
+                    message: 'Lỗi truy vấn!!!',
+                });
+                throw err;
+            }
+            // res.json({
+            res.status(200).render('./pages/site/index', {
+                user: req.session.user,
+                data_search: result,
+            })
+        })
     }
 
     // [GET] /about
