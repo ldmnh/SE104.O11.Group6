@@ -111,7 +111,7 @@ Booking.getDetail = function ({ id, book_id }, callback) {
 
                 book.book_time_count = new Date(book.book_datetime)
                 book.book_time_count.setDate(book.book_time_count.getDate() + 7)
-                book.book_time_count_format = index.toDDMMYYYY(new Date(book.book_time_count))
+                book.book_time_count_format = index.toDDthangMMnamYYYY(new Date(book.book_time_count))
 
                 book.book_time_left = new Date(book.book_time_count)
                 if (book.book_time_left.getTime() > new Date().getTime) {
@@ -136,7 +136,7 @@ Booking.getDetail = function ({ id, book_id }, callback) {
                     bookingDetail.book_room_cost_after_currency = index.toCurrency(Number(bookingDetail.book_room_cost_after))
                 })
 
-                callback(err, booking, bookingDetails)
+                callback(err, booking[0], bookingDetails)
             })
         }
     })

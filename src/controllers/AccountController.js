@@ -101,9 +101,7 @@ class AccountController {
                 totalRow,
                 totalPage,
                 page,
-                limit
-                // data: {
-                // }
+                limit,
             })
         })
     }

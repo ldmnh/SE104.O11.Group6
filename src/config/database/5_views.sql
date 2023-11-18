@@ -24,6 +24,14 @@ FROM AUTHUSER;
 
 -- SELECT * FROM VIEW_AUTHUSER;
 
+DROP VIEW IF EXISTS view_acco;
+
+CREATE VIEW view_acco AS
+SELECT accommodation.*, city.city_name, province.prov_name 
+FROM accommodation, city, province
+WHERE accommodation.city_id = city.city_id 
+AND province.prov_id = accommodation.prov_id;
+
 DROP VIEW IF EXISTS VIEW_BANKCARD;
 
 CREATE VIEW VIEW_BANKCARD AS
@@ -101,6 +109,7 @@ DROP VIEW IF EXISTS VIEW_ROOM_EXTE;
 
 CREATE VIEW VIEW_ROOM_EXTE AS
 SELECT
+	roomtype.acco_id,
     roomtype.room_id,
    	extension.exte_id,
     extension.exte_name
@@ -109,6 +118,8 @@ INNER JOIN roomexte
     ON roomtype.room_id = roomexte.room_id
 INNER JOIN extension
     ON roomexte.exte_id = extension.exte_id;
+
+DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
 DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
@@ -128,6 +139,7 @@ SELECT
 FROM accommodation
 INNER JOIN booking
     ON accommodation.acco_id = booking.acco_id;
+
 
 DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
@@ -197,3 +209,53 @@ INNER JOIN authuser
     ON booking.au_user_id = authuser.au_user_id
 INNER JOIN accommodation
     ON booking.acco_id = accommodation.acco_id;
+
+DROP VIEW IF EXISTS view_chart_dashboard;
+
+CREATE VIEW view_chart_dashboard AS
+SELECT
+    MONTH(book_datetime) AS 'month',
+    COUNT(*) AS 'count_book',
+    A.count_rating,
+    A.avg_rating
+FROM
+    booking RIGHT JOIN
+    (
+    SELECT
+        MONTH(rating_datetime) AS 'month_rating',
+        COUNT(*) AS 'count_rating',
+        AVG(rating_point) AS 'avg_rating'
+    FROM
+        rating
+    
+    GROUP BY
+        MONTH(rating_datetime)
+) A
+ON
+        A.month_rating = MONTH(book_datetime)
+GROUP BY
+    MONTH(book_datetime)
+UNION ALL
+SELECT
+    MONTH(book_datetime) AS 'month',
+    COUNT(*) AS 'count_book',
+    A.count_rating,
+    A.avg_rating
+FROM
+    booking LEFT JOIN
+    (
+    SELECT
+        MONTH(rating_datetime) AS 'month_rating',
+        COUNT(*) AS 'count_rating',
+        AVG(rating_point) AS 'avg_rating'
+    FROM
+        rating
+    
+    GROUP BY
+        MONTH(rating_datetime)
+) A
+ON
+        A.month_rating = MONTH(book_datetime)
+WHERE A.month_rating IS NULL
+GROUP BY
+    MONTH(book_datetime);

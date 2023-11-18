@@ -12,7 +12,7 @@
                 <% if (user) { %>
                 <p>Chào,</p>
                 <a href="/account/information" style="text-decoration: none;"><p><%= user?.last_name + ' ' + user?.first_name %></p></a>
-                <img src="/imgs/user/<%= user?.avatar ?? 'user_1.jpg'%>" alt="avatar" class="avatar-btn-hf" />
+                <img src="/imgs/user/<%= user?.avatar ?? 'default.jpg'%>" alt="avatar" class="avatar-btn-hf" />
                 <% } else { %>
                 <a href="/auth/login" style='text-decoration: none;'>
                     <button class="button-signin signin-btn-hf" type="button">

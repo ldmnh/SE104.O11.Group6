@@ -1,4 +1,5 @@
 const db = require('../config/db/connect');
+const index = require('../models/index.model')
 
 function adminModel() {}
 
@@ -38,10 +39,10 @@ adminModel.getLastestBooking = function (callback) {
         if (err) {
             throw err
         }
-        getLastestBooking.forEach(function (booking) {
-            booking.book_datetime = booking.book_datetime.getDate() +'/'+ booking.book_datetime.getMonth()+'/'+ booking.book_datetime.getYear()
-            booking.book_start_datetime = booking.book_start_datetime.getDate() +'/'+ booking.book_start_datetime.getMonth()+'/'+ booking.book_start_datetime.getYear()
-            booking.book_end_datetime = booking.book_end_datetime.getDate() +'/'+ booking.book_end_datetime.getMonth()+'/'+ booking.book_end_datetime.getYear()
+        getLastestBooking.forEach(function (book) {
+            book.book_datetime_format = index.toDDMMYYYY(new Date(book.book_datetime))
+            book.book_start_datetime_format = index.toDDMMYYYY(new Date(book.book_start_datetime))
+            book.book_end_datetime_format = index.toDDMMYYYY(new Date(book.book_end_datetime))
         })
         callback(getLastestBooking)
     })
@@ -54,30 +55,20 @@ adminModel.getLastestRating = function (callback) {
             throw err
         }
         getLastestRating.forEach(function (rating) {
-            rating.rating_datetime = rating.rating_datetime.getDate() +'/'+ rating.rating_datetime.getMonth()+'/'+ rating.rating_datetime.getYear()
+            rating.rating_datetime_format = index.toDDMMYYYY(new Date(rating.rating_datetime))
         })
 
         callback(getLastestRating)
     })
 }
 
-adminModel.getChartBooking = function (callback) {
-    const getChartBooking = "SELECT MONTH(book_datetime), COUNT(*) AS 'count_book' FROM view_booking_admin GROUP BY MONTH(book_datetime) ORDER BY MONTH(book_datetime)"
-    db.query(getChartBooking, (err, getChartBooking) => {
+adminModel.getChart = function (callback) {
+    const getChart = "SELECT * FROM view_chart_dashboard ORDER BY month"
+    db.query(getChart, (err, chart) => {
         if (err) {
             throw err
         }
-        callback(getChartBooking)
-    })
-}
-
-adminModel.getChartRating = function (callback) {
-    const getChartRating = "SELECT MONTH(rating_datetime), COUNT(*) AS 'count_rating', AVG(rating_point) AS 'count_avg' FROM view_rating_admin GROUP BY MONTH(rating_datetime) ORDER BY MONTH(rating_datetime)"
-    db.query(getChartRating, (err, getChartRating) => {
-        if (err) {
-            throw err
-        }
-        callback(getChartRating)
+        callback(chart)
     })
 }
 

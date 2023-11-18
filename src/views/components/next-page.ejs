@@ -1,4 +1,6 @@
+
 <nav class='pagination' aria-label="Page navigation example ">
+    <% if (page != totalPage) {%>
     <ul class="pagination">
         <!-- <li class="page-item">
             <a class="page-link" href="#"><span class="material-symbols-outlined"> navigate_before</span></a>
@@ -23,4 +25,5 @@
                 <li class="page-item"><a class="page-link" href="?page=<%= page < totalPage ? page+1 : totalPage%>"><span class="material-symbols-outlined"> navigate_next </span></a></li>
         <%}%>
     </ul>
+    <%}%>
 </nav>
