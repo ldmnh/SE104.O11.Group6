@@ -32,9 +32,7 @@ class AuthController {
 
     // [GET] /auth/login
     login(req, res) {
-        const title = "Đăng nhập";
-        const help = "Bạn quên mật khẩu?";
-        res.status(200).render("./pages/auth/login", { title, help });
+        res.status(200).render("./pages/auth/login");
     }
 
     // [POST] /auth/login
@@ -58,7 +56,7 @@ class AuthController {
                         first_name: user.au_user_first_name,
                         last_name: user.au_user_last_name,
                         email: user.au_user_email,
-                        phone: user.au_user_phone,
+                        avatar: user.au_user_avt_url,
                     };
                     return res.status(200).json({
                         status: "success",
