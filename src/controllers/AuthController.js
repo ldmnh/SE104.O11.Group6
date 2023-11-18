@@ -1,4 +1,3 @@
-const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 /**
@@ -16,7 +15,7 @@ const bcrypt = require("bcrypt");
  * @property {function} changePassPut - Handles the change password form submission and updates the password in the database.
  */
 
-const authuser = require("../models/authuser.model");
+const AuthUser = require("../models/authuser.model");
 
 class AuthController {
     // [GET] /auth/register
@@ -39,7 +38,7 @@ class AuthController {
     // [POST] /auth/login
     loginPost(req, res) {
         const { email, password } = req.body;
-        User.findByEmail(email, (err, user) => {
+        AuthUser.findByEmail(email, (err, user) => {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;

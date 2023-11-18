@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>2WAYS.com</title>
   <link rel="stylesheet" href="/styles/pages/search/results.css">
+  <link rel="stylesheet" href="/styles/pages/search/daterangepicker.css">
 </head>
 
 <body>
@@ -34,19 +35,19 @@
         <div class="filter-sidebar__price">
           <p class="filter-sidebar__content">Mức giá: (Dành cho 1 đêm)</p>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" value="Dưới VND 200.000">
+            <input type="checkbox" name="price" class="form-check-input price" value="Dưới VND 200.000">
             <label class="form-check-label">Dưới VND 200.000</label>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" value="VND 200.000 - VND 500.000">
+            <input type="checkbox" name="price" class="form-check-input price" value="VND 200.000 - VND 500.000">
             <label class="form-check-label">VND 200.000 - VND 500.000</label>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" value="VND 500.000 - VND 1.000.000">
+            <input type="checkbox" name="price" class="form-check-input price" value="VND 500.000 - VND 1.000.000">
             <label class="form-check-label">VND 500.000 - VND 1.000.000</label>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" value="Trên VND 1.000.000">
+            <input type="checkbox" name="price" class="form-check-input price" value="Trên VND 1.000.000">
             <label class="form-check-label">Trên VND 1.000.000</label>
           </div>
         </div>
@@ -143,7 +144,7 @@
           <p class="filter-sidebar__content">Đánh giá sao:</p>
           <p class="filter-sidebar__note">Đánh giá này do chỗ nghĩ cung cấp và thường được đánh giá bởi tổ chức đánh giá khách sạn uy tín hoặc một bên thứ ba khác.</p>
           <div class="form-check">
-            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value="5sao">
+            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value=5>
             <label class="form-check-label">
               <span class="material-symbols-outlined">grade</span>
               <span class="material-symbols-outlined">grade</span>
@@ -153,7 +154,7 @@
             </label>
           </div>
           <div class="form-check">
-            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value="4sao">
+            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value=4>
             <label class="form-check-label">
               <span class="material-symbols-outlined">grade</span>
               <span class="material-symbols-outlined">grade</span>
@@ -162,7 +163,7 @@
             </label>
           </div>
           <div class="form-check">
-            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value="3sao">
+            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value=3>
             <label class="form-check-label">
               <span class="material-symbols-outlined">grade</span>
               <span class="material-symbols-outlined">grade</span>
@@ -170,20 +171,20 @@
             </label>
           </div>
           <div class="form-check">
-            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value="2sao">
+            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value=2>
             <label class="form-check-label">
               <span class="material-symbols-outlined">grade</span>
               <span class="material-symbols-outlined">grade</span>
             </label>
           </div>
           <div class="form-check">
-            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value="1sao">
+            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value=1>
             <label class="form-check-label">
               <span class="material-symbols-outlined">grade</span>
             </label>
           </div>
           <div class="form-check">
-            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value="Chưa có đánh giá">
+            <input type="checkbox" name="acco_star" class="form-check-input acco_star" value=null>
             <label class="form-check-label">Chưa có đánh giá</label>
           </div>
         </div>
@@ -191,11 +192,11 @@
         <div class="filter-sidebar__cancel">
           <p class="filter-sidebar__content">Chính sách hủy phòng:</p>
           <div class="form-check">
-            <input type="checkbox" name="acco_fea" class="form-check-input acco_fea" value="1">
+            <input type="checkbox" name="acco_fea" class="form-check-input acco_fea" value=1>
             <label class="form-check-label">Miễn phí hủy</label>
           </div>
           <div class="form-check">
-            <input type="checkbox" name="acco_fea" class="form-check-input acco_fea" value="2">
+            <input type="checkbox" name="acco_fea" class="form-check-input acco_fea" value=2>
             <label class="form-check-label">Không cần thanh toán trước</label>
           </div>
         </div>
@@ -274,10 +275,10 @@
             <p class="search-results__filter__content">Giá</p>
             <span class="material-symbols-outlined dropdown-button">keyboard_arrow_down</span>
             <div class="dropdown-content">
-              <input type="radio" id="sort-z-to-a" name="cost" value="Cao đến thấp" />
-              <label for="sort-z-to-a" class="sort-label cost">Cao đến thấp</label>
-              <input type="radio" id="sort-a-to-z" name="cost" value="Thấp đến cao" />
-              <label for="sort-a-to-z" class="sort-label cost">Thấp đến cao</label>
+              <input type="radio" id="costZA" class="sort cost" name="cost" value="Cao đến thấp" />
+              <label for="costZA" onclick="selectRadio('costZA')" class="sort-label" >Cao đến thấp</label>
+              <input type="radio" id="costAZ" class="sort cost" name="cost" value="Thấp đến cao" />
+              <label for="costAZ" onclick="selectRadio('costAZ')" class="sort-label">Thấp đến cao</label>
             </div>
           </div>
         </div>
@@ -287,10 +288,10 @@
             <p class="search-results__filter__content">Được đánh giá hàng đầu</p>
             <span class="material-symbols-outlined dropdown-button">expand_more</span>
             <div class="dropdown-content">
-              <input type="radio" id="sort-z-to-a" name="accoStar" value="Cao đến thấp" />
-              <label for="sort-z-to-a" class="sort-label accoStar">Cao đến thấp</label>
-              <input type="radio" id="sort-a-to-z" name="accoStar" value="Thấp đến cao" />
-              <label for="sort-a-to-z" class="sort-label accoStar">Thấp đến cao</label>
+              <input type="radio" id="accoStarZA" class="sort accoStar" name="accoStar" value="Cao đến thấp" />
+              <label for="accoStarZA" onclick="selectRadio('accoStarZA')" class="sort-label">Cao đến thấp</label>
+              <input type="radio" id="accoStarAZ" class="sort accoStar" name="accoStar" value="Thấp đến cao" />
+              <label for="accoStarAZ" onclick="selectRadio('accoStarAZ')" class="sort-label">Thấp đến cao</label>
             </div>
           </div>
         </div>
@@ -300,10 +301,10 @@
             <p class="search-results__filter__content">Được đánh giá nhiều nhất</p>
             <span class="material-symbols-outlined dropdown-button">expand_more</span>
             <div class="dropdown-content">
-              <input type="radio" id="sort-z-to-a" name="countRating" value="Cao đến thấp" />
-              <label for="sort-z-to-a" class="sort-label countRating">Cao đến thấp</label>
-              <input type="radio" id="sort-a-to-z" name="countRating" value="Thấp đến cao" />
-              <label for="sort-a-to-z" class="sort-label countRating">Thấp đến cao</label>
+              <input type="radio" id="countRatingZA" class="sort countRating" name="countRating" value="Cao đến thấp" />
+              <label for="countRatingZA" onclick="selectRadio('countRatingZA')" class="sort-label">Cao đến thấp</label>
+              <input type="radio" id="countRatingAZ" class="sort countRating" name="countRating" value="Thấp đến cao" />
+              <label for="countRatingAZ" onclick="selectRadio('countRatingAZ')" class="sort-label">Thấp đến cao</label>
             </div>
           </div>
         </div>
@@ -313,11 +314,12 @@
         </div>
       </div>
       <hr aria-hidden="true">
-      <% data.forEach(function(result) {%> 
-        <%- include('../../components/search-result-sale', {result}) %>
-      <%})%>
+<div id="filter-sort">
+      
+    </div>
       <%- include('../../components/next-page') %>
       <%- include('../../partials/footer') %>
+
     </section>
   </main>
 

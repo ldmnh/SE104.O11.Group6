@@ -1,4 +1,4 @@
-$("#dateRange").daterangepicker();
+// $("#dateRange").daterangepicker();
 
 // Khởi tạo date range picker và không có giá trị mặc định
 $("#dateRange").daterangepicker({
