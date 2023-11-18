@@ -1,12 +1,33 @@
 const db = require('../config/db/connect')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const util = require('node:util')
+const query = util.promisify(db.query).bind(db)
 
 const accountHistory = function () { }
 
-accountHistory.getDetail = function (req, res, callback) {
-    const getBookingDetail = 'SELECT * FROM view_booking_history WHERE au_user_id = ?'
-    const params = [req.session.user.au_user_id]
+accountHistory.getDetail = async (req, res, callback) => {
+    let params = [req.session.user.au_user_id]
+    let getRowBooking = "SELECT COUNT(*) as 'total' FROM view_booking_history WHERE au_user_id = ?"
+    let getBookingDetail = 'SELECT * FROM view_booking_history WHERE au_user_id = ?'
+
+    // lấy trạng hiện tại page=?
+    let page = req.query.page ? req.query.page : 1
+
+    //truy vấn tính tổng số dòng trong một bảng
+    let rowData = await query(getRowBooking, [params])
+    let totalRow = rowData[0].total
+
+    let limit = 5
+    // tính số trang thực tế sẽ có
+    let totalPage = totalRow > 0 ? Math.ceil(totalRow / limit) : 1
+    // Kiểm tra đảm bảo rằng page là số nguyên hợp lệ từ 1 đến totalPage
+    page = page > 0 ? Math.floor(page) : 1
+    page = page <= totalPage ? Math.floor(page) : totalPage
+
+    let start = (page - 1) * limit
+    getBookingDetail +=  " ORDER BY view_booking_history.book_datetime DESC LIMIT " + start + "," + limit;
+
     db.query(getBookingDetail, [params], function (err, bookingDetails) {
         bookingDetails.forEach(function (booking) {
             booking.book_datetime = booking.book_datetime.getDate() +'/'+ booking.book_datetime.getMonth()+'/'+ booking.book_datetime.getYear()
@@ -53,7 +74,7 @@ accountHistory.getDetail = function (req, res, callback) {
             }
         
         })
-        callback(err, req.session.user, bookingDetails)
+        callback(err, req.session.user, bookingDetails, totalRow, totalPage, page, limit)
     })
 }
 

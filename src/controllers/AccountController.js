@@ -71,7 +71,7 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-        accountHistory.getDetail(req, res, function (err, user, bookingDetails) {
+        accountHistory.getDetail(req, res, function (err, user, bookingDetails, totalRow, totalPage, page, limit) {
             if (err) {
                 res.status(404).render('./pages/site/error404')
                 // res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
@@ -81,7 +81,11 @@ class AccountController {
             // res.send({bookingDetails: bookingDetails})
             res.status(200).render('./pages/account/history', {
                 user: user,
-                bookingDetails: bookingDetails
+                bookingDetails: bookingDetails,
+                totalRow: totalRow, 
+                totalPage: totalPage, 
+                page: page, 
+                limit: limit
             })
         })
     }
