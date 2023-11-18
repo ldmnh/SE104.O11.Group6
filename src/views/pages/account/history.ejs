@@ -14,8 +14,11 @@
 
 <body>
     <%- include('../../partials/header-medium.ejs') %>
-    <%# include('../../partials/nav-tree') %>
-
+    <%- include("../../partials/nav-tree", { nav_tree__data: [
+        { text: "Trang chủ", link: "/" },
+        { text: "Trang cá nhân", link: "#" },
+        { text: "Lịch sử đặt phòng", link: "/account/history" }
+    ]}) %>
 
     <main class="booking-history-container">
         <aside class=" aside-content">
