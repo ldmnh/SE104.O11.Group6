@@ -1,5 +1,7 @@
 @import url("/styles/base.css");
 @import url("/styles/components/cancel-popup.css");
+@import url("/styles/components/review-popup.css");
+@import url("/styles/components/success-popup.css");
 
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

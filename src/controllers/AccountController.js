@@ -26,7 +26,7 @@ class AccountController {
                     avatar: result[0].au_user_avt_url
                 }
                 res.status(200).render('./pages/account/information', {
-                // res.status(200).json({
+                    // res.status(200).json({
                     message: 'Lấy thông tin tài khoản thành công',
                     data
                 })
@@ -88,15 +88,19 @@ class AccountController {
 
     // [POST] /account/booking-history
     addReview(req, res) {
-        const id = req.session.user?.id;
+        const id = req.session.user.au_user_id;
         const { room_id, rating_point, rating_context } = req.body;
 
+        console.log(req.body)
         AccountModel.addReview({
             room_id, rating_point, rating_context, id
         }, (err, result) => {
-            if (err) throw err;
-
-            res.status(200).json({ message: "Thêm đánh giá phòng thành công" })
+            if (err) {
+                res.status(500).json({ message: "Lỗi truy vấn!" });
+                throw err;
+            }
+            res.status(200).json({ message: "Thành công" });
+            // res.status(200).json({ message: "Thêm đánh giá phòng thành công" })
         })
         // res.status(200).json({ message: "/account/addReview" })
     }

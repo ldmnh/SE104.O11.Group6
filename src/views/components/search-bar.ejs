@@ -4,7 +4,7 @@
             <span class="material-symbols-outlined"> location_on </span>
             <input class="input_address" type="text" placeholder="Nơi muốn đến" list="location" />
             <datalist id="location">
-                <% data_search.forEach(item => { %>
+                <% data_search?.forEach(item => { %>
                 <option value="<%=item.city_name %>"></option>
                 <% })%>
 
@@ -12,9 +12,8 @@
         </div>
 
         <div class=" search-address" style="border-left: 1px solid #90a6b1">
-                    <span class="material-symbols-outlined"> calendar_month </span>
-                    <input class="input_address" id="dateRange" type="text" value=""
-                        placeholder="Ngày nhận - Ngày trả" />
+            <span class="material-symbols-outlined"> calendar_month </span>
+            <input class="input_address" id="dateRange" type="text" value="" placeholder="Ngày nhận - Ngày trả" />
         </div>
 
         <div class="search-address search-address--dropdown" style="border-left: 1px solid #90a6b1">
