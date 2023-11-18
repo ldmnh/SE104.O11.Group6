@@ -1,19 +1,19 @@
 @import url("/styles/base.css");
 @import url("/styles/components/cancel-popup.css");
+@import url("/styles/partials/header-small.css");
+@import url("/styles/partials/footer.css");
 
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: #000000;
 }
-@import url("/styles/partials/header-small.css");
-@import url("/styles/partials/footer.css");
 
-body {
+/* body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-}
+} */
 
 .content-container {
     width: 80%;

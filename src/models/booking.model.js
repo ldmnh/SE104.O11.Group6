@@ -79,7 +79,7 @@ Booking.getDetail = function (req, res, callback) {
     const getBookingDetails = 'SELECT * FROM view_booking_detail WHERE book_id = ?'
 
     const params = [req.query.book_id]
-    const params2 = [req.session.user.au_user_id]
+    const params2 = [req.session.user.id]
 
     db.query(getBooking, [params, params2], (err, booking) => {
         if (err) {

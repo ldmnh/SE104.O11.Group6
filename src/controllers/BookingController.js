@@ -33,7 +33,7 @@ class BookingController {
                     }
                 }
                 res.status(200).render("./pages/booking/information", {
-                // res.status(200).json({
+                    // res.status(200).json({
                     user: req.session.user,
                     data
                 });
@@ -183,6 +183,7 @@ class BookingController {
                 throw err;
             }
             res.status(200).render('./pages/booking/detail', {
+                // res.status(200).json({
                 booking: booking,
                 bookingDetails: bookingDetails,
             })
