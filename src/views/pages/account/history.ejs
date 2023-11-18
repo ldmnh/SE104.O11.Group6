@@ -16,7 +16,7 @@
     <%- include('../../partials/header-medium.ejs', { user }) %>
     <%- include("../../partials/nav-tree", { nav_tree__data: [
         { text: "Trang chủ", link: "/" },
-        { text: "Trang cá nhân", link: "#" },
+        { text: "Cá nhân", link: "#" },
         { text: "Lịch sử đặt phòng", link: "/account/history" }
     ]}) %>
 
@@ -62,13 +62,14 @@
             </div>
 
             <!-- <div class="filter-bar"></div> -->
-            <% if(data.bookingDetails != []) { %>
-                <p>Không tìm thấy</p>
-            <% } %>
             <div class="booking-history__items">
+                <% if (data.bookingDetails == []) { %>
+                <p>Không tìm thấy</p>
+                <% } else { %>
                 <% data.bookingDetails.forEach(bookingDetail => { %>
                 <div class=""><%- include('../../components/room-in-hs.ejs', { bookingDetail }) %></div>
                 <% }); %>
+                <% } %>
             </div>
         </section>
     </main>

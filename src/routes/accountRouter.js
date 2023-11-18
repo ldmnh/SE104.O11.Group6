@@ -9,7 +9,7 @@ const AccountController = require('../controllers/AccountController.js')
 
 
 router.get('/information', authMiddleware.isLoggedIn, AccountController.information)
-router.put('/information', authMiddleware.isLoggedIn, AccountController.informationPost)
+router.post('/information', authMiddleware.isLoggedIn, AccountController.informationPost)
 // router.get('/information', AccountController.information)
 // router.post('/information', AccountController.informationPost)
 
