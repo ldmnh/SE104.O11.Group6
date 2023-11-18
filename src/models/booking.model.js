@@ -7,7 +7,7 @@
 const db = require('../config/db/connect');
 const index = require('../models/index.model')
 
-function Booking() {}
+function Booking() { }
 
 Booking.postInfo = ({
     acco_id,
@@ -74,45 +74,56 @@ Booking.postInfoDetailByIds = ({
     })
 }
 
-Booking.getDetail = function (req, res, callback) {
-    const getBooking = 'SELECT * FROM view_booking_history WHERE book_id = ? AND au_user_id = ?'
-    const getBookingDetails = 'SELECT * FROM view_booking_detail WHERE book_id = ?'
+Booking.getDetail = function ({ id, book_id }, callback) {
+    const getBooking = `
+        SELECT *
+        FROM view_booking_history
+        WHERE book_id = ${book_id} AND au_user_id = ${id}`
 
-    const params = [req.query.book_id]
-    const params2 = [req.session.user.id]
+    const getBookingDetails = `
+        SELECT *
+        FROM view_booking_detail
+        WHERE book_id = ${book_id} AND au_user_id = ${id}`
 
-    db.query(getBooking, [params, params2], (err, booking) => {
+    // const params = [req.query.book_id]
+    // const params2 = [req.session.user.id]
+
+    db.query(getBooking, (err, booking) => {
         if (err) {
             console.log({
                 message: 'Lỗi truy vấn getBooking',
             });
             throw err;
         }
-        
-        booking.forEach((book) => {
-           book.book_date_format = index.toXDDMMYYYY(new Date(book.book_datetime))
-           book.book_start_date_format = index.toXDDMMYYYY(new Date(book.book_start_datetime))
-           book.book_end_date_format = index.toXDDMMYYYY(new Date(book.book_end_datetime))
 
-           book.book_time_format = index.toHHMM(new Date(book.book_datetime))
-           book.book_start_time_format = index.toHHMM(new Date(book.book_start_datetime))
-           book.book_end_time_format = index.toHHMM(new Date(book.book_end_datetime))
+        if (!booking[0]) {
+            callback(err, 0, 0)
+        } else {
 
-           book.book_time_count = new Date(book.book_datetime)
-           book.book_time_count.setDate(book.book_time_count.getDate() + 7)
-           book.book_time_count_format = index.toDDMMYYYY(new Date(book.book_time_count))
+            booking.forEach((book) => {
+                book.book_date_format = index.toXDDMMYYYY(new Date(book.book_datetime))
+                book.book_start_date_format = index.toXDDMMYYYY(new Date(book.book_start_datetime))
+                book.book_end_date_format = index.toXDDMMYYYY(new Date(book.book_end_datetime))
 
-           book.book_time_left = new Date(book.book_time_count)
-           if (book.book_time_left.getTime() > new Date().getTime) {
-            book.book_time_left.setDate(book.book_time_left.getDate() - new Date().getDate)
-            book.book_time_left_format = index.toDDMMYYYYHHMM(new Date(book.book_time_left))
-           }            
-           book.book_cost_before_currency = index.toCurrency(Number(book.book_cost_before))
-           book.book_cost_after_currency = index.toCurrency(Number(book.book_cost_after))
-        })
+                book.book_time_format = index.toHHMM(new Date(book.book_datetime))
+                book.book_start_time_format = index.toHHMM(new Date(book.book_start_datetime))
+                book.book_end_time_format = index.toHHMM(new Date(book.book_end_datetime))
 
-        
-            db.query(getBookingDetails, params, (err, bookingDetails) => {
+                book.book_time_count = new Date(book.book_datetime)
+                book.book_time_count.setDate(book.book_time_count.getDate() + 7)
+                book.book_time_count_format = index.toDDMMYYYY(new Date(book.book_time_count))
+
+                book.book_time_left = new Date(book.book_time_count)
+                if (book.book_time_left.getTime() > new Date().getTime) {
+                    book.book_time_left.setDate(book.book_time_left.getDate() - new Date().getDate)
+                    book.book_time_left_format = index.toDDMMYYYYHHMM(new Date(book.book_time_left))
+                }
+                book.book_cost_before_currency = index.toCurrency(Number(book.book_cost_before))
+                book.book_cost_after_currency = index.toCurrency(Number(book.book_cost_after))
+            })
+
+
+            db.query(getBookingDetails, (err, bookingDetails) => {
                 if (err) {
                     console.log({
                         message: 'Lỗi truy vấn getBooking',
@@ -120,10 +131,15 @@ Booking.getDetail = function (req, res, callback) {
                     throw err;
                 }
 
+                bookingDetails.forEach((bookingDetail) => {
+                    bookingDetail.book_room_cost_before_currency = index.toCurrency(Number(bookingDetail.book_room_cost_before))
+                    bookingDetail.book_room_cost_after_currency = index.toCurrency(Number(bookingDetail.book_room_cost_after))
+                })
+
                 callback(err, booking, bookingDetails)
             })
-        })
-    // })
+        }
+    })
 }
 
 Booking.getAllBooking = function (req, res, callback) {

@@ -26,7 +26,7 @@ class AccountController {
                     avatar: result[0].au_user_avt_url
                 }
                 res.status(200).render('./pages/account/information', {
-                // res.status(200).json({
+                    // res.status(200).json({
                     message: 'Lấy thông tin tài khoản thành công',
                     user: req.session.user,
                     data
@@ -85,7 +85,8 @@ class AccountController {
     // [GET] /account/history
     history(req, res) {
         const id = req.session.user?.id;
-        accountHistory.getDetail({ id }, (err, bookingDetails) => {
+        const page = req.query.page ? req.query.page : 1;
+        accountHistory.getDetail({ id, page }, (err, bookingDetails, totalRow, totalPage, page, limit) => {
             if (err) {
                 res.status(404).render('./pages/site/error404')
                 // res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
@@ -96,9 +97,13 @@ class AccountController {
             res.status(200).render('./pages/account/history', {
                 // res.status(200).json({
                 user: req.session.user,
-                data: {
-                    bookingDetails: bookingDetails
-                }
+                bookingDetails,
+                totalRow,
+                totalPage,
+                page,
+                limit
+                // data: {
+                // }
             })
         })
     }
