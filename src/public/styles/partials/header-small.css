@@ -2,7 +2,11 @@
 @import url('./header.css');
 
 header {
-    height: 112px;
+    /* height: 112px; */
     position: fixed;
     z-index: 100;
+}
+
+.space {
+    height: 128px;
 }

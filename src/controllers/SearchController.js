@@ -221,6 +221,7 @@ class SearchController {
             res.status(200).render('./pages/search/detail', {
                 // res.status(200).json({
                 message: 'Lấy thông tin thành công',
+                user: req.session.user,
                 accoDetail: accoDetail,
                 accoFea: accoFea,
                 accoImg: accoImg,
@@ -238,16 +239,14 @@ class SearchController {
 
         req.session.acco = { id: acco_id };
 
-        req.session.rooms = room_number
-            .map((value, index) => {
-                return {
-                    id: Number(room_id[index]),
-                    num: Number(value),
-                    cost_before: Number(room_cost_before[index]),
-                    cost_after: Number(room_cost_after[index]),
-                };
-            })
-            .filter((value) => value.num > 0);
+        req.session.rooms = room_number.map((value, index) => {
+            return {
+                id: Number(room_id[index]),
+                num: Number(value),
+                cost_before: Number(room_cost_before[index]),
+                cost_after: Number(room_cost_after[index]),
+            };
+        }).filter((value) => value.num > 0);
 
         res.redirect('/booking/information');
     }
