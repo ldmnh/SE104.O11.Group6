@@ -19,7 +19,7 @@ exports.isLoggedIn = (req, res, next) => {
     }
 }
 
-/*
+/**
  * Checks if the user is authenticated by checking if the session has a user property.
  * If the user is authenticated, redirects to the home page.
  * @function checkAuth
