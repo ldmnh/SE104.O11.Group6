@@ -18,7 +18,7 @@ CREATE TABLE AuthUser
     au_user_first_name  nvarchar(50)	NOT NULL,
     au_user_last_name   nvarchar(50)	NOT NULL,
     au_user_email       varchar(50)		NOT NULL	UNIQUE,
-    au_user_pass        varchar(50)		NOT NULL,
+    au_user_pass        varchar(100)	NOT NULL,
     au_user_avt_url     varchar(50),
     au_user_sex         varchar(6),
     au_user_birthday    date,
