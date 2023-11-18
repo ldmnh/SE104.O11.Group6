@@ -26,7 +26,7 @@ class AccountController {
                     avatar: result[0].au_user_avt_url
                 }
                 res.status(200).render('./pages/account/information', {
-                    // res.status(200).json({
+                // res.status(200).json({
                     message: 'Lấy thông tin tài khoản thành công',
                     user: req.session.user,
                     data
