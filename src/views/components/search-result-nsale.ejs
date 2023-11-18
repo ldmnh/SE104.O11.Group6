@@ -2,14 +2,17 @@
   <div class="nresult-block__main">
     <img src="/imgs/branchs/apartment.png" alt="apartment" class="nresult-block__picture">
     <div class="nresult-block__content">
-      <p class="nresult-block__name">acco.acco_name</p>
+      <p class="nresult-block__name"><%= result.acco_name %></p>
       <!-- Đánh giá 5 sao -->
       <div class="nresult-block__rate-star">
+        <% result.forEach (function(stars){ %>
+          <span class="material-symbols-outlined">star</span>
+          <% }) %>
+        <!-- <span class="material-symbols-outlined">grade</span>
         <span class="material-symbols-outlined">grade</span>
         <span class="material-symbols-outlined">grade</span>
         <span class="material-symbols-outlined">grade</span>
-        <span class="material-symbols-outlined">grade</span>
-        <span class="material-symbols-outlined">grade</span>
+        <span class="material-symbols-outlined">grade</span> -->
       </div>
       <div class="nresult-block__extensions">
         <a href="h#" target="blank" class="nresult-block__map">Xem trên bản đồ</a>
@@ -23,7 +26,7 @@
       </div>
       <div class="nresult-block__room-details">
         <p class="nresult-block__room-detais__content">Phòng Deluxe giường đôi nhìn ra biển</p>
-        <p>1 giường đôi</p>
+        <p><%= result.room_max_adult> người lớn</p>
         <div class="nresult-block__room-detais__cancel-policy">
           <span class="material-symbols-outlined">check</span>
           <p class="ncancel-policy__content">Miễn phí hủy</p>
@@ -40,7 +43,7 @@
     <div class="nresult-block__cus-rate">
       <div class="nresult-block__cus-rate__content">
         <p class="nresult-block__cus-rate__main-content">Trên cả tuyệt vời</p>
-        <p class="nresult-block__cus-rate__sub-content">118 đánh giá</p>
+        <p class="nresult-block__cus-rate__sub-content"><%= result.room_count_rating %> đánh giá</p>
       </div>
       <div class="nresult-block__cus-rate__point">
         <p>10</p>

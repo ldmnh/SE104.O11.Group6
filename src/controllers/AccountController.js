@@ -28,6 +28,7 @@ class AccountController {
                 res.status(200).render('./pages/account/information', {
                     // res.status(200).json({
                     message: 'Lấy thông tin tài khoản thành công',
+                    user: req.session.user,
                     data
                 })
             } else {
@@ -55,12 +56,23 @@ class AccountController {
                 throw err;
             }
 
+            authuser.getInfoById({ id }, (err, result) => {
+                if (err) throw err;
+
+                req.session.user = {
+                    id: result[0].au_user_id,
+                    first_name: result[0].au_user_first_name,
+                    last_name: result[0].au_user_last_name,
+                    email: result[0].au_user_email,
+                    avatar: result[0].au_user_avt_url
+                }
+                res.redirect('/account/information')
+            })
             // if (result.affectedRows === 0) {
             //     res.status(404).json({
             //         message: 'Không tìm thấy tài khoản!!!',
             //     });
             // } else {
-            res.redirect('/account/information')
             // res.status(200).json({
             //     message: 'Cập nhật thông tin tài khoản thành công',
             // });

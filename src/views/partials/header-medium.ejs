@@ -9,27 +9,30 @@
                 <button href="#" class="status-layer noti-btn-hm">Thông báo</button>
             </div>
             <div class="header-container__top-authenticator">
+                <% if (user) { %>
                 <p>Chào,</p>
-                <p class="name-btn-hm">data</p>
-                <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hm" />
-                <!-- <button type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
-          <button type="button" class="button-signup signup-btn-hm">Đăng ký</button> -->
-
-                <!-- Header with no login -->
-                <!-- 
-          <button href="#" type="button" class="button-signin signin-btn-hm">Đăng nhập</button>
-          <button href="#" type="button" class="button-signup signup-btn-hm">Đăng ký</button>
-        -->
-
-                <!-- Header with Login-->
-
-                <!-- <p>Chào,</p>
-          <p class="name-btn-hm">Giau Phan</p>
-          <img class="avatar-btn-hm" src="/imgs/milo.jpg" alt="avatar" /> -->
+                <p class="name-btn-hm"><%= user?.last_name + ' ' + user?.first_name %></p>
+                <img src="/imgs/user/<%= user?.avatar ?? 'user_1.jpg'%>" alt="avatar" class="avatar-btn-hm" />
+                <% } else { %>
+                    <a href="/auth/login" style='text-decoration: none;'>
+                        <button class="button-signin signin-btn-hf" type="button">
+                            <div class="status-layer">
+                                <span>Đăng nhập</span>
+                            </div>
+                        </button>
+                    </a>
+                    <a href="/auth/register" style='text-decoration: none;'>
+                        <button class="sec button-signup signup-btn-hf" type="button">
+                            <div class="status-layer">
+                                <span>Đăng ký</span>
+                            </div>
+                        </button>
+                    </a>
+                <% } %>
             </div>
         </div>
         <div>
-            <%- include('../components/search-bar.ejs') %>
+            <%- include('../components/search-bar.ejs', { dataSearch: undefined }) %>
         </div>
     </div>
 </header>

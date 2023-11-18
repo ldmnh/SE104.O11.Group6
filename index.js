@@ -27,7 +27,7 @@ app.set('views', path.join(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
 // use static folder
-app.use(express.static(path.join('src', 'public')))
+app.use(express.static(path.join('src', 'public',)))
 
 // parse URL-encoded bodies
 app.use(bodyParser.json())

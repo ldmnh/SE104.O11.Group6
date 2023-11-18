@@ -6,7 +6,7 @@
 @import url('/styles/partials/footer.css');
 
 body {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: var(--white);
@@ -14,6 +14,7 @@ body {
 
 .content-container {
     width: 80%;
+    max-width: 1152px;
     margin: 5vh auto;
     display: inherit;
     flex-direction: column;
