@@ -126,6 +126,7 @@ CREATE TABLE AccoImg
 CREATE TABLE RoomType
 (
     room_id             int		     AUTO_INCREMENT  NOT NULL    UNIQUE,
+    room_name           varchar(100) NOT NULL,
     room_class          varchar(50)  NOT NULL,
     room_type           varchar(10)  NOT NULL,
     room_max_adult      int          NOT NULL,
