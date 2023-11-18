@@ -54,6 +54,7 @@ body {
     height: 48px;
     margin-bottom: 12px;
     cursor: pointer;
+    color: var(--black);
 }
 
 .aside-section p:hover,
@@ -64,7 +65,7 @@ body {
     cursor: pointer;
 }
 
-.aside-section p:first-child {
+.aside-section p.active {
     background-color: var(--primary-color-1);
     color: var(--white);
     border-radius: 8px;
@@ -151,11 +152,11 @@ body {
     border: none;
     font-size: 16px;
 }
-
+/* 
 .profile-btn,
 .history-btn,
 .account-payment-btn,
 .change-password-btn,
 .logout-btn {
     cursor: pointer;
-}
+} */

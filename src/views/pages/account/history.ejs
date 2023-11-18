@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <%- include('../../partials/header-medium.ejs') %>
+    <%- include('../../partials/header-medium.ejs', { user }) %>
     <%- include("../../partials/nav-tree", { nav_tree__data: [
         { text: "Trang chủ", link: "/" },
         { text: "Trang cá nhân", link: "#" },
@@ -21,28 +21,38 @@
     ]}) %>
 
     <main class="booking-history-container">
-        <aside class=" aside-content">
+        <aside class="aside-content">
             <div class="aside-content__profile">
-                <img class="aside-content__img" src="/imgs/user/<%=user.au_user_avt_url%>" alt="avatar" />
+                <img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'user_1.jpg' %>" alt="" />
                 <div class="aside-content__detail">
-                    <p class="aside-content__detail-bold"><%=user.au_user_last_name%>&nbsp<%=user.au_user_first_name%></p>
+                    <p class="aside-content__detail-bold"><%= user.last_name + " " + user.first_name %></p>
                     <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
                 </div>
             </div>
 
             <hr />
 
-            <div class="aside-content__section">
-                <p class="profile-btn">Thông tin cá nhân</p>
-                <p class="history-btn">Lịch sử đặt phòng</p>
-                <p class="account-payment-btn">Tài khoản thanh toán</p>
-                <p class="change-password-btn">Đổi mật khẩu</p>
+            <div class="aside-section">
+                <a style='text-decoration: none;' href="/account/information">
+                    <p>Thông tin cá nhân</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/history">
+                    <p class='active'>Lịch sử đặt phòng</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/card">
+                    <p>Tài khoản thanh toán</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/change-password">
+                    <p>Đổi mật khẩu</p>
+                </a>
             </div>
 
             <hr />
 
-            <div class="aside-content__item logout-btn">
-                <p>Đăng xuất</p>
+            <div class="aside-item logout-btn">
+                <a style='text-decoration: none;' href="/auth/logout">
+                    <p>Đăng xuất</p>
+                </a>
             </div>
         </aside>
 
@@ -52,12 +62,12 @@
             </div>
 
             <!-- <div class="filter-bar"></div> -->
-            <% if(!bookingDetails[0]) { %>
+            <% if(data.bookingDetails != []) { %>
                 <p>Không tìm thấy</p>
             <% } %>
             <div class="booking-history__items">
-                <% bookingDetails.forEach(function(bookingDetail){ %>
-                <div class=""><%- include('../../components/room-in-hs.ejs', {bookingDetail}) %></div>
+                <% data.bookingDetails.forEach(bookingDetail => { %>
+                <div class=""><%- include('../../components/room-in-hs.ejs', { bookingDetail }) %></div>
                 <% }); %>
             </div>
         </section>

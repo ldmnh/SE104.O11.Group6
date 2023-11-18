@@ -76,7 +76,7 @@
 .row .error {
     color: red;
     font-size: 0.8rem;
-    width: auto;
+    width: 100%;
     padding: 0;
   }
 
@@ -144,8 +144,9 @@
 
 span.material-symbols-outlined {
     position: absolute;
-    bottom: 22%;
-    right: 3%;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 12px;
     color: var(--primary-color-2);
     cursor: pointer;
 }
