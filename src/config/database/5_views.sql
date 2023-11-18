@@ -133,13 +133,15 @@ DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
 CREATE VIEW view_booking_detail AS
 SELECT
+	booking.au_user_id,
     bookingdetail.book_id,
     roomtype.*, 
+    bookingdetail.book_num_room,
     bookingdetail.book_room_cost_before,
     bookingdetail.book_room_cost_after   
-FROM bookingdetail
-INNER JOIN roomtype
-    ON roomtype.room_id = bookingdetail.room_id;
+FROM bookingdetail, roomtype, booking
+WHERE roomtype.room_id = bookingdetail.room_id
+AND bookingdetail.book_id = booking.book_id
 
 
 DROP VIEW IF EXISTS view_rating_admin;

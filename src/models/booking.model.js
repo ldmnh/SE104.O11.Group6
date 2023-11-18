@@ -76,10 +76,10 @@ Booking.postInfoDetailByIds = ({
 
 Booking.getDetail = function (req, res, callback) {
     const getBooking = 'SELECT * FROM view_booking_history WHERE book_id = ? AND au_user_id = ?'
-    const getBookingDetails = 'SELECT * FROM view_booking_detail WHERE book_id = ?'
+    const getBookingDetails = 'SELECT * FROM view_booking_detail WHERE book_id = ?  AND au_user_id = ?'
 
     const params = [req.query.book_id]
-    const params2 = [req.session.user.au_user_id]
+    const params2 = [req.session.user.id]
 
     db.query(getBooking, [params, params2], (err, booking) => {
         if (err) {
@@ -88,6 +88,10 @@ Booking.getDetail = function (req, res, callback) {
             });
             throw err;
         }
+
+        if (!booking[0]) {
+            callback(err, 0, 0)
+        } else {
         
         booking.forEach((book) => {
            book.book_date_format = index.toXDDMMYYYY(new Date(book.book_datetime))
@@ -112,7 +116,7 @@ Booking.getDetail = function (req, res, callback) {
         })
 
         
-            db.query(getBookingDetails, params, (err, bookingDetails) => {
+            db.query(getBookingDetails, [params, params2], (err, bookingDetails) => {
                 if (err) {
                     console.log({
                         message: 'Lỗi truy vấn getBooking',
@@ -120,10 +124,15 @@ Booking.getDetail = function (req, res, callback) {
                     throw err;
                 }
 
+                bookingDetails.forEach((bookingDetail) => {
+                    bookingDetail.book_room_cost_before_currency = index.toCurrency(Number(bookingDetail.book_room_cost_before))
+                    bookingDetail.book_room_cost_after_currency = index.toCurrency(Number(bookingDetail.book_room_cost_after))
+                })
+
                 callback(err, booking, bookingDetails)
             })
-        })
-    // })
+        }
+    })
 }
 
 Booking.getAllBooking = function (req, res, callback) {

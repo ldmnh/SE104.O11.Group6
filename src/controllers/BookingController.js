@@ -178,11 +178,14 @@ class BookingController {
                 if (err) {
                     res.render('./pages/site/error404')
                     throw err;
-                }
+                } else if (!booking) {
+                    res.render('./pages/site/error404')
+                } else {
                 res.status(200).render('./pages/booking/detail', {
                     booking: booking, 
                     bookingDetails: bookingDetails,
                 })
+            }
             })
         }
         // detail(req, res) {

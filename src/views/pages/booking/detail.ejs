@@ -64,42 +64,26 @@
 
                 <div class="detail__col-2">
                     <h2>Danh sách phòng đặt</h2>
+                    <% bookingDetails.forEach(function(book){ %>
                     <div class="detail__room room">
-                        <h3>Phòng Deluxe giường đôi nhìn ra biển...</h3>
+                        <h3><%=book.room_name%></h3>
                         <div class="room__content">
                             <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
                             <div>
-                                <p class="room__room-class">Phòng hạng sang</p>
-                                <p class="room__quantity">Số lượng: 3</p>
-                                <p class="room__unit-price"><del>VND 100.000.000</del> VND 100.000.000</p>
-                                <button type="button" class="btn detail__btn">Đánh giá</button>
+                                <p class="room__room-class">Phòng <%=book.room_class%></p>
+                                <p class="room__quantity">Số lượng: <%=book.book_num_room%></p>
+                                <p class="room__unit-price"><del>VND <%=book.book_room_cost_before_currency%></del> VND <%=book.book_room_cost_after_currency%></p>
+                                <% if (booking[0].book_status == 1){ %>
+                                <form action="/account/addReview" method="POST">
+                                <input type="hidden" value="<%=book.room_id%>" name="room_id">
+                                <button type="submit" class="btn detail__btn form--submit2 review-btn">Đánh giá</button>
+                                <% } %>
+                            </form>
+                            
                             </div>
                         </div>
                     </div>
-                    <div class="detail__room room">
-                        <h3>Phòng Deluxe giường đôi nhìn ra biển...</h3>
-                        <div class="room__content">
-                            <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
-                            <div>
-                                <p class="room__room-class">Phòng hạng sang</p>
-                                <p class="room__quantity">Số lượng: 3</p>
-                                <p class="room__unit-price"><del>VND 100.000.000</del> VND 100.000.000</p>
-                                <button type="button" class="btn detail__btn">Đánh giá</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail__room room">
-                        <h3>Phòng Deluxe giường đôi nhìn ra biển...</h3>
-                        <div class="room__content">
-                            <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
-                            <div>
-                                <p class="room__room-class">Phòng hạng sang</p>
-                                <p class="room__quantity">Số lượng: 3</p>
-                                <p class="room__unit-price"><del>VND 100.000.000</del> VND 100.000.000</p>
-                                <button type="button" class="btn detail__btn">Đánh giá</button>
-                            </div>
-                        </div>
-                    </div>
+                    <% }) %>
                 </div>
 
                 <div class="detail__col-3">
@@ -128,18 +112,6 @@
                         <h3>Tổng tiền thanh toán</h3>
                         <p class="price__strong">VND <%=booking[0].book_cost_after_currency%></p>
                     </div>
-
-                    <% bookingDetails.forEach(function(book){ %>
-                    <p><%=book.room_name%></p>
-                    <% if (booking[0].book_status == 1){ %>
-                    <div class="detail__price price">
-                        <form action="/account/addReview" method="POST">
-                            <input type="hidden" value="<%=book.room_id%>" name="room_id">
-                            <button type="submit" class="form--submit2 review-btn btn detail__btn">Đánh giá</button>
-                        </form>
-                    </div>
-                    <% } %>
-                    <% }) %>
                 </div>
         </section>
 
@@ -178,7 +150,7 @@
             </div>
         </div>
     </div>
-
+    <%- include('../../components/review-popup.ejs') %>
     <%- include('../../partials/footer') %>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
