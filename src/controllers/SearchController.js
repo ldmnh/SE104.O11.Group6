@@ -214,8 +214,11 @@ class SearchController {
 
     // [GET] /search/:acco_id
     accoDetail(req, res) {
-        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
-            if (!accoDetail[0]) {
+        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoExte, accoRoomRating) {
+            if (err) {
+                res.status(404).render('./pages/site/error404.ejs')
+            }
+            if (!accoDetail) {
                 res.status(404).render('./pages/site/error404.ejs')
             }
             res.status(200).render('./pages/search/detail', {
@@ -226,6 +229,7 @@ class SearchController {
                 accoFea: accoFea,
                 accoImg: accoImg,
                 accoRoom: accoRoom,
+                accoExte: accoExte,
                 accoRoomRating: accoRoomRating,
             })
         })
