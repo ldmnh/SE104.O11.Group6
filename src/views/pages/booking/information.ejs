@@ -39,11 +39,6 @@
                     </div>
                     <h5><b><%= data.acco.name %></b></h5>
                     <a href=""><%= data.acco.exac_location %></a>
-                    <!-- <h6>Vị trí</h6>
-                    <div class="wifi-free">
-                        <span class="material-symbols-outlined"> wifi </span>
-                        <h6>Wifi miễn phí</h6>
-                    </div> -->
                 </div>
 
                 <div class="your-booking-detail">
@@ -51,15 +46,13 @@
                     <div class="check-date">
                         <div class="checkin-date">
                             <h5>Nhận phòng</h5>
-                            <h5><b>T5, 12 tháng 10</b></h5>
-                            <h5><b>2023</b></h5>
+                            <h5><b><%= data.search.check_in %></b></h5>
                             <h5>Từ 14:00</h5>
                         </div>
 
                         <div class="checkout-date">
                             <h5>Trả phòng</h5>
-                            <h5><b>T6, 13 tháng 10</b></h5>
-                            <h5><b>2023</b></h5>
+                            <h5><b><%= data.search.check_out %></b></h5>
                             <h5>Cho đến 00:00</h5>
                         </div>
                     </div>
@@ -83,10 +76,10 @@
                     </div>
 
                     <div class="cost-total">
-                        <h6 class="red-line">VND <%= data.book.before %></h6>
+                        <h6 class="red-line">VND <%= data.book.cost_before %></h6>
                         <div class="cost">
                             <h1>Giá</h1>
-                            <h1>VND <%= data.book.after %></h1>
+                            <h1>VND <%= data.book.cost_after %></h1>
                         </div>
                         <h6>Đã bao gồm thuế và phí</h6>
                     </div>
@@ -104,7 +97,7 @@
             <form style="gap: 12px; display: flex; flex-direction: column" method="POST" action="/booking/information">
                 <section id="" class="section--content">
                     <div class="confirm-account">
-                        <img src="/imgs/milo.jpg" alt="" />
+                        <img src="/imgs/user/<%= user.avatar ?? 'user_1.jpg' %>" alt="" />
                         <div class="account-detail">
                             <h5>Bạn đã đăng nhập bằng:</h5>
                             <div class="email-logout">
@@ -131,7 +124,7 @@
 
                         <div class="form--item">
                             <h4 class="required">Địa chỉ email</h4>
-                            <input class="form-control" type="email" name="email" placeholder="Nhập email vào đây" required />
+                            <input class="form-control" type="email" name="email" placeholder="Nhập email vào đây" value="<%= user.email %>" required />
                             <span class="note-text">Email xác nhận đặt phòng sẽ được gửi đến địa chỉ này.</h5>
                         </div>
 

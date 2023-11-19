@@ -238,10 +238,10 @@ class SearchController {
 
     // [POST] /search:acco_id
     submitBooking(req, res) {
-        console.log(req.body)
+        // console.log(req.body)
         const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
 
-        req.session.acco = { id: acco_id };
+        req.session.acco = { id: parseInt(acco_id) };
 
         req.session.rooms = room_number.map((value, index) => {
             return {

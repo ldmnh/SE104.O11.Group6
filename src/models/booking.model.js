@@ -25,7 +25,7 @@ Booking.postInfo = ({
     book_phone,
     book_note,
     pay_id,
-    cancel,
+    cancel_cost,
     book_status,
     book_is_paid
 }, callback) => {
@@ -34,18 +34,18 @@ Booking.postInfo = ({
             acco_id, au_user_id, book_datetime, book_start_datetime,
             book_end_datetime, book_num_adult, book_num_child, book_cost_before,
             book_cost_after, book_first_name, book_last_name, book_email,
-            book_phone, book_note, pay_id, cancel, book_status, book_is_paid
+            book_phone, book_note, pay_id, cancel_cost, book_status, book_is_paid
         ) VALUES (
             ?, ?, ?, ?,
             ?, ?, ?, ?,
             ?, ?, ?, ?,
-            ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?
         );`
     db.query(sql, [
         acco_id, au_user_id, book_datetime, book_start_datetime,
         book_end_datetime, book_num_adult, book_num_child, book_cost_before,
         book_cost_after, book_first_name, book_last_name, book_email,
-        book_phone, book_note, pay_id, cancel, book_status, book_is_paid
+        book_phone, book_note, pay_id, cancel_cost, book_status, book_is_paid
     ], (err, result) => {
         callback(err, result)
     })
@@ -53,23 +53,28 @@ Booking.postInfo = ({
 
 Booking.postInfoDetailByIds = ({
     book_id,
-    room_id,
-    book_room_cost_before,
-    book_room_cost_after,
-    book_num_room
+    rooms
 }, callback) => {
     const sql = `
-        INSERT INTO BOOKING_DETAIL (
-            book_id, room_id, book_room_cost_before,
-            book_room_cost_after, book_num_room
-        ) VALUES (
-            ?, ?, ?,
-            ?, ?
-        );`
-    db.query(sql, [
-        book_id, room_id, book_room_cost_before,
-        book_room_cost_after, book_num_room
-    ], (err, result) => {
+        INSERT INTO BOOKINGDETAIL
+            ( book_id, room_id, book_room_cost_before,
+            book_room_cost_after, book_num_room ) VALUES` +
+        rooms.map(() => ` ( ?, ?, ?, ?, ? )`).join(', ') + ';';
+
+    const params = rooms.map(room => {
+        return [
+            book_id,
+            room.id,
+            room.cost_before,
+            room.cost_after,
+            room.num
+        ]
+    }).flat()
+
+    console.log(sql)
+    console.log(params)
+    // callback(1, 2)
+    db.query(sql, params, (err, result) => {
         callback(err, result)
     })
 }
