@@ -100,14 +100,13 @@ function filterSortData() {
   const rating_point = getFilter("rating_point");
   const bed_type = getFilter("bed_type");
   const acco_star = getFilter("acco_star");
-  const acco_fea = getFilter("acco_fea");
-  const price = getFilter("price");
+  // const acco_fea = getFilter("acco_fea");
   const cost = getSort("cost");
   const accoStar = getSort("accoStar");
   const countRating = getSort("countRating");
 
   $.ajax({
-    url: "/search/results",
+    url: "/search/results?location=S&checkIn=2023-11-01&checkOut=2023-11-05&adult=2&child=1&room=1",
     method: "GET",
     data: {
       acco_type,
@@ -115,7 +114,6 @@ function filterSortData() {
       bed_type,
       acco_star,
       acco_fea,
-      price,
       cost,
       accoStar,
       countRating,
@@ -144,7 +142,7 @@ function getFilter(className) {
   return filter;
 }
 function getSort(className) {
-  let sort = document.querySelectorAll(`.${className}.sort:checked`);
+  let sort = document.querySelectorAll(`.${className}.sort-label:checked`);
   let sortResult = null;
   if (sort.length > 0) {
     sortResult = sort[0].value;

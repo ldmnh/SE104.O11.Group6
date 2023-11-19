@@ -10,28 +10,24 @@ class AdminController {
                 adminModel.getTotalRating(function (getTotalRating) {
                     adminModel.getLastestBooking(function (getLastestBooking) {
                         adminModel.getLastestRating(function (getLastestRating) {
-                            adminModel.getChartRating(function (getChartRating) {
-                                adminModel.getChartBooking(function (getChartBooking) {
-                                    res.status(200).render('./pages/admin/dashboard', {
-                                        totalRoomType: getTotalRoomType,
-                                        totalBooking: getTotalBooking,
-                                        totalRating: getTotalRating,
+                            res.status(200).render('./pages/admin/dashboard', {
+                                totalRoomType: getTotalRoomType,
+                                totalBooking: getTotalBooking,
+                                totalRating: getTotalRating,
 
-                                        lastestRating: getLastestRating,
-                                        lastestBooking: getLastestBooking,
-                                    });
+                                lastestRating: getLastestRating,
+                                lastestBooking: getLastestBooking,
+                            });
 
-                                    // res.send({
-                                    //     totalRoomType: getTotalRoomType,
-                                    //     totalBooking: getTotalBooking,
-                                    //     totalRating: getTotalRating,
+                            // res.send({
+                            //     totalRoomType: getTotalRoomType,
+                            //     totalBooking: getTotalBooking,
+                            //     totalRating: getTotalRating,
 
-                                    //     lastestRating: getLastestRating,
-                                    //     lastestBooking: getLastestBooking,
+                            //     lastestRating: getLastestRating,
+                            //     lastestBooking: getLastestBooking,
 
-                                    // });
-                                })
-                            })
+                            // });          
                         })
                     })
                 })
@@ -40,12 +36,10 @@ class AdminController {
     }
 
     getChart(req, res) {
-        adminModel.getChartRating(function (getChartRating) {
-            adminModel.getChartBooking(function (getChartBooking) {
+        adminModel.getChart(function (chart) {
+                console.log(chart)
                 return res.json({
-                    chartBooking: getChartBooking,
-                    chartRating: getChartRating,
-                });
+                    chart: chart,
             })
         })
     }

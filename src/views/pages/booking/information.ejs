@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <%- include('../../partials/header-small', { status: 'success' }) %>
+    <%- include('../../partials/header-small', { user }) %>
     <%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
         { text: 'Đặt phòng', link: null },
@@ -23,31 +23,27 @@
             <aside class="aside--wrapper">
                 <div class="hotel-detail">
                     <div class="type-hotel">
-                        <h6>Khách sạn</h6>
+                        <h6><%= data.acco.type %></h6>
                         <div class="starts-icon">
+                            <% for (let i = 0; i < data.acco.star; i++) { %>
                             <span class="material-symbols-outlined filled-start">
                                 star_rate
                             </span>
-                            <span class="material-symbols-outlined filled-start">
-                                star_rate
-                            </span>
-                            <span class="material-symbols-outlined filled-start">
-                                star_rate
-                            </span>
+                            <% } %>
+                            <% for (let i = 0; i < 5 - data.acco.star; i++) { %>
                             <span class="material-symbols-outlined unfilled-start">
                                 star_rate
                             </span>
-                            <span class="material-symbols-outlined unfilled-start">
-                                star_rate
-                            </span>
+                            <% } %>
                         </div>
                     </div>
-                    <h5><b>Tên khách sạn</b></h5>
-                    <h6>Vị trí</h6>
+                    <h5><b><%= data.acco.name %></b></h5>
+                    <a href=""><%= data.acco.exac_location %></a>
+                    <!-- <h6>Vị trí</h6>
                     <div class="wifi-free">
                         <span class="material-symbols-outlined"> wifi </span>
                         <h6>Wifi miễn phí</h6>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="your-booking-detail">
@@ -82,15 +78,15 @@
 
                     <div class="your-choice">
                         <h5>Bạn đã chọn</h5>
-                        <h5><b>Tên khách sạn</b></h5>
-                        <a href="#"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
+                        <h5><b><%= data.acco.name %></b></h5>
+                        <a href="javascript:history.back()"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
                     </div>
 
                     <div class="cost-total">
-                        <h6 class="red-line">VND 1.200.000</h6>
+                        <h6 class="red-line">VND <%= data.book.before %></h6>
                         <div class="cost">
                             <h1>Giá</h1>
-                            <h1>VND 1.200.000</h1>
+                            <h1>VND <%= data.book.after %></h1>
                         </div>
                         <h6>Đã bao gồm thuế và phí</h6>
                     </div>
@@ -105,14 +101,14 @@
                 </div>
 
             </aside>
-            <form style="gap: 12px; display: flex; flex-direction: column" method="POST" action="/booking/info">
+            <form style="gap: 12px; display: flex; flex-direction: column" method="POST" action="/booking/information">
                 <section id="" class="section--content">
                     <div class="confirm-account">
                         <img src="/imgs/milo.jpg" alt="" />
                         <div class="account-detail">
                             <h5>Bạn đã đăng nhập bằng:</h5>
                             <div class="email-logout">
-                                <h5>2152****@gm.uit.edu.vn</h5>
+                                <h5><%= user.email %></h5>
                             </div>
                         </div>
                     </div>
@@ -125,23 +121,23 @@
                         <div class="form--item row" style="flex-direction: row; gap: 0px;">
                             <div class="col-6">
                                 <h4 class="required">Họ</h4>
-                                <input class="form-control" type="text" name="first_name" placeholder="Phan Nguyễn" required />
+                                <input class="form-control" type="text" name="last_name" placeholder="Nhâp họ vào đây" value='<%= user.last_name %>' required />
                             </div>
                             <div class="col-6">
                                 <h4 class="required">Tên</h4>
-                                <input class="form-control" type="text" name="last_name" placeholder="Yến Giàu" required />
+                                <input class="form-control" type="text" name="first_name" placeholder="Nhập tên vào đây" value="<%= user.first_name %>" required />
                             </div>
                         </div>
 
                         <div class="form--item">
                             <h4 class="required">Địa chỉ email</h4>
-                            <input class="form-control" type="email" name="email" placeholder="" required />
+                            <input class="form-control" type="email" name="email" placeholder="Nhập email vào đây" required />
                             <span class="note-text">Email xác nhận đặt phòng sẽ được gửi đến địa chỉ này.</h5>
                         </div>
 
                         <div class="form--item">
                             <h4 class="required">Điện thoại cá nhân</h4>
-                            <input class="form-control" type="text" name="phone" placeholder="" required />
+                            <input class="form-control" type="text" name="phone" placeholder="Nhập số điện thoại vào đây" required />
                             <span class="note-text">Cần thiết để xác nhận đặt phòng của bạn.</h5>
                         </div>
                     </div>

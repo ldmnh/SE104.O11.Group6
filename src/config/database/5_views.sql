@@ -1,16 +1,36 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 DROP VIEW IF EXISTS VIEW_AUTHUSER;
 
 CREATE VIEW VIEW_AUTHUSER AS
 SELECT
+    au_user_id,
     au_user_first_name,
     au_user_last_name,
     au_user_email,
     au_user_avt_url,
     au_user_sex,
-    au_user_birthday
+    CONCAT(
+        LPAD(YEAR(au_user_birthday), 4, '0'),
+        '-',
+        LPAD(MONTH(au_user_birthday), 2, '0'),
+        -- RIGHT('0' + CAST(MONTH(au_user_birthday) AS VARCHAR(2)), 2),
+        '-',
+        LPAD(DAY(au_user_birthday), 2, '0')
+        -- RIGHT('0' + CAST(DAY(au_user_birthday) AS VARCHAR(2)), 2)
+    ) AS au_user_birthday
 FROM AUTHUSER;
+
+-- SELECT * FROM VIEW_AUTHUSER;
+
+DROP VIEW IF EXISTS view_acco;
+
+CREATE VIEW view_acco AS
+SELECT accommodation.*, city.city_name, province.prov_name 
+FROM accommodation, city, province
+WHERE accommodation.city_id = city.city_id 
+AND province.prov_id = accommodation.prov_id;
 
 DROP VIEW IF EXISTS VIEW_BANKCARD;
 
@@ -45,7 +65,7 @@ FROM RATING;
 
 DROP VIEW IF EXISTS VIEW_NOTIFICATION;
 
-CREATE VIEW
+CREATE VIEW 
     VIEW_NOTIFICATION AS
 SELECT
     noti_id,
@@ -89,6 +109,7 @@ DROP VIEW IF EXISTS VIEW_ROOM_EXTE;
 
 CREATE VIEW VIEW_ROOM_EXTE AS
 SELECT
+	roomtype.acco_id,
     roomtype.room_id,
    	extension.exte_id,
     extension.exte_name
@@ -104,7 +125,7 @@ DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
 CREATE VIEW VIEW_BOOKING_HISTORY AS
 SELECT
-    accommodation.acco_name,
+	accommodation.*,
     booking.book_id,
     booking.book_datetime,
     booking.book_start_datetime,
@@ -119,17 +140,20 @@ FROM accommodation
 INNER JOIN booking
     ON accommodation.acco_id = booking.acco_id;
 
+
 DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
 CREATE VIEW view_booking_detail AS
 SELECT
-    bookingdetail.*,
-    roomtype.room_class,
-    roomtype.room_type,
-    roomtype.room_details_img_url 
-FROM bookingdetail
-INNER JOIN roomtype
-    ON roomtype.room_id = bookingdetail.room_id;
+	booking.au_user_id,
+    bookingdetail.book_id,
+    roomtype.*, 
+    bookingdetail.book_num_room,
+    bookingdetail.book_room_cost_before,
+    bookingdetail.book_room_cost_after   
+FROM bookingdetail, roomtype, booking
+WHERE roomtype.room_id = bookingdetail.room_id
+AND bookingdetail.book_id = booking.book_id;
 
 
 DROP VIEW IF EXISTS view_rating_admin;
@@ -185,3 +209,53 @@ INNER JOIN authuser
     ON booking.au_user_id = authuser.au_user_id
 INNER JOIN accommodation
     ON booking.acco_id = accommodation.acco_id;
+
+DROP VIEW IF EXISTS view_chart_dashboard;
+
+CREATE VIEW view_chart_dashboard AS
+SELECT
+    MONTH(book_datetime) AS 'month',
+    COUNT(*) AS 'count_book',
+    A.count_rating,
+    A.avg_rating
+FROM
+    booking RIGHT JOIN
+    (
+    SELECT
+        MONTH(rating_datetime) AS 'month_rating',
+        COUNT(*) AS 'count_rating',
+        AVG(rating_point) AS 'avg_rating'
+    FROM
+        rating
+    
+    GROUP BY
+        MONTH(rating_datetime)
+) A
+ON
+        A.month_rating = MONTH(book_datetime)
+GROUP BY
+    MONTH(book_datetime)
+UNION ALL
+SELECT
+    MONTH(book_datetime) AS 'month',
+    COUNT(*) AS 'count_book',
+    A.count_rating,
+    A.avg_rating
+FROM
+    booking LEFT JOIN
+    (
+    SELECT
+        MONTH(rating_datetime) AS 'month_rating',
+        COUNT(*) AS 'count_rating',
+        AVG(rating_point) AS 'avg_rating'
+    FROM
+        rating
+    
+    GROUP BY
+        MONTH(rating_datetime)
+) A
+ON
+        A.month_rating = MONTH(book_datetime)
+WHERE A.month_rating IS NULL
+GROUP BY
+    MONTH(book_datetime);

@@ -10,7 +10,7 @@ const notiBtnHm = document.querySelector(".noti-btn-hm");
 
 homepageBtnHm.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHm.addEventListener("click", () =>
-	redirectToUrl("/notification/account-update")
+	redirectToUrl("/notifications/account-update")
 );
 // signinBtnHm.addEventListener("click", () => redirectToUrl("/auth/login"));
 // signupBtnHm.addEventListener("click", () => redirectToUrl("/auth/register"));

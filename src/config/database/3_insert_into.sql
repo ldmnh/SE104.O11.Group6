@@ -3,15 +3,15 @@ USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
 VALUES
-    ('admin1', 'password1'),
-    ('admin2', 'password2'),
-    ('admin3', 'password3');
+    ('admin1', '$2a$08$ymCOpCABEqsCRZzyj9NIFuH.0ulU1O6FbcMVRl9VSL4EM.vdje7wK'),
+    ('admin2', '$2a$08$dTn4g4gmAvRlxGDxtjPga.qNYldTY/WOl44Ikm7r3pbc7xFzSaZoG'),
+    ('admin3', '$2a$08$qSLYLuukotwr31gKGxMooeHa73odnhL8bgFPbviqpSvRBUzYbpMk.');
 
 INSERT INTO AuthUser (au_user_first_name, au_user_last_name, au_user_email, au_user_pass, au_user_avt_url)
 VALUES
-    ('Hiếu', 'Lê',  'lehieudn123@example.com',  'password1', 'user_1.jpg'),
-    ('Giàu', 'Bùi', 'giaubuibt123@example.com', 'password2', 'user_2.jpg'),
-    ('Lân',  'Lý',  'lanlyst123@example.com',   'password3', 'user_3.jpg');
+    ('Hiếu', 'Lê',  'lehieudn123@example.com',  '$2a$08$ymCOpCABEqsCRZzyj9NIFuH.0ulU1O6FbcMVRl9VSL4EM.vdje7wK', 'user_1.jpg'),
+    ('Giàu', 'Bùi', 'giaubuibt123@example.com', '$2a$08$dTn4g4gmAvRlxGDxtjPga.qNYldTY/WOl44Ikm7r3pbc7xFzSaZoG', 'user_2.jpg'),
+    ('Lân',  'Lý',  'lanlyst123@example.com',   '$2a$08$qSLYLuukotwr31gKGxMooeHa73odnhL8bgFPbviqpSvRBUzYbpMk.', 'user_3.jpg');
 
 INSERT INTO BankCard (bank_name, bank_branch, bank_num, bank_name_pers, au_user_id)
 VALUES
@@ -51,10 +51,6 @@ VALUES
 
 INSERT INTO Feature (fea_name)
 VALUES 
-    ('Miễn phí hủy'),
-    ('Wifi miễn phí'),
-    ('Wifi miễn phí'),
-    ('Không cần thanh toán trước'),
     ('Giáp biển'),
     ('Sân vườn'),
     ('Chỗ đậu xe miễn phí'),
@@ -78,10 +74,10 @@ VALUES
 
 INSERT INTO AccoFea (fea_id, acco_id)
 VALUES 
-    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (2, 2),
-    (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (1, 3), (2, 3),
-    (3, 3), (4, 3), (5, 3), (6, 3), (3, 4), (4, 4), (5, 4),
-    (6, 4), (7, 4);
+    (1, 1), (2, 1), (3, 1), (4, 1), (6, 1),
+    (1, 2), (2, 2), (3, 2), (5, 2), (6, 2),
+    (1, 3), (2, 3), (4, 3), (5, 3), (6, 3),
+    (1, 4), (3, 4), (4, 4), (5, 4), (6, 4);
 
 INSERT INTO AccoImg (acco_id, acco_img_url)
 VALUES 
@@ -92,61 +88,18 @@ VALUES
     (4, 'accommodation_3.jpg'), (4, 'accommodation_5.jpg'), (4, 'accommodation_7.jpg'),
     (4, 'accommodation_9.jpg');
 
-INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id)
+INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id, room_name)
 VALUES 
-    ('Tiêu chuẩn',  'Phòng đôi',     1, 0, 1, 0, 10,    'room_1.jpg',  25.5, 1000000, NULL, NULL,          0, 1),
-    ('Sang trọng',  'Phòng đôi',     2, 1, 0, 1,  5,    'room_2.jpg',  35.0, 2000000, 0.1,  '2023-01-31',  0, 1),
-    ('Cao cấp',     'Phòng đôi',     2, 1, 0, 1,  7,    'room_3.jpg',  38.0, 2200000, 0.2,  '2023-04-30',  0, 1),
-    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  3,    'room_4.jpg',  45.2, 3000000, NULL, NULL,          0, 2),
-    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0, 12,    'room_5.jpg',  32.0, 1500000, NULL, NULL,          0, 2),
-    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  5,    'room_6.jpg',  48.7, 3200000, NULL, NULL,          0, 2),
-    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  4,    'room_7.jpg',  50.0, 3500000, 0.15, '2023-03-31',  0, 3),
-    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  8,    'room_8.jpg',  30.0, 1200000, 0.05, '2023-02-28',  0, 3),
-    ('Thượng hạng', 'Phòng đôi',     2, 1, 0, 1,  6,    'room_9.jpg',  28.5, 1800000, NULL, NULL,          0, 4),
-    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  9,    'room_10.jpg', 29.8, 1100000, 0.1,  '2023-05-31',  0, 4);
-
-INSERT INTO Extension (exte_name)
-VALUES 
-    ('Buffet sáng'),   
-    ('Wifi'),
-    ('Không thuốc lá'),
-    ('Thú cưng'),
-    ('Tủ lạnh'),
-    ('Vòi hoa sen'),
-    ('Điều hòa không khí'),
-    ('Ghế sofa'),
-    ('Bồn tắm lớn'),
-    ('TV màn hình phẳng');
-
-
-INSERT INTO AccoFea (fea_id, acco_id)
-VALUES 
-    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1),
-    (2, 2), (3, 2), (4, 2), (5, 2), (6, 2), (7, 2),
-    (1, 3), (2, 3), (3, 3), (4, 3), (5, 3), (6, 3),
-    (3, 4), (4, 4), (5, 4), (6, 4), (7, 4);
-
-INSERT INTO AccoImg (acco_id, acco_img_url)
-VALUES 
-    (1, 'accommodation_1.jpg'), (1, 'accommodation_2.jpg'), 
-    (1, 'accommodation_3.jpg'), (1, 'accommodation_4.jpg'), 
-    (2, 'accommodation_5.jpg'), (2, 'accommodation_6.jpg'), (2, 'accommodation_7.jpg'),
-    (2, 'accommodation_8.jpg'), (3, 'accommodation_9.jpg'), (3, 'accommodation_10.jpg'),
-    (3, 'accommodation_1.jpg'), (3, 'accommodation_2.jpg'); (4, 'accommodation_3.jpg'),
-    (4, 'accommodation_5.jpg'), (4, 'accommodation_7.jpg'), (4, 'accommodation_9.jpg');
-
-INSERT INTO RoomType (room_class, room_type, room_name, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id)
-VALUES 
-    ('Tiêu chuẩn',  'Phòng đôi',      'Phòng đôi Tiêu chuẩn tầm nhìn ra biển'       , 1, 0, 1, 0, 10,    'room_1.jpg', 25.5, 1000000, NULL, NULL,          0, 1),
-    ('Sang trọng',  'Phòng đôi',      'Phòng đôi Sang trọng đầy đủ tiện nghi'       , 2, 1, 0, 1,  5,    'room_2.jpg', 35.0, 2000000, 0.1,  '2023-01-31',  0, 1),
-    ('Cao cấp',     'Phòng đôi',      'Phòng đôi Cao cấp nhìn thành phố'            , 2, 1, 0, 1,  7,    'room_3.jpg', 38.0, 2200000, 0.2,  '2023-04-30',  0, 1),
-    ('Cao cấp',     'Phòng gia đình', 'Phòng gia đình Cao cấp có không gian chung'  , 2, 2, 1, 2,  3,    'room_4.jpg', 45.2, 3000000, NULL, NULL,          0, 2),
-    ('Tiêu chuẩn',  'Phòng đơn',      'Phòng đơn Tiêu chuẩn không gian yên tĩnh'    , 1, 0, 1, 0, 12,    'room_5.jpg', 32.0, 1500000, NULL, NULL,          0, 2),
-    ('Cao cấp',     'Phòng gia đình', 'Phòng gia đình Cao cấp có buffet sáng'     , 2, 2, 1, 2,  5,    'room_6.jpg', 48.7, 3200000, NULL, NULL,          0, 2),
-    ('Cao cấp',     'Phòng gia đình', 'Phòng gia đình Cao cấp nhìn ra biển'         , 2, 2, 1, 2,  4,    'room_7.jpg', 50.0, 3500000, 0.15, '2023-03-31',  0, 3),
-    ('Tiêu chuẩn',  'Phòng đơn',      'Phòng đơn Tiêu chuẩn có không gian làm việc' , 1, 0, 1, 0,  8,    'room_8.jpg', 30.0, 1200000, 0.05, '2023-02-28',  0, 3),
-    ('Thượng hạng', 'Phòng đôi',      'Phòng đôi Thượng hạng có bồn tắm'            , 2, 1, 0, 1,  6,    'room_9.jpg', 28.5, 1800000, NULL, NULL,          0, 4),
-    ('Tiêu chuẩn',  'Phòng đơn',      'Phòng đơn Tiêu chuẩn phục vụ 24/24'          , 1, 0, 1, 0,  9,    'room_10.jpg', 29.8, 1100000, 0.1,  '2023-05-31',  0, 4);
+    ('Tiêu chuẩn',  'Phòng đôi',     1, 0, 1, 0, 10,    'room_1.jpg',  25.5, 1000000, NULL, NULL,          0, 1, 'Phòng đôi Tiêu chuẩn tầm nhìn ra biển'),
+    ('Sang trọng',  'Phòng đôi',     2, 1, 0, 1,  5,    'room_2.jpg',  35.0, 2000000, 0.1,  '2023-01-31',  0, 1, 'Phòng đôi Sang trọng đầy đủ tiện nghi'),
+    ('Cao cấp',     'Phòng đôi',     2, 1, 0, 1,  7,    'room_3.jpg',  38.0, 2200000, 0.2,  '2023-04-30',  0, 1, 'Phòng đôi Cao cấp nhìn thành phố'),
+    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  3,    'room_4.jpg',  45.2, 3000000, NULL, NULL,          0, 2, 'Phòng gia đình Cao cấp có không gian chung'),
+    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0, 12,    'room_5.jpg',  32.0, 1500000, NULL, NULL,          0, 2, 'Phòng đơn Tiêu chuẩn không gian yên tĩnh'),
+    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  5,    'room_6.jpg',  48.7, 3200000, NULL, NULL,          0, 2, 'Phòng gia đình Cao cấp có buffet sáng'),
+    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  4,    'room_7.jpg',  50.0, 3500000, 0.15, '2023-03-31',  0, 3, 'Phòng gia đình Cao cấp nhìn ra biển'),
+    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  8,    'room_8.jpg',  30.0, 1200000, 0.05, '2023-02-28',  0, 3, 'Phòng đơn Tiêu chuẩn có không gian làm việc'),
+    ('Thượng hạng', 'Phòng đôi',     2, 1, 0, 1,  6,    'room_9.jpg',  28.5, 1800000, NULL, NULL,          0, 4, 'Phòng đôi Thượng hạng có bồn tắm'),
+    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  9,    'room_10.jpg', 29.8, 1100000, 0.1,  '2023-05-31',  0, 4, 'Phòng đơn Tiêu chuẩn phục vụ 24/24');
 
 
 
@@ -170,13 +123,19 @@ VALUES
     (1,  'room_1.jpg'),     (1,  'room_2.jpg'),     (1,  'room_3.jpg'),     (1,  'room_4.jpg'),     (1,  'room_5.jpg'),     (1,  'room_6.jpg'),
     (2,  'room_7.jpg'),     (2,  'room_8.jpg'),     (2,  'room_9.jpg'),     (2,  'room_10.jpg'),    (2,  'room_11.jpg'),    (2,  'room_12.jpg'),
     (3,  'room_13.jpg'),    (3,  'room_14.jpg'),    (3,  'room_15.jpg'),    (3,  'room_16.jpg'),    (3,  'room_17.jpg'),    (3,  'room_18.jpg'),
-    (4,  'room_19.jpg'),    (4,  'room_20.jpg'),    (4,  'room_21.jpg'),    (4,  'room_22.jpg'),    (4,  'room_23.jpg'),
-    (5,  'room_24.jpg'),    (5,  'room_25.jpg'),    (5,  'room_26.jpg'),    (5,  'room_27.jpg'),    (5,  'room_28.jpg'),    (5,  'room_29.jpg'),
-    (6,  'room_30.jpg'),    (6,  'room_2.jpg'),     (6,  'room_4.jpg'),     (6,  'room_6.jpg'),     (6,  'room_8.jpg'),     (6,  'room_10.jpg'),
-    (7,  'room_12.jpg'),    (7,  'room_14.jpg'),    (7,  'room_16.jpg'),    (7,  'room_18.jpg'),    (7,  'room_20.jpg'),    (7,  'room_22.jpg'),
-    (8,  'room_24.jpg'),    (8,  'room_26.jpg'),    (8,  'room_28.jpg'),    (8,  'room_30.jpg'),    (8,  'room_1.jpg'),     (8,  'room_3.jpg'),
-    (9,  'room_5.jpg'),     (9,  'room_7.jpg'),     (9,  'room_9.jpg'),     (9,  'room_11.jpg'),    (9,  'room_13.jpg'),    (9,  'room_15.jpg'),
-    (10, 'room_17.jpg'),    (10, 'room_19.jpg'),    (10, 'room_21.jpg'),    (10, 'room_23.jpg'),    (10,  'room_25.jpg'),   (10,  'room_27.jpg');
+    (4,  'room_19.jpg'),    (4,  'room_20.jpg'),    (4,  'room_21.jpg'),    (4,  'room_22.jpg'),    (4,  'room_23.jpg'),    (5,  'room_24.jpg'),
+    (5,  'room_25.jpg'),    (5,  'room_26.jpg'),    (5,  'room_27.jpg'),    (5,  'room_28.jpg'),    (5,  'room_29.jpg'),    (6,  'room_30.jpg'),
+    (6,  'room_2.jpg'),     (6,  'room_4.jpg'),     (6,  'room_6.jpg'),     (6,  'room_8.jpg'),     (6,  'room_10.jpg'),    (7,  'room_12.jpg'),
+    (7,  'room_14.jpg'),    (7,  'room_16.jpg'),    (7,  'room_18.jpg'),    (7,  'room_20.jpg'),    (7,  'room_22.jpg'),    (8,  'room_24.jpg'),
+    (8,  'room_26.jpg'),    (8,  'room_28.jpg'),    (8,  'room_30.jpg'),    (8,  'room_1.jpg'),     (8,  'room_3.jpg'),     (9,  'room_5.jpg'),
+    (9,  'room_7.jpg'),     (9,  'room_9.jpg'),     (9,  'room_11.jpg'),    (9,  'room_13.jpg'),    (9,  'room_15.jpg'),    (10, 'room_17.jpg'),
+    (10, 'room_19.jpg'),    (10, 'room_21.jpg'),    (10, 'room_23.jpg'),    (10,  'room_25.jpg'),   (10,  'room_27.jpg');
+
+INSERT INTO PayingMethod (pay_name)
+VALUES 
+    ('cash'),
+    ('bankcard'),
+    ('debitcard');
 
 INSERT INTO ReasonCancel (rea_description)
 VALUES
@@ -205,7 +164,7 @@ VALUES
     (2, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-09-05 09:00:00', '2023-10-25 10:30:00', '2023-10-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
-    (3, 2, '2023-09-31 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
+    (3, 2, '2023-09-30 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-01 14:45:00', '2023-10-12 14:30:00', '2023-10-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
     (1, 3, '2023-09-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-03 15:15:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
@@ -216,7 +175,7 @@ VALUES
     (1, 2, '2023-08-23 11:30:00', '2023-09-22 14:30:00', '2023-09-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
     (4, 3, '2023-08-19 09:45:00', '2023-09-25 10:30:00', '2023-09-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL);
     (4, 1, '2023-09-05 09:00:00', '2023-10-25 10:30:00', '2023-10-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
-    (3, 2, '2023-09-31 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
+    (3, 2, '2023-09-30 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-01 14:45:00', '2023-10-12 14:30:00', '2023-10-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
     (1, 3, '2023-09-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-03 15:15:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),

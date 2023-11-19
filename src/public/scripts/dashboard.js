@@ -8,16 +8,13 @@ fetch('http://localhost:3000/admin/dashboard/getchart')
     .then(data => {
         let month = []
         let book = []
-        for (ele of data.chartBooking) {
-            month.push(`Tháng ${ele['MONTH(book_datetime)']}`)
-            book.push(ele['count_book'])
-        }
-
         let numsRating = []
         let avgRating = []
-        for (ele of data.chartRating) {
-            numsRating.push(ele['count_rating'])
-            avgRating.push(ele['count_avg'])
+        for (ele of data.chart) {
+            month.push(`Tháng ${ele['month']}`)
+            book.push(ele['count_book']? ele['count_book']:0)
+            numsRating.push(ele['count_rating'] ? ele['count_rating']:0)
+            avgRating.push(ele['avg_rating'] ? ele['avg_rating']:0)
         }
 
         const chart = new Chart(ctx, {

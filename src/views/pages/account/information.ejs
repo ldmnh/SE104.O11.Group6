@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <%- include("../../partials/header-medium") %>
+    <%- include("../../partials/header-medium", { user }) %>
     <%- include("../../partials/nav-tree", { nav_tree__data: [
         { text: "Trang chủ", link: "/" },
         { text: "Tài khoản", link: null },
@@ -24,9 +24,9 @@
     <div class="account-container">
         <aside class="aside-content">
             <div class="aside-content__profile">
-                <img class="aside-content__img" src="/imgs/user/<%= data.avatar ?? "user_1.jpg" %>" alt="" />
+                <img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="Avatar" />
                 <div class="aside-content__detail">
-                    <p class="aside-content__detail-bold"><%= data.last_name + " " + data.first_name %></p>
+                    <p class="aside-content__detail-bold"><%= user.last_name + " " + user.first_name %></p>
                     <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
                 </div>
             </div>
@@ -34,18 +34,29 @@
             <hr />
 
             <div class="aside-section">
-                <p class="profile-btn">Thông tin cá nhân</p>
-                <p class="history-btn">Lịch sử đặt phòng</p>
-                <p class="account-payment-btn">Tài khoản thanh toán</p>
-                <p class="change-password-btn">Đổi mật khẩu</p>
+                <a style='text-decoration: none;' href="/account/information">
+                    <p class='active'>Thông tin cá nhân</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/history">
+                    <p>Lịch sử đặt phòng</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/card">
+                    <p>Tài khoản thanh toán</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/change-password">
+                    <p>Đổi mật khẩu</p>
+                </a>
             </div>
 
             <hr />
 
             <div class="aside-item logout-btn">
-                <p>Đăng xuất</p>
+                <a style='text-decoration: none;' href="/auth/logout">
+                    <p>Đăng xuất</p>
+                </a>
             </div>
         </aside>
+        
         <!-- Xem hồ sơ -->
         <section id="view-profile" class="form">
             <div class="form__title">
@@ -71,7 +82,7 @@
 
                 <div class="form__item">
                     <h1>Ngày sinh:</h1>
-                    <input class="form-control account__birthday <%- data.birthday ? null : 'unfilled' %>" type="text" placeholder="<%= data.birthday ?? 'Thêm ngày sinh' %>" value="<%= data.birthday %>" readonly />
+                    <input class="form-control account__birthday <%- data.birthday ? null : 'unfilled' %>" type="date" placeholder="<%= data.birthday ?? 'Thêm ngày sinh' %>" value="<%= data.birthday %>" readonly />
                 </div>
 
                 <div class="form__item">
@@ -80,9 +91,11 @@
                 </div>
             </div>
             <div class="form__submitbutton">
-                <button class="form--submit2 form--submit2-default ">Sửa</button>
+                <!-- <button class="form--submit2 form--submit2-default ">Sửa</button> -->
+                <button class="form__btn--edit form--submit2 form--submit2-default">Sửa</button>
             </div>
         </section>
+
         <!-- Sửa hồ sơ -->
         <section id="edit-profile" class="form">
             <div class="form__title">
@@ -92,62 +105,63 @@
 
             <hr />
 
-            <form id='informationPut' class="form__items" action='/booking/information' method='put'>
+            <form id='informationPut' class="form__items" action='/account/information' method="POST">
                 <div class="form__item">
                     <h1>Họ:</h1>
-                    <input class="form-control" type="text" value="<%= data.last_name %>" required />
+                    <input class="form-control" name='last_name' type="text" value="<%= data.last_name %>" required />
 
                     <h1>Tên:</h1>
-                    <input class="form-control" type="text" value="<%= data.first_name %>" required />
+                    <input class="form-control" name='first_name' type="text" value="<%= data.first_name %>" required />
                 </div>
 
                 <div class="form__item">
                     <h1>Địa chỉ Email:</h1>
-                    <input class="form-control" type="text" value="<%= data.email %>" required />
+                    <input class="form-control" type="text" value="<%= data.email %>" disabled />
                 </div>
 
                 <div class="form__item">
                     <h1>Ngày sinh:</h1>
-                    <input class="form-control account__birthday" type="date" value="<%= data.birthday %>" />
+                    <input class="form-control account__birthday" name='birthday' type="date" value="<%= data.birthday %>" />
                 </div>
 
                 <div class="form__item">
                     <h1>Giới tính:</h1>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name='sex' aria-label="Default select example">
                         <% if (!data.sex) { %>
                         <option value=null selected>Thêm giới tính</option>
                         <option value="Nam">Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } else if (data.sex == "Nam") { %>
-                        <option>Thêm giới tính</option>
+                        <option value=null>Thêm giới tính</option>
                         <option value="Nam" selected>Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } else if (data.sex == 'Nữ') { %>
-                        <option>Thêm giới tính</option>
+                        <option value=null>Thêm giới tính</option>
                         <option value="Nam">Nam</option>
                         <option value="Nữ" selected>Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } else if (data.sex == 'Khác') { %>
-                        <option>Thêm giới tính</option>
+                        <option value=null>Thêm giới tính</option>
                         <option value="Nam">Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác" selected>Khác</option>
                         <% } else { %>
-                        <option selected>Thêm giới tính</option>
+                        <option value=null selected>Thêm giới tính</option>
                         <option value=" Nam">Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } %>
                     </select>
                 </div>
-                <div class="form__submitbutton">
-                    <button class="form--submit1 cancel-btn">Hủy</button>
-    
-                    <button type="submit" id="save-btn" class="form--submit2">Lưu</button>
-                </div>
             </form>
+            <div class="form__submitbutton">
+                <!-- <button class="form--submit1 cancel-btn">Hủy</button>
+                    <button type="submit" id="save-btn" class="form--submit2">Lưu</button> -->
+                <button class="form__btn--cancel form--submit1">Hủy</button>
+                <button class="form__btn--save   form--submit2" type="submit" data-form-id="#informationPut">Lưu</button>
+            </div>
         </section>
     </div>
     <%- include('../../components/success-popup')  %>

@@ -14,7 +14,7 @@ closeBtn2.addEventListener("click", () => {
 
 //Khi nhấn nút Hoàn thành
 const doneCreditBtn = document.querySelector(".credit-button--submit2");
-const popupOtpCredit = document.querySelector(".modal-otp");
+const popupOtpCredit = document.querySelector(".otp-debit-card");
 doneCreditBtn.addEventListener("click", () => {
     modal2.style.display = "none";
     popupOtpCredit.style.display = "block";

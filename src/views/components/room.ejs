@@ -40,52 +40,7 @@
                         <% room.extension.forEach(function(extension) { %>
                         <div>
                             <span class="material-symbols-outlined">
-                                <% switch (extension.exte_id) {
-                                case 1 : %>
-                                restaurant
-                                <% break;
-                                    
-                                case 2 : %>
-                                wifi
-                                <% break;
-                                    
-                                case 3 : %>
-                                smoke_free
-                                <% break;
-                                
-                                case 4 : %>
-                                pets
-                                <% break;
-
-                                case 5 : %>
-                                kitchen
-                                <% break;
-
-                                case 6 : %>
-                                shower
-                                <% break;
-
-                                case 7 : %>
-                                ac_unit
-                                <% break;
-
-                                case 8 : %>
-                                chair
-                                <% break;
-
-                                case 9 : %>
-                                bathtub
-                                <% break;
-
-                                case 10 : %>
-                                desktop_windows
-                                <% break;
-
-                                default : %>
-                                done
-                                <% break;
-                                    
-                                    } %>
+                                <%= extension.exte_icon %>
                             </span>
                             <p> <%= extension.exte_name %> </p>
                         </div>
@@ -187,56 +142,7 @@
                                 <% room.extension.forEach(function(extension) { %>
                                 <div class="detail__item">
                                     <span class="material-symbols-outlined">
-                                        <% switch (extension.exte_id) {
-                                        case 1 : %>
-                                        restaurant
-                                        <% break;
-                                            
-                                        case 2 : %>
-                                        wifi
-                                        <% break;
-                                            
-                                        case 3 : %>
-                                        smoke_free
-                                        <% break;
-                                        
-                                        case 4 : %>
-                                        pets
-                                        <% break;
-        
-                                        case 5 : %>
-                                        groups
-                                        <% break;
-        
-                                        case 6 : %>
-                                        kitchen
-                                        <% break;
-        
-                                        case 7 : %>
-                                        shower
-                                        <% break;
-        
-                                        case 8 : %>
-                                        ac_unit
-                                        <% break;
-        
-                                        case 9 : %>
-                                        chair
-                                        <% break;
-        
-                                        case 10 : %>
-                                        bathtub
-                                        <% break;
-        
-                                        case 11 : %>
-                                        desktop_windows
-                                        <% break;
-        
-                                        default : %>
-                                        done
-                                        <% break;
-                                            
-                                            } %>
+                                        <%= extension.exte_icon %>
                                     </span>
                                     <p> <%= extension.exte_name %> </p>
                                 </div>

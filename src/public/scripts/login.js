@@ -109,15 +109,15 @@ form.addEventListener('submit', e => {
 })
 
 const setError = (element, message) => {
-    const inputControl = element.parentElement;
+    const inputControl = element.parentElement.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innerText = message;
+    inputControl.classList.remove('success');
     inputControl.classList.add('error');
-    inputControl.classList.remove('error');
 }
 const setSuccess = element => {
-    const inputControl = element.parentElement;
+    const inputControl = element.parentElement.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innerText = '';
@@ -138,25 +138,30 @@ function validateInput() {
         }
     }).then(res => res.json()).then(back => {
         if (back.status == "error") {
+            console.log('error')
+
             // success.style.display = "none"
             // error.style.display = "block";
             setError(email, back.error);
             document.getElementById('form__email').classList.add('is-invalid');
-            // error.innerText = back.error
+            error.innerText = back.error
         }
         else if (back.status == "error1") {
+            console.log('error1')
             setError(password, back.error)
             document.getElementById('form__password').classList.add('is-invalid');
             // success.style.display = "block"
             // error.style.display = "none";
-            // success.innerText = back.success
+            success.innerText = back.success
         }
         else {
-            document.getElementById('form__email').classList.remove('is-invalid');
-            document.getElementById('form__password').classList.remove('is-invalid');
-            setSuccess(email)
-            setSuccess(password)
+            console.log('Login success')
+            // document.getElementById('form__email').classList.remove('is-invalid');
+            // document.getElementById('form__password').classList.remove('is-invalid');
+            // setSuccess(email)
+            // setSuccess(password)
             // form.submit()
+            console.log('Login success')
             window.location.href = '/';
         }
     })

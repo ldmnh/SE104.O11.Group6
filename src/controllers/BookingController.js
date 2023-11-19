@@ -32,8 +32,11 @@ class BookingController {
                         cost_after: req.session.rooms.reduce((sum, room) => sum + room.cost_after, 0),
                     }
                 }
-                // res.status(200).json({ nav_tree__data, data });
-                res.status(200).render("./pages/booking/information", { nav_tree__data, data });
+                res.status(200).render("./pages/booking/information", {
+                    // res.status(200).json({
+                    user: req.session.user,
+                    data
+                });
             } else {
                 throw new Error('Không tìm thấy khách sạn!!!');
             }
@@ -174,18 +177,22 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        booking.getAllBooking(req, res, function (err, res, result) {
+        const book_id = req.query.book_id;
+        const id = req.session.user.id;
+        booking.getDetail({ id, book_id }, function (err, booking, bookingDetails) {
             if (err) {
-                res.status(500).json({ message: "Lỗi truy vấn!" });
+                res.render('./pages/site/error404')
                 throw err;
+            } else if (!booking) {
+                res.render('./pages/site/error404')
+            } else {
+                res.status(200).render('./pages/booking/detail', {
+                    // res.status(200).json({
+                    booking: booking,
+                    bookingDetails: bookingDetails,
+                })
             }
-            if (result.length > 0) {
-                res.status(200).render("./pages/booking/detail", {
-                    message: "success",
-                    data: result,
-                });
-            }
-        });
+        })
     }
 
     // [GET] /booking/cancellation

@@ -19,7 +19,6 @@ class SearchController {
       bed_type,
       acco_star,
       acco_fea,
-      price,
       cost,
       accoStar,
       countRating,
@@ -122,16 +121,7 @@ class SearchController {
         //     data: result,
         // });
         let resultFilter = result.map((obj) => obj.room_id).join(",");
-        let sql1 = `SELECT DISTINCT A.acco_id, R.room_id, A.acco_star, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url, R.room_single_bed, R.room_double_bed FROM accommodation as A, roomtype as R, accofea as AF WHERE A.acco_id = R.acco_id AND AF.acco_id = A.acco_id AND R.room_id IN (${resultFilter})`;
-
-        if (price == "Dưới VND 200.000")
-          sql1 += ` AND room_cost BETWEEN 0 AND 200000`;
-        if (price == "VND 200.000 - VND 500.000")
-          sql1 += ` AND room_cost BETWEEN 200000 AND 500000`;
-        if (price == "VND 500.000 - VND 1.000.000")
-          sql1 += ` AND room_cost BETWEEN 500000 AND 1000000`;
-        if (price == "Trên VND 1.000.000") sql1 += ` AND room_cost > 1000000`;
-
+        let sql1 = `SELECT DISTINCT A.acco_id, R.room_id, A.acco_star, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url FROM accommodation as A, roomtype as R, accofea as AF WHERE A.acco_id = R.acco_id AND AF.acco_id = A.acco_id AND R.room_id IN (${resultFilter})`;
         if (acco_type) {
           let acco_typeFilter = acco_type.join(",");
           sql1 += ` AND acco_type IN ('${acco_typeFilter}')`;
@@ -202,8 +192,8 @@ class SearchController {
           }
 
           if (result1.length > 0) {
-            res.status(200).render("./pages/search/results", {
-              // res.send({
+            // res.status(200).render("./pages/search/results", {
+            res.send({
               message: "Đã tìm thành công",
               data: result1,
             });
@@ -224,14 +214,30 @@ class SearchController {
     accoRoomDetail.getDetail(
       req,
       res,
-      function (err, accoDetail, accoFea, accoImg, accoRoom, accoRoomRating) {
+      function (
+        err,
+        accoDetail,
+        accoFea,
+        accoImg,
+        accoRoom,
+        accoExte,
+        accoRoomRating
+      ) {
+        if (err) {
+          res.status(404).render("./pages/site/error404.ejs");
+        }
+        if (!accoDetail) {
+          res.status(404).render("./pages/site/error404.ejs");
+        }
         res.status(200).render("./pages/search/detail", {
           // res.status(200).json({
           message: "Lấy thông tin thành công",
+          user: req.session.user,
           accoDetail: accoDetail,
           accoFea: accoFea,
           accoImg: accoImg,
           accoRoom: accoRoom,
+          accoExte: accoExte,
           accoRoomRating: accoRoomRating,
         });
       }
