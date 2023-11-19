@@ -1,5 +1,5 @@
 <div class="room-in-hs">
-    <input type="hidden" name="room_id" value="<%=room.room_id%>">
+    <input type="hidden" name="room_id" value="<%# room.room_id %>">
     <div class="room-in-hs__detail">
         <h2 class="room-in-hs__name"><b><%= bookingDetail.acco_name %></b></h2>
         <div class="room-in-hs__book-date">
@@ -21,7 +21,7 @@
         <div class="room-in-hs__payment-status">
             <label for="">Trạng thái thanh toán:</label>
             <span>
-                <%=bookingDetail.book_is_paid_msg%>
+                <%=bookingDetail.book_is_paid_mean%>
             </span>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <div class="room-in__title">
 
         <h5 class="room-in__status">
-            <%=bookingDetail.book_status_msg%>
+            <%=bookingDetail.book_status_mean%>
         </h5>
 
         <div class="policy__price">

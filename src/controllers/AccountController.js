@@ -26,7 +26,7 @@ class AccountController {
                     avatar: result[0].au_user_avt_url
                 }
                 res.status(200).render('./pages/account/information', {
-                // res.status(200).json({
+                    // res.status(200).json({
                     message: 'Lấy thông tin tài khoản thành công',
                     user: req.session.user,
                     data
@@ -45,6 +45,7 @@ class AccountController {
         let { first_name, last_name, birthday, sex } = req.body;
 
         birthday = birthday.split('-').join('');
+        sex = (sex == 'null') ? null : sex;
 
         authuser.putInfoById({
             id, first_name, last_name, birthday, sex
@@ -83,7 +84,9 @@ class AccountController {
 
     // [GET] /account/history
     history(req, res) {
-        accountHistory.getDetail(req, res, function (err, user, bookingDetails) {
+        const id = req.session.user?.id;
+        const page = req.query.page ? req.query.page : 1;
+        accountHistory.getDetail({ id, page }, (err, bookingDetails, totalRow, totalPage, page, limit) => {
             if (err) {
                 res.status(404).render('./pages/site/error404')
                 // res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
@@ -92,8 +95,13 @@ class AccountController {
 
             // res.send({bookingDetails: bookingDetails})
             res.status(200).render('./pages/account/history', {
-                user: user,
-                bookingDetails: bookingDetails
+                // res.status(200).json({
+                user: req.session.user,
+                bookingDetails,
+                totalRow,
+                totalPage,
+                page,
+                limit,
             })
         })
     }
@@ -119,7 +127,6 @@ class AccountController {
 
     // [GET] /account/card
     card(req, res) {
-
         authuser.getBankCardsById({
             id: req.session.user?.id
         }, (err, result) => {
@@ -142,19 +149,16 @@ class AccountController {
                     req.session.user.debit_cards = [];
                 }
 
-                const nav_tree__data = [
-                    { text: 'Trang chủ', link: '/' },
-                    { text: 'Đặt phòng', link: null },
-                    { text: 'Phương thức thanh toán', link: '/booking/payment' }
-                ]
-
                 const data = {
                     bank_cards: req.session.user?.bank_cards,
                     debit_cards: req.session.user?.debit_cards
                 }
                 // res.status(200).render('./pages/account/card', { data })
 
-                res.status(200).render('./pages/account/card', { nav_tree__data, data })
+                res.status(200).render('./pages/account/card', {
+                    user: req.session.user,
+                    data
+                })
                 // res.status(200).json({ nav_tree__data, data })
             })
         })
@@ -248,7 +252,7 @@ class AccountController {
 
     // [GET] /account/change-password
     changePass(req, res) {
-        res.status(200).render('./pages/account/change-password')
+        res.status(200).render('./pages/account/change-password', { user: req.session.user })
     }
 }
 

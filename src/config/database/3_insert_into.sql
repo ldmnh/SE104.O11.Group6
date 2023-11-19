@@ -51,7 +51,6 @@ VALUES
 
 INSERT INTO Feature (fea_name)
 VALUES 
-    ('Không cần thanh toán trước'),
     ('Giáp biển'),
     ('Sân vườn'),
     ('Chỗ đậu xe miễn phí'),
@@ -75,10 +74,10 @@ VALUES
 
 INSERT INTO AccoFea (fea_id, acco_id)
 VALUES 
-    (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (1, 1), (2, 2),
-    (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (1, 3), (2, 3),
-    (3, 3), (4, 3), (5, 3), (6, 3), (3, 4), (4, 4), (5, 4),
-    (6, 4), (7, 4);
+    (1, 1), (2, 1), (3, 1), (4, 1), (6, 1),
+    (1, 2), (2, 2), (3, 2), (5, 2), (6, 2),
+    (1, 3), (2, 3), (4, 3), (5, 3), (6, 3),
+    (1, 4), (3, 4), (4, 4), (5, 4), (6, 4);
 
 INSERT INTO AccoImg (acco_id, acco_img_url)
 VALUES 
@@ -89,18 +88,18 @@ VALUES
     (4, 'accommodation_3.jpg'), (4, 'accommodation_5.jpg'), (4, 'accommodation_7.jpg'),
     (4, 'accommodation_9.jpg');
 
-INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id)
+INSERT INTO RoomType (room_class, room_type, room_max_adult, room_max_child, room_single_bed, room_double_bed, room_total, room_details_img_url, room_area, room_cost, room_discount, room_date_end_discount, room_count_rating, acco_id, room_name)
 VALUES 
-    ('Tiêu chuẩn',  'Phòng đôi',     1, 0, 1, 0, 10,    'room_1.jpg',  25.5, 1000000, NULL, NULL,          0, 1),
-    ('Sang trọng',  'Phòng đôi',     2, 1, 0, 1,  5,    'room_2.jpg',  35.0, 2000000, 0.1,  '2023-01-31',  0, 1),
-    ('Cao cấp',     'Phòng đôi',     2, 1, 0, 1,  7,    'room_3.jpg',  38.0, 2200000, 0.2,  '2023-04-30',  0, 1),
-    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  3,    'room_4.jpg',  45.2, 3000000, NULL, NULL,          0, 2),
-    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0, 12,    'room_5.jpg',  32.0, 1500000, NULL, NULL,          0, 2),
-    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  5,    'room_6.jpg',  48.7, 3200000, NULL, NULL,          0, 2),
-    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  4,    'room_7.jpg',  50.0, 3500000, 0.15, '2023-03-31',  0, 3),
-    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  8,    'room_8.jpg',  30.0, 1200000, 0.05, '2023-02-28',  0, 3),
-    ('Thượng hạng', 'Phòng đôi',     2, 1, 0, 1,  6,    'room_9.jpg',  28.5, 1800000, NULL, NULL,          0, 4),
-    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  9,    'room_10.jpg', 29.8, 1100000, 0.1,  '2023-05-31',  0, 4);
+    ('Tiêu chuẩn',  'Phòng đôi',     1, 0, 1, 0, 10,    'room_1.jpg',  25.5, 1000000, NULL, NULL,          0, 1, 'Phòng đôi Tiêu chuẩn tầm nhìn ra biển'),
+    ('Sang trọng',  'Phòng đôi',     2, 1, 0, 1,  5,    'room_2.jpg',  35.0, 2000000, 0.1,  '2023-01-31',  0, 1, 'Phòng đôi Sang trọng đầy đủ tiện nghi'),
+    ('Cao cấp',     'Phòng đôi',     2, 1, 0, 1,  7,    'room_3.jpg',  38.0, 2200000, 0.2,  '2023-04-30',  0, 1, 'Phòng đôi Cao cấp nhìn thành phố'),
+    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  3,    'room_4.jpg',  45.2, 3000000, NULL, NULL,          0, 2, 'Phòng gia đình Cao cấp có không gian chung'),
+    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0, 12,    'room_5.jpg',  32.0, 1500000, NULL, NULL,          0, 2, 'Phòng đơn Tiêu chuẩn không gian yên tĩnh'),
+    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  5,    'room_6.jpg',  48.7, 3200000, NULL, NULL,          0, 2, 'Phòng gia đình Cao cấp có buffet sáng'),
+    ('Cao cấp',     'Phòng gia đình',2, 2, 1, 2,  4,    'room_7.jpg',  50.0, 3500000, 0.15, '2023-03-31',  0, 3, 'Phòng gia đình Cao cấp nhìn ra biển'),
+    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  8,    'room_8.jpg',  30.0, 1200000, 0.05, '2023-02-28',  0, 3, 'Phòng đơn Tiêu chuẩn có không gian làm việc'),
+    ('Thượng hạng', 'Phòng đôi',     2, 1, 0, 1,  6,    'room_9.jpg',  28.5, 1800000, NULL, NULL,          0, 4, 'Phòng đôi Thượng hạng có bồn tắm'),
+    ('Tiêu chuẩn',  'Phòng đơn',     1, 0, 1, 0,  9,    'room_10.jpg', 29.8, 1100000, 0.1,  '2023-05-31',  0, 4, 'Phòng đơn Tiêu chuẩn phục vụ 24/24');
 
 
 

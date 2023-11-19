@@ -32,15 +32,13 @@ class AuthController {
 
     // [GET] /auth/login
     login(req, res) {
-        const title = "Đăng nhập";
-        const help = "Bạn quên mật khẩu?";
-        res.status(200).render("./pages/auth/login", { title, help });
+        res.status(200).render("./pages/auth/login");
     }
 
     // [POST] /auth/login
     loginPost(req, res) {
         const { email, password } = req.body;
-        User.findByEmail(email, (err, user) => {
+        User.findByEmail(email, async (err, user) => {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
@@ -51,14 +49,14 @@ class AuthController {
                     error: "Email không tồn tại!",
                 });
             } else {
-                // if (bcrypt.compare(password, user.au_user_pass)) {
-                if (password === user.au_user_pass) {
+                if (await bcrypt.compare(password, user.au_user_pass)) {
+                // if (password === user.au_user_pass) {
                     req.session.user = {
                         id: user.au_user_id,
                         first_name: user.au_user_first_name,
                         last_name: user.au_user_last_name,
                         email: user.au_user_email,
-                        phone: user.au_user_phone,
+                        avatar: user.au_user_avt_url,
                     };
                     return res.status(200).json({
                         status: "success",

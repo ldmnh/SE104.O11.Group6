@@ -171,6 +171,10 @@ $(window).on('load', () => {
                 if (data.status == 200) {
                     $('#error-message').text('Thành công!')
                     $('#error-message').css('color', 'green')
+
+                    setTimeout(() => {
+                        window.location.href = '/auth/login'
+                    }, 2000)
                 } else {
                     $('#error-message').text('Email không tồn tại')
                     $('#error-message').css('color', 'red')

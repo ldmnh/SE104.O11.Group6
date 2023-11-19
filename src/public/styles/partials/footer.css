@@ -82,6 +82,7 @@ footer {
 	padding: 0;
 	gap: 12px;
 	list-style-type: none;
+	margin: 0;
 }
 
 .footer-container__policy {
@@ -108,6 +109,10 @@ footer {
 	padding: 0;
 	gap: 12px;
 	list-style-type: none;
+	margin: 0;
+	&>li {
+		margin: 0;
+	}
 }
 
 .footer-container__update {

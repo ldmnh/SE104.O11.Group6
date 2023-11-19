@@ -24,9 +24,9 @@
     <div class="account-container">
         <aside class="aside-content">
             <div class="aside-content__profile">
-                <img class="aside-content__img" src="/imgs/user/<%= data.avatar ?? "user_1.jpg" %>" alt="" />
+                <img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="Avatar" />
                 <div class="aside-content__detail">
-                    <p class="aside-content__detail-bold"><%= data.last_name + " " + data.first_name %></p>
+                    <p class="aside-content__detail-bold"><%= user.last_name + " " + user.first_name %></p>
                     <p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
                 </div>
             </div>
@@ -34,18 +34,29 @@
             <hr />
 
             <div class="aside-section">
-                <p class="profile-btn">Thông tin cá nhân</p>
-                <p class="history-btn">Lịch sử đặt phòng</p>
-                <p class="account-payment-btn">Tài khoản thanh toán</p>
-                <p class="change-password-btn">Đổi mật khẩu</p>
+                <a style='text-decoration: none;' href="/account/information">
+                    <p class='active'>Thông tin cá nhân</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/history">
+                    <p>Lịch sử đặt phòng</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/card">
+                    <p>Tài khoản thanh toán</p>
+                </a>
+                <a style='text-decoration: none;' href="/account/change-password">
+                    <p>Đổi mật khẩu</p>
+                </a>
             </div>
 
             <hr />
 
             <div class="aside-item logout-btn">
-                <p>Đăng xuất</p>
+                <a style='text-decoration: none;' href="/auth/logout">
+                    <p>Đăng xuất</p>
+                </a>
             </div>
         </aside>
+        
         <!-- Xem hồ sơ -->
         <section id="view-profile" class="form">
             <div class="form__title">
@@ -98,7 +109,7 @@
                 <div class="form__item">
                     <h1>Họ:</h1>
                     <input class="form-control" name='last_name' type="text" value="<%= data.last_name %>" required />
-                    
+
                     <h1>Tên:</h1>
                     <input class="form-control" name='first_name' type="text" value="<%= data.first_name %>" required />
                 </div>
@@ -112,7 +123,7 @@
                     <h1>Ngày sinh:</h1>
                     <input class="form-control account__birthday" name='birthday' type="date" value="<%= data.birthday %>" />
                 </div>
- 
+
                 <div class="form__item">
                     <h1>Giới tính:</h1>
                     <select class="form-select" name='sex' aria-label="Default select example">
@@ -122,22 +133,22 @@
                         <option value="Nữ">Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } else if (data.sex == "Nam") { %>
-                        <option>Thêm giới tính</option>
+                        <option value=null>Thêm giới tính</option>
                         <option value="Nam" selected>Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } else if (data.sex == 'Nữ') { %>
-                        <option>Thêm giới tính</option>
+                        <option value=null>Thêm giới tính</option>
                         <option value="Nam">Nam</option>
                         <option value="Nữ" selected>Nữ</option>
                         <option value="Khác">Khác</option>
                         <% } else if (data.sex == 'Khác') { %>
-                        <option>Thêm giới tính</option>
+                        <option value=null>Thêm giới tính</option>
                         <option value="Nam">Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác" selected>Khác</option>
                         <% } else { %>
-                        <option selected>Thêm giới tính</option>
+                        <option value=null selected>Thêm giới tính</option>
                         <option value=" Nam">Nam</option>
                         <option value="Nữ">Nữ</option>
                         <option value="Khác">Khác</option>

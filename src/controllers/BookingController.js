@@ -33,7 +33,7 @@ class BookingController {
                     }
                 }
                 res.status(200).render("./pages/booking/information", {
-                // res.status(200).json({
+                    // res.status(200).json({
                     user: req.session.user,
                     data
                 });
@@ -177,31 +177,23 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        booking.getDetail(req, res, function (err, booking, bookingDetails) {
+        const book_id = req.query.book_id;
+        const id = req.session.user.id;
+        booking.getDetail({ id, book_id }, function (err, booking, bookingDetails) {
             if (err) {
                 res.render('./pages/site/error404')
                 throw err;
+            } else if (!booking) {
+                res.render('./pages/site/error404')
+            } else {
+                res.status(200).render('./pages/booking/detail', {
+                    // res.status(200).json({
+                    booking: booking,
+                    bookingDetails: bookingDetails,
+                })
             }
-            res.status(200).render('./pages/booking/detail', {
-                booking: booking,
-                bookingDetails: bookingDetails,
-            })
         })
     }
-    // detail(req, res) {
-    //     booking.getAllBooking(req, res, function (err, res, result) {
-    //         if (err) {
-    //             res.status(500).json({ message: "Lỗi truy vấn!" });
-    //             throw err;
-    //         }
-    //         if (result.length > 0) {
-    //             res.status(200).render("./pages/booking/detail", {
-    //                 message: "success",
-    //                 data: result,
-    //             });
-    //         }
-    //     });
-    // }
 
     // [GET] /booking/cancellation
     cancel(req, res) {

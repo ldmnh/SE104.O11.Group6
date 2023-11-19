@@ -36,8 +36,10 @@ ul.pagination {
     justify-content: flex-end;
 }
 
-nav {
+nav.pagination {
     width: 80%;
+    margin: 0 auto;
+    margin-top: 16px;
     max-width: 1152px;
     display: flex;
     justify-content: flex-end;
