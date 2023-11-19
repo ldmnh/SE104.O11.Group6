@@ -1,17 +1,36 @@
 <header>
     <div class="header-container">
-        <img class="header-container__img logo-click-hs" src="/imgs/logo.svg" alt="Logo" />
-        <div class="header-container__nav-top">
-            <button href="#" class="status-layer homepage-btn-hs">Trang chủ</button>
-            <button href="#" class="status-layer noti-btn-hs">Thông báo</button>
-        </div>
-        <div class="header-container__top-authenticator">
-            <p>Chào,</p>
-            <span class="name-btn-hs">data</span>
-            <img src="/imgs/milo.jpg" alt="avatar" class="avatar-btn-hs" />
-            <!-- <button type="button" class="button-signin signin-btn-hs">Đăng nhập</button>
-        <button type="button" class="button-signup signup-btn-hs">Đăng ký</button> -->
-
+        <div class="header-container__top">
+            <div class="header-container__logo-img">
+                <img src="/imgs/logo.svg" alt="Logo" class="" />
+            </div>
+            <div class="header-container__nav-top">
+                <button href="#" class="status-layer " id="homepage-btn-hf">Trang chủ</button>
+                <button href="#" class="status-layer noti-btn-hf">Thông báo</button>
+            </div>
+            <div class="header-container__top-authenticator">
+                <% if (user) { %>
+                <p>Chào,</p>
+                <a href="/account/information" style="text-decoration: none;"><p><%= user?.last_name + ' ' + user?.first_name %></p></a>
+                <!-- <p class="name-click-hf"><%# user?.last_name + ' ' + user?.first_name %></p> -->
+                <img src="/imgs/user/<%= user?.avatar ?? 'default.jpg'%>" alt="avatar" class="avatar-btn-hf" />
+                <% } else { %>
+                <a href="/auth/login" style='text-decoration: none;'>
+                    <button class="button-signin signin-btn-hf" type="button">
+                        <div class="status-layer">
+                            <span>Đăng nhập</span>
+                        </div>
+                    </button>
+                </a>
+                <a href="/auth/register" style='text-decoration: none;'>
+                    <button class="sec button-signup signup-btn-hf" type="button">
+                        <div class="status-layer">
+                            <span>Đăng ký</span>
+                        </div>
+                    </button>
+                </a>
+                <% } %>
+            </div>
         </div>
     </div>
 </header>

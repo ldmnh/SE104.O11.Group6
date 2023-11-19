@@ -1,4 +1,6 @@
-const bcrypt = require("bcrypt");
+const AuthUser = require("../models/authuser.model");
+const bcrypt = require("bcryptjs");
+const { promisify } = require("util");
 
 /**
  * AuthController class handles authentication related requests such as register, login, forgot password, reset password, logout, and change password.
@@ -15,8 +17,6 @@ const bcrypt = require("bcrypt");
  * @property {function} changePassPut - Handles the change password form submission and updates the password in the database.
  */
 
-const AuthUser = require("../models/authuser.model");
-
 class AuthController {
     // [GET] /auth/register
     register(req, res) {
@@ -30,9 +30,7 @@ class AuthController {
 
     // [GET] /auth/login
     login(req, res) {
-        const title = "Đăng nhập";
-        const help = "Bạn quên mật khẩu?";
-        res.status(200).render("./pages/auth/login", { title, help });
+        res.status(200).render("./pages/auth/login");
     }
 
     // [POST] /auth/login
@@ -49,11 +47,15 @@ class AuthController {
                     error: "Email không tồn tại!",
                 });
             } else {
-                // bcrypt.compare(password, user.au_user_pass, (err, result) => {
-                // if (result == true) {
-                if (password === user.au_user_pass) {
-                    req.session.loggedin = true;
-                    req.session.user = user;
+                if (bcrypt.compare(password, user.au_user_pass)) {
+                // if (password === user.au_user_pass) {
+                    req.session.user = {
+                        id: user.au_user_id,
+                        first_name: user.au_user_first_name,
+                        last_name: user.au_user_last_name,
+                        email: user.au_user_email,
+                        avatar: user.au_user_avt_url,
+                    };
                     return res.status(200).json({
                         status: "success",
                         success: "Thành công",
@@ -80,32 +82,29 @@ class AuthController {
 
     // [POST] /auth/forgot-password
     forgotPost(req, res) {
-        // const { email } = req.body;
+        const { email } = req.body;
 
-        authuser.checkEmail(
-            {
-                email: email,
-            },
-            (err, result) => {
-                if (err) {
-                    res.status(500).json({
-                        message: "Lỗi truy vấn!!!",
-                    });
-                    throw err;
-                }
-
-                if (result.length === 0) {
-                    res.status(404).json({
-                        message: "Không tìm thấy email!!!",
-                    });
-                } else {
-                    req.session.emailOfForgot = email;
-                    res.status(200).json({
-                        message: "Gửi liên kết đặt lại mật khẩu thành công",
-                    });
-                }
+        authuser.checkEmail({
+            email: email,
+        }, (err, result) => {
+            if (err) {
+                res.status(500).json({
+                    message: "Lỗi truy vấn!!!",
+                });
+                throw err;
             }
-        );
+
+            if (result.length === 0) {
+                res.status(404).json({
+                    message: "Không tìm thấy email!!!",
+                });
+            } else {
+                req.session.emailOfForgot = email;
+                res.status(200).json({
+                    message: "Gửi liên kết đặt lại mật khẩu thành công",
+                });
+            }
+        });
     }
 
     // [GET] /auth/reset-password
@@ -113,34 +112,32 @@ class AuthController {
         res.status(200).render("./pages/auth/reset");
     }
 
-    // [PUT] /auth/reset-password
+    // [POST] /auth/reset-password
     resetPost(req, res) {
-        // const email = req.session.emailOfForgot;
-        // const { password } = req.body;
+        const email = req.session.emailOfForgot;
+        const { password } = req.body;
 
-        authuser.putResetPassByEmail(
-            {
-                email: email,
-                password: password,
-            },
-            (err, result) => {
-                if (err) {
-                    res.status(500).json({
-                        message: "Lỗi truy vấn!!!",
-                    });
-                    throw err;
-                }
-
-                if (result.affectedRows === 0) {
-                    res.status(404).json({
-                        message: "Không tìm thấy tài khoản!!!",
-                    });
-                } else {
-                    res.status(200).json({
-                        message: "Cập nhật thông tin tài khoản thành công",
-                    });
-                }
+        authuser.putResetPassByEmail({
+            email: email,
+            password: password,
+        }, (err, result) => {
+            if (err) {
+                res.status(500).json({
+                    message: "Lỗi truy vấn!!!",
+                });
+                throw err;
             }
+
+            if (result.affectedRows === 0) {
+                res.status(404).json({
+                    message: "Không tìm thấy tài khoản!!!",
+                });
+            } else {
+                res.status(200).json({
+                    message: "Cập nhật thông tin tài khoản thành công",
+                });
+            }
+        }
         );
     }
 

@@ -143,7 +143,7 @@ class BookingController {
         );
     }
 
-    // [POST] /bookinh/payment
+    // [POST] /booking/payment
     paymentPost(req, res) {
         const {
             pay_id, // Phương thức thanh toán 0: tiền mặt, 1: thẻ ngân hàng, 2: thẻ tín dụng
@@ -225,19 +225,24 @@ class BookingController {
         });
     }
 
+    // [GET] /booking/detail
     detail(req, res) {
-        Booking.getAllBooking(req, res, function (err, res, result) {
+        const book_id = req.query.book_id;
+        const id = req.session.user.id;
+        Booking.getDetail({ id, book_id }, function (err, booking, bookingDetails) {
             if (err) {
-                res.status(500).json({ message: "Lỗi truy vấn!" });
+                res.render('./pages/site/error404')
                 throw err;
+            } else if (!booking) {
+                res.render('./pages/site/error404')
+            } else {
+                res.status(200).render('./pages/booking/detail', {
+                    // res.status(200).json({
+                    booking: booking,
+                    bookingDetails: bookingDetails,
+                })
             }
-            if (result.length > 0) {
-                res.status(200).render("./pages/booking/detail", {
-                    message: "success",
-                    data: result,
-                });
-            }
-        });
+        })
     }
 
     // [GET] /booking/cancellation

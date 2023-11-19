@@ -8,7 +8,7 @@ CREATE TABLE Admin
 (
     admin_id			int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
     admin_nickname		varchar(50)		NOT NULL    UNIQUE,
-    admin_pass			varchar(50)		NOT NULL,
+    admin_pass			varchar(100)	NOT NULL,
     PRIMARY KEY (admin_id)
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE AuthUser
     au_user_first_name  nvarchar(50)	NOT NULL,
     au_user_last_name   nvarchar(50)	NOT NULL,
     au_user_email       varchar(50)		NOT NULL	UNIQUE,
-    au_user_pass        varchar(50)		NOT NULL,
+    au_user_pass        varchar(100)	NOT NULL,
     au_user_avt_url     varchar(50),
     au_user_sex         varchar(6),
     au_user_birthday    date,
@@ -126,6 +126,7 @@ CREATE TABLE AccoImg
 CREATE TABLE RoomType
 (
     room_id             int		     AUTO_INCREMENT  NOT NULL    UNIQUE,
+    room_name           varchar(100) NOT NULL,
     room_class          varchar(50)  NOT NULL,
     room_type           varchar(10)  NOT NULL,
     room_max_adult      int          NOT NULL,
@@ -257,7 +258,7 @@ CREATE TABLE UserNoti
 (
     au_user_id			int	NOT NULL,
     noti_id				int	NOT NULL,
-    usernoti_is_read	bit			NOT NULL,
+    usernoti_is_read	int	NOT NULL    DEFAULT 0,
     PRIMARY KEY (au_user_id, noti_id),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
     FOREIGN KEY (noti_id) REFERENCES Notification(noti_id)

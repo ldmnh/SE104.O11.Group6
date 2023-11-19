@@ -40,22 +40,97 @@ const onClickAddCreditAccountBtn = () => {
 };
 addCreditAccountBtn.addEventListener("click", onClickAddCreditAccountBtn);
 
-// Nhan vao nut xoa
-const deleteBtn = document.querySelectorAll(".delete-btn");
-deleteBtn.forEach((item) => {
+
+// Nhan vao nut xoa debit
+
+const deleteBtnDebit = document.querySelectorAll(".delete-debit");
+const formDebits = document.querySelectorAll('.form-delete-debit')
+formDebits.forEach((f, index) => {
+	f.addEventListener('submit', e => {
+		e.preventDefault();
+	})
+})
+deleteBtnDebit.forEach((item, index) => {
 	item.addEventListener("click", () => {
-		const parentForm = item.closest(".form__debit-detail-one");
-		parentForm.classList.add("hidden");
+		const closePopupOtpDelDebit = document.querySelector(".otp__button--submit1--del-debit");
+		const modalOtpDelDebit = document.querySelector(".del-debit-card");
+		modalOtpDelDebit.style.display = "block";
+
+		closePopupOtpDelDebit.addEventListener("click", () => {
+			modalOtpDelDebit.style.display = "none";
+		});
+
+		const closePopupOtp2DelDebit = document.querySelector(".otp__close-btn--del-debit");
+		closePopupOtp2DelDebit.addEventListener("click", () => {
+			modalOtpDelDebit.style.display = "none";
+		});
+		const conformBtnDebit = document.querySelector(".otp__button--submit2--del-debit");
+		conformBtnDebit.addEventListener("click", () => {
+			formDebits[index].submit();
+		});
+
 	});
 });
 
-//Doi trang thai:
-const defaultBtns = document.querySelectorAll(".default-btn");
 
-defaultBtns.forEach((btn) => {
+
+// Nhan vao nut xoa bank
+const deleteBtnBank = document.querySelectorAll(".delete-bank");
+const formBanks = document.querySelectorAll('.form-delete-bank')
+formBanks.forEach((f, index) => {
+	f.addEventListener('submit', e => {
+		e.preventDefault();
+	})
+})
+deleteBtnBank.forEach((item, index) => {
+	item.addEventListener("click", () => {
+		const closePopupOtpDelBank = document.querySelector(".otp__button--submit1--del-bank");
+		const modalOtpDelBank = document.querySelector(".del-bank-card");
+		modalOtpDelBank.style.display = "block";
+
+		closePopupOtpDelBank.addEventListener("click", () => {
+			modalOtpDelBank.style.display = "none";
+		});
+
+		const closePopupOtp2DelBank = document.querySelector(".otp__close-btn--del-bank");
+		closePopupOtp2DelBank.addEventListener("click", () => {
+			modalOtpDelBank.style.display = "none";
+		});
+		const conformBtnBank = document.querySelector(".otp__button--submit2--del-bank");
+		conformBtnBank.addEventListener("click", () => {
+			formBanks[index].submit();
+		});
+
+	});
+});
+
+//Doi trang thai bank:
+const defaultBtnBanks = document.querySelectorAll(".default-btn-bank");
+
+defaultBtnBanks.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		// Chuyển tất cả các nút về trạng thái "Thiết lập mặc định"
-		defaultBtns.forEach((otherBtn) => {
+		defaultBtnBanks.forEach((otherBtn) => {
+			otherBtn.classList.remove("filled-default");
+			otherBtn.classList.add("unfilled-default");
+			otherBtn.textContent = "Thiết lập mặc định";
+		});
+
+		// Chuyển nút được nhấn thành trạng thái "Mặc định"
+		btn.classList.remove("unfilled-default");
+		btn.classList.add("filled-default");
+		btn.textContent = "Mặc định";
+	});
+});
+
+
+//Doi trang thai debit:
+const defaultBtnDebits = document.querySelectorAll(".default-btn-debit");
+
+defaultBtnDebits.forEach((btn) => {
+	btn.addEventListener("click", () => {
+		// Chuyển tất cả các nút về trạng thái "Thiết lập mặc định"
+		defaultBtnDebits.forEach((otherBtn) => {
 			otherBtn.classList.remove("filled-default");
 			otherBtn.classList.add("unfilled-default");
 			otherBtn.textContent = "Thiết lập mặc định";

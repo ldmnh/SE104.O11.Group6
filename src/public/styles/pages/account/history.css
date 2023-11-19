@@ -13,9 +13,9 @@ html {
     color: var(--black);
 }
 
-body {
+/* body {
     width: 100vw;
-}
+} */
 
 .booking-history-container {
     margin: 0 auto;
@@ -47,18 +47,19 @@ body {
     margin: 12px 0 0 0;
 }
 
-.aside-content__section {
+.aside-section {
     font-weight: 500;
 }
 
-.aside-content__section p {
+.aside-section p {
     padding: 12px;
     height: 48px;
     margin-bottom: 12px;
     cursor: pointer;
+    color: var(--black);
 }
 
-.aside-content__section p:hover,
+.aside-section p:hover,
 .logout-btn:hover {
     border-radius: 8px;
     background-color: var(--gray);
@@ -66,7 +67,7 @@ body {
     cursor: pointer;
 }
 
-.aside-content__section p:nth-child(2) {
+.aside-section p.active {
     background-color: var(--primary-color-1);
     color: var(--white);
     border-radius: 8px;
@@ -78,11 +79,10 @@ body {
     border-radius: 100%;
 }
 
-.aside-content__item p {
+.aside-item p {
     color: var(--red);
     font-weight: 500;
     margin: 12px;
-    cursor: pointer;
 }
 
 .booking-history {

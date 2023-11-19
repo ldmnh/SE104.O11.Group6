@@ -1,17 +1,13 @@
 <div class="comment-wrapper">
     <div class="comment-wrapper__profile">
-        <img src="/imgs/milo.jpg" alt="avatar" />
-        <p>An An</p>
+        <img src="/imgs/user/<%=rating.au_user_avt_url%>" alt="avatar" />
+        <p><%=rating.au_user_full_name%></p>
     </div>
     <p class="comment-wrapper__comment">
-        Dịch vụ rất tốt, chăm sóc chu đáo phục vụ tận tình. Dịch vụ rất tốt, chăm
-        sóc chu đáo phục vụ tận tình. Dịch vụ rất tốt, chăm sóc chu đáo phục vụ tận
-        tình. Dịch vụ rất tốt, chăm sóc chu đáo phục vụ tận tình. Dịch vụ rất tốt,
-        chăm sóc chu đáo phục vụ tận tình. Dịch vụ rất tốt, chăm sóc chu đáo phục vụ
-        tận tình. Dịch vụ rất tốt, chăm sóc chu đáo phục vụ tận tình.
+        <%=rating.rating_context%>
     </p>
     <div class="comment-wrapper__point-day">
-        <p class="comment-wrapper__point">7/10</p>
-        <p>14/10/2023</p>
+        <span class="comment-wrapper__point"><%=rating.rating_point%></span>
+        <span><%=rating.rating_datetime_format%></span>
     </div>
 </div>

@@ -26,6 +26,8 @@ class SearchController {
                     if (result1.length > 0) {
                         res.status(200).render('./pages/search/results', {
                             message: "Đã tìm thành công",
+                            user: req.session.user,
+                            totalPage: 1,
                             data: result1,
                         });
                         
@@ -85,8 +87,8 @@ class SearchController {
                 if (rating_point == "7+")
                     sql1 += ` AND room_avg_rating BETWEEN 7 AND 10`;
                 if (rating_point == "6+")
-                    sql1 += ` AND room_avg_rating BETWEEN 1 AND 5`;
-
+                    sql1 += ` AND room_avg_rating BETWEEN 6 AND 7`;
+if(rating_point == null)
                 if (bed_type == "Giường đơn") {
                     sql1 += ` AND room_single_bed > 0`;
                 }
@@ -141,55 +143,45 @@ class SearchController {
 
     // [GET] /search/:acco_id
     accoDetail(req, res) {
-        accoRoomDetail.getDetail(
-            req,
-            res,
-            function (
-                err,
-                accoDetail,
-                accoFea,
-                accoImg,
-                accoRoom,
-                accoRoomRating
-            ) {
-                res.status(200).render("./pages/search/detail", {
-                    // res.status(200).json({
-                    message: "Lấy thông tin thành công",
-                    accoDetail: accoDetail,
-                    accoFea: accoFea,
-                    accoImg: accoImg,
-                    accoRoom: accoRoom,
-                    accoRoomRating: accoRoomRating,
-                });
+        accoRoomDetail.getDetail(req, res, function (err, accoDetail, accoFea, accoImg, accoRoom, accoExte, accoRoomRating) {
+            if (err) {
+                res.status(404).render('./pages/site/error404.ejs')
             }
-        );
+            if (!accoDetail) {
+                res.status(404).render('./pages/site/error404.ejs')
+            }
+            res.status(200).render('./pages/search/detail', {
+                // res.status(200).json({
+                message: 'Lấy thông tin thành công',
+                user: req.session.user,
+                accoDetail: accoDetail,
+                accoFea: accoFea,
+                accoImg: accoImg,
+                accoRoom: accoRoom,
+                accoExte: accoExte,
+                accoRoomRating: accoRoomRating,
+            })
+        })
         // res.status(200).render('./pages/search/detail')
     }
 
     // [POST] /search:acco_id
     submitBooking(req, res) {
-        const {
-            acco_id,
-            room_id,
-            room_number,
-            room_cost_before,
-            room_cost_after,
-        } = req.body;
+        console.log(req.body)
+        const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
 
         req.session.acco = { id: acco_id };
 
-        req.session.rooms = room_number
-            .map((value, index) => {
-                return {
-                    id: Number(room_id[index]),
-                    num: Number(value),
-                    cost_before: Number(room_cost_before[index]),
-                    cost_after: Number(room_cost_after[index]),
-                };
-            })
-            .filter((value) => value.num > 0);
+        req.session.rooms = room_number.map((value, index) => {
+            return {
+                id: Number(room_id[index]),
+                num: Number(value),
+                cost_before: Number(room_cost_before[index]),
+                cost_after: Number(room_cost_after[index]),
+            };
+        }).filter((value) => value.num > 0);
 
-        // res.redirect('/booking/information');
+        res.redirect('/booking/information');
     }
 }
 

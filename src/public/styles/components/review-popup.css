@@ -1,6 +1,4 @@
-@import url("/styles/base.css");
-
-.modal {
+.modal-review {
     position: fixed;
     display: none;
     z-index: 100;

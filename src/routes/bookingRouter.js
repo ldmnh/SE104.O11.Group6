@@ -25,11 +25,9 @@ router.post('/payment', authMiddleware.isLoggedIn, bookingMiddleware.isFilledBoo
 // router.get('/success', authMiddleware.isLoggedIn, BookingController.success)
 router.get('/success', BookingController.success)
 
-// router.get('/:detail', BookingController.detail)
+router.get('/:detail', authMiddleware.isLoggedIn, BookingController.detail)
 
 router.get('/cancellation', BookingController.cancel)
 router.post('/cancellation', BookingController.cancelPost)
-
-router.get('/:detail', BookingController.detail)
 
 module.exports = router

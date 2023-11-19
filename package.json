@@ -28,6 +28,7 @@
     "express-session": "^1.17.3",
     "installable": "^0.2.8",
     "jsonwebtoken": "^9.0.2",
+    "moment": "^2.29.4",
     "mysql": "^2.18.1",
     "status": "^0.0.13"
   },
