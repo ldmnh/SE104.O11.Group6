@@ -192,9 +192,11 @@ class SearchController {
           }
 
           if (result1.length > 0) {
-            // res.status(200).render("./pages/search/results", {
-            res.send({
+            res.status(200).render("./pages/search/results", {
+              // res.send({
               message: "Đã tìm thành công",
+              user: req.session.user,
+              totalPage: 1,
               data: result1,
             });
           } else {

@@ -8,10 +8,12 @@ $("#dateRange").daterangepicker({
 // Bắt sự kiện khi người dùng chọn ngày
 $("#dateRange").on("apply.daterangepicker", function (ev, picker) {
 	$(this).val(
-		picker.startDate.format("DD/MM/YYYY") +
+		picker.startDate.format("MM/DD/YYYY") +
 		" - " +
-		picker.endDate.format("DD/MM/YYYY")
+		picker.endDate.format("MM/DD/YYYY")
 	);
+	$('[name="checkin"]').val(picker.startDate.format("MM-DD-YYYY"));
+	$('[name="checkout"]').val(picker.endDate.format("MM-DD-YYYY"));
 });
 
 // Bắt sự kiện khi người dùng xóa ngày

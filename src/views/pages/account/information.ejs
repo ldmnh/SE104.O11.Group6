@@ -51,9 +51,30 @@
             <hr />
 
             <div class="aside-item logout-btn">
-                <a style='text-decoration: none;' href="/auth/logout">
+                <a style='text-decoration: none' id="logoutButton">
                     <p>Đăng xuất</p>
                 </a>
+                <!-- <button id="logoutButton" style='text-decoration: none'>Đăng xuất</button> -->
+            </div>
+            <div class="popup">
+                <div class="popup__main">
+                    <div class="popup__content-title">
+                        <div class="popup--top">
+                            <p class="popup__title">Đăng xuất</p>
+                            <div class="close-btn">
+                                    <span class="material-symbols-outlined">cancel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/imgs/logout.png" alt="logout" class="popup__img">
+                    <div class="popup__content">
+                        <p>Bạn có chắc chắn muốn đăng xuất không?</p>
+                    </div>
+                    <div class="popup__button">
+                        <button class="btn--outlined pri btn-cancel" type="submit">Hủy</button>
+                        <button class="btn--filled pri btn-logout" type="submit">Đăng xuất</button>
+                    </div>
+                </div>
             </div>
         </aside>
         
@@ -171,6 +192,7 @@
     <script src="/scripts/account-page.js"></script>
     <script src="/scripts/search-bar.js"></script>
     <script src="/scripts/header-medium.js"></script>
+    <script src="/scripts/logout-popup.js"></script>
 </body>
 
 </html>
