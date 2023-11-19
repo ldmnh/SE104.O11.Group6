@@ -148,5 +148,20 @@ AuthUser.getDebitCardsById = ({ id }, callback) => {
         callback(err, result);
     });
 }
-
+AuthUser.findByEmail = (email, results) => {
+    db.query(
+        `SELECT * from authuser WHERE au_user_email = '${email}'`,
+        (err, result) => {
+            if (err) {
+                results(err, null);
+                return;
+            }
+            if (result.length > 0) {
+                results(null, result[0]);
+                return;
+            }
+            results(null, null);
+        }
+    );
+};
 module.exports = AuthUser

@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const AuthUser = require("../models/authuser.model");
 const bcrypt = require("bcryptjs");
 const { promisify } = require("util");
 
@@ -16,8 +16,6 @@ const { promisify } = require("util");
  * @property {function} logout - Clears the user, booking, rooms, and acco from the session and redirects to the home page.
  * @property {function} changePassPut - Handles the change password form submission and updates the password in the database.
  */
-
-const authuser = require("../models/authuser.model");
 
 class AuthController {
     // [GET] /auth/register
@@ -38,7 +36,7 @@ class AuthController {
     // [POST] /auth/login
     loginPost(req, res) {
         const { email, password } = req.body;
-        User.findByEmail(email, async (err, user) => {
+        AuthUser.findByEmail(email, (err, user) => {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
@@ -49,7 +47,7 @@ class AuthController {
                     error: "Email không tồn tại!",
                 });
             } else {
-                if (await bcrypt.compare(password, user.au_user_pass)) {
+                if (bcrypt.compare(password, user.au_user_pass)) {
                 // if (password === user.au_user_pass) {
                     req.session.user = {
                         id: user.au_user_id,

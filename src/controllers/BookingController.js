@@ -1,14 +1,14 @@
 const index = require('../models/index.model');
 const accommodation = require('../models/accommodation.model');
-const authuser = require('../models/authuser.model');
+const authuser = require("../models/authuser.model");
 const booking = require('../models/booking.model');
+const Booking = require("../models/booking.model");
 
 class BookingController {
-
     // [GET] /booking/information
     information(req, res) {
         accommodation.getAccoById({
-            id: req.session.acco?.id
+            id: req.session.acco?.id,
         }, (err, result) => {
             if (err) throw err;
 
@@ -16,7 +16,8 @@ class BookingController {
                 req.session.acco.star = result[0].acco_star;
                 req.session.acco.name = result[0].acco_name;
                 req.session.acco.type = result[0].acco_type;
-                req.session.acco.exac_location = result[0].acco_exac_location;
+                req.session.acco.exac_location =
+                    result[0].acco_exac_location;
 
                 const data = {
                     acco: req.session.acco,
@@ -40,29 +41,29 @@ class BookingController {
             } else {
                 throw new Error('Không tìm thấy khách sạn!!!');
             }
-        })
+        });
     }
 
     // [POST] /booking/information
     informationPost(req, res) {
-        const {
-            first_name, last_name, email, phone, note
-        } = req.body;
+        const { first_name, last_name, email, phone, note } = req.body;
 
         req.session.book = {
-            first_name, last_name, email, phone, note
+            first_name,
+            last_name,
+            email,
+            phone,
+            note,
         };
 
-        console.log(req.session.book)
-
-        res.redirect('/booking/payment');
+        res.redirect("/booking/payment");
         // res.status(200).json({ body: req.body });
     }
 
     // [GET] /booking/payment
     payment(req, res) {
         authuser.getBankCardsById({
-            id: req.session.user?.id
+            id: req.session.user?.id,
         }, (err, result) => {
             if (err) throw err;
 
@@ -72,43 +73,30 @@ class BookingController {
                 req.session.user.bank_cards = [];
             }
 
-            authuser.getDebitCardsById({
-                id: req.session.user?.id
-            }, (err, result) => {
-                if (err) throw err;
-
-                if (result.length > 0) {
-                    req.session.user.debit_cards = result;
-                } else {
-                    req.session.user.debit_cards = [];
-                }
-
-                const data = {
-                    acco: req.session.acco,
-                    search: {
-                        checkIn: index.toXDDMMYYYY(new Date(req.session.search?.check_in)),
-                        checkOut: index.toXDDMMYYYY(new Date(req.session.search?.check_out)),
-                    },
-                    rooms: req.session.rooms,
-                    book: {
-                        total_room: req.session.rooms.reduce((sum, room) => sum + room.num, 0),
-                        cost_before: req.session.rooms.reduce((sum, room) => sum + room.cost_before, 0),
-                        cost_after: req.session.rooms.reduce((sum, room) => sum + room.cost_after, 0),
-                    },
-                    bank_cards: req.session.user?.bank_cards,
-                    debit_cards: req.session.user?.debit_cards
-                }
-                res.status(200).render('./pages/booking/payment', { user: req.session.user, data })
-                // res.status(200).json({ data })
-            })
+            const data = {
+                acco: req.session.acco,
+                search: {
+                    checkIn: index.toXDDMMYYYY(new Date(req.session.search?.check_in)),
+                    checkOut: index.toXDDMMYYYY(new Date(req.session.search?.check_out)),
+                },
+                rooms: req.session.rooms,
+                book: {
+                    total_room: req.session.rooms.reduce((sum, room) => sum + room.num, 0),
+                    cost_before: req.session.rooms.reduce((sum, room) => sum + room.cost_before, 0),
+                    cost_after: req.session.rooms.reduce((sum, room) => sum + room.cost_after, 0),
+                },
+                bank_cards: req.session.user?.bank_cards,
+                debit_cards: req.session.user?.debit_cards
+            }
+            res.status(200).render('./pages/booking/payment', { user: req.session.user, data })
+            // res.status(200).json({ data })
         })
     }
 
+
     // [POST] /booking/payment
     paymentPost(req, res) {
-        const {
-            pay_id     // Phương thức thanh toán 1: tiền mặt, 2: thẻ ngân hàng, 3: thẻ tín dụng
-        } = req.body;
+        const { pay_id } = req.body;      // Phương thức thanh toán 1: tiền mặt, 2: thẻ ngân hàng, 3: thẻ tín dụng
 
         req.session.book.pay_id = parseInt(pay_id);
 
@@ -150,7 +138,7 @@ class BookingController {
 
     // [GET] /booking/success
     success(req, res) {
-        booking.getAllBooking(req, res, function (err, res, result) {
+        Booking.getAllBooking(req, res, function (err, res, result) {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
@@ -168,7 +156,7 @@ class BookingController {
     detail(req, res) {
         const book_id = req.query.book_id;
         const id = req.session.user.id;
-        booking.getDetail({ id, book_id }, function (err, booking, bookingDetails) {
+        Booking.getDetail({ id, book_id }, function (err, booking, bookingDetails) {
             if (err) {
                 res.render('./pages/site/error404')
                 throw err;
@@ -177,6 +165,7 @@ class BookingController {
             } else {
                 res.status(200).render('./pages/booking/detail', {
                     // res.status(200).json({
+                    user: req.session.user,
                     booking: booking,
                     bookingDetails: bookingDetails,
                 })
@@ -186,27 +175,23 @@ class BookingController {
 
     // [GET] /booking/cancellation
     cancel(req, res) {
-        booking.getAllBooking(req, res, function (err, res, result) {
+        Booking.getAllBooking(req, res, function (err, res, result) {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
             }
             if (result.length > 0) {
-                res.status(200).render(
-                    "./pages/booking/cancellation",
-                    // res.send(
-                    {
-                        message: "success",
-                        data: result,
-                    }
-                );
+                res.status(200).render("./pages/booking/cancellation", {
+                    message: "success",
+                    data: result,
+                });
             }
         });
     }
 
     // [POST] /booking/cancellation
     cancelPost(req, res) {
-        booking.cancel(req, res, function (err, res, result) {
+        Booking.cancelBooking(req, res, function (err, res, result) {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
@@ -220,4 +205,4 @@ class BookingController {
     }
 }
 
-module.exports = new BookingController()
+module.exports = new BookingController();

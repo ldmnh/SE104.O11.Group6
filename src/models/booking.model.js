@@ -7,7 +7,7 @@
 const db = require('../config/db/connect');
 const index = require('../models/index.model')
 
-function Booking() { }
+function Booking() {}
 
 Booking.postInfo = ({
     acco_id,
@@ -154,23 +154,25 @@ Booking.getAllBooking = function (req, res, callback) {
     // }
     req.session.book_id = 1;
     const sql = `SELECT acco_exac_location, city_name, book_start_datetime, 
+    TIME_FORMAT(book_start_datetime, '%H:%i') AS book_start_hour,
         DAYOFWEEK(book_start_datetime) AS book_start_dayofweek,
-        RIGHT('0' + CAST(DAY(book_start_datetime) AS VARCHAR(2)), 2) AS book_start_day,
-        RIGHT('0' + CAST(MONTH(book_start_datetime) AS VARCHAR(2)), 2) AS book_start_month,
-        CAST(YEAR(book_start_datetime) AS VARCHAR(4)) AS book_start_year,
+        LPAD(EXTRACT(DAY FROM book_start_datetime), 2, '0') AS book_start_day,
+        LPAD(EXTRACT(MONTH FROM book_start_datetime), 2, '0') AS book_start_month,
+        YEAR(book_start_datetime) AS book_start_year,
+        TIME_FORMAT(book_end_datetime, '%H:%i') AS book_end_hour,
         DAYOFWEEK(book_end_datetime) AS book_end_dayofweek,
-        RIGHT('0' + CAST(DAY(book_end_datetime) AS VARCHAR(2)), 2) AS book_end_day,
-        RIGHT('0' + CAST(MONTH(book_end_datetime) AS VARCHAR(2)), 2) AS book_end_month,
-        CAST(YEAR(book_end_datetime) AS VARCHAR(4)) AS book_end_year,
+        LPAD(EXTRACT(DAY FROM book_end_datetime), 2, '0') AS book_end_day,
+        LPAD(EXTRACT(MONTH FROM book_end_datetime), 2, '0') AS book_end_month,
+        YEAR(book_end_datetime) AS book_end_year,
         ABS(DATEDIFF(book_start_datetime, book_end_datetime)) AS book_num_day,
         acco_name, acco_star, 
-    book_end_datetime, book_room_cost_after, book_num_room, book_email, room_class, booking.book_id FROM booking, bookingdetail, roomtype, accommodation, city WHERE booking.book_id= bookingdetail.book_id AND bookingdetail.room_id=roomtype.room_id AND roomtype.acco_id=accommodation.acco_id AND city.city_id = accommodation.city_id AND booking.book_id = ${req.session.book_id} `;
+    book_end_datetime, book_room_cost_after, book_cost_after, book_num_room, book_email, room_class, booking.book_id FROM booking, bookingdetail, roomtype, accommodation, city WHERE booking.book_id= bookingdetail.book_id AND bookingdetail.room_id=roomtype.room_id AND roomtype.acco_id=accommodation.acco_id AND city.city_id = accommodation.city_id AND booking.book_id = ${req.session.book_id} `;
     db.query(sql, async (err, result) => {
         callback(err, res, result);
     });
 };
 
-Booking.cancel = function (req, res, callback) {
+Booking.cancelBooking = function (req, res, callback) {
     req.session.book_id = 1;
     const option = req.body.option;
     let value;
