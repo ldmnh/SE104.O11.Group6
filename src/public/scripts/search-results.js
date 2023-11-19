@@ -100,15 +100,15 @@ function selectRadio(optionId) {
 
 filterSortData();
 function filterSortData() {
-    const acco_type = getFilter("acco_type");
-    const rating_point = getFilter("rating_point");
-    const bed_type = getFilter("bed_type");
-    const acco_star = getFilter("acco_star");
-    const acco_fea = getFilter("acco_fea");
+    const acco_type = getFilter("acco-type");
+    const rating_point = getFilter("rating-point");
+    const bed_type = getFilter("bed-type");
+    const acco_star = getFilter("acco-star");
+    const acco_fea = getFilter("acco-fea");
     const price = getFilter("price");
     const cost = getSort("cost");
-    const accoStar = getSort("accoStar");
-    const countRating = getSort("countRating");
+    const acco_star_sort = getSort("acco-star-sort");
+    const count_rating = getSort("count-rating");
 
     $.ajax({
         url: "/search/resultsfiltersort" + window.location.search,
@@ -121,8 +121,8 @@ function filterSortData() {
             acco_fea,
             price,
             cost,
-            accoStar,
-            countRating,
+            acco_star_sort,
+            count_rating,
         },
 
         success: function (results) {

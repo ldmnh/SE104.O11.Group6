@@ -50,8 +50,8 @@ class SearchController {
             acco_fea,
             price,
             cost,
-            accoStar,
-            countRating,
+            acco_star_sort,
+            count_rating,
         } = req.query;
         Search.find(req, res, function (err, res, result) {
             if (err) {
@@ -106,13 +106,13 @@ class SearchController {
                     // result.sort((a, b) => a.room_cost - b.room_cost)
                     sql1 += ` ORDER BY room_cost DESC`;
                 if (cost == "Thấp đến cao") sql1 += ` ORDER BY room_cost ASC`;
-                if (accoStar == "Cao đến thấp")
+                if (acco_star_sort == "Cao đến thấp")
                     sql1 += ` ORDER BY acco_star DESC`;
-                if (accoStar == "Thấp đến cao")
+                if (acco_star_sort == "Thấp đến cao")
                     sql1 += ` ORDER BY acco_star ASC`;
-                if (countRating == "Cao đến thấp")
+                if (count_rating == "Cao đến thấp")
                     sql1 += ` ORDER BY room_avg_rating DESC`;
-                if (countRating == "Thấp đến cao")
+                if (count_rating == "Thấp đến cao")
                     sql1 += ` ORDER BY room_avg_rating ASC`;
                 db.query(sql1, (err, result1) => {
                     if (err) {

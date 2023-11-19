@@ -332,11 +332,11 @@ hr {
     border-radius: 8px;
 }
 
-#costAZ,
-#costZA,
-#accoStarAZ,
-#accoStarZA,
-#countRatingAZ,
-#countRatingZA {
+#cost-AZ,
+#cost-ZA,
+#acco-star-AZ,
+#acco-star-ZA,
+#count-rating-AZ,
+#count-rating-ZA {
     display: none;
 }

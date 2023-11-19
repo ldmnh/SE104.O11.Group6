@@ -16,11 +16,9 @@
         <section class="title">
             <h1>Đặt phòng đã được xác nhận của bạn tại 2way.com</h1>
             <div class="title__rating">
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
+                    <% for (let i = 0; i < data[0].acco_star; i++) { %>
+                        <span class="material-symbols-outlined">star</span>
+                      <% } %>
             </div>
         </section>
 
@@ -29,8 +27,8 @@
                 <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
                 <div class="detail__location">
                     <div>
-                        <p>44D Trần Khánh Dư, phường 8,</p>
-                        <p>Hội An,</p>
+                        <p><%= data[0].acco_exac_location %>,</p>
+                        <p><%= data[0].city_name %>,</p>
                         <p>Việt Nam.</p>
                     </div>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Hiển thị bản đồ</a>
@@ -58,7 +56,7 @@
                 <div class="detail__code">
                     <div>
                         <h3>Mã xác nhận:</h3>
-                        <p>12345678</p>
+                        <p><%= data[0].book_id %></p>
                     </div>
                     <div>
                         <h3>Mã PIN:</h3>
@@ -68,20 +66,43 @@
                 <hr>
                 <div class="detail__checkin">
                     <h3>Nhận phòng</h3>
-                    <p>Thứ 5, ngày 12 tháng 10 năm 2023</p>
-                    <p>14:00 - 00:00</p>
+                    <p>
+                        <%if(data[0].book_start_dayofweek==1) { %> CN,
+                            <% } else { %> 
+                            T<%= data[0].book_start_dayofweek %>,
+                            <% } %> ngày 
+                            <%= data[0].book_start_day %> tháng 
+                            <%= data[0].book_start_month %> năm
+                            <%= data[0].book_start_year %>
+                    </p>
+                    <p><%= data[0].book_start_hour %> - 
+                        <%= data[0].book_end_hour %>
+                    </p>
                 </div>
                 <hr>
                 <div class="detail__checkout">
                     <h3>Trả phòng</h3>
-                    <p>Thứ 5, ngày 12 tháng 10 năm 2023</p>
-                    <p>14:00 - 00:00</p>
+                    <p>
+                        <%if(data[0].book_end_dayofweek==1) { %> CN,
+                            <% } else { %> 
+                            T<%= data[0].book_end_dayofweek %>,
+                            <% } %> ngày 
+                            <%= data[0].book_end_day %> tháng 
+                            <%= data[0].book_end_month %> năm
+                            <%= data[0].book_end_year %>
+                    </p>
+                    <p><%= data[0].book_start_hour %> - 
+                        <%= data[0].book_end_hour %>
+                    </p>
                 </div>
                 <hr>
                 <div class="detail__price price">
                     <h3>Giá</h3>
-                    <p>3 đêm, 3 phòng</p>
-                    <p class="price__strong">VND 2.800.000</p>
+                    <p>
+                        <%= data[0].book_num_room %> phòng, 
+                            <%= data[0].book_num_day %> đêm
+                    </p>
+                    <p class="price__strong">VND <%= data[0].book_cost_after %></p>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Giá này đã bao gồm những gì?</a>
                 </div>
             </div>
@@ -100,8 +121,12 @@
             <div class="abort__info">
                 <h2>Miễn phí hủy đặt phòng</h2>
                 <p class="abort__time-left">Còn 6 ngày 14 giờ 24 phút!!!</p>
-                <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy <span class="abort__highlight">trước 12 tháng 10 18:00 giờ</span> Hội An.</p>
-                <p>Sau thời gian này bạn sẽ phải thanh toán VND 2.800.000 để hủy</p>
+                <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy <span class="abort__highlight">trước 
+                    <%= data[0].book_start_day %> tháng 
+                    <%= data[0].book_start_month %> 
+                    <%= data[0].book_start_hour %> giờ</span> 
+                    <%= data[0].city_name %>.</p>
+                <p>Sau thời gian này bạn sẽ phải thanh toán VND <%= data[0].book_cost_after %> để hủy</p>
             </div>
             <div class="abort__progress">
                 <div class="progress__title">
@@ -111,10 +136,10 @@
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="progress__time">12 tháng 10</p>
+                <p class="progress__time"><%= data[0].book_start_day %> tháng 
+                                          <%= data[0].book_start_month %></p>
             </div>
-            <a href="/booking/success" class="btn detail__btn" role="button">Hủy đặt phòng</a>
-        </section>
+            <button type="button" class="btn detail__btn" id="cancel-btn">Hủy đặt phòng</button>        </section>
     </main>
 <%- include('../../components/cancel-popup') %>
 
