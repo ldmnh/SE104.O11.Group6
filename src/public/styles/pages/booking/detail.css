@@ -10,7 +10,6 @@ html {
 }
 @import url("/styles/partials/header-small.css");
 @import url("/styles/partials/footer.css");
-@import url("/styles/components/review-popup.css");
 
 /* body {
     width: 100vw;

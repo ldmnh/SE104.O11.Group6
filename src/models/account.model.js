@@ -91,6 +91,7 @@ AccountModel.delDebit = ({ id, debit_id }, callback) => {
 
 AccountModel.addReview = ({
     room_id,
+    rating_datetime,
     rating_point,
     rating_context,
     id
@@ -98,14 +99,16 @@ AccountModel.addReview = ({
     const sql = `
         INSERT INTO rating
         (room_id,
+        rating_datetime,
         rating_point,
         rating_context,
         au_user_id)
-        VALUES (?, ?, ?, ${id})`;
+        VALUES (?, ?, ?, ?,${id})`;
     const params = [
         room_id,
+        rating_datetime,
         rating_point,
-        rating_context,
+        rating_context
     ];
 
     db.query(sql, params, (err, result) => {

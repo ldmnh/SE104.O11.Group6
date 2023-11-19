@@ -108,12 +108,13 @@ class AccountController {
 
     // [POST] /account/booking-history
     addReview(req, res) {
-        const id = req.session.user.au_user_id;
+        const id = req.session.user.id;
         const { room_id, rating_point, rating_context } = req.body;
-
+        const rating_datetime = new Date()
+        console.log(rating_datetime)
         console.log(req.body)
         AccountModel.addReview({
-            room_id, rating_point, rating_context, id
+            room_id, rating_datetime, rating_point, rating_context, id
         }, (err, result) => {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
