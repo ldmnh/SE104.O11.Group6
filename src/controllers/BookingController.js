@@ -249,8 +249,16 @@ class BookingController {
     cancel(req, res) {
         Booking.getAllBooking(req, res, function (err, res, result) {
             if (err) {
-                res.status(500).json({ message: "Lỗi truy vấn!" });
+                res.render('./pages/site/error404')
                 throw err;
+            } else if (!booking) {
+                res.render('./pages/site/error404')
+            } else {
+                res.status(200).render('./pages/booking/detail', {
+                    // res.status(200).json({
+                    booking: booking,
+                    bookingDetails: bookingDetails,
+                })
             }
             if (result.length > 0) {
                 res.status(200).render("./pages/booking/cancellation", {
