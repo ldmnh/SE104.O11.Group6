@@ -3,15 +3,15 @@ USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
 VALUES
-    ('admin1', 'password1'),
-    ('admin2', 'password2'),
-    ('admin3', 'password3');
+    ('admin1', '$2a$08$ymCOpCABEqsCRZzyj9NIFuH.0ulU1O6FbcMVRl9VSL4EM.vdje7wK'),
+    ('admin2', '$2a$08$dTn4g4gmAvRlxGDxtjPga.qNYldTY/WOl44Ikm7r3pbc7xFzSaZoG'),
+    ('admin3', '$2a$08$qSLYLuukotwr31gKGxMooeHa73odnhL8bgFPbviqpSvRBUzYbpMk.');
 
 INSERT INTO AuthUser (au_user_first_name, au_user_last_name, au_user_email, au_user_pass, au_user_avt_url)
 VALUES
-    ('Hiếu', 'Lê',  'lehieudn123@example.com',  'password1', 'user_1.jpg'),
-    ('Giàu', 'Bùi', 'giaubuibt123@example.com', 'password2', 'user_2.jpg'),
-    ('Lân',  'Lý',  'lanlyst123@example.com',   'password3', 'user_3.jpg');
+    ('Hiếu', 'Lê',  'lehieudn123@example.com',  '$2a$08$ymCOpCABEqsCRZzyj9NIFuH.0ulU1O6FbcMVRl9VSL4EM.vdje7wK', 'user_1.jpg'),
+    ('Giàu', 'Bùi', 'giaubuibt123@example.com', '$2a$08$dTn4g4gmAvRlxGDxtjPga.qNYldTY/WOl44Ikm7r3pbc7xFzSaZoG', 'user_2.jpg'),
+    ('Lân',  'Lý',  'lanlyst123@example.com',   '$2a$08$qSLYLuukotwr31gKGxMooeHa73odnhL8bgFPbviqpSvRBUzYbpMk.', 'user_3.jpg');
 
 INSERT INTO BankCard (bank_name, bank_branch, bank_num, bank_name_pers, au_user_id)
 VALUES
@@ -158,7 +158,7 @@ VALUES
     (2, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-09-05 09:00:00', '2023-10-25 10:30:00', '2023-10-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
-    (3, 2, '2023-09-31 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
+    (3, 2, '2023-09-30 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-01 14:45:00', '2023-10-12 14:30:00', '2023-10-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
     (1, 3, '2023-09-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-03 15:15:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),

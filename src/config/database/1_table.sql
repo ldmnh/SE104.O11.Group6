@@ -8,7 +8,7 @@ CREATE TABLE Admin
 (
     admin_id			int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
     admin_nickname		varchar(50)		NOT NULL    UNIQUE,
-    admin_pass			varchar(50)		NOT NULL,
+    admin_pass			varchar(100)	NOT NULL,
     PRIMARY KEY (admin_id)
 );
 
