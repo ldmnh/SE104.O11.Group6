@@ -199,7 +199,7 @@ class SearchController {
             })
             .filter((value) => value.num > 0);
 
-        // res.redirect('/booking/information');
+        res.redirect('/booking/information');
     }
 }
 
