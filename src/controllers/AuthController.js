@@ -48,7 +48,7 @@ class AuthController {
                 });
             } else {
                 if (bcrypt.compare(password, user.au_user_pass)) {
-                    // if (password === user.au_user_pass) {
+                // if (password === user.au_user_pass) {
                     req.session.user = {
                         id: user.au_user_id,
                         first_name: user.au_user_first_name,
