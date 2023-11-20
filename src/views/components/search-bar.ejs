@@ -1,8 +1,8 @@
-<div class="main--search">
+<form class="main--search" action="/search/results" method="get">
     <div class="search__wrapper">
         <div class="search-address">
-            <span class="material-symbols-outlined"> location_on </span>
-            <input class="input_address" type="text" placeholder="Nơi muốn đến" list="location" />
+            <span class="material-symbols-outlined">location_on</span>
+            <input name="location" class="input_address" type="text" placeholder="Nơi muốn đến" list="location" />
             <datalist id="location">
                 <% dataSearch?.forEach(item => { %>
                 <option value="<%=item.city_name %>"></option>
@@ -12,45 +12,47 @@
 
         <div class=" search-address" style="border-left: 1px solid #90a6b1">
             <span class="material-symbols-outlined"> calendar_month </span>
+            <input type="hidden" name='checkin'>
+            <input type="hidden" name='checkout'>
             <input class="input_address" id="dateRange" type="text" value="" placeholder="Ngày nhận - Ngày trả" />
         </div>
 
         <div class="search-address search-address--dropdown" style="border-left: 1px solid #90a6b1">
-            <span class="material-symbols-outlined"> person </span>
+            <span class="material-symbols-outlined">person</span>
             <div id="selected-options" class="input_address" type="text" style="width: 250px"></div>
         </div>
-    </div>
-    <button class="button--submit">Tìm kiếm</button>
-</div>
-<!-- Số lượng người lớn, trẻ em, phòng-->
-<div class="search-quality" id="tongleButton">
-    <div class="search-quality__adults">
-        <span>Người lớn</span>
-        <div class="counter--wraper">
-            <span class="minus minus-adults">-</span>
-            <input type="number" value="2" id="adult__quantity" class="quantity">
-            <span class="plus plus-adults">+</span>
+        <!-- Số lượng người lớn, trẻ em, phòng-->
+        <div class="search-quality" id="tongleButton">
+            <div class="search-quality__adults">
+                <span>Người lớn</span>
+                <div class="counter--wraper">
+                    <span class="minus minus-adults">-</span>
+                    <input name="adult" type="number" value="2" id="adult__quantity" class="quantity">
+                    <span class="plus plus-adults">+</span>
+                </div>
+            </div>
+    
+            <div class="search-quality__child">
+                <span>Trẻ em</span>
+                <div class="counter--wraper">
+                    <span class="minus minus-children">-</span>
+                    <input name="child" type="number" value="0" id="child__quantity" class="quantity">
+                    <span class="plus plus-children">+</span>
+                </div>
+            </div>
+    
+            <div class="search-quality__room">
+                <span>Phòng</span>
+                <div class="counter--wraper">
+                    <span class="minus minus-rooms">-</span>
+                    <input name="room" type="number" value="1" id="room__quantity" class="quantity">
+                    <span class="plus plus-rooms">+</span>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="search-quality__child">
-        <span>Trẻ em</span>
-        <div class="counter--wraper">
-            <span class="minus minus-children">-</span>
-            <input type="number" value="0" id="child__quantity" class="quantity">
-            <span class="plus plus-children">+</span>
-        </div>
-    </div>
-
-    <div class="search-quality__room">
-        <span>Phòng</span>
-        <div class="counter--wraper">
-            <span class="minus minus-rooms">-</span>
-            <input type="number" value="1" id="room__quantity" class="quantity">
-            <span class="plus plus-rooms">+</span>
-        </div>
-    </div>
-</div>
+    <button class="button--submit" type='submit'>Tìm kiếm</button>
+</form>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

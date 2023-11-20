@@ -48,7 +48,7 @@ class AuthController {
                 });
             } else {
                 if (bcrypt.compare(password, user.au_user_pass)) {
-                // if (password === user.au_user_pass) {
+                    // if (password === user.au_user_pass) {
                     req.session.user = {
                         id: user.au_user_id,
                         first_name: user.au_user_first_name,
@@ -143,13 +143,16 @@ class AuthController {
 
     // [GET] /auth/logout
     logout(req, res) {
-        // req.session.user = null
-        // req.session.booking = null
-        // req.session.rooms = null
-        // req.session.acco = null
-
-        // res.status(200).redirect('/');
-        res.status(200).json({ message: "/auth/logout" });
+        req.session.destroy((err) => {
+            if (err) {
+                console.error("Lỗi khi hủy bỏ session:", err);
+                return res
+                    .status(500)
+                    .json({ status: "error", error: "Lỗi khi đăng xuất" });
+            }
+            // Chuyển hướng người dùng về trang đăng nhập sau khi đăng xuất thành công
+            return res.redirect("/");
+        });
     }
 
     // [PUT] /auth/change-password
