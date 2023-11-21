@@ -1,49 +1,73 @@
 // Lấy tham chiếu đến các phần tử DOM
-const minusButton = document.querySelector(".minus");
-const plusButton = document.querySelector(".plus");
-
+const minusButtons = document.querySelectorAll(".minus");
+const plusButtons = document.querySelectorAll(".plus");
+const roomQuantityInputs = document.querySelectorAll("#room__quantity");
 // Thêm sự kiện cho nút -
-minusButton.addEventListener("click", () => {
-  // Khai báo và lấy tham chiếu đến trường nhập số lượng phòng
-  const roomQuantity = document.getElementById("room__quantity");
-  const currentValue = Number(roomQuantity.value);
-  if (currentValue > 0) {
-    roomQuantity.value = currentValue - 1;
-  }
+minusButtons.forEach((minusButton, index) => {
+	minusButton.addEventListener("click", () => {
+		// Get the current value of the corresponding room quantity input
+		const currentValue = Number(roomQuantityInputs[index].value);
+
+		// Ensure the value is greater than 0 before decrementing
+		if (currentValue > 0) {
+			roomQuantityInputs[index].value = currentValue - 1;
+		}
+	});
 });
+
 
 // Thêm sự kiện cho nút +
-plusButton.addEventListener("click", () => {
-  // Khai báo và lấy tham chiếu đến trường nhập số lượng phòng
-  const roomQuantity = document.getElementById("room__quantity");
-  const currentValue = Number(roomQuantity.value);
+// const plusButtons = document.querySelectorAll(".plusButton");
+// const roomQuantityInputs = document.querySelectorAll("#room__quantity");
 
-  if (currentValue < 10) {
-    roomQuantity.value = currentValue + 1;
-  }
+plusButtons.forEach((plusButton, index) => {
+	plusButton.addEventListener("click", () => {
+		// Get the current value of the corresponding room quantity input
+		const currentValue = Number(roomQuantityInputs[index].value);
+
+		// Ensure the value is less than 10 before incrementing
+		if (currentValue < 10) {
+			roomQuantityInputs[index].value = currentValue + 1;
+		}
+	});
 });
 
-const closePPopupBtn = document.querySelector(".close-popup");
-const modal = document.querySelector(".modal");
 
-closePPopupBtn.addEventListener("click", () => {
-  console.log("aaa");
-  modal.style.display = "none";
-});
 
-const closeBtn = document.querySelector(".closeBtn");
-closeBtn.addEventListener("click", () => {
-  console.log("aaa");
-  modal.style.display = "none";
-});
+const closePPopupBtn = document.querySelectorAll(".close-popup");
+const modalReview = document.querySelectorAll(".modal__review-popup");
+
+closePPopupBtn.forEach((item) => {
+	item.addEventListener("click", () => {
+		console.log("aaa");
+
+		modalReview.forEach((itemModal) => {
+			itemModal.style.display = "none";
+		})
+
+	});
+})
+
+
+const closeBtnReview = document.querySelectorAll(".closeBtn");
+closeBtnReview.forEach((item) => {
+	item.addEventListener("click", () => {
+		console.log("aaa");
+		modalReview.forEach((itemModal) => {
+			itemModal.style.display = "none";
+		})
+
+	});
+
+})
 
 //Khi người dùng nhấn đăng:
-const successVPopup = document.querySelector(".modal-success");
-const postBtn = document.querySelector(".post-btn");
+// const successVPopup = document.querySelector(".modal-success");
+// const postBtn = document.querySelector(".post-btn");
 
-const redirect2SavePopupView = () => {
-  successVPopup.style.display = "block";
-  modal.style.display = "none";
-};
+// const redirect2SavePopupView = () => {
+// 	successVPopup.style.display = "block";
+// 	modalReview.style.display = "none";
+// };
 
-postBtn.addEventListener("click", redirect2SavePopupView);
+// postBtn.addEventListener("click", redirect2SavePopupView);

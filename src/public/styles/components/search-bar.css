@@ -22,6 +22,7 @@
     justify-content: space-between;
     width: 130%;
     padding: 8px;
+    position: relative;
 }
 
 .search-address {
@@ -86,6 +87,7 @@
     right: auto;
     display: block;
 }
+
 .btn-primary {
     color: var(--white);
     background-color: var(--primary-color-1);
@@ -93,6 +95,7 @@
     height: 48px;
     width: 128px;
 }
+
 .btn-default {
     height: 48px;
     width: 128px;
@@ -104,10 +107,12 @@
     background-color: var(--primary-color-1);
     border-color: var(--primary-color-1);
 }
+
 div.daterangepicker {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 10px;
 }
+
 .daterangepicker td.active,
 .daterangepicker td.active:hover {
     background-color: black;
@@ -127,6 +132,7 @@ div.daterangepicker {
     justify-content: space-between;
     cursor: pointer;
 }
+
 input#adult__quantity,
 input#child__quantity,
 input#room__quantity {
@@ -164,13 +170,16 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 0px 5px;
     border-radius: 4px;
 }
+
 .search-quality {
-    position: sticky;
+    position: absolute;
+    top: 100%;
+    right: 0;
     z-index: 100000;
     /* opacity: 0; */
     display: none;
-    margin-left: 60%;
-    margin-top: -6px;
+    /* margin-left: 60%; */
+    /* margin-top: -6px; */
     width: 300px;
     height: 170px;
     /* display: flex; */

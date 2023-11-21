@@ -1,7 +1,8 @@
 @import url("/styles/base.css");
 
 .comment-wrapper {
-    width: 1152px;
+    width: 100%;
+    max-width: 1152px;
     height: 120px;
     padding: 24px;
     display: flex;
@@ -13,6 +14,8 @@
 }
 
 .comment-wrapper p {
+    width: 100%;
+    height: 100%;
     font-size: 16px;
     font-weight: 400;
     padding: 0;
@@ -25,6 +28,8 @@
     flex-direction: row;
     gap: 24px;
     align-items: center;
+
+    min-width: 196px;
 }
 
 .comment-wrapper__profile p {
@@ -35,8 +40,9 @@
 }
 
 .comment-wrapper__profile img {
-    width: 64px;
-    height: 64px;
+    max-width: 64px;
+    /* height: 64px; */
+    aspect-ratio: 1/1;
     border-radius: 50px;
     border: 1px solid var(--gray);
     background:
@@ -48,6 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: 128px;
 }
 
 .comment-wrapper__point-day .comment-wrapper__point {

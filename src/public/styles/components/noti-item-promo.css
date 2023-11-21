@@ -48,7 +48,7 @@
     display: inherit;
     flex-direction: row;
     gap: 12px;
-    color: #6F7979;
+    color: var(--dark-gray);
     font-size: 12px;
 }
 
@@ -81,7 +81,7 @@
 
 .close-btn {
     position: relative;
-    color: var(--primary);
+    color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
 }
@@ -124,20 +124,6 @@
 }
 
 .popup__content-title {
-    display: flex;
-    flex-direction: column;
-}
-
-.vertical-line {
-    /* position: relative; */
-    border-left: 0.8px solid var(--outline-variant);
-    height: 300px;
-    margin: 0 49%;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup__content--left {
     display: flex;
     flex-direction: column;
 }

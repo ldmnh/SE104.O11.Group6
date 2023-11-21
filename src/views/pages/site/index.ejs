@@ -2,124 +2,130 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <title>2WAYS.com</title>
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/pages/site/index.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>2WAYS.com</title>
+    <link rel="stylesheet" href="/styles/pages/site/index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body>
-  <%- include('../../partials/header-full') %>
-  <main>
-    <section id="discover-section" class="mt-64 primary-text">
-      <h1 class="section__title">Khám phá về 2Ways</h1>
-      <div class="section__centent mt-64 slider">
-        <div class="slider__wrapper">
-          <img src="/imgs/discover__image1.png" alt="Image 1" class="slider__img">
-          <img src="/imgs/discover__image2.png" alt="Image 2" class="slider__img">
-          <img src="/imgs/discover__image3.png" alt="Image 3" class="slider__img">
-          <img src="/imgs/discover__image1.png" alt="Image 1" class="slider__img">
-        </div>
-      </div>
-    </section>
+    <%- include('../../partials/header-full', { user }) %>
+    <%- include('../../components/on-top-btn') %>
+    <main>
+        <section id="discover-section" class="mt-64 primary-text">
+            <h1 class="section__title">Khám phá về 2Ways</h1>
+            <div class="section__centent mt-64 slider">
+                <div class="slider__wrapper">
+                    <img src="/imgs/discover__image1.png" alt="Image 1" class="slider__img">
+                    <img src="/imgs/discover__image2.png" alt="Image 2" class="slider__img">
+                    <img src="/imgs/discover__image3.png" alt="Image 3" class="slider__img">
+                    <img src="/imgs/discover__image1.png" alt="Image 1" class="slider__img">
+                </div>
+            </div>
+        </section>
 
-    <section id="voucher-section" class="mt-64 primary-text">
-      <h1 class="section__title">Các ưu đãi mới nhất</h1>
-      <div class="section__content mt-64">
-        <div class="container">
-          <div class="voucher__item">
-            <h2 class="voucher__item__title">Tận hướng kì nghỉ dài hạn
-              nhất</h2>
-            <p class="voucher__item__description">Tìm kiếm nơi dừng chân cho
-              phép bạn có thể ở lại thời gian nhiều nhất</p>
-            <button class="btn--filled sec" type="button">
-              <div class="status-layer">
-                <span>Tìm hiểu ngay</span>
-              </div>
-            </button>
-          </div>
-          <div class="voucher__item">
-            <h2 class="voucher__item__title">Phòng nghỉ với giá tiết
-              kiệm</h2>
-            <p class="voucher__item__description">Tìm kiếm nơi dừng chân phù
-              hợp với túi tiền của bạn nhất có thể</p>
-            <button class="btn--filled sec" type="button">
-              <div class="status-layer">
-                <span>Tìm hiểu ngay</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-      <p style="font-weight: bold ;" class="section__detail mt-16 secondary-text">Khuyến mãi, giảm giá
-        và ưu đãi đặc biệt dành riêng cho bạn</p>
-    </section>
+        <section id="voucher-section" class="mt-64 primary-text">
+            <div class="container--index">
+                <h1 class="section__title">Các ưu đãi mới nhất</h1>
+                <div class="section__content mt-64">
+                    <div class="container">
+                        <div class="voucher__item">
+                            <h2 class="voucher__item__title">Tận hướng kì nghỉ dài hạn
+                                nhất</h2>
+                            <p class="voucher__item__description">Tìm kiếm nơi dừng chân cho
+                                phép bạn có thể ở lại thời gian nhiều nhất</p>
+                            <button class="btn--filled sec" type="button">
+                                <div class="status-layer find-out-now">
+                                    <span>Tìm hiểu ngay</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="voucher__item">
+                            <h2 class="voucher__item__title">Phòng nghỉ với giá tiết
+                                kiệm</h2>
+                            <p class="voucher__item__description">Tìm kiếm nơi dừng chân phù
+                                hợp với túi tiền của bạn nhất có thể</p>
+                            <button class="btn--filled sec" type="button">
+                                <div class="status-layer find-out-now">
+                                    <span>Tìm hiểu ngay</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-weight: bold ;" class="section__detail mt-16 secondary-text">Khuyến mãi, giảm giá
+                    và ưu đãi đặc biệt dành riêng cho bạn</p>
+            </div>
+        </section>
 
-    <section id="partners-section" class="mt-64 primary-text">
-      <h1 class="section__title">Các đối tác của 2Ways</h1>
-      <div class="section__content mt-64">
-        <div class="container">
-          <div class="partners__item">
-            <img class="partners__logo" src="\imgs\partner__luxury.png" alt="Logo LUXURY">
-            <p class="partners__name mt-16">LUXURY</p>
-          </div>
-          <div class="partners__item">
-            <img class="partners__logo" src="\imgs\partner__coffee_house.png" alt="Logo The Coffee House">
-            <p class="partners__name mt-16">The Coffee House</p>
-          </div>
-          <div class="partners__item">
-            <img class="partners__logo" src="\imgs\partner__petroleum_club.png" alt="Logo Petroleum Club">
-            <p class="partners__name mt-16">Petroleum Club</p>
-          </div>
-          <div class="partners__item">
-            <img class="partners__logo" src="\imgs\partner__falling_travel.png" alt="Logo Falling Travle">
-            <p class="partners__name mt-16">Falling Travle</p>
-          </div>
-        </div>
-      </div>
-      <p style="font-weight: bold ;" class="section__detail mt-16">Cùng các đối tác có được đánh giá
-        cao!</p>
-    </section>
+        <section id="partners-section" class="mt-64 primary-text">
+            <div class="container--index">
+                <h1 class="section__title">Các đối tác của 2Ways</h1>
+                <div class="section__content mt-64">
+                    <div class="container">
+                        <div class="partners__item">
+                            <img class="partners__logo" src="\imgs\partner__luxury.png" alt="Logo LUXURY">
+                            <p class="partners__name mt-16">LUXURY</p>
+                        </div>
+                        <div class="partners__item">
+                            <img class="partners__logo" src="\imgs\partner__coffee_house.png" alt="Logo The Coffee House">
+                            <p class="partners__name mt-16">The Coffee House</p>
+                        </div>
+                        <div class="partners__item">
+                            <img class="partners__logo" src="\imgs\partner__petroleum_club.png" alt="Logo Petroleum Club">
+                            <p class="partners__name mt-16">Petroleum Club</p>
+                        </div>
+                        <div class="partners__item">
+                            <img class="partners__logo" src="\imgs\partner__falling_travel.png" alt="Logo Falling Travle">
+                            <p class="partners__name mt-16">Falling Travle</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-weight: bold ;" class="section__detail mt-16">Cùng các đối tác có được đánh giá
+                    cao!</p>
+            </div>
+        </section>
 
-    <section id="banner" class="mt-64">
-      <img class="banner__img" src="/imgs/banner.png" alt="">
-      <img class="banner__logan" src="/imgs/banner__logan.svg" alt="">
-    </section>
-    <section id="factor-section" class="mt-64 primary-text">
-      <h1 class="section__title">Chúng tôi đảm bảo về các yếu tố</h1>
-      <div class="section__content mt-64">
-        <div class="container">
-          <div class="factor__item">
-            <img class="factor__logo" src="\imgs\factor__cho_nghi_thoai_mai.png" alt="Hình minh họa">
-            <p class="factor__name mt-16">Chỗ nghỉ thoải mái</p>
-          </div>
-          <div class="factor__item">
-            <img class="factor__logo" src="\imgs\factor__nhan_vien_tan_tam.png" alt="Hình minh họa">
-            <p class="factor__name mt-16">Nhân viên tận tâm</p>
-          </div>
-          <div class="factor__item">
-            <img class="factor__logo" src="\imgs\factor__phuc_vu_247.png" alt="Hình minh họa">
-            <p class="factor__name mt-16">Phục vụ 24/7</p>
-          </div>
-          <div class="factor__item">
-            <img class="factor__logo" src="\imgs\factor__an_ninh_duoc_dam_bao.png" alt="Hình minh họa">
-            <p class="factor__name mt-16">An ninh đảm bảo</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <%- include('../../partials/footer') %>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="/scripts/search-bar.js"></script>
-  <script src="/scripts/header-full.js"></script>
-
+        <section id="banner" class="mt-64">
+            <img class="banner__img" src="/imgs/banner.png" alt="">
+            <img class="banner__logan" src="/imgs/banner__logan.svg" alt="">
+        </section>
+        <section id="factor-section" class="mt-64 primary-text">
+            <div class="container--index">
+                <h1 class="section__title">Chúng tôi đảm bảo về các yếu tố</h1>
+                <div class="section__content mt-64">
+                    <div class="container">
+                        <div class="factor__item">
+                            <img class="factor__logo" src="\imgs\factor__cho_nghi_thoai_mai.png" alt="Hình minh họa">
+                            <p class="factor__name mt-16">Chỗ nghỉ thoải mái</p>
+                        </div>
+                        <div class="factor__item">
+                            <img class="factor__logo" src="\imgs\factor__nhan_vien_tan_tam.png" alt="Hình minh họa">
+                            <p class="factor__name mt-16">Nhân viên tận tâm</p>
+                        </div>
+                        <div class="factor__item">
+                            <img class="factor__logo" src="\imgs\factor__phuc_vu_247.png" alt="Hình minh họa">
+                            <p class="factor__name mt-16">Phục vụ 24/7</p>
+                        </div>
+                        <div class="factor__item">
+                            <img class="factor__logo" src="\imgs\factor__an_ninh_duoc_dam_bao.png" alt="Hình minh họa">
+                            <p class="factor__name mt-16">An ninh đảm bảo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="mt-48"></div>
+    <%- include('../../partials/footer') %>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="/scripts/header-full.js"></script>
+<script src="/scripts/search-bar.js"></script>
+<script src="/scripts/base.js"></script>
+<script src="/scripts/index.js"></script>
 
 </html>

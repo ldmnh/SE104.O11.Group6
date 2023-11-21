@@ -6,6 +6,7 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .content-container {
@@ -60,6 +61,13 @@ body {
 
 .row {
     margin: 0;
+}
+
+/* Nhung */
+.row .error {
+    color: red;
+    font-size: 0.8rem;
+    width: auto;
 }
 
 .register__title {

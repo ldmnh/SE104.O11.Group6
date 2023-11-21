@@ -2,20 +2,22 @@
 @import url("/styles/partials/header-small-title.css");
 @import url("/styles/partials/footer.css");
 
-html {
+/* html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: #000000;
-}
+} */
 
-body {
+/* body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-}
+    align-items: center;
+} */
 
 .content-container {
     width: 80%;
+    max-width: 1152px;
     margin: 5vh auto;
     display: flex;
     justify-content: space-between;
@@ -24,6 +26,7 @@ body {
 }
 
 .intro {
+    width: calc(50% - 6px);
     display: inherit;
     flex-direction: column;
     gap: 4.6vh;
@@ -41,22 +44,21 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     font-size: 1rem;
-
 }
 
 .intro__slogan {
-    color: #004F52;
+    color: var(--primary-color-1);
     font-size: 2.7rem;
     font-weight: 700;
 }
 
 .intro__sub-title {
-    color: #00696D;
+    color: var(--primary-color-2);
     font-size: 1.5rem;
 }
 
 .login {
-    width: 55%;
+    width: calc(50% - 6px);
     box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     box-sizing: border-box;
@@ -64,11 +66,19 @@ body {
     display: inherit;
     flex-direction: column;
     gap: 18px;
+    box-shadow: 0 1px 8px 0px rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .row {
     margin: 0;
 }
+
+.row .error {
+    color: red;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0;
+  }
 
 .login__title {
     text-align: center;
@@ -106,20 +116,24 @@ body {
 }
 
 .form__submit {
-    background-color: #FE9C0B;
+    background-color: var(--primary-color-4);
     color: white;
     font-size: 1.25rem;
     font-weight: 500;
 }
 
+.form__submit:hover {
+    color: white;
+}
+
 .login__register {
-    border: 1px solid #FE9C0B;
+    border: 1px solid var(--primary-color-4);
     font-weight: 500;
     padding-top: 10px;
 }
 
 .highlight {
-    color: #FE9C0B;
+    color: var(--primary-color-4);
 }
 
 
@@ -130,9 +144,10 @@ body {
 
 span.material-symbols-outlined {
     position: absolute;
-    bottom: 28%;
-    right: 3%;
-    color: #00696D;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 12px;
+    color: var(--primary-color-2);
     cursor: pointer;
 }
 

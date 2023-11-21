@@ -1,13 +1,14 @@
 @import url("/styles/base.css");
 @import url("/styles/partials/header-medium.css");
 @import url("/styles/partials/footer.css");
+@import url("/styles/partials/nav-tree.css");
 @import url("/styles/components/bank-account-popup.css");
 @import url("/styles/components/credit-account-popup.css");
 @import url("/styles/components/otp.css");
 @import url("/styles/components/success-popup.css");
 @import url("/styles/partials/nav-tree.css");
 
-html {
+/* html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: var(--black);
@@ -15,12 +16,17 @@ html {
 
 body {
     width: 100vw;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
 
 .payment-account-container {
-    margin: 0 auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
     width: 80%;
     max-width: 1152px;
+    margin: 0 auto;
     display: flex;
     gap: 12px;
 }
@@ -41,23 +47,25 @@ body {
     align-items: center;
     gap: 12px;
 }
+
 .aside-content__detail-bold {
     font-weight: 500;
     margin: 12px 0 0 0;
 }
 
-.aside-content__section {
+.aside-section {
     font-weight: 500;
 }
 
-.aside-content__section p {
+.aside-section p {
     padding: 12px;
     height: 48px;
     margin-bottom: 12px;
     cursor: pointer;
+    color: var(--black);
 }
 
-.aside-content__section p:hover,
+.aside-section p:hover,
 .logout-btn:hover {
     border-radius: 8px;
     background-color: var(--gray);
@@ -65,7 +73,7 @@ body {
     cursor: pointer;
 }
 
-.aside-content__section p:nth-child(3) {
+.aside-section p.active {
     background-color: var(--primary-color-1);
     color: var(--white);
     border-radius: 8px;
@@ -77,30 +85,23 @@ body {
     border-radius: 100%;
 }
 
-.aside-content__item p {
+.aside-item p {
     color: var(--red);
     font-weight: 500;
     margin: 12px;
-    cursor: pointer;
 }
 
-.form-input {
+
+.form {
+    padding: 24px;
     border: 1px solid var(--outline-variant);
     border-radius: 8px;
-    width: 74%;
-    align-items: start;
-    padding: 24px;
+    width: 75%;
+    align-items: center;
 }
-.form__title h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    padding: 0;
-}
-.form__title p {
-    margin-bottom: 0;
-}
-hr {
-    width: 100%;
+
+.form__title {
+    margin-right: auto !important;
 }
 
 .form__card-items {
@@ -108,6 +109,7 @@ hr {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    width: 100%;
 }
 
 .form__card-item {
@@ -116,7 +118,7 @@ hr {
     padding: 12px;
     flex-direction: column;
     /* height: 200px; */
-    width: 814px;
+    width: 100%;
     border: 1px solid var(--outline-variant);
     border-radius: 8px;
 }
@@ -221,12 +223,174 @@ button.unfilled-default {
     border-radius: 8px;
 }
 
-.form__debit-detail-one {
-    transition: opacity 0.5s;
+/*popup*/
+.popup {
+    display: none;
+    position: fixed;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
 }
 
-.form__debit-detail-one.hidden {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
+.popup__main {
+    position: relative;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    margin: auto;
+    width: 45%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+
+}
+
+.close-btn {
+    position: relative;
+    color: var(--primary-color-1);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.popup__img {
+    object-fit: contain;
+    height: 50%;
+    border-radius: 8px;
+}
+
+.popup__content-main {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup--top {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.popup .popup__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.popup p {
+    margin-bottom: 6px;
+}
+
+.popup__content-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn--filled.pri {
+    height: 48px;
+    width: 150px;
+    margin-left: 4px;
+}
+
+button.btn--outlined.pri {
+    height: 48px;
+    width: 150px;
+    margin-right: 4px;
+}
+
+/*popup*/
+.popup {
+    display: none;
+    position: fixed;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup__main {
+    position: relative;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    margin: auto;
+    width: 45%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+
+}
+
+.close-btn {
+    position: relative;
+    color: var(--primary-color-1);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.popup__img {
+    object-fit: contain;
+    height: 50%;
+    border-radius: 8px;
+}
+
+.popup__content-main {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup--top {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.popup .popup__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.popup p {
+    margin-bottom: 6px;
+}
+
+.popup__content-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn--filled.pri {
+    height: 48px;
+    width: 150px;
+    margin-left: 4px;
+}
+
+button.btn--outlined.pri {
+    height: 48px;
+    width: 150px;
+    margin-right: 4px;
 }

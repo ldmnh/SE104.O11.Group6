@@ -1,5 +1,5 @@
 function redirectToUrl(url) {
-  window.location.href = url;
+	window.location.href = url;
 }
 
 // Header-small
@@ -12,16 +12,16 @@ const avatarClickHs = document.querySelector(".avatar-btn-hs");
 
 homepageBtnHs.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHs.addEventListener("click", () =>
-  redirectToUrl("/notification/account-update")
+	redirectToUrl("/notifications/account-update")
 );
 // signinBtnHs.addEventListener("click", () => redirectToUrl("/auth/login"));
 // signupBtnHs.addEventListener("click", () => redirectToUrl("/auth/register"));
 
 nameClickHs.addEventListener("click", () =>
-  redirectToUrl("/account/information")
+	redirectToUrl("/account/information")
 );
 avatarClickHs.addEventListener("click", () =>
-  redirectToUrl("/account/information")
+	redirectToUrl("/account/information")
 );
 
 const logoClickHs = document.querySelector(".logo-click-hs");
