@@ -1,8 +1,9 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 DROP DATABASE IF EXISTS DATABASE_SE104;
 
 CREATE DATABASE DATABASE_SE104;
 
-USE nhap;
+USE DATABASE_SE104;
 
 CREATE TABLE Admin
 (
@@ -129,7 +130,6 @@ CREATE TABLE RoomType
     room_name           varchar(100) NOT NULL,
     room_class          varchar(50)  NOT NULL,
     room_type           varchar(10)  NOT NULL,
-    room_name           varchar(100) NOT NULL,
     room_max_adult      int          NOT NULL,
     room_max_child      int          NOT NULL,
     room_single_bed     int          NOT NULL,
@@ -229,7 +229,7 @@ CREATE TABLE BookingDetail
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
 
-ALTER TABLE `nhap`.`bookingdetail` ADD INDEX `book_id` (`book_id`);
+ALTER TABLE `DATABASE_SE104`.`bookingdetail` ADD INDEX `book_id` (`book_id`);
 
 CREATE TABLE Rating
 (

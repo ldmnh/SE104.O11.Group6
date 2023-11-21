@@ -131,11 +131,11 @@ VALUES
     (9,  'room_7.jpg'),     (9,  'room_9.jpg'),     (9,  'room_11.jpg'),    (9,  'room_13.jpg'),    (9,  'room_15.jpg'),    (10, 'room_17.jpg'),
     (10, 'room_19.jpg'),    (10, 'room_21.jpg'),    (10, 'room_23.jpg'),    (10,  'room_25.jpg'),   (10,  'room_27.jpg');
 
-INSERT INTO PayingMethod (pay_name)
-VALUES 
-    ('cash'),
-    ('bankcard'),
-    ('debitcard');
+-- INSERT INTO PayingMethod (pay_name)
+-- VALUES 
+--     ('cash'),
+--     ('bankcard'),
+--     ('debitcard');
 
 INSERT INTO ReasonCancel (rea_description)
 VALUES
@@ -173,7 +173,7 @@ VALUES
     (2, 3, '2023-08-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
     (3, 1, '2023-08-18 15:30:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
     (1, 2, '2023-08-23 11:30:00', '2023-09-22 14:30:00', '2023-09-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
-    (4, 3, '2023-08-19 09:45:00', '2023-09-25 10:30:00', '2023-09-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL);
+    (4, 3, '2023-08-19 09:45:00', '2023-09-25 10:30:00', '2023-09-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-09-05 09:00:00', '2023-10-25 10:30:00', '2023-10-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
     (3, 2, '2023-09-30 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-01 14:45:00', '2023-10-12 14:30:00', '2023-10-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
@@ -202,54 +202,6 @@ VALUES
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
 VALUES
-    (1, 1, '2023-10-27 14:30:00', 'Phòng sạch sẽ, thơm.',                                         9.5),
-    (2, 2, '2023-10-28 11:00:00', 'Dịch vụ phòng tốt, lễ tân lịch sự.',                           10.0),
-    (3, 3, '2023-10-29 09:45:00', 'Phòng có view tuyệt đẹpppppp.',                                9.0),
-    (1, 4, '2023-10-30 16:15:00', 'Tuyệt vời!!!!',                                                9.8),
-    (2, 5, '2023-10-31 13:30:00', 'sạch, đẹp, có tiện ích đầy đủ.',                               9.7),
-    (3, 1, '2023-11-11 16:30:00', 'Đồ ăn khách sạn dở nhưng dịch vụ tốt.',                        8.0),
-    (3, 2, '2023-10-28 13:00:00', '10đ tuyệt vời.',                                               10.0),
-    (1, 3, '2023-10-29 10:45:00', 'Phòng tiện nghi, rất đáng tiền.',                              9.5),
-    (2, 4, '2023-10-30 14:15:00', 'Thích ở đây sự riêng tư',                                      9.8),
-    (1, 5, '2023-10-31 19:30:00', 'Phòng đẹp nhưng phục vụ có thái độ.',                          7.0),
-    (2, 3, '2023-11-05 09:00:00', 'Không gian thoải mái, nhân viên thân thiện.',                  9.2),
-    (1, 4, '2023-11-15 20:45:00', 'Giá cả hợp lý, phòng sạch sẽ.',                                8.8),
-    (2, 2, '2023-11-20 12:30:00', 'Dịch vụ chăm sóc khách hàng xuất sắc.',                        9.7),
-    (3, 1, '2023-11-25 18:15:00', 'Khách sạn nằm gần trung tâm thành phố, thuận tiện di chuyển.', 9.5),
-    (2, 5, '2023-11-30 22:00:00', 'Phòng ốc rộng rãi, view tuyệt vời.',                           9.9),
-    (1, 2, '2023-11-05 14:30:00', 'Không gian phòng ấm cúng, nhân viên nhiệt tình.',              9.3),
-    (1, 3, '2023-11-10 11:15:00', 'Bữa sáng ngon miệng, đa dạng lựa chọn.',                       9.8),
-    (2, 4, '2023-11-15 16:45:00', 'Dịch vụ phòng hỗ trợ nhanh chóng.',                            9.5),
-    (2, 5, '2023-11-20 21:00:00', 'Phòng đẹp, view hồ hút mắt.',                                  9.7),
-    (3, 1, '2023-11-25 17:30:00', 'Không gian yên tĩnh, thích hợp cho công việc.',                9.6),
-    (2, 2, '2023-10-02 10:00:00', 'Dịch vụ phòng sạch sẽ, thái độ phục vụ tốt.',                  9.4),
-    (1, 3, '2023-10-07 08:45:00', 'Nhân viên lễ tân nhiệt tình, nhanh nhẹn.',                     9.2),
-    (1, 4, '2023-11-12 13:15:00', 'Phòng tắm tiện nghi, đầy đủ vật dụng.',                        9.7),
-    (2, 5, '2023-10-17 19:30:00', 'Dịch vụ đáng giá tiền.',                                       9.5),
-    (3, 1, '2023-11-22 15:00:00', 'Thức ăn phong phú, hấp dẫn.',                                  9.8),
-    (1, 2, '2023-10-27 12:45:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.',                      9.6),
-    (2, 3, '2023-10-05 09:30:00', 'Không gian quán bar thoải mái, đồ uống ngon.',                 9.7),
-    (1, 4, '2023-09-20 14:00:00', 'Đội ngũ nhân viên phục vụ chu đáo.',                           9.5),
-    (2, 5, '2023-09-21 18:45:00', 'Phòng ốc sạch sẽ, trang thiết bị đầy đủ.',                     9.6),
-    (3, 1, '2023-09-20 16:15:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.',                        9.3),
-    (1, 2, '2023-09-25 11:30:00', 'Đồ ăn ngon, chất lượng.',                                      9.8),
-    (2, 3, '2023-09-23 20:00:00', 'Phòng được trang bị đầy đủ tiện nghi.',                        9.7),
-    (1, 4, '2023-09-26 14:45:00', 'Khách sạn nằm gần các điểm tham quan.',                        9.5),
-    (2, 5, '2023-09-23 19:30:00', 'Dịch vụ đáng khen ngợi, nhân viên thân thiện.',                9.6),
-    (3, 1, '2023-09-29 17:00:00', 'Phòng ốc rộng rãi, thoải mái.',                                9.4),
-    (1, 2, '2023-10-25 12:15:00', 'Bữa tối ngon miệng, phục vụ nhanh chóng.',                     9.8),
-    (2, 3, '2023-11-02 09:30:00', 'Không gian lễ tân sang trọng.',                                9.7),
-    (1, 4, '2023-09-24 14:00:00', 'Dịch vụ đáng giá tiền, phòng sạch sẽ.',                        9.5),
-    (2, 5, '2023-11-12 18:45:00', 'Nhân viên nhanh nhẹn, phục vụ chu đáo.',                       9.6),
-    (3, 1, '2023-10-17 16:15:00', 'Phòng ốc thoải mái, đầy đủ tiện nghi.',                        9.3),
-    (1, 2, '2023-09-22 11:30:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.',                      9.7),
-    (2, 3, '2023-11-25 20:00:00', 'Không gian quán bar thoải mái, đồ uống ngon.',                 9.6),
-    (1, 4, '2023-10-05 14:45:00', 'Đội ngũ nhân viên phục vụ chu đáo.',                           9.5),
-    (2, 5, '2023-10-10 19:30:00', 'Phòng ốc sạch sẽ, trang thiết bị đầy đủ.',                     9.6),
-    (3, 1, '2023-11-15 17:00:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.',                        9.3),
-    (1, 2, '2023-10-20 16:15:00', 'Đồ ăn ngon, chất lượng.',                                      9.8),
-    (2, 3, '2023-09-25 12:30:00', 'Phòng được trang bị đầy đủ tiện nghi.',                        9.7),
-    (1, 4, '2023-10-02 09:30:00', 'Khách sạn nằm gần các điểm tham quan.',                        9.5);
     (1, 1, '2023-10-27 14:30:00', 'Phòng sạch sẽ, thơm.',                                         9.5),
     (2, 2, '2023-10-28 11:00:00', 'Dịch vụ phòng tốt, lễ tân lịch sự.',                           10.0),
     (3, 3, '2023-10-29 09:45:00', 'Phòng có view tuyệt đẹpppppp.',                                9.0),
