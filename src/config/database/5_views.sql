@@ -28,9 +28,11 @@ DROP VIEW IF EXISTS view_acco;
 
 CREATE VIEW view_acco AS
 SELECT accommodation.*, city.city_name, province.prov_name 
-FROM accommodation, city, province
-WHERE accommodation.city_id = city.city_id 
-AND province.prov_id = accommodation.prov_id;
+FROM accommodation
+LEFT JOIN city
+    ON accommodation.city_id = city.city_id
+LEFT JOIN province
+    ON province.prov_id = accommodation.prov_id;
 
 DROP VIEW IF EXISTS VIEW_BANKCARD;
 

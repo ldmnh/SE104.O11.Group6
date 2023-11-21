@@ -23,22 +23,32 @@ class SearchController {
                         });
                         throw err;
                     }
-                    if (result1.length > 0) {
-                        res.status(200).render('./pages/search/results', {
-                            message: "Đã tìm thành công",
-                            user: req.session.user,
-                            totalPage: 1,
-                            data: result1,
-                        });
 
-                    } else {
-                        res.status(404).json({
-                            message: "Không tìm thấy kết quả",
-                        });
-                    }
+                    res.status(200).render('./pages/search/results', {
+                        user: req.session.user,
+                        totalPage: 1,
+                        data: result1,
+                    });
+                    // if (result1.length > 0) {
+                    //     res.status(200).render('./pages/search/results', {
+                    //         message: "Đã tìm thành công",
+                    //         user: req.session.user,
+                    //         totalPage: 1,
+                    //         data: result1,
+                    //     });
+
+                    // } else {
+                    //     res.status(404).json({
+                    //         message: "Không tìm thấy kết quả",
+                    //     });
+                    // }
                 });
             } else {
-                res.status(404).json({ message: "Không tìm thấy kết quả" });
+                res.status(200).render('./pages/search/results', {
+                    user: req.session.user,
+                    totalPage: 1,
+                    data: result,
+                });
             }
         });
     }
