@@ -3,6 +3,6 @@
     "ejs": "html"
   },
   "[html]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "j69.ejs-beautify"
   }
 }
