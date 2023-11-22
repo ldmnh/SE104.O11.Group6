@@ -7,9 +7,6 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
-// connect to db
-const db = require('./src/config/db/connect')
-
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
 
@@ -17,15 +14,20 @@ const route = require('./src/routes/index')
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
 }))
+
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://127.0.0.1:3000',
+}));
 
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
 // use static folder
-app.use(express.static(path.join('src', 'public')))
+app.use(express.static(path.join('src', 'public',)))
 
 // parse URL-encoded bodies
 app.use(bodyParser.json())

@@ -1,8 +1,10 @@
 <header>
     <div class="header-container">
-        <img class="header-container__img logo-click-hst" src="/imgs/logo.svg" alt="Logo" />
-        <p class="header-container__title"><%= title %></p>
-        <a href="#" class="header-container__help"><%= help %></a>
+        <span class="header-container__title"><%= title %></span>
+        <div class="header-container__top">
+            <img class="header-container__img logo-click-hst" src="/imgs/logo.svg" alt="Logo" />
+            <a class="header-container__help" onclick="redirectToPage('<%= help %>')"><%= help %></a>
+        </div>
     </div>
 </header>
 <div class="space"></div>

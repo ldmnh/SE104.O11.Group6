@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <%- include('../../partials/header-small-title') %>
+    <%# include('../../partials/header-small-title') %>
 
     <main class="content-container">
         <section class="intro">
@@ -76,11 +76,11 @@
                 <button id="register-button" type="submit" class="btn form__submit">Đăng ký</button>
             </form>
 
-            <button class="btn register__login" role="button">Bạn đã có tài khoản? <span class="highlight">Đăng nhập</span></button>
+            <a href="/auth/login" class="btn register__login" role="button">Bạn đã có tài khoản? <span class="highlight">Đăng nhập</span></a>
             <p class="register__confirm">
                 Bằng việc đăng ký, bạn đã đồng ý với 2WAYS về <br />
-                <a href="#">điều khoản dịch vụ</a> và
-                <a href="#">chính sách bảo mật</a>.
+                <a href="/terms-of-use">điều khoản dịch vụ</a> và
+                <a href="/privacy-policy">chính sách bảo mật</a>.
             </p>
         </section>
     </main>

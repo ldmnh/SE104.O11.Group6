@@ -228,22 +228,21 @@ function validateInput() {
 			body: JSON.stringify(register),
 			headers: {
 				'Content-Type': 'application/json',
-
 			}
-		}).then(res => res.json())
-			.then(back => {
-				if (back.msg === 'error') {
-					setError(email, back.message)
-					document.getElementById('form__email').classList.add('is-invalid')
-					isAllValid = false
-				} else {
-					if (isAllValid) {
-						form.submit()
-					}
+		}).then(
+			res => res.json()
+		).then(back => {
+			if (back.msg === 'error') {
+				setError(email, back.message)
+				document.getElementById('form__email').classList.add('is-invalid')
+				isAllValid = false
+			} else {
+				if (isAllValid) {
+					form.submit()
 				}
-			})
-			.catch(function (err) {
-				console.log(err)
-			})
+			}
+		}).catch(function (err) {
+			console.log(err)
+		})
 	}
 }

@@ -10,12 +10,13 @@ html {
 }
 
 body {
-    width: 100vw;
-    display: flex;
+    width: 100%;
+    margin: 0
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: justify;
+    text-align: justify; */
 }
 
 ul {
@@ -34,7 +35,7 @@ h1 {
 .term__container {
     width: 80%;
     max-width: 1152px;
-    margin: 12px 0;
+    margin: 12px auto;
 }
 
 .term__header {

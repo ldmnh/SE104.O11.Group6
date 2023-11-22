@@ -26,6 +26,7 @@ hr {
 
 .content-container {
     width: 80%;
+    max-width: 1152px;
     margin: 0;
     padding: 12px 0;
     display: flex;
@@ -331,7 +332,11 @@ hr {
     border-radius: 8px;
 }
 
-#sort-z-to-a,
-#sort-a-to-z {
+#cost-AZ,
+#cost-ZA,
+#acco-star-AZ,
+#acco-star-ZA,
+#count-rating-AZ,
+#count-rating-ZA {
     display: none;
 }

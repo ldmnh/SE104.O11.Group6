@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <%- include('../../partials/header-small') %>
+    <%# include('../../partials/nav-tree', { nav_tree__data }) %>
+
     <main class="term__container">
         <h1 class="term__header">ĐIỀU KHOẢN CHUNG</h1>
         <div class="term-intro">
@@ -104,8 +107,12 @@
                         trong vòng 30 ngày kể từ ngày phát sinh tranh chấp, Các Bên sẽ có quyền đưa tranh chấp ra giải quyết
                         tại Tòa án có thẩm quyền tại Việt Nam theo quy định của pháp luật.</li>
                 </ol>
+            </section>
         </div>
     </main>
+    <%- include('../../partials/footer.ejs') %>
+
+    <script src="/scripts/header-small.js"></script>
 </body>
 
 </html>

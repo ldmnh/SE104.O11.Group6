@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,43 +10,49 @@
     <title>2WAYS.com</title>
 </head>
 
+
 <body>
+    <%- include('../../partials/header-small') %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: '/' },
+        { text: 'Đặt phòng', link: '' },
+        { text: 'Chọn phương thức thanh toán' }
+    ] }) %>
 
     <div class="payment-container">
         <aside class="aside-wrapper">
             <div class="aside-wrapper__hotel-detail">
                 <div class="aside-wrapper__type-hotel">
-                    <h6>Khách sạn</h6>
+                    <h6><%= data.acco.type %></h6>
                     <div class="starts-icon">
-                        <span class="material-symbols-outlined filled-start">star_rate</span>
-                        <span class="material-symbols-outlined filled-start">star_rate</span>
-                        <span class="material-symbols-outlined filled-start">star_rate</span>
-                        <span class="material-symbols-outlined filled-start">star_rate</span>
-                        <span class="material-symbols-outlined filled-start">star_rate</span>
+                        <% for (let i = 0; i < data.acco.star; i++) { %>
+                        <span class="material-symbols-outlined filled-start">
+                            star_rate
+                        </span>
+                        <% } %>
+                        <% for (let i = 0; i < 5 - data.acco.star; i++) { %>
+                        <span class="material-symbols-outlined unfilled-start">
+                            star_rate
+                        </span>
+                        <% } %>
                     </div>
                 </div>
-                <h5><b>Tên khách sạn</b></h5>
-                <h6>Vị trí</h6>
-                <div class="aside-wrapper__wifi-free">
-                    <span class="material-symbols-outlined"> wifi </span>
-                    <h6>Wifi miễn phí</h6>
-                </div>
+                <h5><b><%= data.acco.name %></b></h5>
+                <a href=""><%= data.acco.exac_location %></a>
             </div>
 
             <div class="aside-wrapper__your-booking-detail">
                 <h1>Chi tiết đặt phòng của bạn</h1>
                 <div class="aside-wrapper__check-date">
-                    <div class="aside-wrapper__checkin-date">
+                    <div class="checkin-date">
                         <h5>Nhận phòng</h5>
-                        <h5><b>T5, 12 tháng 10</b></h5>
-                        <h5><b>2023</b></h5>
+                        <h5><b><%= data.search.checkIn %></b></h5>
                         <h5>Từ 14:00</h5>
                     </div>
 
-                    <div class="aside-wrapper__checkout-date">
+                    <div class="checkout-date">
                         <h5>Trả phòng</h5>
-                        <h5><b>T6, 13 tháng 10</b></h5>
-                        <h5><b>2023</b></h5>
+                        <h5><b><%= data.search.checkOut %></b></h5>
                         <h5>Cho đến 00:00</h5>
                     </div>
                 </div>
@@ -63,17 +69,17 @@
 
                 <hr />
 
-                <div class="aside-wrapper__your-choice">
+                <div class="your-choice">
                     <h5>Bạn đã chọn</h5>
-                    <h5><b>1 phòng cho 2 người lớn</b></h5>
-                    <a href="#"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
+                    <h5><b><%= data.acco.name %></b></h5>
+                    <a href="javascript:history.back()"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
                 </div>
 
-                <div class="aside-wrapper__cost-total">
-                    <h6 class="aside-wrapper__red-line">VND 1.200.000</h6>
-                    <div class="aside-wrapper__cost">
+                <div class="cost-total">
+                    <h6 class="red-line">VND <%= data.book.cost_before %></h6>
+                    <div class="cost">
                         <h1>Giá</h1>
-                        <h1>VND 1.200.000</h1>
+                        <h1>VND <%= data.book.cost_after %></h1>
                     </div>
                     <h6>Đã bao gồm thuế và phí</h6>
                 </div>
@@ -88,16 +94,13 @@
             </div>
         </aside>
 
-        <section id="" class="section-content">
+        <form id="" class="section-content" action='/booking/payment' method='post'>
             <div class="section-content__confirm-account">
-                <img class="section-content__img" src="/imgs/milo.jpg" alt="" />
-                <div class="section-content__account-detail">
+                <img src="/imgs/user/<%= user.avatar ?? 'user_1.jpg' %>" alt="" />
+                <div class="account-detail">
                     <h5>Bạn đã đăng nhập bằng:</h5>
-                    <div class="section-content__email-logout">
-                        <h5>2152****@gm.uit.edu.vn</h5>
-                        <h5>
-                            <b style="color: #0866ff">(Không phải bạn? <a href="">Thoát</a>)</b>
-                        </h5>
+                    <div class="email-logout">
+                        <h5><%= user.email %></h5>
                     </div>
                 </div>
             </div>
@@ -106,7 +109,7 @@
                 <div class="section-content__select-method">
                     <div class="method method-one form-check">
                         <div class="method-choice">
-                            <input class="material-symbols-outlined form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                            <input class="material-symbols-outlined form-check-input" type="radio" value='1' name="pay_id" id="flexRadioDefault1" required />
                             <label class="form-check-label" for="flexRadioDefault1">
                                 <h5><b>Thanh toán bằng tiền mặt</b></h5>
                             </label>
@@ -115,14 +118,14 @@
 
                     <div class="method method-two form-check">
                         <div class="method-choice">
-                            <input class="material-symbols-outlined form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                            <input class="material-symbols-outlined form-check-input" type="radio" value='3' name="pay_id" id="flexRadioDefault2" />
                             <label class="form-check-label" for="flexRadioDefault2">
                                 <h5><b>Thanh toán bằng thẻ tín dụng/ghi nợ</b></h5>
                             </label>
 
                             <div class="list-account">
                                 <div class="list-account-title">
-                                    <span class="material-symbols-outlined"> credit_card </span>
+                                    <span class="material-symbols-outlined">credit_card</span>
                                     <p>Danh sách thẻ tín dụng của bạn</p>
                                 </div>
                                 <div class="account-items">
@@ -151,7 +154,7 @@
                                     </div>
 
                                     <div class="account-item clickable addCreditCardBtn" style="color: #a3adad">
-                                        <span class="material-symbols-outlined"> add_card </span>
+                                        <span class="material-symbols-outlined">add_card</span>
                                         <h5 class="">Thêm thẻ tín dụng mới</h5>
                                     </div>
                                 </div>
@@ -161,7 +164,7 @@
 
                     <div class="method method-three form-check">
                         <div class="method-choice">
-                            <input class="material-symbols-outlined form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
+                            <input class="material-symbols-outlined form-check-input" type="radio" value='2' name="pay_id" id="flexRadioDefault3" />
                             <label class="form-check-label" for="flexRadioDefault3">
                                 <h5><b>Thanh toán bằng tài khoản ngân hàng</b></h5>
                             </label>
@@ -229,34 +232,41 @@
 
                 <h5>
                     <b>Bạn có thể hủy đăng ký bất cứ lúc nào. Xem
-                        <a href="#">chính sách bảo mật</a> của chúng tôi.</b>
+                        <a href="#" class="privacy-policy">chính sách bảo mật</a> của chúng tôi.</b>
                 </h5>
 
                 <h5>
                     <b>Đặt phòng của bạn là đặt phòng trực tiếp với 2WAYs và bằng việc
                         hoàn tất đặt phòng này, bạn đồng ý với
-                        <a href="#">điều kiện đặt phòng</a>,
-                        <a href="#">điều khoản chung</a> và
-                        <a href="#">chính sách bảo mật</a>.</b>
+                        <a href="#" class="term-use">điều kiện đặt phòng</a>,
+                        <a href="#" class="term-use">điều khoản chung</a> và
+                        <a href="#" class="privacy-policy">chính sách bảo mật</a>.</b>
                 </h5>
 
                 <div class="button-confirm">
-                    <button href="#" class="check-info">Kiểm tra lại thông tin</button>
-                    <button class="submit-booking doneBookingBtn">
+                    <button href="#" class="check-info check-info-booking">Kiểm tra lại thông tin</button>
+                    <button class="submit-booking done-booking-btn" type='submit'>
                         Hoàn tất đặt phòng
                     </button>
                 </div>
 
-                <a href="#" style="text-align: end; color: #0866ff"><b>Các điều kiện đặt phòng là gì?</b></a>
+                <a href="#" style="text-align: end; color: #0866ff" class="term-use"><b>Các điều kiện đặt phòng là gì?</b></a>
             </div>
-        </section>
+        </form>
     </div>
+    <%# include('../../components/otp')  %>
+    <%- include('../../components/success-popup')  %>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="/scripts/order-payment.js"></script>
+    <%- include('../../partials/footer') %>
+
 
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="/scripts/order-payment.js"></script>
+<script src="/scripts/otp.js"></script>
+<script src="/scripts/header-small.js"></script>
+
 
 </html>
