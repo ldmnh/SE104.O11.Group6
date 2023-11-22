@@ -1,7 +1,32 @@
 const db = require('../config/db/connect');
+const bcrypt = require("bcryptjs");
+const { promisify } = require("util");
 const index = require('../models/index.model')
 
 function adminModel() {}
+
+adminModel.login = (req, callback) => {
+    const {admin_login, admin_password} = req.body
+    console.log(admin_login, admin_password)
+    const adminLogin = 'SELECT * FROM admin WHERE admin_nickname = ?'
+    db.query(adminLogin, [admin_login], async (err, admin) => {
+        console.log(admin)
+        if (err) callback(1, 0, 0, 0)
+        if (!admin[0]) {
+            callback(0, 1, 0, 0)
+        }
+        else if (await bcrypt.compare(admin_password, admin[0].admin_pass)) {
+                req.session.admin = {
+                    id: admin[0].admin_id,
+                    name: admin[0].admin_nickname,
+                };
+                callback(0, 0, 0, 1)
+            } else {
+                callback(0, 0, 1, 0)
+            }
+    }) 
+}
+
 
 adminModel.getTotalRoomType = function (callback) {
     const getTotalRoomType = "SELECT COUNT(*) AS 'count_room' FROM roomtype"

@@ -58,85 +58,6 @@ formInputs.forEach(input => {
 // Gọi hàm kiểm tra ban đầu
 checkFormValidity()
 
-// // Khai báo và lấy tham chiếu đến nút 'Đăng ký'
-// const registerButton = document.getElementById('register-button')
-
-// // Thêm sự kiện click cho nút 'Đăng ký'
-// registerButton.addEventListener('click', function (event) {
-//     // Ngăn chặn hành vi mặc định của nút 'Đăng ký' (ngăn gửi biểu mẫu)
-//     event.preventDefault()
-
-//     // Lấy giá trị email
-//     const email = document.getElementById('form__email').value
-//     // Kiểm tra tính hợp lệ của email
-//     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-
-//     if (!isEmailValid) {
-//         document.getElementById('form__email').classList.add('is-invalid') // Thêm lớp CSS is-invalid
-//     } else {
-//         document.getElementById('form__email').classList.remove('is-invalid') // Xóa lớp CSS is-invalid
-//     }
-
-//     // Lấy giá trị mật khẩu và xác nhận mật khẩu
-//     const password = document.getElementById('form__password').value
-//     const confirmPass = document.getElementById('form__password-confirm').value
-
-//     // Kiểm tra tính hợp lệ của mật khẩu và xác nhận mật khẩu
-//     const isPasswordValid = password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password)
-
-//     if (!isPasswordValid || password !== confirmPass) {
-//         document.getElementById('form__password').classList.add('is-invalid') // Thêm lớp CSS is-invalid
-//         document.getElementById('form__password-confirm').classList.add('is-invalid') // Thêm lớp CSS is-invalid
-//     } else {
-//         document.getElementById('form__password').classList.remove('is-invalid') // Xóa lớp CSS is-invalid
-//         document.getElementById('form__password-confirm').classList.remove('is-invalid') // Xóa lớp CSS is-invalid
-//     }
-
-//     // Kiểm tra tính hợp lệ tổng thể của thông tin
-//     if (!isPasswordValid || password !== confirmPass) {
-//         // Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
-//         const errorMessage = document.getElementById('error-message')
-//         errorMessage.innerText = 'Thông tin không hợp lệ'
-//         errorMessage.style.color = 'red'
-//     } 
-
-//     // Chỉ để test xem thực hiện thành công chưa, không để vào code final (vì đăng ký thành công sẽ điều hướng về trang đăng nhập)
-//     else {
-
-//         const register = {
-//             au_user_first_name: document.getElementById('form__first-name').value.trim(),
-//             au_user_last_name: document.getElementById('form__last-name').value.trim(),
-//             au_user_email: document.getElementById('form__email').value.trim(),
-//             au_user_pass: document.getElementById('form__password').value.trim()
-//         }
-//         fetch('/api/register', {
-//                 method: 'POST',
-//                 body: JSON.stringify(register),
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 }
-//             })
-//             // .then(res => res.json())
-//             // .then(back => {
-//             //     if (data.status == 'error') {
-//             //         // success.style.display = 'none'
-//             //         // error.style.display = 'block'
-//             //         setError(PhoneNumber, data.error)
-//             //         // error.innerText = data.error
-//             //     } else {
-//             //         // success.style.display = 'block'
-//             //         // error.style.display = 'none'
-//             //         // success.innerText = data.success
-//             //     }
-//             // })
-
-//         const errorMessage = document.getElementById('error-message') 
-//         errorMessage.innerText = 'Thành công!'
-//         errorMessage.style.color = 'green' 
-
-//     }
-// })
-
 const form = document.getElementById('register-form')
 const firstName = document.getElementById('form__first-name')
 const lastName = document.getElementById('form__last-name')
@@ -232,15 +153,15 @@ function validateInput() {
 		}).then(
 			res => res.json()
 		).then(back => {
-			if (back.msg === 'error') {
+			if (back.status === 'error') {
 				setError(email, back.message)
 				document.getElementById('form__email').classList.add('is-invalid')
 				isAllValid = false
-			} else {
+			} else if (back.status === 'success') {
 				if (isAllValid) {
 					form.submit()
 				}
-			}
+			} 
 		}).catch(function (err) {
 			console.log(err)
 		})

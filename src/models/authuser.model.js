@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken')
 
 function AuthUser() { }
 
-AuthUser.checkRegister = function (req, res) {
+AuthUser.checkRegister = function (req, callback) {
     const {
         au_user_last_name,
         au_user_first_name,
@@ -24,11 +24,8 @@ AuthUser.checkRegister = function (req, res) {
     const insertUser = 'INSERT INTO authuser SET ?'
 
     db.query(checkEmail, [au_user_email], async (err, result) => {
-        if (err) throw err
-        if (result[0]) return res.status(500).json({
-            msg: 'error',
-            message: 'Email đã được sử dụng'
-        })
+        if (err) callback (1, 0, 0)
+        if (result[0]) callback (0, 1, 0)
         else {
             // const au_user_pass = bcrypt.hash(NewPassword, 8)
             let hashedPassword = await bcrypt.hash(au_user_pass, 8);
@@ -39,11 +36,8 @@ AuthUser.checkRegister = function (req, res) {
                 au_user_email: au_user_email,
                 au_user_pass: hashedPassword
             }, (error, results) => {
-                if (error) throw error
-                return res.status(200).json({
-                    msg: 'success',
-                    message: 'Register successfully'
-                })
+                if (error) callback (1, 0, 0)
+                callback(0, 0, 1)
             })
         }
     })
