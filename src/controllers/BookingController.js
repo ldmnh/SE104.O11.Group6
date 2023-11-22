@@ -183,6 +183,7 @@ class BookingController {
             }
             if (result.length > 0) {
                 res.status(200).render("./pages/booking/cancellation", {
+                    user:req.session.user,
                     message: "success",
                     data: result,
                 });
@@ -199,7 +200,7 @@ class BookingController {
             }
 
             if (result) {
-                req.session.book = null;
+                req.session.book_id = null;
                 res.status(200).json({ message: "Thành công" });
             }
         });
