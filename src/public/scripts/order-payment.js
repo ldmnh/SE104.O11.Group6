@@ -64,9 +64,10 @@ checkInfo.addEventListener("click", () => {
 });
 
 //Khi nhấn hoàn tất đặt phòng
-const doneBookingBtn = document.querySelector(".done-booking-btn");
-const addOtpBtn = document.querySelector(".modal-otp");
+// const doneBookingBtn = document.querySelector(".done-booking-btn");
+// // const addOtpBtn = document.querySelector(".modal-otp");
 
-doneBookingBtn.addEventListener("click", () => {
-  addOtpBtn.style.display = "block";
-});
+// doneBookingBtn.addEventListener("click", () => {
+//   // addOtpBtn.style.display = "block";
+//   window.href.location = "/booking/success";
+// });

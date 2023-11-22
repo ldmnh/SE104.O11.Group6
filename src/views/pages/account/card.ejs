@@ -17,9 +17,11 @@
     <%- include('../../partials/header-medium', { user }) %>
     <%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: '/' },
-        { text: 'Tài khoản', link: null },
+        { text: 'Cá nhân', link: null },
         { text: 'Thông tin cá nhân', link: '/account/information' }
     ]}) %>
+    <%- include('../../components/on-top-btn') %>
+
 
     <div class="payment-account-container">
         <aside class="aside-content">
@@ -146,6 +148,8 @@
     <script src="/scripts/otp-debit.js" defer></script>
     <script src="/scripts/header-medium.js"></script>
     <script src="/scripts/logout-popup.js"></script>
+    <script src="/scripts/base.js"></script>
+
 </body>
 
 </html>

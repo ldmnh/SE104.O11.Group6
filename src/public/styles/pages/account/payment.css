@@ -397,3 +397,8 @@ button.btn--outlined.pri {
     width: 150px;
     margin-right: 4px;
 }
+
+.credit__logo {
+    width: 65px;
+    height: 40px;
+}

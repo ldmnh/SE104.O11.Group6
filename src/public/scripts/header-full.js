@@ -14,14 +14,14 @@ homepageBtnHf.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHf.addEventListener("click", () =>
   redirectToUrl("/notifications/account-update")
 );
-// signinBtnHf.addEventListener("click", () => redirectToUrl("/auth/login"));
-// signupBtnHf.addEventListener("click", () => redirectToUrl("/auth/register"));
 
 const nameClickHf = document.querySelector(".name-click-hf");
-const avatarClickHf = document.querySelector(".avatar-click-hf");
+const avatarClickHf = document.querySelector(".avatar-btn-hf");
 nameClickHf.addEventListener("click", () =>
   redirectToUrl("/account/information")
 );
 avatarClickHf.addEventListener("click", () =>
   redirectToUrl("/account/information")
 );
+// signinBtnHf.addEventListener("click", () => redirectToUrl("/auth/login"));
+// signupBtnHf.addEventListener("click", () => redirectToUrl("/auth/register"));
