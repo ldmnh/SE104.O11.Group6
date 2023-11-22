@@ -58,10 +58,17 @@
                 <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
                 <button type= "submit" class="form--submit1 detail-btn">Xem chi tiết</button>
             </form>
-            <form action="account/addReview" method="POST">
+            <% if (bookingDetail.book_status == 1) { %> 
+            <form action="/booking/detail" method="GET">
                 <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
-                <button class="form--submit2 review-btn">Đánh giá</button>
+                <button type= "submit" class="form--submit2 detail-btn">Đánh giá</button>
             </form>
+            <%} else if (bookingDetail.book_status == 0) { %>
+            <form action="/booking/detail" method="GET">
+                <input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
+                <button type= "submit" class="form--submit2 detail-btn">Hủy đặt</button>
+            </form>
+            <% } %>
         </div>
     </div>
 </div>

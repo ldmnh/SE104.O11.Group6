@@ -180,11 +180,11 @@
 
         <section class="abort">
             <div class="abort__info">
-                <h2>Miễn phí hủy đặt phòng</h2>
                 <% if (!booking.book_time_left_format){ %>
-                <p class="abort__time-left">Hết hạn hủy miễn phí!!!</p>
+                <h2>Hết hạn hủy miễn phí!!!</h2>
                 <p>Bạn cần thanh toán VND 2.800.000 để hủy</p>
                 <% } else { %>
+                <h2>Miễn phí hủy đặt phòng</h2>
                 <p class="abort__time-left">Còn <%=booking.book_time_left_format%>!!!</p>
                 <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy
                     <span class="abort__highlight">trước <%=booking.book_time_count_format%>
@@ -204,7 +204,9 @@
                 </div>
                 <p class="progress__time"><%=booking.book_time_count_format%></p>
             </div>
+            <% if (booking.book_status == 0) {%> 
             <button type="button" class="btn detail__btn" id="cancel-btn">Hủy đặt phòng</button>
+            <%}%>
         </section>
 
     </main>
