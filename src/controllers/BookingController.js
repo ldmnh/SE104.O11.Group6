@@ -146,6 +146,7 @@ class BookingController {
             if (result.length > 0) {
                 res.status(200).render("./pages/booking/success", {
                     message: "success",
+                    user: req.session.user,
                     data: result,
                 });
             }

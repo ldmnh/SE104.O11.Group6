@@ -1,5 +1,4 @@
 @import url("/styles/base.css");
-
 .modal2 {
     position: fixed;
     display: none;
@@ -230,6 +229,7 @@ h2 {
     top: 16px;
     right: 19px;
 }
+
 
 .credit__close-btn:hover {
     cursor: pointer;
