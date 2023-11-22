@@ -1,16 +1,25 @@
 const db = require("../config/db/connect");
-function Search() { }
+function Search() {}
 
-Search.find= function (req, res, callback) {
-    const {
-        location,
-        checkIn,
-        checkOut,
-        adult,
-        child,
-        room
-    } = req.query;
-    const sql = `
+Search.find = function (req, res, callback) {
+  const {
+    location,
+    checkin: checkIn,
+    checkout: checkOut,
+    adult,
+    child,
+    room,
+  } = req.query;
+  req.session.search = {
+    check_in: checkIn,
+    check_out: checkOut,
+    adult: adult,
+    child: child,
+  };
+
+  console.log(req.session.search);
+
+  const sql = `
     SELECT X.room_id
         FROM 
         (
@@ -80,23 +89,22 @@ Search.find= function (req, res, callback) {
             )
         ) AS Y
         ON X.room_id = Y.room_id`;
-    const searchQuery = `%${location}%`;
-    const params = [
-        searchQuery,
-        searchQuery,
-        adult,
-        child,
-        checkIn,
-        checkIn,
-        checkOut,
-        checkOut,
-        checkIn,
-        checkOut,
-        room,
-    ];
-    db.query(sql, params, (err, result) => {
-        callback(err, res,result)
-    })
-
-}
+  const searchQuery = `%${location}%`;
+  const params = [
+    searchQuery,
+    searchQuery,
+    adult,
+    child,
+    checkIn,
+    checkIn,
+    checkOut,
+    checkOut,
+    checkIn,
+    checkOut,
+    room,
+  ];
+  db.query(sql, params, (err, result) => {
+    callback(err, res, result);
+  });
+};
 module.exports = Search;

@@ -146,6 +146,7 @@ class BookingController {
             if (result.length > 0) {
                 res.status(200).render("./pages/booking/success", {
                     message: "success",
+                    user: req.session.user,
                     data: result,
                 });
             }
@@ -156,7 +157,7 @@ class BookingController {
     detail(req, res) {
         const book_id = req.query.book_id;
         const id = req.session.user.id;
-        Booking.getDetail({ id, book_id }, function (err, booking, bookingDetails) {
+        Booking.getDetailBooking({ id, book_id }, function (err, booking, bookingDetails) {
             if (err) {
                 res.render('./pages/site/error404')
                 throw err;

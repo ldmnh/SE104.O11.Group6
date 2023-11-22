@@ -3,6 +3,11 @@
 //     cancelPopup.style.display = 'block';
 // })
 
+const cancelPopup = document.querySelector('.cancel-modal');
+document.getElementById('cancel-btn').addEventListener('click', function () {
+    cancelPopup.style.display = 'block';
+})
+
 const formReviews = document.querySelectorAll('.form-review')
 formReviews.forEach((f, index) => {
     f.addEventListener('submit', e => {
@@ -17,7 +22,6 @@ reviviewBtnPost.forEach((item, index) => {
 
         const reviewPopup = item.parentElement.querySelector('.modal__review-popup');
         reviewPopup.style.display = "block";
-
 
         //Khi người dùng nhấn đăng:
         const successVPopup = item.parentElement.querySelector(".modal-success");
@@ -47,18 +51,6 @@ reviviewBtnPost.forEach((item, index) => {
                     },
                 })
             })
-
         })
-
     })
-
-
 })
-
-
-
-
-
-
-
-
