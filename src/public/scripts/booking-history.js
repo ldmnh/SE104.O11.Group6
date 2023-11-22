@@ -45,12 +45,3 @@ const redirect2OrderConfirmView = () => {
 detailBtns.forEach((detailBtn) => {
     detailBtn.addEventListener("click", redirect2OrderConfirmView);
 });
-
-//Khi nhấn nút chính sách hủy phòng: cancel-policy
-const cancelPolicys = document.querySelectorAll(".cancel-policy");
-const redirect2CancelPolicy = () => {
-    window.location.href = "/terms-of-use";
-};
-cancelPolicys.forEach((cancelPolicy) => {
-    cancelPolicy.addEventListener("click", redirect2CancelPolicy);
-});

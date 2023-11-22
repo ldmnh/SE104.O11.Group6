@@ -62,7 +62,7 @@ a {
     display: flex;
     align-items: center;
     color: var(--primary-color-4);
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: "FILL" 1;
 }
 
 .detail {
@@ -78,7 +78,6 @@ a {
     flex-direction: column;
     gap: 12px;
     padding: 12px;
-
 }
 
 .detail__col-1 {
@@ -122,7 +121,7 @@ a {
     gap: 12px;
     background-color: var(--primary-color-4);
     font-size: 0.875rem;
-    color: var(--white)
+    color: var(--white);
 }
 
 .detail__btn:hover {
@@ -162,7 +161,7 @@ a {
 .room__unit-price {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--green)
+    color: var(--green);
 }
 
 .room__content del {
@@ -188,6 +187,12 @@ a {
     display: inherit;
     flex-direction: column;
     gap: 4px;
+}
+
+.container--popup img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
 }
 
 .detail__code,
@@ -218,7 +223,6 @@ a {
 
 .abort__info,
 .abort__progress {
-
     display: inherit;
     flex-direction: column;
     gap: 8px;
@@ -285,14 +289,15 @@ a {
 
 .fail-modal .modal-content span {
     font-size: 10rem;
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: "FILL" 1;
 }
 
 .fail-modal .modal-content p {
     font-size: 2rem;
     font-weight: 700;
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: "FILL" 1;
 }
+
 
 .modal-backdrop {
     z-index: 0;
