@@ -140,10 +140,11 @@ class SearchController {
 
                 if (acco_fea) {
                     let acco_feaFilter = acco_fea.join(",");
-                    sql1 += ` AND accofea.fea_id IN ('${acco_feaFilter}')`;
+                    sql += ` AND accofea.fea_id IN ('${acco_feaFilter}')`;
                 }
-
-                if (cost == "Cao đến thấp") sql1 += ` ORDER BY room_cost DESC`;
+                if (cost == "Cao đến thấp")
+                    // result.sort((a, b) => a.room_cost - b.room_cost)
+                    sql1 += ` ORDER BY room_cost DESC`;
                 if (cost == "Thấp đến cao") sql1 += ` ORDER BY room_cost ASC`;
                 if (acco_star_sort == "Cao đến thấp")
                     sql1 += ` ORDER BY acco_star DESC`;
@@ -161,37 +162,26 @@ class SearchController {
                         throw err;
                     }
 
-          if (result1.length > 0) {
-            result1.forEach(function (result) {
-              result.room_cost_before_currency = index.toCurrency(
-                Number(result.room_cost)
-              );
-              result.room_cost_after_currency = index.toCurrency(
-                Number(
-                  result.room_cost - result.room_cost * result.room_discount
-                )
-              );
-            });
-
-            res.status(200).json({
-              message: "Đã tìm thành công",
-              data: result1,
-            });
-          } else {
-            res.status(200).json({
-              message: "Không tìm thấy kết quả",
-            });
-          }
+                    if (result1.length > 0) {
+                        res.status(200).json({
+                            message: "Đã tìm thành công",
+                            data: result1,
+                        });
+                    } else {
+                        res.status(200).json({
+                            message: "Không tìm thấy kết quả",
+                        });
+                    }
+                });
+            } else {
+                res.status(404).json({ message: "Không tìm thấy kết quả" });
+            }
         });
-      } else {
-        res.status(404).json({ message: "Không tìm thấy kết quả" });
-      }
-    });
-    //     } else {
-    //     res.status(404).json({ message: "Không tìm thấy kết quả" });
-    // }
-    // });
-  }
+        //     } else {
+        //     res.status(404).json({ message: "Không tìm thấy kết quả" });
+        // }
+        // });
+    }
 
   // [GET] /search/:acco_id
   accoDetail(req, res) {
@@ -232,18 +222,7 @@ class SearchController {
     // [POST] /search:acco_id
     submitBooking(req, res) {
         // console.log(req.body)
-        const {
-            acco_id,
-            room_id,
-            room_number,
-            room_cost_before,
-            room_cost_after,
-        } = req.body;
-  // [POST] /search:acco_id
-  submitBooking(req, res) {
-    // console.log(req.body)
-    const { acco_id, room_id, room_number, room_cost_before, room_cost_after } =
-      req.body;
+        const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
 
     req.session.acco = { id: parseInt(acco_id) };
 
@@ -258,8 +237,8 @@ class SearchController {
       })
       .filter((value) => value.num > 0);
 
-    res.redirect("/booking/information");
-  }
+        res.redirect('/booking/information');
+    }
 }
 
 module.exports = new SearchController();
