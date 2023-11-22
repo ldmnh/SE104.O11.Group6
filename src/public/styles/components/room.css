@@ -36,19 +36,20 @@
 }
 
 .room__detail--left {
-    width: 24%;
+    width: 25%;
     display: inherit;
     flex-direction: column;
     gap: 12px;
-    padding: 12px;
+    border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: var(--white);
 }
 
 .room__preview {
-    height: 180px;
+    height: 100%;
     object-fit: cover;
+    border-bottom-left-radius: 8px;
 }
 
 .room__area {
@@ -71,13 +72,13 @@
 }
 
 .room__detail--right {
-    width: 76%;
+    width: 75%;
     display: inherit;
     flex-direction: column;
     gap: 8px;
     background-color: var(--primary-color-3-o10);
     box-sizing: border-box;
-    padding: 12px 24px 0 24px;
+    padding: 12px 24px;
 }
 
 .room__title {

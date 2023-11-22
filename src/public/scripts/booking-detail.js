@@ -18,7 +18,6 @@ reviviewBtnPost.forEach((item, index) => {
         const reviewPopup = item.parentElement.querySelector('.modal__review-popup');
         reviewPopup.style.display = "block";
 
-
         //Khi người dùng nhấn đăng:
         const successVPopup = item.parentElement.querySelector(".modal-success");
         const postBtn = item.parentElement.querySelector(".post-btn");
@@ -47,18 +46,6 @@ reviviewBtnPost.forEach((item, index) => {
                     },
                 })
             })
-
         })
-
     })
-
-
 })
-
-
-
-
-
-
-
-
