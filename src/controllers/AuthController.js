@@ -25,7 +25,26 @@ class AuthController {
 
   // [POST] /auth/register
   registerPost(req, res) {
-    authuser.checkRegister(req, res);
+    AuthUser.checkRegister(req, function(err, dupEmail, success){
+      if (err) { return res.status(200).json({
+        status: 'error',
+        message: 'Error'
+      })}
+
+      if (dupEmail) {
+          return res.status(500).json({
+          status: 'error',
+          message: 'Email đã được sử dụng'
+      })
+      }
+
+      if (success) {
+        return res.status(200).json({
+          status: 'success',
+          message: 'Register successfully'
+      })
+      }
+    });
   }
 
   // [GET] /auth/login
@@ -36,7 +55,7 @@ class AuthController {
     // [POST] /auth/login
     loginPost(req, res) {
         const { email, password } = req.body;
-        AuthUser.findByEmail(email, (err, user) => {
+        AuthUser.findByEmail(email, async (err, user) => {
             if (err) {
                 res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
@@ -47,7 +66,7 @@ class AuthController {
                     error: "Email không tồn tại!",
                 });
             } else {
-                if (bcrypt.compare(password, user.au_user_pass)) {
+                if (await bcrypt.compare(password, user.au_user_pass)) {
                 // if (password === user.au_user_pass) {
                     req.session.user = {
                         id: user.au_user_id,
@@ -148,16 +167,9 @@ class AuthController {
 
     // [GET] /auth/logout
     logout(req, res) {
-        req.session.destroy((err) => {
-            if (err) {
-                console.error("Lỗi khi hủy bỏ session:", err);
-                return res
-                    .status(500)
-                    .json({ status: "error", error: "Lỗi khi đăng xuất" });
-            }
+            delete req.session.user;
             // Chuyển hướng người dùng về trang đăng nhập sau khi đăng xuất thành công
             return res.redirect("/");
-        });
     }
 
   // [PUT] /auth/change-password
