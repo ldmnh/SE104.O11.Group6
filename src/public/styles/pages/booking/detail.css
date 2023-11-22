@@ -2,20 +2,14 @@
 @import url("/styles/components/cancel-popup.css");
 @import url("/styles/components/review-popup.css");
 @import url("/styles/components/success-popup.css");
-
-html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #000000;
-}
 @import url("/styles/partials/header-small.css");
 @import url("/styles/partials/footer.css");
 
-/* body {
+body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-} */
+}
 
 .content-container {
     width: 80%;
@@ -171,8 +165,7 @@ a {
     color: var(--green)
 }
 
-.room__unit-price del {
-    margin-right: 30%;
+.room__content del {
     font-size: 1rem;
     font-weight: 400;
     color: var(--dark-gray);
@@ -183,11 +176,18 @@ a {
     gap: 12px;
 }
 
-.room__content img {
-    width: 160px;
-    height: 160px;
+.room__content>img {
+    width: 50%;
+    height: 170px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.room__content>div {
+    width: 50%;
+    display: inherit;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .detail__code,
@@ -261,35 +261,39 @@ a {
 }
 
 
-.modal-content {
+.fail-modal .modal-content {
     gap: 36px;
     align-items: center;
     padding: 36px 36px 64px 36px;
     border-radius: 12px;
 }
 
-.modal-content div {
+.fail-modal .modal-content div {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.modal-content div button {
+.fail-modal .modal-content div button {
     font-size: 1rem;
 }
 
-.modal-content span,
-.modal-content p {
+.fail-modal .modal-content span,
+.fail-modal .modal-content p {
     color: var(--error);
 }
 
-.modal-content span {
+.fail-modal .modal-content span {
     font-size: 10rem;
     font-variation-settings: 'FILL' 1;
 }
 
-.modal-content p {
+.fail-modal .modal-content p {
     font-size: 2rem;
     font-weight: 700;
     font-variation-settings: 'FILL' 1;
+}
+
+.modal-backdrop {
+    z-index: 0;
 }
