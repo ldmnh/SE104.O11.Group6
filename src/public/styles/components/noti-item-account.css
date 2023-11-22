@@ -67,7 +67,7 @@
 
 .popup__main {
     position: relative;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     border-radius: 8px;
     padding: 15px;
     margin: auto;
@@ -76,9 +76,9 @@
 
 .close-btn {
     float: right;
-    color: var(--primary-color-1);
+    /* color: var(--primary-color-1); */
     font-size: 25px;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 .close-btn:hover {
@@ -141,7 +141,7 @@
 }
 
 .timeline ul li::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     bottom: 0;

@@ -87,9 +87,9 @@ formInputs.forEach(input => {
 //     if (!isPasswordValid) {
 //         // Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
 
-    // const errorMessage = document.getElementById('error-message');
-    // errorMessage.innerText = 'Thông tin không hợp lệ';
-    // errorMessage.style.color = 'red';
+// const errorMessage = document.getElementById('error-message');
+// errorMessage.innerText = 'Thông tin không hợp lệ';
+// errorMessage.style.color = 'red';
 
 
 // Chỉ để test xem thực hiện thành công chưa, không để vào code final (vì đăng ký thành công sẽ điều hướng về trang đăng nhập)

@@ -2,6 +2,8 @@
 @import url("/styles/partials/header-small.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/nav-tree.css");
+@import url("/styles/components/success-popup.css");
+@import url("/styles/components/otp.css");
 
 body {
     width: 100vw;
@@ -78,10 +80,9 @@ h1 {
     border: 1px solid var(--outline-variant);
     border-radius: 8px;
     width: 100%;
-    height: 447px;
 }
 
-.aside-wrapper__your-booking-detail h1 {
+.aside-wrapper__your-booking-detail > h1 {
     margin: 12px 12px 0 12px;
 }
 
@@ -116,7 +117,7 @@ h1 {
     padding: 12px 12px 0 12px;
 }
 
-.aside-wrapper__cost-total {
+.cost-total {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -126,24 +127,23 @@ h1 {
     padding: 12px;
 }
 
-.aside-wrapper__cost-total .aside-wrapper__red-line {
+.cost-total .red-line {
     color: var(--red);
     text-decoration: line-through;
 }
 
-.aside-wrapper__your-choice {
+.your-choice {
     display: flex;
     flex-direction: column;
     gap: 4px;
     padding: 0 12px 12px 12px;
 }
 
-.aside-wrapper__cost {
+.cost {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
-
 hr {
     width: 96%;
     border: 1px solid var(--outline-variant);
@@ -166,7 +166,7 @@ hr {
     border-radius: 12px;
 }
 
-.section-content__img {
+.section-content__confirm-account img {
     width: 64px;
     height: 64px;
     border-radius: 100%;
@@ -191,6 +191,12 @@ hr {
     border: 1px solid var(--outline-variant);
     border-radius: 12px;
     height: 526px;
+}
+
+.account-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .account-item {
@@ -345,7 +351,7 @@ button.submit-booking {
     z-index: 10;
 }
 
-.form-check-input:checked[type="radio"]~.list-account {
+.form-check-input:checked[type="radio"] ~ .list-account {
     display: block;
 }
 
@@ -372,4 +378,16 @@ button.submit-booking {
 
 .form-check-label {
     margin: 0 0 0 12px;
+}
+
+.checkin-date,
+.checkout-date {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+}
+.term-use {
+    text-align: end;
+    color: #0866ff;
 }

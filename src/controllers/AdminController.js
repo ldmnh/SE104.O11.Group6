@@ -2,6 +2,11 @@ const adminModel = require('../models/admin.model')
 
 class AdminController {
 
+    // [GET] /admin/login
+    login(req, res) {
+        res.render('./pages/admin/login')
+    }
+
     // [GET] /admin/dashboard
     dashboard(req, res) {
 
@@ -37,9 +42,9 @@ class AdminController {
 
     getChart(req, res) {
         adminModel.getChart(function (chart) {
-                console.log(chart)
-                return res.json({
-                    chart: chart,
+            console.log(chart)
+            return res.json({
+                chart: chart,
             })
         })
     }

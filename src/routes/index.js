@@ -16,18 +16,16 @@ const route = (app) => {
     app.use("/booking", bookingRouter)
     app.use("/", siteRouter)
 
-    app.get("/testing-login", (req, res) => {
-        req.session.user = {
-            id: 1,
-            email: 'lehieudn123@example.com',
-            first_name: 'Hiếu',
-            last_name: 'Lê',
-            avatar: 'user_1.jpg'
+    app.get("/testing-search", (req, res) => {
+        req.session.search = {
+            check_in: new Date('11-06-2023'),
+            check_out: new Date('11-06-2023'),
+            adult: 2,
+            child: 0,
         }
 
         res.status(200).json({
-            message: "Đăng nhập thành công",
-            data: req.session.user
+            search: req.session.search,
         })
     })
 }
