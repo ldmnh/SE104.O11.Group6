@@ -201,8 +201,8 @@
 				<p class="progress__time"> <%= booking.book_time_count_format %> </p>
 			</div>
 			<div class="abort__btn">
-				<button type="button" class="btn detail__btn" id="cancel-btn">Hủy đặt phòng</button>
 				<% if (booking.book_status==0) { %>
+				<button type="button" class="btn detail__btn" id="cancel-btn">Hủy đặt phòng</button>
 				<% } else if (booking.book_status==-1) { %>
 				<p>Bạn đã hủy đặt phòng</p>
 				<% } %>

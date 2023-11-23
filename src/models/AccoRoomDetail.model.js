@@ -1,5 +1,7 @@
 const db = require('../config/db/connect')
 const index = require('../models/index.model')
+const util = require('node:util')
+const query = util.promisify(db.query).bind(db)
 
 const accoRoomDetail = function () { }
 
@@ -11,7 +13,6 @@ accoRoomDetail.getDetail = function (req, res, callback) {
     const getAccoRoomExte = 'SELECT * FROM view_room_exte WHERE room_id = ?'
     const getAccoRoomExteDistinct = 'SELECT DISTINCT(exte_name) FROM view_room_exte WHERE acco_id = ?'
     const getAccoRoomImg = 'SELECT * FROM roomtypeimg WHERE room_id = ?'
-    const getAccoRoomRating = 'SELECT * FROM view_room_rating WHERE acco_id = ? ORDER BY rating_datetime DESC'
 
     const params = [req.params.acco_id]
 
@@ -90,27 +91,60 @@ accoRoomDetail.getDetail = function (req, res, callback) {
                             })
                             throw err
                         }
-                    
-                    db.query(getAccoRoomRating, params, (err, accoRoomRating) => {
-                        if (err) {
-                           console.log({
-                                message: 'Lỗi truy vấn getAccoRoomRating',
-                            })
-                            throw err
-                        }
 
-                        accoRoomRating.forEach(function (rating) {
-                            rating.rating_datetime_format = index.toDDMMYYYY(new Date(rating.rating_datetime))
-                        })
+                        callback(err, accoDetail[0], accoFea, accoImg, accoRoom, accoExte)
 
-                        callback(err, accoDetail[0], accoFea, accoImg, accoRoom, accoExte, accoRoomRating)
-
-                        })
                     })
                 })
             })
         })
     })
+}
+
+accoRoomDetail.findComments = async (req, callback) => {
+
+    const params = Number(req.params.acco_id) ? req.params.acco_id : req.query.acco_id
+
+    let getAccoRoomRating = 'SELECT * FROM view_room_rating WHERE acco_id = ? ORDER BY'
+
+    if (req.query.rating_point && req.query.rating_datetime) {
+        if (req.query.rating_point == 'ZA') {
+            getAccoRoomRating += ' rating_point DESC'
+        } else if (req.query.rating_point == 'AZ') {
+            getAccoRoomRating += ' rating_point ASC'
+        }
+        if (req.query.rating_datetime == 'ZA') {
+            getAccoRoomRating += 'AND rating_datetime DESC'
+        } else if (req.query.rating_datetime == 'AZ') {
+            getAccoRoomRating += 'AND rating_datetime ASC'
+        }
+    } else if (!req.query.rating_point && !req.query.rating_datetime) {
+        getAccoRoomRating += ' rating_datetime DESC'
+    } else if (req.query.rating_point == 'ZA') {
+        getAccoRoomRating += ' rating_point DESC'
+    } else if (req.query.rating_point == 'AZ') {
+        getAccoRoomRating += ' rating_point ASC'
+    } else if (req.query.rating_datetime == 'ZA') {
+        getAccoRoomRating += ' rating_datetime DESC'
+    } else if (req.query.rating_datetime == 'AZ') {
+        getAccoRoomRating += ' rating_datetime ASC'
+    }
+
+    db.query(getAccoRoomRating, params, (err, accoRoomRating) => {
+        if (err) {
+           console.log({
+                message: 'Lỗi truy vấn getAccoRoomRating',
+            })
+            throw err
+        }
+
+        accoRoomRating.forEach(function (rating) {
+            rating.rating_datetime_format = index.toDDMMYYYY(new Date(rating.rating_datetime))
+        })
+
+        callback(err, accoRoomRating)
+
+        })
 }
 
 module.exports = accoRoomDetail
