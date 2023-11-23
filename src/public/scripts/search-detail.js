@@ -45,6 +45,92 @@ function closeAllDropdowns() {
   });
 }
 
-// Mặc định chọn bộ lọc theo 'Số điểm'
-const defaultSelectedItem = document.getElementById("filter__item-rating");
-defaultSelectedItem.click();
+// Trạng thái uncheck cho tất cả thẻ radio
+function uncheckAll() {
+  radios.forEach((radio) => {
+    radio.checked = false;
+  });
+}
+
+function selectRadio(optionId) {
+  uncheckAll();
+  var radio = document.getElementById(optionId);
+  radio.checked = true;
+}
+
+
+// // Mặc định chọn bộ lọc theo 'Số điểm'
+// const defaultSelectedItem = document.getElementById("filter__item-rating");
+// defaultSelectedItem.click();
+
+filterSortData();
+function filterSortData() {
+  const rating_point = getSort("rating");
+  const rating_datetime = getSort("time-sort");
+  const acco_id = document.getElementById('acco_id').value;
+
+  $.ajax({
+    url: "/search/:acco_id/commentsfiltersort" + window.location.search,
+    method: "GET",
+    data: {
+      acco_id,
+      rating_point,
+      rating_datetime
+    },
+
+    success: function (results) {
+      const filterSort = document.getElementById("filter-sort");
+      filterSort.innerHTML = "";
+      let html = "";
+      if (results.message == "Đã tìm thành công") {
+        const accoComments = results.data;
+        accoComments.forEach(function (rating) {
+            html = `<div class="comment-wrapper">
+               <div class="comment-wrapper__profile">
+                <img src="/imgs/user/${rating.au_user_avt_url}" alt="avatar" />
+                <p>${rating.au_user_full_name}</p>
+            </div>
+            <p class="comment-wrapper__comment">
+                ${rating.rating_context}
+            </p>
+            <div class="comment-wrapper__point-day">
+                <span class="comment-wrapper__point">${rating.rating_point}</span>
+                <span>${rating.rating_datetime_format}</span>
+            </div>
+        </div>
+        `;
+          const newDiv = document.createElement("div");
+          newDiv.classList.add("filter-sort-class");
+          newDiv.innerHTML = html;
+          filterSort.appendChild(newDiv);
+        });
+      } else {
+        // searchContent.innerHTML = `Không tìm thấy nhận xét`;
+        const errDiv = document.createElement("div");
+        const filterSort = document.getElementById("filter-sort");
+        filterSort.innerHTML = "";
+        errDiv.textContent = "Không tìm thấy nhận xét";
+        filterSort.appendChild(errDiv);
+      }
+    },
+    error: function(results){  
+      alert('server error')     
+}  
+  });
+}
+
+function getSort(className) {
+  let sortResult = [];
+  let sort = document.querySelectorAll(`.${className}.sort:checked`);
+  if (sort.length > 0) {
+    sortResult = sort[0].value;
+  }
+  return sortResult;
+}
+
+document.addEventListener("click", function (e) {
+  const target = e.target;
+  if (target.classList.contains("sort")) {
+    filterSortData();
+  }
+});
