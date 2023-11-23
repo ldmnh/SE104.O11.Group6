@@ -1,5 +1,5 @@
 const form = document.getElementById("cancel-form");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".cancel-modal");
 
 const closePopupButton = document.querySelector(".close-icon");
 closePopupButton.addEventListener("click", () => {
@@ -15,6 +15,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     Cancel();
 });
+
 function Cancel() {
     const selectedOption = document.querySelector(
         `input[name="option"]:checked`

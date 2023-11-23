@@ -201,7 +201,7 @@ class BookingController {
             }
 
             if (result) {
-                req.session.book_id = null;
+                // req.session.book_id = null;
                 res.status(200).json({ message: "Thành công" });
             }
         });
