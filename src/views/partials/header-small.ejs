@@ -2,28 +2,29 @@
     <div class="header-container">
         <div class="header-container__top">
             <div class="header-container__logo-img">
-                <img src="/imgs/logo.svg" alt="Logo" class="" />
+                <a href="/"><img src="/imgs/logo.svg" alt="Logo"/></a>
             </div>
             <div class="header-container__nav-top">
-                <button href="#" class="status-layer " id="homepage-btn-hf">Trang chủ</button>
-                <button href="#" class="status-layer noti-btn-hf">Thông báo</button>
+                <a href="/"> <button class="status-layer ">Trang chủ</button></a>
+                <a href="/notifications/account-update">  <button class="status-layer ">Thông báo</button></a>
+               
             </div>
             <div class="header-container__top-authenticator">
                 <% if (user) { %>
                 <p>Chào,</p>
                 <a href="/account/information" style="text-decoration: none;"><p><%= user?.last_name + ' ' + user?.first_name %></p></a>
-                <!-- <p class="name-click-hf"><%# user?.last_name + ' ' + user?.first_name %></p> -->
-                <img src="/imgs/user/<%= user?.avatar ?? 'default.jpg'%>" alt="avatar" class="avatar-btn-hf" />
+                <!-- <p class="name-click-hs"><%# user?.last_name + ' ' + user?.first_name %></p> -->
+                <img src="/imgs/user/<%= user?.avatar ?? 'default.jpg'%>" alt="avatar" class="avatar-btn-hs" />
                 <% } else { %>
                 <a href="/auth/login" style='text-decoration: none;'>
-                    <button class="button-signin signin-btn-hf" type="button">
+                    <button class="button-signin signin-btn-hs" type="button">
                         <div class="status-layer">
                             <span>Đăng nhập</span>
                         </div>
                     </button>
                 </a>
                 <a href="/auth/register" style='text-decoration: none;'>
-                    <button class="sec button-signup signup-btn-hf" type="button">
+                    <button class="sec button-signup signup-btn-hs" type="button">
                         <div class="status-layer">
                             <span>Đăng ký</span>
                         </div>
