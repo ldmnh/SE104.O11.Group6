@@ -1,17 +1,17 @@
-// const cancelPopup = document.querySelector('.modal__cancel-popup');
+// const cancelPopup = document.querySelector('.modal__cancel-popup')
 // document.getElementById('cancelBtn').addEventListener('click', function () {
-//     cancelPopup.style.display = 'block';
+//     cancelPopup.style.display = 'block'
 // })
 
-const cancelPopup = document.querySelector('.modal');
+const cancelPopup = document.querySelector('.modal')
 document.getElementById('cancel-btn').addEventListener('click', function () {
-    cancelPopup.style.display = 'block';
+    cancelPopup.style.display = 'block'
 })
 
 const formReviews = document.querySelectorAll('.form-review')
 formReviews.forEach((f, index) => {
     f.addEventListener('submit', e => {
-        e.preventDefault();
+        e.preventDefault()
     })
 })
 
@@ -20,23 +20,23 @@ const reviviewBtnPost = document.querySelectorAll('.review-btn-post')
 reviviewBtnPost.forEach((item, index) => {
     item.addEventListener("click", () => {
 
-        const reviewPopup = item.parentElement.querySelector('.modal__review-popup');
-        reviewPopup.style.display = "block";
+        const reviewPopup = item.parentElement.querySelector('.modal__review-popup')
+        reviewPopup.style.display = "block"
 
         //Khi người dùng nhấn đăng:
-        const successVPopup = item.parentElement.querySelector(".modal-success");
-        const postBtn = item.parentElement.querySelector(".post-btn");
+        const successVPopup = item.parentElement.querySelector(".modal-success")
+        const postBtn = item.parentElement.querySelector(".post-btn")
         postBtn.addEventListener("click", () => {
 
-            reviewPopup.style.display = "none";
-            successVPopup.style.display = "block";
+            reviewPopup.style.display = "none"
+            successVPopup.style.display = "block"
 
-            const closePopupBtn = item.parentElement.querySelector(".success-popup__close-btn");
-            const modalSuccess = item.parentElement.querySelector(".modal-success");
+            const closePopupBtn = item.parentElement.querySelector(".success-popup__close-btn")
+            const modalSuccess = item.parentElement.querySelector(".modal-success")
 
             closePopupBtn.addEventListener("click", () => {
-                modalSuccess.style.display = "none";
-                // formReviews[index].submit();
+                modalSuccess.style.display = "none"
+                // formReviews[index].submit()
 
                 const data_rating = {
                     room_id: item.parentElement.querySelector(".room_id").value,
