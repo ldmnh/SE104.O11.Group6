@@ -7,6 +7,7 @@
 
 body {
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .payment-container {
@@ -190,7 +191,7 @@ hr {
     padding: 12px;
     border: 1px solid var(--outline-variant);
     border-radius: 12px;
-    height: 526px;
+    /* height: 526px; */
 }
 
 .account-detail {
@@ -225,9 +226,21 @@ hr {
     display: flex;
     flex-direction: column;
     width: 559px;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    border-radius: 8px;
+    margin-left: 50px;
+    /* height: 245px; */
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+.list-account-padding {
+    padding: 25px 0;
+}
+.list-account.active {
     height: 245px;
 }
-
 .list-account-title {
     background-color: var(--primary-color-1);
     color: var(--white);
