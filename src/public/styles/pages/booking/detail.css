@@ -264,6 +264,16 @@ a {
     font-weight: 600;
 }
 
+.abort__btn {
+    width: 15%;
+    display: inherit;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.abort__btn p {
+    font-weight: 500;
+}
 
 .fail-modal .modal-content {
     gap: 36px;
