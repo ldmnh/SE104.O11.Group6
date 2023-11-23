@@ -79,7 +79,7 @@ Booking.postInfoDetailByIds = ({
     })
 }
 
-Booking.getDetail = function ({ id, book_id }, callback) {
+Booking.getDetailBooking = function ({ id, book_id }, callback) {
     const getBooking = `
         SELECT *
         FROM view_booking_history
@@ -174,6 +174,7 @@ Booking.getAllBooking = function (req, res, callback) {
 
 Booking.cancelBooking = function (req, res, callback) {
     req.session.book_id = 1;
+
     const option = req.body.option;
     let value;
     let sql = `UPDATE booking SET rea_id = ?, book_status = -1 WHERE book_id = ?`;

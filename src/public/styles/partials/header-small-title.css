@@ -1,5 +1,5 @@
 /* @import url("/styles/base.css"); */
-@import url('./header.css');
+@import url("./header.css");
 
 header {
     /* position: fixed; */
@@ -8,7 +8,6 @@ header {
 .header-container {
     position: relative;
 }
-
 
 .header-container__title {
     position: absolute;
@@ -23,9 +22,14 @@ header {
     margin: 0;
 }
 
+.header-container__img {
+    cursor: pointer;
+}
+
 .header-container__help {
     font-size: 1.375rem;
     color: var(--white);
+    cursor: pointer;
 }
 
 /* .space {

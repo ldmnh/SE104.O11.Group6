@@ -3,6 +3,11 @@
 //     cancelPopup.style.display = 'block';
 // })
 
+const cancelPopup = document.querySelector('.modal');
+document.getElementById('cancel-btn').addEventListener('click', function () {
+    cancelPopup.style.display = 'block';
+})
+
 const formReviews = document.querySelectorAll('.form-review')
 formReviews.forEach((f, index) => {
     f.addEventListener('submit', e => {
