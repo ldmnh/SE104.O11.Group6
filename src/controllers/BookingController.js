@@ -155,7 +155,8 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        const book_id = req.query.book_id;
+        console.log(req.session.book?.id)
+        const book_id = (req.query.book_id) ? req.query.book_id : req.session.book?.id;
         const id = req.session.user.id;
         Booking.getDetailBooking({ id, book_id }, function (err, booking, bookingDetails) {
             if (err) {
