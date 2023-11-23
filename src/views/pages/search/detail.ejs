@@ -85,7 +85,7 @@
 		</section>
 
 		<section class="room-list" id="room-list">
-			<form action="/search/<%= accoDetail.acco_id %>" method="POST">
+			<form action="/search/<%= accoDetail.acco_id %>" id="booking-form" method="POST">
 				<input type="hidden" value="<%= accoDetail.acco_id %>" name="acco_id" class="form-control">
 				<% accoRoom.forEach(function(room) {%>
 				<input type="hidden" value="<%= room.room_id %>" name="room_id" class="form-control">
@@ -93,7 +93,7 @@
 				<input type="hidden" value="<%= room.room_cost_after %>" name="room_cost_after" class="form-control">
 				<%- include('../../components/room', {room}) %>
 				<% }) %>
-				<h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND 1.500.000</span> </h2>
+				<h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND <span class="total-price">0</span></span> </h2>
 				<div class="room-list__submit">
 					<button type="submit" class="btn room-list__submit-button">Đặt phòng</button>
 				</div>
