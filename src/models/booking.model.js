@@ -7,7 +7,7 @@
 const db = require('../config/db/connect');
 const index = require('../models/index.model')
 
-function Booking() {}
+function Booking() { }
 
 Booking.postInfo = ({
     acco_id,
@@ -123,8 +123,11 @@ Booking.getDetailBooking = function ({ id, book_id }, callback) {
                     book.book_time_left.setDate(book.book_time_left.getDate() - new Date().getDate)
                     book.book_time_left_format = index.toDDMMYYYYHHMM(new Date(book.book_time_left))
                 }
+
                 book.book_cost_before_currency = index.toCurrency(Number(book.book_cost_before))
                 book.book_cost_after_currency = index.toCurrency(Number(book.book_cost_after))
+
+                book.book_cost_cancel = index.toCurrency(0.2 * Number(book.book_cost_after))
             })
 
 
