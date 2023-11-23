@@ -53,7 +53,6 @@ h3 {
 p {
     font-size: 16px;
 }
-
 .main-content {
     width: 60%;
     display: inherit;
@@ -93,14 +92,12 @@ p {
     /* padding-left: 13px; */
 }
 
-.cancel__button--submit1 a {
+a.cancel__button--submit1:hover {
     color: var(--white);
-    text-decoration: none;
 }
 
-.cancel__button--submit2 a {
+a.cancel__button--submit2:hover {
     color: var(--primary-color-4);
-    text-decoration: none;
 }
 
 .cancel__button--submit1 {
@@ -111,6 +108,10 @@ p {
     color: var(--white);
     border: none;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .cancel__button--submit2 {
@@ -122,6 +123,10 @@ p {
     color: var(--primary-color-4);
     background-color: var(--white);
     border: 1px solid var(--primary-color-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .cancel__button--submit1:hover {
