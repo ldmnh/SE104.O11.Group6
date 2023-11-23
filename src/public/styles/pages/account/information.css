@@ -2,34 +2,25 @@
 @import url("/styles/partials/header-medium.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/components/success-popup.css");
+@import url("/styles/partials/nav-tree.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: var(--black);
 }
-
+/* 
 body {
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+} */
 
 .account-container {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    /* width: 80%; */
-    width: 1152px;
+    width: 80%;
+    max-width: 1152px;
     display: flex;
+    flex-direction: row;
+    margin: 12px auto;
     gap: 12px;
-}
-
-hr {
-    background-color: var(--outline-variant);
-    border-width: 1px;
-    width: 98%;
-    margin: 14px;
 }
 
 .aside-content {
@@ -38,9 +29,9 @@ hr {
     width: 25%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--outline-variant);
     background: var(--white);
-    height: 450px;
+    align-self: flex-start;
 }
 
 .aside-content__profile {
@@ -63,33 +54,33 @@ hr {
     height: 48px;
     margin-bottom: 12px;
     cursor: pointer;
+    color: var(--black);
 }
 
-.aside-section p:hover {
+.aside-section p:hover,
+.logout-btn:hover {
     border-radius: 8px;
     background-color: var(--gray);
     transition: 0.3s;
     cursor: pointer;
 }
 
-.aside-section p:first-child {
+.aside-section p.active {
     background-color: var(--primary-color-1);
     color: var(--white);
     border-radius: 8px;
-    padding: 12px;
 }
 
 .aside-content__img {
     height: 64px;
     width: 64px;
     border-radius: 100%;
-    object-fit: cover;
 }
 
 .aside-item p {
     color: var(--red);
     font-weight: 500;
-    padding-left: 12px;
+    margin: 12px;
 }
 
 .form {
@@ -161,14 +152,15 @@ hr {
     border: none;
     font-size: 16px;
 }
-
+/* 
 .profile-btn,
 .history-btn,
 .account-payment-btn,
 .change-password-btn,
 .logout-btn {
     cursor: pointer;
-}
+} */
+
 
 /*popup*/
 .popup {

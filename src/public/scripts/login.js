@@ -87,17 +87,94 @@ formInputs.forEach(input => {
 //     if (!isPasswordValid) {
 //         // Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
 
-// const errorMessage = document.getElementById('error-message')
-// errorMessage.innerText = 'Thông tin không hợp lệ'
-// errorMessage.style.color = 'red'
+// const errorMessage = document.getElementById('error-message');
+// errorMessage.innerText = 'Thông tin không hợp lệ';
+// errorMessage.style.color = 'red';
 
 
 // Chỉ để test xem thực hiện thành công chưa, không để vào code final (vì đăng ký thành công sẽ điều hướng về trang đăng nhập)
-//     else {
-//         const errorMessage = document.getElementById('error-message')
-//         errorMessage.innerText = 'Thành công!'
-//         errorMessage.style.color = 'green'
-//     }
-// })
+// else {
+//     const errorMessage = document.getElementById('error-message');
+//     errorMessage.innerText = 'Thành công!';
+//     errorMessage.style.color = 'green';
+// }
+const form = document.getElementById('login-form');
+const email = document.getElementById('form__email');
+const password = document.getElementById('form__password');
+
+form.addEventListener('submit', e => {
+    //Ngăn chặn việc gửi form nếu có bất kỳ trường nào không hợp lệ
+    e.preventDefault();
+    validateInput();
+})
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.remove('success');
+    inputControl.classList.add('error');
+}
+const setSuccess = element => {
+    const inputControl = element.parentElement.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+}
+
+function validateInput() {
+    const login = {
+        email: email.value.trim(),
+        password: password.value.trim()
+    };
+    fetch('/auth/login', {
+        method: "POST",
+        body: JSON.stringify(login),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json()).then(back => {
+        if (back.status == "error") {
+            console.log('error')
+
+            // success.style.display = "none"
+            // error.style.display = "block";
+            setError(email, back.error);
+            document.getElementById('form__email').classList.add('is-invalid');
+            error.innerText = back.error
+        }
+        else if (back.status == "error1") {
+            console.log('error1')
+            setError(password, back.error)
+            document.getElementById('form__password').classList.add('is-invalid');
+            // success.style.display = "block"
+            // error.style.display = "none";
+            success.innerText = back.success
+        }
+        else {
+            console.log('Login success')
+            // document.getElementById('form__email').classList.remove('is-invalid');
+            // document.getElementById('form__password').classList.remove('is-invalid');
+            // setSuccess(email)
+            // setSuccess(password)
+            // form.submit()
+            console.log('Login success')
+            window.location.href = '/';
+        }
+    })
+}
+// }
+
+
+
+
+
+
+
+
+
 
 

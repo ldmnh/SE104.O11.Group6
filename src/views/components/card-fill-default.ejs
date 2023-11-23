@@ -1,0 +1,16 @@
+<div class="form__debit-detail-container">
+  <div class="form__debit-detail-one">
+    <img src="/imgs/card.png" alt="">
+    <p class="name-bank">
+      Vietcombank
+    </p>
+    <p class="phone-number">
+      <%= debit.debit_num_hide %>
+    </p>
+    <form class="form-delete-debit" action="/account/card/delDebit" method="post">
+      <input type="hidden" name="debit_id" value=<%= debit.debit_id %>>
+      <button class="btn--filled line-delete delete-btn delete-debit" type="submit">Xóa</button>
+    </form>
+    <button class="unfilled-default default-btn default-btn-debit">Thiết lập mặc định</button>
+  </div>
+</div>

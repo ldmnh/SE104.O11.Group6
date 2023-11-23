@@ -1,0 +1,14 @@
+<div class="form__debit-detail-container">
+  <div class="form__debit-detail-one">
+    <img src="/imgs/card.png" alt="">
+    <p class="name-bank">
+      <%= bank.bank_name %>
+    </p>
+    <p class="phone-number"><%= bank.bank_num_hide %></p>
+    <form class="form-delete-bank" action="/account/card/delBank" method="post">
+      <input type="hidden" name="bank_id" value=<%= bank.bank_id %>>
+      <button class="btn--filled line-delete delete-btn delete-bank" type="submit">Xóa</button>
+    </form>
+    <button class="filled-default default-btn default-btn-bank">Mặc định</button>
+  </div>
+</div>

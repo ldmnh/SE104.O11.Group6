@@ -1,3 +1,5 @@
+@import url("/styles/base.css");
+
 .modal-otp {
 	position: fixed;
 	display: none;
@@ -96,10 +98,6 @@ h1 {
 	right: 19px;
 }
 
-.otp__close-btn:hover {
-	cursor: pointer;
-}
-
 .otp__close-btn span {
 	color: #00696d;
 }
@@ -143,4 +141,12 @@ h1 {
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+
+/* del bank card */
+.del-bank-card .otp__card h1,
+.del-debit-card .otp__card h1 {
+	font-size: 35px;
+	text-align: center;
+	margin: 100px auto 45px auto;
 }

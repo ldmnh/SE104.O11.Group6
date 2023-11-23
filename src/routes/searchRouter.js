@@ -5,7 +5,7 @@ const router = express.Router();
 const SearchController = require('../controllers/SearchController.js')
 
 router.get('/results', SearchController.searchResult)
-
+router.get('/resultsfiltersort', SearchController.filterSortResult)
 router.get('/:acco_id', SearchController.accoDetail)
 
 router.post('/:acco_id', SearchController.submitBooking)

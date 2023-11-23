@@ -2,23 +2,23 @@
 @import url("/styles/partials/header-small-title.css");
 @import url("/styles/partials/footer.css");
 
-html {
+/* html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: #000000;
-}
+} */
 
-body {
+/* body {
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 .content-container {
     width: 80%;
     max-width: 1152px;
-    margin: 5vh 0;
+    margin: 5vh auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +26,7 @@ body {
 }
 
 .intro {
+    width: calc(50% - 6px);
     display: inherit;
     flex-direction: column;
     gap: 4.6vh;
@@ -43,7 +44,6 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     font-size: 1rem;
-
 }
 
 .intro__slogan {
@@ -72,6 +72,13 @@ body {
 .row {
     margin: 0;
 }
+
+.row .error {
+    color: red;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0;
+  }
 
 .login__title {
     text-align: center;
@@ -137,8 +144,9 @@ body {
 
 span.material-symbols-outlined {
     position: absolute;
-    bottom: 22%;
-    right: 3%;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 12px;
     color: var(--primary-color-2);
     cursor: pointer;
 }

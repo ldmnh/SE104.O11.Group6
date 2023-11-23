@@ -1,113 +1,125 @@
-//Popup
-const modalBtns = document.querySelectorAll('.logout-btn')
-const modals = document.querySelectorAll('.popup')
-const closeBtns = document.querySelectorAll('.close-btn')
-const cancelBtns = document.querySelectorAll('.btn-cancel')
+// const editView = document.getElementById("edit-profile");
+// const defaultView = document.getElementById("view-profile");
 
-modalBtns.forEach((btn, index) => {
-	btn.onclick = function () {
-		modals[index].style.display = 'block'
-	}
-})
+// const editBtn = document.querySelector(".form--submit2-default");
+// const cancelBtn = document.querySelector(".form--submit1");
+// const historyBtn = document.querySelector(".history-btn");
+// const accountPaymentBtn = document.querySelector(".account-payment-btn");
+// const changePasswordBtn = document.querySelector(".change-password-btn");
 
-// Đóng popup khi chọn dấu x
-closeBtns.forEach((closeBtn, index) => {
-	closeBtn.onclick = function () {
-		modals[index].style.display = 'none'
-	}
-})
+// editView.style.display = "none";
 
-// Đóng popup khi chọn nút hủy
-cancelBtns.forEach((cancelBtn, index) => {
-	cancelBtn.onclick = function () {
-		modals[index].style.display = 'none'
-	}
-})
+// const redirect2EditView = () => {
+// 	defaultView.style.display = "none";
+// 	editView.style.display = "block";
+// };
 
-// Đóng popup khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
-window.onclick = function (e) {
-	modals.forEach((modal, index) => {
-		if (e.target == modal) {
-			modal.style.display = 'none'
-		}
-	})
+// const redirect2EdefaultView = () => {
+// 	defaultView.style.display = "block";
+// 	editView.style.display = "none";
+// };
+// const redirect2HistoryView = () => {
+// 	window.location.href = "/account/history";
+// };
+
+// const redirect2accountPaymentView = () => {
+// 	window.location.href = "/account/card";
+// };
+
+// const redirect2changePasswordView = () => {
+// 	window.location.href = "/account/change-password";
+// };
+
+// historyBtn.addEventListener("click", redirect2HistoryView);
+// accountPaymentBtn.addEventListener("click", redirect2accountPaymentView);
+// changePasswordBtn.addEventListener("click", redirect2changePasswordView);
+
+// cancelBtn.addEventListener("click", redirect2EdefaultView);
+// editBtn.addEventListener("click", redirect2EditView);
+
+// const logoutBtn = document.querySelector(".logout-btn");
+
+// const redirect2LogOutView = () => {
+// 	window.location.href = "/auth/logout";
+// };
+
+// logoutBtn.addEventListener("click", redirect2LogOutView);
+
+// //Khi người dùng nhấn Lưu
+// const successPopup = document.querySelector(".modal-success");
+// const saveBtn = document.querySelector("#save-btn");
+
+// const redirect2SavePopupView = () => {
+// 	successPopup.style.display = "block";
+// };
+
+// saveBtn.addEventListener("click", redirect2SavePopupView);
+
+const editProfile = $("#edit-profile");
+const viewProfile = $("#view-profile");
+
+const showEditProfile = () => {
+	editProfile[0].style.display = "block";
+	viewProfile[0].style.display = "none";
 }
 
-// Chuyển về trang đăng nhập
-const logoutBtn = document.querySelector('.btn-logout')
-
-const redirect2LogOutView = () => {
-	window.location.href = '/auth/login'
+const showViewProfile = () => {
+	editProfile[0].style.display = "none";
+	viewProfile[0].style.display = "block";
 }
 
-logoutBtn.addEventListener('click', redirect2LogOutView)
+showViewProfile();
 
-console.log('aaaaaa')
+$('.form__btn--edit')[0].addEventListener('click', (event) => {
+	event.preventDefault();
+	showEditProfile();
+});
 
-const editView = document.getElementById('edit-profile')
-const defaultView = document.getElementById('view-profile')
+$('.form__btn--cancel')[0].addEventListener('click', (event) => {
+	event.preventDefault();
+	showViewProfile();
+});
 
-const editBtn = document.querySelector('.form--submit2-default')
-const cancelBtn = document.querySelector('.form--submit1')
-const historyBtn = document.querySelector('.history-btn')
-const accountPaymentBtn = document.querySelector('.account-payment-btn')
-const changePasswordBtn = document.querySelector('.change-password-btn')
+const formBtn__save = $('.form__btn--save')[0];
+formBtn__save.addEventListener('click', (event) => {
+	event.preventDefault();
+	form = $(formBtn__save.dataset.formId)[0];
+	// console.log(form);
+	// console.log(form.method);
+	// console.log(form.action);
+	form.submit();
+	// fetch('/account/information', {
+	// 	method: 'PUT',
+	// 	body: new FormData(form)
+	// }
+	// ).then(async res => {
+	// 	return {
+	// 		statusCode: res.status,
+	// 		data: await res.json()
+	// 	};
+	// }
+	// ).then(({ statusCode, data }) => {
+	// 	console.log(statusCode, data)
+	// 	if (statusCode == 200) {
+	// 		alert(data.message);
+	// 		// showViewProfile();
+	// 	} else {
+	// 		alert(data.message);
+	// 	}
+	// 	// if (data.status == 'error') {
+	// 	// 	// success.style.display = 'none'
+	// 	// 	// error.style.display = 'block'
+	// 	// 	// setError(PhoneNumber, data.error)
+	// 	// 	// error.innerText = data.error
+	// 	// 	alert(data.error);
+	// 	// } else {
+	// 	// 	// success.style.display = 'block'
+	// 	// 	// error.style.display = 'none'
+	// 	// 	// success.innerText = data.success
+	// 	// 	alert(data.success);
+	// 	// 	showViewProfile();
+	// 	// }
+	// });
 
-editView.style.display = 'none'
+});
 
-const redirect2EditView = () => {
-	defaultView.style.display = 'none'
-	editView.style.display = 'block'
-}
-
-const redirect2EdefaultView = () => {
-	defaultView.style.display = 'block'
-	editView.style.display = 'none'
-}
-
-const redirect2HistoryView = () => {
-	window.location.href = "/account/history";
-	window.location.href = '/account/history'
-}
-window.location.href = '/account/history'
-}
-
-const redirect2accountPaymentView = () => {
-	window.location.href = '/account/card'
-}
-
-const redirect2changePasswordView = () => {
-	window.location.href = "/account/change-password"
-}
-window.location.href = '/account/change-password'
-}
-
-historyBtn.addEventListener('click', redirect2HistoryView)
-accountPaymentBtn.addEventListener('click', redirect2accountPaymentView)
-changePasswordBtn.addEventListener('click', redirect2changePasswordView)
-
-cancelBtn.addEventListener("click", redirect2EdefaultView);
-editBtn.addEventListener("click", redirect2EditView);
-
-const logoutBtn = document.querySelector(".logout-btn");
-
-const redirect2LogOutView = () => {
-	window.location.href = "/auth/logout"
-}
-
-logoutBtn.addEventListener("click", redirect2LogOutView);
-cancelBtn.addEventListener('click', redirect2EdefaultView)
-editBtn.addEventListener('click', redirect2EditView)
-
-//Khi người dùng nhấn Lưu
-const successPopup = document.querySelector('.modal-success')
-const saveBtn = document.querySelector('#save-btn')
-
-const redirect2SavePopupView = () => {
-	successPopup.style.display = 'block'
-}
-
-saveBtn.addEventListener('click', redirect2SavePopupView)
-const redirect2LogOutView = () => {
-	window.location.href = '/auth/logout'
-}
