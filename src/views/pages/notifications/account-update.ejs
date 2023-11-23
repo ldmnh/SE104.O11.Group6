@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <%# include('../../partials/header-medium') %>
+  <%- include('../../partials/header-medium') %>
   <%# include('../../partials/nav-tree', { nav_tree__data }) %>
 
   <main class="nofi-container">
@@ -27,8 +27,11 @@
       </div>
       <hr />
       <div class="aside-wrapper__aside-section">
-        <p class="btn-update">Cập nhật tài khoản</p>
-        <p class="btn-promo">Thông tin khuyến mãi</p>
+        <p class="btn-update"><a href="/notifications/account-update" class="btn-update">Cập nhật tài khoản</a></p>
+        <p class="btn-promo"><a href="/notifications/promotion" class="btn-update">Thông tin khuyến mãi</a></p>
+        <!-- <a href="/notifications/promotion" class="btn-update">Cập nhật tài khoản</a> -->
+        <!-- <a href="#" class="btn-update">Cập nhật tài khoản</a>
+        <p class="btn-promo">Thông tin khuyến mãi</p> -->
       </div>
     </aside>
     <section class="nofi__main">

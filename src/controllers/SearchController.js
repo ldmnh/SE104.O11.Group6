@@ -161,6 +161,27 @@ class SearchController {
                         });
                         throw err;
                     }
+                    result1.forEach(function (result) {
+                      console.log(result.room_cost);
+                      result.room_cost_before_currency = index.toCurrency(
+                        Number(result.room_cost)
+                      );
+                      result.room_cost_after_currency = index.toCurrency(
+                        Number(result.room_cost - result.room_cost * result.room_discount)
+                      );
+                      console.log(result.room_cost_before_currency);
+                    });
+
+                    result1.forEach(function (result) {
+                      console.log(result.room_cost);
+                      result.room_cost_before_currency = index.toCurrency(
+                        Number(result.room_cost)
+                      );
+                      result.room_cost_after_currency = index.toCurrency(
+                        Number(result.room_cost - result.room_cost * result.room_discount)
+                      );
+                      console.log(result.room_cost_before_currency);
+                    });
 
                     if (result1.length > 0) {
                         res.status(200).json({
