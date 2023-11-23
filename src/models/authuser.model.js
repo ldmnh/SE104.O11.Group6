@@ -45,7 +45,7 @@ AuthUser.checkRegister = function (req, callback) {
 
 AuthUser.checkEmail = ({ email }, callback) => {
     const sql = `
-        SELECT au_user_email
+        SELECT *
         FROM AUTHUSER
         WHERE au_user_email = ?`
     db.query(sql, [email], (err, result) => {
@@ -91,17 +91,17 @@ AuthUser.putInfoById = ({ id, first_name, last_name, birthday, sex }, callback) 
     })
 }
 
-AuthUser.putChangePassById = ({ id, oldPass, newPass }, callback) => {
-    const sql = `
-        UPDATE AUTHUSER
-        SET au_user_password = ?
-        WHERE au_user_id = ?
-            AND au_user_password = ?;`;
-    const values = [newPass, id, oldPass]
-    db.query(sql, values, (err, result) => {
-        callback(err, result)
-    })
-}
+// AuthUser.putChangePassById = ({ id, oldPassHashed, newPassHashed }, callback) => {
+//     const sql = `
+//         UPDATE AUTHUSER
+//         SET au_user_pass = ?
+//         WHERE au_user_id = ?
+//             AND au_user_pass = ?;`;
+//     const values = [newPassHashed, id, oldPassHashed]
+//     db.query(sql, values, (err, result) => {
+//         callback(err, result)
+//     })
+// }
 
 AuthUser.putResetPassByEmail = async ({ email, password }, callback) => {
     const hashedPass = await bcrypt.hash(password, 8)

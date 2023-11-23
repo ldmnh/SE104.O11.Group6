@@ -167,33 +167,84 @@ class AuthController {
     }
 
     // [POST] /auth/change-password
-    changePassPut(req, res) {
+    async changePassPost(req, res) {
         const { oldPass, newPass } = req.body;
-        const email = req.session.user?.email;
 
-        AuthUser.putChangePassByEmail({
-            email,
-            oldPass,
-            newPass,
-        }, (err, result) => {
+        console.log(oldPass, newPass);
+
+        // console.log(
+        //     req.session.user?.id,
+        //     oldPassHashed,
+        //     newPassHashed
+        // )
+
+        AuthUser.checkEmail({
+            email: req.session.user?.email
+        }, async (err, result) => {
             if (err) {
                 res.status(500).json({
-                    message: "Lỗi truy vấn!!!",
+                    message: "Lỗi truy vấn ở AuthUser.checkEmail!!!",
                 });
                 throw err;
             }
 
-            if (result.affectedRows === 0) {
+            if (result.length === 0) {
                 res.status(404).json({
-                    message: "Không tìm thấy tài khoản!!!",
+                    message: "Không tìm thấy email!!!",
+                });
+                return;
+            }
+
+            const pass = result[0]?.au_user_pass;
+            console.log('pass: ', pass, '\noldPass: ', oldPass)
+            if (!(await bcrypt.compare(oldPass, pass))) {
+                res.status(404).json({
+                    status: 404,
+                    message: "Mật khẩu cũ không chính xác!!!",
                 });
             } else {
-                res.status(200).json({
-                    message: "Cập nhật thông tin tài khoản thành công",
+                AuthUser.putResetPassByEmail({
+                    email: req.session.user?.email,
+                    password: newPass
+                }, (err, result) => {
+                    if (err) {
+                        res.status(500).json({
+                            status: 500,
+                            message: "Lỗi truy vấn ở putResetPassByEmail!!!",
+                        });
+                        throw err;
+                    }
+
+                    res.status(200).json({
+                        status: 200,
+                        message: "Cập nhật thông tin tài khoản thành công",
+                    });
                 });
             }
-        }
-        );
+        })
+
+        // AuthUser.putChangePassById({
+        //     id: req.session.user?.id,
+        //     oldPassHashed,
+        //     newPassHashed,
+        // }, (err, result) => {
+        //     if (err) {
+        //         res.status(500).json({
+        //             message: "Lỗi truy vấn!!!",
+        //         });
+        //         throw err;
+        //     }
+
+        //     if (result.affectedRows === 0) {
+        //         res.status(404).json({
+        //             message: "Mật khẩu cũ không chính xác!!!",
+        //         });
+        //     } else {
+        //         res.status(200).json({
+        //             message: "Cập nhật thông tin tài khoản thành công",
+        //         });
+        //     }
+        // });
     }
 }
 
