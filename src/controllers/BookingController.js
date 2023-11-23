@@ -184,7 +184,7 @@ class BookingController {
             }
             if (result.length > 0) {
                 res.status(200).render("./pages/booking/cancellation", {
-                    user:req.session.user,
+                    user: req.session.user,
                     message: "success",
                     data: result,
                 });

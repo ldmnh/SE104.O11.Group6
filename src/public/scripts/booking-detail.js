@@ -3,7 +3,7 @@
 //     cancelPopup.style.display = 'block'
 // })
 
-const cancelPopup = document.querySelector('.modal')
+const cancelPopup = document.querySelector('.cancel-modal')
 document.getElementById('cancel-btn').addEventListener('click', function () {
     cancelPopup.style.display = 'block'
 })

@@ -144,40 +144,40 @@
 				<% }) %>
 			</div>
 
-            <div class="detail__col-3">
-                <div class="detail__code">
-                    <div>
-                        <h3>Mã xác nhận:</h3>
-                        <p><%=booking.book_id%></p>
-                    </div>
-                </div>
-                <div class="detail__checkin">
-                    <h3>Ngày đặt</h3>
-                    <p><%=booking.book_date_format%></p>
-                    <p><%=booking.book_time_format%></p>
-                </div>
-                <div class="detail__checkin">
-                    <h3>Nhận phòng</h3>
-                    <p><%=booking.book_start_date_format%></p>
-                    <p><%=booking.book_start_time_format%></p>
-                </div>
-                <div class="detail__checkout">
-                    <h3>Trả phòng</h3>
-                    <p><%=booking.book_end_date_format%></p>
-                    <p><%=booking.book_end_time_format%></p>
-                </div>
-                <div class="detail__price price">
-                    <h3>Tổng tiền thanh toán</h3>
-                    <p class="price__strong">VND <%=booking.book_cost_after_currency%></p>
-                </div>
-            </div>
-        </section>
+			<div class="detail__col-3">
+				<div class="detail__code">
+					<div>
+						<h3>Mã xác nhận:</h3>
+						<p><%=booking.book_id%></p>
+					</div>
+				</div>
+				<div class="detail__checkin">
+					<h3>Ngày đặt</h3>
+					<p><%=booking.book_date_format%></p>
+					<p><%=booking.book_time_format%></p>
+				</div>
+				<div class="detail__checkin">
+					<h3>Nhận phòng</h3>
+					<p><%=booking.book_start_date_format%></p>
+					<p><%=booking.book_start_time_format%></p>
+				</div>
+				<div class="detail__checkout">
+					<h3>Trả phòng</h3>
+					<p><%=booking.book_end_date_format%></p>
+					<p><%=booking.book_end_time_format%></p>
+				</div>
+				<div class="detail__price price">
+					<h3>Tổng tiền thanh toán</h3>
+					<p class="price__strong">VND <%=booking.book_cost_after_currency%></p>
+				</div>
+			</div>
+		</section>
 
 		<section class="abort">
 			<div class="abort__info">
 				<% if (!booking.book_time_left_format) { %>
 				<h2>Hết hạn hủy miễn phí!!!</h2>
-				<p>Bạn cần thanh toán VND 2.800.000 để hủy</p>
+				<p>Bạn cần thanh toán VND <%= booking.book_cost_cancel %> để hủy</p>
 				<% } else { %>
 				<h2>Miễn phí hủy đặt phòng</h2>
 				<p class="abort__time-left">Còn <%= booking.book_time_left_format %>!!! </p>
@@ -187,7 +187,7 @@
 						<%= booking.book_time_format %>giờ
 					</span>
 				</p>
-				<p>Sau thời gian này bạn sẽ phải thanh toán VND 2.800.000 để hủy </p>
+				<p>Sau thời gian này bạn sẽ phải thanh toán VND <%= booking.book_cost_cancel %> để hủy </p>
 				<% } %>
 			</div>
 			<div class="abort__progress">
@@ -201,8 +201,8 @@
 				<p class="progress__time"> <%= booking.book_time_count_format %> </p>
 			</div>
 			<div class="abort__btn">
-				<% if (booking.book_status==0) { %>
 				<button type="button" class="btn detail__btn" id="cancel-btn">Hủy đặt phòng</button>
+				<% if (booking.book_status==0) { %>
 				<% } else if (booking.book_status==-1) { %>
 				<p>Bạn đã hủy đặt phòng</p>
 				<% } %>
