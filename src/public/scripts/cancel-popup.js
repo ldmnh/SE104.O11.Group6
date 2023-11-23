@@ -1,5 +1,5 @@
 const form = document.getElementById("cancel-form");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".cancel-modal");
 
 const closePopupButton = document.querySelector(".close-icon");
 closePopupButton.addEventListener("click", () => {
@@ -33,6 +33,7 @@ function Cancel() {
         .then((res) => res.json())
         .then((back) => {
             if (back.message == "Thành công") {
+                console.log('aaa')
                 window.location.href = "/booking/cancellation";
             }
         });
