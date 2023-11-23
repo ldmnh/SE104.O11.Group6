@@ -14,7 +14,11 @@
 <body>
     <%- include('../../partials/header-small') %>
 
-    <%# include('../../partials/nav-tree', { nav_tree__data }) %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: '/' },
+        { text: 'Đặt phòng', link: '' },
+        { text: 'Hủy phòng' }
+    ] }) %>
 
     <main class="content-container">
         <section class="main-content">
@@ -40,7 +44,7 @@
                 </div>
             </div>
             <div class="cancel__button">
-                <a href="/search/detail"><button class="cancel__button--submit1">Đặt lại</button></a>
+                <a href="search/<%= data[0].acco_id %>"><button class="cancel__button--submit1">Đặt lại</button></a>
 
                 <a href="/"><button class="cancel__button--submit2">Tìm chỗ nghỉ khác</button></a>
             </div>

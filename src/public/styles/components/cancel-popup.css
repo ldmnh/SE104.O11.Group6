@@ -42,7 +42,9 @@
 	padding: 22px 22px 21px 21px;
 	position: relative;
 }
-
+.close-icon{
+	cursor: pointer;
+}
 .cancel__content {
 	width: 530px;
 	height: 635px;
