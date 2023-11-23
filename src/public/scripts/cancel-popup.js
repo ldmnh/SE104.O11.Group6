@@ -1,20 +1,20 @@
-// const form = document.getElementById("cancel-form");
-// const modal = document.querySelector(".modal");
+const form = document.getElementById("cancel-form");
+const modal = document.querySelector(".modal");
 
-// const closePopupBtn = document.querySelector(".closeIcon");
-// closePopupBtn.addEventListener("click", () => {
-//     modal.style.display = "none";
-// });
+const closePopupButton = document.querySelector(".close-icon");
+closePopupButton.addEventListener("click", () => {
+    modal.style.display = "none";
+});
 
-// const closeBtn = document.querySelector(".cancel__button--submit2");
-// closeBtn.addEventListener("click", () => {
-//     modal.style.display = "none";
-// });
+const closeBtn = document.querySelector(".cancel__button--submit2");
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
 
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     Cancel();
-// });
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    Cancel();
+});
 function Cancel() {
     const selectedOption = document.querySelector(
         `input[name="option"]:checked`
