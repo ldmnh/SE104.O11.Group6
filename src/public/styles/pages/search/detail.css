@@ -309,7 +309,12 @@ body {
 }
 
 .general-info__item--left {
+    width: 38%;
     font-weight: 600;
+}
+
+.general-info__item--right {
+    width: 62%;
 }
 
 .comment {

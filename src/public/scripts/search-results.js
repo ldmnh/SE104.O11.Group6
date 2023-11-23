@@ -88,91 +88,80 @@ toggleExtend.addEventListener("click", function (e) {
 
 // Trạng thái uncheck cho tất cả thẻ radio
 function uncheckAll() {
-    radios.forEach((radio) => {
-        radio.checked = false;
-    });
+  radios.forEach((radio) => {
+    radio.checked = false;
+  });
 }
 function selectRadio(optionId) {
-    uncheckAll();
-    var radio = document.getElementById(optionId);
-    radio.checked = true;
+  uncheckAll();
+  var radio = document.getElementById(optionId);
+  radio.checked = true;
 }
 
 filterSortData();
 function filterSortData() {
-    const acco_type = getFilter("acco-type");
-    const rating_point = getFilter("rating-point");
-    const bed_type = getFilter("bed-type");
-    const acco_star = getFilter("acco-star");
-    const acco_fea = getFilter("acco-fea");
-    const price = getFilter("price");
-    const cost = getSort("cost");
-    const acco_star_sort = getSort("acco-star-sort");
-    const count_rating = getSort("count-rating");
+  const acco_type = getFilter("acco-type");
+  const rating_point = getFilter("rating-point");
+  const bed_type = getFilter("bed-type");
+  const acco_star = getFilter("acco-star");
+  const acco_fea = getFilter("acco-fea");
+  const price = getFilter("price");
+  const cost = getSort("cost");
+  const acco_star_sort = getSort("acco-star-sort");
+  const count_rating = getSort("count-rating");
 
-    $.ajax({
-        url: "/search/resultsfiltersort" + window.location.search,
-        method: "GET",
-        data: {
-            acco_type,
-            rating_point,
-            bed_type,
-            acco_star,
-            acco_fea,
-            price,
-            cost,
-            acco_star_sort,
-            count_rating,
-        },
+  $.ajax({
+    url: "/search/resultsfiltersort" + window.location.search,
+    method: "GET",
+    data: {
+      acco_type,
+      rating_point,
+      bed_type,
+      acco_star,
+      acco_fea,
+      price,
+      cost,
+      acco_star_sort,
+      count_rating,
+    },
 
-        success: function (results) {
-            const filterSort = document.getElementById("filter-sort");
-            filterSort.innerHTML = "";
-            let html = "";
-            if (results.message == "Đã tìm thành công") {
-                const accoData = results.data;
-                console.log(accoData);
-                let ratingText = "";
-                accoData.forEach(function (result) {
-                    if (
-                        result.room_avg_rating >= 9 &&
-                        result.room_avg_rating <= 10
-                    )
-                        ratingText = "Trên cả tuyệt vời";
-                    else if (
-                        result.room_avg_rating >= 8 &&
-                        result.room_avg_rating <= 10
-                    )
-                        ratingText = "Xuất sắc";
-                    else if (
-                        result.room_avg_rating >= 7 &&
-                        result.room_avg_rating <= 10
-                    )
-                        ratingText = "Rất tốt";
-                    else if (
-                        result.room_avg_rating >= 6 &&
-                        result.room_avg_rating <= 10
-                    )
-                        ratingText = "Hài lòng";
-                    else {
-                        ratingText = "Phù hợp";
-                    }
-                    let iconRating = "";
-                    for (let i = 0; i < result.acco_star; i++) {
-                        iconRating += `<span class="material-symbols-outlined">star</span>`;
-                    }
-                    if (result.room_discount) {
-                        // fetch("./src/views/components/search-result-sale.ejs")
-                        //     .then((response) => response.text())
-                        //     .then((data) => {
-                        //         // Gán nội dung vào thuộc tính innerText của thẻ div
-                        //         filterSort.innerText = data;
-                        //     })
-                        //     .catch((error) => {
-                        //         console.error("Lỗi khi tải tệp tin EJS:", error);
-                        //     });
+    success: function (results) {
+      const filterSort = document.getElementById("filter-sort");
+      const searchContent = document.getElementById("search__content");
+      filterSort.innerHTML = "";
+      let html = "";
+      if (results.message == "Đã tìm thành công") {
+        const accoData = results.data;
+        console.log(accoData);
+        let ratingText = "";
+        accoData.forEach(function (result) {
+          if (result.room_avg_rating >= 9 && result.room_avg_rating <= 10)
+            ratingText = "Trên cả tuyệt vời";
+          else if (result.room_avg_rating >= 8 && result.room_avg_rating <= 10)
+            ratingText = "Xuất sắc";
+          else if (result.room_avg_rating >= 7 && result.room_avg_rating <= 10)
+            ratingText = "Rất tốt";
+          else if (result.room_avg_rating >= 6 && result.room_avg_rating <= 10)
+            ratingText = "Hài lòng";
+          else {
+            ratingText = "Phù hợp";
+          }
+          let iconRating = "";
+          for (let i = 0; i < result.acco_star; i++) {
+            iconRating += `<span class="material-symbols-outlined">star</span>`;
+          }
+          if (result.room_discount) {
+            // fetch("./src/views/components/search-result-sale.ejs")
+            //     .then((response) => response.text())
+            //     .then((data) => {
+            //         // Gán nội dung vào thuộc tính innerText của thẻ div
+            //         filterSort.innerText = data;
+            //     })
+            //     .catch((error) => {
+            //         console.error("Lỗi khi tải tệp tin EJS:", error);
+            //     });
 
-                        html = `<div class="result-block">
+            html = `<div class="result-block">
                     <div class="result-block__tag-sale">
                       <span class="material-symbols-outlined">alarm</span>
                       <p class="result-block__sale-content">Đặt chỗ cùng 2WAYS</p>
@@ -200,14 +189,14 @@ function filterSortData() {
                           </div>
                           <div class="result-block__room-details">
                             <p class="result-block__room-detais__content">${
-                                result.room_type
+                              result.room_type
                             } 
                               ${result.room_class} nhìn ra biển</p>
                             <p>
                             ${
-                                result.room_double_bed
-                                    ? `${result.room_double_bed} giường đôi`
-                                    : `${result.room_single_bed} giường đơn`
+                              result.room_double_bed
+                                ? `${result.room_double_bed} giường đôi`
+                                : `${result.room_single_bed} giường đơn`
                             }
                             </p>
                             <div class="result-block__room-detais__cancel-policy">
@@ -228,7 +217,7 @@ function filterSortData() {
                           <div class="result-block__cus-rate__content">
                             <p class="result-block__cus-rate__main-content">${ratingText}</p>
                             <p class="result-block__cus-rate__sub-content">${
-                                result.room_count_rating
+                              result.room_count_rating
                             } đánh giá</p>
                           </div>
                           <div class="result-block__cus-rate__point">
@@ -237,35 +226,38 @@ function filterSortData() {
                         </div>
                         <div class="result-block__price">
                           <p class="result-block__option">1 đêm, ${
-                              result.room_max_adult
+                            result.room_max_adult
                           } người lớn</p>
                           <p class="result-block__origin-price">VND ${
-                              result.room_cost
+                            result.room_cost_before_currency
                           }</p>
                           <p class="result-block__discount-price">VND ${
-                              result.room_cost * (1 - result.room_discount)
+                            result.room_cost_after_currency
                           }</p>
                           <label for="result-block__discount-price" class="result-block__label">Đã gồm thuế và phí</label>
                           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="/search/${
-                                result.acco_id
+                              result.acco_id
                             }" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>`;
-                    } else {
-                        // fetch("./src/views/components/search-result-nsale.ejs")
-                        //     .then((response) => response.text())
-                        //     .then((data) => {
-                        //         // Gán nội dung vào thuộc tính innerText của thẻ div
-                        //         filterSort.innerText = data;
-                        //     })
-                        //     .catch((error) => {
-                        //         console.error("Lỗi khi tải tệp tin EJS:", error);
-                        //     });
-                        html = `<div class="nresult-block__main-container">
+            const prov_name = results.data[0].prov_name;
+            const resultCount = results.data.length;
+            searchContent.innerHTML = `${prov_name}: Tìm thấy ${resultCount} chỗ nghỉ`;
+          } else {
+            // fetch("./src/views/components/search-result-nsale.ejs")
+            //     .then((response) => response.text())
+            //     .then((data) => {
+            //         // Gán nội dung vào thuộc tính innerText của thẻ div
+            //         filterSort.innerText = data;
+            //     })
+            //     .catch((error) => {
+            //         console.error("Lỗi khi tải tệp tin EJS:", error);
+            //     });
+            html = `<div class="nresult-block__main-container">
                     <div class="nresult-block__main">
                       <img src="/imgs/branchs/apartment.png" alt="apartment" class="nresult-block__picture">
                       <div class="nresult-block__content">
@@ -286,14 +278,14 @@ function filterSortData() {
                         </div>
                         <div class="nresult-block__room-details">
                           <p class="nresult-block__room-detais__content">${
-                              result.room_type
+                            result.room_type
                           } 
                           ${result.room_class} nhìn ra biển</p>
                           <p>
                           ${
-                              result.room_double_bed
-                                  ? `${result.room_double_bed} giường đôi`
-                                  : `${result.room_single_bed} giường đơn`
+                            result.room_double_bed
+                              ? `${result.room_double_bed} giường đôi`
+                              : `${result.room_single_bed} giường đơn`
                           }
                           </p>
                           <div class="nresult-block__room-detais__cancel-policy">
@@ -315,7 +307,7 @@ function filterSortData() {
                             <${ratingText}
                           </p>
                           <p class="nresult-block__cus-rate__sub-content">${
-                              result.room_count_rating
+                            result.room_count_rating
                           } đánh giá</p>
                         </div>
                         <div class="nresult-block__cus-rate__point">
@@ -324,36 +316,37 @@ function filterSortData() {
                       </div>
                       <div class="nresult-block__price">
                         <p class="nresult-block__option">1 đêm, ${
-                            result.room_max_adult
+                          result.room_max_adult
                         } người lớn</p>
                         <p class="nresult-block__origin-price">VND ${
-                            result.room_cost
+                          result.room_cost_before_currency
                         }</p>
                         <label for="nresult-block__origin-price" class="result-block__label">Đã gồm thuế và phí</label>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                           <a href="/search/${
-                              result.acco_id
+                            result.acco_id
                           }" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
                         </div>
                       </div>
                     </div>
                   </div>`;
-                    }
+          }
 
-                    const newDiv = document.createElement("div");
-                    newDiv.classList.add("filter-sort-class");
-                    newDiv.innerHTML = html;
-                    filterSort.appendChild(newDiv);
-                });
-            } else {
-                const errDiv = document.createElement("div");
-                const filterSort = document.getElementById("filter-sort");
-                filterSort.innerHTML = "";
-                errDiv.textContent = "Not Found";
-                filterSort.appendChild(errDiv);
-            }
-        },
-    });
+          const newDiv = document.createElement("div");
+          newDiv.classList.add("filter-sort-class");
+          newDiv.innerHTML = html;
+          filterSort.appendChild(newDiv);
+        });
+      } else {
+        searchContent.innerHTML = `Không tìm thấy chỗ nghỉ phù hợp`;
+        const errDiv = document.createElement("div");
+        const filterSort = document.getElementById("filter-sort");
+        filterSort.innerHTML = "";
+        errDiv.textContent = "Not Found";
+        filterSort.appendChild(errDiv);
+      }
+    },
+  });
 }
 
 function getFilter(className) {
@@ -368,20 +361,20 @@ function getFilter(className) {
 }
 
 function getSort(className) {
-    let sortResult = [];
-    let sort = document.querySelectorAll(`.${className}.sort:checked`);
-    if (sort.length > 0) {
-        sortResult = sort[0].value;
-    }
-    return sortResult;
+  let sortResult = [];
+  let sort = document.querySelectorAll(`.${className}.sort:checked`);
+  if (sort.length > 0) {
+    sortResult = sort[0].value;
+  }
+  return sortResult;
 }
 
 document.addEventListener("click", function (e) {
-    const target = e.target;
-    if (target.classList.contains("form-check-input")) {
-        filterSortData();
-    }
-    if (target.classList.contains("sort")) {
-        filterSortData();
-    }
+  const target = e.target;
+  if (target.classList.contains("form-check-input")) {
+    filterSortData();
+  }
+  if (target.classList.contains("sort")) {
+    filterSortData();
+  }
 });
