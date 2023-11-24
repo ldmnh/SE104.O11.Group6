@@ -115,6 +115,10 @@ footer {
 	}
 }
 
+.footer-container__policy-list li {
+	white-space: nowrap;
+}
+
 .footer-container__update {
 	width: 33%;
 	display: flex;
@@ -137,10 +141,15 @@ footer {
 	width: 65%;
 	height: 48px;
 	padding: 0 16px;
+	border-radius: 8px;
 }
 
 .footer-container__form {
 	display: flex;
 	gap: 10px;
 	justify-content: space-between;
+}
+
+.footer-container__form span {
+	white-space: nowrap;
 }

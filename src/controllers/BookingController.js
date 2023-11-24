@@ -260,6 +260,10 @@ class BookingController {
             }
 
             if (result) {
+<<<<<<< HEAD
+=======
+                // req.session.book_id = null;
+>>>>>>> 35bdd8aa5513abf593a1613263864cf3d0cf5ae1
                 res.status(200).json({ message: "Thành công" });
             }
         });
