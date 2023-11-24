@@ -29,16 +29,18 @@
 const change1 = document.querySelector("#change1");
 const change2 = document.querySelector("#change2");
 
+// console.log(change1, change2)
+
 change2.style.display = "none";
 
 const redirectChange1 = () => {
-	change2.style.display = "none";
-	change1.style.display = "block";
+    change2.style.display = "none";
+    change1.style.display = "block";
 };
 
 const redirectChange2 = () => {
-	change2.style.display = "block";
-	change1.style.display = "none";
+    change2.style.display = "block";
+    change1.style.display = "none";
 };
 
 const setBtn = document.querySelector(".set-btn");
@@ -86,3 +88,74 @@ cancelBtn.addEventListener("click", redirectChange1);
 // 	modalSuccess.style.display = "none";
 // });
 
+const checkFillForm = (slt) => {
+    return slt.value?.trim() !== "";
+}
+
+const checkPass = pass => {
+    return pass.length >= 8 &&
+        /[a-zA-Z]/.test(pass) &&
+        /[0-9]/.test(pass);
+}
+
+const checkPassAndPassConfirm = (pass, passConfirm) => {
+    return pass == passConfirm;
+}
+
+const modalSuccessChangePassword = document.querySelector(".modal-success");
+
+
+const submitBtn = change2.querySelector(".confirm-button");
+// console.log(submitBtn);
+
+errorMsg = change2.querySelector("#error-message");
+
+submitBtn.addEventListener('click', () => {
+    const oldPassForm = change2.querySelector("[name='oldPass']");
+    const newPassForm = change2.querySelector("[name='newPass']");
+    const newPassConfirmForm = change2.querySelector("[name='newPassConfirm']");
+
+    if (!checkFillForm(oldPassForm)) {
+        errorMsg.innerText = "Vui lòng nhập mật khẩu cũ!";
+    } else if (!checkFillForm(newPassForm)) {
+        errorMsg.innerText = "Vui lòng nhập mật khẩu mới!";
+    } else if (!checkFillForm(newPassConfirmForm)) {
+        errorMsg.innerText = "Vui lòng nhập mật khẩu xác nhận!";
+    } else {
+
+        const oldPass = oldPassForm.value?.trim();
+        const newPass = newPassForm.value?.trim();
+        const newPassConfirm = newPassConfirmForm.value?.trim();
+
+        // console.log('oldPass', oldPass)
+        // console.log('newPass', newPass);
+        // console.log('newPassConfirm', newPassConfirm);
+
+        if (!checkPass(newPass)) {
+            errorMsg.innerText = "Mật khẩu mới phải ít nhất 8 ký tự, trong đó có cả chữ và số!";
+        } else if (!checkPassAndPassConfirm(newPass, newPassConfirm)) {
+            errorMsg.innerText = "Mật khẩu xác nhận không khớp!";
+        } else {
+            fetch('/auth/change-password', {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    oldPass,
+                    newPass,
+                }),
+                method: 'POST',
+            }).then(res => res.json()
+            ).then(data => {
+                // console.log(data);
+                if (data.status === 200) {
+                    modalSuccessChangePassword.style.display = "block";
+                } else if (data.status === 404) {
+                    errorMsg.innerText = data.message;
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    }
+})

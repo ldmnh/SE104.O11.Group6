@@ -74,7 +74,6 @@ class AdminController {
 
     getChart(req, res) {
         adminModel.getChart(function (chart) {
-            console.log(chart)
             return res.json({
                 chart: chart,
             })
