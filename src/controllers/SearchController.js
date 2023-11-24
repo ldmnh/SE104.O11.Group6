@@ -204,8 +204,7 @@ class SearchController {
         accoFea,
         accoImg,
         accoRoom,
-        accoExte,
-        accoRoomRating
+        accoExte
       ) {
         if (err) {
           res.status(404).render("./pages/site/error404.ejs");
@@ -222,12 +221,35 @@ class SearchController {
           accoImg: accoImg,
           accoRoom: accoRoom,
           accoExte: accoExte,
-          accoRoomRating: accoRoomRating,
         });
       }
     );
     // res.status(200).render('./pages/search/detail')
   }
+
+  filterSortComments(req, res) {
+    accoRoomDetail.findComments(req, function (err, accoRoomRating) {
+        if (err) {
+            res.status(500).json({
+                message: "Lỗi truy cập cơ sở dữ liệu",
+            });
+            throw err;
+        }
+        
+        if (accoRoomRating.length > 0) {
+            res.status(200).json({
+                message: "Đã tìm thành công",
+                data: accoRoomRating,
+            });
+        } else {
+            res.status(200).json({
+                message: "Không tìm thấy nhận xét",
+            });
+        }
+    });
+}
+
+
 
     // [POST] /search:acco_id
     submitBooking(req, res) {

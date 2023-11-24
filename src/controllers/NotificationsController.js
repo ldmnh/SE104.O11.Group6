@@ -19,7 +19,9 @@ class NotificationController {
             res.status(200).render(
                 // res.status(200).json(
                 './pages/notifications/account-update',
-                { data_noti: result })
+                { data_noti: result,
+                  user: req.session.user 
+                })
         })
     }
 
@@ -56,7 +58,9 @@ class NotificationController {
             res.status(200).render(
                 // res.status(200).json(
                 './pages/notifications/promotion',
-                { data_noti: result })
+                { data_noti: result,
+                  user: req.session.user  
+                })
         })
     }
 

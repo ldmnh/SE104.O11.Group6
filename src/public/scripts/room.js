@@ -1,14 +1,20 @@
+function triggerChangeEvent(element) {
+    const event = new Event('change');
+    element.dispatchEvent(event);
+}
+
 function minus(event) {
     const element = event.currentTarget
     const input = element.nextElementSibling
-    if (input.value > 0)
-        input.value = Number(input.value) - 1
+    input.value = Number(input.value) - 1
+    triggerChangeEvent(input)
 }
 
 function plus(event) {
     const element = event.currentTarget
     const input = element.previousElementSibling
     input.value = Number(input.value) + 1
+    triggerChangeEvent(input)
 }
 
 // slider

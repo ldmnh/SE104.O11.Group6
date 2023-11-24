@@ -28,10 +28,10 @@ router.post("/reset", authMiddleware.checkForgot, AuthController.resetPost);
 
 router.get("/logout", authMiddleware.checkUnauth, AuthController.logout);
 
-router.put(
+router.post(
     "/change-password",
-    authMiddleware.checkAuth,
-    AuthController.changePassPut
+    authMiddleware.isLoggedIn,
+    AuthController.changePassPost
 );
 
 module.exports = router;
