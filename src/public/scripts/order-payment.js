@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   const clickableItems = document.querySelectorAll(".clickable");
+
   clickableItems.forEach(function (item) {
     item.addEventListener("click", function () {
-      if (this.classList.contains("active")) {
-        this.classList.remove("active");
-      } else {
-        this.classList.add("active");
-      }
+      // Remove "active" class from all clickable items
+      clickableItems.forEach(function (item) {
+        item.classList.remove("active");
+      });
+
+      // Add "active" class to the clicked item
+      this.classList.add("active");
     });
   });
 });
