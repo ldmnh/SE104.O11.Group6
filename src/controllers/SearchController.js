@@ -15,7 +15,7 @@ class SearchController {
       }
       if (result.length > 0) {
         let resultFilter = result.map((obj) => obj.room_id).join(",");
-        let sql1 = `SELECT DISTINCT A.acco_id, R.room_id, A.acco_star, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url, R.room_single_bed, R.room_double_bed, P.prov_name FROM accommodation as A, roomtype as R, accofea as AF, province as P WHERE A.acco_id = R.acco_id AND AF.acco_id = A.acco_id AND A.prov_id = P.prov_id AND R.room_id IN (${resultFilter})`;
+        let sql1 = `SELECT DISTINCT A.acco_id, R.room_id, A.acco_star, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url, R.room_single_bed, R.room_double_bed, P.prov_name, (R.room_cost - R.room_cost * IFNULL(R.room_discount, 0)) as room_cost_after FROM accommodation as A, roomtype as R, accofea as AF, province as P WHERE A.acco_id = R.acco_id AND AF.acco_id = A.acco_id AND A.prov_id = P.prov_id AND R.room_id IN (${resultFilter})`;
 
         db.query(sql1, (err, result1) => {
           if (err) {
@@ -31,36 +31,24 @@ class SearchController {
               Number(result.room_cost)
             );
             result.room_cost_after_currency = index.toCurrency(
-              Number(result.room_cost - result.room_cost * result.room_discount)
+              Number(
+                result.room_cost -
+                result.room_cost * result.room_discount
+              )
             );
             console.log(result.room_cost_before_currency);
           });
-
-          res.status(200).render("./pages/search/results", {
-            user: req.session.user,
-            totalPage: 1,
-            data: result1,
-          });
-          // if (result1.length > 0) {
-          //     res.status(200).render('./pages/search/results', {
-          //         message: "Đã tìm thành công",
-          //         user: req.session.user,
-          //         totalPage: 1,
-          //         data: result1,
-          //     });
-
-          // } else {
-          //     res.status(404).json({
-          //         message: "Không tìm thấy kết quả",
-          //     });
-          // }
+          if (result1.length > 0) {
+            res.status(200).render("./pages/search/results", {
+              message: "Đã tìm thành công",
+              user: req.session.user,
+              totalPage: 1,
+              data: result1,
+            });
+          }
         });
       } else {
-        res.status(200).render("./pages/search/results", {
-          user: req.session.user,
-          totalPage: 1,
-          data: result,
-        });
+        res.render("./pages/site/error404");
       }
     });
   }
@@ -86,7 +74,7 @@ class SearchController {
       }
       if (result.length > 0) {
         let resultFilter = result.map((obj) => obj.room_id).join(",");
-        let sql1 = `SELECT DISTINCT A.acco_id, R.room_id, A.acco_star, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url, R.room_single_bed, R.room_double_bed, P.prov_name FROM accommodation as A, roomtype as R, accofea as AF, province as P, (R.room_cost - R.room_cost * IFNULL(R.room_discount, 0)) as room_cost_after WHERE A.acco_id = R.acco_id AND AF.acco_id = A.acco_id AND A.prov_id = P.prov_id AND R.room_id IN (${resultFilter})`;
+        let sql1 = `SELECT DISTINCT A.acco_id, R.room_id, A.acco_star, R.room_date_end_discount, A.acco_name, R.room_avg_rating, R.room_count_rating, A.acco_location_link, R.room_class, R.room_max_adult, R.room_type, R.room_cost, R.room_discount, A.acco_tiny_img_url, R.room_single_bed, R.room_double_bed, P.prov_name, (R.room_cost - R.room_cost * IFNULL(R.room_discount, 0)) as room_cost_after FROM accommodation as A, roomtype as R, accofea as AF, province as P WHERE A.acco_id = R.acco_id AND AF.acco_id = A.acco_id AND A.prov_id = P.prov_id AND R.room_id IN (${resultFilter})`;
 
         if (price) {
           let prices = [];
@@ -140,10 +128,9 @@ class SearchController {
 
         if (acco_fea) {
           let acco_feaFilter = acco_fea.join(",");
-          sql += ` AND accofea.fea_id IN ('${acco_feaFilter}')`;
+          sql1 += ` AND accofea.fea_id IN ('${acco_feaFilter}')`;
         }
         if (cost == "Cao đến thấp")
-          // result.sort((a, b) => a.room_cost - b.room_cost)
           sql1 += ` ORDER BY room_cost_after DESC`;
         if (cost == "Thấp đến cao")
           sql1 += ` ORDER BY room_cost_after ASC`;
@@ -168,7 +155,10 @@ class SearchController {
               Number(result.room_cost)
             );
             result.room_cost_after_currency = index.toCurrency(
-              Number(result.room_cost - result.room_cost * result.room_discount)
+              Number(
+                result.room_cost -
+                result.room_cost * result.room_discount
+              )
             );
             console.log(result.room_cost_before_currency);
           });
@@ -185,7 +175,7 @@ class SearchController {
           }
         });
       } else {
-        res.status(404).json({ message: "Không tìm thấy kết quả" });
+        res.status(200).json({ message: "Không tìm thấy kết quả" });
       }
     });
     //     } else {
@@ -199,14 +189,7 @@ class SearchController {
     accoRoomDetail.getDetail(
       req,
       res,
-      function (
-        err,
-        accoDetail,
-        accoFea,
-        accoImg,
-        accoRoom,
-        accoExte
-      ) {
+      function (err, accoDetail, accoFea, accoImg, accoRoom, accoExte) {
         if (err) {
           res.status(404).render("./pages/site/error404.ejs");
         }
@@ -250,12 +233,16 @@ class SearchController {
     });
   }
 
-
-
   // [POST] /search:acco_id
   submitBooking(req, res) {
     // console.log(req.body)
-    const { acco_id, room_id, room_number, room_cost_before, room_cost_after } = req.body;
+    const {
+      acco_id,
+      room_id,
+      room_number,
+      room_cost_before,
+      room_cost_after,
+    } = req.body;
 
     req.session.acco = { id: parseInt(acco_id) };
 
@@ -270,7 +257,7 @@ class SearchController {
       })
       .filter((value) => value.num > 0);
 
-    res.redirect('/booking/information');
+    res.redirect("/booking/information");
   }
 }
 
