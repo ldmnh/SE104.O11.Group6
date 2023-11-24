@@ -7,7 +7,7 @@
 const db = require("../config/db/connect");
 const index = require("../models/index.model");
 
-function Booking() {}
+function Booking() { }
 
 Booking.postInfo = (
     {

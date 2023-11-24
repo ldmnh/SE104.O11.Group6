@@ -15,6 +15,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     Cancel();
 });
+
 function Cancel() {
     const selectedOption = document.querySelector(
         `input[name="option"]:checked`
