@@ -107,15 +107,17 @@ $(window).on('load', () => {
                 return { status: res.status, data: await res.json() }
             }).then(data => {
                 if (data.status == 200) {
-                    $('#error-message').text('Thành công!')
+                    $('#error-message').text('Đã gửi liên kết đặt lại mật khẩu đến email của bạn!')
                     $('#error-message').css('color', 'green')
+                    $('#form__email').removeClass('is-invalid')
 
                     setTimeout(() => {
                         window.location.href = '/auth/reset'
-                    }, 3000)
+                    }, 5000)
                 } else {
-                    $('#error-message').text('Email không tồn tại')
+                    $('#error-message').text('Email không tồn tại!')
                     $('#error-message').css('color', 'red')
+                    $('#form__email').addClass('is-invalid')
                 }
             })
         }

@@ -38,13 +38,13 @@ class BookingController {
                             ),
                             cost_before: index.toCurrency(
                                 req.session.rooms.reduce(
-                                    (sum, room) => sum + room.cost_before ?? 0,
+                                    (sum, room) => sum + room.cost_before * room.num ?? 0,
                                     0
                                 )
                             ),
                             cost_after: index.toCurrency(
                                 req.session.rooms.reduce(
-                                    (sum, room) => sum + room.cost_after ?? 0,
+                                    (sum, room) => sum + room.cost_after * room.num ?? 0,
                                     0
                                 )
                             ),
@@ -81,6 +81,9 @@ class BookingController {
 
     // [GET] /booking/payment
     payment(req, res) {
+        console.log(req.session.search);
+        console.log(new Date(req.session.search?.check_in));
+        console.log(new Date(req.session.search?.check_out));
         authuser.getBankCardsById(
             {
                 id: req.session.user?.id,
@@ -110,13 +113,17 @@ class BookingController {
                             (sum, room) => sum + room.num,
                             0
                         ),
-                        cost_before: req.session.rooms.reduce(
-                            (sum, room) => sum + room.cost_before,
-                            0
+                        cost_before: index.toCurrency(
+                            req.session.rooms.reduce(
+                                (sum, room) => sum + room.cost_before * room.num ?? 0,
+                                0
+                            )
                         ),
-                        cost_after: req.session.rooms.reduce(
-                            (sum, room) => sum + room.cost_after,
-                            0
+                        cost_after: index.toCurrency(
+                            req.session.rooms.reduce(
+                                (sum, room) => sum + room.cost_after * room.num ?? 0,
+                                0
+                            )
                         ),
                     },
                     bank_cards: req.session.user?.bank_cards,
@@ -260,10 +267,7 @@ class BookingController {
             }
 
             if (result) {
-<<<<<<< HEAD
-=======
                 // req.session.book_id = null;
->>>>>>> 35bdd8aa5513abf593a1613263864cf3d0cf5ae1
                 res.status(200).json({ message: "Thành công" });
             }
         });

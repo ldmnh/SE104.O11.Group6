@@ -150,10 +150,12 @@ $(window).on('load', () => {
         if (!isValidPass(password)) {
             $('[id^=form__pass]').addClass('is-invalid')
             $('#error-message').text('Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ và số')
+            $('#error-message').css('color', 'red')
             return;
-        } else if (password !== pass_confirm) { 
+        } else if (password !== pass_confirm) {
             $('[id^=form__pass]').addClass('is-invalid')
             $('#error-message').text('Mật khẩu mới không khớp với mật khẩu xác nhận')
+            $('#error-message').css('color', 'red')
             return;
         } else {
             $('[id^=form__pass]').removeClass('is-invalid')
@@ -169,7 +171,7 @@ $(window).on('load', () => {
                 console.log(data.data)
 
                 if (data.status == 200) {
-                    $('#error-message').text('Thành công!')
+                    $('#error-message').text('Đặt lại mật khẩu thành công!')
                     $('#error-message').css('color', 'green')
 
                     setTimeout(() => {

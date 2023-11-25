@@ -1,51 +1,51 @@
 <div class="noti-item__block" style="background: <%= (noti.usernoti_is_read == 0) ? '#00696D1A' : 'white' %>">
-    <img src="/imgs/promotion/img.png" alt="img" class="noti-item__img">
-    <form action="/notifications/promotion" method="POST" class="noti-item__main">
-        <input type="hidden" name="noti_id" value="<%= noti.noti_id %>">
+	<img src="/imgs/promotion/img.png" alt="img" class="noti-item__img">
+	<form action="/notifications/promotion" method="POST" class="noti-item__main">
+		<input type="hidden" name="noti_id" value="<%= noti.noti_id %>">
 
-        <div>
-            <p class="noti-item__title"><%= noti.noti_title %></p>
-            <p class=" noti-item__sub-title"><%= noti.noti_subtitle %></p>
-        </div>
-        <div class="noti-item__info">
-            <div class="noti-item__date-time">
-                <p class="noti-item__time"><%= noti.noti_time %></p>
-                <p class="noti-item__date"><%= noti.noti_date %></p>
-            </div>
-            <div class="noti-item__button">
-                <button class="btn--outlined pri popup-btn" type="submit">Xem chi tiết</button>
-                <button class="btn--filled pri btn-use" type="submit">Dùng ngay</button>
-            </div>
-            <div class="popup">
-                <div class="popup__main">
-                    <div class="popup__content-main">
-                        <div class="popup__content-title">
-                            <div class="popup--top">
-                                <p class="popup__title"><%= noti.noti_title %></p>
-                                <div class="close-btn">
-                                    <span class="material-symbols-outlined">cancel</span>
-                                </div>
-                            </div>
-                            <div class="noti-item__date-time">
-                                <p class="noti-item__time"><%= noti.noti_time %></p>
-                                <p class="noti-item__date"><%= noti.noti_date %></p>
-                            </div>
-                            <p class="popup__sub-title"><%= noti.noti_subtitle %></p>
-                        </div>
-                        <img src="/imgs/promotion/banner.png" alt="banner" class="popup__img">
-                        <div class="popup__content">
-                            <!-- <p>Bà Rịa - Vũng Tàu nằm gần TP HCM, thị trường nguồn gửi khách đi nhiều nhất
+		<div>
+			<p class="noti-item__title"><%= noti.noti_title %></p>
+			<p class=" noti-item__sub-title"><%= noti.noti_subtitle %></p>
+		</div>
+		<div class="noti-item__info">
+			<div class="noti-item__date-time">
+				<p class="noti-item__time"><%= noti.noti_time %></p>
+				<p class="noti-item__date"><%= noti.noti_date %></p>
+			</div>
+			<div class="noti-item__button">
+				<button class="btn--outlined pri popup-btn" type="submit">Xem chi tiết</button>
+				<button class="btn--filled pri btn-use" type="submit">Dùng ngay</button>
+			</div>
+			<div class="popup">
+				<div class="popup__main">
+					<div class="popup__content-main">
+						<div class="popup__content-title">
+							<div class="popup--top">
+								<p class="popup__title"><%= noti.noti_title %></p>
+								<div class="close-btn">
+									<span class="material-symbols-outlined">cancel</span>
+								</div>
+							</div>
+							<div class="noti-item__date-time">
+								<p class="noti-item__time"><%= noti.noti_time %></p>
+								<p class="noti-item__date"><%= noti.noti_date %></p>
+							</div>
+							<p class="popup__sub-title"><%= noti.noti_subtitle %></p>
+						</div>
+						<img src="/imgs/promotion/banner.png" alt="banner" class="popup__img">
+						<div class="popup__content">
+							<!-- <p>Bà Rịa - Vũng Tàu nằm gần TP HCM, thị trường nguồn gửi khách đi nhiều nhất
                                 cả nước, nên di chuyển thuận lợi, phù hợp với xu hướng lựa chọn chuyến đi ngắn ngày
                                 vào cuối tuần của du khách.</p>
                             <p>TP Vũng Tàu phù hợp với nhóm khách có mức chi tiêu trung bình.
                                 Trong thời gian nghỉ hè, địa phương còn tổ chức đa dạng các hoạt động vui chơi, giải trí
                                 mới mẻ nhằm thu hút du khách.</p> -->
-                            <%= noti.noti_content %>
-                        </div>
-                        <img src="/imgs/promotion/banner.png" alt="banner" class="popup__img">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+							<%= noti.noti_content %>
+						</div>
+						<img src="/imgs/promotion/banner.png" alt="banner" class="popup__img">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>

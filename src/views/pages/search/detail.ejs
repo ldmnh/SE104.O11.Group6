@@ -8,7 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 	<link rel="stylesheet" href="/styles/pages/search/detail.css" />
 	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
-	<script src="/jquery/jquery.js"></script>  
+	<script src="/jquery/jquery.js"></script>
 	<title>2WAYS.com</title>
 </head>
 
@@ -55,7 +55,6 @@
 				</div>
 			</div>
 		</section>
-
 
 		<section class="preview">
 			<% if (!accoImg) { %>
@@ -155,7 +154,7 @@
 				</div>
 
 				<div class="filter_price">
-					<input type="hidden" value="<%= accoDetail.acco_id %>" name="acco_id" id = "acco_id">
+					<input type="hidden" value="<%= accoDetail.acco_id %>" name="acco_id" id="acco_id">
 					<div class="comment__filter__item" id="filter__item-rating">
 						<p class="comment__filter__content">Số điểm</p>
 						<span class="material-symbols-outlined dropdown-button">keyboard_arrow_down</span>
@@ -194,9 +193,10 @@
 	<%- include('../../partials/footer') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"> </script>
-	<script src="/scripts/room.js"></script>
-	<script src="/scripts/search-detail.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/scripts/search-detail.js"></script>
+	<script src="/scripts/room.js"></script>
+	<script src="/scripts/header-small.js"></script>
 </body>
 
 </html>

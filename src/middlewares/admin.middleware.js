@@ -1,6 +1,6 @@
 /**
  * Middleware functions for authentication and authorization.
- * @module authMiddleware
+ * @module adminMiddleware
  */
 
 /**
