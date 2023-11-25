@@ -172,3 +172,11 @@
 .popup__details .noti-item__date-time p {
     font-size: 0.875rem;
 }
+
+.close-btn .material-symbols-outlined {
+    color: var(--primary-color-1);
+}
+
+.close-btn .material-symbols-outlined:hover {
+    color: var(--primary-color-2);
+}

@@ -110,6 +110,7 @@ footer {
 	gap: 12px;
 	list-style-type: none;
 	margin: 0;
+
 	&>li {
 		margin: 0;
 	}
