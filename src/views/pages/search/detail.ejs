@@ -14,6 +14,10 @@
 
 <body>
 	<%- include('../../partials/header-small', { user }) %>
+	<%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Tìm kiếm', link: "/search/results" }
+    ] }) %>
 
 	<main class="content-container">
 		<section class="title">

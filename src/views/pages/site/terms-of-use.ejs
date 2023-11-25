@@ -10,8 +10,10 @@
 
 <body>
     <%- include('../../partials/header-small') %>
-    <%# include('../../partials/nav-tree', { nav_tree__data }) %>
-
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Điều khoản sử dụng', link: "/terms-of-use"}
+    ] }) %>
     <main class="term__container">
         <h1 class="term__header">ĐIỀU KHOẢN CHUNG</h1>
         <div class="term-intro">

@@ -14,7 +14,10 @@
 
 <body>
     <%- include('../../partials/header-medium') %>
-    <%# include('../../partials/nav-tree', { nav_tree__data }) %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Tìm kiếm', link: "/search/results" }
+    ] }) %>
 
     <main class="content-container">
         <aside class="filter-sidebar">
@@ -265,7 +268,6 @@
         <section class="search-results">
             <h2 class="search-results__content">
                 <div id="search__content">
-                    <!-- <%= data[0].prov_name %> Tìm thấy <%= data.length %> chỗ nghỉ -->
                 </div>
             </h2>
             <div class="search-results__filter">
