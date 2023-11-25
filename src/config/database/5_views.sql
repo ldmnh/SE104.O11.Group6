@@ -127,7 +127,7 @@ DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
 CREATE VIEW VIEW_BOOKING_HISTORY AS
 SELECT
-	accommodation.*,
+	view_acco.*,
     booking.book_id,
     booking.book_datetime,
     booking.book_start_datetime,
@@ -138,9 +138,9 @@ SELECT
     booking.book_status,
     booking.book_is_paid,
     booking.au_user_id
-FROM accommodation
+FROM view_acco
 INNER JOIN booking
-    ON accommodation.acco_id = booking.acco_id;
+    ON view_acco.acco_id = booking.acco_id;
 
 
 DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
