@@ -2,35 +2,35 @@ const form = document.querySelector('form[action="/booking/information"]');
 
 
 const validateEmail = (email) => {
-    console.log(email);
+    // console.log(email);
     const emailPattern = /^[a-zA-Z]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
 }
 
 const validatePhone = (phone) => {
-    const phonePattern = /^0\d{9}$/;
+    const phonePattern = /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
     return phonePattern.test(phone);
     // return true;
 }
 
 const validateForm = () => {
     inputs = form.querySelectorAll('input[required]');
-    console.log(inputs);
+    // console.log(inputs);
 
     values = [...inputs].map(input => input.value);
-    console.log(values);
+    // console.log(values);
 
     const res = values?.every(value => value);
 
-    const submitBtn = form.querySelector('[type="submit"]');
-    console.log(submitBtn);
+    const submitBtn = form.querySelector('[type="button"]');
+    // console.log(submitBtn);
 
     if (!!res) {
         submitBtn.style.backgroundColor = 'orange';
-        submitBtn.disable = false;
+        submitBtn.disabled = false;
     } else {
         submitBtn.style.backgroundColor = 'gray';
-        submitBtn.disable = true;
+        submitBtn.disabled = true;
     }
 
     return values?.every(value => value);
@@ -39,22 +39,34 @@ const validateForm = () => {
 validateForm();
 form?.querySelectorAll('input[required]').forEach(input => {
     input.addEventListener('input', validateForm);
+
+    input.setCustomValidity('');
 })
 
-form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-
+form?.querySelector('button[type="button"]')?.addEventListener('click', (e) => {
     const email = form.querySelector('.form--item input[name="email"]');
-    console.log(email ?? 'email not found');
+    console.log('email', email.value);
     const phone = form.querySelector('.form--item input[name="phone"]');
-    console.log(phone ?? 'phone not found');
+    console.log('phone', phone.value);
 
     if (!validateEmail(email?.value)) {
         email.setCustomValidity('Email không hợp lệ');
-    } if (!validatePhone(phone?.value)) {
+    } else {
+        email.setCustomValidity('');
+    }
+
+    if (!validatePhone(phone?.value)) {
         phone.setCustomValidity('Số điện thoại không hợp lệ');
     } else {
-        // alert('Thành công');
-        e.target.submit();
+        phone.setCustomValidity('');
     }
+
+    email.reportValidity();
+    phone.reportValidity();
+
+    if (form.checkValidity()) {
+        // alert('Đặt phòng thành công');
+        form.submit();
+    }
+    // form.submit();
 })
