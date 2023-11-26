@@ -149,8 +149,8 @@ class BookingController {
                 acco_id: req.session.acco?.id,
                 au_user_id: req.session.user?.id,
                 book_datetime: new Date(),
-                book_start_datetime: req.session.search?.check_in,
-                book_end_datetime: req.session.search?.check_out,
+                book_start_datetime: new Date(req.session.search?.check_in),
+                book_end_datetime: new Date(req.session.search?.check_out),
                 book_num_adult: req.session.search?.adult,
                 book_num_child: req.session.search?.child,
                 book_cost_before: req.session.rooms.reduce(
