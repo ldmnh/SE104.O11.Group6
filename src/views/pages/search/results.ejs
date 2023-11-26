@@ -13,8 +13,11 @@
 </head>
 
 <body>
-  <%- include('../../partials/header-medium') %>
-  <%# include('../../partials/nav-tree', { nav_tree__data }) %>
+    <%- include('../../partials/header-medium') %>
+    <%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Tìm kiếm', link: "/search/results" }
+    ] }) %>
 
   <main class="content-container">
     <aside class="filter-sidebar">

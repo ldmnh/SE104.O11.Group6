@@ -237,7 +237,7 @@ function filterSortData() {
                       </div>
                     </div>
                   </div>`;
-            const prov_name = results.data[0].prov_name;
+            const prov_name = "2WAYS";//results.data[0].prov_name;
             const resultCount = results.data.length;
             searchContent.innerHTML = `${prov_name}: Tìm thấy ${resultCount} chỗ nghỉ`;
           } else {

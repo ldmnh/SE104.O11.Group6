@@ -9,15 +9,14 @@
     <title>2WAYS.com</title>
     <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/pages/site/about.css" />
-    <script src="/scripts/base.js"></script>
+
 </head>
 
 <body>
     <%- include('../../partials/header-small', { user }) %>
-    <%- include('../../components/on-top-btn') %>
     <%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
-        { text: 'Giới thiệu', link: "/about"}
+        { text: 'Về chúng tôi', link: "/terms-of-use"}
     ] }) %>
     <main>
         <img class="homepage__banner" src="/imgs/about us.png" alt="Banner">
@@ -67,5 +66,5 @@
     <%- include('../../partials/footer') %>
 </body>
 <script src="/scripts/header-small.js"></script>
-
+<script src="/scripts/base.js"></script>
 </html>

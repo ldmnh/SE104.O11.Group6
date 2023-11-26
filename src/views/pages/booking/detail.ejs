@@ -13,6 +13,10 @@
 
 <body>
 	<%- include('../../partials/header-small') %>
+	<%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Thông tin đặt phòng', link: "/booking/detail" }
+    ] }) %>
 	<main class="content-container">
 		<section class="title">
 			<h1>Đặt phòng đã được xác nhận của bạn tại 2WAYS.com</h1>
