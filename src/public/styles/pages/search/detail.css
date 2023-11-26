@@ -4,6 +4,7 @@
 @import url('/styles/components/comment.css');
 @import url('/styles/components/search-bar.css');
 @import url('/styles/partials/footer.css');
+@import url("/styles/partials/nav-tree.css");
 
 body {
     width: 100%;
@@ -15,7 +16,7 @@ body {
 .content-container {
     width: 80%;
     max-width: 1152px;
-    margin: 5vh auto;
+    margin: 0 auto 2vh;
     display: inherit;
     flex-direction: column;
     justify-content: space-between;
@@ -84,7 +85,8 @@ body {
     font-variation-settings: 'FILL' 0;
 }
 
-.info__location p {
+.info__location a {
+    text-decoration: none;
     margin: 0;
     font-size: 0.875rem;
     font-weight: 600;
