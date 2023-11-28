@@ -2,7 +2,8 @@ checkFormValidity()
 
 // Hàm kiểm tra tính hợp lệ của mật khẩu
 function isPasswordValid(password) {
-	return password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password)
+	const re = /^(?!\s)(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+(?<!\s)$/
+	return password.length >= 8 && re.test(password)
 }
 // // Hàm kiểm tra tính hợp lệ của toàn bộ form và cập nhật trạng thái của nút 'Đăng ký'
 // // Kiểm tra người dùng đã nhập hết các trường chưa
@@ -92,8 +93,8 @@ const setSuccess = element => {
 }
 
 const isValidEmail = email => {
-	const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-	return re.test(String(email).toLowerCase())
+	const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+	return re.test(String(email.trim()).toLowerCase())
 }
 
 function validateInput() {
@@ -115,8 +116,8 @@ function validateInput() {
 	}
 
 	if (!isPasswordValid(passwordValue) || !isPasswordValid(passwordConfirmValue)) {
-		setError(password, 'Mật khẩu phải ít nhất 8 ký tự, trong đó có cả chữ và số!')
-		setError(passwordConfirm, 'Mật khẩu phải ít nhất 8 ký tự, trong đó có cả chữ và số!')
+		setError(password, 'Mật khẩu phải ít nhất 8 ký tự, trong đó có cả chữ và số, không bao gồm dấu cách và ký tự đặc biệt!')
+		setError(passwordConfirm, 'Mật khẩu phải ít nhất 8 ký tự, trong đó có cả chữ và số, không bao gồm dấu cách và ký tự đặc biệt!')
 		document.getElementById('form__password').classList.add('is-invalid')
 		document.getElementById('form__password-confirm').classList.add('is-invalid')
 		isAllValid = false
@@ -161,7 +162,7 @@ function validateInput() {
 				if (isAllValid) {
 					form.submit()
 				}
-			} 
+			}
 		}).catch(function (err) {
 			console.log(err)
 		})

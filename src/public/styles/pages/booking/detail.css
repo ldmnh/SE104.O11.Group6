@@ -6,7 +6,6 @@
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/nav-tree.css");
 
-
 body {
     width: 100vw;
     display: flex;
@@ -15,7 +14,7 @@ body {
 
 .content-container {
     width: 80%;
-    margin: 5vh auto;
+    margin: 0 auto 2vh;
     display: flex;
     flex-direction: column;
     gap: 24px;
