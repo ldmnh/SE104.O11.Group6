@@ -267,7 +267,9 @@ function filterSortData() {
                         ${iconRating}
                         </div>
                         <div class="nresult-block__extensions">
-                          <a href="h#" target="blank" class="nresult-block__map">Xem trên bản đồ</a>
+                          <a href="${
+                            result.acco_location_link
+                          }" target="blank" class="nresult-block__map">Xem trên bản đồ</a>
                           <div class="nresult-block__details">
                             <span class="material-symbols-outlined">beach_access</span>
                             <p class="nresult-block__details-content">Giáp biển</p>
