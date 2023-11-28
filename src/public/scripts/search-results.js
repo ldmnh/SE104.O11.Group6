@@ -188,14 +188,16 @@ function filterSortData() {
                             </div>
                           </div>
                           <div class="result-block__room-details">
-                            <p class="result-block__room-detais__content">${result.room_type
-              } 
+                            <p class="result-block__room-detais__content">${
+                              result.room_type
+                            } 
                               ${result.room_class} nhìn ra biển</p>
                             <p>
-                            ${result.room_double_bed
-                ? `${result.room_double_bed} giường đôi`
-                : `${result.room_single_bed} giường đơn`
-              }
+                            ${
+                              result.room_double_bed
+                                ? `${result.room_double_bed} giường đôi`
+                                : `${result.room_single_bed} giường đơn`
+                            }
                             </p>
                             <div class="result-block__room-detais__cancel-policy">
                               <span class="material-symbols-outlined">check</span>
@@ -214,30 +216,35 @@ function filterSortData() {
                         <div class="result-block__cus-rate">
                           <div class="result-block__cus-rate__content">
                             <p class="result-block__cus-rate__main-content">${ratingText}</p>
-                            <p class="result-block__cus-rate__sub-content">${result.room_count_rating
-              } đánh giá</p>
+                            <p class="result-block__cus-rate__sub-content">${
+                              result.room_count_rating
+                            } đánh giá</p>
                           </div>
                           <div class="result-block__cus-rate__point">
                             <p>${result.room_avg_rating}</p>
                           </div>
                         </div>
                         <div class="result-block__price">
-                          <p class="result-block__option">1 đêm, ${result.room_max_adult
-              } người lớn</p>
-                          <p class="result-block__origin-price">VND ${result.room_cost_before_currency
-              }</p>
-                          <p class="result-block__discount-price">VND ${result.room_cost_after_currency
-              }</p>
+                          <p class="result-block__option">1 đêm, ${
+                            result.room_max_adult
+                          } người lớn</p>
+                          <p class="result-block__origin-price">VND ${
+                            result.room_cost_before_currency
+                          }</p>
+                          <p class="result-block__discount-price">VND ${
+                            result.room_cost_after_currency
+                          }</p>
                           <label for="result-block__discount-price" class="result-block__label">Đã gồm thuế và phí</label>
                           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/search/${result.acco_id
-              }" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
+                            <a href="/search/${
+                              result.acco_id
+                            }" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>`;
-            const prov_name = "2WAYS";//results.data[0].prov_name;
+            const prov_name = results.data[0].prov_name;
             const resultCount = results.data.length;
             searchContent.innerHTML = `${prov_name}: Tìm thấy ${resultCount} chỗ nghỉ`;
           } else {
@@ -270,14 +277,16 @@ function filterSortData() {
                           </div>
                         </div>
                         <div class="nresult-block__room-details">
-                          <p class="nresult-block__room-detais__content">${result.room_type
-              } 
+                          <p class="nresult-block__room-detais__content">${
+                            result.room_type
+                          } 
                           ${result.room_class} nhìn ra biển</p>
                           <p>
-                          ${result.room_double_bed
-                ? `${result.room_double_bed} giường đôi`
-                : `${result.room_single_bed} giường đơn`
-              }
+                          ${
+                            result.room_double_bed
+                              ? `${result.room_double_bed} giường đôi`
+                              : `${result.room_single_bed} giường đơn`
+                          }
                           </p>
                           <div class="nresult-block__room-detais__cancel-policy">
                             <span class="material-symbols-outlined">check</span>
@@ -297,28 +306,34 @@ function filterSortData() {
                           <p class="nresult-block__cus-rate__main-content">
                             <${ratingText}
                           </p>
-                          <p class="nresult-block__cus-rate__sub-content">${result.room_count_rating
-              } đánh giá</p>
+                          <p class="nresult-block__cus-rate__sub-content">${
+                            result.room_count_rating
+                          } đánh giá</p>
                         </div>
                         <div class="nresult-block__cus-rate__point">
                           <p>${result.room_avg_rating}</p>
                         </div>
                       </div>
                       <div class="nresult-block__price">
-                        <p class="nresult-block__option">1 đêm, ${result.room_max_adult
-              } người lớn</p>
-                        <p class="nresult-block__origin-price">VND ${result.room_cost_before_currency
-              }</p>
+                        <p class="nresult-block__option">1 đêm, ${
+                          result.room_max_adult
+                        } người lớn</p>
+                        <p class="nresult-block__origin-price">VND ${
+                          result.room_cost_before_currency
+                        }</p>
                         <label for="nresult-block__origin-price" class="result-block__label">Đã gồm thuế và phí</label>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                          <a href="/search/${result.acco_id
-              }" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
+                          <a href="/search/${
+                            result.acco_id
+                          }" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
                         </div>
                       </div>
                     </div>
                   </div>`;
           }
-
+          const prov_name = results.data[0].prov_name;
+          const resultCount = results.data.length;
+          searchContent.innerHTML = `${prov_name}: Tìm thấy ${resultCount} chỗ nghỉ`;
           const newDiv = document.createElement("div");
           newDiv.classList.add("filter-sort-class");
           newDiv.innerHTML = html;

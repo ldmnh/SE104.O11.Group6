@@ -31,10 +31,7 @@ class SearchController {
               Number(result.room_cost)
             );
             result.room_cost_after_currency = index.toCurrency(
-              Number(
-                result.room_cost -
-                result.room_cost * result.room_discount
-              )
+              Number(result.room_cost - result.room_cost * result.room_discount)
             );
             console.log(result.room_cost_before_currency);
           });
@@ -48,7 +45,13 @@ class SearchController {
           }
         });
       } else {
-        res.render("./pages/site/error404");
+        //   res.render("./pages/site/error404");
+        res.status(200).render("./pages/search/results", {
+          message: "Đã tìm thành công",
+          user: req.session.user,
+          totalPage: 1,
+          data: result,
+        });
       }
     });
   }
@@ -86,8 +89,7 @@ class SearchController {
             prices.push(`room_cost BETWEEN 500000 AND 1000000`);
           if (price.includes("Trên VND 1.000.000"))
             prices.push(`room_cost > 1000000`);
-          if (prices.length > 0)
-            sql1 += ` AND (${prices.join(" OR ")})`;
+          if (prices.length > 0) sql1 += ` AND (${prices.join(" OR ")})`;
         }
 
         if (acco_type) {
@@ -117,8 +119,7 @@ class SearchController {
             bed_types.push(`room_single_bed > 0`);
           if (bed_type.includes("Giường đôi"))
             bed_types.push(`room_double_bed > 0`);
-          if (bed_types.length > 0)
-            sql1 += ` AND (${bed_types.join(" OR ")})`;
+          if (bed_types.length > 0) sql1 += ` AND (${bed_types.join(" OR ")})`;
         }
 
         if (acco_star) {
@@ -130,14 +131,11 @@ class SearchController {
           let acco_feaFilter = acco_fea.join(",");
           sql1 += ` AND accofea.fea_id IN ('${acco_feaFilter}')`;
         }
-        if (cost == "Cao đến thấp")
-          sql1 += ` ORDER BY room_cost_after DESC`;
-        if (cost == "Thấp đến cao")
-          sql1 += ` ORDER BY room_cost_after ASC`;
+        if (cost == "Cao đến thấp") sql1 += ` ORDER BY room_cost_after DESC`;
+        if (cost == "Thấp đến cao") sql1 += ` ORDER BY room_cost_after ASC`;
         if (acco_star_sort == "Cao đến thấp")
           sql1 += ` ORDER BY acco_star DESC`;
-        if (acco_star_sort == "Thấp đến cao")
-          sql1 += ` ORDER BY acco_star ASC`;
+        if (acco_star_sort == "Thấp đến cao") sql1 += ` ORDER BY acco_star ASC`;
         if (count_rating == "Cao đến thấp")
           sql1 += ` ORDER BY room_avg_rating DESC`;
         if (count_rating == "Thấp đến cao")
@@ -155,10 +153,7 @@ class SearchController {
               Number(result.room_cost)
             );
             result.room_cost_after_currency = index.toCurrency(
-              Number(
-                result.room_cost -
-                result.room_cost * result.room_discount
-              )
+              Number(result.room_cost - result.room_cost * result.room_discount)
             );
             console.log(result.room_cost_before_currency);
           });
@@ -236,13 +231,8 @@ class SearchController {
   // [POST] /search:acco_id
   submitBooking(req, res) {
     // console.log(req.body)
-    const {
-      acco_id,
-      room_id,
-      room_number,
-      room_cost_before,
-      room_cost_after,
-    } = req.body;
+    const { acco_id, room_id, room_number, room_cost_before, room_cost_after } =
+      req.body;
 
     req.session.acco = { id: parseInt(acco_id) };
 
