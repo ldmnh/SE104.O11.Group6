@@ -117,10 +117,19 @@ submitBtn.addEventListener('click', () => {
 
     if (!checkFillForm(oldPassForm)) {
         errorMsg.innerText = "Vui lòng nhập mật khẩu cũ!";
+        oldPassForm.classList.add('error-div')
+        newPassForm.classList.remove('error-div')
+        newPassConfirmForm.classList.remove('error-div')
     } else if (!checkFillForm(newPassForm)) {
         errorMsg.innerText = "Vui lòng nhập mật khẩu mới!";
+        oldPassForm.classList.remove('error-div')
+        newPassForm.classList.add('error-div')
+        newPassConfirmForm.classList.remove('error-div')
     } else if (!checkFillForm(newPassConfirmForm)) {
-        errorMsg.innerText = "Vui lòng nhập mật khẩu xác nhận!";
+        errorMsg.innerText = "Vui lòng nhập xác nhận mật khẩu!";
+        oldPassForm.classList.remove('error-div')
+        newPassForm.classList.remove('error-div')
+        newPassConfirmForm.classList.add('error-div')
     } else {
 
         const oldPass = oldPassForm.value?.trim();
@@ -133,8 +142,14 @@ submitBtn.addEventListener('click', () => {
 
         if (!checkPass(newPass)) {
             errorMsg.innerText = "Mật khẩu mới phải ít nhất 8 ký tự, trong đó có cả chữ và số!";
+            oldPassForm.classList.remove('error-div')
+            newPassForm.classList.add('error-div')
+            newPassConfirmForm.classList.remove('error-div')
         } else if (!checkPassAndPassConfirm(newPass, newPassConfirm)) {
             errorMsg.innerText = "Mật khẩu xác nhận không khớp!";
+            oldPassForm.classList.remove('error-div')
+            newPassForm.classList.add('error-div')
+            newPassConfirmForm.classList.add('error-div')
         } else {
             fetch('/auth/change-password', {
                 headers: {
@@ -152,6 +167,9 @@ submitBtn.addEventListener('click', () => {
                     modalSuccessChangePassword.style.display = "block";
                 } else if (data.status === 404) {
                     errorMsg.innerText = data.message;
+                    oldPassForm.classList.add('error-div')
+                    newPassForm.classList.remove('error-div')
+                    newPassConfirmForm.classList.remove('error-div')
                 }
             }).catch(err => {
                 console.log(err);
