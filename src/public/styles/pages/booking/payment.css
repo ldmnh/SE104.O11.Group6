@@ -83,7 +83,7 @@ h1 {
     width: 100%;
 }
 
-.aside-wrapper__your-booking-detail > h1 {
+.aside-wrapper__your-booking-detail>h1 {
     margin: 12px 12px 0 12px;
 }
 
@@ -145,6 +145,7 @@ h1 {
     width: 100%;
     justify-content: space-between;
 }
+
 hr {
     width: 96%;
     border: 1px solid var(--outline-variant);
@@ -235,12 +236,15 @@ hr {
         0 1px 3px 1px rgba(0, 0, 0, 0.2),
         0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
+
 .list-account-padding {
     padding: 25px 0;
 }
+
 .list-account.active {
     height: 245px;
 }
+
 .list-account-title {
     background-color: var(--primary-color-1);
     color: var(--white);
@@ -364,7 +368,7 @@ button.submit-booking {
     z-index: 10;
 }
 
-.form-check-input:checked[type="radio"] ~ .list-account {
+.form-check-input:checked[type="radio"]~.list-account {
     display: block;
 }
 
@@ -400,6 +404,7 @@ button.submit-booking {
     gap: 4px;
     width: 50%;
 }
+
 .term-use {
     text-align: end;
     color: #0866ff;

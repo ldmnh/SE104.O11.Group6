@@ -11,7 +11,8 @@ body {
 
 .content-container {
     width: 80%;
-    margin: 5vh auto;
+    max-width: 1152px;
+    margin: 12px auto;
     display: flex;
     justify-content: space-between;
     gap: 24px;

@@ -14,7 +14,8 @@ body {
 
 .content-container {
     width: 80%;
-    margin: 0 auto 2vh;
+    max-width: 1152px;
+    margin: 12px auto;
     display: flex;
     flex-direction: column;
     gap: 24px;

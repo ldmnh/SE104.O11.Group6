@@ -16,7 +16,7 @@ body {
 .content-container {
     width: 80%;
     max-width: 1152px;
-    margin: 0 auto 2vh;
+    margin: 12px auto;
     display: inherit;
     flex-direction: column;
     justify-content: space-between;

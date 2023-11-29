@@ -23,8 +23,9 @@ a {
 
 .nofi-container {
     width: 80%;
+    max-width: 1152px;
     padding: 0;
-    margin: 12px auto 24px auto;
+    margin: 12px auto;
     display: flex;
     gap: 12px;
     align-items: flex-start;
