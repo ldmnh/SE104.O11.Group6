@@ -56,7 +56,7 @@ Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, �
 |UC2.13	|	Xem thông báo	|	AT2, AT3	|
 |UC2.14	|	Đăng xuất	|	AT2, AT3	|
 |UC2.15	|	Xem chi tiết đặt phòng	|	AT2	|
-||UC3 - Admin Module(Mô-đun Quản trị viên)					||
+||UC3 - Admin Module (Mô-đun Quản trị viên)					||
 |UC3.01	|	Thêm phòng	|	AT3	|
 |UC3.02	|	Sửa thông tin phòng	|	AT3	|
 |UC3.03	|	Xóa phòng	|	AT3	|
