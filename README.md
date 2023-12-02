@@ -70,9 +70,10 @@ Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, �
 * [Node.js] - Xử lý API, Back-end
 * [Express] - Framework nằm trên chức năng máy chủ web của NodeJS
 * [Bootstrap] - Framework mã nguồn mở được sử dụng để tạo các giao diện người dùng
+* [EJS] - Hỗ trợ phát triển các trang web bằng cách cho phép tạo ra các mẫu HTML được kết hợp với mã JavaScript
 * [JQuery] - Thư viện JavaScript mã nguồn mở được sử dụng để đơn giản hóa việc thao tác với các phần tử HTML và DOM
 * [Xampp] - Cung cấp các môi trường phát triển cục bộ cho các ứng dụng web
-* [MySQL] - Hệ quản trị cơ sở dữ liệu quan hệ sử dụng để lưu trữ dữ liệu cho trang web.
+* [MySQL] - Hệ quản trị cơ sở dữ liệu quan hệ sử dụng để lưu trữ dữ liệu cho trang web
 
 ## Cài đặt
 Yêu cầu : 
@@ -137,7 +138,7 @@ Nếu ở màn hình terminal cho ra kết quả sau đây, tức các bạn đ�
 * Cách 1: Ctrl + Click vào đường link http://127.0.0.1:3000 trên terminal
 * Cách 2: Mở trình duyệt bất kỳ và nhập đường dẫn sau ``` http://127.0.0.1:3000 ```
 
-#### Đên đây các bạn đã có thể vào trang web của nhóm. 
+#### Đến đây các bạn đã có thể vào trang web của nhóm. 
 * Bạn có thể đăng ký tài khoản khách hàng mới để thực hiện các thao tác trong trang web hoặc đăng nhập bằng tài khoản sau:
   + Email: ```lehieudn123@example.com```
   + Mật khẩu: ```password1```
