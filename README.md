@@ -90,6 +90,7 @@ Tạo database mới có tên là
 database_se104
 ```
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/d12cbbb4-2cd3-48e5-a6f8-a78d0f707b0c)
+
 Bạn có thể tạo database theo cách trong hình hoặc mở tab SQL tại thanh điều hướng và sử dụng lệnh 
 ```
 CREATE DATABASE database_se104;
