@@ -97,23 +97,25 @@ CREATE DATABASE database_se104;
 ```
 
 #### Bước 3: Nhập dữ liệu cho cơ sở dữ liệu, có 2 cách:
+Đầu tiên, truy cập thư mục src/config/database. Tại đây chứa các file sql cần thiết
+![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/e081d51c-b682-46f2-a906-050861872d1a)
+
   * Cách 1: Import dữ liệu từ file:
-   - Tải file tại: src/config/database/database_se104.sql
-   - Chọn tab Import trên thanh điều hướng 
-   - Chọn Choose File --> Chọn file mới tải về ở trên
+    + Tải file: database_se104.sql
+    + Chọn tab Import trên thanh điều hướng
+    + Chọn Choose File --> Chọn file mới tải về ở trên
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/06b08e7b-69cd-4725-967c-e29a4c4cb6a0)
-   - Sau đó, vuốt xuống dưới để nhấn nút 'Import'
+    + Sau đó, vuốt xuống dưới để nhấn nút 'Import'
+
   * Cách 2: Sử dụng tab SQL trên thanh điều hướng
-   - Truy cập thư mục src/config/database. Tại đây sẽ có 5 file SQL
-![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/3a32726c-035e-4a70-87d2-3fec578fdab5)
-   - Chọn tab SQL trên thanh điều hướng
+    + Chọn tab SQL trên thanh điều hướng
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/b3504663-049f-4c3e-a484-8b048c87688d)
-   - Copy Paste lần lượt file sql theo thứ tự và nhấn nút 'Go'
-     + 1_table.sql
-     + 2_trigger.sql
-     + 3_insert_into.sql
-     + 4_procedure.sql
-     + 5_view.sql
+    + Copy Paste lần lượt file sql theo thứ tự và nhấn nút 'Go'
+      + 1_table.sql
+      + 2_trigger.sql
+      + 3_insert_into.sql
+      + 4_procedure.sql
+      + 5_view.sql
 Sau khi thực hiện một trong hai cách trên bạn sẽ có đầy đủ cơ sở dữ liệu của trang web. Kết quả như trong hình:
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/6b147d8b-9ff7-4edf-88fe-52aec70bef5e)
 
@@ -137,16 +139,12 @@ Nếu ở màn hình terminal cho ra kết quả sau đây, tức các bạn đ�
 
 #### Đên đây các bạn đã có thể vào trang web của nhóm. 
 * Bạn có thể đăng ký tài khoản khách hàng mới để thực hiện các thao tác trong trang web hoặc đăng nhập bằng tài khoản sau:
- + Email: ```lehieudn123@example.com```
- + Mật khẩu: ```password1```
+  + Email: ```lehieudn123@example.com```
+  + Mật khẩu: ```password1```
 * Bạn có thể đăng nhập tài khoản admin thông qua đường dẫn ``` http://127.0.0.1:3000/admin/login ```
- + Tên đăng nhập: ```admin1```
- + Mật khẩu: ```password1```
-![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/6ce058c3-d232-4362-9fb7-0dcd71e02286)
+  + Tên đăng nhập: ```admin1```
+  + Mật khẩu: ```password1```
+
+![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/1171b37c-f815-46fd-b494-f892a7f7aa5f)
 
 ## Chúc các bạn thành công!!!
-
-
-
-
-
