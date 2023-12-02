@@ -1,8 +1,8 @@
 # SE104.O11.Group6
-
-## Danh sách thành viên
 * GVHD: ThS. Võ Tấn Khoa
 * Nhóm sinh viên thực hiện: Nhóm 6
+
+## Danh sách thành viên
 |STT | Họ tên | MSSV|
 |:---:|:-------------:|:-----:|
 |1. 	| Lê Đức Mạnh		| 21521116 
@@ -17,9 +17,17 @@
 |10.  | Phan Nguyễn Hải Yến | 21521698
 
 ## Giới thiệu
-Mục tiêu chung của đề tài "Xây dựng website đặt phòng khách sạn"  là tạo ra một trang web hiệu quả và hấp dẫn để khách hàng có thể dễ dàng tìm kiếm, chọn và đặt phòng khách sạn.
+Hiện nay, với sự phát triển không ngừng của ngành du lịch, nhu cầu đặt phòng trực tuyến ngày càng tăng cao. Một website đặt phòng chuyên nghiệp sẽ giúp khách hàng dễ dàng tìm kiếm thông tin, so sánh giá cả, đặt phòng và thanh toán trực tuyến. Ngoài ra, còn có thể giúp cho các địa điểm quảng bá rộng rãi về thương hiệu của họ, từ đó thu hút ngày càng nhiều du khách không chỉ ở khu vực lân cận mà ở khắp mọi nơi trên thế giới. 
+
+Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, “Xây dựng website đặt phòng trực tuyến”  là đề tài mà nhóm đã lựa chọn để thực hiện cho môn học.
 
 ## Tính năng
+|ID	|Tên tác nhân |	Mô tả tác nhân|
+|:---:|:-------------:|:-----:|
+|AT1	|Unauthenticated User (Khách vãng lai)|	Người dùng chưa có tài khoản trên hệ thống, hoặc đã có tài khoản nhưng chưa thực hiện đăng nhập, hệ thống chưa xác thực được người dùng là ai, chưa thực hiện được một số chức năng quan trọng.|
+|AT2	|Authenticated User (Khách hàng)|	Người dùng đã đăng nhập vào hệ thống, hệ thống đã xác thực được người dùng, có thể thực hiện được các chức năng trên hệ thống.|
+|AT3	|Admin (Quản trị viên)|	Người quản trị website và có quyền cao nhất trong hệ thống, có trách nhiệm điều hành và quản lý các hoạt động diễn ra trên website.|
+
 |Mã chức năng	|	Tên chức năng	|	Tác nhân	|
 |:---:|:-------------:|:-----:|
 ||UC1 - Unauthenticated User Module (Mô-đun Khách vãng lai)	||
@@ -61,38 +69,53 @@ Mục tiêu chung của đề tài "Xây dựng website đặt phòng khách s�
 ## Công nghệ sử dụng
 * [Node.js] - Xử lý API, Back-end
 * [Express] - Framework nằm trên chức năng máy chủ web của NodeJS
-* [Bootstrap] - 
-* [JQuery] - 
-* [Xampp, phpMyAdmin] - 
-* [MySQL] -
+* [Bootstrap] - Framework mã nguồn mở được sử dụng để tạo các giao diện người dùng
+* [JQuery] - Thư viện JavaScript mã nguồn mở được sử dụng để đơn giản hóa việc thao tác với các phần tử HTML và DOM
+* [Xampp] - Cung cấp các môi trường phát triển cục bộ cho các ứng dụng web
+* [MySQL] - Hệ quản trị cơ sở dữ liệu quan hệ sử dụng để lưu trữ dữ liệu cho trang web.
 
 ## Cài đặt
-Yêu cầu : [Node.js](https://nodejs.org/) v19+ để có thể chạy chương trình.
+Yêu cầu : 
+* [Node.js](https://nodejs.org/) v19+ để có thể chạy chương trình.
+* [Xampp](https://www.apachefriends.org/download.html) để thực hiện thao tác liên quan đến CSDL.
 
 #### Bước 1: Mở Xampp, truy cập vào phpMyAdmin
+* Bật Apache và MySQL
+* Sau khi MySQL chạy, hãy nhấn chọn Admin của MySQL
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/1b60556b-657c-482c-8928-163192962c65)
-<space><space>
+
 #### Bước 2: Tạo cơ sở dữ liệu mới trong phpMyAdmin
+Tạo database mới có tên là
+```
+database_se104
+```
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/d12cbbb4-2cd3-48e5-a6f8-a78d0f707b0c)
-<space><space>
+Bạn có thể tạo database theo cách trong hình hoặc mở tab SQL tại thanh điều hướng và sử dụng lệnh 
+```
+CREATE DATABASE database_se104;
+```
+
 #### Bước 3: Nhập dữ liệu cho cơ sở dữ liệu, có 2 cách:
   * Cách 1: Import dữ liệu từ file:
-  - Tải file: 
-  - Chọn tab Import trên thanh điều hướng 
-  - Chọn Choose File --> Chọn file mới tải về ở trên
-  ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/06b08e7b-69cd-4725-967c-e29a4c4cb6a0)
+   - Tải file tại: src/config/database/database_se104.sql
+   - Chọn tab Import trên thanh điều hướng 
+   - Chọn Choose File --> Chọn file mới tải về ở trên
+![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/06b08e7b-69cd-4725-967c-e29a4c4cb6a0)
+   - Sau đó, vuốt xuống dưới để nhấn nút 'Import'
   * Cách 2: Sử dụng tab SQL trên thanh điều hướng
-  - Truy cập thư mục src/config/database. Tại đây sẽ có 5 file SQL
-  - Chọn tab SQL trên thanh điều hướng
-  - Copy Paste lần lượt file sql theo thứ tự
-    + 1_table.sql
-    + 2_trigger.sql
-    + 3_insert_into.sql
-    + 4_procedure.sql
-    + 5_view.sql
-  ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/3a32726c-035e-4a70-87d2-3fec578fdab5)
-  
-  Thực hiện một trong hai cách trên bạn sẽ có đầy đủ cơ sở dữ liệu của trang web.
+   - Truy cập thư mục src/config/database. Tại đây sẽ có 5 file SQL
+![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/3a32726c-035e-4a70-87d2-3fec578fdab5)
+   - Chọn tab SQL trên thanh điều hướng
+![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/b3504663-049f-4c3e-a484-8b048c87688d)
+   - Copy Paste lần lượt file sql theo thứ tự và nhấn nút 'Go'
+     + 1_table.sql
+     + 2_trigger.sql
+     + 3_insert_into.sql
+     + 4_procedure.sql
+     + 5_view.sql
+Sau khi thực hiện một trong hai cách trên bạn sẽ có đầy đủ cơ sở dữ liệu của trang web. Kết quả như trong hình:
+![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/6b147d8b-9ff7-4edf-88fe-52aec70bef5e)
+
 #### Bước 4: Thực hiện clone repository này với lệnh
 ```
 https://github.com/namtuthien/SE104.O11.Group6.git
@@ -109,12 +132,18 @@ Nếu ở màn hình terminal cho ra kết quả sau đây, tức các bạn đ�
 
 #### Bước 6: Mở website. Có 2 cách:
 * Cách 1: Ctrl + Click vào đường link http://127.0.0.1:3000 trên terminal
-* Cách 2: Mở trình duyệt bất kỳ và nhập đường dẫn sau [Homepage](http://127.0.0.1:3000)
+* Cách 2: Mở trình duyệt bất kỳ và nhập đường dẫn sau ``` http://127.0.0.1:3000 ```
 
-#### Đên đây các bạn đã có thể vào trang web của nhóm. Chúc các bạn thành công
+#### Đên đây các bạn đã có thể vào trang web của nhóm. 
+* Bạn có thể đăng ký tài khoản khách hàng mới để thực hiện các thao tác trong trang web hoặc đăng nhập bằng tài khoản sau:
+ + Email: ```lehieudn123@example.com```
+ + Mật khẩu: ```password1```
+* Bạn có thể đăng nhập tài khoản admin thông qua đường dẫn ``` http://127.0.0.1:3000/admin/login ```
+ + Tên đăng nhập: ```admin1```
+ + Mật khẩu: ```password1```
 ![image](https://github.com/namtuthien/SE104.O11.Group6/assets/145759907/6ce058c3-d232-4362-9fb7-0dcd71e02286)
 
-
+## Chúc các bạn thành công!!!
 
 
 
