@@ -18,6 +18,7 @@ adminModel.login = (req, callback) => {
                     id: admin[0].admin_id,
                     name: admin[0].admin_nickname,
                 };
+                console.log('Đã lưu Admin',req.session.admin);
                 callback(0, 0, 0, 1)
             } else {
                 callback(0, 0, 1, 0)

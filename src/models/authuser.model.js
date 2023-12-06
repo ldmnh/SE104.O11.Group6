@@ -18,8 +18,6 @@ AuthUser.checkRegister = function (req, callback) {
         au_user_pass
     } = req.body
 
-    console.log(req.body)
-
     const checkEmail = 'SELECT au_user_email FROM authuser WHERE au_user_email = ?'
     const insertUser = 'INSERT INTO authuser SET ?'
 

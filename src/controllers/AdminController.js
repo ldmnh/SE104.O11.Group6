@@ -54,17 +54,7 @@ class AdminController {
 
                                 lastestRating: getLastestRating,
                                 lastestBooking: getLastestBooking,
-                            });
-
-                            // res.send({
-                            //     totalRoomType: getTotalRoomType,
-                            //     totalBooking: getTotalBooking,
-                            //     totalRating: getTotalRating,
-
-                            //     lastestRating: getLastestRating,
-                            //     lastestBooking: getLastestBooking,
-
-                            // });          
+                            });         
                         })
                     })
                 })

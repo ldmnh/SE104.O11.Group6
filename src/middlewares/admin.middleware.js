@@ -10,7 +10,7 @@
  * @param {Object} res - The response object.
  * @param {Function} next - The next middleware function.
  */
-exports.isLoggedIn = (req, res, next) => {
+exports.isLoggedInAdmin = (req, res, next) => {
     console.log(`isLoggedIn: ${req.session.admin}`)
     if (req.session.admin) {
         next()
@@ -27,10 +27,10 @@ exports.isLoggedIn = (req, res, next) => {
  * @param {Object} res - The response object.
  * @param {Function} next - The next middleware function.
  */
-exports.checkAuth = (req, res, next) => {
+exports.checkAuthAdmin = (req, res, next) => {
     console.log(`checkAuth: ${req.session.admin}`)
     if (req.session.admin) {
-        res.redirect('/admin/dashboarb')
+        res.redirect('/admin/')
     } else {
         next()
     }
@@ -44,10 +44,10 @@ exports.checkAuth = (req, res, next) => {
  * @param {Object} res - The response object.
  * @param {Function} next - The next middleware function.
  */
-exports.checkUnauth = (req, res, next) => {
+exports.checkUnauthAdmin = (req, res, next) => {
     console.log(`checkUnauth: ${req.session.admin}`)
     if (!req.session.admin) {
-        res.status(401).redirect('/admin/dashboard')
+        res.status(401).redirect('/admin/')
     } else {
         next()
     }
