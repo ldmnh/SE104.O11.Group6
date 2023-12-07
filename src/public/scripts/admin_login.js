@@ -75,7 +75,7 @@ function validateInput() {
     };
     console.log(login)
 
-    fetch('http://localhost:3000/admin/login', {
+    fetch('/admin/login', {
         method: "POST",
         body: JSON.stringify(login),
         headers: {

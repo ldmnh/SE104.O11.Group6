@@ -27,7 +27,7 @@ class AuthController {
     registerPost(req, res) {
         AuthUser.checkRegister(req, function (err, dupEmail, success) {
             if (err) {
-                return res.status(200).json({
+                return res.status(404).json({
                     status: 'error',
                     message: 'Error'
                 })

@@ -16,7 +16,7 @@ const route = (app) => {
     app.use("/booking", bookingRouter)
     app.use("/", siteRouter)
     app.use((req, res) => {
-        res.status(404).redirect('/404-error');
+        res.status(404).redirect('/error404');
       });
 
 }
