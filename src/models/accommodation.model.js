@@ -8,6 +8,7 @@ const db = require('../config/db/connect');
 
 function Accommodation() { }
 
+
 Accommodation.getAccoById = ({ id }, callback) => {
     const sql = `
         SELECT
@@ -22,5 +23,6 @@ Accommodation.getAccoById = ({ id }, callback) => {
         callback(err, result);
     });
 }
+
 
 module.exports = Accommodation;

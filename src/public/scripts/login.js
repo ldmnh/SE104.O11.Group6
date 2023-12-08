@@ -1,7 +1,7 @@
 // Điều hướng nút đăng ký
 const registerBtn = document.getElementById('btn-register')
 const redirect2res = () => {
-    window.location.href = 'http://127.0.0.1:3000/auth/register'
+    window.location.href = '/auth/register'
 }
 registerBtn.addEventListener('click', redirect2res)
 
@@ -36,10 +36,10 @@ function showHidePassword(inputId, iconId) {
         icon.innerText = 'visibility'
     }
 }
+
 // Lắng nghe sự kiện click cho biểu tượng 'eye-open'
 document.getElementById('eye-open').addEventListener('click', function () {
     showHidePassword('form__password', 'eye-open')
-    // checkFormValidity()
 })
 
 // Lấy hết các input trong form và lắng nghe sự kiện input trên mỗi input
@@ -48,56 +48,7 @@ formInputs.forEach(input => {
     input.addEventListener('input', checkFormValidity)
 })
 
-// // Gọi hàm kiểm tra ban đầu
-// checkFormValidity()
 
-// // Khai báo và lấy tham chiếu đến nút 'Đăng nhập'
-// const loginButton = document.getElementById('login-button')
-
-// Thêm sự kiện click cho nút 'Đăng nhập'
-// loginButton.addEventListener('click', function (event) {
-//     // Ngăn chặn hành vi mặc định của nút 'Đăng ký' (ngăn gửi biểu mẫu)
-//     event.preventDefault()
-
-
-//     // Lấy giá trị email
-//     const email = document.getElementById('form__email').value
-//     // Kiểm tra tính hợp lệ của email
-//     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-
-//     if (!isEmailValid) {
-//         document.getElementById('form__email').classList.add('is-invalid') // Thêm lớp CSS is-invalid
-//     } else {
-//         document.getElementById('form__email').classList.remove('is-invalid') // Xóa lớp CSS is-invalid
-//     }
-
-//     // Lấy giá trị mật khẩu và xác nhận mật khẩu
-//     const password = document.getElementById('form__password').value
-
-//     // Kiểm tra tính hợp lệ của mật khẩu và xác nhận mật khẩu
-//     const isPasswordValid = password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password)
-
-//     if (!isPasswordValid) {
-//         document.getElementById('form__password').classList.add('is-invalid') // Thêm lớp CSS is-invalid
-//     } else {
-//         document.getElementById('form__password').classList.remove('is-invalid') // Xóa lớp CSS is-invalid
-//     }
-
-//     // Kiểm tra tính hợp lệ tổng thể của thông tin
-//     if (!isPasswordValid) {
-//         // Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
-
-// const errorMessage = document.getElementById('error-message');
-// errorMessage.innerText = 'Thông tin không hợp lệ';
-// errorMessage.style.color = 'red';
-
-
-// Chỉ để test xem thực hiện thành công chưa, không để vào code final (vì đăng ký thành công sẽ điều hướng về trang đăng nhập)
-// else {
-//     const errorMessage = document.getElementById('error-message');
-//     errorMessage.innerText = 'Thành công!';
-//     errorMessage.style.color = 'green';
-// }
 const form = document.getElementById('login-form');
 const email = document.getElementById('form__email');
 const password = document.getElementById('form__password');
@@ -116,6 +67,7 @@ const setError = (element, message) => {
     inputControl.classList.remove('success');
     inputControl.classList.add('error');
 }
+
 const setSuccess = element => {
     const inputControl = element.parentElement.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -138,43 +90,17 @@ function validateInput() {
         }
     }).then(res => res.json()).then(back => {
         if (back.status == "error") {
-            console.log('error')
-
-            // success.style.display = "none"
-            // error.style.display = "block";
             setError(email, back.error);
             document.getElementById('form__email').classList.add('is-invalid');
             error.innerText = back.error
         }
         else if (back.status == "error1") {
-            console.log('error1')
             setError(password, back.error)
             document.getElementById('form__password').classList.add('is-invalid');
-            // success.style.display = "block"
-            // error.style.display = "none";
             success.innerText = back.success
         }
         else {
-            console.log('Login success')
-            // document.getElementById('form__email').classList.remove('is-invalid');
-            // document.getElementById('form__password').classList.remove('is-invalid');
-            // setSuccess(email)
-            // setSuccess(password)
-            // form.submit()
-            console.log('Login success')
             window.location.href = '/';
         }
     })
 }
-// }
-
-
-
-
-
-
-
-
-
-
-

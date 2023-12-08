@@ -6,9 +6,9 @@
  */
 const db = require('../config/db/connect')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 
 function AuthUser() { }
+
 
 AuthUser.checkRegister = function (req, callback) {
     const {
@@ -25,7 +25,6 @@ AuthUser.checkRegister = function (req, callback) {
         if (err) callback(1, 0, 0)
         if (result[0]) callback(0, 1, 0)
         else {
-            // const au_user_pass = bcrypt.hash(NewPassword, 8)
             let hashedPassword = await bcrypt.hash(au_user_pass, 8);
             console.log(hashedPassword);
             db.query(insertUser, {
@@ -89,18 +88,6 @@ AuthUser.putInfoById = ({ id, first_name, last_name, birthday, sex }, callback) 
     })
 }
 
-// AuthUser.putChangePassById = ({ id, oldPassHashed, newPassHashed }, callback) => {
-//     const sql = `
-//         UPDATE AUTHUSER
-//         SET au_user_pass = ?
-//         WHERE au_user_id = ?
-//             AND au_user_pass = ?;`;
-//     const values = [newPassHashed, id, oldPassHashed]
-//     db.query(sql, values, (err, result) => {
-//         callback(err, result)
-//     })
-// }
-
 AuthUser.putResetPassByEmail = async ({ email, password }, callback) => {
     const hashedPass = await bcrypt.hash(password, 8)
     const sql = `
@@ -156,5 +143,6 @@ AuthUser.findByEmail = (email, results) => {
         }
     );
 };
+
 
 module.exports = AuthUser

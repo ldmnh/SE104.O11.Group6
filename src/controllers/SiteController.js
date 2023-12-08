@@ -1,10 +1,10 @@
-const SiteModel = require('../models/site.model')
+const SearchModel = require('../models/site.model')
 
 class SiteController {
 
     // [GET] /
     index(req, res) {
-        SiteModel.hintSearch({ }, (err, result) => {
+        SearchModel.hintSearch({ }, (err, result) => {
             if (err) {
                 res.status(500).json({
                     message: 'Lỗi truy vấn!!!',

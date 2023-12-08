@@ -1,6 +1,10 @@
-# SE104.O11.Group6
+# [SE104.O11.Group6] - ĐỒ ÁN XÂY DỰNG WEBSITE ĐẶT PHÒNG 2WAYS.COM 
+* Trường Đại học Công nghệ Thông tin, Đại học Quốc gia Thành phố Hồ Chí Minh (ĐHQG-HCM)
+* Khoa: Khoa học và kỹ thuật thông tin (KTTT)
 * GVHD: ThS. Võ Tấn Khoa
 * Nhóm sinh viên thực hiện: Nhóm 6
+
+## FORM đóng góp ý kiến: [Form đóng góp ý kiến](https://forms.gle/EZWwdGDhsbqygShNA)
 
 ## Danh sách thành viên
 |STT | Họ tên | MSSV|
@@ -28,43 +32,43 @@ Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, �
 |AT2	|Authenticated User (Khách hàng)|	Người dùng đã đăng nhập vào hệ thống, hệ thống đã xác thực được người dùng, có thể thực hiện được các chức năng trên hệ thống.|
 |AT3	|Admin (Quản trị viên)|	Người quản trị website và có quyền cao nhất trong hệ thống, có trách nhiệm điều hành và quản lý các hoạt động diễn ra trên website.|
 
-|Mã chức năng	|	Tên chức năng	|	Tác nhân	|
-|:---:|:-------------:|:-----:|
+|Mã chức năng	|	Tên chức năng	|	Tác nhân	| Hoàn thành|
+|:---:|:-------------:|:-----:|:-----:|
 ||UC1 - Unauthenticated User Module (Mô-đun Khách vãng lai)	||
-|UC1.01 	|	Đăng ký	|	AT1	|
-|UC1.02	|	Đăng nhập	|	AT1	|
-|UC1.03	|	Quên mật khẩu	|	AT1	|
-|UC1.04	|	Đặt lại mật khẩu	|	AT1	|
-|UC1.05	|	Tìm kiếm chỗ ở	|	AT1, AT2	|
-|UC1.06	|	Xem chi tiết chỗ ở	|	AT1, AT2	|
-|UC1.07	|	Xem chi tiết phòng	|	AT1, AT2, AT3	|
-|UC1.08	|	Lọc nội dung	|	AT1, AT2, AT3	|
-|UC1.09	|	Xem đánh giá	|	AT1, AT2, AT3	|
+|UC1.01 	|	Đăng ký	|	AT1	| 100%|
+|UC1.02	|	Đăng nhập	|	AT1	| 100%|
+|UC1.03	|	Quên mật khẩu	|	AT1	| 100%|
+|UC1.04	|	Đặt lại mật khẩu	|	AT1	| 100%|
+|UC1.05	|	Tìm kiếm chỗ ở	|	AT1, AT2	| 100%|
+|UC1.06	|	Xem chi tiết chỗ ở	|	AT1, AT2	| 100%|
+|UC1.07	|	Xem chi tiết phòng	|	AT1, AT2, AT3	| 100%|
+|UC1.08	|	Lọc nội dung	|	AT1, AT2, AT3	| 100%|
+|UC1.09	|	Xem đánh giá	|	AT1, AT2, AT3	| 100%|
 ||UC2 - Authenticated User Module (Mô-đun Khách hàng					||
-|UC2.01	|	Đổi mật khẩu	|	AT2	|
-|UC2.02	|	Xem thông tin cá nhân	|	AT2	|
-|UC2.03	|	Sửa thông tin cá nhân	|	AT2	|
-|UC2.04	|	Liên kết thẻ/tài khoản ngân hàng	|	AT2	|
-|UC2.05	|	Xem danh sách thẻ/tài khoản thanh toán liên kết	|	AT2	|
-|UC2.06	|	Hủy liên kết thẻ/tài khoản ngân hàng	|	AT2	|
-|UC2.07	|	Điền thông tin đặt phòng	|	AT2	|
-|UC2.08	|	Xem lịch sử đặt phòng	|	AT2	|
-|UC2.09	|	Hủy phòng	|	AT2	|
-|UC2.10	|	Thanh toán trực tiếp	|	AT2	|
-|UC2.11	|	Thanh toán trực tuyến	|	AT2	|
-|UC2.12	|	Đánh giá	|	AT2	|
-|UC2.13	|	Xem thông báo	|	AT2, AT3	|
-|UC2.14	|	Đăng xuất	|	AT2, AT3	|
+|UC2.01	|	Đổi mật khẩu	|	AT2	| 100%|
+|UC2.02	|	Xem thông tin cá nhân	|	AT2	| 100%|
+|UC2.03	|	Sửa thông tin cá nhân	|	AT2	| 100%|
+|UC2.04	|	Liên kết thẻ/tài khoản ngân hàng	|	AT2	| 100%|
+|UC2.05	|	Xem danh sách thẻ/tài khoản thanh toán liên kết	|	AT2	| 100%|
+|UC2.06	|	Hủy liên kết thẻ/tài khoản ngân hàng	|	AT2	| 100%|
+|UC2.07	|	Điền thông tin đặt phòng	|	AT2	| 100%|
+|UC2.08	|	Xem lịch sử đặt phòng	|	AT2	| 100%|
+|UC2.09	|	Hủy phòng	|	AT2	| 100%|
+|UC2.10	|	Thanh toán trực tiếp	|	AT2	| 100%|
+|UC2.11	|	Thanh toán trực tuyến	|	AT2	| 100%|
+|UC2.12	|	Đánh giá	|	AT2	| 100%|
+|UC2.13	|	Xem thông báo	|	AT2, AT3	| 100%|
+|UC2.14	|	Đăng xuất	|	AT2, AT3	| 100%|
 |UC2.15	|	Xem chi tiết đặt phòng	|	AT2	|
 ||UC3 - Admin Module (Mô-đun Quản trị viên)					||
-|UC3.01	|	Thêm phòng	|	AT3	|
-|UC3.02	|	Sửa thông tin phòng	|	AT3	|
-|UC3.03	|	Xóa phòng	|	AT3	|
-|UC3.04	|	Sửa quyền khách hàng	|	AT3	|
-|UC3.05	|	Xóa đánh giá	|	AT3	|
-|UC3.06	|	Thêm thông báo	|	AT3	|
-|UC3.07	|	Tạo báo cáo thống kê	|	AT3	|
-|UC3.08	|	Xem danh sách phòng	|	AT3	|
+|UC3.01	|	Thêm phòng	|	AT3	| 0%|
+|UC3.02	|	Sửa thông tin phòng	|	AT3	| 0%|
+|UC3.03	|	Xóa phòng	|	AT3	| 0%|
+|UC3.04	|	Sửa quyền khách hàng	|	AT3	| 0%|
+|UC3.05	|	Xóa đánh giá	|	AT3	| 0%|
+|UC3.06	|	Thêm thông báo	|	AT3	| 0%|
+|UC3.07	|	Tạo báo cáo thống kê	|	AT3	| 100%|
+|UC3.08	|	Xem danh sách phòng	|	AT3	| 0%|
 
 ## Công nghệ sử dụng
 * [Node.js] - Xử lý API, Back-end

@@ -3,7 +3,7 @@ const ctx = document.getElementById('chart').getContext('2d')
 Chart.defaults.font.size = 14
 Chart.defaults.font.family = 'Segoe UI'
 
-fetch('http://localhost:3000/admin/dashboard/getchart')
+fetch('/admin/dashboard/getchart')
     .then(res => res.json())
     .then(data => {
         let month = []

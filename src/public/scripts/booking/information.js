@@ -1,8 +1,6 @@
 const form = document.querySelector('form[action="/booking/information"]');
 
-
 const validateEmail = (email) => {
-    // console.log(email);
     const emailPattern = /^[a-zA-Z]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
 }
@@ -10,20 +8,13 @@ const validateEmail = (email) => {
 const validatePhone = (phone) => {
     const phonePattern = /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
     return phonePattern.test(phone);
-    // return true;
 }
 
 const validateForm = () => {
     inputs = form.querySelectorAll('input[required]');
-    // console.log(inputs);
-
     values = [...inputs].map(input => input.value);
-    // console.log(values);
-
     const res = values?.every(value => value);
-
     const submitBtn = form.querySelector('[type="button"]');
-    // console.log(submitBtn);
 
     if (!!res) {
         submitBtn.style.backgroundColor = 'orange';
@@ -39,7 +30,6 @@ const validateForm = () => {
 validateForm();
 form?.querySelectorAll('input[required]').forEach(input => {
     input.addEventListener('input', validateForm);
-
     input.setCustomValidity('');
 })
 
@@ -65,8 +55,6 @@ form?.querySelector('button[type="button"]')?.addEventListener('click', (e) => {
     phone.reportValidity();
 
     if (form.checkValidity()) {
-        // alert('Đặt phòng thành công');
         form.submit();
     }
-    // form.submit();
 })
