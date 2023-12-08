@@ -3,11 +3,7 @@
 		<div class="search-address">
 			<span class="material-symbols-outlined">location_on</span>
 			<input name="location" class="input_address" type="text" placeholder="Nơi muốn đến" list="location" />
-			<datalist id="location">
-				<% dataSearch?.forEach(item => { %>
-				<option value="<%=item.city_name %>"></option>
-				<% })%>
-			</datalist>
+			<datalist id="location"></datalist>
 		</div>
 
 		<div class=" search-address" style="border-left: 1px solid #90a6b1">
