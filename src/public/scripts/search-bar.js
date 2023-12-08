@@ -117,6 +117,7 @@ inputAddress.addEventListener("keyup", function () {
     }).then(
         res => res.json()
     ).then(back => {
+        console.log(back)
         const location = document.getElementById('location');
         let options = Array.from(location.querySelectorAll('option'))
         options.forEach(opt => opt.remove())
@@ -130,10 +131,9 @@ inputAddress.addEventListener("keyup", function () {
         back.result.forEach(addressOption => {
             if (addressOption.prov_name){
             let option = document.createElement('option');
-            option.value = 'Tỉnh ' + addressOption.prov_name
+            option.value = addressOption.prov_name
             location.appendChild(option)
             }
         })
-        console.log(back)
     })
 })
