@@ -34,7 +34,6 @@ function Cancel() {
         .then((res) => res.json())
         .then((back) => {
             if (back.message == "Thành công") {
-                console.log('aaa')
                 window.location.href = "/booking/cancellation";
             }
         });

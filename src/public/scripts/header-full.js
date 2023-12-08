@@ -20,8 +20,8 @@ const avatarClickHf = document.querySelector(".avatar-btn-hf");
 nameClickHf.addEventListener("click", () =>
   redirectToUrl("/account/information")
 );
+
 avatarClickHf.addEventListener("click", () =>
   redirectToUrl("/account/information")
 );
-// signinBtnHf.addEventListener("click", () => redirectToUrl("/auth/login"));
-// signupBtnHf.addEventListener("click", () => redirectToUrl("/auth/register"));
+

@@ -59,6 +59,7 @@ const setError = (element, message) => {
     inputControl.classList.remove('success');
     inputControl.classList.add('error');
 }
+
 const setSuccess = element => {
     const inputControl = element.parentElement.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -73,9 +74,8 @@ function validateInput() {
         admin_login: admin_name.value.trim(),
         admin_password: admin_password.value.trim()
     };
-    console.log(login)
 
-    fetch('http://localhost:3000/admin/login', {
+    fetch('/admin/login', {
         method: "POST",
         body: JSON.stringify(login),
         headers: {
@@ -93,7 +93,6 @@ function validateInput() {
             document.getElementById('form__password').classList.add('is-invalid');
             setSuccess(admin_name)
         } else {
-            console.log('Login success')
             window.location.href = '/admin/dashboard';
         }
     })

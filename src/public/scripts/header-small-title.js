@@ -4,7 +4,6 @@ function redirectToPage(help) {
 	} else if (help == "Bạn cần sự trợ giúp?") {
 		window.location.href = "https://student.uit.edu.vn/";
 	}
-	// Add more conditions as needed
 }
 
 const logoClickHst = document.querySelector(".logo-click-hst");
