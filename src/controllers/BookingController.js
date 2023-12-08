@@ -4,6 +4,7 @@ const authuser = require("../models/authuser.model");
 const booking = require("../models/booking.model");
 
 class BookingController {
+
     // [GET] /booking/information
     information(req, res) {
         accommodation.getAccoById(
@@ -80,9 +81,6 @@ class BookingController {
 
     // [GET] /booking/payment
     payment(req, res) {
-        // console.log(req.session.search);
-        // console.log(new Date(req.session.search?.check_in));
-        // console.log(new Date(req.session.search?.check_out));
         authuser.getBankCardsById(
             {
                 id: req.session.user?.id,

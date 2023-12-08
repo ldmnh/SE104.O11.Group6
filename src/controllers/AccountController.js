@@ -93,13 +93,11 @@ class AccountController {
     }
 
     // [POST] /account/booking-history
-    addReview(req, res) {
+    addRating(req, res) {
         const id = req.session.user.id;
         const { room_id, rating_point, rating_context } = req.body;
         const rating_datetime = new Date()
-        // console.log(rating_datetime)
-        // console.log(req.body)
-        AccountModel.addReview({
+        AccountModel.addRating({
             room_id, rating_datetime, rating_point, rating_context, id
         }, (err, result) => {
             if (err) {
@@ -166,9 +164,7 @@ class AccountController {
             if (err) throw err;
 
             res.status(200).redirect('/account/card')
-            // json({message: "Thêm thẻ ngân hàng thành công",
         })
-        // res.status(200).json({ message: "/account/addBank" })
     }
 
     // [POST] /account/card/addDebit
@@ -193,11 +189,7 @@ class AccountController {
         }, (err, result) => {
             if (err) throw err;
             res.status(200).redirect('/account/card')
-            // res.status(200).json({
-            //     message: "Thêm thẻ tín dụng thành công",
-            // })
         })
-        // res.status(200).json({ message: "/account/addDebit" })
     }
 
     // [PUT] /account/card/delBank
@@ -205,15 +197,11 @@ class AccountController {
         const { bank_id } = req.body
         AccountModel.delBank({
             "id": req.session.user?.id,
-            bank_id                    // bank_id lấy từ req.body
+            bank_id
         }, (err, result) => {
             if (err) throw err;
             res.status(200).redirect('/account/card')
-            // res.status(200).json({
-            //     massage: "Xóa thẻ ngân hàng thành công"
-            // })
         })
-        // res.status(200).json({ message: "/account/delBank" })
     }
 
     // [POST] /account/card/delDebit
@@ -221,16 +209,11 @@ class AccountController {
         const { debit_id } = req.body
         AccountModel.delDebit({
             "id": req.session.user?.id,
-            debit_id                   // bank_id lấy từ req.body
+            debit_id
         }, (err, result) => {
             if (err) throw err;
             res.status(200).redirect('/account/card')
-            // res.status(200).json({
-            //     massage: "Xóa thẻ tín dụng thành công"
-            // })
         })
-        // res.status(200).json({ message: "/account/delDebit" })
-        // res.status(200).redirect('/account/card')
     }
 
     // [GET] /account/change-password
@@ -238,5 +221,6 @@ class AccountController {
         res.status(200).render('./pages/account/change-password', { user: req.session.user })
     }
 }
+
 
 module.exports = new AccountController()
