@@ -121,14 +121,18 @@ inputAddress.addEventListener("keyup", function () {
         let options = Array.from(location.querySelectorAll('option'))
         options.forEach(opt => opt.remove())
         back.result.forEach(addressOption => {
-            let option = document.createElement('option');
-            option.value = addressOption.city_name
-            location.appendChild(option)
+            if (addressOption.city_name){
+                let option = document.createElement('option');
+                option.value = addressOption.city_name
+                location.appendChild(option)
+            }
         })
         back.result.forEach(addressOption => {
+            if (addressOption.prov_name){
             let option = document.createElement('option');
-            option.value = addressOption.prov_name
+            option.value = 'Tỉnh ' + addressOption.prov_name
             location.appendChild(option)
+            }
         })
         console.log(back)
     })
