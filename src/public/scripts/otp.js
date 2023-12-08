@@ -10,9 +10,7 @@ closePopupOtp2.addEventListener("click", () => {
     modalOtp.style.display = "none";
 });
 
-
 const currentPart = window.location.pathname;
-
 const continueBtn = document.querySelector(".otp__button--submit2");
 continueBtn.addEventListener("click", () => {
     let nextPart;

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//Khi nhấn vào thêm tài khoản ngân hàng mới:
+// Khi nhấn vào thêm tài khoản ngân hàng mới:
 const addBankAccountBtn = document.querySelector(".addBankAccountBtn");
 const redirect2AccountPage = () => {
     window.location.href = "/account/card";
@@ -22,7 +22,7 @@ const redirect2AccountPage = () => {
 
 addBankAccountBtn.addEventListener("click", redirect2AccountPage);
 
-//Khi nhấn vào thêm thẻ tín dụng mới:
+// Khi nhấn vào thêm thẻ tín dụng mới:
 const addCreditCardBtn = document.querySelector(".addCreditCardBtn");
 const redirect2AccountPagee = () => {
     window.location.href = "/account/card";
@@ -30,13 +30,13 @@ const redirect2AccountPagee = () => {
 
 addCreditCardBtn.addEventListener("click", redirect2AccountPagee);
 
-//Khi nhấn đổi lựa chọn của bạn:
+// Khi nhấn đổi lựa chọn của bạn:
 const changeChoiceClick = document.querySelector(".change-choice");
 changeChoiceClick.addEventListener("click", () => {
     window.location.href = "/search/detail";
 });
 
-//Khi nhấn chính sách bảo mật
+// Khi nhấn chính sách bảo mật
 const privacyPolicys = document.querySelectorAll(".privacy-policy");
 privacyPolicys.forEach((privacyPolicy) => {
     privacyPolicy.addEventListener("click", () => {
@@ -44,7 +44,7 @@ privacyPolicys.forEach((privacyPolicy) => {
     });
 });
 
-//Khi nhấn điều khoản
+// Khi nhấn điều khoản
 const termUses = document.querySelectorAll(".term-use");
 termUses.forEach((termUse) => {
     termUse.addEventListener("click", () => {
@@ -52,7 +52,7 @@ termUses.forEach((termUse) => {
     });
 });
 
-//Khi nhấn Kiểm tra lại thông tin
+// Khi nhấn Kiểm tra lại thông tin
 const checkInfo = document.querySelector(".check-info-booking");
 checkInfo.addEventListener("click", () => {
     window.location.href = "/booking/information";

@@ -1,17 +1,18 @@
 const addBankAccountpopup = document.querySelector(".modal");
-const addBankAccountBtn = document.querySelector(".add-bank-account-btn");
-
 const onClickAddBankAccountBtn = () => {
     addBankAccountpopup.style.display = "block";
 };
+
+const addBankAccountBtn = document.querySelector(".add-bank-account-btn");
 addBankAccountBtn.addEventListener("click", onClickAddBankAccountBtn);
 
 // 
 const addCreditAccountpopup = document.querySelector(".modal2");
-const addCreditAccountBtn = document.querySelector(".add-credit-account-btn");
 const onClickAddCreditAccountBtn = () => {
     addCreditAccountpopup.style.display = "block";
 };
+
+const addCreditAccountBtn = document.querySelector(".add-credit-account-btn");
 addCreditAccountBtn.addEventListener("click", onClickAddCreditAccountBtn);
 
 // Nhan vao nut xoa
@@ -24,7 +25,6 @@ deleteBtn.forEach((item) => {
 });
 
 // Nhan vao nut xoa debit
-const deleteBtnDebit = document.querySelectorAll(".delete-debit");
 const formDebits = document.querySelectorAll('.form-delete-debit')
 formDebits.forEach((f, index) => {
     f.addEventListener('submit', e => {
@@ -32,12 +32,13 @@ formDebits.forEach((f, index) => {
     })
 })
 
+const deleteBtnDebit = document.querySelectorAll(".delete-debit");
 deleteBtnDebit.forEach((item, index) => {
     item.addEventListener("click", () => {
-        const closePopupOtpDelDebit = document.querySelector(".otp__button--submit1--del-debit");
         const modalOtpDelDebit = document.querySelector(".del-debit-card");
         modalOtpDelDebit.style.display = "block";
 
+        const closePopupOtpDelDebit = document.querySelector(".otp__button--submit1--del-debit");
         closePopupOtpDelDebit.addEventListener("click", () => {
             modalOtpDelDebit.style.display = "none";
         });
@@ -54,7 +55,6 @@ deleteBtnDebit.forEach((item, index) => {
 });
 
 // Nhan vao nut xoa bank
-const deleteBtnBank = document.querySelectorAll(".delete-bank");
 const formBanks = document.querySelectorAll('.form-delete-bank')
 formBanks.forEach((f, index) => {
     f.addEventListener('submit', e => {
@@ -62,12 +62,13 @@ formBanks.forEach((f, index) => {
     })
 })
 
+const deleteBtnBank = document.querySelectorAll(".delete-bank");
 deleteBtnBank.forEach((item, index) => {
     item.addEventListener("click", () => {
-        const closePopupOtpDelBank = document.querySelector(".otp__button--submit1--del-bank");
         const modalOtpDelBank = document.querySelector(".del-bank-card");
         modalOtpDelBank.style.display = "block";
 
+        const closePopupOtpDelBank = document.querySelector(".otp__button--submit1--del-bank");
         closePopupOtpDelBank.addEventListener("click", () => {
             modalOtpDelBank.style.display = "none";
         });
@@ -76,17 +77,16 @@ deleteBtnBank.forEach((item, index) => {
         closePopupOtp2DelBank.addEventListener("click", () => {
             modalOtpDelBank.style.display = "none";
         });
+
         const conformBtnBank = document.querySelector(".otp__button--submit2--del-bank");
         conformBtnBank.addEventListener("click", () => {
             formBanks[index].submit();
         });
-
     });
 });
 
-//Doi trang thai bank:
+// Doi trang thai bank:
 const defaultBtnBanks = document.querySelectorAll(".default-btn-bank");
-
 defaultBtnBanks.forEach((btn) => {
     btn.addEventListener("click", () => {
         // Chuyển tất cả các nút về trạng thái "Thiết lập mặc định"
@@ -103,10 +103,8 @@ defaultBtnBanks.forEach((btn) => {
     });
 });
 
-
 //Doi trang thai debit:
 const defaultBtnDebits = document.querySelectorAll(".default-btn-debit");
-
 defaultBtnDebits.forEach((btn) => {
     btn.addEventListener("click", () => {
         // Chuyển tất cả các nút về trạng thái "Thiết lập mặc định"

@@ -40,7 +40,6 @@ function showHidePassword(inputId, iconId) {
 // Lắng nghe sự kiện click cho biểu tượng 'eye-open'
 document.getElementById('eye-open').addEventListener('click', function () {
     showHidePassword('form__password', 'eye-open')
-    // checkFormValidity()
 })
 
 // Lấy hết các input trong form và lắng nghe sự kiện input trên mỗi input
@@ -105,15 +104,3 @@ function validateInput() {
         }
     })
 }
-// }
-
-
-
-
-
-
-
-
-
-
-

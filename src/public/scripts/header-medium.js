@@ -1,5 +1,5 @@
 function redirectToUrl(url) {
-  window.location.href = url;
+     window.location.href = url;
 }
 
 // Header-medium
@@ -12,15 +12,15 @@ logoClickHm.addEventListener("click", () => redirectToUrl("/"));
 
 homepageBtnHm.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHm.addEventListener("click", () =>
-  redirectToUrl("/notifications/account-update")
+     redirectToUrl("/notifications/account-update")
 );
 
 const nameClickHm = document.querySelector(".name-btn-hm");
 const avatarClickHm = document.querySelector(".avatar-btn-hm");
 
 nameClickHm.addEventListener("click", () =>
-  redirectToUrl("/account/information")
+     redirectToUrl("/account/information")
 );
 avatarClickHm.addEventListener("click", () =>
-  redirectToUrl("/account/information")
+     redirectToUrl("/account/information")
 );
