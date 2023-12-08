@@ -98,8 +98,12 @@ Search.find = function (req, res, callback) {
     });
 };
 
-Search.hintSearch = ({ }, callback) => {
-    const sql = `SELECT city_name FROM city`;
+Search.hintSearch = (searchKey, callback) => {
+    let sql = `SELECT city_name, prov_name FROM view_acco`;
+    if (searchKey) {
+        sql += ` WHERE LOWER(city_name) LIKE '%${searchKey}%' OR LOWER(prov_name) LIKE '%${searchKey}%'`
+    }
+
     db.query(sql, (err, result) => {
         callback(err, result);
     })

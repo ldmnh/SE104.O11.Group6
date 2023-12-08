@@ -86,7 +86,7 @@ updateSelectedOptions();
 document
     .querySelector(".search-address--dropdown")
     .addEventListener("click", function () {
-        // Lấy tham chiếu đến phần tử .search-quality
+        //Lấy tham chiếu đến phần tử .search-quality
         const searchQuality = document.querySelector(".search-quality");
 
         // Kiểm tra xem .search-quality đang hiển thị hay không
@@ -98,3 +98,38 @@ document
             searchQuality.style.display = "block";
         }
     });
+
+const inputAddress = document.querySelector('input[name="location"]')
+
+inputAddress.addEventListener("keyup", function () {
+    const inputAddressValue = document.querySelector('input[name="location"]').value
+
+    const searchKey = {
+        searchKey: inputAddressValue
+    }
+
+    fetch('/hint_search', {
+        method: 'POST',
+        body: JSON.stringify(searchKey),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then(
+        res => res.json()
+    ).then(back => {
+        const location = document.getElementById('location');
+        let options = Array.from(location.querySelectorAll('option'))
+        options.forEach(opt => opt.remove())
+        back.result.forEach(addressOption => {
+            let option = document.createElement('option');
+            option.value = addressOption.city_name
+            location.appendChild(option)
+        })
+        back.result.forEach(addressOption => {
+            let option = document.createElement('option');
+            option.value = addressOption.prov_name
+            location.appendChild(option)
+        })
+        console.log(back)
+    })
+})
