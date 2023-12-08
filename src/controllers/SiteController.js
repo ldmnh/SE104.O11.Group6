@@ -1,4 +1,4 @@
-const SearchModel = require('../models/site.model')
+const SearchModel = require('../models/search.model')
 
 class SiteController {
 
