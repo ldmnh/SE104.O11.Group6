@@ -32,7 +32,13 @@
       </div>
     </div>
     <div>
-      <%- include('../components/search-bar.ejs', { dataSearch: undefined }) %>
+      <%- include('../components/search-bar.ejs', { dataSearch: [
+        { city_name: "Thành phố Bến Tre" },
+        { city_name: "Thành phố Long Xuyên" },
+        { city_name: "Thành phố Sóc Trăng" },
+        { city_name: "Thành phố Trà Vinh" },
+        { city_name: "Thành phố Vĩnh Long" }
+      ]}) %>
     </div>
   </div>
 </header>
