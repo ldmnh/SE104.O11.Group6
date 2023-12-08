@@ -6,7 +6,6 @@ const index = require('../models/index.model')
 const accountHistory = function () { }
 
 accountHistory.getDetail = async ({ id, page }, callback) => {
-    // let params = [req.session.user.id]
     let getRowBooking = "SELECT COUNT(*) as 'total' FROM view_booking_history WHERE au_user_id = ?"
     let getBookingDetail = 'SELECT * FROM view_booking_history WHERE au_user_id = ?'
 

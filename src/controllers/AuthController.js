@@ -82,7 +82,6 @@ class AuthController {
                         success: "Thành công",
                         data: user,
                     });
-                    // res.redirect('/')
                 } else {
                     return res.status(401).json({
                         status: "error1",
@@ -92,8 +91,6 @@ class AuthController {
                 // })
             }
         });
-        // req.session.email = req.body.email;
-        // res.send("loginPost")
     }
 
     // [GET] /auth/forgot-password
@@ -170,13 +167,7 @@ class AuthController {
     async changePassPost(req, res) {
         const { oldPass, newPass } = req.body;
 
-        console.log(oldPass, newPass);
-
-        // console.log(
-        //     req.session.user?.id,
-        //     oldPassHashed,
-        //     newPassHashed
-        // )
+        // console.log(oldPass, newPass);
 
         AuthUser.checkEmail({
             email: req.session.user?.email
@@ -222,29 +213,6 @@ class AuthController {
                 });
             }
         })
-
-        // AuthUser.putChangePassById({
-        //     id: req.session.user?.id,
-        //     oldPassHashed,
-        //     newPassHashed,
-        // }, (err, result) => {
-        //     if (err) {
-        //         res.status(500).json({
-        //             message: "Lỗi truy vấn!!!",
-        //         });
-        //         throw err;
-        //     }
-
-        //     if (result.affectedRows === 0) {
-        //         res.status(404).json({
-        //             message: "Mật khẩu cũ không chính xác!!!",
-        //         });
-        //     } else {
-        //         res.status(200).json({
-        //             message: "Cập nhật thông tin tài khoản thành công",
-        //         });
-        //     }
-        // });
     }
 }
 

@@ -76,14 +76,13 @@ class BookingController {
         };
 
         res.redirect("/booking/payment");
-        // res.status(200).json({ body: req.body });
     }
 
     // [GET] /booking/payment
     payment(req, res) {
-        console.log(req.session.search);
-        console.log(new Date(req.session.search?.check_in));
-        console.log(new Date(req.session.search?.check_out));
+        // console.log(req.session.search);
+        // console.log(new Date(req.session.search?.check_in));
+        // console.log(new Date(req.session.search?.check_out));
         authuser.getBankCardsById(
             {
                 id: req.session.user?.id,
@@ -174,7 +173,7 @@ class BookingController {
             (err, result) => {
                 if (err) throw err;
 
-                console.log(result);
+                // console.log(result);
                 req.session.book.id = result.insertId;
 
                 booking.postInfoDetailByIds(
@@ -213,7 +212,7 @@ class BookingController {
 
     // [GET] /booking/detail
     detail(req, res) {
-        console.log(req.session.book?.id);
+        // console.log(req.session.book?.id);
         const book_id = req.query.book_id
             ? req.query.book_id
             : req.session.book?.id;

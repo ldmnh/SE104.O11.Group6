@@ -11,7 +11,7 @@
  * @param {Function} next - The next middleware function.
  */
 exports.isLoggedInAdmin = (req, res, next) => {
-    console.log(`isLoggedIn: ${req.session.admin}`)
+    console.log(`isLoggedInAdmin: ${req.session.admin}`)
     if (req.session.admin) {
         next()
     } else {
@@ -28,7 +28,7 @@ exports.isLoggedInAdmin = (req, res, next) => {
  * @param {Function} next - The next middleware function.
  */
 exports.checkAuthAdmin = (req, res, next) => {
-    console.log(`checkAuth: ${req.session.admin}`)
+    console.log(`checkAuthAdmin: ${req.session.admin}`)
     if (req.session.admin) {
         res.redirect('/admin/')
     } else {
@@ -45,7 +45,7 @@ exports.checkAuthAdmin = (req, res, next) => {
  * @param {Function} next - The next middleware function.
  */
 exports.checkUnauthAdmin = (req, res, next) => {
-    console.log(`checkUnauth: ${req.session.admin}`)
+    console.log(`checkUnauthAdmin: ${req.session.admin}`)
     if (!req.session.admin) {
         res.status(401).redirect('/admin/')
     } else {

@@ -97,20 +97,17 @@ class AccountController {
         const id = req.session.user.id;
         const { room_id, rating_point, rating_context } = req.body;
         const rating_datetime = new Date()
-        console.log(rating_datetime)
-        console.log(req.body)
+        // console.log(rating_datetime)
+        // console.log(req.body)
         AccountModel.addReview({
             room_id, rating_datetime, rating_point, rating_context, id
         }, (err, result) => {
             if (err) {
                 res.status(404).redirect('/error404')
-                // res.status(500).json({ message: "Lỗi truy vấn!" });
                 throw err;
             }
             res.status(200).json({ message: "Thành công" });
-            // res.status(200).json({ message: "Thêm đánh giá phòng thành công" })
         })
-        // res.status(200).json({ message: "/account/addReview" })
     }
 
     // [GET] /account/card
@@ -141,13 +138,11 @@ class AccountController {
                     bank_cards: req.session.user?.bank_cards,
                     debit_cards: req.session.user?.debit_cards
                 }
-                // res.status(200).render('./pages/account/card', { data })
 
                 res.status(200).render('./pages/account/card', {
                     user: req.session.user,
                     data
                 })
-                // res.status(200).json({ nav_tree__data, data })
             })
         })
     }

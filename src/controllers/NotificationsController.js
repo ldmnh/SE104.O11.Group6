@@ -38,8 +38,6 @@ class NotificationController {
             res.status(200).redirect('./account-update')
 
         })
-        // .json({ message: '/notifications/account-updatePut' })
-
     }
 
     // [GET] /notifications/promotion
@@ -76,7 +74,6 @@ class NotificationController {
 
             res.status(200).redirect('./promotion')
         })
-        // .json({ message: '/notifications/account-updatePut' })
     }
 
     // [POST] /notifications/read-all

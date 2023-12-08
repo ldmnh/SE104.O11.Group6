@@ -10,7 +10,9 @@ class SearchController {
   searchResult(req, res) {
     Search.find(req, res, function (err, res, result) {
       if (err) {
-        res.status(500).json({ message: "Lỗi truy cập cơ sở dữ liệu" });
+        res.status(500).json({
+          message: "Lỗi truy cập cơ sở dữ liệu"
+        });
         throw err;
       }
       if (result.length > 0) {
@@ -171,40 +173,41 @@ class SearchController {
           }
         });
       } else {
-        res.status(200).json({ message: "Không tìm thấy kết quả" });
+        res.status(200).json({
+          message: "Không tìm thấy kết quả"
+        });
       }
     });
-    //     } else {
-    //     res.status(404).json({ message: "Không tìm thấy kết quả" });
-    // }
-    // });
   }
 
   // [GET] /search/:acco_id
   accoDetail(req, res) {
-    accoRoomDetail.getDetail(
-      req,
-      res,
-      function (err, accoDetail, accoFea, accoImg, accoRoom, accoExte) {
-        if (err) {
-          res.status(404).render("./pages/site/error404.ejs");
-        }
-        if (!accoDetail) {
-          res.status(404).render("./pages/site/error404.ejs");
-        }
-        res.status(200).render("./pages/search/detail", {
-          // res.status(200).json({
-          message: "Lấy thông tin thành công",
-          user: req.session.user,
-          accoDetail: accoDetail,
-          accoFea: accoFea,
-          accoImg: accoImg,
-          accoRoom: accoRoom,
-          accoExte: accoExte,
-        });
-      }
-    );
-    // res.status(200).render('./pages/search/detail')
+    let acco_id = [req.params.acco_id]
+
+    accoRoomDetail.getAccoDetail(acco_id, function (err, accoDetail) {
+      accoRoomDetail.getAccoFea(acco_id, function (err, accoFea) {
+        accoRoomDetail.getAccoImg(acco_id, function (err, accoImg) {
+          accoRoomDetail.getAccoRoom(acco_id, function (err, accoRoom) {
+            accoRoomDetail.getAccoRoomExteDistinct(acco_id, function (err, accoExte) {
+              if (err) {
+                res.status(404).render("./pages/site/error404.ejs");
+              }
+
+              res.status(200).render("./pages/search/detail", {
+                // res.status(200).json({
+                message: "Lấy thông tin thành công",
+                user: req.session.user,
+                accoDetail: accoDetail,
+                accoFea: accoFea,
+                accoImg: accoImg,
+                accoRoom: accoRoom,
+                accoExte: accoExte,
+              });
+            })
+          })
+        })
+      })
+    })
   }
 
   filterSortComments(req, res) {
@@ -240,7 +243,9 @@ class SearchController {
       room_cost_after,
     } = req.body;
 
-    req.session.acco = { id: parseInt(acco_id) };
+    req.session.acco = {
+      id: parseInt(acco_id)
+    };
 
     req.session.rooms = room_number
       .map((value, index) => {
