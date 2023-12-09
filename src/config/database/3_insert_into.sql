@@ -3,15 +3,15 @@ USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
 VALUES
-    ('admin1', 'password1'),
-    ('admin2', 'password2'),
-    ('admin3', 'password3');
+    ('admin1', '$2a$08$ymCOpCABEqsCRZzyj9NIFuH.0ulU1O6FbcMVRl9VSL4EM.vdje7wK'),
+    ('admin2', '$2a$08$dTn4g4gmAvRlxGDxtjPga.qNYldTY/WOl44Ikm7r3pbc7xFzSaZoG'),
+    ('admin3', '$2a$08$qSLYLuukotwr31gKGxMooeHa73odnhL8bgFPbviqpSvRBUzYbpMk.');
 
 INSERT INTO AuthUser (au_user_first_name, au_user_last_name, au_user_email, au_user_pass, au_user_avt_url)
 VALUES
-    ('Hiếu', 'Lê',  'lehieudn123@example.com',  'password1', 'user_1.jpg'),
-    ('Giàu', 'Bùi', 'giaubuibt123@example.com', 'password2', 'user_2.jpg'),
-    ('Lân',  'Lý',  'lanlyst123@example.com',   'password3', 'user_3.jpg');
+    ('Hiếu', 'Lê',  'lehieudn123@example.com',  '$2a$08$ymCOpCABEqsCRZzyj9NIFuH.0ulU1O6FbcMVRl9VSL4EM.vdje7wK', 'user_1.jpg'),
+    ('Giàu', 'Bùi', 'giaubuibt123@example.com', '$2a$08$dTn4g4gmAvRlxGDxtjPga.qNYldTY/WOl44Ikm7r3pbc7xFzSaZoG', 'user_2.jpg'),
+    ('Lân',  'Lý',  'lanlyst123@example.com',   '$2a$08$qSLYLuukotwr31gKGxMooeHa73odnhL8bgFPbviqpSvRBUzYbpMk.', 'user_3.jpg');
 
 INSERT INTO BankCard (bank_name, bank_branch, bank_num, bank_name_pers, au_user_id)
 VALUES
@@ -45,9 +45,9 @@ VALUES
 INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id, acco_location_link)
 VALUES
     ('Hotel',   4,  'acc001.jpg', 'Khách sạn Quê Hương',    'Quê Hương là thiên đường',                 'Khách sạn hướng ra sông, có nhà hang.',        '1 Đường Nguyễn Trung Trực',    1,      1,  'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
-    ('Resort',  5,  'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise',               'Khách sạn kết hợp khu trung tâm thương mại.',  '22 Đường Trần Huỳnh',          2,      2,  'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
-    ('Hotel',   5,  'acc003.jpg', 'LARA HOTEL LONG XUYEN',  'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.',               '46-48 Đường Hùng Vương',       5,      5,  'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
-    ('Resort',  2,  'acc004.jpg', 'Homestay Coco Island',    NULL,                                      'Khách sạn 2 sao.',                             '97 Tân Thạch',                 NULL,   3,  'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
+    ('Resort',  5,  'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise',               'Khách sạn kết hợp khu trung tâm thương mại.',  '22 Đường Trần Huỳnh',          NULL,   2,  'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
+    ('Hotel',   5,  'acc003.jpg', 'LARA HOTEL LONG XUYEN',  'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.',               '46-48 Đường Hùng Vương',       4,      5,  'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
+    ('Resort',  2,  'acc004.jpg', 'Homestay Coco Island',    NULL,                                      'Khách sạn 2 sao.',                             '97 Tân Thạch',                 2,      3,  'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
 
 INSERT INTO Feature (fea_name)
 VALUES 
@@ -105,16 +105,16 @@ VALUES
 
 INSERT INTO RoomExte (room_id, exte_id)
 VALUES 
-    (1, 1), 	(2, 1), 	(3, 1), 	(4, 1), 	(5, 1), 	(6, 1), 	(7, 1), 	(8, 1), 	(9, 1), 	(10, 1),
-    (1, 2), 	(2, 2), 	(3, 2), 	(4, 2), 	(5, 2), 	(6, 2), 	(7, 2), 	(8, 2), 	(9, 2), 	(10, 2),
-    (1, 3), 	(2, 3), 	(3, 3), 	(4, 3), 	(5, 3), 	(6, 3), 	(7, 3), 	(8, 3), 	(9, 3), 	(10, 3),
-    (1, 4), 	(2, 4), 	(3, 4), 	(4, 4), 	(5, 4), 	(6, 4), 	(7, 4), 	(8, 4), 	(9, 4), 	(10, 4),
-    (1, 5), 	(2, 5), 	(3, 5), 	(4, 5), 	(5, 5), 	(6, 5), 	(7, 5), 	(8, 5), 	(9, 5), 	(10, 5),
-    (1, 6), 	(2, 6), 	(3, 6), 	(4, 6), 	(5, 6), 	(6, 6), 	(7, 6), 	(8, 6), 	(9, 6), 	(10, 6),
-    (1, 7), 	(2, 7), 	(3, 7), 	(4, 7), 	(5, 7), 	(6, 7), 	(7, 7), 	(8, 7), 	(9, 7), 	(10, 7),
-    (1, 8), 	(2, 8), 	(3, 8), 	(4, 8), 	(5, 8), 	(6, 8), 	(7, 8), 	(8, 8), 	(9, 8), 	(10, 8),
-    (1, 9), 	(2, 9), 	(3, 9), 	(4, 9), 	(5, 9), 	(6, 9), 	(7, 9), 	(8, 9), 	(9, 9), 	(10, 9),
-    (1, 10),	(2, 10),	(3, 10),	(4, 10),	(5, 10),	(6, 10),	(7, 10),	(8, 10),	(9, 10),	(10, 10);
+(1, 1), 	(2, 1), 	(3, 1), 	(4, 1), 	(5, 1), 	(6, 1), 	(7, 1), 	(8, 1), 	(9, 1), 	(10, 1),
+(1, 2), 	(2, 2), 	(3, 2), 	(4, 2), 	(5, 2), 	(6, 2), 	(7, 2), 	(8, 2), 	(9, 2), 	(10, 2),
+(1, 3), 	(2, 3), 	(3, 3), 	(4, 3), 	(5, 3), 	(6, 3), 	(7, 3), 	(8, 3), 	(9, 3), 	(10, 3),
+(1, 4), 	(2, 4), 	(3, 4), 	(4, 4), 	(5, 4), 	(6, 4), 	(7, 4), 	(8, 4), 	(9, 4), 	(10, 4),
+(1, 5), 	(2, 5), 	(3, 5), 	(4, 5), 	(5, 5), 	(6, 5), 	(7, 5), 	(8, 5), 	(9, 5), 	(10, 5),
+(1, 6), 	(2, 6), 	(3, 6), 	(4, 6), 	(5, 6), 	(6, 6), 	(7, 6), 	(8, 6), 	(9, 6), 	(10, 6),
+(1, 7), 	(2, 7), 	(3, 7), 	(4, 7), 	(5, 7), 	(6, 7), 	(7, 7), 	(8, 7), 	(9, 7), 	(10, 7),
+(1, 8), 	(2, 8), 	(3, 8), 	(4, 8), 	(5, 8), 	(6, 8), 	(7, 8), 	(8, 8), 	(9, 8), 	(10, 8),
+(1, 9), 	(2, 9), 	(3, 9), 	(4, 9), 	(5, 9), 	(6, 9), 	(7, 9), 	(8, 9), 	(9, 9), 	(10, 9),
+(1, 10),	(2, 10),	(3, 10),	(4, 10),	(5, 10),	(6, 10),	(7, 10),	(8, 10),	(9, 10),	(10, 10);
 
 
 
@@ -131,11 +131,11 @@ VALUES
     (9,  'room_7.jpg'),     (9,  'room_9.jpg'),     (9,  'room_11.jpg'),    (9,  'room_13.jpg'),    (9,  'room_15.jpg'),    (10, 'room_17.jpg'),
     (10, 'room_19.jpg'),    (10, 'room_21.jpg'),    (10, 'room_23.jpg'),    (10,  'room_25.jpg'),   (10,  'room_27.jpg');
 
-INSERT INTO PayingMethod (pay_name)
-VALUES 
-    ('cash'),
-    ('bankcard'),
-    ('debitcard');
+-- INSERT INTO PayingMethod (pay_name)
+-- VALUES 
+--     ('cash'),
+--     ('bankcard'),
+--     ('debitcard');
 
 INSERT INTO ReasonCancel (rea_description)
 VALUES
@@ -145,6 +145,12 @@ VALUES
     ('Đổi ngày hoặc điểm đến'),
     ('Lý do cá nhân/chuyến đi bị hủy'),
     ('Không phải lý do trên');
+
+INSERT INTO PayingMethod (pay_name)
+VALUES 
+    ('cash'),
+    ('bankcard'),
+    ('debitcard');
 
 INSERT INTO Booking (acco_id, au_user_id, book_datetime, book_start_datetime, book_end_datetime, book_num_adult, book_num_child, book_first_name, book_last_name, book_email, pay_id, book_phone, book_note, cancel_cost, book_status, book_is_paid, rea_id)
 VALUES
@@ -158,7 +164,18 @@ VALUES
     (2, 2, '2023-11-03 15:15:00', '2023-11-19 11:30:00', '2023-11-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-11-04 11:45:00', '2023-11-22 14:00:00', '2023-11-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
     (4, 1, '2023-09-05 09:00:00', '2023-10-25 10:30:00', '2023-10-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
-    (3, 2, '2023-09-31 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
+    (3, 2, '2023-09-30 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
+    (2, 1, '2023-09-01 14:45:00', '2023-10-12 14:30:00', '2023-10-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
+    (1, 3, '2023-09-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
+    (2, 1, '2023-09-03 15:15:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
+    (4, 2, '2023-09-04 11:45:00', '2023-09-22 14:30:00', '2023-09-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
+    (4, 3, '2023-08-05 09:45:00', '2023-09-25 10:30:00', '2023-09-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
+    (2, 3, '2023-08-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
+    (3, 1, '2023-08-18 15:30:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
+    (1, 2, '2023-08-23 11:30:00', '2023-09-22 14:30:00', '2023-09-24 09:30:00', 1, 0, 'Yến',     'Phan',   'phanyenct123@example.com',    3, '4444444444', NULL, 0, 1, 1, NULL),
+    (4, 3, '2023-08-19 09:45:00', '2023-09-25 10:30:00', '2023-09-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
+    (4, 1, '2023-09-05 09:00:00', '2023-10-25 10:30:00', '2023-10-27 12:00:00', 2, 0, 'Nam',     'Trịnh',  'trinhnamtn123@example.com',   1, '6666666666', NULL, 0, 1, 1, NULL),
+    (3, 2, '2023-09-30 16:30:00', '2023-10-09 10:45:00', '2023-10-11 17:00:00', 2, 0, 'Như',     'Đặng',   'dangnhubd123@example.com',    2, '9999999999', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-01 14:45:00', '2023-10-12 14:30:00', '2023-10-15 11:00:00', 1, 0, 'Giàu',    'Bùi',    'buigiaubt123@example.com',    3, '7777777777', NULL, 0, 1, 1, NULL),
     (1, 3, '2023-09-02 10:30:00', '2023-10-16 09:15:00', '2023-10-18 12:00:00', 2, 0, 'Nhi',     'Bùi',    'buinhitn123@example.com',     1, '2222222222', NULL, 0, 1, 1, NULL),
     (2, 1, '2023-09-03 15:15:00', '2023-09-19 11:30:00', '2023-09-21 10:00:00', 3, 0, 'Lân',     'Lý',     'lylanst123@example.com',      2, '8888888888', NULL, 0, 1, 1, NULL),
@@ -240,6 +257,7 @@ VALUES
     ('Type 1', 'CẬP NHẬT MẬT KHẨU',     'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.',     '2023-10-27 10:30:00', 'Content of Notification 1', NULL),
     ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-28 14:45:00', 'Content of Notification 2', NULL),
     ('Type 1', 'CẬP NHẬT MẬT KHẨU',     'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.',     '2023-10-29 09:15:00', 'Content of Notification 3', NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-30 12:30:00', 'Content of Notification 4', NULL),
     ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-30 12:30:00', 'Content of Notification 4', NULL),
     ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  NULL,                                                                                               '2023-10-31 16:30:00', 'Content of Notification 5', NULL);
 

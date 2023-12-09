@@ -1,85 +1,87 @@
-<div class="modal">
-    <div class="cancel-container">
-        <div class="cancel">
-            <div class="cancel__card">
-                <h1>Hủy đặt phòng</h1>
-                <div class="cancel__content">
-                    <div class="cancel__warning">
-                        <div class="cancel__warning--icon">
-                            <span class="material-symbols-outlined">
-                                error
-                            </span>
+<form id="cancel-form" action="/booking/cancellation">
+    <div class="modal cancel-modal">
+        <div class="cancel-container">
+            <div class="cancel">
+                <div class="cancel__card">
+                    <h1>Hủy đặt phòng</h1>
+                    <div class="cancel__content">
+                        <div class="cancel__warning">
+                            <div class="cancel__warning--icon">
+                                <span class="material-symbols-outlined">
+                                    error
+                                </span>
+                            </div>
+                            <div class="cancel__warning--text">
+                                <p>Nếu bạn xác nhận hủy, toàn bộ yêu cầu đặt phòng sẽ được hủy.</p>
+                                <p>Chọn lý do hủy phù hợp nhất với bạn nhé!</p>
+                            </div>
                         </div>
-                        <div class="cancel__warning--text">
-                            <p>Nếu bạn xác nhận hủy, toàn bộ yêu cầu đặt phòng sẽ được hủy.</p>
-                            <p>Chọn lý do hủy phù hợp nhất với bạn nhé!</p>
-                        </div>
-                    </div>
-                    <h2>Chính sách hủy đặt phòng</h2>
-                    <div class="cancel__info">
+                        <h2>Chính sách hủy đặt phòng</h2>
+                        <div class="cancel__info">
 
-                        <div class="cancel__info--room">
-                            <p>1 x Phòng hạng sang........................................................................</p>
-                            <p class="free">Miễn phí</p>
-                        </div>
-                        <hr />
-                        <div class="cancel__info--total">
-                            <p>Tổng số...................................................................................</p>
-                            <p class="free">Miễn phí</p>
-                        </div>
-                    </div>
-                    <div class="cancel__reason">
-                        <h2>Lý do hủy phòng</h2>
-                        <p>Thông tin này là cần thiết để bạn hoàn tất hủy phòng</p>
-                        <div class="cancel__option">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option1" value="Tôi đã tìm được lựa chọn chỗ nghỉ thay thế">
-                                <label class="form-check-label" for="option1">
-                                    Tôi đã tìm được lựa chọn chỗ nghỉ thay thế
-                                </label>
+                            <div class="cancel__info--room">
+                                <p>1 x Phòng hạng sang........................................................................</p>
+                                <p class="free">Miễn phí</p>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option2" value="Chỗ nghỉ yêu cầu hủy" >
-                                <label class="form-check-label" for="option2">
-                                    Chỗ nghỉ yêu cầu hủy
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option3" value="Số lượng hoặc nhu cầu của tôi có thay đổi">
-                                <label class="form-check-label" for="option3">
-                                    Số lượng hoặc nhu cầu của tôi có thay đổi
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option4" value="Đổi ngày hoặc điểm đến">
-                                <label class="form-check-label" for="option4">
-                                    Đổi ngày hoặc điểm đến
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option5" value=" Lý do cá nhân/chuyến đi bị hủy">
-                                <label class="form-check-label" for="option5">
-                                    Lý do cá nhân/chuyến đi bị hủy
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option6" value="Không phải các lý do trên">
-                                <label class="form-check-label" for="option6">
-                                    Không phải các lý do trên
-                                </label>
+                            <hr />
+                            <div class="cancel__info--total">
+                                <p>Tổng số...................................................................................</p>
+                                <p class="free">Miễn phí</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="cancel__button">
-                    <button type="submit"  class="cancel__button--submit1">Đồng ý, xác nhận hủy đặt phòng</button>
-                    <button type="button" class="cancel__button--submit2">Không, tôi không muốn hủy</button>
-                    </div>
+                        <div class="cancel__reason">
+                            <h2>Lý do hủy phòng</h2>
+                            <p>Thông tin này là cần thiết để bạn hoàn tất hủy phòng</p>
+                            <div class="cancel__option">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="option1" value="Tôi đã tìm được lựa chọn chỗ nghỉ thay thế">
+                                    <label class="form-check-label" for="option1">
+                                        Tôi đã tìm được lựa chọn chỗ nghỉ thay thế
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="option2" value="Chỗ nghỉ yêu cầu hủy">
+                                    <label class="form-check-label" for="option2">
+                                        Chỗ nghỉ yêu cầu hủy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="option3" value="Số lượng hoặc nhu cầu của tôi có thay đổi">
+                                    <label class="form-check-label" for="option3">
+                                        Số lượng hoặc nhu cầu của tôi có thay đổi
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="option4" value="Đổi ngày hoặc điểm đến">
+                                    <label class="form-check-label" for="option4">
+                                        Đổi ngày hoặc điểm đến
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="option5" value=" Lý do cá nhân/chuyến đi bị hủy">
+                                    <label class="form-check-label" for="option5">
+                                        Lý do cá nhân/chuyến đi bị hủy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="option6" value="Không phải các lý do trên">
+                                    <label class="form-check-label" for="option6">
+                                        Không phải các lý do trên
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cancel__button">
+                            <button type="submit" class="cancel__button--submit1">Đồng ý, xác nhận hủy đặt phòng</button>
+                            <button type="button" class="cancel__button--submit2">Không, tôi không muốn hủy</button>
+                        </div>
 
-                </div>
-                <div class="cancel__close--btn">
-                    <span class="material-symbols-outlined closeIcon">cancel</span>
+                    </div>
+                    <div class="cancel__close--btn">
+                        <span class="material-symbols-outlined close-icon">cancel</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>

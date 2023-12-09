@@ -6,6 +6,7 @@ const app = express()
 const session = require('express-session')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+var $ = require('jquery');  
 
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
@@ -34,6 +35,9 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser('secret'))
+
+//set the path of the jquery file to be used from the node_module jquery package  
+app.use('/jquery',express.static(path.join(__dirname+'/node_modules/jquery/dist/')));  
 
 // route init
 route(app)

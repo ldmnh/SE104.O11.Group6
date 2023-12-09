@@ -1,6 +1,7 @@
 @import url("/styles/base.css");
 @import url("/styles/partials/header-small.css");
 @import url("/styles/partials/footer.css");
+@import url("/styles/partials/nav-tree.css");
 
 body {
     width: 100vw;
@@ -10,7 +11,8 @@ body {
 
 .content-container {
     width: 80%;
-    margin: 5vh auto;
+    max-width: 1152px;
+    margin: 12px auto;
     display: flex;
     justify-content: space-between;
     gap: 24px;
@@ -205,4 +207,4 @@ a.order-btn {
 
 a {
     text-decoration: none;
-  }
+}

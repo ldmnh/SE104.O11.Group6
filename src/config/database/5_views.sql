@@ -28,9 +28,11 @@ DROP VIEW IF EXISTS view_acco;
 
 CREATE VIEW view_acco AS
 SELECT accommodation.*, city.city_name, province.prov_name 
-FROM accommodation, city, province
-WHERE accommodation.city_id = city.city_id 
-AND province.prov_id = accommodation.prov_id;
+FROM accommodation
+LEFT JOIN city
+    ON accommodation.city_id = city.city_id
+LEFT JOIN province
+    ON province.prov_id = accommodation.prov_id;
 
 DROP VIEW IF EXISTS VIEW_BANKCARD;
 
@@ -125,7 +127,7 @@ DROP VIEW IF EXISTS VIEW_BOOKING_HISTORY;
 
 CREATE VIEW VIEW_BOOKING_HISTORY AS
 SELECT
-	accommodation.*,
+	view_acco.*,
     booking.book_id,
     booking.book_datetime,
     booking.book_start_datetime,
@@ -136,9 +138,9 @@ SELECT
     booking.book_status,
     booking.book_is_paid,
     booking.au_user_id
-FROM accommodation
+FROM view_acco
 INNER JOIN booking
-    ON accommodation.acco_id = booking.acco_id;
+    ON view_acco.acco_id = booking.acco_id;
 
 
 DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
@@ -179,36 +181,19 @@ INNER JOIN accommodation
     ON roomtype.acco_id = accommodation.acco_id;
 
 
-DROP VIEW IF EXISTS view_booking_admin;
+DROP VIEW IF EXISTS VIEW_BOOKING_DETAIL;
 
-CREATE VIEW view_booking_admin AS
+CREATE VIEW view_booking_detail AS
 SELECT
-    booking.book_id,
-    booking.au_user_id,
-    CONCAT(authuser.au_user_last_name, ' ', authuser.au_user_first_name) as 'au_user_full_name',
-    booking.acco_id,
-    accommodation.acco_name,
-    booking.book_datetime,
-    booking.book_start_datetime,
-    booking.book_end_datetime,
-    booking.book_num_adult,
-    booking.book_num_child,
-    booking.book_cost_before,
-    booking.book_cost_after,
-    CONCAT(booking.book_first_name, ' ', booking.book_last_name) as 'book_customer_name',
-    booking.book_email,
-    booking.book_phone,
-    booking.pay_id,
-    booking.book_note,
-    booking.cancel_cost,
-    booking.book_status,
-    booking.book_is_paid,
-    booking.rea_id 
-FROM booking
-INNER JOIN authuser
-    ON booking.au_user_id = authuser.au_user_id
-INNER JOIN accommodation
-    ON booking.acco_id = accommodation.acco_id;
+	booking.au_user_id,
+    bookingdetail.book_id,
+    roomtype.*, 
+    bookingdetail.book_num_room,
+    bookingdetail.book_room_cost_before,
+    bookingdetail.book_room_cost_after   
+FROM bookingdetail, roomtype, booking
+WHERE roomtype.room_id = bookingdetail.room_id
+AND bookingdetail.book_id = booking.book_id;
 
 DROP VIEW IF EXISTS view_chart_dashboard;
 
@@ -259,3 +244,34 @@ ON
 WHERE A.month_rating IS NULL
 GROUP BY
     MONTH(book_datetime);
+
+DROP VIEW IF EXISTS view_booking_admin;
+
+CREATE VIEW view_booking_admin AS
+SELECT
+    booking.book_id,
+    booking.au_user_id,
+    CONCAT(authuser.au_user_last_name, ' ', authuser.au_user_first_name) as 'au_user_full_name',
+    booking.acco_id,
+    accommodation.acco_name,
+    booking.book_datetime,
+    booking.book_start_datetime,
+    booking.book_end_datetime,
+    booking.book_num_adult,
+    booking.book_num_child,
+    booking.book_cost_before,
+    booking.book_cost_after,
+    CONCAT(booking.book_first_name, ' ', booking.book_last_name) as 'book_customer_name',
+    booking.book_email,
+    booking.book_phone,
+    booking.pay_id,
+    booking.book_note,
+    booking.cancel_cost,
+    booking.book_status,
+    booking.book_is_paid,
+    booking.rea_id 
+FROM booking
+INNER JOIN authuser
+    ON booking.au_user_id = authuser.au_user_id
+INNER JOIN accommodation
+    ON booking.acco_id = accommodation.acco_id;

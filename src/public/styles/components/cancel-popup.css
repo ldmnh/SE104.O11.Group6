@@ -42,7 +42,9 @@
 	padding: 22px 22px 21px 21px;
 	position: relative;
 }
-
+.close-icon{
+	cursor: pointer;
+}
 .cancel__content {
 	width: 530px;
 	height: 635px;
@@ -53,7 +55,7 @@
 	background: var(--mint-blue);
 }
 
-h1 {
+.cancel-modal h1 {
 	margin: 0;
 	font-size: 28px;
 	text-align: left;
@@ -81,9 +83,9 @@ h1 {
 	margin: 0;
 }
 
-h2 {
+.cancel-modal h2 {
 	font-size: 24px;
-	padding-top: 16px;
+	padding-top: 33px;
 	padding-left: 15px;
 	margin: 0;
 }
@@ -169,6 +171,10 @@ hr {
 
 .cancel__close--btn span {
 	color: var(--primary-color-2);
+}
+
+.cancel__close--btn:hover {
+	cursor: pointer;
 }
 
 .cancel__button--submit1:hover {

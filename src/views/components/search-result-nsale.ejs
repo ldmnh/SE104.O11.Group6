@@ -5,14 +5,9 @@
       <p class="nresult-block__name"><%= result.acco_name %></p>
       <!-- Đánh giá 5 sao -->
       <div class="nresult-block__rate-star">
-        <% result.forEach (function(stars){ %>
+        <% for (let i = 0; i < data[0].acco_star; i++) { %>
           <span class="material-symbols-outlined">star</span>
-          <% }) %>
-        <!-- <span class="material-symbols-outlined">grade</span>
-        <span class="material-symbols-outlined">grade</span>
-        <span class="material-symbols-outlined">grade</span>
-        <span class="material-symbols-outlined">grade</span>
-        <span class="material-symbols-outlined">grade</span> -->
+        <% } %>
       </div>
       <div class="nresult-block__extensions">
         <a href="h#" target="blank" class="nresult-block__map">Xem trên bản đồ</a>
@@ -25,8 +20,15 @@
         </div>
       </div>
       <div class="nresult-block__room-details">
-        <p class="nresult-block__room-detais__content">Phòng Deluxe giường đôi nhìn ra biển</p>
-        <p><%= result.room_max_adult> người lớn</p>
+        <p class="nresult-block__room-detais__content"><%= result.room_type %> 
+          <%= result.room_class %> nhìn ra biển</p>
+        <p>
+          <% if(result.room_double_bed) { %>
+            <%= result.room_double_bed %> giường đôi
+          <% } else { %>
+            <%= result.room_single_bed %> giường đơn
+          <% } %>
+        </p>
         <div class="nresult-block__room-detais__cancel-policy">
           <span class="material-symbols-outlined">check</span>
           <p class="ncancel-policy__content">Miễn phí hủy</p>
@@ -42,16 +44,23 @@
   <div class="nresult-block__infor">
     <div class="nresult-block__cus-rate">
       <div class="nresult-block__cus-rate__content">
-        <p class="nresult-block__cus-rate__main-content">Trên cả tuyệt vời</p>
+        <p class="nresult-block__cus-rate__main-content">
+          <% if(result.room_avg_rating >= 9 && result.room_avg_rating <= 10) { %> Trên cả tuyệt vời
+            <% } else if(result.room_avg_rating >= 8 && result.room_avg_rating <= 10) { %> Xuất sắc
+            <% } else if(result.room_avg_rating >= 7 && result.room_avg_rating <= 10) { %> Rất tốt
+            <% } else if(result.room_avg_rating >= 6 && result.room_avg_rating <= 10) { %> Hài lòng
+            <% } else { %> Phù hợp
+            <% } %>
+        </p>
         <p class="nresult-block__cus-rate__sub-content"><%= result.room_count_rating %> đánh giá</p>
       </div>
       <div class="nresult-block__cus-rate__point">
-        <p>10</p>
+        <p><%= result.room_avg_rating %></p>
       </div>
     </div>
     <div class="nresult-block__price">
-      <p class="nresult-block__option">1 đêm, 2 người lớn</p>
-      <p class="nresult-block__origin-price">VND 1.350.000</p>
+      <p class="nresult-block__option">1 đêm, <%= result.room_max_adult %> người lớn</p>
+      <p class="nresult-block__origin-price">VND <%= result.room_cost %></p>
       <label for="nresult-block__origin-price" class="result-block__label">Đã gồm thuế và phí</label>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a href="#" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>

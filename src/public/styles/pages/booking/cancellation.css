@@ -18,7 +18,7 @@ body {
 .content-container {
     width: 100%;
     max-width: 1152px;
-    margin: 5vh auto;
+    margin: 12px auto;
     display: flex;
     justify-content: space-around;
     /* gap: 12px; */
@@ -93,14 +93,12 @@ p {
     /* padding-left: 13px; */
 }
 
-.cancel__button--submit1 a {
+a.cancel__button--submit1:hover {
     color: var(--white);
-    text-decoration: none;
 }
 
-.cancel__button--submit2 a {
+a.cancel__button--submit2:hover {
     color: var(--primary-color-4);
-    text-decoration: none;
 }
 
 .cancel__button--submit1 {
@@ -111,6 +109,10 @@ p {
     color: var(--white);
     border: none;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .cancel__button--submit2 {
@@ -122,6 +124,10 @@ p {
     color: var(--primary-color-4);
     background-color: var(--white);
     border: 1px solid var(--primary-color-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .cancel__button--submit1:hover {

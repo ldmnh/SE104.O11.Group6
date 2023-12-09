@@ -1,4 +1,5 @@
-const index = function () {}
+const index = function () { }
+
 
 // Hàm xử lý datetỉme ---> Thứ x, ngày x tháng x năm x
 index.toXDDMMYYYY = function (datetime) {

@@ -1,27 +1,30 @@
-const SiteModel = require('../models/site.model')
+const SearchModel = require('../models/search.model')
 
 class SiteController {
 
     // [GET] /
     index(req, res) {
-        SiteModel.hintSearch({ }, (err, result) => {
-            if (err) {
-                res.status(500).json({
-                    message: 'Lỗi truy vấn!!!',
-                });
-                throw err;
-            }
-            // res.status(200).json({
-            res.status(200).render('./pages/site/index', {
-                user: req.session.user,
-                dataSearch: result,
+        // res.status(200).json({
+        res.status(200).render('./pages/site/index', {
+            user: req.session.user,
+        })
+    }
+
+    // [GET] /hint_search
+    hintSearch(req, res) {
+        const searchKey = req.body.searchKey
+        SearchModel.hintSearch(searchKey, (err, result) => {
+            res.status(200).json({
+                result: result
             })
         })
     }
 
     // [GET] /about
     about(req, res) {
-        res.render('./pages/site/about', { user: req.session.user })
+        res.render('./pages/site/about', {
+            user: req.session.user
+        })
     }
 
     // [GET] /error404
@@ -31,12 +34,16 @@ class SiteController {
 
     // [GET] /term-of-use
     termOfUse(req, res) {
-        res.render('./pages/site/terms-of-use', { user: req.session.user })
+        res.render('./pages/site/terms-of-use', {
+            user: req.session.user
+        })
     }
 
     // [GET] /privacy-policy
     privacyPolicy(req, res) {
-        res.render('./pages/site/privacy-policy', { user: req.session.user })
+        res.render('./pages/site/privacy-policy', {
+            user: req.session.user
+        })
     }
 
 }

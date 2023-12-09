@@ -1,3 +1,4 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_se104
 DROP DATABASE IF EXISTS DATABASE_SE104;
 
 CREATE DATABASE DATABASE_SE104;
@@ -8,15 +9,15 @@ CREATE TABLE Admin
 (
     admin_id			int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
     admin_nickname		varchar(50)		NOT NULL    UNIQUE,
-    admin_pass			varchar(50)		NOT NULL,
+    admin_pass			varchar(100)	NOT NULL,
     PRIMARY KEY (admin_id)
 );
 
 CREATE TABLE AuthUser
 (
     au_user_id          int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    au_user_first_name  nvarchar(50)	NOT NULL,
-    au_user_last_name   nvarchar(50)	NOT NULL,
+    au_user_first_name  varchar(50)	NOT NULL,
+    au_user_last_name   varchar(50)	NOT NULL,
     au_user_email       varchar(50)		NOT NULL	UNIQUE,
     au_user_pass        varchar(100)	NOT NULL,
     au_user_avt_url     varchar(50),
@@ -30,11 +31,11 @@ CREATE TABLE AuthUser
 CREATE TABLE BankCard
 (
     bank_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    bank_name			nvarchar(50)	NOT NULL,
-    bank_branch			nvarchar(50)	NOT NULL,
+    bank_name			varchar(50)	NOT NULL,
+    bank_branch			varchar(50)	NOT NULL,
     bank_num			varchar(16)		NOT NULL,
-    bank_name_pers		nvarchar(50)	NOT NULL,
-    au_user_id			int,
+    bank_name_pers		varchar(50)	NOT NULL,
+    au_user_id			int             ,
     PRIMARY KEY (bank_id),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id)
 );
@@ -45,10 +46,10 @@ CREATE TABLE DebitCard
     debit_num			varchar(16)		NOT NULL,
     debit_end_date		datetime		NOT NULL,
     debit_CCV			varchar(10)		NOT NULL,
-    debit_name			nvarchar(50)	NOT NULL,
-    debit_address		nvarchar(50)	NOT NULL,
+    debit_name			varchar(50)	NOT NULL,
+    debit_address		varchar(50)	NOT NULL,
     debit_postal		varchar(10)		NOT NULL,
-    au_user_id			int,
+    au_user_id			int            ,
     PRIMARY KEY (debit_id),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id)
 );
@@ -66,7 +67,7 @@ REFERENCES DebitCard(debit_id);
 CREATE TABLE Province
 (
     prov_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    prov_name			nvarchar(100)	NOT NULL    UNIQUE,
+    prov_name			varchar(100)	NOT NULL    UNIQUE,
     prov_url			varchar(50),
     PRIMARY KEY (prov_id)
 );
@@ -74,7 +75,7 @@ CREATE TABLE Province
 CREATE TABLE City
 (
     city_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    city_name			nvarchar(50)	NOT NULL    UNIQUE,
+    city_name			varchar(50)	NOT NULL    UNIQUE,
     city_url			varchar(50),
     prov_id				int		NOT NULL,
     PRIMARY KEY (city_id),
@@ -84,15 +85,15 @@ CREATE TABLE City
 CREATE TABLE Accommodation
 (
     acco_id             int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    acco_type           nvarchar(50)	NOT NULL,
+    acco_type           varchar(50)	NOT NULL,
     acco_star           int				NOT NULL,
-    acco_tiny_img_url   varchar(50),
-    acco_name           nvarchar(100)	NOT NULL,
-    acco_logan          nvarchar(50),
-    acco_detail         text,
-    acco_exac_location  nvarchar(50),
-    city_id             int,
-    prov_id             int		NOT NULL,
+    acco_tiny_img_url   varchar(50)    ,
+    acco_name           varchar(100)	NOT NULL,
+    acco_logan          varchar(50)   ,
+    acco_detail         text           ,
+    acco_exac_location  varchar(50)   ,
+    city_id             int            ,
+    prov_id             int		        NOT NULL,
     acco_location_link  varchar(100),
     PRIMARY KEY (acco_id),
     FOREIGN KEY (city_id) REFERENCES City(city_id),
@@ -102,7 +103,7 @@ CREATE TABLE Accommodation
 CREATE TABLE Feature
 (
     fea_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    fea_name			nvarchar(50)	NOT NULL    UNIQUE,
+    fea_name			varchar(50)	NOT NULL    UNIQUE,
     PRIMARY KEY (fea_id)
 );
 
@@ -149,7 +150,7 @@ CREATE TABLE RoomType
 CREATE TABLE Extension
 (
     exte_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    exte_name			nvarchar(50)    NOT NULL   UNIQUE,
+    exte_name			varchar(50)    NOT NULL   UNIQUE,
     PRIMARY KEY (exte_id)
 );
 
@@ -158,7 +159,7 @@ CREATE TABLE RoomExte
     room_id				int	    NOT NULL,
     exte_id				int	    NOT NULL,
     PRIMARY KEY (room_id, exte_id),
-    FOREIGN KEY (room_id) REFERENCES RoomType(room_id),
+    FOREIGN KEY (room_id) REFERENCES  RoomType(room_id),
     FOREIGN KEY (exte_id) REFERENCES Extension(exte_id)
 );
 
@@ -173,14 +174,14 @@ CREATE TABLE RoomTypeImg
 CREATE TABLE PayingMethod
 (
     pay_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    pay_name			nvarchar(50)	NOT NULL    UNIQUE,
+    pay_name			varchar(50)	NOT NULL    UNIQUE,
     PRIMARY KEY (pay_id)
 );
 
 CREATE TABLE ReasonCancel
 (
     rea_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    rea_description		nvarchar(50)	NOT NULL    UNIQUE,
+    rea_description		varchar(50)	NOT NULL    UNIQUE,
     PRIMARY KEY (rea_id)
 );
 
@@ -196,8 +197,8 @@ CREATE TABLE Booking
     book_num_child      int             NOT NULL,
     book_cost_before    float           NOT NULL    DEFAULT 0,
     book_cost_after     float           NOT NULL    DEFAULT 0,
-    book_first_name     char(50)        NOT NULL,
-    book_last_name      char(50)        NOT NULL,
+    book_first_name     varchar(50)        NOT NULL,
+    book_last_name      varchar(50)        NOT NULL,
     book_email          varchar(50)     NOT NULL,
     book_phone          char(10)        NOT NULL,
     pay_id              int             NOT NULL,
@@ -228,14 +229,14 @@ CREATE TABLE BookingDetail
     FOREIGN KEY (room_id) REFERENCES RoomType(room_id)
 );
 
-ALTER TABLE `database_se104`.`bookingdetail` ADD INDEX `book_id` (`book_id`);
+ALTER TABLE `DATABASE_SE104`.`bookingdetail` ADD INDEX `book_id` (`book_id`);
 
 CREATE TABLE Rating
 (
-    au_user_id			int        NOT NULL,
-    room_id				int        NOT NULL,
+    au_user_id			int             NOT NULL,
+    room_id				int             NOT NULL,
     rating_datetime		datetime        NOT NULL,
-    rating_context		text,
+    rating_context		text           ,
     rating_point		decimal(10, 1)  NOT NULL,
     PRIMARY KEY (au_user_id, room_id, rating_datetime),
     FOREIGN KEY (au_user_id) REFERENCES AuthUser(au_user_id),
@@ -244,9 +245,9 @@ CREATE TABLE Rating
 
 CREATE TABLE Notification
 (
-    noti_id				int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
-    noti_type			nvarchar(50)	NOT NULL,
-    noti_title			nvarchar(50)	NOT NULL,
+    noti_id	    		int		        AUTO_INCREMENT  NOT NULL    UNIQUE,
+    noti_type			varchar(50)	NOT NULL,
+    noti_title			varchar(50)	NOT NULL,
     noti_subtitle		text,
     noti_datetime		datetime,
     noti_content		text		    NOT NULL,

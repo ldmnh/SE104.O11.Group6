@@ -2,260 +2,240 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/styles/pages/booking/detail.css" />
-    <title>2WAYS.com</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="/styles/pages/booking/detail.css" />
+	<title>2WAYS.com</title>
 </head>
 
 <body>
-    <main class="content-container">
-        <section class="title">
-            <h1>Đặt phòng đã được xác nhận của bạn tại 2way.com</h1>
+	<%- include('../../partials/header-small') %>
+	<%- include('../../partials/nav-tree', { nav_tree__data: [
+        { text: 'Trang chủ', link: "/" },
+        { text: 'Chi tiết đặt phòng', link: "#" }
+    ] }) %>
+	<main class="content-container">
+		<section class="title">
+			<h1>Đặt phòng đã được xác nhận của bạn tại 2WAYS.com</h1>
+			<div class="title__rating">
+				<% for (let i=0; i < booking.acco_star; i++) { %>
+				<span class="material-symbols-outlined">grade</span>
+				<% } %>
+				<% for (let i=0; i < 5 - (booking.acco_star); i++) { %>
+				<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+				<% } %>
+			</div>
+		</section>
 
-        </section>
+		<section class="detail">
+			<div class="detail__col-1">
+				<img src="/imgs/accommodation/accommodation_1.jpg" alt="">
+				<div class="detail__location">
+					<div>
+						<h3> <%= booking.acco_name %> </h3>
+						<p> <%= booking.acco_exac_location %> </p>
+						<% if (booking.city_name) { %>
+						<p> <%= booking.city_name %>, </p>
+						<% } %>
+						<% if (booking.prov_name) { %>
+						<p> <%= booking.prov_name %>, </p>
+						<% } %>
+						<p>Việt Nam.</p>
+					</div>
+					<a href="<%= booking.acco_location_link %>">Hiển thị bản đồ</a>
+				</div>
+				<div class="detail__contact">
+					<h2>Bạn có thắc mắc?</h2>
+					<p>Liên hệ chỗ nghỉ nếu bạn có thắc mắc hay yêu cầu đặc biệt nào.</p>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">+84 348 918 224</a>
+					<button type="button" class="btn detail__btn" data-bs-toggle="modal" data-bs-target="#fail-modal">
+						<span class="material-symbols-outlined">chat</span>
+						<p>Nhắn tin cho chỗ nghỉ</p>
+					</button>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">Gửi mail cho chỗ nghỉ</a>
+				</div>
+				<div class="detail__help">
+					<div>
+						<span class="material-symbols-outlined">help</span>
+						<h2>Bạn cần trợ giúp?</h2>
+					</div>
+					<a href="" data-bs-toggle="modal" data-bs-target="#fail-modal">Liên hệ Dịch vụ Khách
+						hàng</a>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">Thay đổi ngày tháng</a>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">Thêm lựa chọn chỗ nghỉ cho
+						khách</a>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">Xem chính sách của chỗ
+						nghỉ</a>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">Xem xác nhận đặt phòng</a>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#fail-modal">In xác nhận đặt phòng</a>
+				</div>
+			</div>
 
-        <section class="detail">
-            <div class="detail__col-1">
-                <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
-                <div class="detail__location">
-                    <div>
-                        <h3><%= booking.acco_name %></h3>
-                        <div class="title__rating">
-                            <% for (let i = 0; i < booking.acco_star; i++) {%>
-                            <span class="material-symbols-outlined">grade</span>
-                            <%}%>
-                                <% for (let i = 0; i < 5-(booking.acco_star) ; i++) {%>
-                            <span class="material-symbols-outlined"
-                                style="font-variation-settings: 'FILL' 0">star</span>
-                            <%}%>
-                        </div>  
-                        <p><%=booking.acco_exac_location%></p>
-                            <% if (booking.city_name) {%>
-                            <p><%=booking.city_name%>,</p>
-                            <%}%>
-                            <% if (booking.prov_name) {%>
-                            <p><%=booking.prov_name%>,</p>
-                            <%}%>
-                            <p>Việt Nam.</p>
-                        </div>
-                        <a href="<%=booking.acco_location_link%>" data-bs-toggle="modal" data-bs-target="#modal">Hiển
-                            thị bản đồ</a>
-                        </div>
-                        <div class="detail__contact">
-                            <h2>Bạn có thắc mắc?</h2>
-                            <p>Liên hệ chỗ nghỉ nếu bạn có thắc mắc hay yêu cầu đặc biệt nào.</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">+84 348 918 224</a>
-                            <button type="button" class="btn detail__btn" data-bs-toggle="modal"
-                                data-bs-target="#modal">
-                                <span class="material-symbols-outlined">chat</span>
-                                <p>Nhắn tin cho chỗ nghỉ</p>
-                            </button>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Gửi mail cho chỗ nghỉ</a>
-                        </div>
-                        <div class="detail__help">
-                            <div>
-                                <span class="material-symbols-outlined">help</span>
-                                <h2>Bạn cần trợ giúp?</h2>
-                            </div>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#modal">Liên hệ Dịch vụ Khách hàng</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Thay đổi ngày tháng</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Thêm lựa chọn chỗ nghỉ cho
-                                khách</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Xem chính sách của chỗ nghỉ</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">Xem xác nhận đặt phòng</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal">In xác nhận đặt phòng</a>
-                        </div>
-                    </div>
+			<div class="detail__col-2">
+				<h2>Danh sách phòng đặt</h2>
+				<% bookingDetails.forEach(function(book) { %>
+				<div class="detail__room room">
+					<h3> <%= book.room_name %> </h3>
+					<div class="room__content">
+						<img src="/imgs/accommodation/accommodation_1.jpg" alt="">
+						<div>
+							<p class="room__room-class">Phòng <%= book.room_class %> </p>
+							<p class="room__quantity">Số lượng: <%= book.book_num_room %> </p>
+							<del>VND <%= book.book_room_cost_before_currency %> </del>
+							<p class="room__unit-price"> VND <%= book.book_room_cost_after_currency %> </p>
+							<% if (booking.book_status==1) { %>
+							<button class="form--submit2 review-btn review-btn-post">Đánh giá</button>
+							<% } %>
+							<!-- popup -->
+							<form class="form-review" action="/account/addReview" method="POST">
+								<input type="hidden" value="<%= book.room_id %>" name="room_id" class="room_id">
+								<div class="modal modal__review-popup">
+									<div class="container--popup reviewpopup">
+										<div class="container--title">
+											<h1>Đánh giá phòng</h1>
+											<div class="close-popup">
+												<svg xmlns="http://www.w3.org/2000/svg" width="36" height="35" viewBox="0 0 36 35" fill="none">
+													<path d="M11.8666 26.037L17.9999 19.9037L24.1333 26.037L26.5184 23.6518L20.3851 17.5185L26.5184 11.3851L24.1333 8.99996L17.9999 15.1333L11.8666 8.99996L9.48141 11.3851L15.6147 17.5185L9.48141 23.6518L11.8666 26.037ZM17.9999 34.5555C15.6431 34.5555 13.4283 34.1083 11.3555 33.2139C9.28264 32.3194 7.47956 31.1055 5.94622 29.5722C4.41289 28.0389 3.199 26.2358 2.30456 24.1629C1.41011 22.0901 0.962891 19.8753 0.962891 17.5185C0.962891 15.1617 1.41011 12.9469 2.30456 10.874C3.199 8.8012 4.41289 6.99811 5.94622 5.46478C7.47956 3.93145 9.28264 2.71756 11.3555 1.82311C13.4283 0.928667 15.6431 0.481445 17.9999 0.481445C20.3567 0.481445 22.5715 0.928667 24.6444 1.82311C26.7172 2.71756 28.5203 3.93145 30.0536 5.46478C31.587 6.99811 32.8009 8.8012 33.6953 10.874C34.5897 12.9469 35.037 15.1617 35.037 17.5185C35.037 19.8753 34.5897 22.0901 33.6953 24.1629C32.8009 26.2358 31.587 28.0389 30.0536 29.5722C28.5203 31.1055 26.7172 32.3194 24.6444 33.2139C22.5715 34.1083 20.3567 34.5555 17.9999 34.5555Z" fill="#00696D" />
+												</svg>
+											</div>
+										</div>
+										<div class="section--popup">
+											<div class="popup-profile">
+												<img src="/imgs/user/<%= user.avatar %>" alt="" />
+												<div class="aside__content--detail">
+													<p style="font-weight: 500; margin: 12px 0 0 0"> <%= user.email %> </p>
+													<p style="font-size: 12px"> <i>Đăng công khai</i> </p>
+												</div>
+											</div>
+											<div class="review-quality">
+												<p>Đánh giá chất lượng (Có thể nhập hoặc chọn từ 0 đến 10) </p>
+												<div class="counter--wraper">
+													<span class="minus">-</span>
+													<input name="rating_point" type="number" value="10" id="room__quantity" class="">
+													<span class="plus">+</span>
+												</div>
+											</div>
+											<div class="custom-input">
+												<input name="rating_context" type="text" class="form-control input--detail" placeholder="" />
+											</div>
+											<div class="form--submitbutton">
+												<button class="form--submit1 closeBtn">Hủy</button>
+												<button class="form--submit2 post-btn" type="submit">Đăng</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div class="modal-success">
+								<div class="success-popup-container">
+									<div class="success-popup__card">
+										<div class="success-popup__icon">
+											<span class="material-symbols-outlined"> check_circle </span>
+										</div>
+										<p class="success-popup__title"> Thực hiện thành công! </p>
+										<div class="success-popup__close-btn">
+											<span class="material-symbols-outlined">cancel</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% }) %>
+			</div>
 
-                    <div class="detail__col-2">
-                        <h2>Danh sách phòng đặt</h2>
-                        <% bookingDetails.forEach(function(book){ %>
-                        <div class="detail__room room">
-                            <h3><%=book.room_name%></h3>
-                            <div class="room__content">
-                                <img src="/imgs/accommodation/accommodation_1.jpg" alt="">
-                                <div>
-                                    <p class="room__room-class">Phòng <%=book.room_class%></p>
-                                    <p class="room__quantity">Số lượng: <%=book.book_num_room%></p>
-                                    <p class="room__unit-price"><del>VND <%=book.book_room_cost_before_currency%></del>
-                                        VND
-                                        <%=book.book_room_cost_after_currency%></p>
-                                    <% if (booking.book_status == 1){ %>
-                                    <div class="detail__price price">
+			<div class="detail__col-3">
+				<div class="detail__code">
+					<div>
+						<h3>Mã xác nhận:</h3>
+						<p><%=booking.book_id%></p>
+					</div>
+				</div>
+				<div class="detail__checkin">
+					<h3>Ngày đặt</h3>
+					<p><%=booking.book_date_format%></p>
+					<p><%=booking.book_time_format%></p>
+				</div>
+				<div class="detail__checkin">
+					<h3>Nhận phòng</h3>
+					<p><%=booking.book_start_date_format%></p>
+					<p><%=booking.book_start_time_format%></p>
+				</div>
+				<div class="detail__checkout">
+					<h3>Trả phòng</h3>
+					<p><%=booking.book_end_date_format%></p>
+					<p><%=booking.book_end_time_format%></p>
+				</div>
+				<div class="detail__price price">
+					<h3>Tổng tiền thanh toán</h3>
+					<p class="price__strong">VND <%=booking.book_cost_after_currency%></p>
+				</div>
+			</div>
+		</section>
 
-                                        <button class="form--submit2 review-btn review-btn-post">Đánh giá</button>
-                                        <!-- popup -->
-                                        <form class="form-review" action="/account/addReview" method="POST">
-                                            <input type="hidden" value="<%=book.room_id%>" name="room_id"
-                                                class="room_id">
-                                            <div class="modal modal__review-popup">
-                                                <div class="container--popup reviewpopup">
-                                                    <div class="container--title">
-                                                        <h1>Đánh giá phòng</h1>
-                                                        <div class="close-popup">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="36"
-                                                                height="35" viewBox="0 0 36 35" fill="none">
-                                                                <path
-                                                                    d="M11.8666 26.037L17.9999 19.9037L24.1333 26.037L26.5184 23.6518L20.3851 17.5185L26.5184 11.3851L24.1333 8.99996L17.9999 15.1333L11.8666 8.99996L9.48141 11.3851L15.6147 17.5185L9.48141 23.6518L11.8666 26.037ZM17.9999 34.5555C15.6431 34.5555 13.4283 34.1083 11.3555 33.2139C9.28264 32.3194 7.47956 31.1055 5.94622 29.5722C4.41289 28.0389 3.199 26.2358 2.30456 24.1629C1.41011 22.0901 0.962891 19.8753 0.962891 17.5185C0.962891 15.1617 1.41011 12.9469 2.30456 10.874C3.199 8.8012 4.41289 6.99811 5.94622 5.46478C7.47956 3.93145 9.28264 2.71756 11.3555 1.82311C13.4283 0.928667 15.6431 0.481445 17.9999 0.481445C20.3567 0.481445 22.5715 0.928667 24.6444 1.82311C26.7172 2.71756 28.5203 3.93145 30.0536 5.46478C31.587 6.99811 32.8009 8.8012 33.6953 10.874C34.5897 12.9469 35.037 15.1617 35.037 17.5185C35.037 19.8753 34.5897 22.0901 33.6953 24.1629C32.8009 26.2358 31.587 28.0389 30.0536 29.5722C28.5203 31.1055 26.7172 32.3194 24.6444 33.2139C22.5715 34.1083 20.3567 34.5555 17.9999 34.5555Z"
-                                                                    fill="#00696D" />
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="section--popup">
-                                                        <div class="popup-profile">
-                                                            <img src="/imgs/user/<%=user.avatar%>" alt="" />
-                                                            <div class="aside__content--detail">
-                                                                <p style="font-weight: 500; margin: 12px 0 0 0">
-                                                                    <%= user.email %>
-                                                                </p>
-                                                                <p style="font-size: 12px"><i>Đăng công khai</i></p>
-                                                            </div>
-                                                        </div>
+		<section class="abort">
+			<div class="abort__info">
+				<% if (!booking.book_time_left_format) { %>
+				<h2>Hết hạn hủy miễn phí!!!</h2>
+				<p>Bạn cần thanh toán VND <%= booking.book_cost_cancel %> để hủy</p>
+				<% } else { %>
+				<h2>Miễn phí hủy đặt phòng</h2>
+				<p class="abort__time-left">Còn <%= booking.book_time_left_format %>!!! </p>
+				<p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy
+					<span class="abort__highlight">trước
+						<%= booking.book_time_count_format %>
+						<%= booking.book_time_format %>giờ
+					</span>
+				</p>
+				<p>Sau thời gian này bạn sẽ phải thanh toán VND <%= booking.book_cost_cancel %> để hủy </p>
+				<% } %>
+			</div>
+			<div class="abort__progress">
+				<div class="progress__title">
+					<p>Miễn phí</p>
+					<p>Không hoàn tiền</p>
+				</div>
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<p class="progress__time"> <%= booking.book_time_count_format %> </p>
+			</div>
+			<div class="abort__btn">
+				<% if (booking.book_status==0) { %>
+				<input type="hidden" class="is-check-1" value="0">
+				<button type="button" class="btn detail__btn" id="cancel-btn">Hủy đặt phòng</button>
+				<% } else if (booking.book_status==-1) { %>
+				<p>Bạn đã hủy đặt phòng</p>
+				<% } %>
+				<input type="hidden" class="is-check-1" value="1">
+			</div>
+		</section>
 
-                                                        <div class="review-quality">
-                                                            <p>Đánh giá chất lượng (Có thể nhập hoặc chọn từ 0 đến 10)
-                                                            </p>
-                                                            <div class="counter--wraper">
-                                                                <span class="minus">-</span>
-                                                                <input name="rating_point" type="number" value="10"
-                                                                    id="room__quantity" class="">
-                                                                <span class="plus">+</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="custom-input">
-                                                            <input name="rating_context" type="text"
-                                                                class="form-control input--detail" placeholder="" />
-                                                        </div>
+	</main>
 
-                                                        <div class="form--submitbutton">
-                                                            <button class="form--submit1 closeBtn">Hủy</button>
+	<div class="modal fade fail-modal" id="fail-modal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg ">
+			<div class="modal-content">
+				<div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<span class="material-symbols-outlined">cancel</span>
+				<p>Thực hiện thất bại, vui lòng thử lại sau!</p>
+			</div>
+		</div>
+	</div>
 
-                                                            <button class="form--submit2 post-btn"
-                                                                type="submit">Đăng</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="modal-success">
-                                            <div class="success-popup-container">
-                                                <div class="success-popup__card">
-                                                    <div class="success-popup__icon">
-                                                        <span class="material-symbols-outlined">
-                                                            check_circle
-                                                        </span>
-                                                    </div>
-                                                    <p class="success-popup__title">
-                                                        Thực hiện thành công!
-                                                    </p>
-                                                    <div class="success-popup__close-btn">
-                                                        <span class="material-symbols-outlined">cancel</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+	<%- include('../../partials/footer') %>
+	<%- include('../../components/cancel-popup') %>
+	<%- include('../../components/success-popup') %>
 
-
-                                        <!-- <script src="../../"></script>z -->
-                                    </div>
-                                    <%}%>
-                                    <% }) %>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="detail__col-3">
-                        <div class="detail__code">
-                            <div>
-                                <h3>Mã xác nhận:</h3>
-                                <p>12345678</p>
-                            </div>
-                        </div>
-                        <div class="detail__checkin">
-                            <h3>Ngày đặt</h3>
-                            <p><%=booking.book_date_format%></p>
-                            <p><%=booking.book_time_format%></p>
-                        </div>
-                        <div class="detail__checkin">
-                            <h3>Nhận phòng</h3>
-                            <p><%=booking.book_start_date_format%></p>
-                            <p><%=booking.book_start_time_format%></p>
-                        </div>
-                        <div class="detail__checkout">
-                            <h3>Trả phòng</h3>
-                            <p><%=booking.book_end_date_format%></p>
-                            <p><%=booking.book_end_time_format%></p>
-                        </div>
-                        <div class="detail__price price">
-                            <h3>Tổng tiền thanh toán</h3>
-                            <p class="price__strong">VND <%=booking.book_cost_after_currency%></p>
-                        </div>
-                    </div>
-        </section>
-
-        <section class="abort">
-            <div class="abort__info">
-                <h2>Miễn phí hủy đặt phòng</h2>
-                <p class="abort__time-left">Còn 6 ngày 14 giờ 24 phút!!!</p>
-                <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy
-                    <span class="abort__highlight">trước 12 tháng 10 18:00 giờ</span> Hội An.</p>
-                <% if (!booking.book_time_left_format){ %>
-                <p class="abort__time-left">Hết hạn hủy miễn phí!!!</p>
-                <% } else { %>
-                <p class="abort__time-left">Còn <%=booking.book_time_left_format%>!!!</p>
-                <% } %>
-                <p class="abort__condition">Để <span class="abort__highlight">miễn phí hủy</span> bạn cần phải hủy
-                    <span class="abort__highlight">trước <%=booking.book_time_count_format%>
-                        <%=booking.book_time_format%>
-                        giờ</span></p>
-                <p>Sau thời gian này bạn sẽ phải thanh toán VND 2.800.000 để hủy</p>
-            </div>
-            <div class="abort__progress">
-                <div class="progress__title">
-                    <p>Miễn phí</p>
-                    <p>Không hoàn tiền</p>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                        aria-valuemax="100"></div>
-                </div>
-                <p class="progress__time"><%=booking.book_time_count_format%></p>
-            </div>
-            <a href="/booking/success" class="btn detail__btn" role="button">Hủy đặt phòng</a>
-        </section>
-    </main>
-    <%- include('../../components/cancel-popup') %>
-
-    <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg ">
-            <div class="modal-content">
-                <div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <span class="material-symbols-outlined">cancel</span>
-                <p>Thực hiện thất bại, vui lòng thử lại sau!</p>
-            </div>
-        </div>
-    </div>
-    <%- include('../../components/review-popup.ejs') %>
-    <%- include('../../partials/footer') %>
-    <%# include('../../components/review-popup') %>
-    <%- include('../../components/cancel-popup') %>
-    <%- include('../../components/success-popup') %>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="/scripts/booking-detail.js"></script>
-    <script src="/scripts/review-popup.js" defer></script>
-    <script src="/scripts/cancel-popup.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="/scripts/booking-detail.js"></script>
+	<script src="/scripts/review-popup.js" defer></script>
+	<script src="/scripts/cancel-popup.js" defer></script>
 </body>
 
 </html>
