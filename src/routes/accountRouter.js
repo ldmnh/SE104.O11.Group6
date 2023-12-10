@@ -13,7 +13,7 @@ router.post('/information', authMiddleware.isLoggedIn, AccountController.informa
 // router.get('/information', AccountController.information)
 // router.post('/information', AccountController.informationPost)
 
-router.get('/history', authMiddleware.isLoggedIn, AccountController.history)
+router.get('/bookingHistory', authMiddleware.isLoggedIn, AccountController.getBookingHistory)
 router.post('/addReview', authMiddleware.isLoggedIn, AccountController.addReview)
 
 router.get('/card', authMiddleware.isLoggedIn, AccountController.card)

@@ -190,7 +190,7 @@ class SearchController {
           accoRoomDetail.getAccoRoom(acco_id, function (err, accoRoom) {
             accoRoomDetail.getAccoRoomExteDistinct(acco_id, function (err, accoExte) {
               if (err) {
-                res.status(404).render("./pages/site/error404.ejs");
+                res.status(404).redirect('/error404')
               }
 
               res.status(200).render("./pages/search/detail", {

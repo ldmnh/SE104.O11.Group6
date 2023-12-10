@@ -72,7 +72,7 @@ class AccountController {
     }
 
     // [GET] /account/history
-    history(req, res) {
+    getBookingHistory(req, res) {
         const id = req.session.user?.id;
         const page = req.query.page ? req.query.page : 1;
         accountHistory.getDetail({ id, page }, (err, bookingDetails, totalRow, totalPage, page, limit) => {
