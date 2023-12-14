@@ -35,20 +35,15 @@
 			</div>
 		</aside>
 
-		<section class="nofi__main">
-			<form action="/notifications/read-all" method="POST">
-				<button class="btn--outlined pri" type="submit">Đánh dấu tất cả là đã đọc</button>
-			</form>
-			<% if (data_noti.length == 0) { %>
-			<div class="noti--empty">
-				<img src="/imgs/noti-empty.png" alt="empty" class="noti__img--empty">
-				<h4>Bạn chưa có thông báo</h4>
-			</div>
-			<% } else { %>
-			<% data_noti.forEach(function (noti) { %>
-			<%- include('../../components/noti-item-promo', {noti}) %>
-			<% }) %>
-			<% } %>
+    <section class="nofi__main">
+        <button class="btn--outlined pri btn-read-all">Đánh dấu tất cả là đã đọc</button>
+      <% if (data_noti.length == 0) { %>
+      <h3>Bạn chưa có thông báo</h3>
+      <% } else { %>
+      <% data_noti.forEach(function (noti) { %>
+      <%- include('../../components/noti-item-promo', {noti}) %>
+      <% }) %>
+      <% } %>
 
 		</section>
 	</main>

@@ -192,7 +192,7 @@ class AccountController {
         })
     }
 
-    // [PUT] /account/card/delBank
+    // [POST] /account/card/delBank
     delBank(req, res) {
         const { bank_id } = req.body
         AccountModel.delBank({
