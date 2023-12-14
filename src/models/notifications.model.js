@@ -57,11 +57,12 @@ NotificationModel.notiRead = ({ id, noti_id }, callback) => {
 }
 
 // [GET] /notification/read-all
-NotificationModel.readAllNotification = ({ id }, callback) => {
+NotificationModel.readAllNotification = ({ id, noti_type }, callback) => {
     const sql = `
-        UPDATE usernoti
-        SET usernoti_is_read = 1
-        WHERE au_user_id = ${id}
+    UPDATE usernoti
+    SET usernoti_is_read = 1
+    WHERE usernoti.au_user_id = ${id}
+      AND usernoti.noti_id in (SELECT noti_id FROM notification WHERE noti_type = 'Type ${noti_type}');
     `
 
     db.query(sql, (err, result) => {

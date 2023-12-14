@@ -6,6 +6,7 @@ const SearchController = require('../controllers/SearchController.js')
 
 router.get('/results', SearchController.searchResult)
 router.get('/resultsfiltersort', SearchController.filterSortResult)
+router.post('/roomImgs', SearchController.getRoomDetails)
 router.get('/:acco_id', SearchController.accoDetail)
 router.get('/:acco_id/commentsfiltersort', SearchController.filterSortComments)
 router.post('/:acco_id', SearchController.submitBooking)

@@ -44,6 +44,19 @@ modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
         modals[index].style.display = 'block'
         popupVisible[index] = true
+        notiItems[index].style.backgroundColor = 'white'
+
+        const noti_id = document.querySelector(`input[name = "noti ${index}"]`).value;
+
+        fetch("/notifications/account-update", {
+            method: 'POST',
+            body: JSON.stringify({
+                noti_id: noti_id
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
     }
 })
 
@@ -52,10 +65,6 @@ closeBtns.forEach((closeBtn, index) => {
     closeBtn.onclick = function () {
         modals[index].style.display = 'none'
         popupVisible[index] = false
-        if (popupVisible.some((visible) => visible)) {
-        } else {
-            form[index].submit()
-        }
     }
 })
 
@@ -65,10 +74,6 @@ window.onclick = function (e) {
         if (e.target == modal) {
             modal.style.display = 'none'
             popupVisible[index] = false
-            if (popupVisible.some((visible) => visible)) {
-            } else {
-                form[index].submit()
-            }
         }
     })
 }
@@ -77,7 +82,9 @@ window.onclick = function (e) {
 btnReadAll.addEventListener("click", () => {
     fetch("/notifications/read-all", {
         method: "POST",
-        // body: JSON.stringify(),
+        body: JSON.stringify({
+            noti_type: 2
+        }),
         headers: {
             "Content-Type": "application/json",
         },

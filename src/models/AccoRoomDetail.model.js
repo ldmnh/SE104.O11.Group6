@@ -99,7 +99,7 @@ accoRoomDetail.getAccoRoomExteDistinct = function (acco_id, callback) {
     })
 }
 
-accoRoomDetail.getAccoRoomImg = function (room_id, callback) {
+accoRoomDetail.getAccoRoomImg = function ({ room_id }, callback) {
     const getAccoRoomImg = 'SELECT * FROM roomtypeimg WHERE room_id = ?'
 
     db.query(getAccoRoomImg, room_id, (err, accoRoomImg) => {
