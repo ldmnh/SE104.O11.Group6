@@ -237,17 +237,16 @@ class SearchController {
         });
     }
 
-    // [POST] /roomImgs
-    getRoomDetails(req, res){
+    // [POST] /roomDetails
+    async getRoomDetails(req, res){
         const room_id = req.body.room_id;
 
-        accoRoomDetail.getAccoRoomImg({ room_id }, function(err, accoRoomImgs){
+        accoRoomDetail.getAccoRoomDetails({ room_id }, function(err, accoRoomDetails){
             if (err) throw err;
             res.status(200).json({
-                roomImgs: accoRoomImgs
+                accoRoomDetails: accoRoomDetails[0],
             })
         })
-        
     }
 
     // [GET] /search/:acco_id

@@ -61,16 +61,63 @@ accoRoomDetail.getAccoRoom = function (acco_id, callback) {
                     room.extension = accoRoomExte
                 })
             })
-
-        accoRoom.forEach(room => {
-            accoRoomDetail.getAccoRoomImg(room.room_id, function(err, accoRoomImg){
-                room.room_img = accoRoomImg
-            })
-        })   
-
         callback(err, accoRoom)
     })
 }
+
+accoRoomDetail.getAccoRoomDetails = function ({ room_id }, callback) {
+    const getAccoRoom = 'SELECT roomtype.* FROM roomtype WHERE room_id = ?';
+
+    db.query(getAccoRoom, room_id, async (err, accoRoom) => {
+        if (err) {
+            throw err;
+        }
+
+        // Calculate derived values for each room
+        accoRoom.forEach(room => {
+            room.room_cost_after = room.room_cost - (room.room_cost * room.room_discount);
+            room.room_cost_after_currency = index.toCurrency(Number(room.room_cost_after));
+            room.room_cost_currency = index.toCurrency(Number(room.room_cost));
+        });
+
+        // Fetch room extensions for each room
+        const extePromises = accoRoom.map(room => {
+            return new Promise((resolve, reject) => {
+                accoRoomDetail.getAccoRoomExte(room.room_id, (err, accoRoomExte) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        room.extension = accoRoomExte;
+                        resolve();
+                    }
+                });
+            });
+        });
+
+        // Wait for all extension promises to resolve
+        await Promise.all(extePromises);
+
+        // Fetch room images for each room
+        const imgPromises = accoRoom.map(room => {
+            return new Promise((resolve, reject) => {
+                accoRoomDetail.getAccoRoomImg(room.room_id, (err, accoRoomImg) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        room.room_img = accoRoomImg;
+                        resolve();
+                    }
+                });
+            });
+        });
+
+        // Wait for all image promises to resolve
+        await Promise.all(imgPromises);
+
+        // Invoke the final callback with the result
+        callback(err, accoRoom);
+    });
+};
 
 accoRoomDetail.getAccoRoomExte = function (room_id, callback) {
     const getAccoRoomExte = 'SELECT * FROM view_room_exte WHERE room_id = ?'
@@ -99,7 +146,7 @@ accoRoomDetail.getAccoRoomExteDistinct = function (acco_id, callback) {
     })
 }
 
-accoRoomDetail.getAccoRoomImg = function ({ room_id }, callback) {
+accoRoomDetail.getAccoRoomImg = function ( room_id, callback) {
     const getAccoRoomImg = 'SELECT * FROM roomtypeimg WHERE room_id = ?'
 
     db.query(getAccoRoomImg, room_id, (err, accoRoomImg) => {
