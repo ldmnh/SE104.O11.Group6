@@ -6,14 +6,16 @@ const Search = require("../models/search.model");
 
 class SearchController {
     // [GET] /search/results
-    searchResult(req, res) {
+    find(req, res) {
         Search.find(req, res, function (err, res, result) {
             if (err) {
                 res.status(500).json({
+                    statusCode: 500,
                     message: "Lỗi truy cập cơ sở dữ liệu"
                 });
                 throw err;
             }
+
             if (result.length > 0) {
                 let resultFilter = result.map((obj) => obj.room_id).join(",");
                 let sql1 = `
@@ -76,7 +78,12 @@ class SearchController {
                     }
                 });
             } else {
-                res.render("./pages/site/error404");
+                res.status(200).render("./pages/search/results", {
+                    message: "Đã tìm thành công",
+                    user: req.session.user,
+                    totalPage: 1,
+                    data: [],
+                });
             }
         });
     }

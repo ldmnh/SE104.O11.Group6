@@ -245,7 +245,7 @@ Booking.getAllBooking = function (req, res, callback) {
     });
 };
 
-Booking.cancelBooking = function (req, res, callback) {
+Booking.postCancelBooking = function (req, res, callback) {
     const option = req.body.option;
     let value;
     let sql = `

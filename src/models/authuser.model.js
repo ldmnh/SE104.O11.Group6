@@ -40,7 +40,7 @@ AuthUser.checkRegister = function (req, callback) {
     })
 }
 
-AuthUser.checkEmail = ({ email }, callback) => {
+AuthUser.findByEmail = ({ email }, callback) => {
     const sql = `
         SELECT *
         FROM AUTHUSER
@@ -88,7 +88,7 @@ AuthUser.putInfoById = ({ id, first_name, last_name, birthday, sex }, callback) 
     })
 }
 
-AuthUser.putResetPassByEmail = async ({ email, password }, callback) => {
+AuthUser.findByPassword = async ({ email, password }, callback) => {
     const hashedPass = await bcrypt.hash(password, 8)
     const sql = `
         UPDATE AUTHUSER
@@ -127,22 +127,22 @@ AuthUser.getDebitCardsById = ({ id }, callback) => {
     });
 }
 
-AuthUser.findByEmail = (email, results) => {
-    db.query(
-        `SELECT * from authuser WHERE au_user_email = '${email}'`,
-        (err, result) => {
-            if (err) {
-                results(err, null);
-                return;
-            }
-            if (result.length > 0) {
-                results(null, result[0]);
-                return;
-            }
-            results(null, null);
-        }
-    );
-};
+// AuthUser.findByEmail = (email, results) => {
+//     db.query(
+//         `SELECT * from authuser WHERE au_user_email = '${email}'`,
+//         (err, result) => {
+//             if (err) {
+//                 results(err, null);
+//                 return;
+//             }
+//             if (result.length > 0) {
+//                 results(null, result[0]);
+//                 return;
+//             }
+//             results(null, null);
+//         }
+//     );
+// };
 
 
 module.exports = AuthUser
