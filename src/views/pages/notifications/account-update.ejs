@@ -41,11 +41,9 @@
       <% if (data_noti.length == 0) { %>
       <h3>Bạn chưa có thông báo</h3>
       <% } else { %>
-      <% data_noti.forEach(function (noti) { %>
-      <%- include('../../components/noti-item-account', {noti}) %>
-      <% }) %>
-      <% } %>
-
+      <% for (let i = 0; i < data_noti.length; i++) {%>
+      <%- include('../../components/noti-item-account', {'noti': data_noti[i], 'index': i}) %>
+      <% }}%>
 
 		</section>
 	</main>

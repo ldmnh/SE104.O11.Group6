@@ -244,6 +244,18 @@ class SearchController {
         });
     }
 
+    // [POST] /roomDetails
+    async getRoomDetails(req, res){
+        const room_id = req.body.room_id;
+
+        accoRoomDetail.getAccoRoomDetails({ room_id }, function(err, accoRoomDetails){
+            if (err) throw err;
+            res.status(200).json({
+                accoRoomDetails: accoRoomDetails[0],
+            })
+        })
+    }
+
     // [GET] /search/:acco_id
     accoDetail(req, res) {
         let acco_id = [req.params.acco_id]

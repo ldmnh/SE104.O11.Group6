@@ -8,27 +8,48 @@ class AuthController {
     }
 
     // [POST] /auth/register
-    postRegister(req, res) {
-        AuthUser.checkRegister(req, function (err, dupEmail, success) {
+    registerPost(req, res) {
+        const {
+            au_user_last_name,
+            au_user_first_name,
+            au_user_email,
+            au_user_pass
+        } = req.body
+
+        AuthUser.checkEmail({ email: au_user_email }, async function (err, result) {
             if (err) {
                 return res.status(404).json({
                     status: 'error',
-                    message: 'Error'
+                    message: 'Error1'
                 })
             }
 
-            if (dupEmail) {
+            if (result.length != 0) {
                 return res.status(500).json({
                     status: 'error',
                     message: 'Email đã được sử dụng'
                 })
             }
 
-            if (success) {
-                return res.status(200).json({
-                    status: 'success',
-                    message: 'Register successfully'
-                })
+            if (result.length === 0) {
+                
+                await AuthUser.insertUser({au_user_last_name,
+                    au_user_first_name,
+                    au_user_email,
+                    au_user_pass}, function(err, result) {
+                        if (err) {
+                            return res.status(404).json({
+                            status: 'error',
+                            message: 'Error2'
+                        })}
+
+                        if (result) {
+                            return res.status(200).json({
+                                status: 'success',
+                                message: 'Register successfully'
+                            })
+                        }
+                    })
             }
         });
     }
