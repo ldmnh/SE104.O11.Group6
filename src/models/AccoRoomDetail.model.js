@@ -110,7 +110,7 @@ accoRoomDetail.getAccoRoomImg = function (room_id, callback) {
     })
 }
 
-accoRoomDetail.findComments = async (req, callback) => {
+accoRoomDetail.findRating = async (req, callback) => {
 
     const params = Number(req.params.acco_id) ? req.params.acco_id : req.query.acco_id
 

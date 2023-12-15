@@ -19,6 +19,7 @@ const notiItems = document.querySelectorAll('.noti-item__block')
 const markAllReadButton = document.querySelector('.btn--outlined')
 const popupVisible = new Array(modals.length).fill(false)
 const form = document.querySelectorAll('.noti-item__main')
+const btnReadAll = document.querySelector('.btn-read-all')
 
 form.forEach((f, index) => {
     f.addEventListener('submit', e => {
@@ -60,3 +61,18 @@ window.onclick = function (e) {
         }
     })
 }
+
+// Đánh dấu đã đọc tất cả
+btnReadAll.addEventListener("click", () => {
+    fetch("/notifications/read-all", {
+        method: "POST",
+        // body: JSON.stringify(),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+
+    notiItems.forEach((item) => {
+        item.style.background = "white";
+    })
+})

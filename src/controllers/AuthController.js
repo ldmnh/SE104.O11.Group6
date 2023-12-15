@@ -1,21 +1,5 @@
 const AuthUser = require("../models/authuser.model");
 const bcrypt = require("bcryptjs");
-const { promisify } = require("util");
-
-/**
- * AuthController class handles authentication related requests such as register, login, forgot password, reset password, logout, and change password.
- * @class
- * @property {function} register - Renders the register page.
- * @property {function} registerPost - Handles the registration form submission.
- * @property {function} login - Renders the login page.
- * @property {function} loginPost - Handles the login form submission and sets the email in the session.
- * @property {function} forgot - Renders the forgot password page.
- * @property {function} forgotPost - Handles the forgot password form submission and sets the email in the session.
- * @property {function} reset - Renders the reset password page.
- * @property {function} resetPost - Handles the reset password form submission and updates the password in the database.
- * @property {function} logout - Clears the user, booking, rooms, and acco from the session and redirects to the home page.
- * @property {function} changePassPut - Handles the change password form submission and updates the password in the database.
- */
 
 class AuthController {
     // [GET] /auth/register

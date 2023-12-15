@@ -53,12 +53,12 @@ class NotificationController {
                 req.data_noti = [];
             }
             res.status(200).render(
-                // res.status(200).json(
                 './pages/notifications/promotion',
                 {
                     data_noti: result,
                     user: req.session.user
-                })
+                }
+            )
         })
     }
 
@@ -82,6 +82,7 @@ class NotificationController {
             "id": req.session.user?.id,
         }, (err, result) => {
             if (err) throw err;
+
             res.status(200).redirect('./account-update')
         })
 

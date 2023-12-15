@@ -2,7 +2,6 @@ const db = require('../config/db/connect');
 
 const AccountModel = function () { }
 
-
 AccountModel.addBank = ({
     bank_name,
     bank_num,
@@ -88,7 +87,7 @@ AccountModel.delDebit = ({ id, debit_id }, callback) => {
     })
 }
 
-AccountModel.addReview = ({
+AccountModel.addRating = ({
     room_id,
     rating_datetime,
     rating_point,
