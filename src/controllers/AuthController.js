@@ -13,45 +13,53 @@ class AuthController {
             au_user_last_name,
             au_user_first_name,
             au_user_email,
-            au_user_pass
-        } = req.body
+            au_user_pass,
+        } = req.body;
 
-        AuthUser.checkEmail({ email: au_user_email }, async function (err, result) {
-            if (err) {
-                return res.status(404).json({
-                    status: 'error',
-                    message: 'Error1'
-                })
-            }
+        AuthUser.checkEmail(
+            { email: au_user_email },
+            async function (err, result) {
+                if (err) {
+                    return res.status(404).json({
+                        status: "error",
+                        message: "Error1",
+                    });
+                }
 
-            if (result.length != 0) {
-                return res.status(500).json({
-                    status: 'error',
-                    message: 'Email đã được sử dụng'
-                })
-            }
+                if (result.length != 0) {
+                    return res.status(500).json({
+                        status: "error",
+                        message: "Email đã được sử dụng",
+                    });
+                }
 
-            if (result.length === 0) {
-                
-                await AuthUser.insertUser({au_user_last_name,
-                    au_user_first_name,
-                    au_user_email,
-                    au_user_pass}, function(err, result) {
-                        if (err) {
-                            return res.status(404).json({
-                            status: 'error',
-                            message: 'Error2'
-                        })}
+                if (result.length === 0) {
+                    await AuthUser.insertUser(
+                        {
+                            au_user_last_name,
+                            au_user_first_name,
+                            au_user_email,
+                            au_user_pass,
+                        },
+                        function (err, result) {
+                            if (err) {
+                                return res.status(404).json({
+                                    status: "error",
+                                    message: "Error2",
+                                });
+                            }
 
-                        if (result) {
-                            return res.status(200).json({
-                                status: 'success',
-                                message: 'Register successfully'
-                            })
+                            if (result) {
+                                return res.status(200).json({
+                                    status: "success",
+                                    message: "Register successfully",
+                                });
+                            }
                         }
-                    })
+                    );
+                }
             }
-        });
+        );
     }
 
     // [GET] /auth/login
@@ -62,40 +70,6 @@ class AuthController {
     // [POST] /auth/login
     postLogin(req, res) {
         const { email, password } = req.body;
-        // AuthUser.findByEmail(email, async (err, user) => {
-        //     if (err) {
-        //         res.status(500).json({ message: "Lỗi truy vấn!" });
-        //         throw err;
-        //     }
-        //     if (!user) {
-        //         return res.status(404).json({
-        //             status: "error",
-        //             error: "Email không tồn tại!",
-        //         });
-        //     } else {
-        //         if (await bcrypt.compare(password, user.au_user_pass)) {
-        //             // if (password === user.au_user_pass) {
-        //             req.session.user = {
-        //                 id: user.au_user_id,
-        //                 first_name: user.au_user_first_name,
-        //                 last_name: user.au_user_last_name,
-        //                 email: user.au_user_email,
-        //                 avatar: user.au_user_avt_url,
-        //             };
-        //             return res.status(200).json({
-        //                 status: "success",
-        //                 success: "Thành công",
-        //                 data: user,
-        //             });
-        //         } else {
-        //             return res.status(401).json({
-        //                 status: "error1",
-        //                 error: "Mật khẩu không chính xác!",
-        //             });
-        //         }
-        //         // })
-        //     }
-        // });
         AuthUser.findByEmail({ email }, async (err, result) => {
             if (err) {
                 res.status(500).json({
@@ -108,15 +82,14 @@ class AuthController {
             if (result.length === 0) {
                 res.status(404).json({
                     statusCode: 404,
-                    message: "Không tìm thấy email!!!",
+                    message: "Không tìm thấy email!",
                 });
                 return;
             }
-
             if (!(await bcrypt.compare(password, result[0].au_user_pass))) {
                 return res.status(401).json({
                     statusCode: 401,
-                    error: "Mật khẩu không chính xác!",
+                    message: "Mật khẩu không chính xác!",
                 });
             }
 
@@ -130,10 +103,10 @@ class AuthController {
 
             return res.status(200).json({
                 statusCode: 200,
-                success: "Thành công",
+                message: "Thành công",
                 data: result[0],
             });
-        })
+        });
     }
 
     // [GET] /auth/forgot-password
@@ -180,31 +153,34 @@ class AuthController {
         const email = req.session.emailOfForgot;
         const { password } = req.body;
 
-        AuthUser.findByPassword({
-            email,
-            password,
-        }, (err, result) => {
-            if (err) {
-                res.status(500).json({
-                    statusCode: 500,
-                    message: "Lỗi truy vấn!!!",
-                });
-                throw err;
-            }
+        AuthUser.findByPassword(
+            {
+                email,
+                password,
+            },
+            (err, result) => {
+                if (err) {
+                    res.status(500).json({
+                        statusCode: 500,
+                        message: "Lỗi truy vấn!!!",
+                    });
+                    throw err;
+                }
 
-            if (result.affectedRows === 0) {
-                res.status(404).json({
-                    statusCode: 404,
-                    message: "Không tìm thấy tài khoản!!!",
-                });
-                return;
-            }
+                if (result.affectedRows === 0) {
+                    res.status(404).json({
+                        statusCode: 404,
+                        message: "Không tìm thấy tài khoản!!!",
+                    });
+                    return;
+                }
 
-            res.status(200).json({
-                statusCode: 200,
-                message: "Cập nhật thông tin tài khoản thành công",
-            });
-        });
+                res.status(200).json({
+                    statusCode: 200,
+                    message: "Cập nhật thông tin tài khoản thành công",
+                });
+            }
+        );
     }
 
     // [GET] /auth/logout
@@ -218,59 +194,67 @@ class AuthController {
     async postChangePass(req, res) {
         const { oldPass, newPass } = req.body;
 
-        AuthUser.findByEmail({
-            email: req.session.user?.email
-        }, async (err, result) => {
-            if (err) {
-                res.status(500).json({
-                    statusCode: 500,
-                    message: "Lỗi truy vấn ở AuthUser.checkEmail!!!",
-                });
-                throw err;
-            }
-
-            if (result.length === 0) {
-                res.status(404).json({
-                    statusCode: 404,
-                    message: "Không tìm thấy email!!!",
-                });
-                return;
-            }
-
-            const pass = result[0]?.au_user_pass;
-            if (!(await bcrypt.compare(oldPass, pass))) {
-                res.status(404).json({
-                    statusCode: 404,
-                    message: "Mật khẩu cũ không chính xác!!!",
-                });
-            } else {
-                AuthUser.findByPassword({
-                    email: req.session.user?.email,
-                    password: newPass
-                }, (err, result) => {
-                    if (err) {
-                        res.status(500).json({
-                            statusCode: 500,
-                            message: "Lỗi truy vấn ở putResetPassByEmail!!!",
-                        });
-                        throw err;
-                    }
-
-                    if (res.affectedRows === 0) {
-                        res.status(404).json({
-                            statusCode: 404,
-                            message: "Không tìm thấy tài khoản!!!",
-                        });
-                        return;
-                    }
-
-                    res.status(200).json({
-                        statusCode: 200,
-                        message: "Cập nhật thông tin tài khoản thành công",
+        AuthUser.findByEmail(
+            {
+                email: req.session.user?.email,
+            },
+            async (err, result) => {
+                if (err) {
+                    res.status(500).json({
+                        statusCode: 500,
+                        message: "Lỗi truy vấn ở AuthUser.checkEmail!!!",
                     });
-                });
+                    throw err;
+                }
+
+                if (result.length === 0) {
+                    res.status(404).json({
+                        statusCode: 404,
+                        message: "Không tìm thấy email!!!",
+                    });
+                    return;
+                }
+
+                const pass = result[0]?.au_user_pass;
+                if (!(await bcrypt.compare(oldPass, pass))) {
+                    res.status(404).json({
+                        statusCode: 404,
+                        message: "Mật khẩu cũ không chính xác!!!",
+                    });
+                } else {
+                    AuthUser.findByPassword(
+                        {
+                            email: req.session.user?.email,
+                            password: newPass,
+                        },
+                        (err, result) => {
+                            if (err) {
+                                res.status(500).json({
+                                    statusCode: 500,
+                                    message:
+                                        "Lỗi truy vấn ở putResetPassByEmail!!!",
+                                });
+                                throw err;
+                            }
+
+                            if (res.affectedRows === 0) {
+                                res.status(404).json({
+                                    statusCode: 404,
+                                    message: "Không tìm thấy tài khoản!!!",
+                                });
+                                return;
+                            }
+
+                            res.status(200).json({
+                                statusCode: 200,
+                                message:
+                                    "Cập nhật thông tin tài khoản thành công",
+                            });
+                        }
+                    );
+                }
             }
-        })
+        );
     }
 }
 
