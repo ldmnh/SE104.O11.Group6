@@ -8,7 +8,7 @@ class AuthController {
     }
 
     // [POST] /auth/register
-    registerPost(req, res) {
+    postRegister(req, res) {
         const {
             au_user_last_name,
             au_user_first_name,
@@ -191,7 +191,7 @@ class AuthController {
     }
 
     // [POST] /auth/change-password
-    async postChangePass(req, res) {
+    postChangePass(req, res) {
         const { oldPass, newPass } = req.body;
 
         AuthUser.findByEmail(
@@ -217,42 +217,35 @@ class AuthController {
 
                 const pass = result[0]?.au_user_pass;
                 if (!(await bcrypt.compare(oldPass, pass))) {
-                    res.status(404).json({
-                        statusCode: 404,
+                    res.status(409).json({
+                        statusCode: 409,
                         message: "Mật khẩu cũ không chính xác!!!",
                     });
-                } else {
-                    AuthUser.findByPassword(
-                        {
-                            email: req.session.user?.email,
-                            password: newPass,
-                        },
-                        (err, result) => {
-                            if (err) {
-                                res.status(500).json({
-                                    statusCode: 500,
-                                    message:
-                                        "Lỗi truy vấn ở putResetPassByEmail!!!",
-                                });
-                                throw err;
-                            }
-
-                            if (res.affectedRows === 0) {
-                                res.status(404).json({
-                                    statusCode: 404,
-                                    message: "Không tìm thấy tài khoản!!!",
-                                });
-                                return;
-                            }
-
-                            res.status(200).json({
-                                statusCode: 200,
-                                message:
-                                    "Cập nhật thông tin tài khoản thành công",
-                            });
-                        }
-                    );
+                    return;
                 }
+
+                AuthUser.findByPassword(
+                    {
+                        email: req.session.user?.email,
+                        password: newPass,
+                    },
+                    (err, result) => {
+                        if (err) {
+                            res.status(500).json({
+                                statusCode: 500,
+                                message:
+                                    "Lỗi truy vấn ở putResetPassByEmail!!!",
+                            });
+                            throw err;
+                        }
+
+                        res.status(200).json({
+                            statusCode: 200,
+                            message:
+                                "Cập nhật thông tin tài khoản thành công",
+                        });
+                    }
+                );
             }
         );
     }
