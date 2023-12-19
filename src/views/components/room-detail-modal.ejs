@@ -1,0 +1,82 @@
+<div class="modal fade" id="room-detail" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-xl modal-dialog-centered ">
+		<div class="modal-content">
+			<div class="modal__view">
+				<h1>room.room_class </h1>
+				<div class="modal__view--big">
+					<button onclick="prevSlide(event)" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
+					<img class="modal__slide" src="/imgs/room/room.room_img[0].room_type_image_url " alt="">
+					<button onclick="nextSlide(event)" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
+				</div>
+				<div class="modal__view--small">
+					<button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/room/img.room_type_image_url " alt=""></button>
+					<button onclick="currentSlide(event)" style="display: none;" type="button"><img class="modal__thumnail" src="/imgs/room/img.room_type_image_url " alt=""></button>
+				</div>
+			</div>
+
+			<div class="modal__detail detail">
+				<div class="detail__feature feature">
+					<div class="feature__row">
+						<h2>Tiện nghi phòng</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="feature__row">
+						<div class="feature__col-left">
+							<div class="detail__item">
+								<span class="material-symbols-outlined">square_foot</span>
+								<p>room.room_area m<sup>2</sup></p>
+							</div>
+							<%# if(room.room_single_bed != 0) { %>
+							<div class="detail__item">
+								<span class="material-symbols-outlined">single_bed</span>
+								<p> room.room_single_bed giường đơn </p>
+							</div>
+							<%# } %>
+
+							<%# if (room.room_double_bed != 0) { %>
+							<div class="detail__item">
+								<span class="material-symbols-outlined">bed</span>
+								<p> room.room_double_bed giường đôi </p>
+							</div>
+							<%# } %>
+
+							<%# room.extension.slice(0, parseInt(room.extension.length / 2)).forEach(function(extension) { %>
+							<div class="detail__item">
+								<span class="material-symbols-outlined">
+									extension.exte_icon
+								</span>
+								<p> extension.exte_name </p>
+							</div>
+							<%# }) %>
+						</div>
+
+						<div class="feature__col-right">
+							<div class="detail__item">
+								<span class="material-symbols-outlined">boy</span>
+								<p> room.room_max_adult người lớn</p>
+							</div>
+							<%# if(room.room_max_child != 0) { %>
+							<div class="detail__item">
+								<span class="material-symbols-outlined">child_care</span>
+								<p> room.room_max_child trẻ em </p>
+							</div>
+							<%# } %>
+							<%# room.extension.slice(parseInt(room.extension.length / 2), room.extension.length).forEach(function(extension) { %>
+							<div class="detail__item">
+								<span class="material-symbols-outlined">
+									extension.exte_icon
+								</span>
+								<p> extension.exte_name </p>
+							</div>
+							<%# }) %>
+							<div class="detail__item">
+								<span class="material-symbols-outlined">help</span>
+								<a href="/terms-of-use">Chính sách hủy phòng</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

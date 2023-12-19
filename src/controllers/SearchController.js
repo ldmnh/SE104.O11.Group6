@@ -245,10 +245,10 @@ class SearchController {
     }
 
     // [POST] /roomDetails
-    async getRoomDetails(req, res){
+    async getRoomDetails(req, res) {
         const room_id = req.body.room_id;
 
-        accoRoomDetail.getAccoRoomDetails({ room_id }, function(err, accoRoomDetails){
+        accoRoomDetail.getAccoRoomDetails({ room_id }, function (err, accoRoomDetails) {
             if (err) throw err;
             res.status(200).json({
                 accoRoomDetails: accoRoomDetails[0],
