@@ -152,14 +152,8 @@ class BookingController {
             book_end_datetime: new Date(req.session.search?.check_out),
             book_num_adult: req.session.search?.adult,
             book_num_child: req.session.search?.child,
-            book_cost_before: req.session.rooms.reduce(
-                (sum, room) => sum + room.cost_before * days,
-                0
-            ),
-            book_cost_after: req.session.rooms.reduce(
-                (sum, room) => sum + room.cost_after * days,
-                0
-            ),
+            book_cost_before: 0,
+            book_cost_after: 0,
             book_first_name: req.session.book?.first_name,
             book_last_name: req.session.book?.last_name,
             book_email: req.session.book?.email,
@@ -168,7 +162,7 @@ class BookingController {
             pay_id: req.session.book?.pay_id,
             cancel_cost: 0,
             book_status: 0,
-            book_is_paid: req.session.book?.pay_id == "0" ? 0 : 1,
+            book_is_paid: req.session.book?.pay_id == 1 ? 0 : 1,
         }, (err, result) => {
             if (err) throw err;
 
