@@ -33,8 +33,8 @@ $(document).ready(function () {
             $('[name="checkin"]').val().trim() === "" ||
             $('[name="checkout"]').val().trim() === ""
         ) {
-            event.preventDefault();
-            alert("Vui lòng chọn ngày nhận và ngày trả phòng.");
+            // event.preventDefault();
+            // alert("Vui lòng chọn ngày nhận và ngày trả phòng.");
         }
     });
 });
