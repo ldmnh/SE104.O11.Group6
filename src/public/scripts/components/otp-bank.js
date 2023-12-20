@@ -10,16 +10,24 @@ closePopupOtp2Bank.addEventListener("click", () => {
     modalOtpBank.style.display = "none";
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const otpInputs = document.querySelectorAll('.otp__card-text');
 
-const form_bank = document.querySelector('.account')
+    otpInputs.forEach(function (input, index) {
+        input.addEventListener('input', function () {
+            this.classList.remove('is-invalid');
 
-form_bank.addEventListener('submit', e => {
-    e.preventDefault();
-})
+            if (this.value !== '' && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            } else {
+                this.classList.add('is-invalid');
+            }
+        });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const continueBtnBank = document.querySelector(".otp__button--submit2--bank");
-    continueBtnBank.addEventListener("click", () => {
-        form_bank.submit();
+        input.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace' && index > 0 && this.value === '') {
+                otpInputs[index - 1].focus();
+            }
+        });
     });
-})
+});
