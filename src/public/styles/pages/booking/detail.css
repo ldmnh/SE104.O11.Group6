@@ -135,6 +135,10 @@ h3 {
         0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
+.cancel-booking {
+    background-color: var(--red-2) !important;
+}
+
 .detail__contact button {
     width: max-content;
     border: none;

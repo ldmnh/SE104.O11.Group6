@@ -23,6 +23,8 @@
 	<%- include('../../partials/header-small') %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
+		{ text: "Cá nhân", link: "/account/information" },
+        { text: "Lịch sử đặt phòng", link: "/account/history" },
         { text: 'Chi tiết đặt phòng', link: "#" }
     ] }) %>
 
@@ -221,7 +223,7 @@
 			<div class="abort__btn">
 				<% if (booking.book_status==0) { %>
 				<input type="hidden" class="is-check-1" value="0">
-				<button type="button" class="detail__btn" id="cancel-btn">Hủy đặt phòng</button>
+				<button type="button" class="detail__btn cancel-booking" id="cancel-btn">Hủy đặt phòng</button>
 				<% } else if (booking.book_status==-1) { %>
 				<p>Bạn đã hủy đặt phòng</p>
 				<% } %>
