@@ -117,7 +117,6 @@ Search.hintSearch = (searchKey, callback) => {
         }
         else {
             db.query(sql2, (err, result2) => {
-                console.log('HHHHHHHH', result2);
                 callback(err, result2);
             })
         }
