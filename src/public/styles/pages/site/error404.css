@@ -15,6 +15,13 @@
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.error-page div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .error-page h1 {
 	font-size: 30vh;
 	font-weight: bold;
@@ -47,11 +54,11 @@
 }
 
 .error-page h1+p {
-	color: #d6d6d6;
+	color: var(--primary-color-3-o80);
 	font-size: 8vh;
 	font-weight: bold;
 	line-height: 10vh;
-	max-width: 600px;
+	max-width: 1152px;
 	position: relative;
 }
 
@@ -117,4 +124,39 @@
 	line-height: 24px;
 	text-decoration: none;
 	transition: 0.25s all ease-in-out;
+}
+
+
+.error__img {
+	object-fit: cover;
+	width: 40%;
+}
+
+.error__back-to-home-page {
+	max-width: 400px;
+	margin-top: 24px;
+	gap: 8px;
+	font-size: 0.875rem;
+	font-weight: 300;
+	padding: 12px 24px 12px 28px;
+	background-color: var(--primary-color-1);
+	border-radius: 30px;
+}
+
+a {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-decoration: none;
+	gap: 12px;
+	color: var(--white);
+}
+
+.error__back-to-home-page p {
+	margin: 0;
+}
+
+.error__back-to-home-page img {
+	object-fit: contain;
+	width: 160px;
 }
