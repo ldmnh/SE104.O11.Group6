@@ -65,6 +65,7 @@ h1 {
     width: 24px;
     height: 24px;
     color: var(--primary-color-4);
+    font-variation-settings: 'FILL' 1;
 }
 
 .unfilled-start {
