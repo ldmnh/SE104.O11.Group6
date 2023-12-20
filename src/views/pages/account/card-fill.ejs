@@ -2,23 +2,28 @@
 <html lang="vi">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-	<link rel="stylesheet" href="/styles/pages/account/payment.css" />
+	<link rel="stylesheet" href="/styles/pages/account/payment.css">
+
 	<title>2WAYS.com</title>
+
 </head>
 
 <body>
+
 	<%- include('../../partials/header-medium') %>
 
-	<div class="payment-account-container">
+	<main class="payment-account-container">
+
 		<aside class="aside-content">
 			<div class="aside-content__profile">
-				<img class="aside-content__img" src="/imgs/milo.jpg" alt="avatar" />
+				<img class="aside-content__img" src="/imgs/milo.jpg" alt="avatar">
 				<div class="aside-content__detail">
 					<p class="aside-content__detail-bold">Giàu Phan</p>
 					<p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
@@ -34,13 +39,12 @@
 				<p class="change-password-btn">Đổi mật khẩu</p>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="aside-item logout-btn">
 				<a style='text-decoration: none' id="logoutButton">
 					<p>Đăng xuất</p>
 				</a>
-				<!-- <button id="logoutButton" style='text-decoration: none'>Đăng xuất</button> -->
 			</div>
 			<div class="popup">
 				<div class="popup__main">
@@ -70,7 +74,7 @@
 				<p>Thêm hoặc bỏ các phương thức thanh toán</p>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="form__card-items">
 				<div class="form__card-item ">
@@ -110,9 +114,9 @@
 					</div>
 				</div>
 			</div>
-
 		</section>
-	</div>
+
+	</main>
 
 	<%- include('../../components/otp') %>
 	<%- include('../../components/success-popup') %>
@@ -120,12 +124,13 @@
 	<%- include('../../components/credit-account-popup') %>
 	<%- include('../../partials/footer') %>
 
-	<script src="/scripts/payment-account.js"></script>
-	<script src="/scripts/bank-account-popup.js"></script>
-	<script src="/scripts/credit-account-popup.js"></script>
-	<script src="/scripts/search-bar.js"></script>
-	<script src="/scripts/header-medium.js"></script>
-	<script src="/scripts/logout-popup.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="/scripts/account/payment.js"></script>
+	<script src="/scripts/components/bank-account-popup.js"></script>
+	<script src="/scripts/components/credit-account-popup.js"></script>
+	<script src="/scripts/components/logout-popup.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
 
 </body>
 

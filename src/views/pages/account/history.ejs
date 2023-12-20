@@ -2,22 +2,25 @@
 <html lang="vi">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-	<link rel="stylesheet" href="/styles/pages/account/history.css" />
+	<link rel="stylesheet" href="/styles/pages/account/history.css">
+
 	<title>2WAYS.com</title>
+
 </head>
 
 <body>
+
 	<% if (typeof data_search !== 'undefined' && data_search !== null) { %>
 	<%- include('../../partials/header-medium.ejs', { data_search }) %>
 	<% } else { %>
 	<% } %>
-	<%# include('../../partials/nav-tree') %>
 
 	<%- include('../../partials/header-medium.ejs', { user }) %>
 	<%- include("../../partials/nav-tree", { nav_tree__data: [
@@ -27,18 +30,18 @@
     ]}) %>
 	<%- include('../../components/on-top-btn') %>
 
-
 	<main class="booking-history-container">
+
 		<aside class="aside-content">
 			<div class="aside-content__profile">
-				<img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="" />
+				<img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="">
 				<div class="aside-content__detail">
 					<p class="aside-content__detail-bold"><%= user.last_name + " " + user.first_name %></p>
 					<p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
 				</div>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="aside-section">
 				<a style='text-decoration: none;' href="/account/information">
@@ -55,13 +58,12 @@
 				</a>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="aside-item logout-btn">
 				<a style='text-decoration: none' id="logoutButton">
 					<p>Đăng xuất</p>
 				</a>
-				<!-- <button id="logoutButton" style='text-decoration: none'>Đăng xuất</button> -->
 			</div>
 			<div class="popup">
 				<div class="popup__main">
@@ -90,7 +92,6 @@
 				<h1>Lịch sử đặt phòng</h1>
 			</div>
 
-			<!-- <div class="filter-bar"></div> -->
 			<div class="booking-history__items">
 				<% if (bookingDetails == []) { %>
 				<p>Không tìm thấy</p>
@@ -101,20 +102,20 @@
 				<% } %>
 			</div>
 		</section>
+
 	</main>
+
 	<%- include('../../components/success-popup')  %>
 	<%- include('../../components/next-page.ejs') %>
 	<%-include('../../partials/footer.ejs') %>
 
-	<script src="/scripts/booking-history.js" defer></script>
-	<script src="/scripts/review-popup.js" defer></script>
-	<script src="/scripts/search-bar.js"></script>
-	<script src="/scripts/header-medium.js"></script>
-	<script src="/scripts/logout-popup.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="/scripts/account/booking-history.js" defer></script>
+	<script src="/scripts/components/review-popup.js" defer></script>
+	<script src="/scripts/components/logout-popup.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
 	<script src="/scripts/base.js"></script>
-
-
-
 
 </body>
 

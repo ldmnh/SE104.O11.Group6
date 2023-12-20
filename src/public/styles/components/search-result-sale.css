@@ -231,10 +231,6 @@
     margin-top: 4px;
 }
 
-.form__submit:hover {
-    color: white;
-}
-
 .result-block__main-container {
     display: flex;
     justify-content: space-between;
