@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 20, 2023 lúc 10:15 AM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Dec 20, 2023 at 11:48 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `database_se104`
+-- Database: `database_se104`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accofea`
+-- Table structure for table `accofea`
 --
 
 CREATE TABLE `accofea` (
@@ -33,7 +33,7 @@ CREATE TABLE `accofea` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accofea`
+-- Dumping data for table `accofea`
 --
 
 INSERT INTO `accofea` (`fea_id`, `acco_id`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `accofea` (`fea_id`, `acco_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accoimg`
+-- Table structure for table `accoimg`
 --
 
 CREATE TABLE `accoimg` (
@@ -70,7 +70,7 @@ CREATE TABLE `accoimg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accoimg`
+-- Dumping data for table `accoimg`
 --
 
 INSERT INTO `accoimg` (`acco_id`, `acco_img_url`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `accoimg` (`acco_id`, `acco_img_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accommodation`
+-- Table structure for table `accommodation`
 --
 
 CREATE TABLE `accommodation` (
@@ -112,19 +112,19 @@ CREATE TABLE `accommodation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accommodation`
+-- Dumping data for table `accommodation`
 --
 
 INSERT INTO `accommodation` (`acco_id`, `acco_type`, `acco_star`, `acco_tiny_img_url`, `acco_name`, `acco_logan`, `acco_detail`, `acco_exac_location`, `city_id`, `prov_id`, `acco_location_link`) VALUES
-(1, 'Hotel', 4, 'acc001.jpg', 'Khách sạn Quê Hương', 'Quê Hương là thiên đường', 'Khách sạn hướng ra sông, có nhà hang.', '1 Đường Nguyễn Trung Trực', 1, 1, 'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
-(2, 'Resort', 5, 'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise', 'Khách sạn kết hợp khu trung tâm thương mại.', '22 Đường Trần Huỳnh', NULL, 2, 'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
-(3, 'Hotel', 5, 'acc003.jpg', 'LARA HOTEL LONG XUYEN', 'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.', '46-48 Đường Hùng Vương', 5, 6, 'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
-(4, 'Resort', 2, 'acc004.jpg', 'Homestay Coco Island', NULL, 'Khách sạn 2 sao.', '97 Tân Thạch', 2, 3, 'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
+(1, 'Hotel', 4, 'acc001.jpg', 'Khách sạn Quê Hương', 'Quê Hương là thiên đường', 'Khách sạn hướng ra sông, có nhà hàng. Có thể nhìn toàn bộ thành phố từ trên cao. Phục vụ 24/24, có dịch vụ giải trí đa dạng ở khách sạn.', '1 Đường Nguyễn Trung Trực', 1, 1, 'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
+(2, 'Resort', 5, 'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise', 'Khách sạn kết hợp khu trung tâm thương mại. Nhiều tiện ích được tích hợp vào nội thất trong Hotel. Phục vụ 24/7.', '22 Đường Trần Huỳnh', NULL, 2, 'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
+(3, 'Hotel', 5, 'acc003.jpg', 'LARA HOTEL LONG XUYEN', 'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng. Tận hưởng cảm giác gần gũi với thiên nhiên, yên bình. Nhiều hình thức giải trí vui nhộn.', '46-48 Đường Hùng Vương', 5, 6, 'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
+(4, 'Resort', 2, 'acc004.jpg', 'Homestay Coco Island', NULL, 'Khách sạn 2 sao. Có các hình thức dịch vụ đa dạng, thường trực 24/24. Có buffer sáng miễn phí.', '97 Tân Thạch', 2, 3, 'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -134,7 +134,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_nickname`, `admin_pass`) VALUES
@@ -145,7 +145,7 @@ INSERT INTO `admin` (`admin_id`, `admin_nickname`, `admin_pass`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `authuser`
+-- Table structure for table `authuser`
 --
 
 CREATE TABLE `authuser` (
@@ -162,7 +162,7 @@ CREATE TABLE `authuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `authuser`
+-- Dumping data for table `authuser`
 --
 
 INSERT INTO `authuser` (`au_user_id`, `au_user_first_name`, `au_user_last_name`, `au_user_email`, `au_user_pass`, `au_user_avt_url`, `au_user_sex`, `au_user_birthday`, `bank_default_id`, `debit_default_id`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `authuser` (`au_user_id`, `au_user_first_name`, `au_user_last_name`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bankcard`
+-- Table structure for table `bankcard`
 --
 
 CREATE TABLE `bankcard` (
@@ -186,7 +186,7 @@ CREATE TABLE `bankcard` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bankcard`
+-- Dumping data for table `bankcard`
 --
 
 INSERT INTO `bankcard` (`bank_id`, `bank_name`, `bank_branch`, `bank_num`, `bank_name_pers`, `au_user_id`) VALUES
@@ -197,7 +197,7 @@ INSERT INTO `bankcard` (`bank_id`, `bank_name`, `bank_branch`, `bank_num`, `bank
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `booking`
+-- Table structure for table `booking`
 --
 
 CREATE TABLE `booking` (
@@ -224,7 +224,7 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `booking`
+-- Dumping data for table `booking`
 --
 
 INSERT INTO `booking` (`book_id`, `acco_id`, `au_user_id`, `book_datetime`, `book_start_datetime`, `book_end_datetime`, `book_num_adult`, `book_num_child`, `book_cost_before`, `book_cost_after`, `book_first_name`, `book_last_name`, `book_email`, `book_phone`, `pay_id`, `book_note`, `cancel_cost`, `book_status`, `book_is_paid`, `rea_id`) VALUES
@@ -263,7 +263,7 @@ INSERT INTO `booking` (`book_id`, `acco_id`, `au_user_id`, `book_datetime`, `boo
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bookingdetail`
+-- Table structure for table `bookingdetail`
 --
 
 CREATE TABLE `bookingdetail` (
@@ -275,7 +275,7 @@ CREATE TABLE `bookingdetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bookingdetail`
+-- Dumping data for table `bookingdetail`
 --
 
 INSERT INTO `bookingdetail` (`book_id`, `room_id`, `book_room_cost_before`, `book_room_cost_after`, `book_num_room`) VALUES
@@ -292,7 +292,7 @@ INSERT INTO `bookingdetail` (`book_id`, `room_id`, `book_room_cost_before`, `boo
 (10, 10, 2400000, 1400000, 1);
 
 --
--- Bẫy `bookingdetail`
+-- Triggers `bookingdetail`
 --
 DELIMITER $$
 CREATE TRIGGER `trg_UpdateBookingTotalCost_Insert` AFTER INSERT ON `bookingdetail` FOR EACH ROW BEGIN
@@ -336,7 +336,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `city`
+-- Table structure for table `city`
 --
 
 CREATE TABLE `city` (
@@ -347,7 +347,7 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `city`
+-- Dumping data for table `city`
 --
 
 INSERT INTO `city` (`city_id`, `city_name`, `city_url`, `prov_id`) VALUES
@@ -360,7 +360,7 @@ INSERT INTO `city` (`city_id`, `city_name`, `city_url`, `prov_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `debitcard`
+-- Table structure for table `debitcard`
 --
 
 CREATE TABLE `debitcard` (
@@ -375,7 +375,7 @@ CREATE TABLE `debitcard` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `debitcard`
+-- Dumping data for table `debitcard`
 --
 
 INSERT INTO `debitcard` (`debit_id`, `debit_num`, `debit_end_date`, `debit_CCV`, `debit_name`, `debit_address`, `debit_postal`, `au_user_id`) VALUES
@@ -386,7 +386,7 @@ INSERT INTO `debitcard` (`debit_id`, `debit_num`, `debit_end_date`, `debit_CCV`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `extension`
+-- Table structure for table `extension`
 --
 
 CREATE TABLE `extension` (
@@ -395,7 +395,7 @@ CREATE TABLE `extension` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `extension`
+-- Dumping data for table `extension`
 --
 
 INSERT INTO `extension` (`exte_id`, `exte_name`) VALUES
@@ -413,7 +413,7 @@ INSERT INTO `extension` (`exte_id`, `exte_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `feature`
+-- Table structure for table `feature`
 --
 
 CREATE TABLE `feature` (
@@ -422,7 +422,7 @@ CREATE TABLE `feature` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `feature`
+-- Dumping data for table `feature`
 --
 
 INSERT INTO `feature` (`fea_id`, `fea_name`) VALUES
@@ -436,7 +436,7 @@ INSERT INTO `feature` (`fea_id`, `fea_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `notification`
+-- Table structure for table `notification`
 --
 
 CREATE TABLE `notification` (
@@ -450,7 +450,7 @@ CREATE TABLE `notification` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `notification`
+-- Dumping data for table `notification`
 --
 
 INSERT INTO `notification` (`noti_id`, `noti_type`, `noti_title`, `noti_subtitle`, `noti_datetime`, `noti_content`, `noti_dest_url`) VALUES
@@ -464,7 +464,7 @@ INSERT INTO `notification` (`noti_id`, `noti_type`, `noti_title`, `noti_subtitle
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `payingmethod`
+-- Table structure for table `payingmethod`
 --
 
 CREATE TABLE `payingmethod` (
@@ -473,7 +473,7 @@ CREATE TABLE `payingmethod` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `payingmethod`
+-- Dumping data for table `payingmethod`
 --
 
 INSERT INTO `payingmethod` (`pay_id`, `pay_name`) VALUES
@@ -484,7 +484,7 @@ INSERT INTO `payingmethod` (`pay_id`, `pay_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `province`
+-- Table structure for table `province`
 --
 
 CREATE TABLE `province` (
@@ -494,7 +494,7 @@ CREATE TABLE `province` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `province`
+-- Dumping data for table `province`
 --
 
 INSERT INTO `province` (`prov_id`, `prov_name`, `prov_url`) VALUES
@@ -508,7 +508,7 @@ INSERT INTO `province` (`prov_id`, `prov_name`, `prov_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `rating`
+-- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
@@ -520,7 +520,7 @@ CREATE TABLE `rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `rating`
+-- Dumping data for table `rating`
 --
 
 INSERT INTO `rating` (`au_user_id`, `room_id`, `rating_datetime`, `rating_context`, `rating_point`) VALUES
@@ -543,6 +543,25 @@ INSERT INTO `rating` (`au_user_id`, `room_id`, `rating_datetime`, `rating_contex
 (1, 4, '2023-11-12 13:15:00', 'Phòng tắm tiện nghi, đầy đủ vật dụng.', 9.7),
 (1, 4, '2023-11-15 20:45:00', 'Giá cả hợp lý, phòng sạch sẽ.', 8.8),
 (1, 5, '2023-10-31 19:30:00', 'Phòng đẹp nhưng phục vụ có thái độ.', 7.0),
+(1, 6, '2023-10-27 14:30:00', 'Phòng sạch sẽ, thơm.', 9.5),
+(1, 7, '2023-09-22 11:30:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.', 9.7),
+(1, 7, '2023-09-25 11:30:00', 'Đồ ăn ngon, chất lượng.', 9.8),
+(1, 7, '2023-10-20 16:15:00', 'Đồ ăn ngon, chất lượng.', 9.8),
+(1, 7, '2023-10-25 12:15:00', 'Bữa tối ngon miệng, phục vụ nhanh chóng.', 9.8),
+(1, 7, '2023-10-27 12:45:00', 'Bể bơi sạch sẽ, thích hợp cho gia đình.', 9.6),
+(1, 7, '2023-11-05 14:30:00', 'Không gian phòng ấm cúng, nhân viên nhiệt tình.', 9.3),
+(1, 8, '2023-10-07 08:45:00', 'Nhân viên lễ tân nhiệt tình, nhanh nhẹn.', 9.2),
+(1, 8, '2023-10-29 10:45:00', 'Phòng tiện nghi, rất đáng tiền.', 9.5),
+(1, 8, '2023-11-10 11:15:00', 'Bữa sáng ngon miệng, đa dạng lựa chọn.', 9.8),
+(1, 9, '2023-09-20 14:00:00', 'Đội ngũ nhân viên phục vụ chu đáo.', 9.5),
+(1, 9, '2023-09-24 14:00:00', 'Dịch vụ đáng giá tiền, phòng sạch sẽ.', 9.5),
+(1, 9, '2023-09-26 14:45:00', 'Khách sạn nằm gần các điểm tham quan.', 9.5),
+(1, 9, '2023-10-05 14:45:00', 'Đội ngũ nhân viên phục vụ chu đáo.', 9.5),
+(1, 9, '2023-10-30 16:15:00', 'Tuyệt vời!!!!', 9.8),
+(1, 9, '2023-11-12 13:15:00', 'Phòng tắm tiện nghi, đầy đủ vật dụng.', 9.7),
+(1, 9, '2023-11-15 20:45:00', 'Giá cả hợp lý, phòng sạch sẽ.', 8.8),
+(1, 10, '2023-10-02 09:30:00', 'Khách sạn nằm gần các điểm tham quan.', 9.5),
+(1, 10, '2023-10-31 19:30:00', 'Phòng đẹp nhưng phục vụ có thái độ.', 7.0),
 (2, 2, '2023-10-02 10:00:00', 'Dịch vụ phòng sạch sẽ, thái độ phục vụ tốt.', 9.4),
 (2, 2, '2023-10-28 11:00:00', 'Dịch vụ phòng tốt, lễ tân lịch sự.', 10.0),
 (2, 2, '2023-11-20 12:30:00', 'Dịch vụ chăm sóc khách hàng xuất sắc.', 9.7),
@@ -562,6 +581,25 @@ INSERT INTO `rating` (`au_user_id`, `room_id`, `rating_datetime`, `rating_contex
 (2, 5, '2023-11-12 18:45:00', 'Nhân viên nhanh nhẹn, phục vụ chu đáo.', 9.6),
 (2, 5, '2023-11-20 21:00:00', 'Phòng đẹp, view hồ hút mắt.', 9.7),
 (2, 5, '2023-11-30 22:00:00', 'Phòng ốc rộng rãi, view tuyệt vời.', 9.9),
+(2, 7, '2023-10-02 10:00:00', 'Dịch vụ phòng sạch sẽ, thái độ phục vụ tốt.', 9.4),
+(2, 7, '2023-10-28 11:00:00', 'Dịch vụ phòng tốt, lễ tân lịch sự.', 10.0),
+(2, 7, '2023-11-20 12:30:00', 'Dịch vụ chăm sóc khách hàng xuất sắc.', 9.7),
+(2, 8, '2023-09-23 20:00:00', 'Phòng được trang bị đầy đủ tiện nghi.', 9.7),
+(2, 8, '2023-09-25 12:30:00', 'Phòng được trang bị đầy đủ tiện nghi.', 9.7),
+(2, 8, '2023-10-05 09:30:00', 'Không gian quán bar thoải mái, đồ uống ngon.', 9.7),
+(2, 8, '2023-11-02 09:30:00', 'Không gian lễ tân sang trọng.', 9.7),
+(2, 8, '2023-11-05 09:00:00', 'Không gian thoải mái, nhân viên thân thiện.', 9.2),
+(2, 8, '2023-11-25 20:00:00', 'Không gian quán bar thoải mái, đồ uống ngon.', 9.6),
+(2, 9, '2023-10-30 14:15:00', 'Thích ở đây sự riêng tư', 9.8),
+(2, 9, '2023-11-15 16:45:00', 'Dịch vụ phòng hỗ trợ nhanh chóng.', 9.5),
+(2, 10, '2023-09-21 18:45:00', 'Phòng ốc sạch sẽ, trang thiết bị đầy đủ.', 9.6),
+(2, 10, '2023-09-23 19:30:00', 'Dịch vụ đáng khen ngợi, nhân viên thân thiện.', 9.6),
+(2, 10, '2023-10-10 19:30:00', 'Phòng ốc sạch sẽ, trang thiết bị đầy đủ.', 9.6),
+(2, 10, '2023-10-17 19:30:00', 'Dịch vụ đáng giá tiền.', 9.5),
+(2, 10, '2023-10-31 13:30:00', 'sạch, đẹp, có tiện ích đầy đủ.', 9.7),
+(2, 10, '2023-11-12 18:45:00', 'Nhân viên nhanh nhẹn, phục vụ chu đáo.', 9.6),
+(2, 10, '2023-11-20 21:00:00', 'Phòng đẹp, view hồ hút mắt.', 9.7),
+(2, 10, '2023-11-30 22:00:00', 'Phòng ốc rộng rãi, view tuyệt vời.', 9.9),
 (3, 1, '2023-09-20 16:15:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.', 9.3),
 (3, 1, '2023-09-29 17:00:00', 'Phòng ốc rộng rãi, thoải mái.', 9.4),
 (3, 1, '2023-10-17 16:15:00', 'Phòng ốc thoải mái, đầy đủ tiện nghi.', 9.3),
@@ -571,10 +609,20 @@ INSERT INTO `rating` (`au_user_id`, `room_id`, `rating_datetime`, `rating_contex
 (3, 1, '2023-11-25 17:30:00', 'Không gian yên tĩnh, thích hợp cho công việc.', 9.6),
 (3, 1, '2023-11-25 18:15:00', 'Khách sạn nằm gần trung tâm thành phố, thuận tiện di chuyển.', 9.5),
 (3, 2, '2023-10-28 13:00:00', '10đ tuyệt vời.', 10.0),
-(3, 3, '2023-10-29 09:45:00', 'Phòng có view tuyệt đẹpppppp.', 9.0);
+(3, 3, '2023-10-29 09:45:00', 'Phòng có view tuyệt đẹpppppp.', 9.0),
+(3, 6, '2023-09-20 16:15:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.', 9.3),
+(3, 6, '2023-09-29 17:00:00', 'Phòng ốc rộng rãi, thoải mái.', 9.4),
+(3, 6, '2023-10-17 16:15:00', 'Phòng ốc thoải mái, đầy đủ tiện nghi.', 9.3),
+(3, 6, '2023-11-11 16:30:00', 'Đồ ăn khách sạn dở nhưng dịch vụ tốt.', 8.0),
+(3, 6, '2023-11-15 17:00:00', 'Dịch vụ phòng tận tâm, đáng giá tiền.', 9.3),
+(3, 6, '2023-11-22 15:00:00', 'Thức ăn phong phú, hấp dẫn.', 9.8),
+(3, 6, '2023-11-25 17:30:00', 'Không gian yên tĩnh, thích hợp cho công việc.', 9.6),
+(3, 6, '2023-11-25 18:15:00', 'Khách sạn nằm gần trung tâm thành phố, thuận tiện di chuyển.', 9.5),
+(3, 7, '2023-10-28 13:00:00', '10đ tuyệt vời.', 10.0),
+(3, 8, '2023-10-29 09:45:00', 'Phòng có view tuyệt đẹpppppp.', 9.0);
 
 --
--- Bẫy `rating`
+-- Triggers `rating`
 --
 DELIMITER $$
 CREATE TRIGGER `trg_RoomAvgRating_Insert` AFTER INSERT ON `rating` FOR EACH ROW BEGIN
@@ -611,7 +659,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `reasoncancel`
+-- Table structure for table `reasoncancel`
 --
 
 CREATE TABLE `reasoncancel` (
@@ -620,7 +668,7 @@ CREATE TABLE `reasoncancel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `reasoncancel`
+-- Dumping data for table `reasoncancel`
 --
 
 INSERT INTO `reasoncancel` (`rea_id`, `rea_description`) VALUES
@@ -634,7 +682,7 @@ INSERT INTO `reasoncancel` (`rea_id`, `rea_description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roomexte`
+-- Table structure for table `roomexte`
 --
 
 CREATE TABLE `roomexte` (
@@ -643,7 +691,7 @@ CREATE TABLE `roomexte` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roomexte`
+-- Dumping data for table `roomexte`
 --
 
 INSERT INTO `roomexte` (`room_id`, `exte_id`) VALUES
@@ -751,7 +799,7 @@ INSERT INTO `roomexte` (`room_id`, `exte_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roomtype`
+-- Table structure for table `roomtype`
 --
 
 CREATE TABLE `roomtype` (
@@ -775,7 +823,7 @@ CREATE TABLE `roomtype` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roomtype`
+-- Dumping data for table `roomtype`
 --
 
 INSERT INTO `roomtype` (`room_id`, `room_name`, `room_class`, `room_type`, `room_max_adult`, `room_max_child`, `room_single_bed`, `room_double_bed`, `room_total`, `room_details_img_url`, `room_area`, `room_cost`, `room_discount`, `room_date_end_discount`, `room_avg_rating`, `room_count_rating`, `acco_id`) VALUES
@@ -784,16 +832,16 @@ INSERT INTO `roomtype` (`room_id`, `room_name`, `room_class`, `room_type`, `room
 (3, 'Phòng đôi Cao cấp nhìn thành phố', 'Cao cấp', 'Phòng đôi', 2, 1, 0, 1, 7, 'room_3.jpg', 38.00, 2200000.00, 0.20, '2023-04-30', 9.51, 10, 1),
 (4, 'Phòng gia đình Cao cấp có không gian chung', 'Cao cấp', 'Phòng gia ', 2, 2, 1, 2, 3, 'room_4.jpg', 45.20, 3000000.00, NULL, NULL, 9.51, 10, 2),
 (5, 'Phòng đơn Tiêu chuẩn không gian yên tĩnh', 'Tiêu chuẩn', 'Phòng đơn', 1, 0, 1, 0, 12, 'room_5.jpg', 32.00, 1500000.00, NULL, NULL, 9.35556, 9, 2),
-(6, 'Phòng gia đình Cao cấp có buffet sáng', 'Cao cấp', 'Phòng gia ', 2, 2, 1, 2, 5, 'room_6.jpg', 48.70, 3200000.00, NULL, NULL, 0, 0, 2),
-(7, 'Phòng gia đình Cao cấp nhìn ra biển', 'Cao cấp', 'Phòng gia ', 2, 2, 1, 2, 4, 'room_7.jpg', 50.00, 3500000.00, 0.15, '2023-03-31', 0, 0, 3),
-(8, 'Phòng đơn Tiêu chuẩn có không gian làm việc', 'Tiêu chuẩn', 'Phòng đơn', 1, 0, 1, 0, 8, 'room_8.jpg', 30.00, 1200000.00, 0.05, '2023-02-28', 0, 0, 3),
-(9, 'Phòng đôi Thượng hạng có bồn tắm', 'Thượng hạng', 'Phòng đôi', 2, 1, 0, 1, 6, 'room_9.jpg', 28.50, 1800000.00, NULL, NULL, 0, 0, 4),
-(10, 'Phòng đơn Tiêu chuẩn phục vụ 24/24', 'Tiêu chuẩn', 'Phòng đơn', 1, 0, 1, 0, 9, 'room_10.jpg', 29.80, 1100000.00, 0.10, '2023-05-31', 0, 0, 4);
+(6, 'Phòng gia đình Cao cấp có buffet sáng', 'Cao cấp', 'Phòng gia ', 2, 2, 1, 2, 5, 'room_6.jpg', 48.70, 3200000.00, NULL, NULL, 9.3, 9, 2),
+(7, 'Phòng gia đình Cao cấp nhìn ra biển', 'Cao cấp', 'Phòng gia ', 2, 2, 1, 2, 4, 'room_7.jpg', 50.00, 3500000.00, 0.15, '2023-03-31', 9.71, 10, 3),
+(8, 'Phòng đơn Tiêu chuẩn có không gian làm việc', 'Tiêu chuẩn', 'Phòng đơn', 1, 0, 1, 0, 8, 'room_8.jpg', 30.00, 1200000.00, 0.05, '2023-02-28', 9.51, 10, 3),
+(9, 'Phòng đôi Thượng hạng có bồn tắm', 'Thượng hạng', 'Phòng đôi', 2, 1, 0, 1, 6, 'room_9.jpg', 28.50, 1800000.00, NULL, NULL, 9.51111, 9, 4),
+(10, 'Phòng đơn Tiêu chuẩn phục vụ 24/24', 'Tiêu chuẩn', 'Phòng đơn', 1, 0, 1, 0, 9, 'room_10.jpg', 29.80, 1100000.00, 0.10, '2023-05-31', 9.37, 10, 4);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roomtypeimg`
+-- Table structure for table `roomtypeimg`
 --
 
 CREATE TABLE `roomtypeimg` (
@@ -802,7 +850,7 @@ CREATE TABLE `roomtypeimg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roomtypeimg`
+-- Dumping data for table `roomtypeimg`
 --
 
 INSERT INTO `roomtypeimg` (`room_id`, `room_type_image_url`) VALUES
@@ -869,7 +917,7 @@ INSERT INTO `roomtypeimg` (`room_id`, `room_type_image_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `usernoti`
+-- Table structure for table `usernoti`
 --
 
 CREATE TABLE `usernoti` (
@@ -879,7 +927,7 @@ CREATE TABLE `usernoti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `usernoti`
+-- Dumping data for table `usernoti`
 --
 
 INSERT INTO `usernoti` (`au_user_id`, `noti_id`, `usernoti_is_read`) VALUES
@@ -892,7 +940,7 @@ INSERT INTO `usernoti` (`au_user_id`, `noti_id`, `usernoti_is_read`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_acco`
+-- Stand-in structure for view `view_acco`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_acco` (
@@ -914,7 +962,7 @@ CREATE TABLE `view_acco` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_authuser`
+-- Stand-in structure for view `view_authuser`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_authuser` (
@@ -930,7 +978,7 @@ CREATE TABLE `view_authuser` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_bankcard`
+-- Stand-in structure for view `view_bankcard`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_bankcard` (
@@ -943,7 +991,7 @@ CREATE TABLE `view_bankcard` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_booking_admin`
+-- Stand-in structure for view `view_booking_admin`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_booking_admin` (
@@ -973,7 +1021,7 @@ CREATE TABLE `view_booking_admin` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_booking_detail`
+-- Stand-in structure for view `view_booking_detail`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_booking_detail` (
@@ -1004,7 +1052,7 @@ CREATE TABLE `view_booking_detail` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_booking_history`
+-- Stand-in structure for view `view_booking_history`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_booking_history` (
@@ -1036,7 +1084,7 @@ CREATE TABLE `view_booking_history` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_chart_dashboard`
+-- Stand-in structure for view `view_chart_dashboard`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_chart_dashboard` (
@@ -1049,7 +1097,7 @@ CREATE TABLE `view_chart_dashboard` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_debitcard`
+-- Stand-in structure for view `view_debitcard`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_debitcard` (
@@ -1062,7 +1110,7 @@ CREATE TABLE `view_debitcard` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_name_fea`
+-- Stand-in structure for view `view_name_fea`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_name_fea` (
@@ -1074,7 +1122,7 @@ CREATE TABLE `view_name_fea` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_notification`
+-- Stand-in structure for view `view_notification`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_notification` (
@@ -1090,7 +1138,7 @@ CREATE TABLE `view_notification` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_rating`
+-- Stand-in structure for view `view_rating`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_rating` (
@@ -1104,7 +1152,7 @@ CREATE TABLE `view_rating` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_rating_admin`
+-- Stand-in structure for view `view_rating_admin`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_rating_admin` (
@@ -1123,7 +1171,7 @@ CREATE TABLE `view_rating_admin` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_room_exte`
+-- Stand-in structure for view `view_room_exte`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_room_exte` (
@@ -1136,7 +1184,7 @@ CREATE TABLE `view_room_exte` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc đóng vai cho view `view_room_rating`
+-- Stand-in structure for view `view_room_rating`
 -- (See below for the actual view)
 --
 CREATE TABLE `view_room_rating` (
@@ -1153,7 +1201,7 @@ CREATE TABLE `view_room_rating` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_acco`
+-- Structure for view `view_acco`
 --
 DROP TABLE IF EXISTS `view_acco`;
 
@@ -1162,7 +1210,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_authuser`
+-- Structure for view `view_authuser`
 --
 DROP TABLE IF EXISTS `view_authuser`;
 
@@ -1171,7 +1219,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_bankcard`
+-- Structure for view `view_bankcard`
 --
 DROP TABLE IF EXISTS `view_bankcard`;
 
@@ -1180,7 +1228,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_booking_admin`
+-- Structure for view `view_booking_admin`
 --
 DROP TABLE IF EXISTS `view_booking_admin`;
 
@@ -1189,7 +1237,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_booking_detail`
+-- Structure for view `view_booking_detail`
 --
 DROP TABLE IF EXISTS `view_booking_detail`;
 
@@ -1198,7 +1246,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_booking_history`
+-- Structure for view `view_booking_history`
 --
 DROP TABLE IF EXISTS `view_booking_history`;
 
@@ -1207,7 +1255,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_chart_dashboard`
+-- Structure for view `view_chart_dashboard`
 --
 DROP TABLE IF EXISTS `view_chart_dashboard`;
 
@@ -1216,7 +1264,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_debitcard`
+-- Structure for view `view_debitcard`
 --
 DROP TABLE IF EXISTS `view_debitcard`;
 
@@ -1225,7 +1273,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_name_fea`
+-- Structure for view `view_name_fea`
 --
 DROP TABLE IF EXISTS `view_name_fea`;
 
@@ -1234,7 +1282,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_notification`
+-- Structure for view `view_notification`
 --
 DROP TABLE IF EXISTS `view_notification`;
 
@@ -1243,7 +1291,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_rating`
+-- Structure for view `view_rating`
 --
 DROP TABLE IF EXISTS `view_rating`;
 
@@ -1252,7 +1300,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_rating_admin`
+-- Structure for view `view_rating_admin`
 --
 DROP TABLE IF EXISTS `view_rating_admin`;
 
@@ -1261,7 +1309,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_room_exte`
+-- Structure for view `view_room_exte`
 --
 DROP TABLE IF EXISTS `view_room_exte`;
 
@@ -1270,31 +1318,31 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc cho view `view_room_rating`
+-- Structure for view `view_room_rating`
 --
 DROP TABLE IF EXISTS `view_room_rating`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_room_rating`  AS SELECT `rating`.`au_user_id` AS `au_user_id`, `rating`.`room_id` AS `room_id`, `rating`.`rating_datetime` AS `rating_datetime`, `rating`.`rating_context` AS `rating_context`, `rating`.`rating_point` AS `rating_point`, `roomtype`.`acco_id` AS `acco_id`, concat(`authuser`.`au_user_first_name`,' ',`authuser`.`au_user_last_name`) AS `au_user_full_name`, `authuser`.`au_user_avt_url` AS `au_user_avt_url` FROM ((`roomtype` join `rating` on(`roomtype`.`room_id` = `rating`.`room_id`)) join `authuser` on(`rating`.`au_user_id` = `authuser`.`au_user_id`)) ;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accofea`
+-- Indexes for table `accofea`
 --
 ALTER TABLE `accofea`
   ADD PRIMARY KEY (`fea_id`,`acco_id`),
   ADD KEY `acco_id` (`acco_id`);
 
 --
--- Chỉ mục cho bảng `accoimg`
+-- Indexes for table `accoimg`
 --
 ALTER TABLE `accoimg`
   ADD PRIMARY KEY (`acco_id`,`acco_img_url`);
 
 --
--- Chỉ mục cho bảng `accommodation`
+-- Indexes for table `accommodation`
 --
 ALTER TABLE `accommodation`
   ADD PRIMARY KEY (`acco_id`),
@@ -1303,7 +1351,7 @@ ALTER TABLE `accommodation`
   ADD KEY `prov_id` (`prov_id`);
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`),
@@ -1311,7 +1359,7 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `admin_nickname` (`admin_nickname`);
 
 --
--- Chỉ mục cho bảng `authuser`
+-- Indexes for table `authuser`
 --
 ALTER TABLE `authuser`
   ADD PRIMARY KEY (`au_user_id`),
@@ -1321,7 +1369,7 @@ ALTER TABLE `authuser`
   ADD KEY `FK_debit_id` (`debit_default_id`);
 
 --
--- Chỉ mục cho bảng `bankcard`
+-- Indexes for table `bankcard`
 --
 ALTER TABLE `bankcard`
   ADD PRIMARY KEY (`bank_id`),
@@ -1329,7 +1377,7 @@ ALTER TABLE `bankcard`
   ADD KEY `au_user_id` (`au_user_id`);
 
 --
--- Chỉ mục cho bảng `booking`
+-- Indexes for table `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`book_id`),
@@ -1340,7 +1388,7 @@ ALTER TABLE `booking`
   ADD KEY `acco_id` (`acco_id`);
 
 --
--- Chỉ mục cho bảng `bookingdetail`
+-- Indexes for table `bookingdetail`
 --
 ALTER TABLE `bookingdetail`
   ADD PRIMARY KEY (`book_id`,`room_id`),
@@ -1348,7 +1396,7 @@ ALTER TABLE `bookingdetail`
   ADD KEY `book_id` (`book_id`);
 
 --
--- Chỉ mục cho bảng `city`
+-- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`city_id`),
@@ -1357,7 +1405,7 @@ ALTER TABLE `city`
   ADD KEY `prov_id` (`prov_id`);
 
 --
--- Chỉ mục cho bảng `debitcard`
+-- Indexes for table `debitcard`
 --
 ALTER TABLE `debitcard`
   ADD PRIMARY KEY (`debit_id`),
@@ -1365,7 +1413,7 @@ ALTER TABLE `debitcard`
   ADD KEY `au_user_id` (`au_user_id`);
 
 --
--- Chỉ mục cho bảng `extension`
+-- Indexes for table `extension`
 --
 ALTER TABLE `extension`
   ADD PRIMARY KEY (`exte_id`),
@@ -1373,7 +1421,7 @@ ALTER TABLE `extension`
   ADD UNIQUE KEY `exte_name` (`exte_name`);
 
 --
--- Chỉ mục cho bảng `feature`
+-- Indexes for table `feature`
 --
 ALTER TABLE `feature`
   ADD PRIMARY KEY (`fea_id`),
@@ -1381,14 +1429,14 @@ ALTER TABLE `feature`
   ADD UNIQUE KEY `fea_name` (`fea_name`);
 
 --
--- Chỉ mục cho bảng `notification`
+-- Indexes for table `notification`
 --
 ALTER TABLE `notification`
   ADD PRIMARY KEY (`noti_id`),
   ADD UNIQUE KEY `noti_id` (`noti_id`);
 
 --
--- Chỉ mục cho bảng `payingmethod`
+-- Indexes for table `payingmethod`
 --
 ALTER TABLE `payingmethod`
   ADD PRIMARY KEY (`pay_id`),
@@ -1396,7 +1444,7 @@ ALTER TABLE `payingmethod`
   ADD UNIQUE KEY `pay_name` (`pay_name`);
 
 --
--- Chỉ mục cho bảng `province`
+-- Indexes for table `province`
 --
 ALTER TABLE `province`
   ADD PRIMARY KEY (`prov_id`),
@@ -1404,14 +1452,14 @@ ALTER TABLE `province`
   ADD UNIQUE KEY `prov_name` (`prov_name`);
 
 --
--- Chỉ mục cho bảng `rating`
+-- Indexes for table `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`au_user_id`,`room_id`,`rating_datetime`),
   ADD KEY `room_id` (`room_id`);
 
 --
--- Chỉ mục cho bảng `reasoncancel`
+-- Indexes for table `reasoncancel`
 --
 ALTER TABLE `reasoncancel`
   ADD PRIMARY KEY (`rea_id`),
@@ -1419,14 +1467,14 @@ ALTER TABLE `reasoncancel`
   ADD UNIQUE KEY `rea_description` (`rea_description`);
 
 --
--- Chỉ mục cho bảng `roomexte`
+-- Indexes for table `roomexte`
 --
 ALTER TABLE `roomexte`
   ADD PRIMARY KEY (`room_id`,`exte_id`),
   ADD KEY `exte_id` (`exte_id`);
 
 --
--- Chỉ mục cho bảng `roomtype`
+-- Indexes for table `roomtype`
 --
 ALTER TABLE `roomtype`
   ADD PRIMARY KEY (`room_id`),
@@ -1434,145 +1482,145 @@ ALTER TABLE `roomtype`
   ADD KEY `acco_id` (`acco_id`);
 
 --
--- Chỉ mục cho bảng `roomtypeimg`
+-- Indexes for table `roomtypeimg`
 --
 ALTER TABLE `roomtypeimg`
   ADD PRIMARY KEY (`room_id`,`room_type_image_url`);
 
 --
--- Chỉ mục cho bảng `usernoti`
+-- Indexes for table `usernoti`
 --
 ALTER TABLE `usernoti`
   ADD PRIMARY KEY (`au_user_id`,`noti_id`),
   ADD KEY `noti_id` (`noti_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `accommodation`
+-- AUTO_INCREMENT for table `accommodation`
 --
 ALTER TABLE `accommodation`
   MODIFY `acco_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `authuser`
+-- AUTO_INCREMENT for table `authuser`
 --
 ALTER TABLE `authuser`
   MODIFY `au_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `bankcard`
+-- AUTO_INCREMENT for table `bankcard`
 --
 ALTER TABLE `bankcard`
   MODIFY `bank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `booking`
+-- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
   MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT cho bảng `city`
+-- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
   MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `debitcard`
+-- AUTO_INCREMENT for table `debitcard`
 --
 ALTER TABLE `debitcard`
   MODIFY `debit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `extension`
+-- AUTO_INCREMENT for table `extension`
 --
 ALTER TABLE `extension`
   MODIFY `exte_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `feature`
+-- AUTO_INCREMENT for table `feature`
 --
 ALTER TABLE `feature`
   MODIFY `fea_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `notification`
+-- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
   MODIFY `noti_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `payingmethod`
+-- AUTO_INCREMENT for table `payingmethod`
 --
 ALTER TABLE `payingmethod`
   MODIFY `pay_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `province`
+-- AUTO_INCREMENT for table `province`
 --
 ALTER TABLE `province`
   MODIFY `prov_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `reasoncancel`
+-- AUTO_INCREMENT for table `reasoncancel`
 --
 ALTER TABLE `reasoncancel`
   MODIFY `rea_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `roomtype`
+-- AUTO_INCREMENT for table `roomtype`
 --
 ALTER TABLE `roomtype`
   MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `accofea`
+-- Constraints for table `accofea`
 --
 ALTER TABLE `accofea`
   ADD CONSTRAINT `accofea_ibfk_1` FOREIGN KEY (`fea_id`) REFERENCES `feature` (`fea_id`),
   ADD CONSTRAINT `accofea_ibfk_2` FOREIGN KEY (`acco_id`) REFERENCES `accommodation` (`acco_id`);
 
 --
--- Các ràng buộc cho bảng `accoimg`
+-- Constraints for table `accoimg`
 --
 ALTER TABLE `accoimg`
   ADD CONSTRAINT `accoimg_ibfk_1` FOREIGN KEY (`acco_id`) REFERENCES `accommodation` (`acco_id`);
 
 --
--- Các ràng buộc cho bảng `accommodation`
+-- Constraints for table `accommodation`
 --
 ALTER TABLE `accommodation`
   ADD CONSTRAINT `accommodation_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`),
   ADD CONSTRAINT `accommodation_ibfk_2` FOREIGN KEY (`prov_id`) REFERENCES `province` (`prov_id`);
 
 --
--- Các ràng buộc cho bảng `authuser`
+-- Constraints for table `authuser`
 --
 ALTER TABLE `authuser`
   ADD CONSTRAINT `FK_bank_id` FOREIGN KEY (`bank_default_id`) REFERENCES `bankcard` (`bank_id`),
   ADD CONSTRAINT `FK_debit_id` FOREIGN KEY (`debit_default_id`) REFERENCES `debitcard` (`debit_id`);
 
 --
--- Các ràng buộc cho bảng `bankcard`
+-- Constraints for table `bankcard`
 --
 ALTER TABLE `bankcard`
   ADD CONSTRAINT `bankcard_ibfk_1` FOREIGN KEY (`au_user_id`) REFERENCES `authuser` (`au_user_id`);
 
 --
--- Các ràng buộc cho bảng `booking`
+-- Constraints for table `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`pay_id`) REFERENCES `payingmethod` (`pay_id`),
@@ -1581,52 +1629,52 @@ ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_4` FOREIGN KEY (`acco_id`) REFERENCES `accommodation` (`acco_id`);
 
 --
--- Các ràng buộc cho bảng `bookingdetail`
+-- Constraints for table `bookingdetail`
 --
 ALTER TABLE `bookingdetail`
   ADD CONSTRAINT `bookingdetail_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `booking` (`book_id`),
   ADD CONSTRAINT `bookingdetail_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `roomtype` (`room_id`);
 
 --
--- Các ràng buộc cho bảng `city`
+-- Constraints for table `city`
 --
 ALTER TABLE `city`
   ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`prov_id`) REFERENCES `province` (`prov_id`);
 
 --
--- Các ràng buộc cho bảng `debitcard`
+-- Constraints for table `debitcard`
 --
 ALTER TABLE `debitcard`
   ADD CONSTRAINT `debitcard_ibfk_1` FOREIGN KEY (`au_user_id`) REFERENCES `authuser` (`au_user_id`);
 
 --
--- Các ràng buộc cho bảng `rating`
+-- Constraints for table `rating`
 --
 ALTER TABLE `rating`
   ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`au_user_id`) REFERENCES `authuser` (`au_user_id`),
   ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `roomtype` (`room_id`);
 
 --
--- Các ràng buộc cho bảng `roomexte`
+-- Constraints for table `roomexte`
 --
 ALTER TABLE `roomexte`
   ADD CONSTRAINT `roomexte_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `roomtype` (`room_id`),
   ADD CONSTRAINT `roomexte_ibfk_2` FOREIGN KEY (`exte_id`) REFERENCES `extension` (`exte_id`);
 
 --
--- Các ràng buộc cho bảng `roomtype`
+-- Constraints for table `roomtype`
 --
 ALTER TABLE `roomtype`
   ADD CONSTRAINT `roomtype_ibfk_1` FOREIGN KEY (`acco_id`) REFERENCES `accommodation` (`acco_id`);
 
 --
--- Các ràng buộc cho bảng `roomtypeimg`
+-- Constraints for table `roomtypeimg`
 --
 ALTER TABLE `roomtypeimg`
   ADD CONSTRAINT `roomtypeimg_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `roomtype` (`room_id`);
 
 --
--- Các ràng buộc cho bảng `usernoti`
+-- Constraints for table `usernoti`
 --
 ALTER TABLE `usernoti`
   ADD CONSTRAINT `usernoti_ibfk_1` FOREIGN KEY (`au_user_id`) REFERENCES `authuser` (`au_user_id`),
