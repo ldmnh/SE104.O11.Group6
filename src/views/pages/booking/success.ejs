@@ -68,7 +68,7 @@
 						<h3><%= data[0].room_class %></h3>
 						<div>
 							<span class="material-symbols-outlined">local_atm</span>
-							<p>Tổng giá: VND <%= data[0].book_cost_after %></p>
+							<p>Tổng giá: VND <%= data[0].book_cost_after_tocurrency %></p>
 						</div>
 						<div>
 							<span class="material-symbols-outlined">calendar_month</span>
@@ -91,11 +91,7 @@
 						</div>
 						<div>
 							<span class="material-symbols-outlined">bed</span>
-							<% var total = 0; %>
-							<% for (var i = 0; i < data.length; i++) { %>
-  								<% total += data[i].book_num_room; %>
-							<% } %>
-							<p><%= total %> phòng</p>
+							<p><%= datax[0].book_num_room %> phòng</p>
 						</div>
 					</div>
 					<a href="/booking/detail" class="order-btn" role="button">Xem chi tiết</a>

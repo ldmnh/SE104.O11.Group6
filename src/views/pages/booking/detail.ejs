@@ -88,7 +88,7 @@
 				<div class="detail__room room">
 					<h3> <%= book.room_name %> </h3>
 					<div class="room__content">
-						<img src="/imgs/accommodation/accommodation_1.jpg" alt="">
+						<img src="/imgs/room/<%= book.room_details_img_url %>" alt="<%= book.room_name %>">
 						<div>
 							<p class="room__room-class">Phòng <%= book.room_class %> </p>
 							<p class="room__quantity">Số lượng: <%= book.book_num_room %> </p>
