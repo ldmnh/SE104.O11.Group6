@@ -16,7 +16,8 @@ class AuthController {
             au_user_pass,
         } = req.body;
 
-        AuthUser.checkEmail(
+        // AuthUser.checkEmail(
+        AuthUser.findByEmail(
             { email: au_user_email },
             async function (err, result) {
                 if (err) {
