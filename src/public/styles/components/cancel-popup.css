@@ -1,16 +1,4 @@
 .modal {
-  position: fixed;
-  display: none;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-@import url("/styles/base.css");
-
-.modal {
 	position: fixed;
 	display: none;
 	z-index: 100;
@@ -42,9 +30,11 @@
 	padding: 22px 22px 21px 21px;
 	position: relative;
 }
-.close-icon{
+
+.close-icon {
 	cursor: pointer;
 }
+
 .cancel__content {
 	width: 530px;
 	height: 635px;

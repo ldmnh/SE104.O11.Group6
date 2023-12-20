@@ -46,7 +46,7 @@ INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, a
 VALUES
     ('Hotel',   4,  'acc001.jpg', 'Khách sạn Quê Hương',    'Quê Hương là thiên đường',                 'Khách sạn hướng ra sông, có nhà hang.',        '1 Đường Nguyễn Trung Trực',    1,      1,  'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
     ('Resort',  5,  'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise',               'Khách sạn kết hợp khu trung tâm thương mại.',  '22 Đường Trần Huỳnh',          NULL,   2,  'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
-    ('Hotel',   5,  'acc003.jpg', 'LARA HOTEL LONG XUYEN',  'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.',               '46-48 Đường Hùng Vương',       4,      5,  'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
+    ('Hotel',   5,  'acc003.jpg', 'LARA HOTEL LONG XUYEN',  'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.',               '46-48 Đường Hùng Vương',       5,      6,  'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
     ('Resort',  2,  'acc004.jpg', 'Homestay Coco Island',    NULL,                                      'Khách sạn 2 sao.',                             '97 Tân Thạch',                 2,      3,  'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
 
 INSERT INTO Feature (fea_name)
@@ -254,12 +254,12 @@ VALUES
 
 INSERT INTO Notification (noti_type, noti_title, noti_subtitle, noti_datetime, noti_content, noti_dest_url)
 VALUES
-    ('Type 1', 'CẬP NHẬT MẬT KHẨU',     'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.',     '2023-10-27 10:30:00', 'Content of Notification 1', NULL),
-    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-28 14:45:00', 'Content of Notification 2', NULL),
-    ('Type 1', 'CẬP NHẬT MẬT KHẨU',     'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.',     '2023-10-29 09:15:00', 'Content of Notification 3', NULL),
-    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-30 12:30:00', 'Content of Notification 4', NULL),
-    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS Vũng Tàu, đặt phòng ngay!!!', '2023-10-30 12:30:00', 'Content of Notification 4', NULL),
-    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  NULL,                                                                                               '2023-10-31 16:30:00', 'Content of Notification 5', NULL);
+    ('Type 1', 'CẬP NHẬT MẬT KHẨU',     'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.',     '2023-10-27 10:30:00', 'Bạn vừa cập nhật mật khẩu của mình thành công. Điều này là một bước quan trọng để bảo vệ thông tin cá nhân của bạn và đảm bảo an toàn khi sử dụng dịch vụ của chúng tôi. Để đảm bảo rằng hành động này là do bạn thực hiện, hãy kiểm tra lịch sử đăng nhập và thông báo bảo mật được gửi đến bạn.',    NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS, đặt phòng ngay!!!',          '2023-10-28 14:45:00', 'Mùa hè đã chính thức bắt đầu và 2WAYS không ngừng mang đến cho bạn những trải nghiệm không giới hạn và ưu đãi hấp dẫn nhất để tận hưởng mùa hè độc đáo này. Đặt phòng ngay hôm nay và bạn sẽ được trải nghiệm không gian thoải mái, dịch vụ chuyên nghiệp và những ưu đãi đặc biệt chỉ có tại 2WAYS.', NULL),
+    ('Type 1', 'CẬP NHẬT MẬT KHẨU',     'Bạn vừa cập nhật mật khẩu thành công. Hãy đảm bảo rằng hành động này được thực hiện bởi bạn.',     '2023-10-29 09:15:00', 'Bạn vừa cập nhật mật khẩu của mình thành công. Điều này là một bước quan trọng để bảo vệ thông tin cá nhân của bạn và đảm bảo an toàn khi sử dụng dịch vụ của chúng tôi. Để đảm bảo rằng hành động này là do bạn thực hiện, hãy kiểm tra lịch sử đăng nhập và thông báo bảo mật được gửi đến bạn.',    NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS, đặt phòng ngay!!!',          '2023-10-30 12:30:00', 'Mùa hè đã chính thức bắt đầu và 2WAYS không ngừng mang đến cho bạn những trải nghiệm không giới hạn và ưu đãi hấp dẫn nhất để tận hưởng mùa hè độc đáo này. Đặt phòng ngay hôm nay và bạn sẽ được trải nghiệm không gian thoải mái, dịch vụ chuyên nghiệp và những ưu đãi đặc biệt chỉ có tại 2WAYS.', NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS, đặt phòng ngay!!!',          '2023-10-30 12:30:00', 'Mùa hè đã chính thức bắt đầu và 2WAYS không ngừng mang đến cho bạn những trải nghiệm không giới hạn và ưu đãi hấp dẫn nhất để tận hưởng mùa hè độc đáo này. Đặt phòng ngay hôm nay và bạn sẽ được trải nghiệm không gian thoải mái, dịch vụ chuyên nghiệp và những ưu đãi đặc biệt chỉ có tại 2WAYS.', NULL),
+    ('Type 2', 'HÈ THẢ GA CÙNG 2WAYS',  'Tận hưởng mùa hè sôi động của bạn với những ưu đãi lớn nhất từ 2WAYS, đặt phòng ngay!!!',          '2023-10-31 16:30:00', 'Mùa hè đã chính thức bắt đầu và 2WAYS không ngừng mang đến cho bạn những trải nghiệm không giới hạn và ưu đãi hấp dẫn nhất để tận hưởng mùa hè độc đáo này. Đặt phòng ngay hôm nay và bạn sẽ được trải nghiệm không gian thoải mái, dịch vụ chuyên nghiệp và những ưu đãi đặc biệt chỉ có tại 2WAYS.', NULL);
 
 INSERT INTO UserNoti (au_user_id, noti_id, usernoti_is_read)
 VALUES

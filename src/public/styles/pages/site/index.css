@@ -1,6 +1,5 @@
-@import url("/styles/base.css");
+@import url('/styles/base.css');
 @import url("/styles/partials/header-full.css");
-@import url("/styles/partials/footer.css");
 
 .container--index {
 	margin: 12px auto;

@@ -2,13 +2,17 @@
 const ejs = require('ejs')
 const path = require('path')
 const express = require('express')
-const app = express()
 const session = require('express-session')
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-var $ = require('jquery');  
+const cors = require('cors')
 
+// run express
+const app = express()
+
+// import config
 const cfg = require('./src/config/index')
+
+// import routes
 const route = require('./src/routes/index')
 
 // use session
@@ -18,10 +22,10 @@ app.use(session({
     saveUninitialized: false,
 }))
 
-const cors = require('cors');
+// use cors
 app.use(cors({
-    origin: 'http://127.0.0.1:3000',
-}));
+    origin: `http://${cfg.host}:${cfg.port}`,
+}))
 
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views'))
@@ -34,12 +38,8 @@ app.use(express.static(path.join('src', 'public',)))
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser('secret'))
 
-//set the path of the jquery file to be used from the node_module jquery package  
-app.use('/jquery',express.static(path.join(__dirname+'/node_modules/jquery/dist/')));  
-
-// route init
+// use route
 route(app)
 
 app.listen(cfg.port, () => {

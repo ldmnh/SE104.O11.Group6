@@ -222,6 +222,7 @@
 }
 
 .form__submit {
+    text-decoration: none;
     padding: 10px 28px;
     background-color: #FE9C0B;
     color: white;
@@ -232,7 +233,7 @@
 }
 
 .form__submit:hover {
-    color: white;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .result-block__main-container {
