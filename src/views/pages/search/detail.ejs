@@ -47,7 +47,7 @@
 						<a href="<%= accoDetail.acco_location_link %>" target="blank">
 							<%= accoDetail.acco_exac_location%>,
 							<% if (accoDetail.city_name) { %>
-							<%= accoDetail.city_name%>,
+							<%= accoDetail.city_name %>,
 							<% } %>
 							<% if (accoDetail.prov_name) {%>
 							<%= accoDetail.prov_name %>,
@@ -102,7 +102,7 @@
 				<input type="hidden" value="<%= room.room_cost_after %>" name="room_cost_after" class="form-control">
 				<%- include('../../components/room', {room}) %>
 				<% }) %>
-				<h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND <span class="total-price">0</span></span> </h2>
+				<h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND <span class="total-price">0</span></span> <span class="room__unit">/đêm</span></h2>
 				<div class="room-list__submit">
 					<button type="submit" class="room-list__submit-button">Đặt phòng</button>
 				</div>
