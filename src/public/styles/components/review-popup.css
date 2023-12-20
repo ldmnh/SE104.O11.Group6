@@ -98,7 +98,7 @@
 .counter--wraper {
     display: flex;
     width: max-content !important;
-    height: 58px;
+    margin:10px;
     padding: 10px;
     border: 1px solid var(--dark-gray);
     background: var(--white);
