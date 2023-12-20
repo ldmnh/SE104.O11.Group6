@@ -1,7 +1,7 @@
 <div class="noti-item__block" style="background: <%= (noti.usernoti_is_read == 0) ? '#00696D1A' : 'white' %>">
 	<img src="/imgs/user/<%=user.avatar%>" alt="img" class="noti-item__img">
-	<form action="/notifications/account-update" method="POST" class="noti-item__main">
-		<input type="hidden" name="noti_id" value="<%=noti.noti_id%>">
+	<form class="noti-item__main">
+		<input type="hidden" name="noti <%= index %>" value="<%=noti.noti_id%>">
 		<div>
 			<p class="noti-item__title"><%= noti.noti_title %></p>
 			<p class="noti-item__sub-title">

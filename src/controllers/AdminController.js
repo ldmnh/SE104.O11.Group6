@@ -41,7 +41,6 @@ class AdminController {
 
     // [GET] /admin/dashboard
     dashboard(req, res) {
-
         adminModel.getTotalRoomType(function (getTotalRoomType) {
             adminModel.getTotalBooking(function (getTotalBooking) {
                 adminModel.getTotalRating(function (getTotalRating) {
@@ -54,17 +53,7 @@ class AdminController {
 
                                 lastestRating: getLastestRating,
                                 lastestBooking: getLastestBooking,
-                            });
-
-                            // res.send({
-                            //     totalRoomType: getTotalRoomType,
-                            //     totalBooking: getTotalBooking,
-                            //     totalRating: getTotalRating,
-
-                            //     lastestRating: getLastestRating,
-                            //     lastestBooking: getLastestBooking,
-
-                            // });          
+                            });         
                         })
                     })
                 })
@@ -80,5 +69,6 @@ class AdminController {
         })
     }
 }
+
 
 module.exports = new AdminController()

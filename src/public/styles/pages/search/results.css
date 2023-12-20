@@ -27,7 +27,7 @@ hr {
 .content-container {
     width: 80%;
     max-width: 1152px;
-    margin: 0;
+    margin: 12px auto;
     padding: 12px 0;
     display: flex;
     justify-content: flex-start;

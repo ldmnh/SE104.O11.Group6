@@ -26,7 +26,7 @@ body {
     margin-bottom: 12px;
     width: 80%;
     max-width: 1152px;
-    margin: 0 auto;
+    margin: 12px auto;
     display: flex;
     gap: 12px;
 }
@@ -166,11 +166,13 @@ body {
 .logout-btn {
     cursor: pointer;
 }
+
 .form__debit-detail-container {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
+
 .form__card-detail,
 .form__debit-detail-one,
 .form__debit-credit-card,

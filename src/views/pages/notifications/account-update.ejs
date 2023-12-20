@@ -20,32 +20,30 @@
 		{ text: ' Cập nhật tài khoản', link: "/notifications/account-update"},
 	] }) %>
 
-	<main class="nofi-container">
-		<aside class="aside-wrapper">
-			<div class="aside-wrapper__aside-info">
-				<img class="aside-wrapper__aside-avatar" src="/imgs/user/<%=user.avatar%>" alt="avatar" />
-				<div class="aside-wrapper__aside-title">
-					<p>Thông báo</p>
-				</div>
-			</div>
-			<hr />
-			<div class="aside-wrapper__aside-section">
-				<a href="/notifications/account-update" class="btn-update">Cập nhật tài khoản</a>
+  <main class="nofi-container">
+    <aside class="aside-wrapper">
+      <div class="aside-wrapper__aside-info">
+        <img class="aside-wrapper__aside-avatar" src="/imgs/avatar.png" alt="avatar" />
+        <div class="aside-wrapper__aside-title">
+          <p>Thông báo</p>
+        </div>
+      </div>
+      <hr />
+      <div class="aside-wrapper__aside-section">
+        <!-- <p class="btn-update">Cập nhật tài khoản</p>
+        <p class="btn-promo">Thông tin khuyến mãi</p> -->
+        <a href="/notifications/account-update" class="btn-update">Cập nhật tài khoản</a>
 				<a href="/notifications/promotion" class="btn-promo">Thông tin khuyến mãi</a>
-			</div>
-		</aside>
-		<section class="nofi__main">
-			<form action="/notifications/read-all" method="POST">
-				<button class="btn--outlined pri" type="submit">Đánh dấu tất cả là đã đọc</button>
-			</form>
-			<% if (data_noti.length == 0) { %>
-			<h3>Bạn chưa có thông báo</h3>
-			<% } else { %>
-			<% data_noti.forEach(function (noti) { %>
-			<%- include('../../components/noti-item-account', {noti}) %>
-			<% }) %>
-			<% } %>
-
+      </div>
+    </aside>
+    <section class="nofi__main">
+      <button class="btn--outlined pri btn-read-all">Đánh dấu tất cả là đã đọc</button>
+      <% if (data_noti.length == 0) { %>
+      <h3>Bạn chưa có thông báo</h3>
+      <% } else { %>
+      <% for (let i = 0; i < data_noti.length; i++) {%>
+      <%- include('../../components/noti-item-account', {'noti': data_noti[i], 'index': i}) %>
+      <% }}%>
 
 		</section>
 	</main>

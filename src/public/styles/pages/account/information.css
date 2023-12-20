@@ -9,10 +9,6 @@ html {
     font-size: 16px;
     color: var(--black);
 }
-/* 
-body {
-    width: 100vw;
-} */
 
 .account-container {
     width: 80%;
@@ -152,6 +148,7 @@ body {
     border: none;
     font-size: 16px;
 }
+
 /* 
 .profile-btn,
 .history-btn,

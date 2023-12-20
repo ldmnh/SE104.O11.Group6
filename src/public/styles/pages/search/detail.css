@@ -1,6 +1,7 @@
 @import url('/styles/base.css');
 @import url('/styles/partials/header-small.css');
 @import url('/styles/components/room.css');
+@import url('/styles/components/room-detail-modal.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/search-bar.css');
 @import url('/styles/partials/footer.css');
@@ -16,7 +17,7 @@ body {
 .content-container {
     width: 80%;
     max-width: 1152px;
-    margin: 0 auto 2vh;
+    margin: 12px auto;
     display: inherit;
     flex-direction: column;
     justify-content: space-between;
@@ -414,4 +415,23 @@ body {
     display: inherit;
     flex-direction: column;
     gap: 12px;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+.comment__items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comment__items::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+.comment__items::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--bg-mint-green);
+}
+
+.comment__items::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

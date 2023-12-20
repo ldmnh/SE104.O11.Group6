@@ -2,11 +2,11 @@ const updateBtn = document.querySelector('.btn-update')
 const promoBtn = document.querySelector('.btn-promo')
 
 const redirect2updateView = () => {
-    window.location.href = 'http://127.0.0.1:3000/notifications/account-update'
+    window.location.href = '/notifications/account-update'
 }
 
 const redirect2promoView = () => {
-    window.location.href = 'http://127.0.0.1:3000/notifications/promotion'
+    window.location.href = '/notifications/promotion'
 }
 
 updateBtn.addEventListener('click', redirect2updateView)
@@ -19,6 +19,7 @@ const notiItems = document.querySelectorAll('.noti-item__block')
 const markAllReadButton = document.querySelector('.btn--outlined')
 const popupVisible = new Array(modals.length).fill(false)
 const form = document.querySelectorAll('.noti-item__main')
+const btnReadAll = document.querySelector('.btn-read-all')
 
 form.forEach((f, index) => {
     f.addEventListener('submit', e => {
@@ -27,11 +28,24 @@ form.forEach((f, index) => {
     })
 })
 
-// Lặp qua từng nút và gán sự kiện hiển thị pop-up
+// Lặp qua từng nút và gán sự kiện hiển thị pop-up, đánh dấu đã đọc cho thông báo đó
 modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
         modals[index].style.display = 'block'
         popupVisible[index] = true
+        notiItems[index].style.backgroundColor = 'white'
+
+        const noti_id = document.querySelector(`input[name = "noti ${index}"]`).value;
+
+        fetch("/notifications/account-update", {
+            method: 'POST',
+            body: JSON.stringify({
+                noti_id: noti_id
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
     }
 })
 
@@ -39,11 +53,7 @@ modalBtns.forEach((btn, index) => {
 closeBtns.forEach((closeBtn, index) => {
     closeBtn.onclick = function () {
         modals[index].style.display = 'none'
-        popupVisible[index] = false
-        if (popupVisible.some((visible) => visible)) {
-        } else {
-            form[index].submit()
-        }
+        popupVisible[index] = fals
     }
 })
 
@@ -53,11 +63,23 @@ window.onclick = function (e) {
         if (e.target == modal) {
             modal.style.display = 'none'
             popupVisible[index] = false
-            if (popupVisible.some((visible) => visible)) {
-            } else {
-                form[index].submit()
-            }
         }
     })
 }
 
+// Đánh dấu đã đọc tất cả
+btnReadAll.addEventListener("click", () => {
+    fetch("/notifications/read-all", {
+        method: "POST",
+        body: JSON.stringify({
+            noti_type: 1
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+
+    notiItems.forEach((item) => {
+        item.style.background = "white";
+    })
+})

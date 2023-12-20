@@ -5,42 +5,41 @@ const accountHistory = require('../models/accountHistory.model');
 class AccountController {
 
     // [GET] /account/information
-    information(req, res) {
+    accountInformation(req, res) {
         authuser.getInfoById({
             id: req.session.user?.id
         }, (err, result) => {
             if (err) {
                 res.status(500).json({
+                    statusCode: 500,
                     message: 'Lỗi truy vấn!!!',
                 });
                 throw err;
             }
 
-            if (result.length > 0) {
-                const data = {
-                    first_name: result[0].au_user_first_name,
-                    last_name: result[0].au_user_last_name,
-                    email: result[0].au_user_email,
-                    birthday: result[0].au_user_birthday,
-                    sex: result[0].au_user_sex,
-                    avatar: result[0].au_user_avt_url
-                }
-                res.status(200).render('./pages/account/information', {
-                    // res.status(200).json({
-                    message: 'Lấy thông tin tài khoản thành công',
-                    user: req.session.user,
-                    data
-                })
-            } else {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!',
-                });
+            if (result.length === 0) {
+                res.status(404).render('./pages/error/404')
+                return;
             }
+
+            const data = {
+                first_name: result[0].au_user_first_name,
+                last_name: result[0].au_user_last_name,
+                email: result[0].au_user_email,
+                birthday: result[0].au_user_birthday,
+                sex: result[0].au_user_sex,
+                avatar: result[0].au_user_avt_url
+            }
+            res.status(200).render('./pages/account/information', {
+                message: 'Lấy thông tin tài khoản thành công',
+                user: req.session.user,
+                data
+            })
         })
     }
 
     // [POST] /account/information
-    informationPost(req, res) {
+    putChangeInfo(req, res) {
         const id = req.session.user?.id;
         let { first_name, last_name, birthday, sex } = req.body;
 
@@ -69,33 +68,20 @@ class AccountController {
                 }
                 res.redirect('/account/information')
             })
-            // if (result.affectedRows === 0) {
-            //     res.status(404).json({
-            //         message: 'Không tìm thấy tài khoản!!!',
-            //     });
-            // } else {
-            // res.status(200).json({
-            //     message: 'Cập nhật thông tin tài khoản thành công',
-            // });
-            // }
         })
-        // res.status(200).json({ message: "/account/informationPut" })
     }
 
     // [GET] /account/history
-    history(req, res) {
+    getBookingHistory(req, res) {
         const id = req.session.user?.id;
         const page = req.query.page ? req.query.page : 1;
         accountHistory.getDetail({ id, page }, (err, bookingDetails, totalRow, totalPage, page, limit) => {
             if (err) {
-                res.status(404).render('./pages/site/error404')
-                // res.status(500).json({ message: 'Lỗi truy vấn getBookingDetails!!!' });
+                res.status(404).redirect('/error404')
                 throw err;
             }
 
-            // res.send({bookingDetails: bookingDetails})
             res.status(200).render('./pages/account/history', {
-                // res.status(200).json({
                 user: req.session.user,
                 bookingDetails,
                 totalRow,
@@ -107,27 +93,23 @@ class AccountController {
     }
 
     // [POST] /account/booking-history
-    addReview(req, res) {
+    addRating(req, res) {
         const id = req.session.user.id;
         const { room_id, rating_point, rating_context } = req.body;
         const rating_datetime = new Date()
-        console.log(rating_datetime)
-        console.log(req.body)
-        AccountModel.addReview({
+        AccountModel.addRating({
             room_id, rating_datetime, rating_point, rating_context, id
         }, (err, result) => {
             if (err) {
-                res.status(500).json({ message: "Lỗi truy vấn!" });
+                res.status(404).redirect('/error404')
                 throw err;
             }
             res.status(200).json({ message: "Thành công" });
-            // res.status(200).json({ message: "Thêm đánh giá phòng thành công" })
         })
-        // res.status(200).json({ message: "/account/addReview" })
     }
 
     // [GET] /account/card
-    card(req, res) {
+    getCards(req, res) {
         authuser.getBankCardsById({
             id: req.session.user?.id
         }, (err, result) => {
@@ -154,13 +136,11 @@ class AccountController {
                     bank_cards: req.session.user?.bank_cards,
                     debit_cards: req.session.user?.debit_cards
                 }
-                // res.status(200).render('./pages/account/card', { data })
 
                 res.status(200).render('./pages/account/card', {
                     user: req.session.user,
                     data
                 })
-                // res.status(200).json({ nav_tree__data, data })
             })
         })
     }
@@ -184,9 +164,7 @@ class AccountController {
             if (err) throw err;
 
             res.status(200).redirect('/account/card')
-            // json({message: "Thêm thẻ ngân hàng thành công",
         })
-        // res.status(200).json({ message: "/account/addBank" })
     }
 
     // [POST] /account/card/addDebit
@@ -211,27 +189,19 @@ class AccountController {
         }, (err, result) => {
             if (err) throw err;
             res.status(200).redirect('/account/card')
-            // res.status(200).json({
-            //     message: "Thêm thẻ tín dụng thành công",
-            // })
         })
-        // res.status(200).json({ message: "/account/addDebit" })
     }
 
-    // [PUT] /account/card/delBank
+    // [POST] /account/card/delBank
     delBank(req, res) {
         const { bank_id } = req.body
         AccountModel.delBank({
             "id": req.session.user?.id,
-            bank_id                    // bank_id lấy từ req.body
+            bank_id
         }, (err, result) => {
             if (err) throw err;
             res.status(200).redirect('/account/card')
-            // res.status(200).json({
-            //     massage: "Xóa thẻ ngân hàng thành công"
-            // })
         })
-        // res.status(200).json({ message: "/account/delBank" })
     }
 
     // [POST] /account/card/delDebit
@@ -239,16 +209,11 @@ class AccountController {
         const { debit_id } = req.body
         AccountModel.delDebit({
             "id": req.session.user?.id,
-            debit_id                   // bank_id lấy từ req.body
+            debit_id
         }, (err, result) => {
             if (err) throw err;
             res.status(200).redirect('/account/card')
-            // res.status(200).json({
-            //     massage: "Xóa thẻ tín dụng thành công"
-            // })
         })
-        // res.status(200).json({ message: "/account/delDebit" })
-        // res.status(200).redirect('/account/card')
     }
 
     // [GET] /account/change-password
@@ -256,5 +221,6 @@ class AccountController {
         res.status(200).render('./pages/account/change-password', { user: req.session.user })
     }
 }
+
 
 module.exports = new AccountController()

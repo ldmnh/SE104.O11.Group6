@@ -1,0 +1,131 @@
+.modal-content {
+    flex-direction: row;
+    border-radius: 8px;
+    border: none;
+}
+
+.modal-content h1,
+.modal-content h2,
+.modal-content p {
+    margin: 0;
+}
+
+.modal__view {
+    width: 60%;
+    display: inherit;
+    flex-direction: column;
+    gap: 36px;
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 24px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.modal__view h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal__view--big {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__view--big img {
+    width: 80%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.modal__view--big button span {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.modal__view--big button {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    background-color: var(--blue-gray);
+    border: none;
+    padding-top: 4px;
+    border-radius: 50%;
+}
+
+.modal__view--small {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.modal__view--small button {
+    width: 150px;
+    height: 86px;
+    background-color: transparent;
+    border: none;
+}
+
+.modal__view--small button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.modal__view--small button:focus {
+    border: 4px solid var(--primary-color-3);
+}
+
+.modal__detail {
+    width: 40%;
+    display: inherit;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.detail__info {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal__detail h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.modal__header {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.detail__item {
+    display: inherit;
+    gap: 12px;
+}
+
+.detail__item span {
+    color: var(--primary-color-1);
+}
+
+.detail__feature {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature__row {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.feature__col-left,
+.feature__col-right {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}

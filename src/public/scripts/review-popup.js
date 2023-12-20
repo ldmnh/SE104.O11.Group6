@@ -2,6 +2,7 @@
 const minusButtons = document.querySelectorAll(".minus");
 const plusButtons = document.querySelectorAll(".plus");
 const roomQuantityInputs = document.querySelectorAll("#room__quantity");
+
 // Thêm sự kiện cho nút -
 minusButtons.forEach((minusButton, index) => {
 	minusButton.addEventListener("click", () => {
@@ -17,9 +18,6 @@ minusButtons.forEach((minusButton, index) => {
 
 
 // Thêm sự kiện cho nút +
-// const plusButtons = document.querySelectorAll(".plusButton");
-// const roomQuantityInputs = document.querySelectorAll("#room__quantity");
-
 plusButtons.forEach((plusButton, index) => {
 	plusButton.addEventListener("click", () => {
 		// Get the current value of the corresponding room quantity input
@@ -32,22 +30,16 @@ plusButtons.forEach((plusButton, index) => {
 	});
 });
 
-
-
 const closePPopupBtn = document.querySelectorAll(".close-popup");
 const modalReview = document.querySelectorAll(".modal__review-popup");
 
 closePPopupBtn.forEach((item) => {
 	item.addEventListener("click", () => {
-		console.log("aaa");
-
 		modalReview.forEach((itemModal) => {
 			itemModal.style.display = "none";
 		})
-
 	});
 })
-
 
 const closeBtnReview = document.querySelectorAll(".closeBtn");
 closeBtnReview.forEach((item) => {
@@ -56,18 +48,5 @@ closeBtnReview.forEach((item) => {
 		modalReview.forEach((itemModal) => {
 			itemModal.style.display = "none";
 		})
-
 	});
-
 })
-
-//Khi người dùng nhấn đăng:
-// const successVPopup = document.querySelector(".modal-success");
-// const postBtn = document.querySelector(".post-btn");
-
-// const redirect2SavePopupView = () => {
-// 	successVPopup.style.display = "block";
-// 	modalReview.style.display = "none";
-// };
-
-// postBtn.addEventListener("click", redirect2SavePopupView);

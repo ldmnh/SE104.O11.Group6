@@ -3,7 +3,7 @@
 @import url("/styles/partials/footer.css");
 
 .container--index {
-	margin: 0 auto;
+	margin: 12px auto;
 	max-width: 1152px;
 	width: 80%;
 }

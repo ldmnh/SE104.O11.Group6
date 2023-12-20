@@ -20,6 +20,8 @@ router.get('/terms-of-use', SiteController.termOfUse)
 
 router.get('/privacy-policy', SiteController.privacyPolicy)
 
+router.post('/hint_search', SiteController.hintSearch)
+
 router.get('/', SiteController.index)
 
 

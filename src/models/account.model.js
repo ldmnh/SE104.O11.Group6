@@ -2,6 +2,7 @@ const db = require('../config/db/connect');
 
 const AccountModel = function () { }
 
+
 AccountModel.addBank = ({
     bank_name,
     bank_num,
@@ -28,7 +29,6 @@ AccountModel.addBank = ({
         callback(err, result);
     })
 }
-
 
 AccountModel.addDebit = ({
     debit_num,
@@ -63,8 +63,7 @@ AccountModel.addDebit = ({
     })
 }
 
-
-// [PUT] /account/delBank
+// [POST] /account/delBank
 AccountModel.delBank = ({ id, bank_id }, callback) => {
     const sql = `
             UPDATE bankcard
@@ -89,7 +88,7 @@ AccountModel.delDebit = ({ id, debit_id }, callback) => {
     })
 }
 
-AccountModel.addReview = ({
+AccountModel.addRating = ({
     room_id,
     rating_datetime,
     rating_point,
@@ -115,5 +114,6 @@ AccountModel.addReview = ({
         callback(err, result);
     })
 }
+
 
 module.exports = AccountModel
