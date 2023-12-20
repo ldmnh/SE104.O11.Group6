@@ -53,6 +53,26 @@ function toCurrency(money) {
     return currency
 }
 
+// Thay đổi disabled của submit btn
+const submitBtn = document.querySelector('.room-list__submit-button')
+submitBtn.addEventListener('mouseover', enableBtn)
+function enableBtn(event) {
+    const totalStr = document.querySelector('.total-price').textContent
+    const totalPrice = Number(totalStr.replaceAll('.', ''))
+
+    if (totalPrice > 0)
+        submitBtn.disabled = false
+}
+
+submitBtn.addEventListener('mouseout', disableBtn)
+function disableBtn(event) {
+    const totalStr = document.querySelector('.total-price').textContent
+    const totalPrice = Number(totalStr.replaceAll('.', ''))
+
+    if (totalPrice == 0)
+        submitBtn.disabled = true
+}
+
 let submit = true
 // Tính tổng giá tiền
 function changeTotal(event) {
@@ -83,6 +103,11 @@ function changeTotal(event) {
 
     const totalElement = document.querySelector('.total-price')
     totalElement.innerHTML = toCurrency(total)
+
+    if (total)
+        enableBtn(event)
+    else
+        disableBtn(event)
 }
 
 const quantityInputs = document.querySelectorAll('.quantity_input')
