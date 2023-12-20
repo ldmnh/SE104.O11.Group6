@@ -1,7 +1,7 @@
 <!-- Co inline form_item Ma cvv -->
 <div class="modal2">credit__info
   <div class="credit-container">
-    <form class="credit" action="/account/card/addDebit" method="POST">
+    <form class="credit" id="credit-js" action="/account/card/addDebit" method="POST">
       <div class="credit__card">
         <h1>Thêm thẻ tín dụng/ghi nợ</h1>
         <div class="credit__secure">
@@ -29,7 +29,7 @@
         <div class="form">
           <div class="form__item">
             <h3>Số thẻ:</h3>
-            <input name="debit_num" class="form-control" type="text" placeholder="Nhập số thẻ" />
+            <input name="debit_num" class="form-control" type="text" placeholder="Nhập số thẻ" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
           </div>
           <!-- form__item-2 -->
           <div class="form__item">
@@ -40,7 +40,7 @@
 
             <div class="form__item-2__CCV">
               <h3 class="input-2">Mã CCV:</h3>
-              <input name="debit_CCV" class="form-control" type="text" placeholder="Nhập mã CCV" />
+              <input name="debit_CCV" class="form-control" type="text" placeholder="Nhập mã CCV" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
             </div>
           </div>
           <div class="form__item">
@@ -56,11 +56,11 @@
           </div>
           <div class="form__item">
             <h3>Mã bưu chính:</h3>
-            <input name="debit_postal" class="form-control" type="text" placeholder="Nhập mã bưu chính" />
+            <input name="debit_postal" class="form-control" type="text" placeholder="Nhập mã bưu chính" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
           </div>
         </div>
         <div class="credit__button">
-          <button class="credit-button--submit1 closeBtn2">Hủy</button>
+          <button class="credit-button--submit1 closeBtn2" type="button">Hủy</button>
 
           <button class="credit-button--submit2" type="submit">Hoàn thành</button>
         </div>

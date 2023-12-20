@@ -1,9 +1,11 @@
 @import url('/styles/base.css');
-@import url('/styles/partials/header-small.css');
+@import url('/styles/partials/header-medium.css');
 @import url('/styles/components/room.css');
 @import url('/styles/components/room-detail-modal.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/search-bar.css');
+@import url('/styles/components/fail-modal.css');
+/* @import url('/styles/pages/searh/daterangepicker.css'); */
 
 body {
     width: 100%;
