@@ -42,7 +42,10 @@
 		<section class="nofi__main">
 			<button class="btn--outlined pri btn-read-all">Đánh dấu tất cả là đã đọc</button>
 			<% if (data_noti.length == 0) { %>
-			<h3>Bạn chưa có thông báo</h3>
+			<div class="nofi-empty__img">
+				<img src="/imgs/noti-empty.png" alt="empty_noti">
+				<h4>Bạn chưa có thông báo!</h4>
+			</div>
 			<% } else { %>
 			<% for (let i = 0; i < data_noti.length; i++) {%>
 			<%- include('../../components/noti-item-account', {'noti': data_noti[i], 'index': i}) %>
