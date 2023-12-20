@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 20, 2023 lúc 09:19 AM
+-- Thời gian đã tạo: Th12 20, 2023 lúc 10:15 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -118,7 +118,7 @@ CREATE TABLE `accommodation` (
 INSERT INTO `accommodation` (`acco_id`, `acco_type`, `acco_star`, `acco_tiny_img_url`, `acco_name`, `acco_logan`, `acco_detail`, `acco_exac_location`, `city_id`, `prov_id`, `acco_location_link`) VALUES
 (1, 'Hotel', 4, 'acc001.jpg', 'Khách sạn Quê Hương', 'Quê Hương là thiên đường', 'Khách sạn hướng ra sông, có nhà hang.', '1 Đường Nguyễn Trung Trực', 1, 1, 'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
 (2, 'Resort', 5, 'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise', 'Khách sạn kết hợp khu trung tâm thương mại.', '22 Đường Trần Huỳnh', NULL, 2, 'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
-(3, 'Hotel', 5, 'acc003.jpg', 'LARA HOTEL LONG XUYEN', 'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.', '46-48 Đường Hùng Vương', 4, 5, 'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
+(3, 'Hotel', 5, 'acc003.jpg', 'LARA HOTEL LONG XUYEN', 'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.', '46-48 Đường Hùng Vương', 5, 6, 'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
 (4, 'Resort', 2, 'acc004.jpg', 'Homestay Coco Island', NULL, 'Khách sạn 2 sao.', '97 Tân Thạch', 2, 3, 'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
 
 -- --------------------------------------------------------
