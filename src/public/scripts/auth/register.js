@@ -101,11 +101,11 @@ const isValidEmail = email => {
 function validateInput() {
     // Lấy giá trị của các trường thông tin
     const emailValue = email.value.trim()
-    const passwordValue = password.value
+    const passwordValue = password.value.trim()
     const passwordConfirmValue = passwordConfirm.value.trim()
 
     // Kiểm tra giá trị của các trường thông tin
-    let isAllValid = false
+    let isAllValid = true
 
     if (!isValidEmail(emailValue)) {
         setError(email, 'Địa chỉ email không đúng định dạng!')
@@ -133,7 +133,6 @@ function validateInput() {
         document.getElementById('form__password-confirm').classList.remove('is-invalid')
         setSuccess(password)
         setSuccess(passwordConfirm)
-        isAllValid = true
     }
 
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
@@ -160,7 +159,8 @@ function validateInput() {
                     isAllValid = false
                 } else if (back.status === 'success') {
                     if (isAllValid) {
-                        form.submit()
+                        // form.submit()
+                        window.location.href = '/auth/login'
                     }
                 }
             }).catch(function (err) {
