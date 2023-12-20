@@ -67,7 +67,7 @@
 			<%} else if (bookingDetail.book_status == 0) { %>
 			<form action="/booking/detail" method="GET">
 				<input type="hidden" value="<%=bookingDetail.book_id%>" name="book_id">
-				<button type="submit" class="form--submit2 detail-btn">Hủy đặt</button>
+				<button type="submit" class="form--submit2 cancel-btn">Hủy đặt</button>
 			</form>
 			<% } %>
 		</div>
