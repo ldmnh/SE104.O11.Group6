@@ -82,6 +82,10 @@ html {
 	margin-top: 64px;
 }
 
+.icon--filled {
+	font-variation-settings: 'FILL' 1;
+}
+
 .container {
 	width: 100%;
 	max-width: 1152px;

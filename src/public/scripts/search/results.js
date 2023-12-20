@@ -153,7 +153,7 @@ function filterSortData() {
                         html = `
                             <div class="result-block">
                                 <div class="result-block__tag-sale">
-                                    <span class="material-symbols-outlined">alarm</span>
+                                    <span class="material-symbols-outlined icon--filled">alarm</span>
                                     <p class="result-block__sale-content">Đặt chỗ cùng 2WAYS</p>
                                     <p class="result-block__sale-valid">Khuyến mãi có thời hạn</p>
                                 </div>
@@ -167,7 +167,7 @@ function filterSortData() {
                                             <div class="result-block__extensions">
                                                 <a href="#" target="blank" class="result-block__map">Xem trên bản đồ</a>
                                                 <div class="result-block__details">
-                                                    <span class="material-symbols-outlined">beach_access</span>
+                                                    <span class="material-symbols-outlined icon--filled">beach_access</span>
                                                     <p class="result-block__details-content">Giáp biển</p>
                                                 </div>
                                                 <div class="result-block__details">
