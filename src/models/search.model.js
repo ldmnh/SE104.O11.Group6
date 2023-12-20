@@ -100,12 +100,27 @@ Search.find = function (req, res, callback) {
 
 Search.hintSearch = (searchKey, callback) => {
     let sql = `SELECT city_name, prov_name FROM view_acco`;
+    let sql2 = `SELECT city_name, prov_name FROM view_acco`;
+    let searchKeyArray = searchKey.split(' ');
     if (searchKey) {
-        sql += ` WHERE LOWER(city_name) LIKE '%${searchKey}%' OR LOWER(prov_name) LIKE '%${searchKey}%'`
+        sql += ` WHERE LOWER(city_name) LIKE '%${searchKeyArray[0]}%'`
     }
-
+    if (searchKey) {
+        searchKeyArray.forEach(key => {
+            sql += ` OR LOWER(city_name) LIKE '%${key}%' OR LOWER(prov_name) LIKE '%${key}%'`
+        })
+    }
+    
     db.query(sql, (err, result) => {
-        callback(err, result);
+        if (result[0]) {
+            callback(err, result);
+        }
+        else {
+            db.query(sql2, (err, result2) => {
+                console.log('HHHHHHHH', result2);
+                callback(err, result2);
+            })
+        }
     })
 }
 
