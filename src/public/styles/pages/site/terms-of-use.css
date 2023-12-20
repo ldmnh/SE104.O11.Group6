@@ -7,18 +7,24 @@ html {
     color: #000000;
 }
 
+
 body {
     width: 100%;
     margin: 0
 }
 
-ul {
+.term__container ul {
     list-style-type: disc;
 }
 
-li {
+.term__container li {
     margin: 8px 0;
     line-height: 1.5;
+    text-align: justify;
+}
+
+.term__container p {
+    text-align: justify;
 }
 
 h2.term__header {

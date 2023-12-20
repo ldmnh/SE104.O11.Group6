@@ -43,7 +43,7 @@ h1 {
     padding: 12px;
     gap: 4px;
     justify-content: flex-start;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
 }
 
@@ -57,19 +57,19 @@ h1 {
 .filled-start {
     width: 24px;
     height: 24px;
-    color: #fe9c0b;
+    color: var(--primary-color-4);
 }
 
 .unfilled-start {
     width: 24px;
     height: 24px;
-    color: #d9d9d9;
+    color: var(--gray);
 }
 
 .your-booking-detail {
     display: flex;
     flex-direction: column;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     width: 100%;
     height: auto;
@@ -94,7 +94,7 @@ h1 {
 .countdown-time {
     display: flex;
     gap: 4px;
-    color: #ba1a1a;
+    color: var(--error);
     align-items: center;
     padding: 0 12px;
 }
@@ -117,7 +117,7 @@ h1 {
 }
 
 .cost-total .red-line {
-    color: #ba1a1a;
+    color: var(--error);
     text-decoration: line-through;
 }
 
@@ -136,7 +136,7 @@ h1 {
 
 hr {
     width: 96%;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     margin-left: 5px;
 }
 
@@ -152,7 +152,7 @@ hr {
     flex-direction: row;
     gap: 12px;
     padding: 12px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
 }
 
@@ -178,7 +178,7 @@ hr {
     flex-direction: column;
     gap: 6px;
     padding: 12px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-);
     border-radius: 12px;
     height: 500px;
 }
@@ -218,7 +218,7 @@ hr {
 }
 
 .list-account-title {
-    background-color: #00696d;
+    background-color: var(--primary-color-2);
     color: white;
     font-weight: 700;
     gap: 12px;
@@ -235,7 +235,7 @@ hr {
     gap: 25px;
     flex-direction: column;
     padding: 25px 0;
-    border: 1px solid #00696d;
+    border: 1px solid var(--primary-color-2);
     border-radius: 0 0 10px 10px;
 }
 
@@ -248,7 +248,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 12px;
     padding: 12px;
 }
@@ -271,9 +271,9 @@ hr {
 button.check-info {
     width: 197px;
     height: 48px;
-    color: #fe9c0b;
+    color: var(--primary-color-4);
     background-color: white;
-    border: 1px solid #fe9c0b;
+    border: 1px solid var(--primary-color-4);
     font-size: 16px;
     font-weight: 500;
     border-radius: 8px;
@@ -283,7 +283,7 @@ button.submit-booking {
     width: 197px;
     height: 48px;
     color: white;
-    background-color: #fe9c0b;
+    background-color: var(--primary-color-4);
     border: none;
     font-size: 16px;
     font-weight: 500;
@@ -296,11 +296,11 @@ button.submit-booking {
     gap: 12px;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
 }
 
 .cancel-free {
-    color: #119726;
+    color: var(--green);
     display: flex;
     flex-direction: row;
     gap: 4px;
@@ -318,7 +318,7 @@ button.submit-booking {
     gap: 12px;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
 }
 
 .form--item {
@@ -333,7 +333,7 @@ button.submit-booking {
     flex-direction: column;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
 }
 
 h4.required::after {
@@ -345,7 +345,7 @@ h4.required::after {
     width: 100%;
     height: 48px;
     border-radius: 8px;
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     padding: 0 8px;
 }
 
@@ -362,18 +362,18 @@ h4.required::after {
     gap: 8px;
     align-items: center;
 
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     padding: 8px;
 }
 
 /* .section--content {
-  border: 1px solid #bec8c9;
+  border: 1px solid var(--outline-variant);
   border-radius: 8px;
 } */
 
 .info-room {
-    border: 1px solid #bec8c9;
+    border: 1px solid var(--outline-variant);
     border-radius: 8px;
     padding: 12px;
 }
