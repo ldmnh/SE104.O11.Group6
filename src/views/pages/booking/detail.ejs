@@ -34,7 +34,7 @@
 				<span class="material-symbols-outlined">grade</span>
 				<% } %>
 				<% for (let i=0; i < 5 - (booking.acco_star); i++) { %>
-				<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+				<span class="material-symbols-outlined grade">star</span>
 				<% } %>
 			</div>
 		</section>
@@ -120,8 +120,8 @@
 											<div class="popup-profile">
 												<img src="/imgs/user/<%= user.avatar %>" alt="">
 												<div class="aside__content--detail">
-													<p style="font-weight: 500; margin: 12px 0 0 0"> <%= user.email %> </p>
-													<p style="font-size: 12px"> <i>Đăng công khai</i> </p>
+													<p> <%= user.email %> </p>
+													<p> <i>Đăng công khai</i> </p>
 												</div>
 											</div>
 											<div class="review-quality">
@@ -214,7 +214,7 @@
 					<p>Không hoàn tiền</p>
 				</div>
 				<div class="progress">
-					<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+					<div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 				<p class="progress__time"> <%= booking.book_time_count_format %> </p>
 			</div>
