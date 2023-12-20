@@ -7,6 +7,10 @@ class BookingController {
 
     // [GET] /booking/information
     information(req, res) {
+        const check_in = new Date(req.session.search?.check_in);
+        const check_out = new Date(req.session.search?.check_out);
+        const days = Math.ceil((check_out - check_in) / (1000 * 60 * 60 * 24));
+
         accommodation.getAccoById({
             id: req.session.acco?.id,
         }, (err, result) => {
@@ -22,12 +26,8 @@ class BookingController {
                 const data = {
                     acco: req.session.acco,
                     search: {
-                        check_in: index.toXDDMMYYYY(
-                            new Date(req.session.search?.check_in)
-                        ),
-                        check_out: index.toXDDMMYYYY(
-                            new Date(req.session.search?.check_out)
-                        ),
+                        check_in: index.toXDDMMYYYY(check_in),
+                        check_out: index.toXDDMMYYYY(check_out),
                     },
                     rooms: req.session.rooms,
                     book: {
@@ -37,17 +37,18 @@ class BookingController {
                         ),
                         cost_before: index.toCurrency(
                             req.session.rooms.reduce(
-                                (sum, room) => sum + room.cost_before * room.num ?? 0,
+                                (sum, room) => sum + room.cost_before * room.num * days ?? 0,
                                 0
                             )
                         ),
                         cost_after: index.toCurrency(
                             req.session.rooms.reduce(
-                                (sum, room) => sum + room.cost_after * room.num ?? 0,
+                                (sum, room) => sum + room.cost_after * room.num * days ?? 0,
                                 0
                             )
                         ),
                     },
+                    days,
                 };
 
                 res.status(200).render("./pages/booking/information", {
@@ -79,6 +80,10 @@ class BookingController {
 
     // [GET] /booking/payment
     payment(req, res) {
+        const check_in = new Date(req.session.search?.check_in);
+        const check_out = new Date(req.session.search?.check_out);
+        const days = Math.ceil((check_out - check_in) / (1000 * 60 * 60 * 24));
+
         authuser.getBankCardsById(
             {
                 id: req.session.user?.id,
@@ -95,12 +100,8 @@ class BookingController {
                 const data = {
                     acco: req.session.acco,
                     search: {
-                        checkIn: index.toXDDMMYYYY(
-                            new Date(req.session.search?.check_in)
-                        ),
-                        checkOut: index.toXDDMMYYYY(
-                            new Date(req.session.search?.check_out)
-                        ),
+                        check_in: index.toXDDMMYYYY(check_in),
+                        check_out: index.toXDDMMYYYY(check_out),
                     },
                     rooms: req.session.rooms,
                     book: {
@@ -110,19 +111,20 @@ class BookingController {
                         ),
                         cost_before: index.toCurrency(
                             req.session.rooms.reduce(
-                                (sum, room) => sum + room.cost_before * room.num ?? 0,
+                                (sum, room) => sum + room.cost_before * room.num * days ?? 0,
                                 0
                             )
                         ),
                         cost_after: index.toCurrency(
                             req.session.rooms.reduce(
-                                (sum, room) => sum + room.cost_after * room.num ?? 0,
+                                (sum, room) => sum + room.cost_after * room.num * days ?? 0,
                                 0
                             )
                         ),
                     },
                     bank_cards: req.session.user?.bank_cards,
                     debit_cards: req.session.user?.debit_cards,
+                    days,
                 };
                 res.status(200).render("./pages/booking/payment", {
                     user: req.session.user,
@@ -138,6 +140,9 @@ class BookingController {
         const { pay_id } = req.body; // Phương thức thanh toán 1: tiền mặt, 2: thẻ ngân hàng, 3: thẻ tín dụng
 
         req.session.book.pay_id = parseInt(pay_id);
+        const check_in = new Date(req.session.search?.check_in);
+        const check_out = new Date(req.session.search?.check_out);
+        const days = Math.ceil((check_out - check_in) / (1000 * 60 * 60 * 24));
 
         booking.postInfo({
             acco_id: req.session.acco?.id,
@@ -148,11 +153,11 @@ class BookingController {
             book_num_adult: req.session.search?.adult,
             book_num_child: req.session.search?.child,
             book_cost_before: req.session.rooms.reduce(
-                (sum, room) => sum + room.cost_before,
+                (sum, room) => sum + room.cost_before * days,
                 0
             ),
             book_cost_after: req.session.rooms.reduce(
-                (sum, room) => sum + room.cost_after,
+                (sum, room) => sum + room.cost_after * days,
                 0
             ),
             book_first_name: req.session.book?.first_name,

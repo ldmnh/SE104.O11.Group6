@@ -71,4 +71,6 @@ NotificationModel.readAllNotification = ({ id, noti_type }, callback) => {
 }
 
 
+
+
 module.exports = NotificationModel

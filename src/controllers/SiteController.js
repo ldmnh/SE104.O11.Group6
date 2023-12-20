@@ -14,9 +14,12 @@ class SiteController {
     hintSearch(req, res) {
         const searchKey = req.body.searchKey
         SearchModel.hintSearch(searchKey, (err, result) => {
-            res.status(200).json({
-                result: result
-            })
+            if (result[0]) {
+                res.status(200).json({
+                    status: 'ok',
+                    result: result
+                })
+            }             
         })
     }
 

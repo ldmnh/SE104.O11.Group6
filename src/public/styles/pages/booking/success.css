@@ -83,7 +83,7 @@ h3 {
 }
 
 .order-btn {
-    width: auto;
+    width: max-content;
     height: 48px;
     padding: 12px;
     border-radius: 8px;
@@ -92,6 +92,7 @@ h3 {
     background-color: #fe9c0b;
     font-size: 0.875rem;
     color: var(--white);
+    border: none;
 }
 
 a.order-btn {
@@ -101,6 +102,7 @@ a.order-btn {
 
 .order-btn:hover {
     color: white;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .order-summary {
