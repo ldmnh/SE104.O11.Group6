@@ -1,4 +1,4 @@
-@import url('/styles/base.css');
+@import url("/styles/base.css");
 @import url("/styles/partials/header-medium.css");
 @import url("/styles/components/bank-account-popup.css");
 @import url("/styles/components/credit-account-popup.css");
@@ -85,6 +85,11 @@
 
 .form__title {
     margin-right: auto !important;
+}
+
+.form__title h1 {
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .form__card-items {
