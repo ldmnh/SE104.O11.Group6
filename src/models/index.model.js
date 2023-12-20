@@ -42,7 +42,7 @@ index.toXDDMMYYYY = function (datetime) {
 
     let month = datetime.getMonth() + 1;
     if (month < 10) {
-        month = "0" + datetime.getMonth()
+        month = "0" + month;
     }
 
     let year = datetime.getYear() + 1900
@@ -58,7 +58,7 @@ index.toDDthangMMnamYYYY = function (datetime) {
     let year = datetime.getYear() + 1900
     let month = datetime.getMonth() + 1;
     if (month < 10) {
-        month = "0" + datetime.getMonth()
+        month = "0" + month
     }
 
     return (date + ' tháng ' + month + ' năm ' + year)
@@ -72,7 +72,7 @@ index.toDDMMYYYY = function (datetime) {
     }
     let month = datetime.getMonth() + 1;
     if (month < 10) {
-        month = "0" + datetime.getMonth()
+        month = "0" + month
     }
     let year = datetime.getYear() + 1900
     return (date + '/' + month + '/' + year)
@@ -86,7 +86,7 @@ index.toDDMMYYYYHHMM = function (datetime) {
     }
     let month = datetime.getMonth() + 1;
     if (month < 10) {
-        month = "0" + datetime.getMonth()
+        month = "0" + month
     }
     let year = datetime.getYear() + 1900
     return (date + ' tháng ' + month + ' năm ' + year + ' ' + index.toHHMM(datetime))
