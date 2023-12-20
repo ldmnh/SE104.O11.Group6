@@ -10,16 +10,24 @@ closePopupOtp2Debit.addEventListener("click", () => {
 	modalOtpDebit.style.display = "none";
 });
 
-const form_debit = document.querySelector('.credit')
+document.addEventListener('DOMContentLoaded', function () {
+    const otpInputs = document.querySelectorAll('.otp__card-text');
 
-form_debit.addEventListener('submit', e => {
-	//Ngăn chặn việc gửi form nếu có bất kỳ trường nào không hợp lệ
-	e.preventDefault();
-})
+    otpInputs.forEach(function (input, index) {
+        input.addEventListener('input', function () {
+            this.classList.remove('is-invalid');
 
-document.addEventListener('DOMContentLoaded', () => {
-	const continueBtnDebit = document.querySelector(".otp__button--submit2--debit");
-	continueBtnDebit.addEventListener("click", () => {
-		form_debit.submit();
-	});
-})
+            if (this.value !== '' && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            } else {
+                this.classList.add('is-invalid');
+            }
+        });
+
+        input.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace' && index > 0 && this.value === '') {
+                otpInputs[index - 1].focus();
+            }
+        });
+    });
+});

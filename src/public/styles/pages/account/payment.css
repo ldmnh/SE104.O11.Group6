@@ -388,3 +388,10 @@ button.btn--outlined.pri {
     width: 65px;
     height: 40px;
 }
+
+input.is-invalid {
+    background-image: none !important;
+    color : black;
+    /* width: 60px; */
+    /* Add any additional styles you need */
+}
