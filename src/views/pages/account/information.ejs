@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
 	<%- include("../../partials/header-medium", { user }) %>
 	<%- include("../../partials/nav-tree", { nav_tree__data: [
         { text: "Trang chủ", link: "/" },
@@ -22,9 +23,7 @@
     ]}) %>
 	<%- include('../../components/on-top-btn') %>
 
-
-
-	<div class="account-container">
+	<main class="account-container">
 		<aside class="aside-content">
 			<div class="aside-content__profile">
 				<img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="Avatar" />
@@ -57,7 +56,6 @@
 				<a style='text-decoration: none' id="logoutButton">
 					<p>Đăng xuất</p>
 				</a>
-				<!-- <button id="logoutButton" style='text-decoration: none'>Đăng xuất</button> -->
 			</div>
 			<div class="popup">
 				<div class="popup__main">
@@ -115,7 +113,6 @@
 				</div>
 			</div>
 			<div class="form__submitbutton">
-				<!-- <button class="form--submit2 form--submit2-default ">Sửa</button> -->
 				<button class="form__btn--edit form--submit2 form--submit2-default">Sửa</button>
 			</div>
 		</section>
@@ -181,21 +178,20 @@
 				</div>
 			</form>
 			<div class="form__submitbutton">
-				<!-- <button class="form--submit1 cancel-btn">Hủy</button>
-                    <button type="submit" id="save-btn" class="form--submit2">Lưu</button> -->
 				<button class="form__btn--cancel form--submit1">Hủy</button>
 				<button class="form__btn--save   form--submit2" type="submit" data-form-id="#informationPut">Lưu</button>
 			</div>
 		</section>
-	</div>
-	<%- include('../../components/success-popup')  %>
 
+	</main>
+
+	<%- include('../../components/success-popup')  %>
 	<%- include('../../partials/footer') %>
 
-	<script src="/scripts/account-page.js"></script>
-	<script src="/scripts/search-bar.js"></script>
-	<script src="/scripts/header-medium.js"></script>
-	<script src="/scripts/logout-popup.js"></script>
+	<script src="/scripts/account/information.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
+	<script src="/scripts/components/logout-popup.js"></script>
 	<script src="/scripts/base.js"></script>
 
 </body>

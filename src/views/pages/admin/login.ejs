@@ -12,12 +12,14 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-small-title', {
         title: 'Đăng nhập',
         help: ''
     }) %>
 
 	<main class="content-container">
+
 		<section class="intro">
 			<img src="/imgs/logo--filled.svg" alt="2WAYS.com" class="intro__logo" />
 			<div class="intro__content">
@@ -43,7 +45,6 @@
 					</div>
 					<div class="error"></div>
 				</div>
-				<!-- <div class="error-message" id="error-message"></div> -->
 				<button id="login-button" type="submit" class="btn form__submit">
 					Đăng nhập
 				</button>
@@ -51,13 +52,15 @@
 
 			<button class="btn register__register" style='display:none' role="button" id="btn-register">Bạn chưa có tài khoản? <span class="highlight">Đăng ký</span></button>
 		</section>
+
 	</main>
 
 	<%- include('../../partials/footer') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="/scripts/admin_login.js"></script>
-	<script src="/scripts/header-small-title.js"></script>
+	<script src="/scripts/partials/header-small-title.js"></script>
+	<script src="/scripts/admin/login.js"></script>
+
 </body>
 
 </html>

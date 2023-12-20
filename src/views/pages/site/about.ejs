@@ -13,11 +13,13 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-small', { user }) %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
         { text: 'Về chúng tôi', link: "/terms-of-use"}
     ] }) %>
+
 	<main>
 		<img class="homepage__banner" src="/imgs/about us.png" alt="Banner">
 		<section>
@@ -62,10 +64,13 @@
 			</div>
 		</section>
 	</main>
+
 	<div class="mt-12"></div>
+
 	<%- include('../../partials/footer') %>
+
 </body>
-<script src="/scripts/header-small.js"></script>
+
 <script src="/scripts/base.js"></script>
 
 </html>

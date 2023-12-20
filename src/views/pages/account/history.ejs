@@ -13,11 +13,11 @@
 </head>
 
 <body>
+
 	<% if (typeof data_search !== 'undefined' && data_search !== null) { %>
 	<%- include('../../partials/header-medium.ejs', { data_search }) %>
 	<% } else { %>
 	<% } %>
-	<%# include('../../partials/nav-tree') %>
 
 	<%- include('../../partials/header-medium.ejs', { user }) %>
 	<%- include("../../partials/nav-tree", { nav_tree__data: [
@@ -27,8 +27,8 @@
     ]}) %>
 	<%- include('../../components/on-top-btn') %>
 
-
 	<main class="booking-history-container">
+
 		<aside class="aside-content">
 			<div class="aside-content__profile">
 				<img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="" />
@@ -61,7 +61,6 @@
 				<a style='text-decoration: none' id="logoutButton">
 					<p>Đăng xuất</p>
 				</a>
-				<!-- <button id="logoutButton" style='text-decoration: none'>Đăng xuất</button> -->
 			</div>
 			<div class="popup">
 				<div class="popup__main">
@@ -90,7 +89,6 @@
 				<h1>Lịch sử đặt phòng</h1>
 			</div>
 
-			<!-- <div class="filter-bar"></div> -->
 			<div class="booking-history__items">
 				<% if (bookingDetails == []) { %>
 				<p>Không tìm thấy</p>
@@ -101,20 +99,19 @@
 				<% } %>
 			</div>
 		</section>
+
 	</main>
+
 	<%- include('../../components/success-popup')  %>
 	<%- include('../../components/next-page.ejs') %>
 	<%-include('../../partials/footer.ejs') %>
 
-	<script src="/scripts/booking-history.js" defer></script>
-	<script src="/scripts/review-popup.js" defer></script>
-	<script src="/scripts/search-bar.js"></script>
-	<script src="/scripts/header-medium.js"></script>
-	<script src="/scripts/logout-popup.js"></script>
+	<script src="/scripts/account/booking-history.js" defer></script>
+	<script src="/scripts/components/review-popup.js" defer></script>
+	<script src="/scripts/components/logout-popup.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
 	<script src="/scripts/base.js"></script>
-
-
-
 
 </body>
 

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-medium', { user }) %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: '/' },
@@ -55,7 +56,6 @@
 				<a style='text-decoration: none' id="logoutButton">
 					<p>Đăng xuất</p>
 				</a>
-				<!-- <button id="logoutButton" style='text-decoration: none'>Đăng xuất</button> -->
 			</div>
 			<div class="popup">
 				<div class="popup__main">
@@ -128,6 +128,7 @@
 
 		</section>
 	</div>
+
 	<%- include('../../components/otp-bank') %>
 	<%- include('../../components/otp-debit') %>
 	<%- include('../../components/conform-del-debit') %>
@@ -139,14 +140,14 @@
 
 	<%- include('../../partials/footer') %>
 
-	<script src="/scripts/payment-account.js"></script>
-	<script src="/scripts/bank-account-popup.js" defer></script>
-	<script src="/scripts/credit-account-popup.js"></script>
-	<script src="/scripts/search-bar.js"></script>
-	<script src="/scripts/otp-bank.js" defer></script>
-	<script src="/scripts/otp-debit.js" defer></script>
-	<script src="/scripts/header-medium.js"></script>
-	<script src="/scripts/logout-popup.js"></script>
+	<script src="/scripts/account/payment.js"></script>
+	<script src="/scripts/components/bank-account-popup.js" defer></script>
+	<script src="/scripts/components/credit-account-popup.js"></script>
+	<script src="/scripts/components/otp-bank.js" defer></script>
+	<script src="/scripts/components/otp-debit.js" defer></script>
+	<script src="/scripts/components/logout-popup.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
 	<script src="/scripts/base.js"></script>
 
 </body>

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-medium') %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
@@ -20,6 +21,7 @@
     ] }) %>
 
 	<main class="content-container">
+
 		<aside class="filter-sidebar">
 			<div class="filter-sidebar__expanded-map">
 				<div class="filter-sidebar__map-icon">
@@ -320,19 +322,25 @@
 					<p class="search-results__filter__content">Ưu đãi hấp dẫn</p>
 				</div>
 			</div>
+
 			<hr aria-hidden="true">
+
 			<div id="filter-sort">
 			</div>
+
 			<%- include('../../components/next-page') %>
 
 		</section>
+
 	</main>
+
 	<%- include('../../partials/footer') %>
 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="/scripts/search/results.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="/scripts/search-results.js"></script>
-<script src="/scripts/search-bar.js"></script>
-<script src="/scripts/header-medium.js"></script>
 
 </html>

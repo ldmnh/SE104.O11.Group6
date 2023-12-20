@@ -12,11 +12,13 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-small') %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
         { text: 'Chi tiết đặt phòng', link: "#" }
     ] }) %>
+
 	<main class="content-container">
 		<section class="title">
 			<h1>Đặt phòng đã được xác nhận của bạn tại 2WAYS.com</h1>
@@ -233,9 +235,10 @@
 	<%- include('../../components/success-popup') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="/scripts/booking-detail.js"></script>
-	<script src="/scripts/review-popup.js" defer></script>
-	<script src="/scripts/cancel-popup.js" defer></script>
+	<script src="/scripts/components/review-popup.js" defer></script>
+	<script src="/scripts/components/cancel-popup.js" defer></script>
+	<script src="/scripts/booking/detail.js"></script>
+
 </body>
 
 </html>

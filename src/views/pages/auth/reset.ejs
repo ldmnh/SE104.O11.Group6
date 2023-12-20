@@ -13,11 +13,14 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-small-title', {
         title: "Đặt lại mật khẩu",
         help: "Bạn cần sự trợ giúp?"
-    })%>;
+    })%>
+
 	<main class="content-container">
+
 		<section class="resetPassword">
 			<h1 class="resetPassword__title">Đặt lại mật khẩu</h1>
 			<form class="resetPassword__form form" id="resetPasswordPost" action="post">
@@ -44,13 +47,14 @@
 				</div>
 			</form>
 		</section>
+
 	</main>
 
 	<%- include('../../partials/footer') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="/scripts/reset-password.js"></script>
-	<script src="/scripts/header-small-title.js"></script>
+	<script src="/scripts/partials/header-small-title.js"></script>
+	<script src="/scripts/auth/reset.js"></script>
 
 </body>
 

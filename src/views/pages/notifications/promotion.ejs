@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 	<%- include('../../partials/header-medium') %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
 		{ text: 'Trang chủ', link: "/" },
@@ -35,14 +36,14 @@
 			</div>
 		</aside>
 
-    <section class="nofi__main">
-        <button class="btn--outlined pri btn-read-all">Đánh dấu tất cả là đã đọc</button>
-      <% if (data_noti.length == 0) { %>
-      <h3>Bạn chưa có thông báo</h3>
-      <% } else { %>
-	  <% for (let i = 0; i < data_noti.length; i++) {%>
-	  <%- include('../../components/noti-item-promo', {'noti': data_noti[i], 'index': i}) %>
-	  <% }}%>
+		<section class="nofi__main">
+			<button class="btn--outlined pri btn-read-all">Đánh dấu tất cả là đã đọc</button>
+			<% if (data_noti.length == 0) { %>
+			<h3>Bạn chưa có thông báo</h3>
+			<% } else { %>
+			<% for (let i = 0; i < data_noti.length; i++) {%>
+			<%- include('../../components/noti-item-promo', {'noti': data_noti[i], 'index': i}) %>
+			<% }}%>
 
 		</section>
 	</main>
@@ -50,8 +51,9 @@
 	<%- include('../../partials/footer.ejs') %>
 
 	<script src="/scripts/notifications/promotion.js"></script>
-	<script src="/scripts/search-bar.js"></script>
-	<script src="/scripts/header-medium.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
+
 </body>
 
 </html>
