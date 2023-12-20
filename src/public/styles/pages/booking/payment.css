@@ -372,6 +372,7 @@ button.submit-booking {
     left: 0;
     background-color: var(--white);
     z-index: 10;
+    border-radius: 10px;
 }
 .overlay {
     top: 0;
@@ -381,6 +382,8 @@ button.submit-booking {
     display: none;
     position: fixed;
     z-index: 1;
+    background-color: black;
+    opacity: 0.3;
 }
 .overlay2 {
     top: 0;
@@ -390,6 +393,8 @@ button.submit-booking {
     display: none;
     position: fixed;
     z-index: 1;
+    background-color: black;
+    opacity: 0.3;
 }
 .form-check-input:checked[type="radio"] ~ .list-account {
     display: block;
