@@ -94,7 +94,7 @@
 			</div>
 
 			<div class="booking-history__items">
-				<% if (bookingDetails == []) { %>
+				<% if (!bookingDetails[0]) { %>
 				<p>Không tìm thấy</p>
 				<% } else { %>
 				<% bookingDetails.forEach(bookingDetail => { %>

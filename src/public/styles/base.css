@@ -206,3 +206,8 @@ button.btn--outlined.sec {
 .primary-color-4-text {
 	color: var(--primary-color-4);
 }
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+	display: none;
+}
