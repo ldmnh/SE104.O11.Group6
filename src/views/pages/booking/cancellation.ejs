@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#00696d">
@@ -49,7 +50,7 @@
 				</div>
 			</div>
 			<div class="cancel__button">
-				<a href="search/<%= data[0].acco_id %>" class="cancel__button--submit1">Đặt lại</a>
+				<a href="/search/<%= data[0].acco_id %>" class="cancel__button--submit1">Đặt lại</a>
 				<a href="/" class="cancel__button--submit2">Tìm chỗ nghỉ khác</a>
 			</div>
 		</section>
@@ -83,7 +84,7 @@
 						<p>Thông tin lưu trú</p>
 					</div>
 					<div class="cancel-summary__content--text">
-						<p> <%= data[0].book_num_room %> phòng,
+						<p> <%= datax[0].book_num_room %> phòng,
 							<%= data[0].book_num_day %> đêm
 						</p>
 					</div>

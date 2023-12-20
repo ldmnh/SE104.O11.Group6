@@ -259,19 +259,20 @@ class SearchController {
     // [GET] /search/:acco_id
     accoDetail(req, res) {
         let acco_id = [req.params.acco_id]
-        accoRoomDetail.getAccoDetail(acco_id, function (err, accoDetail) {
-            if (!accoDetail){
-                res.status(404).redirect('/error404')
-            } 
-        })
 
         accoRoomDetail.getAccoDetail(acco_id, function (err, accoDetail) {
+            if (!accoDetail) {
+                res.redirect("/error404");
+                return;
+            }
+
             accoRoomDetail.getAccoFea(acco_id, function (err, accoFea) {
                 accoRoomDetail.getAccoImg(acco_id, function (err, accoImg) {
                     accoRoomDetail.getAccoRoom(acco_id, function (err, accoRoom) {
                         accoRoomDetail.getAccoRoomExteDistinct(acco_id, function (err, accoExte) {
                             if (err) {
-                                res.status(404).render("./pages/site/error404.ejs");
+                                res.redirect("/error404");
+                                return;
                             }
 
                             res.status(200).render("./pages/search/detail", {

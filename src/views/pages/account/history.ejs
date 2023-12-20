@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#00696d">
@@ -94,7 +95,7 @@
 			</div>
 
 			<div class="booking-history__items">
-				<% if (bookingDetails == []) { %>
+				<% if (!bookingDetails[0]) { %>
 				<p>Không tìm thấy</p>
 				<% } else { %>
 				<% bookingDetails.forEach(bookingDetail => { %>
@@ -109,6 +110,7 @@
 	<%- include('../../components/success-popup')  %>
 	<%- include('../../components/next-page.ejs') %>
 	<%-include('../../partials/footer.ejs') %>
+	<%- include('../../components/on-top-btn') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="/scripts/account/booking-history.js" defer></script>

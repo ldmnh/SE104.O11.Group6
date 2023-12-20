@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#00696d">
@@ -11,7 +12,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
 	<link rel="stylesheet" href="/styles/pages/search/detail.css" />
-	<link rel="stylesheet" href="/styles/base.css" />
 
 	<title>2WAYS.com</title>
 
@@ -19,7 +19,7 @@
 
 <body>
 
-	<%- include('../../partials/header-small', { user }) %>
+	<%- include('../../partials/header-medium', { user }) %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
         { text: 'Chi tiết chỗ ở', link: "#" }
@@ -120,8 +120,8 @@
 					<div class="time__text">
 						<p class="time__text--top">Thời gian nhận/trả phòng</p>
 						<div class="time__text--bottom">
-							<p>Giờ nhận phòng: Từ 16:00</p>
-							<p>Giờ trả phòng: Trước 16:00</p>
+							<p>Giờ nhận phòng: Từ 12:00</p>
+							<p>Giờ trả phòng: Trước 12:00</p>
 						</div>
 					</div>
 				</div>
@@ -137,13 +137,7 @@
 					<p class="general-info__item--left">
 						Khoảng cách đến trung tâm thành phố
 					</p>
-					<p class="general-info__item--right">100km</p>
-				</div>
-				<div class="general-info__item bg-gray">
-					<p class="general-info__item--left">Điểm đến phổ biến</p>
-					<p class="general-info__item--right">
-						Biển Mỹ Khê, Sân bay quốc tế Đà Nẵng (DAD), Chùa Linh Ứng
-					</p>
+					<p class="general-info__item--right">100m</p>
 				</div>
 				<div class="general-info__item">
 					<p class="general-info__item--left">Bữa sáng</p>
@@ -198,11 +192,15 @@
 	</main>
 
 	<%- include('../../partials/footer') %>
+	<%- include('../../components/fail-modal', {action: 'Số lượng phòng'}) %>
+	<%- include('../../components/on-top-btn') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
 	<script src="/scripts/components/room.js"></script>
 	<script src="/scripts/search/detail.js"></script>
+	<script src="/scripts/base.js"></script>
 
 </body>
 

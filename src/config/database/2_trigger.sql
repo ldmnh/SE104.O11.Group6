@@ -217,18 +217,25 @@ FOR EACH ROW
 BEGIN
     -- Calculate the total cost from BookingDetails
     SET @book_id_int = NEW.book_id;
-    
+
+    -- Declare and set the variable @book_days
+    SET @book_days := (
+        SELECT DATEDIFF(book_end_datetime, book_start_datetime)
+        FROM Booking
+        WHERE book_id = @book_id_int
+    );    
+
     -- Calculate the total cost and update the book_total_cost column in the Booking table
     UPDATE Booking
     SET book_cost_after = (
         SELECT SUM(bd.book_room_cost_after * bd.book_num_room)
         FROM BookingDetail bd
         WHERE bd.book_id = @book_id_int
-    ),  book_cost_before = (
+    ) * @book_days,  book_cost_before = (
         SELECT SUM(bd.book_room_cost_before * bd.book_num_room)
         FROM BookingDetail bd
         WHERE bd.book_id = @book_id_int
-    )
+    ) * @book_days
     WHERE book_id = @book_id_int;
 END;
 

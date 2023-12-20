@@ -15,12 +15,3 @@ notiBtnHm.addEventListener("click", () =>
      redirectToUrl("/notifications/account-update")
 );
 
-const nameClickHm = document.querySelector(".name-btn-hm");
-const avatarClickHm = document.querySelector(".avatar-btn-hm");
-
-nameClickHm.addEventListener("click", () =>
-     redirectToUrl("/account/information")
-);
-avatarClickHm.addEventListener("click", () =>
-     redirectToUrl("/account/information")
-);
