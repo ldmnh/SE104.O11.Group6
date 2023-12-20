@@ -51,9 +51,10 @@ h2 {
     overflow-y: visible;
 }
 
-.form {
+.credit__card  .form {
     display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
 }
