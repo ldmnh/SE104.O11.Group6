@@ -46,7 +46,7 @@ INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, a
 VALUES
     ('Hotel',   4,  'acc001.jpg', 'Khách sạn Quê Hương',    'Quê Hương là thiên đường',                 'Khách sạn hướng ra sông, có nhà hang.',        '1 Đường Nguyễn Trung Trực',    1,      1,  'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
     ('Resort',  5,  'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise',               'Khách sạn kết hợp khu trung tâm thương mại.',  '22 Đường Trần Huỳnh',          NULL,   2,  'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
-    ('Hotel',   5,  'acc003.jpg', 'LARA HOTEL LONG XUYEN',  'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.',               '46-48 Đường Hùng Vương',       4,      5,  'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
+    ('Hotel',   5,  'acc003.jpg', 'LARA HOTEL LONG XUYEN',  'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng.',               '46-48 Đường Hùng Vương',       5,      6,  'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
     ('Resort',  2,  'acc004.jpg', 'Homestay Coco Island',    NULL,                                      'Khách sạn 2 sao.',                             '97 Tân Thạch',                 2,      3,  'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
 
 INSERT INTO Feature (fea_name)
