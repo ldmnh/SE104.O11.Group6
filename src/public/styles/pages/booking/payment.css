@@ -365,8 +365,39 @@ button.submit-booking {
     background-color: var(--white);
     z-index: 10;
 }
-
+.list-account2 {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    z-index: 10;
+}
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
+}
+.overlay2 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
+}
 .form-check-input:checked[type="radio"] ~ .list-account {
+    display: block;
+}
+.form-check-input:checked[type="radio"] ~ .overlay {
+    display: block;
+}
+.form-check-input:checked[type="radio"] ~ .overlay2 {
     display: block;
 }
 
@@ -408,14 +439,4 @@ button.submit-booking {
 .term-use {
     text-align: end;
     color: #0866ff;
-}
-
-.overlay {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display:none;
-    position: fixed;
-    z-index: 1;
 }
