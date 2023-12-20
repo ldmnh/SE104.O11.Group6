@@ -92,6 +92,11 @@ class BookingController {
         const check_out = new Date(req.session.search?.check_out);
         const days = Math.ceil((check_out - check_in) / (1000 * 60 * 60 * 24));
 
+        if (!req.session.rooms) {
+            res.status(404).redirect("/error404");
+            return;
+        }
+
         authuser.getBankCardsById(
             {
                 id: req.session.user?.id,
@@ -181,7 +186,7 @@ class BookingController {
                 pay_id: req.session.book?.pay_id,
                 cancel_cost: 0,
                 book_status: 0,
-                book_is_paid: req.session.book?.pay_id == "0" ? 0 : 1,
+                book_is_paid: req.session.book?.pay_id == 1 ? 0 : 1,
             },
             (err, result) => {
                 if (err) throw err;
