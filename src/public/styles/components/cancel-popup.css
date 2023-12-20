@@ -15,12 +15,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow-y: auto;
+	max-height: 100vh;
 }
 
 .cancel {
 	height: 730px;
 	width: 573px;
 	box-sizing: border-box;
+	
 }
 
 .cancel__card {
@@ -29,6 +32,7 @@
 	border-radius: 8px;
 	padding: 22px 22px 21px 21px;
 	position: relative;
+	
 }
 
 .close-icon {
@@ -37,12 +41,13 @@
 
 .cancel__content {
 	width: 530px;
-	height: 635px;
+	min-height: 635px;
 	text-align: left;
 	position: relative;
 	border-radius: 10px;
 	border: 1px solid var(--mint-grey);
 	background: var(--mint-blue);
+	/* display: flex; */
 }
 
 .cancel-modal h1 {
@@ -127,10 +132,28 @@ hr {
 	gap: 17px;
 }
 
+.form-check input {
+	border: 2px solid var(--primary-color-2);
+	cursor: pointer;
+}
+
+.form-check input:focus {
+    border-color: var(--primary-color-2);
+    outline: 0;
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-check input:checked {
+	background-color: var(--primary-color-2);
+	border-color: var(--primary-color-2);
+}
+
 .cancel__button {
 	display: inline-flex;
 	gap: 10px;
-	margin: 23px 0 0 0;
+	margin: 23px 0 10px 0;
 	padding-left: 13px;
 }
 
