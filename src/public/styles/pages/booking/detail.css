@@ -47,7 +47,7 @@ h3 {
     font-weight: 600;
 }
 
-a {
+.content-container a {
     font-size: 1rem;
     font-weight: 600;
     color: var(--link);

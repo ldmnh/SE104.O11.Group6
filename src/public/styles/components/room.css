@@ -4,6 +4,7 @@
 
 .room {
     width: 100%;
+    height: 368px;
     display: inherit;
     flex-direction: column;
     border: 1px solid var(--outline-variant);
@@ -33,6 +34,7 @@
 
 .room__detail {
     display: inherit;
+    height: 100%;
 }
 
 .room__detail--left {
@@ -73,6 +75,7 @@
 
 .room__detail--right {
     width: 75%;
+    height: 100%;
     display: inherit;
     flex-direction: column;
     gap: 8px;
@@ -153,7 +156,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .room__unit {
-    color: var(--black-o50);
+    color: var(--black-o50) !important;
     font-weight: 500;
 }
 

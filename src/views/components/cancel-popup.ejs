@@ -20,13 +20,13 @@
 						<div class="cancel__info">
 							<% let total = 0 %>
 							<% bookingDetails.forEach(book => { %>
-							<% total += book.room_cost %>
+							<% total += book.book_room_cost_after * book.book_num_room * 0.2 %>
 							<div class="cancel__info--room">
-								<p><%= book.book_num_room %> x <%= book.room_name %></p>
-								<% if (book.room_cost) { %>
-								<p>VND <%= book.book_room_cost_after_currency %></p>
+								<p><%= book.room_name %> x <%= book.book_num_room %></p>
+								<% if (book.book_room_cost_before) { %>
+								<p>VND <%= toCurrency(book.book_room_cost_after * book.book_num_room * 0.2) %></p>
 								<% } else { %>
-								<p class="free"></p>
+								<p class="free">Miễn phí</p>
 								<% } %>
 							</div>
 							<hr />
@@ -59,37 +59,37 @@
 							<p>Thông tin này là cần thiết để bạn hoàn tất hủy phòng</p>
 							<div class="cancel__option">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="option" id="option1" value="Tôi đã tìm được lựa chọn chỗ nghỉ thay thế">
+									<input class="form-check-input" type="radio" name="option" id="option1" value="Tôi đã tìm được lựa chọn chỗ nghỉ thay thế" required>
 									<label class="form-check-label" for="option1">
 										Tôi đã tìm được lựa chọn chỗ nghỉ thay thế
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="option" id="option2" value="Chỗ nghỉ yêu cầu hủy">
+									<input class="form-check-input" type="radio" name="option" id="option2" value="Chỗ nghỉ yêu cầu hủy" required>
 									<label class="form-check-label" for="option2">
 										Chỗ nghỉ yêu cầu hủy
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="option" id="option3" value="Số lượng hoặc nhu cầu của tôi có thay đổi">
+									<input class="form-check-input" type="radio" name="option" id="option3" value="Số lượng hoặc nhu cầu của tôi có thay đổi" required>
 									<label class="form-check-label" for="option3">
 										Số lượng hoặc nhu cầu của tôi có thay đổi
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="option" id="option4" value="Đổi ngày hoặc điểm đến">
+									<input class="form-check-input" type="radio" name="option" id="option4" value="Đổi ngày hoặc điểm đến" required>
 									<label class="form-check-label" for="option4">
 										Đổi ngày hoặc điểm đến
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="option" id="option5" value=" Lý do cá nhân/chuyến đi bị hủy">
+									<input class="form-check-input" type="radio" name="option" id="option5" value=" Lý do cá nhân/chuyến đi bị hủy" required>
 									<label class="form-check-label" for="option5">
 										Lý do cá nhân/chuyến đi bị hủy
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="option" id="option6" value="Không phải các lý do trên">
+									<input class="form-check-input" type="radio" name="option" id="option6" value="Không phải các lý do trên" required>
 									<label class="form-check-label" for="option6">
 										Không phải các lý do trên
 									</label>

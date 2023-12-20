@@ -49,7 +49,7 @@
 				</div>
 			</div>
 			<div class="cancel__button">
-				<a href="search/<%= data[0].acco_id %>" class="cancel__button--submit1">Đặt lại</a>
+				<a href="/search/<%= data[0].acco_id %>" class="cancel__button--submit1">Đặt lại</a>
 				<a href="/" class="cancel__button--submit2">Tìm chỗ nghỉ khác</a>
 			</div>
 		</section>
@@ -83,7 +83,7 @@
 						<p>Thông tin lưu trú</p>
 					</div>
 					<div class="cancel-summary__content--text">
-						<p> <%= data[0].book_num_room %> phòng,
+						<p> <%= datax[0].book_num_room %> phòng,
 							<%= data[0].book_num_day %> đêm
 						</p>
 					</div>
@@ -112,6 +112,7 @@
 	</main>
 
 	<%- include('../../partials/footer') %>
+	<%- include('../../components/on-top-btn') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

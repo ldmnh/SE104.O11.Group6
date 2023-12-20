@@ -19,8 +19,6 @@ Booking.postInfo = (
         book_end_datetime,
         book_num_adult,
         book_num_child,
-        book_cost_before,
-        book_cost_after,
         book_first_name,
         book_last_name,
         book_email,
@@ -36,14 +34,14 @@ Booking.postInfo = (
     const sql = `
         INSERT INTO BOOKING (
             acco_id, au_user_id, book_datetime, book_start_datetime,
-            book_end_datetime, book_num_adult, book_num_child, book_cost_before,
-            book_cost_after, book_first_name, book_last_name, book_email,
+            book_end_datetime, book_num_adult, book_num_child,
+            book_first_name, book_last_name, book_email,
             book_phone, book_note, pay_id, cancel_cost, book_status, book_is_paid
         ) VALUES (
             ?, ?, ?, ?,
             ?, ?, ?, ?,
             ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?
         );`;
     db.query(
         sql,
@@ -55,8 +53,6 @@ Booking.postInfo = (
             book_end_datetime,
             book_num_adult,
             book_num_child,
-            book_cost_before,
-            book_cost_after,
             book_first_name,
             book_last_name,
             book_email,
@@ -220,7 +216,8 @@ Booking.getAllBooking = function (req, res, callback) {
             book_end_datetime,
             book_room_cost_after,
             book_cost_after,
-            book_num_room,
+            FORMAT(book_room_cost_after, 0, 'vi_VN') AS book_room_cost_after_tocurrency,
+            FORMAT(book_cost_after, 0, 'vi_VN') AS book_cost_after_tocurrency,
             book_email,
             room_class,
             booking.book_id,
@@ -244,6 +241,13 @@ Booking.getAllBooking = function (req, res, callback) {
         callback(err, res, result);
     });
 };
+Booking.countBookingRoom = function (req, res, callback) {
+    const sql = `SELECT DISTINCT SUM(book_num_room) AS book_num_room FROM bookingdetail WHERE bookingdetail.book_id = ${req.session.book?.id}`
+    db.query(sql, async (err, result) => {
+        callback(err, res, result);
+    });
+}
+    
 
 Booking.postCancelBooking = function (req, res, callback) {
     const option = req.body.option;
