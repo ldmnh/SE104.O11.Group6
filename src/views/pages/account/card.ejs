@@ -2,14 +2,17 @@
 <html lang="vi">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-	<link rel="stylesheet" href="/styles/pages/account/payment.css" />
+	<link rel="stylesheet" href="/styles/pages/account/payment.css">
+
 	<title>2WAYS.com</title>
+
 </head>
 
 <body>
@@ -26,14 +29,14 @@
 	<div class="payment-account-container">
 		<aside class="aside-content">
 			<div class="aside-content__profile">
-				<img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="" />
+				<img class="aside-content__img" src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="">
 				<div class="aside-content__detail">
 					<p class="aside-content__detail-bold"><%= user.last_name + " " + user.first_name %></p>
 					<p style="font-size: 12px"><i>Chỉnh sửa avatar</i></p>
 				</div>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="aside-section">
 				<a style='text-decoration: none;' href="/account/information">
@@ -50,7 +53,7 @@
 				</a>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="aside-item logout-btn">
 				<a style='text-decoration: none' id="logoutButton">
@@ -85,7 +88,7 @@
 				<p>Thêm hoặc bỏ các phương thức thanh toán</p>
 			</div>
 
-			<hr />
+			<hr>
 
 			<div class="form__card-items">
 				<div class="form__card-item ">
@@ -140,6 +143,7 @@
 
 	<%- include('../../partials/footer') %>
 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="/scripts/account/payment.js"></script>
 	<script src="/scripts/components/bank-account-popup.js" defer></script>
 	<script src="/scripts/components/credit-account-popup.js"></script>
