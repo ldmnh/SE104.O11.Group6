@@ -44,10 +44,10 @@ VALUES
 
 INSERT INTO Accommodation (acco_type, acco_star, acco_tiny_img_url, acco_name, acco_logan, acco_detail, acco_exac_location, city_id, prov_id, acco_location_link)
 VALUES
-    ('Hotel', 4, 'acc001.jpg', 'Khách sạn Quê Hương', 'Quê Hương là thiên đường', 'Khách sạn hướng ra sông, có nhà hàng. Có thể nhìn toàn bộ thành phố từ trên cao. Phục vụ 24/24, có dịch vụ giải trí đa dạng ở khách sạn.', '1 Đường Nguyễn Trung Trực', 1, 1, 'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
-    ('Resort', 5, 'acc002.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise', 'Khách sạn kết hợp khu trung tâm thương mại. Nhiều tiện ích được tích hợp vào nội thất trong Hotel. Phục vụ 24/7.', '22 Đường Trần Huỳnh', NULL, 2, 'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
-    ('Hotel', 5, 'acc003.jpg', 'LARA HOTEL LONG XUYEN', 'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng. Tận hưởng cảm giác gần gũi với thiên nhiên, yên bình. Nhiều hình thức giải trí vui nhộn.', '46-48 Đường Hùng Vương', 5, 6, 'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
-    ('Resort', 2, 'acc004.jpg', 'Homestay Coco Island', NULL, 'Khách sạn 2 sao. Có các hình thức dịch vụ đa dạng, thường trực 24/24. Có buffer sáng miễn phí.', '97 Tân Thạch', 2, 3, 'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
+    ('Hotel', 4, 'accommodation_1.jpg', 'Khách sạn Quê Hương', 'Quê Hương là thiên đường', 'Khách sạn hướng ra sông, có nhà hàng. Có thể nhìn toàn bộ thành phố từ trên cao. Phục vụ 24/24, có dịch vụ giải trí đa dạng ở khách sạn.', '1 Đường Nguyễn Trung Trực', 1, 1, 'https://maps.app.goo.gl/rXUtByLicucWQDej6'),
+    ('Resort', 5, 'accommodation_2.jpg', 'Sunrise Hotel Bạc Liêu', 'Phục vụ từ tận tâm Sunrise', 'Khách sạn kết hợp khu trung tâm thương mại. Nhiều tiện ích được tích hợp vào nội thất trong Hotel. Phục vụ 24/7.', '22 Đường Trần Huỳnh', NULL, 2, 'https://maps.app.goo.gl/VkrYrsnGhRYBdPfg6'),
+    ('Hotel', 5, 'accommodation_3.jpg', 'LARA HOTEL LONG XUYEN', 'Đem đến sự chất lượng tuyệt đối cho bạn.', 'Khách sạn bình dị có nhà hàng. Tận hưởng cảm giác gần gũi với thiên nhiên, yên bình. Nhiều hình thức giải trí vui nhộn.', '46-48 Đường Hùng Vương', 5, 6, 'https://maps.app.goo.gl/uoso2HmZ4hM9uEpS9'),
+    ('Resort', 2, 'accommodation_4.jpg', 'Homestay Coco Island', NULL, 'Khách sạn 2 sao. Có các hình thức dịch vụ đa dạng, thường trực 24/24. Có buffer sáng miễn phí.', '97 Tân Thạch', 2, 3, 'https://maps.app.goo.gl/vDk8xKxDsums4XTo6');
 
 
 INSERT INTO Feature (fea_name)
@@ -189,17 +189,38 @@ VALUES
 
 INSERT INTO BookingDetail (book_id, room_id, book_room_cost_before, book_room_cost_after, book_num_room)
 VALUES
-    ( 1,   1, 2500000, 1500000, 2),
-    ( 1,   2, 2800000, 1800000, 1),
-    ( 2,   3, 2000000, 2000000, 1),
-    ( 3,   4, 2200000, 1200000, 1),
-    ( 4,   5, 2600000, 1600000, 2),
-    ( 5,   6, 2800000, 1800000, 1),
-    ( 6,   7, 2500000, 2500000, 1),
-    ( 7,   8, 2900000, 1900000, 1),
-    ( 8,   9, 2700000, 1700000, 2),
-    ( 9,  10, 2400000, 1400000, 1),
-    (10,  10, 2400000, 1400000, 1);
+    (  1,  1, 2500000, 1500000, 2),
+    (  1,  2, 2800000, 1800000, 1),
+    (  2,  3, 2000000, 2000000, 1),
+    (  3,  4, 2200000, 1200000, 1),
+    (  4,  5, 2600000, 1600000, 2),
+    (  5,  6, 2800000, 1800000, 1),
+    (  6,  7, 2500000, 2500000, 1),
+    (  7,  8, 2900000, 1900000, 1),
+    (  8,  9, 2700000, 1700000, 2),
+    (  9, 10, 2400000, 1400000, 1),
+    ( 10, 10, 2400000, 1400000, 1),
+    ( 11,  1, 2500000, 1500000, 2),
+    ( 12,  2, 2800000, 1800000, 1),
+    ( 13,  3, 2000000, 2000000, 1),
+    ( 14,  4, 2200000, 1200000, 1),
+    ( 15,  5, 2600000, 1600000, 2),
+    ( 16,  6, 2800000, 1800000, 1),
+    ( 17,  7, 2500000, 2500000, 1),
+    ( 18,  8, 2900000, 1900000, 1),
+    ( 19,  9, 2700000, 1700000, 2),
+    ( 20, 10, 2400000, 1400000, 1),
+    ( 21,  1, 2400000, 1400000, 1),
+    ( 22,  2, 2900000, 1900000, 1),
+    ( 23,  3, 2700000, 1700000, 2),
+    ( 24,  4, 2400000, 1400000, 1),
+    ( 25,  5, 2400000, 1400000, 1),
+    ( 26,  6, 2800000, 1800000, 1),
+    ( 27,  7, 2500000, 2500000, 1),
+    ( 28,  8, 2900000, 1900000, 1),
+    ( 29,  9, 2700000, 1700000, 2),
+    ( 30, 10, 2400000, 1400000, 1),
+    ( 31,  1, 2400000, 1400000, 1);
 
 INSERT INTO Rating (au_user_id, room_id, rating_datetime, rating_context, rating_point)
 VALUES
