@@ -12,9 +12,7 @@ const setStatusSubmitBtn = (isDisable) => {
 
 const handleStatusSubmitBtn = () => {
     const pass = $('#form__password').val()
-    console.log(pass)
     const pass_confirm = $('#form__password-confirm').val()
-    console.log(pass_confirm)
     setStatusSubmitBtn(pass === '' || pass_confirm === '')
 }
 

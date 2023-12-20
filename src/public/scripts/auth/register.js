@@ -2,7 +2,7 @@ checkFormValidity()
 
 // Hàm kiểm tra tính hợp lệ của mật khẩu
 function isPasswordValid(password) {
-    const re = /^(?!\s)(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+(?<!\s)$/
+    const re = /^[a-zA-Z0-9]+$/
     return password.length >= 8 && re.test(password)
 }
 
@@ -101,11 +101,11 @@ const isValidEmail = email => {
 function validateInput() {
     // Lấy giá trị của các trường thông tin
     const emailValue = email.value.trim()
-    const passwordValue = password.value.trim()
+    const passwordValue = password.value
     const passwordConfirmValue = passwordConfirm.value.trim()
 
     // Kiểm tra giá trị của các trường thông tin
-    let isAllValid = true
+    let isAllValid = false
 
     if (!isValidEmail(emailValue)) {
         setError(email, 'Địa chỉ email không đúng định dạng!')
@@ -133,6 +133,7 @@ function validateInput() {
         document.getElementById('form__password-confirm').classList.remove('is-invalid')
         setSuccess(password)
         setSuccess(passwordConfirm)
+        isAllValid = true
     }
 
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
@@ -150,20 +151,20 @@ function validateInput() {
             headers: {
                 'Content-Type': 'application/json',
             }
-        }).then(
-            res => res.json()
-        ).then(back => {
-            if (back.status === 'error') {
-                setError(email, back.message)
-                document.getElementById('form__email').classList.add('is-invalid')
-                isAllValid = false
-            } else if (back.status === 'success') {
-                if (isAllValid) {
-                    form.submit()
-                }
-            }
-        }).catch(function (err) {
-            console.error(err)
         })
+            .then(res => res.json())
+            .then(back => {
+                if (back.status === 'error') {
+                    setError(email, back.message)
+                    document.getElementById('form__email').classList.add('is-invalid')
+                    isAllValid = false
+                } else if (back.status === 'success') {
+                    if (isAllValid) {
+                        form.submit()
+                    }
+                }
+            }).catch(function (err) {
+                console.error(err)
+            })
     }
 }
