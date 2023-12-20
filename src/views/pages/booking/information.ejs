@@ -78,11 +78,19 @@
 					</div>
 
 					<div class="cost-total">
+						<% if (data.book.cost_before == data.book.cost_after) { %>
+						<div class="cost">
+							<h1>Giá</h1>
+							<h1>VND <%= data.book.cost_after %></h1>
+						</div>
+						<% } else { %>
 						<h6 class="red-line">VND <%= data.book.cost_before %></h6>
 						<div class="cost">
 							<h1>Giá</h1>
 							<h1>VND <%= data.book.cost_after %></h1>
 						</div>
+						<% } %>
+
 						<h6>Đã bao gồm thuế và phí</h6>
 					</div>
 				</div>

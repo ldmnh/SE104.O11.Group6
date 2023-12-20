@@ -259,6 +259,11 @@ class SearchController {
     // [GET] /search/:acco_id
     accoDetail(req, res) {
         let acco_id = [req.params.acco_id]
+        accoRoomDetail.getAccoDetail(acco_id, function (err, accoDetail) {
+            if (!accoDetail){
+                res.status(404).redirect('/error404')
+            } 
+        })
 
         accoRoomDetail.getAccoDetail(acco_id, function (err, accoDetail) {
             accoRoomDetail.getAccoFea(acco_id, function (err, accoFea) {
