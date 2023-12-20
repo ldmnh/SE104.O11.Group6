@@ -1,5 +1,5 @@
 function redirectToUrl(url) {
-    window.location.href = url;
+  window.location.href = url;
 }
 
 // Header-full
@@ -12,16 +12,6 @@ logoClickHf.addEventListener("click", () => redirectToUrl("/"));
 
 homepageBtnHf.addEventListener("click", () => redirectToUrl("/"));
 notiBtnHf.addEventListener("click", () =>
-    redirectToUrl("/notifications/account-update")
-);
-
-const nameClickHf = document.querySelector(".name-click-hf");
-const avatarClickHf = document.querySelector(".avatar-btn-hf");
-nameClickHf.addEventListener("click", () =>
-    redirectToUrl("/account/information")
-);
-
-avatarClickHf.addEventListener("click", () =>
-    redirectToUrl("/account/information")
+  redirectToUrl("/notifications/account-update")
 );
 
