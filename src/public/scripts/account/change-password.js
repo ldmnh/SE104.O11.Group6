@@ -1,3 +1,30 @@
+function showHidePassword(inputId, iconId) {
+    const input = document.querySelector(`input[name=${inputId}]`)
+    const icon = document.getElementById(iconId)
+
+    if (input.type === 'password') {
+        input.type = 'text'
+        icon.innerText = 'visibility_off'
+    } else {
+        input.type = 'password'
+        icon.innerText = 'visibility'
+    }
+}
+
+// Lắng nghe sự kiện click cho biểu tượng 'eye1' và 'eye2'
+document.getElementById('eye-open-1').addEventListener('click', function () {
+    showHidePassword('oldPass', 'eye-open-1')
+})
+
+document.getElementById('eye-open-2').addEventListener('click', function () {
+    showHidePassword('newPass', 'eye-open-2')
+})
+
+document.getElementById('eye-open-3').addEventListener('click', function () {
+    showHidePassword('newPassConfirm', 'eye-open-3')
+})
+
+
 const change1 = document.querySelector("#change1");
 const change2 = document.querySelector("#change2");
 
