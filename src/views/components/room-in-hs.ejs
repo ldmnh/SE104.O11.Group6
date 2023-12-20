@@ -45,8 +45,12 @@
 				<a href="/terms-of-use" class="cancel-policy">Chính sách hủy phòng</a>
 			</div>
 			<div class="price__room">
+				<% if (bookingDetail.book_cost_before_currency == bookingDetail.book_cost_after_currency) { %>
+				<p class="after-discount">VND <%=bookingDetail.book_cost_after_currency%></p>
+				<% } else { %>
 				<p class="before-discount">VND <%=bookingDetail.book_cost_before_currency%></p>
 				<p class="after-discount">VND <%=bookingDetail.book_cost_after_currency%></p>
+				<% } %>
 				<p class="room-day">/phòng/đêm</p>
 			</div>
 		</div>

@@ -93,11 +93,15 @@
 
 			<div class="form__items">
 				<div class="form__item">
-					<h1>Họ:</h1>
-					<input class="form-control" type="text" value="<%= data.last_name %>" readonly>
+					<div class="form__item--left">
+						<h1>Họ:</h1>
+						<input class="form-control" type="text" value="<%= data.last_name %>" readonly>
+					</div>
 
-					<h1>Tên:</h1>
-					<input class="form-control" type="text" value="<%= data.first_name %>" readonly>
+					<div class="form__item--right">
+						<h1>Tên:</h1>
+						<input class="form-control" type="text" value="<%= data.first_name %>" readonly>
+					</div>
 				</div>
 
 				<div class="form__item">
