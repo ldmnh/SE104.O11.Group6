@@ -396,7 +396,24 @@ button.btn--outlined.pri {
 
 input.is-invalid {
     background-image: none !important;
-    color : black;
+    color: black;
     /* width: 60px; */
-    /* Add any additional styles you need */
+}
+
+/* Fix */
+.your-choice a {
+    color: #0866ff
+}
+
+.list-account img {
+    width: 38px;
+    height: 30px;
+}
+
+.account-item .num-bank{
+    text-align: end;
+}
+
+.add-acount{
+    color: #a3adad;
 }
