@@ -90,6 +90,19 @@ html {
     align-items: center;
 }
 
+.form__item div {
+    display: flex;
+    gap: 12px;
+}
+
+.form__item--left input {
+    width: 70%;
+}
+
+.form__item--right h1 {
+    width: 20% !important;
+}
+
 .form__item {
     display: flex;
     gap: 12px;

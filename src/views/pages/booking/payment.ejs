@@ -53,13 +53,13 @@
 				<div class="aside-wrapper__check-date">
 					<div class="checkin-date">
 						<h5>Nhận phòng</h5>
-						<h5><b><%= data.search.checkIn %></b></h5>
+						<h5><b><%= data.search.check_in %></b></h5>
 						<h5>Từ 14:00</h5>
 					</div>
 
 					<div class="checkout-date">
 						<h5>Trả phòng</h5>
-						<h5><b><%= data.search.checkOut %></b></h5>
+						<h5><b><%= data.search.check_out %></b></h5>
 						<h5>Cho đến 00:00</h5>
 					</div>
 				</div>
@@ -71,7 +71,7 @@
 
 				<div class="aside-wrapper__total-length-stay">
 					<h5>Tổng thời gian lưu trú</h5>
-					<h5><b>1 đêm</b></h5>
+					<h5><b><%- data.days %> đêm</b></h5>
 				</div>
 
 				<hr />
