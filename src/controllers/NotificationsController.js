@@ -35,7 +35,6 @@ class NotificationController {
             "noti_id": noti_id
         }, (err, result) => {
             if (err) throw err;
-            res.status(200).redirect('./account-update')
         })
     }
 
@@ -71,8 +70,6 @@ class NotificationController {
             "noti_id": noti_id
         }, (err, result) => {
             if (err) throw err;
-
-            res.status(200).redirect('./promotion')
         })
     }
 
@@ -80,10 +77,9 @@ class NotificationController {
     readAllNotification(req, res) {
         NotificationModel.readAllNotification({
             "id": req.session.user?.id,
+            "noti_type": req.body.noti_type
         }, (err, result) => {
             if (err) throw err;
-
-            res.status(200).redirect('./account-update')
         })
 
     }

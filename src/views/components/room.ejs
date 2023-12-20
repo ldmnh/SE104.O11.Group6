@@ -88,16 +88,16 @@
 					<h1><%= room.room_class %></h1>
 					<div class="modal__view--big">
 						<button onclick="prevSlide(event)" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
-						<img class="modal__slide" src="/imgs/room/<%= room.room_img[0].room_type_image_url %>" alt="">
+						<img class="modal__slide" src="/imgs/room/<%# room.room_img[0].room_type_image_url %>" alt="">
 						<button onclick="nextSlide(event)" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
 					</div>
 					<div class="modal__view--small">
-						<% room.room_img.slice(0, 4).forEach(function(img) { %>
-						<button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/room/<%= img.room_type_image_url %>" alt=""></button>
-						<% }) %>
-						<% room.room_img.slice(4, room.room_img.length).forEach(function(img) { %>
-						<button onclick="currentSlide(event)" style="display: none;" type="button"><img class="modal__thumnail" src="/imgs/room/<%= img.room_type_image_url %>" alt=""></button>
-						<% }) %>
+						<%# room.room_img.slice(0, 4).forEach(function(img) { %>
+						<button onclick="currentSlide(event)" type="button"><img class="modal__thumnail" src="/imgs/room/<%# img.room_type_image_url %>" alt=""></button>
+						<%# }) %>
+						<%# room.room_img.slice(4, room.room_img.length).forEach(function(img) { %>
+						<button onclick="currentSlide(event)" style="display: none;" type="button"><img class="modal__thumnail" src="/imgs/room/<%# img.room_type_image_url %>" alt=""></button>
+						<%# }) %>
 					</div>
 				</div>
 

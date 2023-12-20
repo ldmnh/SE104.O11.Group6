@@ -15,23 +15,23 @@ const authMiddleware = require("../middlewares/auth.middleware");
 const AuthController = require("../controllers/AuthController.js");
 
 router.get("/register", authMiddleware.checkAuth, AuthController.register);
-router.post("/register", authMiddleware.checkAuth, AuthController.registerPost);
+router.post("/register", authMiddleware.checkAuth, AuthController.postRegister);
 
 router.get("/login", authMiddleware.checkAuth, AuthController.login);
-router.post("/login", authMiddleware.checkAuth, AuthController.loginPost);
+router.post("/login", authMiddleware.checkAuth, AuthController.postLogin);
 
 router.get("/forgot", AuthController.forgot);
-router.post("/forgot", AuthController.forgotPost);
+router.post("/forgot", AuthController.postForgotPassword);
 
 router.get("/reset", authMiddleware.checkForgot, AuthController.reset);
-router.post("/reset", authMiddleware.checkForgot, AuthController.resetPost);
+router.post("/reset", authMiddleware.checkForgot, AuthController.putReset);
 
 router.get("/logout", authMiddleware.checkUnauth, AuthController.logout);
 
 router.post(
     "/change-password",
     authMiddleware.isLoggedIn,
-    AuthController.changePassPost
+    AuthController.postChangePass
 );
 
 module.exports = router;

@@ -10,41 +10,28 @@ const bcrypt = require('bcryptjs')
 function AuthUser() { }
 
 
-AuthUser.checkRegister = function (req, callback) {
-    const {
-        au_user_last_name,
-        au_user_first_name,
-        au_user_email,
-        au_user_pass
-    } = req.body
-
-    const checkEmail = 'SELECT au_user_email FROM authuser WHERE au_user_email = ?'
+AuthUser.insertUser = async function ({ au_user_last_name, au_user_first_name, au_user_email, au_user_pass}, callback) {
     const insertUser = 'INSERT INTO authuser SET ?'
 
-    db.query(checkEmail, [au_user_email], async (err, result) => {
-        if (err) callback(1, 0, 0)
-        if (result[0]) callback(0, 1, 0)
-        else {
-            let hashedPassword = await bcrypt.hash(au_user_pass, 8);
-            console.log(hashedPassword);
-            db.query(insertUser, {
-                au_user_last_name: au_user_last_name,
-                au_user_first_name: au_user_first_name,
-                au_user_email: au_user_email,
-                au_user_pass: hashedPassword
-            }, (error, results) => {
-                if (error) callback(1, 0, 0)
-                callback(0, 0, 1)
-            })
-        }
+    let hashedPassword = await bcrypt.hash(au_user_pass, 8);
+
+    db.query(insertUser, {
+        au_user_last_name: au_user_last_name,
+        au_user_first_name: au_user_first_name,
+        au_user_email: au_user_email,
+        au_user_pass: hashedPassword
+    }, (error, results) => {
+        if (error) throw error
+        callback(error, results)
     })
 }
 
-AuthUser.checkEmail = ({ email }, callback) => {
+AuthUser.findByEmail = ({ email }, callback) => {
     const sql = `
         SELECT *
         FROM AUTHUSER
         WHERE au_user_email = ?`
+
     db.query(sql, [email], (err, result) => {
         callback(err, result)
     })
@@ -88,7 +75,7 @@ AuthUser.putInfoById = ({ id, first_name, last_name, birthday, sex }, callback) 
     })
 }
 
-AuthUser.putResetPassByEmail = async ({ email, password }, callback) => {
+AuthUser.findByPassword = async ({ email, password }, callback) => {
     const hashedPass = await bcrypt.hash(password, 8)
     const sql = `
         UPDATE AUTHUSER
@@ -127,22 +114,22 @@ AuthUser.getDebitCardsById = ({ id }, callback) => {
     });
 }
 
-AuthUser.findByEmail = (email, results) => {
-    db.query(
-        `SELECT * from authuser WHERE au_user_email = '${email}'`,
-        (err, result) => {
-            if (err) {
-                results(err, null);
-                return;
-            }
-            if (result.length > 0) {
-                results(null, result[0]);
-                return;
-            }
-            results(null, null);
-        }
-    );
-};
+// AuthUser.findByEmail = (email, results) => {
+//     db.query(
+//         `SELECT * from authuser WHERE au_user_email = '${email}'`,
+//         (err, result) => {
+//             if (err) {
+//                 results(err, null);
+//                 return;
+//             }
+//             if (result.length > 0) {
+//                 results(null, result[0]);
+//                 return;
+//             }
+//             results(null, null);
+//         }
+//     );
+// };
 
 
 module.exports = AuthUser

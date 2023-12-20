@@ -5,41 +5,41 @@ const accountHistory = require('../models/accountHistory.model');
 class AccountController {
 
     // [GET] /account/information
-    information(req, res) {
+    accountInformation(req, res) {
         authuser.getInfoById({
             id: req.session.user?.id
         }, (err, result) => {
             if (err) {
                 res.status(500).json({
+                    statusCode: 500,
                     message: 'Lỗi truy vấn!!!',
                 });
                 throw err;
             }
 
-            if (result.length > 0) {
-                const data = {
-                    first_name: result[0].au_user_first_name,
-                    last_name: result[0].au_user_last_name,
-                    email: result[0].au_user_email,
-                    birthday: result[0].au_user_birthday,
-                    sex: result[0].au_user_sex,
-                    avatar: result[0].au_user_avt_url
-                }
-                res.status(200).render('./pages/account/information', {
-                    message: 'Lấy thông tin tài khoản thành công',
-                    user: req.session.user,
-                    data
-                })
-            } else {
-                res.status(404).json({
-                    message: 'Không tìm thấy tài khoản!!!',
-                });
+            if (result.length === 0) {
+                res.status(404).render('./pages/error/404')
+                return;
             }
+
+            const data = {
+                first_name: result[0].au_user_first_name,
+                last_name: result[0].au_user_last_name,
+                email: result[0].au_user_email,
+                birthday: result[0].au_user_birthday,
+                sex: result[0].au_user_sex,
+                avatar: result[0].au_user_avt_url
+            }
+            res.status(200).render('./pages/account/information', {
+                message: 'Lấy thông tin tài khoản thành công',
+                user: req.session.user,
+                data
+            })
         })
     }
 
     // [POST] /account/information
-    informationPost(req, res) {
+    putChangeInfo(req, res) {
         const id = req.session.user?.id;
         let { first_name, last_name, birthday, sex } = req.body;
 
@@ -109,7 +109,7 @@ class AccountController {
     }
 
     // [GET] /account/card
-    card(req, res) {
+    getCards(req, res) {
         authuser.getBankCardsById({
             id: req.session.user?.id
         }, (err, result) => {
