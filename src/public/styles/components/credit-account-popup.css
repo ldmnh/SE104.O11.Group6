@@ -29,7 +29,7 @@ h2 {
 }
 
 .credit-container {
-    padding: 160px;
+    /* padding: 160px; */
     margin: 0;
     display: flex;
     align-items: center;

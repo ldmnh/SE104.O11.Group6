@@ -24,7 +24,7 @@ h1 {
 }
 
 .account-container {
-    padding: 160px;
+    /* padding: 160px; */
     margin-top: 100px;
     display: flex;
     align-items: center;
