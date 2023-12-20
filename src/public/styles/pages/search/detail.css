@@ -92,6 +92,7 @@ body {
 }
 
 .title__btn a {
+    text-decoration: none;
     width: 160px;
     height: 48px;
     box-sizing: border-box;
@@ -221,6 +222,7 @@ body {
     color: var(--white);
     background-color: var(--primary-color-4);
     border-radius: 8px;
+    border: none;
 }
 
 .room-list__submit-button:hover {

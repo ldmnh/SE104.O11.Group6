@@ -32,12 +32,12 @@
 						<h6><%= data.acco.type %></h6>
 						<div class="starts-icon">
 							<% for (let i = 0; i < data.acco.star; i++) { %>
-							<span class="material-symbols-outlined filled-start">
+							<span class="material-symbols-outlined filled-start" style="font-variation-settings: 'FILL' 1">
 								star_rate
 							</span>
 							<% } %>
 							<% for (let i = 0; i < 5 - data.acco.star; i++) { %>
-							<span class="material-symbols-outlined unfilled-start">
+							<span class="material-symbols-outlined unfilled-start" style="font-variation-settings: 'FILL' 0">
 								star_rate
 							</span>
 							<% } %>
@@ -47,7 +47,7 @@
 					<a href=""><%= data.acco.exac_location %></a>
 				</div>
 
-				<div class="your-booking-detail">
+				<div class=" your-booking-detail">
 					<h1 style="margin: 12px 12px 0 12px">Chi tiết đặt phòng của bạn</h1>
 					<div class="check-date">
 						<div class="checkin-date">
@@ -61,11 +61,6 @@
 							<h5><b><%= data.search.check_out %></b></h5>
 							<h5>Cho đến 00:00</h5>
 						</div>
-					</div>
-
-					<div class="countdown-time">
-						<span class="material-symbols-outlined"> error </span>
-						<h6>Còn 7 ngày nữa</h6>
 					</div>
 
 					<div class="total-length-stay">
@@ -95,7 +90,7 @@
 					<h5><b>Chi phí hủy phòng</b></h5>
 					<div class="cancel-free">
 						<span class="material-symbols-outlined">check_circle</span>
-						<h6>Miễn phí hủy phòng bất kỳ lúc nào</h6>
+						<h6>Miễn phí hủy phòng</h6>
 					</div>
 				</div>
 
