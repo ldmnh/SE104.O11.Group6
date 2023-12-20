@@ -147,7 +147,10 @@ function filterSortData() {
                     }
                     let iconRating = "";
                     for (let i = 0; i < result.acco_star; i++) {
-                        iconRating += `<span class="material-symbols-outlined">star</span>`;
+                        iconRating += `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>`;
+                    }
+                    for (let i = 0; i < 5 - result.acco_star; i++) {
+                        iconRating += `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>`;
                     }
                     if (result.room_discount) {
                         html = `
@@ -165,7 +168,7 @@ function filterSortData() {
                                             <p class="result-block__name"> ${result.acco_name}</p>
                                             <div class="result-block__rate-star">${iconRating}</div>
                                             <div class="result-block__extensions">
-                                                <a href="#" target="blank" class="result-block__map">Xem trên bản đồ</a>
+                                                <a href="${result.acco_location_link}" target="blank" class="result-block__map">Xem trên bản đồ</a>
                                                 <div class="result-block__details">
                                                     <span class="material-symbols-outlined icon--filled">beach_access</span>
                                                     <p class="result-block__details-content">Giáp biển</p>
@@ -225,7 +228,7 @@ function filterSortData() {
                                         <p class="nresult-block__name">${result.acco_name}</p>
                                         <div class="nresult-block__rate-star">${iconRating}</div>
                                             <div class="nresult-block__extensions">
-                                                <a href="h#" target="blank" class="nresult-block__map">Xem trên bản đồ</a>
+                                                <a href="${result.acco_location_link}" target="blank" class="nresult-block__map">Xem trên bản đồ</a>
                                                 <div class="nresult-block__details">
                                                     <span class="material-symbols-outlined">beach_access</span>
                                                     <p class="nresult-block__details-content">Giáp biển</p>

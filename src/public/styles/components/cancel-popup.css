@@ -87,7 +87,8 @@
 
 .cancel__info--room {
 	display: flex;
-	padding: 11px 14px 0 15px;
+	padding: 8px 14px;
+	justify-content: space-between;
 	font-weight: 600;
 }
 
@@ -104,7 +105,8 @@ hr {
 
 .cancel__info--total {
 	display: flex;
-	padding: 15px 14px 0 15px;
+	padding: 8px 14px;
+	justify-content: space-between;
 	font-weight: 700;
 }
 

@@ -5,8 +5,11 @@
 			<p class="nresult-block__name"><%= result.acco_name %></p>
 			<!-- Đánh giá 5 sao -->
 			<div class="nresult-block__rate-star">
-				<% for (let i = 0; i < data[0].acco_star; i++) { %>
-				<span class="material-symbols-outlined">star</span>
+				<% for (let i=0; i < data[0].acco_star; i++) { %>
+				<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+				<% } %>
+				<% for (let i=0; i < 5 - (data[0].acco_star); i++) { %>
+				<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
 				<% } %>
 			</div>
 			<div class="nresult-block__extensions">
