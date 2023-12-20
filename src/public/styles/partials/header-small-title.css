@@ -1,9 +1,4 @@
-/* @import url("/styles/base.css"); */
 @import url("./header.css");
-
-header {
-    /* position: fixed; */
-}
 
 .header-container {
     position: relative;

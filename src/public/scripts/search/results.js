@@ -153,7 +153,7 @@ function filterSortData() {
                         html = `
                             <div class="result-block">
                                 <div class="result-block__tag-sale">
-                                    <span class="material-symbols-outlined">alarm</span>
+                                    <span class="material-symbols-outlined icon--filled">alarm</span>
                                     <p class="result-block__sale-content">Đặt chỗ cùng 2WAYS</p>
                                     <p class="result-block__sale-valid">Khuyến mãi có thời hạn</p>
                                 </div>
@@ -167,7 +167,7 @@ function filterSortData() {
                                             <div class="result-block__extensions">
                                                 <a href="#" target="blank" class="result-block__map">Xem trên bản đồ</a>
                                                 <div class="result-block__details">
-                                                    <span class="material-symbols-outlined">beach_access</span>
+                                                    <span class="material-symbols-outlined icon--filled">beach_access</span>
                                                     <p class="result-block__details-content">Giáp biển</p>
                                                 </div>
                                                 <div class="result-block__details">
@@ -206,7 +206,7 @@ function filterSortData() {
                                             <p class="result-block__discount-price">VND ${result.room_cost_after_currency}</p>
                                             <label for="result-block__discount-price" class="result-block__label">Đã gồm thuế và phí</label>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <a href="/search/${result.acco_id}" id="select-button" type="submit" class="btn form__submit">Xem ngay</a>
+                                                <a href="/search/${result.acco_id}" id="select-button" type="submit" class="form__submit">Xem ngay</a>
                                             </div>
                                         </div>
                                     </div>
@@ -264,7 +264,7 @@ function filterSortData() {
                                             <p class="nresult-block__origin-price">VND ${result.room_cost_before_currency}</p>
                                             <label for="nresult-block__origin-price" class="result-block__label">Đã gồm thuế và phí</label>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <a href="/search/${result.acco_id}" id="select-button" class="btn form__submit">Xem ngay</a>
+                                                <a href="/search/${result.acco_id}" id="select-button" class="form__submit">Xem ngay</a>
                                             </div>
                                         </div>
                                     </div>

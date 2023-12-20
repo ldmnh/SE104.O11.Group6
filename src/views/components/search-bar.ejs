@@ -1,20 +1,20 @@
 <form class="main--search" action="/search/results" method="get">
 	<div class="search__wrapper">
 		<div class="search-address">
-			<span class="material-symbols-outlined">location_on</span>
+			<span class="material-symbols-outlined icon--filled">location_on</span>
 			<input name="location" class="input_address" type="text" placeholder="Nơi muốn đến" list="location" />
 			<datalist id="location"></datalist>
 		</div>
 
 		<div class=" search-address" style="border-left: 1px solid #90a6b1">
-			<span class="material-symbols-outlined"> calendar_month </span>
+			<span class="material-symbols-outlined icon--filled"> calendar_month </span>
 			<input type="hidden" name='checkin' value="">
 			<input type="hidden" name='checkout' value="">
 			<input class="input_address" id="dateRange" type="text" value="" placeholder="Ngày nhận - Ngày trả" />
 		</div>
 
 		<div class="search-address search-address--dropdown" style="border-left: 1px solid #90a6b1">
-			<span class="material-symbols-outlined">person</span>
+			<span class="material-symbols-outlined icon--filled">person</span>
 			<div id="selected-options" class="input_address" type="text" style="width: 250px"></div>
 		</div>
 		
