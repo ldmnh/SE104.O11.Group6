@@ -6,6 +6,7 @@ $(document).ready(function () {
     // Khởi tạo date range picker và không có giá trị mặc định
     dateRangeInput.daterangepicker({
         autoUpdateInput: false,
+        minDate: moment(),
     });
 
     // Bắt sự kiện khi người dùng chọn ngày

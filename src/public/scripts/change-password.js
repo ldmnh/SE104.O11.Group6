@@ -88,14 +88,48 @@ submitBtn.addEventListener('click', () => {
                 method: 'POST',
             }).then(res => res.json()
             ).then(data => {
-                if (data.status === 200) {
-                    modalSuccessChangePassword.style.display = "block";
-                } else if (data.status === 404) {
+                if (data.statusCode === 500) {
+                    errorMsg.innerText = data.message;
+                    oldPassForm.classList.add('error-div')
+                    newPassForm.classList.add('error-div')
+                    newPassConfirmForm.classList.add('error-div')
+
+                    return;
+                }
+
+                if (data.statusCode === 409) {
                     errorMsg.innerText = data.message;
                     oldPassForm.classList.add('error-div')
                     newPassForm.classList.remove('error-div')
                     newPassConfirmForm.classList.remove('error-div')
+
+                    return;
                 }
+
+                if (data.statusCode === 404) {
+                    errorMsg.innerText = data.message;
+                    oldPassForm.classList.add('error-div')
+                    newPassForm.classList.add('error-div')
+                    newPassConfirmForm.classList.add('error-div')
+
+                    return;
+                }
+
+                if (data.statusCode === 200) {
+                    modalSuccessChangePassword.style.display = "block";
+                    errorMsg.innerText = '';
+                    oldPassForm.classList.remove('error-div')
+                    newPassForm.classList.remove('error-div')
+                    newPassConfirmForm.classList.remove('error-div')
+
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
+
+                    return;
+                }
+
+                errorMsg.innerText = "Có lỗi xảy ra! Vui lòng thử lại sau!";
             }).catch(err => {
                 console.error(err);
             })
