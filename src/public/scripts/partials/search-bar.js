@@ -33,8 +33,8 @@ $(document).ready(function () {
             $('[name="checkin"]').val().trim() === "" ||
             $('[name="checkout"]').val().trim() === ""
         ) {
-            event.preventDefault();
-            alert("Vui lòng chọn ngày nhận và ngày trả phòng.");
+            // event.preventDefault();
+            // alert("Vui lòng chọn ngày nhận và ngày trả phòng.");
         }
     });
 });
@@ -72,6 +72,7 @@ minusButtons.forEach((minusButton) => {
 
 // Hàm cập nhật thông tin đã chọn
 const selectedOptions = document.getElementById("selected-options");
+
 function updateSelectedOptions() {
     const adults = document.getElementById("adult__quantity").value;
     const children = document.getElementById("child__quantity").value;
@@ -100,16 +101,16 @@ document
         }
     });
 
-const inputAddress = document.querySelector('input[name="location"]')
+// const inputAddress = document.querySelector('input[name="location"]')
 
-inputAddress.addEventListener("keyup", function () {
-    const inputAddressValue = document.querySelector('input[name="location"]').value
+inputAddress.addEventListener("keyup", async function () {
+    const inputAddressValue = document.querySelector('input[name="location"]').value.trim().toLowerCase();
 
     const searchKey = {
         searchKey: inputAddressValue
     }
 
-    fetch('/hint_search', {
+    await fetch('/hint_search', {
         method: 'POST',
         body: JSON.stringify(searchKey),
         headers: {
@@ -120,20 +121,20 @@ inputAddress.addEventListener("keyup", function () {
     ).then(back => {
         console.log(back)
         const location = document.getElementById('location');
-        let options = Array.from(location.querySelectorAll('option'))
+        let options = location.querySelectorAll('option')
         options.forEach(opt => opt.remove())
         back.result.forEach(addressOption => {
-            if (addressOption.city_name){
+            if (addressOption.city_name) {
                 let option = document.createElement('option');
                 option.value = addressOption.city_name
                 location.appendChild(option)
             }
         })
         back.result.forEach(addressOption => {
-            if (addressOption.prov_name){
-            let option = document.createElement('option');
-            option.value = addressOption.prov_name
-            location.appendChild(option)
+            if (addressOption.prov_name) {
+                let option = document.createElement('option');
+                option.value = addressOption.prov_name
+                location.appendChild(option)
             }
         })
     })
