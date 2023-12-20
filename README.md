@@ -28,9 +28,9 @@ Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, �
 ## Tính năng
 |ID	|Tên tác nhân |	Mô tả tác nhân|
 |:---:|:-------------:|:-----:|
-|AT1	|Unauthenticated User (Khách vãng lai)|	Người dùng chưa có tài khoản trên hệ thống, hoặc đã có tài khoản nhưng chưa thực hiện đăng nhập, hệ thống chưa xác thực được người dùng là ai, chưa thực hiện được một số chức năng quan trọng.|
-|AT2	|Authenticated User (Khách hàng)|	Người dùng đã đăng nhập vào hệ thống, hệ thống đã xác thực được người dùng, có thể thực hiện được các chức năng trên hệ thống.|
-|AT3	|Admin (Quản trị viên)|	Người quản trị website và có quyền cao nhất trong hệ thống, có trách nhiệm điều hành và quản lý các hoạt động diễn ra trên website.|
+|AC1	|Unauthenticated User (Khách vãng lai)|	Người dùng chưa có tài khoản trên hệ thống, hoặc đã có tài khoản nhưng chưa thực hiện đăng nhập, hệ thống chưa xác thực được người dùng là ai, chưa thực hiện được một số chức năng quan trọng.|
+|AC2	|Authenticated User (Khách hàng)|	Người dùng đã đăng nhập vào hệ thống, hệ thống đã xác thực được người dùng, có thể thực hiện được các chức năng trên hệ thống.|
+|AC3	|Admin (Quản trị viên)|	Người quản trị website và có quyền cao nhất trong hệ thống, có trách nhiệm điều hành và quản lý các hoạt động diễn ra trên website.|
 
 |Mã chức năng	|	Tên chức năng	|	Tác nhân	| Hoàn thành|
 |:---:|:-------------:|:-----:|:-----:|
@@ -44,7 +44,7 @@ Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, �
 |UC1.07	|	Xem chi tiết phòng	|	AT1, AT2, AT3	| 100%|
 |UC1.08	|	Lọc nội dung	|	AT1, AT2, AT3	| 100%|
 |UC1.09	|	Xem đánh giá	|	AT1, AT2, AT3	| 100%|
-||UC2 - Authenticated User Module (Mô-đun Khách hàng					||
+||UC2 - Authenticated User Module (Mô-đun Khách hàng)					||
 |UC2.01	|	Đổi mật khẩu	|	AT2	| 100%|
 |UC2.02	|	Xem thông tin cá nhân	|	AT2	| 100%|
 |UC2.03	|	Sửa thông tin cá nhân	|	AT2	| 100%|
