@@ -1,9 +1,7 @@
-@import url("/styles/base.css");
+@import url('/styles/base.css');
 @import url("/styles/partials/header-medium.css");
-@import url("/styles/partials/footer.css");
 @import url("/styles/components/next-page.css");
 @import url("/styles/components/noti-item-account.css");
-@import url("/styles/partials/nav-tree.css");
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

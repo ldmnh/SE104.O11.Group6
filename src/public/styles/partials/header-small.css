@@ -1,8 +1,6 @@
-/* @import url("/styles/base.css"); */
 @import url("./header.css");
 
 header {
-    /* height: 112px; */
     position: fixed;
     z-index: 100;
 }
@@ -34,6 +32,7 @@ header {
     align-items: center;
     justify-content: center;
 }
+
 .header-container__nav-top a:hover {
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
     box-shadow:

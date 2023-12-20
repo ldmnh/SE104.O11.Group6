@@ -1,6 +1,5 @@
-@import url("/styles/base.css");
+@import url('/styles/base.css');
 @import url("/styles/partials/header-small-title.css");
-@import url("/styles/partials/footer.css");
 
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

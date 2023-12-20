@@ -4,8 +4,6 @@
 @import url('/styles/components/room-detail-modal.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/search-bar.css');
-@import url('/styles/partials/footer.css');
-@import url("/styles/partials/nav-tree.css");
 
 body {
     width: 100%;

@@ -1,7 +1,5 @@
-@import url("/styles/base.css");
+@import url('/styles/base.css');
 @import url("/styles/partials/header-medium.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/nav-tree.css");
 @import url("/styles/components/search-result-nsale.css");
 @import url("/styles/components/search-result-sale.css");
 @import url("/styles/components/next-page.css");
