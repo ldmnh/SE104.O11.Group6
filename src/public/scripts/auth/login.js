@@ -91,7 +91,7 @@ function validateInput() {
         .then((res) => res.json())
         .then((back) => {
             console.log(back);
-            if (back.statusCode == 404) {
+            if (back.statusCode === 404) {
                 setSuccess(password);
                 if (password.classList.contains("is-invalid"))
                     password.classList.remove("is-invalid");
@@ -99,7 +99,7 @@ function validateInput() {
                 document
                     .getElementById("form__email")
                     .classList.add("is-invalid");
-            } else if (back.statusCode == 401) {
+            } else if (back.statusCode === 401) {
                 setSuccess(email);
                 if (email.classList.contains("is-invalid"))
                     email.classList.remove("is-invalid");
@@ -108,7 +108,7 @@ function validateInput() {
                     .getElementById("form__password")
                     .classList.add("is-invalid");
             } else {
-                if (document.referrer.includes("/auth/register"))
+                if (document.referrer.includes("/auth/"))
                     window.location.href = "/";
                 window.location.href = document.referrer;
             }
