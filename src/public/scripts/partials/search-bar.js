@@ -101,7 +101,7 @@ document
         }
     });
 
-// const inputAddress = document.querySelector('input[name="location"]')
+const inputAddress = document.querySelector('input[name="location"]')
 
 inputAddress.addEventListener("keyup", async function () {
     const inputAddressValue = document.querySelector('input[name="location"]').value.trim().toLowerCase();

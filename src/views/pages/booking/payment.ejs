@@ -64,11 +64,6 @@
 					</div>
 				</div>
 
-				<div class="aside-wrapper__countdown-time">
-					<span class="material-symbols-outlined"> error </span>
-					<h6>Còn 7 ngày nữa</h6>
-				</div>
-
 				<div class="aside-wrapper__total-length-stay">
 					<h5>Tổng thời gian lưu trú</h5>
 					<h5><b><%- data.days %> đêm</b></h5>
@@ -83,7 +78,11 @@
 				</div>
 
 				<div class="cost-total">
-					<h6 class="red-line">VND <%= data.book.cost_before %></h6>
+					<h6 class="red-line">
+						<% if (data.book.cost_before != data.book.cost_after) { %>
+						VND <%= data.book.cost_before %>
+						<% } %>
+					</h6>
 					<div class="cost">
 						<h1>Giá</h1>
 						<h1>VND <%= data.book.cost_after %></h1>
