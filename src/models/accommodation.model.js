@@ -16,7 +16,8 @@ Accommodation.getAccoById = ({ id }, callback) => {
             acco_star,
             acco_name,
             acco_type,
-            acco_exac_location
+            acco_exac_location,
+            acco_location_link
         FROM accommodation
         WHERE acco_id = ${id};`;
     db.query(sql, (err, result) => {

@@ -23,6 +23,7 @@ class BookingController {
                     req.session.acco.type = result[0].acco_type;
                     req.session.acco.exac_location =
                         result[0].acco_exac_location;
+                    req.session.acco.location_link = result[0].acco_location_link;
 
                     const data = {
                         acco: req.session.acco,
@@ -40,9 +41,9 @@ class BookingController {
                                 req.session.rooms.reduce(
                                     (sum, room) =>
                                         sum +
-                                            room.cost_before *
-                                                room.num *
-                                                days ?? 0,
+                                        room.cost_before *
+                                        room.num *
+                                        days ?? 0,
                                     0
                                 )
                             ),
@@ -50,7 +51,7 @@ class BookingController {
                                 req.session.rooms.reduce(
                                     (sum, room) =>
                                         sum +
-                                            room.cost_after * room.num * days ??
+                                        room.cost_after * room.num * days ??
                                         0,
                                     0
                                 )

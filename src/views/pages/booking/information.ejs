@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<h5><b><%= data.acco.name %></b></h5>
-					<a href=""><%= data.acco.exac_location %></a>
+					<a href="<%= data.acco.location_link %>"><%= data.acco.exac_location %></a>
 				</div>
 
 				<div class="your-booking-detail">
@@ -141,7 +141,7 @@
 
 						<div class="form--item">
 							<h4 class="required">Điện thoại cá nhân</h4>
-							<input class="form-control" type="number" name="phone" placeholder="Nhập số điện thoại vào đây" required>
+							<input class="form-control" type="text" name="phone" placeholder="Nhập số điện thoại vào đây" required>
 							<span class="note-text">Cần thiết để xác nhận đặt phòng của bạn.</h5>
 						</div>
 					</div>
