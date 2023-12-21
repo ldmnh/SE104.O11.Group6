@@ -124,7 +124,7 @@ div.daterangepicker {
     width: 100px;
     height: 40px;
     padding: 10px;
-    margin:5px;
+    margin: 5px;
     border: 1px solid var(--dark-gray);
     background: var(--white);
     border-radius: 8px;
@@ -193,6 +193,16 @@ input[type="number"]::-webkit-outer-spin-button {
     box-shadow:
         2px 1px 3px 1px rgba(0, 0, 0, 0.2),
         0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display:none;
+    position: fixed;
+    z-index: 1;
 }
 
 .search-quality__adults,

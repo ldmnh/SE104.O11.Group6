@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     // Sự kiện khi người dùng click vào phần tử .search-address--dropdown
+    const overlay = document.querySelector(".overlay");
     searchAddressDropdown.addEventListener("click", function (event) {
         event.stopPropagation(); // Ngăn chặn sự kiện click truyền lên đến document
 
@@ -97,16 +98,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (searchQuality.style.visibility === "visible") {
             searchQuality.style.visibility = "hidden";
             searchQuality.style.display = "none";
+            overlay.style.display = "none";
         } else {
             searchQuality.style.visibility = "visible";
             searchQuality.style.display = "block";
+            overlay.style.display = "block";
         }
     });
 
     // Sự kiện click toàn bộ tài liệu để ẩn phần .search-quality
-    document.addEventListener("click", function () {
+    overlay.addEventListener("click", function () {
         searchQuality.style.visibility = "hidden";
         searchQuality.style.display = "none";
+        overlay.style.display = "none";
     });
 });
 

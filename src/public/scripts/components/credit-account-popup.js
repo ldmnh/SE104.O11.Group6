@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Kiểm tra nếu input rỗng 
                     if (inputValue == "") {
                         isAllValid = false
+                        otpInputs[i].classList.add('is-invalid');
                     }
                 }
 
