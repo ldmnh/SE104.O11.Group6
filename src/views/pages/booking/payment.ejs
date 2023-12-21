@@ -75,7 +75,7 @@
 				<div class="your-choice">
 					<h5>Bạn đã chọn</h5>
 					<h5><b><%= data.acco.name %></b></h5>
-					<a href="javascript:history.back()"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
+					<a href="javascript:history.back()"><b>Đổi lựa chọn của bạn</b></a>
 				</div>
 
 				<div class="cost-total">
@@ -103,7 +103,7 @@
 
 		<form class="section-content" action='/booking/payment' method='post'>
 			<div class="section-content__confirm-account">
-				<img src="/imgs/user/<%= user.avatar ?? 'user_1.jpg' %>" alt="" />
+				<img src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="" />
 				<div class="account-detail">
 					<h5>Bạn đã đăng nhập bằng:</h5>
 					<div class="email-logout">
@@ -129,7 +129,7 @@
 							<label class="form-check-label" for="flexRadioDefault2">
 								<h5><b>Thanh toán bằng thẻ tín dụng/ghi nợ</b></h5>
 							</label>
-
+							<div class="overlay"></div>
 							<div class="list-account">
 								<div class="list-account-title">
 									<span class="material-symbols-outlined">credit_card</span>
@@ -141,7 +141,7 @@
 
 										<div class="name-bank">
 											<h5>Saccombank</h5>
-											<h5 style="text-align: end"><b>*1108</b></h5>
+											<h5 class="num-bank"><b>*1108</b></h5>
 										</div>
 									</div>
 
@@ -149,7 +149,7 @@
 										<img src="/imgs/mastercard.png" alt="mastercard-bidv" style="width: 38px; height: 30px" />
 										<div class="name-bank">
 											<h5>BIDV</h5>
-											<h5 style="text-align: end"><b>*0319</b></h5>
+											<h5 class="num-bank"><b>*0319</b></h5>
 										</div>
 									</div>
 
@@ -157,11 +157,11 @@
 										<img src="/imgs/mastercard.png" alt="mastercard-agribank" style="width: 38px; height: 30px" />
 										<div class="name-bank">
 											<h5>Agribank</h5>
-											<h5 style="text-align: end"><b>*1698</b></h5>
+											<h5 class="num-bank"><b>*1698</b></h5>
 										</div>
 									</div>
 
-									<div class="account-item clickable addCreditCardBtn" style="color: #a3adad">
+									<div class="account-item clickable addCreditCardBtn add-acount">
 										<span class="material-symbols-outlined">add_card</span>
 										<h5 class="">Thêm thẻ tín dụng mới</h5>
 									</div>
@@ -176,7 +176,8 @@
 							<label class="form-check-label" for="flexRadioDefault3">
 								<h5><b>Thanh toán bằng tài khoản ngân hàng</b></h5>
 							</label>
-							<div class="list-account">
+							<div class="overlay2"></div>
+							<div class="list-account2 ">
 								<div class="list-account-title">
 									<span class="material-symbols-outlined"> credit_card </span>
 									<p>Danh sách tài khoản ngân hàng của bạn</p>
@@ -188,11 +189,11 @@
 										<img src="/imgs/vietcombank.png" alt="" />
 										<div class="name-bank">
 											<h5>Vietcombank</h5>
-											<h5 style="text-align: end"><b>*1108</b></h5>
+											<h5 class="num-bank"><b>*1108</b></h5>
 										</div>
 									</div>
 
-									<div class="account-item clickable addBankAccountBtn" style="color: #a3adad">
+									<div class="account-item clickable addBankAccountBtn add-acount">
 										<span class="material-symbols-outlined"> add_card </span>
 										<h5 class="">Thêm tài khoản ngân hàng liên kết</h5>
 									</div>

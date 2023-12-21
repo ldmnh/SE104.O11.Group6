@@ -1,4 +1,5 @@
 .modal {
+    overflow-y: hidden;
     position: fixed;
     display: none;
     z-index: 100;
@@ -23,7 +24,7 @@ h1 {
 }
 
 .account-container {
-    padding: 160px;
+    /* padding: 160px; */
     margin-top: 100px;
     display: flex;
     align-items: center;
