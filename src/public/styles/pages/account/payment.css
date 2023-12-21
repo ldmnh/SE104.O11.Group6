@@ -396,7 +396,12 @@ button.btn--outlined.pri {
 
 input.is-invalid {
     background-image: none !important;
-    color : black;
+    color: black;
     /* width: 60px; */
     /* Add any additional styles you need */
+}
+
+button.filled-default.default-btn.default-btn-bank:hover {
+    box-shadow: none;
+    cursor: auto;
 }
