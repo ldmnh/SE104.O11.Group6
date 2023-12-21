@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#00696d">
@@ -11,7 +12,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="shortcut icon" href="/imgs/favicon.svg" type="image/x-icon">
 	<link rel="stylesheet" href="/styles/pages/search/detail.css" />
-	<link rel="stylesheet" href="/styles/base.css" />
 
 	<title>2WAYS.com</title>
 
@@ -19,7 +19,7 @@
 
 <body>
 
-	<%- include('../../partials/header-small', { user }) %>
+	<%- include('../../partials/header-medium', { user }) %>
 	<%- include('../../partials/nav-tree', { nav_tree__data: [
         { text: 'Trang chủ', link: "/" },
         { text: 'Chi tiết chỗ ở', link: "#" }
@@ -104,7 +104,7 @@
 				<% }) %>
 				<h2 class="room-list__local-price">Tổng tiền: <span class="highlight">VND <span class="total-price">0</span></span> <span class="room__unit">/đêm</span></h2>
 				<div class="room-list__submit">
-					<button type="submit" class="room-list__submit-button">Đặt phòng</button>
+					<button type="submit" class="room-list__submit-button" disabled>Đặt phòng</button>
 				</div>
 			</form>
 		</section>
@@ -192,12 +192,15 @@
 	</main>
 
 	<%- include('../../partials/footer') %>
+	<%- include('../../components/fail-modal', {action: 'Số lượng phòng'}) %>
 	<%- include('../../components/on-top-btn') %>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/scripts/partials/search-bar.js"></script>
+	<script src="/scripts/partials/header-medium.js"></script>
 	<script src="/scripts/components/room.js"></script>
 	<script src="/scripts/search/detail.js"></script>
+	<script src="/scripts/base.js"></script>
 
 </body>
 

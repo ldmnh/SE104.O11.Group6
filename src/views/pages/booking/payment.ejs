@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#00696d">
@@ -54,13 +55,13 @@
 					<div class="checkin-date">
 						<h5>Nhận phòng</h5>
 						<h5><b><%= data.search.check_in %></b></h5>
-						<h5>Từ 14:00</h5>
+						<h5>Từ 12:00</h5>
 					</div>
 
 					<div class="checkout-date">
 						<h5>Trả phòng</h5>
 						<h5><b><%= data.search.check_out %></b></h5>
-						<h5>Cho đến 00:00</h5>
+						<h5>Cho đến 14:00</h5>
 					</div>
 				</div>
 
@@ -74,7 +75,7 @@
 				<div class="your-choice">
 					<h5>Bạn đã chọn</h5>
 					<h5><b><%= data.acco.name %></b></h5>
-					<a href="javascript:history.back()"><b style="color: #0866ff">Đổi lựa chọn của bạn</b></a>
+					<a href="javascript:history.back()"><b>Đổi lựa chọn của bạn</b></a>
 				</div>
 
 				<div class="cost-total">
@@ -100,9 +101,9 @@
 			</div>
 		</aside>
 
-		<form id="" class="section-content" action='/booking/payment' method='post'>
+		<form class="section-content" action='/booking/payment' method='post'>
 			<div class="section-content__confirm-account">
-				<img src="/imgs/user/<%= user.avatar ?? 'user_1.jpg' %>" alt="" />
+				<img src="/imgs/user/<%= user.avatar ?? 'default.jpg' %>" alt="" />
 				<div class="account-detail">
 					<h5>Bạn đã đăng nhập bằng:</h5>
 					<div class="email-logout">
@@ -128,7 +129,7 @@
 							<label class="form-check-label" for="flexRadioDefault2">
 								<h5><b>Thanh toán bằng thẻ tín dụng/ghi nợ</b></h5>
 							</label>
-
+							<div class="overlay"></div>
 							<div class="list-account">
 								<div class="list-account-title">
 									<span class="material-symbols-outlined">credit_card</span>
@@ -136,31 +137,31 @@
 								</div>
 								<div class="list-account-padding">
 									<div class="account-item clickable">
-										<img src="/imgs/mastercard.png" alt="" style="width: 38px; height: 30px" />
+										<img src="/imgs/mastercard.png" alt="mastercard-sacombank" style="width: 38px; height: 30px" />
 
 										<div class="name-bank">
 											<h5>Saccombank</h5>
-											<h5 style="text-align: end"><b>*1108</b></h5>
+											<h5 class="num-bank"><b>*1108</b></h5>
 										</div>
 									</div>
 
 									<div class="account-item clickable">
-										<img src="/imgs/mastercard.png" alt="" style="width: 38px; height: 30px" />
+										<img src="/imgs/mastercard.png" alt="mastercard-bidv" style="width: 38px; height: 30px" />
 										<div class="name-bank">
 											<h5>BIDV</h5>
-											<h5 style="text-align: end"><b>*0319</b></h5>
+											<h5 class="num-bank"><b>*0319</b></h5>
 										</div>
 									</div>
 
 									<div class="account-item clickable">
-										<img src="/imgs/mastercard.png" alt="" style="width: 38px; height: 30px" />
+										<img src="/imgs/mastercard.png" alt="mastercard-agribank" style="width: 38px; height: 30px" />
 										<div class="name-bank">
 											<h5>Agribank</h5>
-											<h5 style="text-align: end"><b>*1698</b></h5>
+											<h5 class="num-bank"><b>*1698</b></h5>
 										</div>
 									</div>
 
-									<div class="account-item clickable addCreditCardBtn" style="color: #a3adad">
+									<div class="account-item clickable addCreditCardBtn add-acount">
 										<span class="material-symbols-outlined">add_card</span>
 										<h5 class="">Thêm thẻ tín dụng mới</h5>
 									</div>
@@ -175,7 +176,8 @@
 							<label class="form-check-label" for="flexRadioDefault3">
 								<h5><b>Thanh toán bằng tài khoản ngân hàng</b></h5>
 							</label>
-							<div class="list-account">
+							<div class="overlay2"></div>
+							<div class="list-account2 ">
 								<div class="list-account-title">
 									<span class="material-symbols-outlined"> credit_card </span>
 									<p>Danh sách tài khoản ngân hàng của bạn</p>
@@ -186,12 +188,12 @@
 									<div class="account-item clickable">
 										<img src="/imgs/vietcombank.png" alt="" />
 										<div class="name-bank">
-											<h5><%= data.bank_cards.bank_name %></h5>
-											<h5 style="text-align: end"><b>*1108</b></h5>
+											<h5>Vietcombank</h5>
+											<h5 class="num-bank"><b>*1108</b></h5>
 										</div>
 									</div>
 
-									<div class="account-item clickable addBankAccountBtn" style="color: #a3adad">
+									<div class="account-item clickable addBankAccountBtn add-acount">
 										<span class="material-symbols-outlined"> add_card </span>
 										<h5 class="">Thêm tài khoản ngân hàng liên kết</h5>
 									</div>
@@ -250,11 +252,10 @@
 
 	<%- include('../../components/success-popup')  %>
 	<%- include('../../partials/footer') %>
-	<%- include('../../components/on-top-btn') %>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="/scripts/components/otp.js"></script>
+	<!-- <script src="/scripts/components/otp.js"></script> -->
 
 </body>
 

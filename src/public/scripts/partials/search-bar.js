@@ -13,8 +13,8 @@ $(document).ready(function () {
     dateRangeInput.on("apply.daterangepicker", function (ev, picker) {
         $(this).val(
             picker.startDate.format("MM/DD/YYYY") +
-            " - " +
-            picker.endDate.format("MM/DD/YYYY")
+                " - " +
+                picker.endDate.format("MM/DD/YYYY")
         );
         $('[name="checkin"]').val(picker.startDate.format("MM-DD-YYYY"));
         $('[name="checkout"]').val(picker.endDate.format("MM-DD-YYYY"));
@@ -83,59 +83,75 @@ function updateSelectedOptions() {
 
 // Gọi hàm để cập nhật thông tin đã chọn khi trang web được tải
 updateSelectedOptions();
+document.addEventListener("DOMContentLoaded", function () {
+    const searchQuality = document.querySelector(".search-quality");
+    const searchAddressDropdown = document.querySelector(
+        ".search-address--dropdown"
+    );
 
-// Sự kiện khi người dùng click vào phần tử .search-address
-document
-    .querySelector(".search-address--dropdown")
-    .addEventListener("click", function () {
-        //Lấy tham chiếu đến phần tử .search-quality
-        const searchQuality = document.querySelector(".search-quality");
+    // Sự kiện khi người dùng click vào phần tử .search-address--dropdown
+    const overlay = document.querySelector(".overlay");
+    searchAddressDropdown.addEventListener("click", function (event) {
+        event.stopPropagation(); // Ngăn chặn sự kiện click truyền lên đến document
 
         // Kiểm tra xem .search-quality đang hiển thị hay không
         if (searchQuality.style.visibility === "visible") {
             searchQuality.style.visibility = "hidden";
             searchQuality.style.display = "none";
+            overlay.style.display = "none";
         } else {
             searchQuality.style.visibility = "visible";
             searchQuality.style.display = "block";
+            overlay.style.display = "block";
         }
     });
 
-const inputAddress = document.querySelector('input[name="location"]')
+    // Sự kiện click toàn bộ tài liệu để ẩn phần .search-quality
+    overlay.addEventListener("click", function () {
+        searchQuality.style.visibility = "hidden";
+        searchQuality.style.display = "none";
+        overlay.style.display = "none";
+    });
+});
+
+const inputAddress = document.querySelector('input[name="location"]');
 
 inputAddress.addEventListener("keyup", async function () {
-    const inputAddressValue = document.querySelector('input[name="location"]').value.trim().toLowerCase();
+    const inputAddressValue = document
+        .querySelector('input[name="location"]')
+        .value.trim()
+        .toLowerCase();
 
     const searchKey = {
-        searchKey: inputAddressValue
-    }
+        searchKey: inputAddressValue,
+    };
 
-    await fetch('/hint_search', {
-        method: 'POST',
+    await fetch("/hint_search", {
+        method: "POST",
         body: JSON.stringify(searchKey),
         headers: {
-            'Content-Type': 'application/json',
-        }
-    }).then(
-        res => res.json()
-    ).then(back => {
-        console.log(back)
-        const location = document.getElementById('location');
-        let options = location.querySelectorAll('option')
-        options.forEach(opt => opt.remove())
-        back.result.forEach(addressOption => {
-            if (addressOption.city_name) {
-                let option = document.createElement('option');
-                option.value = addressOption.city_name
-                location.appendChild(option)
-            }
-        })
-        back.result.forEach(addressOption => {
-            if (addressOption.prov_name) {
-                let option = document.createElement('option');
-                option.value = addressOption.prov_name
-                location.appendChild(option)
-            }
-        })
+            "Content-Type": "application/json",
+        },
     })
-})
+        .then((res) => res.json())
+        .then((back) => {
+            console.log(back);
+            const location = document.getElementById("location");
+            let options = location.querySelectorAll("option");
+            options.forEach((opt) => opt.remove());
+            back.result.forEach((addressOption) => {
+                if (addressOption.city_name) {
+                    let option = document.createElement("option");
+                    option.value = addressOption.city_name;
+                    location.appendChild(option);
+                }
+            });
+            back.result.forEach((addressOption) => {
+                if (addressOption.prov_name) {
+                    let option = document.createElement("option");
+                    option.value = addressOption.prov_name;
+                    location.appendChild(option);
+                }
+            });
+        });
+});

@@ -12,6 +12,10 @@ body {
     margin: 0;
 }
 
+.private__container p {
+    text-align: justify;
+}
+
 .private__container ul {
     list-style-type: disc;
 }
@@ -19,6 +23,7 @@ body {
 .private__container li {
     margin: 8px 0;
     line-height: 1.5;
+    text-align: justify;
 }
 
 .private__container h2 {
@@ -45,4 +50,8 @@ body {
 
 .title {
     text-decoration: underline;
+}
+
+ul.private__info-none {
+    list-style-type: none;
 }

@@ -1,4 +1,4 @@
-@import url('/styles/base.css');
+@import url("/styles/base.css");
 @import url("/styles/partials/header-small.css");
 @import url("/styles/components/success-popup.css");
 @import url("/styles/components/otp.css");
@@ -65,6 +65,7 @@ h1 {
     width: 24px;
     height: 24px;
     color: var(--primary-color-4);
+    font-variation-settings: 'FILL' 1;
 }
 
 .unfilled-start {
@@ -81,7 +82,7 @@ h1 {
     width: 100%;
 }
 
-.aside-wrapper__your-booking-detail>h1 {
+.aside-wrapper__your-booking-detail > h1 {
     margin: 12px 12px 0 12px;
 }
 
@@ -229,7 +230,6 @@ hr {
     transition: height 0.3s ease-out;
     border-radius: 8px;
     margin-left: 50px;
-    /* height: 245px; */
     box-shadow:
         0 1px 3px 1px rgba(0, 0, 0, 0.2),
         0 0 2px 0 rgba(0, 0, 0, 0.2);
@@ -365,8 +365,44 @@ button.submit-booking {
     background-color: var(--white);
     z-index: 10;
 }
-
-.form-check-input:checked[type="radio"]~.list-account {
+.list-account2 {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    z-index: 10;
+    border-radius: 10px;
+}
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.3;
+}
+.overlay2 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.3;
+}
+.form-check-input:checked[type="radio"] ~ .list-account {
+    display: block;
+}
+.form-check-input:checked[type="radio"] ~ .overlay {
+    display: block;
+}
+.form-check-input:checked[type="radio"] ~ .overlay2 {
     display: block;
 }
 
@@ -378,12 +414,14 @@ button.submit-booking {
 .account-item:hover {
     background-color: var(--outline-variant);
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .account-item.active {
     background-color: var(--primary-color-2);
     border-radius: 8px;
     color: var(--white);
+    cursor: pointer;
 }
 
 .form-check-input {

@@ -1,3 +1,27 @@
+const overlay = document.querySelector(".overlay");
+const listAccount = document.querySelector(".list-account");
+const btn = document.querySelector("#flexRadioDefault2");
+
+btn.addEventListener("click", () => {
+    listAccount.style.display = "block";
+    overlay.style.display = "block";
+});
+overlay.addEventListener("click", () => {
+    listAccount.style.display = "none";
+    overlay.style.display = "none";
+});
+//
+const overlay2 = document.querySelector(".overlay2");
+const listAccount2 = document.querySelector(".list-account2");
+const btn2 = document.querySelector("#flexRadioDefault3");
+btn2.addEventListener("click", () => {
+    listAccount2.style.display = "block";
+    overlay2.style.display = "block";
+});
+overlay2.addEventListener("click", () => {
+    listAccount2.style.display = "none";
+    overlay2.style.display = "none";
+});
 document.addEventListener("DOMContentLoaded", function () {
     const clickableItems = document.querySelectorAll(".clickable");
 

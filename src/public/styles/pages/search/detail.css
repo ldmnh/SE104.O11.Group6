@@ -1,9 +1,11 @@
 @import url('/styles/base.css');
-@import url('/styles/partials/header-small.css');
+@import url('/styles/partials/header-medium.css');
 @import url('/styles/components/room.css');
 @import url('/styles/components/room-detail-modal.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/search-bar.css');
+@import url('/styles/components/fail-modal.css');
+/* @import url('/styles/pages/searh/daterangepicker.css'); */
 
 body {
     width: 100%;
@@ -219,14 +221,27 @@ body {
     width: 300px;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--white);
-    background-color: var(--primary-color-4);
     border-radius: 8px;
     border: none;
 }
 
-.room-list__submit-button:hover {
+.room-list__submit-button:disabled {
+    background-color: var(--mint-grey);
+}
+
+.room-list__submit-button:disabled:hover {
+    cursor: default;
+    box-shadow: none;
+}
+
+.room-list__submit-button:enabled {
     color: var(--white);
+    color: var(--white);
+    background-color: var(--primary-color-4);
+}
+
+.room-list__submit-button:enabled:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .general-info {

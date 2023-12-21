@@ -17,11 +17,20 @@ body {
 .content-container {
     width: 80%;
     max-width: 1152px;
+    min-height: calc(100vh - 300px - 112px);
     margin: 5vh 0;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 24px;
+}
+
+.content-container .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24
 }
 
 .resetPassword {

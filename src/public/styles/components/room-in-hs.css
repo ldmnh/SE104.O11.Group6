@@ -22,6 +22,10 @@
     font-weight: 600;
 }
 
+.cancel-btn {
+    background-color: var(--red-2) !important;
+}
+
 .room-in__status {
     text-align: end;
     font-size: 14px;

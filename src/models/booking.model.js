@@ -19,8 +19,6 @@ Booking.postInfo = (
         book_end_datetime,
         book_num_adult,
         book_num_child,
-        book_cost_before,
-        book_cost_after,
         book_first_name,
         book_last_name,
         book_email,
@@ -36,14 +34,14 @@ Booking.postInfo = (
     const sql = `
         INSERT INTO BOOKING (
             acco_id, au_user_id, book_datetime, book_start_datetime,
-            book_end_datetime, book_num_adult, book_num_child, book_cost_before,
-            book_cost_after, book_first_name, book_last_name, book_email,
+            book_end_datetime, book_num_adult, book_num_child,
+            book_first_name, book_last_name, book_email,
             book_phone, book_note, pay_id, cancel_cost, book_status, book_is_paid
         ) VALUES (
             ?, ?, ?, ?,
             ?, ?, ?, ?,
             ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?
         );`;
     db.query(
         sql,
@@ -55,8 +53,6 @@ Booking.postInfo = (
             book_end_datetime,
             book_num_adult,
             book_num_child,
-            book_cost_before,
-            book_cost_after,
             book_first_name,
             book_last_name,
             book_email,

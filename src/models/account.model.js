@@ -2,7 +2,6 @@ const db = require('../config/db/connect');
 
 const AccountModel = function () { }
 
-
 AccountModel.addBank = ({
     bank_name,
     bank_num,

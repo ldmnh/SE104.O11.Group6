@@ -71,6 +71,7 @@ hr {
 }
 
 .map-button:hover {
+    background-color: var(--primary-color-2);
     color: white;
 }
 
@@ -200,7 +201,7 @@ hr {
 }
 
 .form-check-label .material-symbols-outlined {
-    color: orange;
+    color: var(--primary-color-4);
 }
 
 .filter-sidebar__content-extend {

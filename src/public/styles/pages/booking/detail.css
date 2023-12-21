@@ -1,4 +1,4 @@
-@import url('/styles/base.css');
+@import url("/styles/base.css");
 @import url("/styles/components/cancel-popup.css");
 @import url("/styles/components/review-popup.css");
 @import url("/styles/components/success-popup.css");
@@ -47,7 +47,7 @@ h3 {
     font-weight: 600;
 }
 
-a {
+.content-container a {
     font-size: 1rem;
     font-weight: 600;
     color: var(--link);
@@ -63,6 +63,9 @@ a {
     align-items: center;
     color: var(--primary-color-4);
     font-variation-settings: "FILL" 1;
+}
+.title__rating .grade{
+    font-variation-settings: 'FILL' 0;
 }
 
 .detail {
@@ -127,7 +130,13 @@ a {
 
 .detail__btn:hover {
     color: var(--white);
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cancel-booking {
+    background-color: var(--red-2) !important;
 }
 
 .detail__contact button {
@@ -178,14 +187,14 @@ a {
     gap: 12px;
 }
 
-.room__content>img {
+.room__content > img {
     width: 50%;
     height: 170px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.room__content>div {
+.room__content > div {
     width: 50%;
     display: inherit;
     flex-direction: column;
@@ -261,6 +270,7 @@ a {
 
 .progress-bar {
     background-color: var(--green);
+    width: 50%;
 }
 
 .progress__time {
@@ -311,7 +321,17 @@ a {
     font-variation-settings: "FILL" 1;
 }
 
-
 .modal-backdrop {
     z-index: 0;
 }
+
+.aside__content--detail p:first-child {
+    font-weight: 500;
+    margin: 12px 0 0 0;
+}
+
+.aside__content--detail p:nth-child(2) {
+    font-size: 12px;
+}
+
+

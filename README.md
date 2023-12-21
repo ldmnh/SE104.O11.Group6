@@ -35,40 +35,40 @@ Do đó, dựa trên những nhu cầu hiện nay và mong muốn của nhóm, �
 |Mã chức năng	|	Tên chức năng	|	Tác nhân	| Hoàn thành|
 |:---:|:-------------:|:-----:|:-----:|
 ||UC1 - Unauthenticated User Module (Mô-đun Khách vãng lai)	||
-|UC1.01 	|	Đăng ký	|	AT1	| 100%|
-|UC1.02	|	Đăng nhập	|	AT1	| 100%|
-|UC1.03	|	Quên mật khẩu	|	AT1	| 100%|
-|UC1.04	|	Đặt lại mật khẩu	|	AT1	| 100%|
-|UC1.05	|	Tìm kiếm chỗ ở	|	AT1, AT2	| 100%|
-|UC1.06	|	Xem chi tiết chỗ ở	|	AT1, AT2	| 100%|
-|UC1.07	|	Xem chi tiết phòng	|	AT1, AT2, AT3	| 100%|
-|UC1.08	|	Lọc nội dung	|	AT1, AT2, AT3	| 100%|
-|UC1.09	|	Xem đánh giá	|	AT1, AT2, AT3	| 100%|
+|UC1.01 	|	Đăng ký	|	AC1	| 100%|
+|UC1.02	|	Đăng nhập	|	AC1	| 100%|
+|UC1.03	|	Quên mật khẩu	|	AC1	| 100%|
+|UC1.04	|	Đặt lại mật khẩu	|	AC1	| 100%|
+|UC1.05	|	Tìm kiếm chỗ ở	|	AC1, AC2	| 100%|
+|UC1.06	|	Xem chi tiết chỗ ở	|	AC1, AC2	| 100%|
+|UC1.07	|	Xem chi tiết phòng	|	AC1, AC2, AC3	| 100%|
+|UC1.08	|	Lọc nội dung	|	AC1, AC2, AC3	| 100%|
+|UC1.09	|	Xem đánh giá	|	AC1, AC2, AC3	| 100%|
 ||UC2 - Authenticated User Module (Mô-đun Khách hàng)					||
-|UC2.01	|	Đổi mật khẩu	|	AT2	| 100%|
-|UC2.02	|	Xem thông tin cá nhân	|	AT2	| 100%|
-|UC2.03	|	Sửa thông tin cá nhân	|	AT2	| 100%|
-|UC2.04	|	Liên kết thẻ/tài khoản ngân hàng	|	AT2	| 100%|
-|UC2.05	|	Xem danh sách thẻ/tài khoản thanh toán liên kết	|	AT2	| 100%|
-|UC2.06	|	Hủy liên kết thẻ/tài khoản ngân hàng	|	AT2	| 100%|
-|UC2.07	|	Điền thông tin đặt phòng	|	AT2	| 100%|
-|UC2.08	|	Xem lịch sử đặt phòng	|	AT2	| 100%|
-|UC2.09	|	Hủy phòng	|	AT2	| 100%|
-|UC2.10	|	Thanh toán trực tiếp	|	AT2	| 100%|
-|UC2.11	|	Thanh toán trực tuyến	|	AT2	| 100%|
-|UC2.12	|	Đánh giá	|	AT2	| 100%|
-|UC2.13	|	Xem thông báo	|	AT2, AT3	| 100%|
-|UC2.14	|	Đăng xuất	|	AT2, AT3	| 100%|
-|UC2.15	|	Xem chi tiết đặt phòng	|	AT2	|
+|UC2.01	|	Đổi mật khẩu	|	AC2	| 100%|
+|UC2.02	|	Xem thông tin cá nhân	|	AC2	| 100%|
+|UC2.03	|	Sửa thông tin cá nhân	|	AC2	| 100%|
+|UC2.04	|	Liên kết thẻ/tài khoản ngân hàng	|	AC2	| 100%|
+|UC2.05	|	Xem danh sách thẻ/tài khoản thanh toán liên kết	|	AC2	| 100%|
+|UC2.06	|	Hủy liên kết thẻ/tài khoản ngân hàng	|	AC2	| 100%|
+|UC2.07	|	Điền thông tin đặt phòng	|	AC2	| 100%|
+|UC2.08	|	Xem lịch sử đặt phòng	|	AC2	| 100%|
+|UC2.09	|	Hủy phòng	|	AC2	| 100%|
+|UC2.10	|	Thanh toán trực tiếp	|	AC2	| 100%|
+|UC2.11	|	Thanh toán trực tuyến	|	AC2	| 100%|
+|UC2.12	|	Đánh giá	|	AC2	| 100%|
+|UC2.13	|	Xem thông báo	|	AC2, AC3	| 100%|
+|UC2.14	|	Đăng xuất	|	AC2, AC3	| 100%|
+|UC2.15	|	Xem chi tiết đặt phòng	|	AC2	|
 ||UC3 - Admin Module (Mô-đun Quản trị viên)					||
-|UC3.01	|	Thêm phòng	|	AT3	| 0%|
-|UC3.02	|	Sửa thông tin phòng	|	AT3	| 0%|
-|UC3.03	|	Xóa phòng	|	AT3	| 0%|
-|UC3.04	|	Sửa quyền khách hàng	|	AT3	| 0%|
-|UC3.05	|	Xóa đánh giá	|	AT3	| 0%|
-|UC3.06	|	Thêm thông báo	|	AT3	| 0%|
-|UC3.07	|	Tạo báo cáo thống kê	|	AT3	| 100%|
-|UC3.08	|	Xem danh sách phòng	|	AT3	| 0%|
+|UC3.01	|	Thêm phòng	|	AC3	| 0%|
+|UC3.02	|	Sửa thông tin phòng	|	AC3	| 0%|
+|UC3.03	|	Xóa phòng	|	AC3	| 0%|
+|UC3.04	|	Sửa quyền khách hàng	|	AC3	| 0%|
+|UC3.05	|	Xóa đánh giá	|	AC3	| 0%|
+|UC3.06	|	Thêm thông báo	|	AC3	| 0%|
+|UC3.07	|	Tạo báo cáo thống kê	|	AC3	| 100%|
+|UC3.08	|	Xem danh sách phòng	|	AC3	| 0%|
 
 ## Công nghệ sử dụng
 * [Node.js] - Xử lý API, Back-end

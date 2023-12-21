@@ -20,13 +20,13 @@
 						<div class="cancel__info">
 							<% let total = 0 %>
 							<% bookingDetails.forEach(book => { %>
-							<% total += book.room_cost %>
+							<% total += book.book_room_cost_after * book.book_num_room * 0.2 %>
 							<div class="cancel__info--room">
-								<p><%= book.book_num_room %> x <%= book.room_name %></p>
-								<% if (book.room_cost) { %>
-								<p>VND <%= book.book_room_cost_after_currency %></p>
+								<p><%= book.room_name %> x <%= book.book_num_room %></p>
+								<% if (book.book_room_cost_before) { %>
+								<p>VND <%= toCurrency(book.book_room_cost_after * book.book_num_room * 0.2) %></p>
 								<% } else { %>
-								<p class="free"></p>
+								<p class="free">Miễn phí</p>
 								<% } %>
 							</div>
 							<hr />

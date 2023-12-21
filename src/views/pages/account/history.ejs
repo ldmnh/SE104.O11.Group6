@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#00696d">
@@ -81,7 +82,7 @@
 						<p>Bạn có chắc chắn muốn đăng xuất không?</p>
 					</div>
 					<div class="popup__button">
-						<button class="btn--outlined pri btn-cancel" type="submit">Hủy</button>
+						<button class="btn--outlined pri btn-cancel" type="button">Hủy</button>
 						<button class="btn--filled pri btn-logout" type="submit">Đăng xuất</button>
 					</div>
 				</div>
@@ -94,7 +95,7 @@
 			</div>
 
 			<div class="booking-history__items">
-				<% if (bookingDetails == []) { %>
+				<% if (!bookingDetails[0]) { %>
 				<p>Không tìm thấy</p>
 				<% } else { %>
 				<% bookingDetails.forEach(bookingDetail => { %>

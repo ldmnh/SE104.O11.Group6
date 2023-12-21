@@ -53,13 +53,44 @@ function toCurrency(money) {
     return currency
 }
 
+// Thay đổi disabled của submit btn
+const submitBtn = document.querySelector('.room-list__submit-button')
+submitBtn.addEventListener('mouseover', enableBtn)
+function enableBtn(event) {
+    const totalStr = document.querySelector('.total-price').textContent
+    const totalPrice = Number(totalStr.replaceAll('.', ''))
+
+    if (totalPrice > 0)
+        submitBtn.disabled = false
+}
+
+submitBtn.addEventListener('mouseout', disableBtn)
+function disableBtn(event) {
+    const totalStr = document.querySelector('.total-price').textContent
+    const totalPrice = Number(totalStr.replaceAll('.', ''))
+
+    if (totalPrice == 0)
+        submitBtn.disabled = true
+}
+
+let submit = true
 // Tính tổng giá tiền
 function changeTotal(event) {
     const current = event.currentTarget
-    if (Number(current.value) > Number(current.max))
+    const failModal = document.querySelector('.fail-modal')
+
+    if (Number(current.value) > Number(current.max)) {
         current.value = current.max
-    else if (Number(current.value) < Number(current.min))
+        failModal.style.display = 'flex'
+        submit = false
+        setTimeout(() => failModal.style.display = 'none', 1000)
+    }
+    else if (Number(current.value) < Number(current.min)) {
         current.value = current.min
+        failModal.style.display = 'flex'
+        submit = false
+        setTimeout(() => failModal.style.display = 'none', 1000)
+    }
 
     let total = 0
     const quantityInputs = document.querySelectorAll('.quantity_input')
@@ -72,21 +103,28 @@ function changeTotal(event) {
 
     const totalElement = document.querySelector('.total-price')
     totalElement.innerHTML = toCurrency(total)
+
+    if (total)
+        enableBtn(event)
+    else
+        disableBtn(event)
 }
 
 const quantityInputs = document.querySelectorAll('.quantity_input')
 quantityInputs.forEach(input => input.addEventListener('change', changeTotal))
 
 // Chặn sự kiện submit
-const bookingSubmit = document.querySelector('.room-list__submit-button')
-bookingSubmit.addEventListener('click', (event) => {
+const bookingForm = document.querySelector('#booking-form')
+bookingForm.addEventListener('submit', (event) => {
     event.preventDefault()
+
     const totalStr = document.querySelector('.total-price').textContent
     const totalPrice = Number(totalStr.replaceAll('.', ''))
-    if (totalPrice > 0) {
-        const bookingForm = document.getElementById('booking-form')
+
+    if (totalPrice > 0 && submit)
         bookingForm.submit()
-    }
+
+    submit = true
 })
 
 // Trạng thái uncheck cho tất cả thẻ radio
