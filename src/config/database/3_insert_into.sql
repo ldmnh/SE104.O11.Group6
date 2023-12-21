@@ -1,4 +1,4 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_se104
+-- Active: 1703077192882@@127.0.0.1@3306@database_se104
 USE DATABASE_SE104;
 
 INSERT INTO Admin (admin_nickname, admin_pass)
